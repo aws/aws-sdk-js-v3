@@ -1176,6 +1176,43 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * <p>Returns metadata of your saved backup plans, including Amazon Resource Names (ARNs),
+   *          plan IDs, creation and deletion dates, version IDs, plan names, and creator request
+   *          IDs.</p>
+   */
+  public listBackupPlans(
+    args: ListBackupPlansCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBackupPlansCommandOutput>;
+  public listBackupPlans(
+    args: ListBackupPlansCommandInput,
+    cb: (err: any, data?: ListBackupPlansCommandOutput) => void
+  ): void;
+  public listBackupPlans(
+    args: ListBackupPlansCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBackupPlansCommandOutput) => void
+  ): void;
+  public listBackupPlans(
+    args: ListBackupPlansCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListBackupPlansCommandOutput) => void),
+    cb?: (err: any, data?: ListBackupPlansCommandOutput) => void
+  ): Promise<ListBackupPlansCommandOutput> | void {
+    const command = new ListBackupPlansCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns metadata of your saved backup plan templates, including the template ID, name,
    *          and the creation and deletion dates.</p>
    */
@@ -1236,43 +1273,6 @@ export class Backup extends BackupClient {
     cb?: (err: any, data?: ListBackupPlanVersionsCommandOutput) => void
   ): Promise<ListBackupPlanVersionsCommandOutput> | void {
     const command = new ListBackupPlanVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns metadata of your saved backup plans, including Amazon Resource Names (ARNs),
-   *          plan IDs, creation and deletion dates, version IDs, plan names, and creator request
-   *          IDs.</p>
-   */
-  public listBackupPlans(
-    args: ListBackupPlansCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListBackupPlansCommandOutput>;
-  public listBackupPlans(
-    args: ListBackupPlansCommandInput,
-    cb: (err: any, data?: ListBackupPlansCommandOutput) => void
-  ): void;
-  public listBackupPlans(
-    args: ListBackupPlansCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListBackupPlansCommandOutput) => void
-  ): void;
-  public listBackupPlans(
-    args: ListBackupPlansCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBackupPlansCommandOutput) => void),
-    cb?: (err: any, data?: ListBackupPlansCommandOutput) => void
-  ): Promise<ListBackupPlansCommandOutput> | void {
-    const command = new ListBackupPlansCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

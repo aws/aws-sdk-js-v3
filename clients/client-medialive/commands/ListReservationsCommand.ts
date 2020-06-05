@@ -8,9 +8,9 @@ import {
   ListReservationsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListReservationsCommand,
-  serializeAws_restJson1_1ListReservationsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListReservationsCommand,
+  serializeAws_restJson1ListReservationsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ListReservationsCommand extends $Command<
     input: ListReservationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListReservationsCommand(input, context);
+    return serializeAws_restJson1ListReservationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListReservationsCommandOutput> {
-    return deserializeAws_restJson1_1ListReservationsCommand(output, context);
+    return deserializeAws_restJson1ListReservationsCommand(output, context);
   }
 
   // Start section: command_body_extra

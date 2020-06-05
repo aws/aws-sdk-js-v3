@@ -5,9 +5,9 @@ import {
 } from "../IoTAnalyticsClient";
 import { DeleteDatasetContentRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteDatasetContentCommand,
-  serializeAws_restJson1_1DeleteDatasetContentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteDatasetContentCommand,
+  serializeAws_restJson1DeleteDatasetContentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,17 +70,14 @@ export class DeleteDatasetContentCommand extends $Command<
     input: DeleteDatasetContentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDatasetContentCommand(input, context);
+    return serializeAws_restJson1DeleteDatasetContentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDatasetContentCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDatasetContentCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteDatasetContentCommand(output, context);
   }
 
   // Start section: command_body_extra

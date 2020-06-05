@@ -8,9 +8,9 @@ import {
   GetRouteResponseResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetRouteResponseCommand,
-  serializeAws_restJson1_1GetRouteResponseCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetRouteResponseCommand,
+  serializeAws_restJson1GetRouteResponseCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetRouteResponseCommand extends $Command<
     input: GetRouteResponseCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetRouteResponseCommand(input, context);
+    return serializeAws_restJson1GetRouteResponseCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRouteResponseCommandOutput> {
-    return deserializeAws_restJson1_1GetRouteResponseCommand(output, context);
+    return deserializeAws_restJson1GetRouteResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

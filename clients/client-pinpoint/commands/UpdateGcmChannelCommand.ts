@@ -8,9 +8,9 @@ import {
   UpdateGcmChannelResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateGcmChannelCommand,
-  serializeAws_restJson1_1UpdateGcmChannelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateGcmChannelCommand,
+  serializeAws_restJson1UpdateGcmChannelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class UpdateGcmChannelCommand extends $Command<
     input: UpdateGcmChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateGcmChannelCommand(input, context);
+    return serializeAws_restJson1UpdateGcmChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateGcmChannelCommandOutput> {
-    return deserializeAws_restJson1_1UpdateGcmChannelCommand(output, context);
+    return deserializeAws_restJson1UpdateGcmChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

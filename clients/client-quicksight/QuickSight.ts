@@ -1560,41 +1560,6 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Lists all the versions of the dashboards in the QuickSight subscription.</p>
-   */
-  public listDashboardVersions(
-    args: ListDashboardVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDashboardVersionsCommandOutput>;
-  public listDashboardVersions(
-    args: ListDashboardVersionsCommandInput,
-    cb: (err: any, data?: ListDashboardVersionsCommandOutput) => void
-  ): void;
-  public listDashboardVersions(
-    args: ListDashboardVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDashboardVersionsCommandOutput) => void
-  ): void;
-  public listDashboardVersions(
-    args: ListDashboardVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDashboardVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListDashboardVersionsCommandOutput) => void
-  ): Promise<ListDashboardVersionsCommandOutput> | void {
-    const command = new ListDashboardVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Lists dashboards in an AWS account.</p>
    */
   public listDashboards(
@@ -1618,6 +1583,41 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: ListDashboardsCommandOutput) => void
   ): Promise<ListDashboardsCommandOutput> | void {
     const command = new ListDashboardsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all the versions of the dashboards in the QuickSight subscription.</p>
+   */
+  public listDashboardVersions(
+    args: ListDashboardVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDashboardVersionsCommandOutput>;
+  public listDashboardVersions(
+    args: ListDashboardVersionsCommandInput,
+    cb: (err: any, data?: ListDashboardVersionsCommandOutput) => void
+  ): void;
+  public listDashboardVersions(
+    args: ListDashboardVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDashboardVersionsCommandOutput) => void
+  ): void;
+  public listDashboardVersions(
+    args: ListDashboardVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDashboardVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListDashboardVersionsCommandOutput) => void
+  ): Promise<ListDashboardVersionsCommandOutput> | void {
+    const command = new ListDashboardVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1951,41 +1951,6 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Lists all the versions of the templates in the current Amazon QuickSight account.</p>
-   */
-  public listTemplateVersions(
-    args: ListTemplateVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTemplateVersionsCommandOutput>;
-  public listTemplateVersions(
-    args: ListTemplateVersionsCommandInput,
-    cb: (err: any, data?: ListTemplateVersionsCommandOutput) => void
-  ): void;
-  public listTemplateVersions(
-    args: ListTemplateVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTemplateVersionsCommandOutput) => void
-  ): void;
-  public listTemplateVersions(
-    args: ListTemplateVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTemplateVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListTemplateVersionsCommandOutput) => void
-  ): Promise<ListTemplateVersionsCommandOutput> | void {
-    const command = new ListTemplateVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Lists all the templates in the current Amazon QuickSight account.</p>
    */
   public listTemplates(
@@ -2009,6 +1974,41 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: ListTemplatesCommandOutput) => void
   ): Promise<ListTemplatesCommandOutput> | void {
     const command = new ListTemplatesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all the versions of the templates in the current Amazon QuickSight account.</p>
+   */
+  public listTemplateVersions(
+    args: ListTemplateVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTemplateVersionsCommandOutput>;
+  public listTemplateVersions(
+    args: ListTemplateVersionsCommandInput,
+    cb: (err: any, data?: ListTemplateVersionsCommandOutput) => void
+  ): void;
+  public listTemplateVersions(
+    args: ListTemplateVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTemplateVersionsCommandOutput) => void
+  ): void;
+  public listTemplateVersions(
+    args: ListTemplateVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTemplateVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListTemplateVersionsCommandOutput) => void
+  ): Promise<ListTemplateVersionsCommandOutput> | void {
+    const command = new ListTemplateVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

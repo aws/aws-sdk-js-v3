@@ -553,35 +553,6 @@ export namespace PlainTextMessageType {
 }
 
 /**
- * An object that defines a message that contains SSML-formatted text.
- */
-export interface SSMLMessageType {
-  __type?: "SSMLMessageType";
-  /**
-   * The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.
-   */
-  LanguageCode?: string;
-
-  /**
-   * The SSML-formatted text to deliver to the recipient.
-   */
-  Text?: string;
-
-  /**
-   * The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide.
-   */
-  VoiceId?: string;
-}
-
-export namespace SSMLMessageType {
-  export const filterSensitiveLog = (obj: SSMLMessageType): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SSMLMessageType =>
-    __isa(o, "SSMLMessageType");
-}
-
-/**
  * SendVoiceMessageRequest
  */
 export interface SendVoiceMessageRequest {
@@ -656,6 +627,35 @@ export namespace SnsDestination {
   });
   export const isa = (o: any): o is SnsDestination =>
     __isa(o, "SnsDestination");
+}
+
+/**
+ * An object that defines a message that contains SSML-formatted text.
+ */
+export interface SSMLMessageType {
+  __type?: "SSMLMessageType";
+  /**
+   * The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.
+   */
+  LanguageCode?: string;
+
+  /**
+   * The SSML-formatted text to deliver to the recipient.
+   */
+  Text?: string;
+
+  /**
+   * The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide.
+   */
+  VoiceId?: string;
+}
+
+export namespace SSMLMessageType {
+  export const filterSensitiveLog = (obj: SSMLMessageType): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SSMLMessageType =>
+    __isa(o, "SSMLMessageType");
 }
 
 /**

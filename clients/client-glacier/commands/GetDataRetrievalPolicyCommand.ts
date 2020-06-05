@@ -8,9 +8,9 @@ import {
   GetDataRetrievalPolicyOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetDataRetrievalPolicyCommand,
-  serializeAws_restJson1_1GetDataRetrievalPolicyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetDataRetrievalPolicyCommand,
+  serializeAws_restJson1GetDataRetrievalPolicyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetDataRetrievalPolicyCommand extends $Command<
     input: GetDataRetrievalPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDataRetrievalPolicyCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1GetDataRetrievalPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDataRetrievalPolicyCommandOutput> {
-    return deserializeAws_restJson1_1GetDataRetrievalPolicyCommand(
+    return deserializeAws_restJson1GetDataRetrievalPolicyCommand(
       output,
       context
     );

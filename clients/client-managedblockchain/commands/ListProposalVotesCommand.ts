@@ -8,9 +8,9 @@ import {
   ListProposalVotesOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListProposalVotesCommand,
-  serializeAws_restJson1_1ListProposalVotesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListProposalVotesCommand,
+  serializeAws_restJson1ListProposalVotesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ListProposalVotesCommand extends $Command<
     input: ListProposalVotesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListProposalVotesCommand(input, context);
+    return serializeAws_restJson1ListProposalVotesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProposalVotesCommandOutput> {
-    return deserializeAws_restJson1_1ListProposalVotesCommand(output, context);
+    return deserializeAws_restJson1ListProposalVotesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -8,9 +8,9 @@ import {
   DescribeChangeSetResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeChangeSetCommand,
-  serializeAws_restJson1_1DescribeChangeSetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeChangeSetCommand,
+  serializeAws_restJson1DescribeChangeSetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DescribeChangeSetCommand extends $Command<
     input: DescribeChangeSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeChangeSetCommand(input, context);
+    return serializeAws_restJson1DescribeChangeSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeChangeSetCommandOutput> {
-    return deserializeAws_restJson1_1DescribeChangeSetCommand(output, context);
+    return deserializeAws_restJson1DescribeChangeSetCommand(output, context);
   }
 
   // Start section: command_body_extra

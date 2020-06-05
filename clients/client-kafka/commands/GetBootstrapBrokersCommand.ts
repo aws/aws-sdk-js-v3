@@ -8,9 +8,9 @@ import {
   GetBootstrapBrokersResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetBootstrapBrokersCommand,
-  serializeAws_restJson1_1GetBootstrapBrokersCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetBootstrapBrokersCommand,
+  serializeAws_restJson1GetBootstrapBrokersCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetBootstrapBrokersCommand extends $Command<
     input: GetBootstrapBrokersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetBootstrapBrokersCommand(input, context);
+    return serializeAws_restJson1GetBootstrapBrokersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBootstrapBrokersCommandOutput> {
-    return deserializeAws_restJson1_1GetBootstrapBrokersCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetBootstrapBrokersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,9 +5,9 @@ import {
 } from "../ChimeClient";
 import { GetMeetingRequest, GetMeetingResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetMeetingCommand,
-  serializeAws_restJson1_1GetMeetingCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetMeetingCommand,
+  serializeAws_restJson1GetMeetingCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetMeetingCommand extends $Command<
     input: GetMeetingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetMeetingCommand(input, context);
+    return serializeAws_restJson1GetMeetingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMeetingCommandOutput> {
-    return deserializeAws_restJson1_1GetMeetingCommand(output, context);
+    return deserializeAws_restJson1GetMeetingCommand(output, context);
   }
 
   // Start section: command_body_extra

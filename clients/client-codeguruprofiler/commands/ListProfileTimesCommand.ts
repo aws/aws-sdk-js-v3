@@ -8,9 +8,9 @@ import {
   ListProfileTimesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListProfileTimesCommand,
-  serializeAws_restJson1_1ListProfileTimesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListProfileTimesCommand,
+  serializeAws_restJson1ListProfileTimesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ListProfileTimesCommand extends $Command<
     input: ListProfileTimesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListProfileTimesCommand(input, context);
+    return serializeAws_restJson1ListProfileTimesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProfileTimesCommandOutput> {
-    return deserializeAws_restJson1_1ListProfileTimesCommand(output, context);
+    return deserializeAws_restJson1ListProfileTimesCommand(output, context);
   }
 
   // Start section: command_body_extra

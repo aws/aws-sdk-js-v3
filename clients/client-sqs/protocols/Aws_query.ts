@@ -317,22 +317,6 @@ export const serializeAws_queryListDeadLetterSourceQueuesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListQueueTagsCommand = async (
-  input: ListQueueTagsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
-  };
-  let body: any;
-  body = buildFormUrlencodedString({
-    ...serializeAws_queryListQueueTagsRequest(input, context),
-    Action: "ListQueueTags",
-    Version: "2012-11-05"
-  });
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_queryListQueuesCommand = async (
   input: ListQueuesCommandInput,
   context: __SerdeContext
@@ -344,6 +328,22 @@ export const serializeAws_queryListQueuesCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryListQueuesRequest(input, context),
     Action: "ListQueues",
+    Version: "2012-11-05"
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryListQueueTagsCommand = async (
+  input: ListQueueTagsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryListQueueTagsRequest(input, context),
+    Action: "ListQueueTags",
     Version: "2012-11-05"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1163,31 +1163,31 @@ const deserializeAws_queryListDeadLetterSourceQueuesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryListQueueTagsCommand = async (
+export const deserializeAws_queryListQueuesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListQueueTagsCommandOutput> => {
+): Promise<ListQueuesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryListQueueTagsCommandError(output, context);
+    return deserializeAws_queryListQueuesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListQueueTagsResult(
-    data.ListQueueTagsResult,
+  contents = deserializeAws_queryListQueuesResult(
+    data.ListQueuesResult,
     context
   );
-  const response: ListQueueTagsCommandOutput = {
+  const response: ListQueuesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListQueueTagsResult",
+    __type: "ListQueuesResult",
     ...contents
   };
   return Promise.resolve(response);
 };
 
-const deserializeAws_queryListQueueTagsCommandError = async (
+const deserializeAws_queryListQueuesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListQueueTagsCommandOutput> => {
+): Promise<ListQueuesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1214,31 +1214,31 @@ const deserializeAws_queryListQueueTagsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryListQueuesCommand = async (
+export const deserializeAws_queryListQueueTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListQueuesCommandOutput> => {
+): Promise<ListQueueTagsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryListQueuesCommandError(output, context);
+    return deserializeAws_queryListQueueTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListQueuesResult(
-    data.ListQueuesResult,
+  contents = deserializeAws_queryListQueueTagsResult(
+    data.ListQueueTagsResult,
     context
   );
-  const response: ListQueuesCommandOutput = {
+  const response: ListQueueTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListQueuesResult",
+    __type: "ListQueueTagsResult",
     ...contents
   };
   return Promise.resolve(response);
 };
 
-const deserializeAws_queryListQueuesCommandError = async (
+const deserializeAws_queryListQueueTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListQueuesCommandOutput> => {
+): Promise<ListQueueTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2052,19 +2052,6 @@ const deserializeAws_queryUnsupportedOperationResponse = async (
   return contents;
 };
 
-const serializeAws_queryAWSAccountIdList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  let counter = 1;
-  for (let entry of input) {
-    entries[`member.${counter}`] = entry;
-    counter++;
-  }
-  return entries;
-};
-
 const serializeAws_queryActionNameList = (
   input: string[],
   context: __SerdeContext
@@ -2114,6 +2101,19 @@ const serializeAws_queryAddPermissionRequest = (
 
 const serializeAws_queryAttributeNameList = (
   input: (QueueAttributeName | string)[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryAWSAccountIdList = (
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -2369,17 +2369,6 @@ const serializeAws_queryListDeadLetterSourceQueuesRequest = (
   return entries;
 };
 
-const serializeAws_queryListQueueTagsRequest = (
-  input: ListQueueTagsRequest,
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  if (input.QueueUrl !== undefined) {
-    entries["QueueUrl"] = input.QueueUrl;
-  }
-  return entries;
-};
-
 const serializeAws_queryListQueuesRequest = (
   input: ListQueuesRequest,
   context: __SerdeContext
@@ -2387,6 +2376,17 @@ const serializeAws_queryListQueuesRequest = (
   const entries: any = {};
   if (input.QueueNamePrefix !== undefined) {
     entries["QueueNamePrefix"] = input.QueueNamePrefix;
+  }
+  return entries;
+};
+
+const serializeAws_queryListQueueTagsRequest = (
+  input: ListQueueTagsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.QueueUrl !== undefined) {
+    entries["QueueUrl"] = input.QueueUrl;
   }
   return entries;
 };
@@ -3115,26 +3115,6 @@ const deserializeAws_queryListDeadLetterSourceQueuesResult = (
   return contents;
 };
 
-const deserializeAws_queryListQueueTagsResult = (
-  output: any,
-  context: __SerdeContext
-): ListQueueTagsResult => {
-  let contents: any = {
-    __type: "ListQueueTagsResult",
-    Tags: undefined
-  };
-  if (output.Tag === "") {
-    contents.Tags = {};
-  }
-  if (output["Tag"] !== undefined) {
-    contents.Tags = deserializeAws_queryTagMap(
-      __getArrayIfSingleItem(output["Tag"]),
-      context
-    );
-  }
-  return contents;
-};
-
 const deserializeAws_queryListQueuesResult = (
   output: any,
   context: __SerdeContext
@@ -3149,6 +3129,26 @@ const deserializeAws_queryListQueuesResult = (
   if (output["QueueUrl"] !== undefined) {
     contents.QueueUrls = deserializeAws_queryQueueUrlList(
       __getArrayIfSingleItem(output["QueueUrl"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryListQueueTagsResult = (
+  output: any,
+  context: __SerdeContext
+): ListQueueTagsResult => {
+  let contents: any = {
+    __type: "ListQueueTagsResult",
+    Tags: undefined
+  };
+  if (output.Tag === "") {
+    contents.Tags = {};
+  }
+  if (output["Tag"] !== undefined) {
+    contents.Tags = deserializeAws_queryTagMap(
+      __getArrayIfSingleItem(output["Tag"]),
       context
     );
   }

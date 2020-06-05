@@ -27,63 +27,6 @@ export namespace ClientLimitExceededException {
     __isa(o, "ClientLimitExceededException");
 }
 
-/**
- * <p>The value for this input parameter is invalid.</p>
- */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidArgumentException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidArgumentException {
-  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidArgumentException =>
-    __isa(o, "InvalidArgumentException");
-}
-
-/**
- * <p>The caller is not authorized to perform this operation.</p>
- */
-export interface NotAuthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "NotAuthorizedException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NotAuthorizedException {
-  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NotAuthorizedException =>
-    __isa(o, "NotAuthorizedException");
-}
-
-/**
- * <p>The specified resource is not found.</p>
- */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
-}
-
 export interface GetIceServerConfigRequest {
   __type?: "GetIceServerConfigRequest";
   /**
@@ -169,6 +112,25 @@ export namespace IceServer {
 }
 
 /**
+ * <p>The value for this input parameter is invalid.</p>
+ */
+export interface InvalidArgumentException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidArgumentException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidArgumentException {
+  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidArgumentException =>
+    __isa(o, "InvalidArgumentException");
+}
+
+/**
  * <p>The specified client is invalid.</p>
  */
 export interface InvalidClientException
@@ -185,6 +147,44 @@ export namespace InvalidClientException {
   });
   export const isa = (o: any): o is InvalidClientException =>
     __isa(o, "InvalidClientException");
+}
+
+/**
+ * <p>The caller is not authorized to perform this operation.</p>
+ */
+export interface NotAuthorizedException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "NotAuthorizedException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NotAuthorizedException {
+  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NotAuthorizedException =>
+    __isa(o, "NotAuthorizedException");
+}
+
+/**
+ * <p>The specified resource is not found.</p>
+ */
+export interface ResourceNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 export interface SendAlexaOfferToMasterRequest {

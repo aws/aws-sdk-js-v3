@@ -5,9 +5,9 @@ import {
 } from "../QuickSightClient";
 import { ListDashboardsRequest, ListDashboardsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListDashboardsCommand,
-  serializeAws_restJson1_1ListDashboardsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListDashboardsCommand,
+  serializeAws_restJson1ListDashboardsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class ListDashboardsCommand extends $Command<
     input: ListDashboardsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListDashboardsCommand(input, context);
+    return serializeAws_restJson1ListDashboardsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDashboardsCommandOutput> {
-    return deserializeAws_restJson1_1ListDashboardsCommand(output, context);
+    return deserializeAws_restJson1ListDashboardsCommand(output, context);
   }
 
   // Start section: command_body_extra

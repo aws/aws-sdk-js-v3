@@ -8,9 +8,9 @@ import {
   TestAuthorizationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1TestAuthorizationCommand,
-  serializeAws_restJson1_1TestAuthorizationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1TestAuthorizationCommand,
+  serializeAws_restJson1TestAuthorizationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class TestAuthorizationCommand extends $Command<
     input: TestAuthorizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1TestAuthorizationCommand(input, context);
+    return serializeAws_restJson1TestAuthorizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TestAuthorizationCommandOutput> {
-    return deserializeAws_restJson1_1TestAuthorizationCommand(output, context);
+    return deserializeAws_restJson1TestAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

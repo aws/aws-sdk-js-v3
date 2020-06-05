@@ -8,9 +8,9 @@ import {
   AddLayerVersionPermissionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1AddLayerVersionPermissionCommand,
-  serializeAws_restJson1_1AddLayerVersionPermissionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AddLayerVersionPermissionCommand,
+  serializeAws_restJson1AddLayerVersionPermissionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class AddLayerVersionPermissionCommand extends $Command<
     input: AddLayerVersionPermissionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AddLayerVersionPermissionCommand(
+    return serializeAws_restJson1AddLayerVersionPermissionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class AddLayerVersionPermissionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddLayerVersionPermissionCommandOutput> {
-    return deserializeAws_restJson1_1AddLayerVersionPermissionCommand(
+    return deserializeAws_restJson1AddLayerVersionPermissionCommand(
       output,
       context
     );

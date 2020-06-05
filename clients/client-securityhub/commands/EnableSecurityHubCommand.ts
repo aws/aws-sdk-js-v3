@@ -8,9 +8,9 @@ import {
   EnableSecurityHubResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1EnableSecurityHubCommand,
-  serializeAws_restJson1_1EnableSecurityHubCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1EnableSecurityHubCommand,
+  serializeAws_restJson1EnableSecurityHubCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class EnableSecurityHubCommand extends $Command<
     input: EnableSecurityHubCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1EnableSecurityHubCommand(input, context);
+    return serializeAws_restJson1EnableSecurityHubCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableSecurityHubCommandOutput> {
-    return deserializeAws_restJson1_1EnableSecurityHubCommand(output, context);
+    return deserializeAws_restJson1EnableSecurityHubCommand(output, context);
   }
 
   // Start section: command_body_extra

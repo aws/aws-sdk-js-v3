@@ -145,6 +145,27 @@ export namespace BatchRetryStrategy {
 }
 
 /**
+ * <p>There is concurrent modification on a resource.</p>
+ */
+export interface ConcurrentModificationException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ConcurrentModificationException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ConcurrentModificationException {
+  export const filterSensitiveLog = (
+    obj: ConcurrentModificationException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ConcurrentModificationException =>
+    __isa(o, "ConcurrentModificationException");
+}
+
+/**
  * <p>A JSON string that you can use to limit the event bus permissions that you're granting
  *             to only accounts that fulfill the condition. Currently, the only supported condition is
  *             membership in a certain AWS organization. The string must contain <code>Type</code>,
@@ -848,6 +869,63 @@ export namespace InputTransformer {
 }
 
 /**
+ * <p>This exception occurs due to unexpected causes.</p>
+ */
+export interface InternalException extends __SmithyException, $MetadataBearer {
+  name: "InternalException";
+  $fault: "server";
+  message?: string;
+}
+
+export namespace InternalException {
+  export const filterSensitiveLog = (obj: InternalException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InternalException =>
+    __isa(o, "InternalException");
+}
+
+/**
+ * <p>The event pattern isn't valid.</p>
+ */
+export interface InvalidEventPatternException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidEventPatternException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidEventPatternException {
+  export const filterSensitiveLog = (
+    obj: InvalidEventPatternException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidEventPatternException =>
+    __isa(o, "InvalidEventPatternException");
+}
+
+/**
+ * <p>The specified state isn't a valid state for an event source.</p>
+ */
+export interface InvalidStateException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidStateException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidStateException {
+  export const filterSensitiveLog = (obj: InvalidStateException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidStateException =>
+    __isa(o, "InvalidStateException");
+}
+
+/**
  * <p>This object enables you to specify a JSON path to extract from the event and use as
  *             the partition key for the Amazon Kinesis data stream so that you can control the shard
  *             that the event goes to. If you don't include this parameter, the default is to use the
@@ -872,6 +950,25 @@ export namespace KinesisParameters {
 export enum LaunchType {
   EC2 = "EC2",
   FARGATE = "FARGATE"
+}
+
+/**
+ * <p>You tried to create more resources than is allowed.</p>
+ */
+export interface LimitExceededException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 export interface ListEventBusesRequest {
@@ -1276,6 +1373,31 @@ export namespace ListTargetsByRuleResponse {
 }
 
 /**
+ * <p>An AWS service created this rule on behalf of your account. That service manages it.
+ *             If you see this error in response to <code>DeleteRule</code> or
+ *                 <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those
+ *             calls to delete the rule or remove targets from the rule. You can't modify these managed
+ *             rules by using <code>DisableRule</code>, <code>EnableRule</code>,
+ *                 <code>PutTargets</code>, <code>PutRule</code>, <code>TagResource</code>, or
+ *                 <code>UntagResource</code>. </p>
+ */
+export interface ManagedRuleException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ManagedRuleException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ManagedRuleException {
+  export const filterSensitiveLog = (obj: ManagedRuleException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ManagedRuleException =>
+    __isa(o, "ManagedRuleException");
+}
+
+/**
  * <p>This structure specifies the network configuration for an ECS task.</p>
  */
 export interface NetworkConfiguration {
@@ -1358,6 +1480,27 @@ export namespace PartnerEventSourceAccount {
   });
   export const isa = (o: any): o is PartnerEventSourceAccount =>
     __isa(o, "PartnerEventSourceAccount");
+}
+
+/**
+ * <p>The event bus policy is too long. For more information, see the limits.</p>
+ */
+export interface PolicyLengthExceededException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "PolicyLengthExceededException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace PolicyLengthExceededException {
+  export const filterSensitiveLog = (
+    obj: PolicyLengthExceededException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is PolicyLengthExceededException =>
+    __isa(o, "PolicyLengthExceededException");
 }
 
 export interface PutEventsRequest {
@@ -1900,6 +2043,46 @@ export namespace RemoveTargetsResultEntry {
 }
 
 /**
+ * <p>The resource that you're trying to create already exists.</p>
+ */
+export interface ResourceAlreadyExistsException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceAlreadyExistsException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceAlreadyExistsException {
+  export const filterSensitiveLog = (
+    obj: ResourceAlreadyExistsException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceAlreadyExistsException =>
+    __isa(o, "ResourceAlreadyExistsException");
+}
+
+/**
+ * <p>An entity that you specified doesn't exist.</p>
+ */
+export interface ResourceNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
+}
+
+/**
  * <p>Contains information about a rule in Amazon EventBridge.</p>
  */
 export interface Rule {
@@ -2247,187 +2430,4 @@ export namespace UntagResourceResponse {
   });
   export const isa = (o: any): o is UntagResourceResponse =>
     __isa(o, "UntagResourceResponse");
-}
-
-/**
- * <p>There is concurrent modification on a resource.</p>
- */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ConcurrentModificationException {
-  export const filterSensitiveLog = (
-    obj: ConcurrentModificationException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ConcurrentModificationException =>
-    __isa(o, "ConcurrentModificationException");
-}
-
-/**
- * <p>This exception occurs due to unexpected causes.</p>
- */
-export interface InternalException extends __SmithyException, $MetadataBearer {
-  name: "InternalException";
-  $fault: "server";
-  message?: string;
-}
-
-export namespace InternalException {
-  export const filterSensitiveLog = (obj: InternalException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InternalException =>
-    __isa(o, "InternalException");
-}
-
-/**
- * <p>The event pattern isn't valid.</p>
- */
-export interface InvalidEventPatternException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidEventPatternException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidEventPatternException {
-  export const filterSensitiveLog = (
-    obj: InvalidEventPatternException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidEventPatternException =>
-    __isa(o, "InvalidEventPatternException");
-}
-
-/**
- * <p>The specified state isn't a valid state for an event source.</p>
- */
-export interface InvalidStateException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidStateException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidStateException {
-  export const filterSensitiveLog = (obj: InvalidStateException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidStateException =>
-    __isa(o, "InvalidStateException");
-}
-
-/**
- * <p>You tried to create more resources than is allowed.</p>
- */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
-}
-
-/**
- * <p>An AWS service created this rule on behalf of your account. That service manages it.
- *             If you see this error in response to <code>DeleteRule</code> or
- *                 <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those
- *             calls to delete the rule or remove targets from the rule. You can't modify these managed
- *             rules by using <code>DisableRule</code>, <code>EnableRule</code>,
- *                 <code>PutTargets</code>, <code>PutRule</code>, <code>TagResource</code>, or
- *                 <code>UntagResource</code>. </p>
- */
-export interface ManagedRuleException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ManagedRuleException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ManagedRuleException {
-  export const filterSensitiveLog = (obj: ManagedRuleException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ManagedRuleException =>
-    __isa(o, "ManagedRuleException");
-}
-
-/**
- * <p>The event bus policy is too long. For more information, see the limits.</p>
- */
-export interface PolicyLengthExceededException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "PolicyLengthExceededException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace PolicyLengthExceededException {
-  export const filterSensitiveLog = (
-    obj: PolicyLengthExceededException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is PolicyLengthExceededException =>
-    __isa(o, "PolicyLengthExceededException");
-}
-
-/**
- * <p>The resource that you're trying to create already exists.</p>
- */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: ResourceAlreadyExistsException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceAlreadyExistsException =>
-    __isa(o, "ResourceAlreadyExistsException");
-}
-
-/**
- * <p>An entity that you specified doesn't exist.</p>
- */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
 }

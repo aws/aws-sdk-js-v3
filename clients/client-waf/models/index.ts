@@ -6121,6 +6121,48 @@ export namespace UpdateXssMatchSetResponse {
     __isa(o, "UpdateXssMatchSetResponse");
 }
 
+/**
+ * <p>For the action that is associated with a rule in a <code>WebACL</code>, specifies the action that you want AWS WAF to perform when a
+ * 			web request matches all of the conditions in a rule. For the default action in a <code>WebACL</code>, specifies the action that you want
+ * 			AWS WAF to take when a web request doesn't match all of the conditions in any of the rules in a <code>WebACL</code>. </p>
+ */
+export interface WafAction {
+  __type?: "WafAction";
+  /**
+   * <p>Specifies how you want AWS WAF to respond to requests that match the settings in a <code>Rule</code>. Valid settings include the following:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code>: AWS WAF allows requests</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code>: AWS WAF blocks requests</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COUNT</code>: AWS WAF increments a counter of the requests that match all of the conditions in the rule.
+   * 				AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify <code>COUNT</code>
+   * 				for the default action for a <code>WebACL</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Type: WafActionType | string | undefined;
+}
+
+export namespace WafAction {
+  export const filterSensitiveLog = (obj: WafAction): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is WafAction => __isa(o, "WafAction");
+}
+
+export enum WafActionType {
+  ALLOW = "ALLOW",
+  BLOCK = "BLOCK",
+  COUNT = "COUNT"
+}
+
 export interface WAFBadRequestException
   extends __SmithyException,
     $MetadataBearer {
@@ -6478,6 +6520,31 @@ export namespace WAFNonexistentItemException {
 }
 
 /**
+ * <p>The action to take if any rule within the <code>RuleGroup</code> matches a request. </p>
+ */
+export interface WafOverrideAction {
+  __type?: "WafOverrideAction";
+  /**
+   * <p>
+   *             <code>COUNT</code> overrides the action specified by the individual rule within a <code>RuleGroup</code> . If set to <code>NONE</code>, the rule's action will take place.</p>
+   */
+  Type: WafOverrideActionType | string | undefined;
+}
+
+export namespace WafOverrideAction {
+  export const filterSensitiveLog = (obj: WafOverrideAction): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is WafOverrideAction =>
+    __isa(o, "WafOverrideAction");
+}
+
+export enum WafOverrideActionType {
+  COUNT = "COUNT",
+  NONE = "NONE"
+}
+
+/**
  * <p>The operation failed because you tried to delete an object that is still in use. For example:</p>
  * 		       <ul>
  *             <li>
@@ -6502,6 +6569,12 @@ export namespace WAFReferencedItemException {
   });
   export const isa = (o: any): o is WAFReferencedItemException =>
     __isa(o, "WAFReferencedItemException");
+}
+
+export enum WafRuleType {
+  GROUP = "GROUP",
+  RATE_BASED = "RATE_BASED",
+  REGULAR = "REGULAR"
 }
 
 /**
@@ -6597,79 +6670,6 @@ export namespace WAFTagOperationInternalErrorException {
   });
   export const isa = (o: any): o is WAFTagOperationInternalErrorException =>
     __isa(o, "WAFTagOperationInternalErrorException");
-}
-
-/**
- * <p>For the action that is associated with a rule in a <code>WebACL</code>, specifies the action that you want AWS WAF to perform when a
- * 			web request matches all of the conditions in a rule. For the default action in a <code>WebACL</code>, specifies the action that you want
- * 			AWS WAF to take when a web request doesn't match all of the conditions in any of the rules in a <code>WebACL</code>. </p>
- */
-export interface WafAction {
-  __type?: "WafAction";
-  /**
-   * <p>Specifies how you want AWS WAF to respond to requests that match the settings in a <code>Rule</code>. Valid settings include the following:</p>
-   * 		       <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALLOW</code>: AWS WAF allows requests</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code>: AWS WAF blocks requests</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COUNT</code>: AWS WAF increments a counter of the requests that match all of the conditions in the rule.
-   * 				AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify <code>COUNT</code>
-   * 				for the default action for a <code>WebACL</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  Type: WafActionType | string | undefined;
-}
-
-export namespace WafAction {
-  export const filterSensitiveLog = (obj: WafAction): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is WafAction => __isa(o, "WafAction");
-}
-
-export enum WafActionType {
-  ALLOW = "ALLOW",
-  BLOCK = "BLOCK",
-  COUNT = "COUNT"
-}
-
-/**
- * <p>The action to take if any rule within the <code>RuleGroup</code> matches a request. </p>
- */
-export interface WafOverrideAction {
-  __type?: "WafOverrideAction";
-  /**
-   * <p>
-   *             <code>COUNT</code> overrides the action specified by the individual rule within a <code>RuleGroup</code> . If set to <code>NONE</code>, the rule's action will take place.</p>
-   */
-  Type: WafOverrideActionType | string | undefined;
-}
-
-export namespace WafOverrideAction {
-  export const filterSensitiveLog = (obj: WafOverrideAction): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is WafOverrideAction =>
-    __isa(o, "WafOverrideAction");
-}
-
-export enum WafOverrideActionType {
-  COUNT = "COUNT",
-  NONE = "NONE"
-}
-
-export enum WafRuleType {
-  GROUP = "GROUP",
-  RATE_BASED = "RATE_BASED",
-  REGULAR = "REGULAR"
 }
 
 /**

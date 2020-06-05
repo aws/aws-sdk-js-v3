@@ -8,9 +8,9 @@ import {
   CreateComponentResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateComponentCommand,
-  serializeAws_restJson1_1CreateComponentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateComponentCommand,
+  serializeAws_restJson1CreateComponentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class CreateComponentCommand extends $Command<
     input: CreateComponentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateComponentCommand(input, context);
+    return serializeAws_restJson1CreateComponentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateComponentCommandOutput> {
-    return deserializeAws_restJson1_1CreateComponentCommand(output, context);
+    return deserializeAws_restJson1CreateComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

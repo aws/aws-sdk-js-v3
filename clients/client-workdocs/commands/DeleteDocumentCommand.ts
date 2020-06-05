@@ -5,9 +5,9 @@ import {
 } from "../WorkDocsClient";
 import { DeleteDocumentRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteDocumentCommand,
-  serializeAws_restJson1_1DeleteDocumentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteDocumentCommand,
+  serializeAws_restJson1DeleteDocumentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteDocumentCommand extends $Command<
     input: DeleteDocumentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDocumentCommand(input, context);
+    return serializeAws_restJson1DeleteDocumentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDocumentCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDocumentCommand(output, context);
+    return deserializeAws_restJson1DeleteDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

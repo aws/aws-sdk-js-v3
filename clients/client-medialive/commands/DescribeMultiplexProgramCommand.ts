@@ -8,9 +8,9 @@ import {
   DescribeMultiplexProgramResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeMultiplexProgramCommand,
-  serializeAws_restJson1_1DescribeMultiplexProgramCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeMultiplexProgramCommand,
+  serializeAws_restJson1DescribeMultiplexProgramCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeMultiplexProgramCommand extends $Command<
     input: DescribeMultiplexProgramCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeMultiplexProgramCommand(
+    return serializeAws_restJson1DescribeMultiplexProgramCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeMultiplexProgramCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMultiplexProgramCommandOutput> {
-    return deserializeAws_restJson1_1DescribeMultiplexProgramCommand(
+    return deserializeAws_restJson1DescribeMultiplexProgramCommand(
       output,
       context
     );

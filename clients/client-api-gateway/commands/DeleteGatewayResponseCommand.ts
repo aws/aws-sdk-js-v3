@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { DeleteGatewayResponseRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteGatewayResponseCommand,
-  serializeAws_restJson1_1DeleteGatewayResponseCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteGatewayResponseCommand,
+  serializeAws_restJson1DeleteGatewayResponseCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,14 +70,14 @@ export class DeleteGatewayResponseCommand extends $Command<
     input: DeleteGatewayResponseCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteGatewayResponseCommand(input, context);
+    return serializeAws_restJson1DeleteGatewayResponseCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteGatewayResponseCommandOutput> {
-    return deserializeAws_restJson1_1DeleteGatewayResponseCommand(
+    return deserializeAws_restJson1DeleteGatewayResponseCommand(
       output,
       context
     );

@@ -8,9 +8,9 @@ import {
   PutAccountSendingAttributesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutAccountSendingAttributesCommand,
-  serializeAws_restJson1_1PutAccountSendingAttributesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutAccountSendingAttributesCommand,
+  serializeAws_restJson1PutAccountSendingAttributesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class PutAccountSendingAttributesCommand extends $Command<
     input: PutAccountSendingAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutAccountSendingAttributesCommand(
+    return serializeAws_restJson1PutAccountSendingAttributesCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class PutAccountSendingAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAccountSendingAttributesCommandOutput> {
-    return deserializeAws_restJson1_1PutAccountSendingAttributesCommand(
+    return deserializeAws_restJson1PutAccountSendingAttributesCommand(
       output,
       context
     );

@@ -3309,18 +3309,18 @@ const serializeAws_json1_1Filter = (
   };
 };
 
-const serializeAws_json1_1FilterValues = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
 const serializeAws_json1_1Filters = (
   input: Filter[],
   context: __SerdeContext
 ): any => {
   return input.map(entry => serializeAws_json1_1Filter(entry, context));
+};
+
+const serializeAws_json1_1FilterValues = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1GetResolverEndpointRequest = (
@@ -3365,6 +3365,15 @@ const serializeAws_json1_1GetResolverRuleRequest = (
   };
 };
 
+const serializeAws_json1_1IpAddressesRequest = (
+  input: IpAddressRequest[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry =>
+    serializeAws_json1_1IpAddressRequest(entry, context)
+  );
+};
+
 const serializeAws_json1_1IpAddressRequest = (
   input: IpAddressRequest,
   context: __SerdeContext
@@ -3384,15 +3393,6 @@ const serializeAws_json1_1IpAddressUpdate = (
     ...(input.IpId !== undefined && { IpId: input.IpId }),
     ...(input.SubnetId !== undefined && { SubnetId: input.SubnetId })
   };
-};
-
-const serializeAws_json1_1IpAddressesRequest = (
-  input: IpAddressRequest[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_1IpAddressRequest(entry, context)
-  );
 };
 
 const serializeAws_json1_1ListResolverEndpointIpAddressesRequest = (
@@ -3846,6 +3846,15 @@ const deserializeAws_json1_1InvalidTagException = (
   } as any;
 };
 
+const deserializeAws_json1_1IpAddressesResponse = (
+  output: any,
+  context: __SerdeContext
+): IpAddressResponse[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1IpAddressResponse(entry, context)
+  );
+};
+
 const deserializeAws_json1_1IpAddressResponse = (
   output: any,
   context: __SerdeContext
@@ -3878,15 +3887,6 @@ const deserializeAws_json1_1IpAddressResponse = (
         ? output.SubnetId
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1IpAddressesResponse = (
-  output: any,
-  context: __SerdeContext
-): IpAddressResponse[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1IpAddressResponse(entry, context)
-  );
 };
 
 const deserializeAws_json1_1LimitExceededException = (

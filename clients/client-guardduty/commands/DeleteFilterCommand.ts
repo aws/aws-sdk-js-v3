@@ -5,9 +5,9 @@ import {
 } from "../GuardDutyClient";
 import { DeleteFilterRequest, DeleteFilterResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteFilterCommand,
-  serializeAws_restJson1_1DeleteFilterCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteFilterCommand,
+  serializeAws_restJson1DeleteFilterCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteFilterCommand extends $Command<
     input: DeleteFilterCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteFilterCommand(input, context);
+    return serializeAws_restJson1DeleteFilterCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFilterCommandOutput> {
-    return deserializeAws_restJson1_1DeleteFilterCommand(output, context);
+    return deserializeAws_restJson1DeleteFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

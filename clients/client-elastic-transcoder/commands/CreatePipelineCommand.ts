@@ -5,9 +5,9 @@ import {
 } from "../ElasticTranscoderClient";
 import { CreatePipelineRequest, CreatePipelineResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreatePipelineCommand,
-  serializeAws_restJson1_1CreatePipelineCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreatePipelineCommand,
+  serializeAws_restJson1CreatePipelineCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class CreatePipelineCommand extends $Command<
     input: CreatePipelineCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreatePipelineCommand(input, context);
+    return serializeAws_restJson1CreatePipelineCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePipelineCommandOutput> {
-    return deserializeAws_restJson1_1CreatePipelineCommand(output, context);
+    return deserializeAws_restJson1CreatePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

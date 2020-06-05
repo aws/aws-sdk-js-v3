@@ -5,9 +5,9 @@ import {
 } from "../LambdaClient";
 import { DeleteFunctionConcurrencyRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteFunctionConcurrencyCommand,
-  serializeAws_restJson1_1DeleteFunctionConcurrencyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteFunctionConcurrencyCommand,
+  serializeAws_restJson1DeleteFunctionConcurrencyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class DeleteFunctionConcurrencyCommand extends $Command<
     input: DeleteFunctionConcurrencyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteFunctionConcurrencyCommand(
+    return serializeAws_restJson1DeleteFunctionConcurrencyCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class DeleteFunctionConcurrencyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFunctionConcurrencyCommandOutput> {
-    return deserializeAws_restJson1_1DeleteFunctionConcurrencyCommand(
+    return deserializeAws_restJson1DeleteFunctionConcurrencyCommand(
       output,
       context
     );

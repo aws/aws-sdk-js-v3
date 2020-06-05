@@ -8,9 +8,9 @@ import {
   UpdateDashboardResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateDashboardCommand,
-  serializeAws_restJson1_1UpdateDashboardCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateDashboardCommand,
+  serializeAws_restJson1UpdateDashboardCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class UpdateDashboardCommand extends $Command<
     input: UpdateDashboardCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDashboardCommand(input, context);
+    return serializeAws_restJson1UpdateDashboardCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDashboardCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDashboardCommand(output, context);
+    return deserializeAws_restJson1UpdateDashboardCommand(output, context);
   }
 
   // Start section: command_body_extra

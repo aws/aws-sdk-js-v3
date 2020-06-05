@@ -5,9 +5,9 @@ import {
 } from "../ElasticsearchServiceClient";
 import { ListTagsRequest, ListTagsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListTagsCommand,
-  serializeAws_restJson1_1ListTagsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListTagsCommand,
+  serializeAws_restJson1ListTagsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListTagsCommand extends $Command<
     input: ListTagsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListTagsCommand(input, context);
+    return serializeAws_restJson1ListTagsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTagsCommandOutput> {
-    return deserializeAws_restJson1_1ListTagsCommand(output, context);
+    return deserializeAws_restJson1ListTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

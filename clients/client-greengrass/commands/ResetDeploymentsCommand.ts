@@ -8,9 +8,9 @@ import {
   ResetDeploymentsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ResetDeploymentsCommand,
-  serializeAws_restJson1_1ResetDeploymentsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ResetDeploymentsCommand,
+  serializeAws_restJson1ResetDeploymentsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ResetDeploymentsCommand extends $Command<
     input: ResetDeploymentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ResetDeploymentsCommand(input, context);
+    return serializeAws_restJson1ResetDeploymentsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResetDeploymentsCommandOutput> {
-    return deserializeAws_restJson1_1ResetDeploymentsCommand(output, context);
+    return deserializeAws_restJson1ResetDeploymentsCommand(output, context);
   }
 
   // Start section: command_body_extra

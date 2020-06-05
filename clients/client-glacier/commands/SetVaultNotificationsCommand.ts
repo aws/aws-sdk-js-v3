@@ -5,9 +5,9 @@ import {
 } from "../GlacierClient";
 import { SetVaultNotificationsInput } from "../models/index";
 import {
-  deserializeAws_restJson1_1SetVaultNotificationsCommand,
-  serializeAws_restJson1_1SetVaultNotificationsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1SetVaultNotificationsCommand,
+  serializeAws_restJson1SetVaultNotificationsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,14 +70,14 @@ export class SetVaultNotificationsCommand extends $Command<
     input: SetVaultNotificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1SetVaultNotificationsCommand(input, context);
+    return serializeAws_restJson1SetVaultNotificationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetVaultNotificationsCommandOutput> {
-    return deserializeAws_restJson1_1SetVaultNotificationsCommand(
+    return deserializeAws_restJson1SetVaultNotificationsCommand(
       output,
       context
     );

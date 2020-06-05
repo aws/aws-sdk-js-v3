@@ -5,9 +5,9 @@ import {
 } from "../LexRuntimeServiceClient";
 import { PostContentRequest, PostContentResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1PostContentCommand,
-  serializeAws_restJson1_1PostContentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PostContentCommand,
+  serializeAws_restJson1PostContentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -72,14 +72,14 @@ export class PostContentCommand extends $Command<
     input: PostContentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PostContentCommand(input, context);
+    return serializeAws_restJson1PostContentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PostContentCommandOutput> {
-    return deserializeAws_restJson1_1PostContentCommand(output, context);
+    return deserializeAws_restJson1PostContentCommand(output, context);
   }
 
   // Start section: command_body_extra

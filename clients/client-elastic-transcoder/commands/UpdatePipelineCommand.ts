@@ -5,9 +5,9 @@ import {
 } from "../ElasticTranscoderClient";
 import { UpdatePipelineRequest, UpdatePipelineResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdatePipelineCommand,
-  serializeAws_restJson1_1UpdatePipelineCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdatePipelineCommand,
+  serializeAws_restJson1UpdatePipelineCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class UpdatePipelineCommand extends $Command<
     input: UpdatePipelineCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdatePipelineCommand(input, context);
+    return serializeAws_restJson1UpdatePipelineCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePipelineCommandOutput> {
-    return deserializeAws_restJson1_1UpdatePipelineCommand(output, context);
+    return deserializeAws_restJson1UpdatePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

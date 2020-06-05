@@ -5,9 +5,9 @@ import {
 } from "../AppSyncClient";
 import { DeleteApiCacheRequest, DeleteApiCacheResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteApiCacheCommand,
-  serializeAws_restJson1_1DeleteApiCacheCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteApiCacheCommand,
+  serializeAws_restJson1DeleteApiCacheCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class DeleteApiCacheCommand extends $Command<
     input: DeleteApiCacheCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteApiCacheCommand(input, context);
+    return serializeAws_restJson1DeleteApiCacheCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApiCacheCommandOutput> {
-    return deserializeAws_restJson1_1DeleteApiCacheCommand(output, context);
+    return deserializeAws_restJson1DeleteApiCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

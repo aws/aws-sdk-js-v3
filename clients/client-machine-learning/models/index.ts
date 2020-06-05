@@ -3052,48 +3052,6 @@ export namespace PredictInput {
   export const isa = (o: any): o is PredictInput => __isa(o, "PredictInput");
 }
 
-export interface PredictOutput {
-  __type?: "PredictOutput";
-  /**
-   * <p>The output from a <code>Predict</code> operation: </p>
-   *
-   * 		       <ul>
-   *             <li>
-   * 				           <p>
-   * 				              <code>Details</code> - Contains the following attributes:
-   * 				  <code>DetailsAttributes.PREDICTIVE_MODEL_TYPE - REGRESSION | BINARY | MULTICLASS</code>
-   * 				              <code>DetailsAttributes.ALGORITHM - SGD</code>
-   * 				           </p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   * 				              <code>PredictedLabel</code> - Present for either a <code>BINARY</code> or <code>MULTICLASS</code>
-   *                   <code>MLModel</code> request.
-   * 				</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   * 				              <code>PredictedScores</code> - Contains the raw classification score corresponding to each label.
-   * 				</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   * 				              <code>PredictedValue</code> - Present for a <code>REGRESSION</code>
-   *                   <code>MLModel</code> request.
-   * 				</p>
-   * 			         </li>
-   *          </ul>
-   */
-  Prediction?: Prediction;
-}
-
-export namespace PredictOutput {
-  export const filterSensitiveLog = (obj: PredictOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is PredictOutput => __isa(o, "PredictOutput");
-}
-
 /**
  * <p>The output from a <code>Predict</code> operation: </p>
  *
@@ -3175,6 +3133,97 @@ export namespace PredictorNotMountedException {
   });
   export const isa = (o: any): o is PredictorNotMountedException =>
     __isa(o, "PredictorNotMountedException");
+}
+
+export interface PredictOutput {
+  __type?: "PredictOutput";
+  /**
+   * <p>The output from a <code>Predict</code> operation: </p>
+   *
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   * 				              <code>Details</code> - Contains the following attributes:
+   * 				  <code>DetailsAttributes.PREDICTIVE_MODEL_TYPE - REGRESSION | BINARY | MULTICLASS</code>
+   * 				              <code>DetailsAttributes.ALGORITHM - SGD</code>
+   * 				           </p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   * 				              <code>PredictedLabel</code> - Present for either a <code>BINARY</code> or <code>MULTICLASS</code>
+   *                   <code>MLModel</code> request.
+   * 				</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   * 				              <code>PredictedScores</code> - Contains the raw classification score corresponding to each label.
+   * 				</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   * 				              <code>PredictedValue</code> - Present for a <code>REGRESSION</code>
+   *                   <code>MLModel</code> request.
+   * 				</p>
+   * 			         </li>
+   *          </ul>
+   */
+  Prediction?: Prediction;
+}
+
+export namespace PredictOutput {
+  export const filterSensitiveLog = (obj: PredictOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is PredictOutput => __isa(o, "PredictOutput");
+}
+
+/**
+ * <p>The database details of an Amazon RDS database.</p>
+ */
+export interface RDSDatabase {
+  __type?: "RDSDatabase";
+  /**
+   * <p>The name of a database hosted on an RDS DB instance.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The ID of an RDS DB instance.</p>
+   */
+  InstanceIdentifier: string | undefined;
+}
+
+export namespace RDSDatabase {
+  export const filterSensitiveLog = (obj: RDSDatabase): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RDSDatabase => __isa(o, "RDSDatabase");
+}
+
+/**
+ * <p>The database credentials to connect to a database on an RDS DB instance.</p>
+ */
+export interface RDSDatabaseCredentials {
+  __type?: "RDSDatabaseCredentials";
+  /**
+   * <p>The password to be used by Amazon ML to connect to a database on an RDS DB instance.
+   *             The password should have sufficient permissions to execute the <code>RDSSelectQuery</code> query.</p>
+   */
+  Password: string | undefined;
+
+  /**
+   * <p>The username to be used by Amazon ML to connect to database on an Amazon RDS instance.
+   *             The username should have sufficient permissions to execute an <code>RDSSelectSqlQuery</code> query.</p>
+   */
+  Username: string | undefined;
+}
+
+export namespace RDSDatabaseCredentials {
+  export const filterSensitiveLog = (obj: RDSDatabaseCredentials): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RDSDatabaseCredentials =>
+    __isa(o, "RDSDatabaseCredentials");
 }
 
 /**
@@ -3349,55 +3398,6 @@ export namespace RDSDataSpec {
 }
 
 /**
- * <p>The database details of an Amazon RDS database.</p>
- */
-export interface RDSDatabase {
-  __type?: "RDSDatabase";
-  /**
-   * <p>The name of a database hosted on an RDS DB instance.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The ID of an RDS DB instance.</p>
-   */
-  InstanceIdentifier: string | undefined;
-}
-
-export namespace RDSDatabase {
-  export const filterSensitiveLog = (obj: RDSDatabase): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RDSDatabase => __isa(o, "RDSDatabase");
-}
-
-/**
- * <p>The database credentials to connect to a database on an RDS DB instance.</p>
- */
-export interface RDSDatabaseCredentials {
-  __type?: "RDSDatabaseCredentials";
-  /**
-   * <p>The password to be used by Amazon ML to connect to a database on an RDS DB instance.
-   *             The password should have sufficient permissions to execute the <code>RDSSelectQuery</code> query.</p>
-   */
-  Password: string | undefined;
-
-  /**
-   * <p>The username to be used by Amazon ML to connect to database on an Amazon RDS instance.
-   *             The username should have sufficient permissions to execute an <code>RDSSelectSqlQuery</code> query.</p>
-   */
-  Username: string | undefined;
-}
-
-export namespace RDSDatabaseCredentials {
-  export const filterSensitiveLog = (obj: RDSDatabaseCredentials): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RDSDatabaseCredentials =>
-    __isa(o, "RDSDatabaseCredentials");
-}
-
-/**
  * <p>The datasource details that are specific to Amazon RDS.</p>
  */
 export interface RDSMetadata {
@@ -3496,6 +3496,58 @@ export enum RealtimeEndpointStatus {
   NONE = "NONE",
   READY = "READY",
   UPDATING = "UPDATING"
+}
+
+/**
+ * <p>Describes the database details required to connect to an Amazon Redshift database.</p>
+ */
+export interface RedshiftDatabase {
+  __type?: "RedshiftDatabase";
+  /**
+   * <p>The ID of an Amazon Redshift cluster.</p>
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The name of a database hosted on an Amazon Redshift cluster.</p>
+   */
+  DatabaseName: string | undefined;
+}
+
+export namespace RedshiftDatabase {
+  export const filterSensitiveLog = (obj: RedshiftDatabase): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RedshiftDatabase =>
+    __isa(o, "RedshiftDatabase");
+}
+
+/**
+ * <p>Describes the database credentials for connecting to a database on an Amazon Redshift cluster.</p>
+ */
+export interface RedshiftDatabaseCredentials {
+  __type?: "RedshiftDatabaseCredentials";
+  /**
+   * <p>A password to be used by Amazon ML to connect to a database on an Amazon Redshift cluster.
+   *           The password should have sufficient permissions to execute a <code>RedshiftSelectSqlQuery</code> query. The password should be valid for an Amazon Redshift <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html">USER</a>.</p>
+   */
+  Password: string | undefined;
+
+  /**
+   * <p>A username to be used by Amazon Machine Learning (Amazon ML)to connect to a database on an Amazon Redshift cluster.
+   *           The username should have sufficient permissions to execute the <code>RedshiftSelectSqlQuery</code> query. The username should be valid for an Amazon Redshift <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html">USER</a>.</p>
+   */
+  Username: string | undefined;
+}
+
+export namespace RedshiftDatabaseCredentials {
+  export const filterSensitiveLog = (
+    obj: RedshiftDatabaseCredentials
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RedshiftDatabaseCredentials =>
+    __isa(o, "RedshiftDatabaseCredentials");
 }
 
 /**
@@ -3647,58 +3699,6 @@ export namespace RedshiftDataSpec {
   });
   export const isa = (o: any): o is RedshiftDataSpec =>
     __isa(o, "RedshiftDataSpec");
-}
-
-/**
- * <p>Describes the database details required to connect to an Amazon Redshift database.</p>
- */
-export interface RedshiftDatabase {
-  __type?: "RedshiftDatabase";
-  /**
-   * <p>The ID of an Amazon Redshift cluster.</p>
-   */
-  ClusterIdentifier: string | undefined;
-
-  /**
-   * <p>The name of a database hosted on an Amazon Redshift cluster.</p>
-   */
-  DatabaseName: string | undefined;
-}
-
-export namespace RedshiftDatabase {
-  export const filterSensitiveLog = (obj: RedshiftDatabase): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RedshiftDatabase =>
-    __isa(o, "RedshiftDatabase");
-}
-
-/**
- * <p>Describes the database credentials for connecting to a database on an Amazon Redshift cluster.</p>
- */
-export interface RedshiftDatabaseCredentials {
-  __type?: "RedshiftDatabaseCredentials";
-  /**
-   * <p>A password to be used by Amazon ML to connect to a database on an Amazon Redshift cluster.
-   *           The password should have sufficient permissions to execute a <code>RedshiftSelectSqlQuery</code> query. The password should be valid for an Amazon Redshift <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html">USER</a>.</p>
-   */
-  Password: string | undefined;
-
-  /**
-   * <p>A username to be used by Amazon Machine Learning (Amazon ML)to connect to a database on an Amazon Redshift cluster.
-   *           The username should have sufficient permissions to execute the <code>RedshiftSelectSqlQuery</code> query. The username should be valid for an Amazon Redshift <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html">USER</a>.</p>
-   */
-  Username: string | undefined;
-}
-
-export namespace RedshiftDatabaseCredentials {
-  export const filterSensitiveLog = (
-    obj: RedshiftDatabaseCredentials
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RedshiftDatabaseCredentials =>
-    __isa(o, "RedshiftDatabaseCredentials");
 }
 
 /**
@@ -3915,6 +3915,13 @@ export namespace Tag {
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
+export enum TaggableResourceType {
+  BATCH_PREDICTION = "BatchPrediction",
+  DATASOURCE = "DataSource",
+  EVALUATION = "Evaluation",
+  ML_MODEL = "MLModel"
+}
+
 /**
  * <p>The limit in the number of tags has been exceeded.</p>
  */
@@ -3932,13 +3939,6 @@ export namespace TagLimitExceededException {
   });
   export const isa = (o: any): o is TagLimitExceededException =>
     __isa(o, "TagLimitExceededException");
-}
-
-export enum TaggableResourceType {
-  BATCH_PREDICTION = "BatchPrediction",
-  DATASOURCE = "DataSource",
-  EVALUATION = "Evaluation",
-  ML_MODEL = "MLModel"
 }
 
 export interface UpdateBatchPredictionInput {

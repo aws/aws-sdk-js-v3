@@ -8,9 +8,9 @@ import {
   AssociateServiceRoleToAccountResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1AssociateServiceRoleToAccountCommand,
-  serializeAws_restJson1_1AssociateServiceRoleToAccountCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AssociateServiceRoleToAccountCommand,
+  serializeAws_restJson1AssociateServiceRoleToAccountCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class AssociateServiceRoleToAccountCommand extends $Command<
     input: AssociateServiceRoleToAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AssociateServiceRoleToAccountCommand(
+    return serializeAws_restJson1AssociateServiceRoleToAccountCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class AssociateServiceRoleToAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateServiceRoleToAccountCommandOutput> {
-    return deserializeAws_restJson1_1AssociateServiceRoleToAccountCommand(
+    return deserializeAws_restJson1AssociateServiceRoleToAccountCommand(
       output,
       context
     );

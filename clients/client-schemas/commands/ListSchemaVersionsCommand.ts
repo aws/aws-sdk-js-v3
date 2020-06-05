@@ -3,9 +3,9 @@ import {
   ListSchemaVersionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListSchemaVersionsCommand,
-  serializeAws_restJson1_1ListSchemaVersionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListSchemaVersionsCommand,
+  serializeAws_restJson1ListSchemaVersionsCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -71,14 +71,14 @@ export class ListSchemaVersionsCommand extends $Command<
     input: ListSchemaVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListSchemaVersionsCommand(input, context);
+    return serializeAws_restJson1ListSchemaVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSchemaVersionsCommandOutput> {
-    return deserializeAws_restJson1_1ListSchemaVersionsCommand(output, context);
+    return deserializeAws_restJson1ListSchemaVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,9 +5,9 @@ import {
 } from "../QuickSightClient";
 import { RegisterUserRequest, RegisterUserResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1RegisterUserCommand,
-  serializeAws_restJson1_1RegisterUserCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1RegisterUserCommand,
+  serializeAws_restJson1RegisterUserCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class RegisterUserCommand extends $Command<
     input: RegisterUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RegisterUserCommand(input, context);
+    return serializeAws_restJson1RegisterUserCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterUserCommandOutput> {
-    return deserializeAws_restJson1_1RegisterUserCommand(output, context);
+    return deserializeAws_restJson1RegisterUserCommand(output, context);
   }
 
   // Start section: command_body_extra

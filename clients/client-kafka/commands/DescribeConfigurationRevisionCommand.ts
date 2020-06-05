@@ -8,9 +8,9 @@ import {
   DescribeConfigurationRevisionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeConfigurationRevisionCommand,
-  serializeAws_restJson1_1DescribeConfigurationRevisionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeConfigurationRevisionCommand,
+  serializeAws_restJson1DescribeConfigurationRevisionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeConfigurationRevisionCommand extends $Command<
     input: DescribeConfigurationRevisionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeConfigurationRevisionCommand(
+    return serializeAws_restJson1DescribeConfigurationRevisionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeConfigurationRevisionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationRevisionCommandOutput> {
-    return deserializeAws_restJson1_1DescribeConfigurationRevisionCommand(
+    return deserializeAws_restJson1DescribeConfigurationRevisionCommand(
       output,
       context
     );

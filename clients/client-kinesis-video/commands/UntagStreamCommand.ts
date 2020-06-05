@@ -5,9 +5,9 @@ import {
 } from "../KinesisVideoClient";
 import { UntagStreamInput, UntagStreamOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1UntagStreamCommand,
-  serializeAws_restJson1_1UntagStreamCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UntagStreamCommand,
+  serializeAws_restJson1UntagStreamCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class UntagStreamCommand extends $Command<
     input: UntagStreamCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UntagStreamCommand(input, context);
+    return serializeAws_restJson1UntagStreamCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UntagStreamCommandOutput> {
-    return deserializeAws_restJson1_1UntagStreamCommand(output, context);
+    return deserializeAws_restJson1UntagStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

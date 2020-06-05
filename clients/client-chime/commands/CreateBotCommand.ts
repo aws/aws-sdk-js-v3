@@ -5,9 +5,9 @@ import {
 } from "../ChimeClient";
 import { CreateBotRequest, CreateBotResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateBotCommand,
-  serializeAws_restJson1_1CreateBotCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateBotCommand,
+  serializeAws_restJson1CreateBotCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateBotCommand extends $Command<
     input: CreateBotCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateBotCommand(input, context);
+    return serializeAws_restJson1CreateBotCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateBotCommandOutput> {
-    return deserializeAws_restJson1_1CreateBotCommand(output, context);
+    return deserializeAws_restJson1CreateBotCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,9 +5,9 @@ import {
 } from "../GlacierClient";
 import { RemoveTagsFromVaultInput } from "../models/index";
 import {
-  deserializeAws_restJson1_1RemoveTagsFromVaultCommand,
-  serializeAws_restJson1_1RemoveTagsFromVaultCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1RemoveTagsFromVaultCommand,
+  serializeAws_restJson1RemoveTagsFromVaultCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,17 +70,14 @@ export class RemoveTagsFromVaultCommand extends $Command<
     input: RemoveTagsFromVaultCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RemoveTagsFromVaultCommand(input, context);
+    return serializeAws_restJson1RemoveTagsFromVaultCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveTagsFromVaultCommandOutput> {
-    return deserializeAws_restJson1_1RemoveTagsFromVaultCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1RemoveTagsFromVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

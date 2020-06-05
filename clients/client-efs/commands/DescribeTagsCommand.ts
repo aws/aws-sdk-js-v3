@@ -5,9 +5,9 @@ import {
 } from "../EFSClient";
 import { DescribeTagsRequest, DescribeTagsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeTagsCommand,
-  serializeAws_restJson1_1DescribeTagsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeTagsCommand,
+  serializeAws_restJson1DescribeTagsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DescribeTagsCommand extends $Command<
     input: DescribeTagsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeTagsCommand(input, context);
+    return serializeAws_restJson1DescribeTagsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTagsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeTagsCommand(output, context);
+    return deserializeAws_restJson1DescribeTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

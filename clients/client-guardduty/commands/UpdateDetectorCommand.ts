@@ -5,9 +5,9 @@ import {
 } from "../GuardDutyClient";
 import { UpdateDetectorRequest, UpdateDetectorResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateDetectorCommand,
-  serializeAws_restJson1_1UpdateDetectorCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateDetectorCommand,
+  serializeAws_restJson1UpdateDetectorCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class UpdateDetectorCommand extends $Command<
     input: UpdateDetectorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDetectorCommand(input, context);
+    return serializeAws_restJson1UpdateDetectorCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDetectorCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDetectorCommand(output, context);
+    return deserializeAws_restJson1UpdateDetectorCommand(output, context);
   }
 
   // Start section: command_body_extra

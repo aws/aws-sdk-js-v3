@@ -8,9 +8,9 @@ import {
   DisassociateDomainResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DisassociateDomainCommand,
-  serializeAws_restJson1_1DisassociateDomainCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DisassociateDomainCommand,
+  serializeAws_restJson1DisassociateDomainCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DisassociateDomainCommand extends $Command<
     input: DisassociateDomainCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociateDomainCommand(input, context);
+    return serializeAws_restJson1DisassociateDomainCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateDomainCommandOutput> {
-    return deserializeAws_restJson1_1DisassociateDomainCommand(output, context);
+    return deserializeAws_restJson1DisassociateDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

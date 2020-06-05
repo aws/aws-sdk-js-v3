@@ -5,9 +5,9 @@ import {
 } from "../CognitoSyncClient";
 import { ListRecordsRequest, ListRecordsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListRecordsCommand,
-  serializeAws_restJson1_1ListRecordsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListRecordsCommand,
+  serializeAws_restJson1ListRecordsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListRecordsCommand extends $Command<
     input: ListRecordsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListRecordsCommand(input, context);
+    return serializeAws_restJson1ListRecordsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRecordsCommandOutput> {
-    return deserializeAws_restJson1_1ListRecordsCommand(output, context);
+    return deserializeAws_restJson1ListRecordsCommand(output, context);
   }
 
   // Start section: command_body_extra

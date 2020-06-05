@@ -422,197 +422,6 @@ export type BucketLogsPermission = "FULL_CONTROL" | "READ" | "WRITE";
 export type BucketVersioningStatus = "Enabled" | "Suspended";
 
 /**
- * <p>Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling
- *          Cross-Origin Resource Sharing</a> in the
- *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
- */
-export interface CORSConfiguration {
-  __type?: "CORSConfiguration";
-  /**
-   * <p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.</p>
-   */
-  CORSRules: CORSRule[] | undefined;
-}
-
-export namespace CORSConfiguration {
-  export const filterSensitiveLog = (obj: CORSConfiguration): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CORSConfiguration =>
-    __isa(o, "CORSConfiguration");
-}
-
-/**
- * <p>Specifies a cross-origin access rule for an Amazon S3 bucket.</p>
- */
-export interface CORSRule {
-  __type?: "CORSRule";
-  /**
-   * <p>Headers that are specified in the <code>Access-Control-Request-Headers</code>
-   *       header. These headers are allowed in a preflight OPTIONS request. In response to
-   *       any preflight OPTIONS request, Amazon S3 returns any requested headers that are
-   *       allowed.</p>
-   */
-  AllowedHeaders?: string[];
-
-  /**
-   * <p>An HTTP method that you allow the origin to execute. Valid values are
-   *       <code>GET</code>, <code>PUT</code>, <code>HEAD</code>, <code>POST</code>, and
-   *       <code>DELETE</code>.</p>
-   */
-  AllowedMethods: string[] | undefined;
-
-  /**
-   * <p>One or more origins you want customers to be able to access the bucket from.</p>
-   */
-  AllowedOrigins: string[] | undefined;
-
-  /**
-   * <p>One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p>
-   */
-  ExposeHeaders?: string[];
-
-  /**
-   * <p>The time in seconds that your browser is to cache the preflight response for the specified resource.</p>
-   */
-  MaxAgeSeconds?: number;
-}
-
-export namespace CORSRule {
-  export const filterSensitiveLog = (obj: CORSRule): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CORSRule => __isa(o, "CORSRule");
-}
-
-/**
- * <p>Describes how an uncompressed comma-separated values (CSV)-formatted input object is
- *          formatted.</p>
- */
-export interface CSVInput {
-  __type?: "CSVInput";
-  /**
-   * <p>Specifies that CSV field values may contain quoted record delimiters and such records should be allowed. Default value is FALSE. Setting this value to TRUE may lower performance.</p>
-   */
-  AllowQuotedRecordDelimiter?: boolean;
-
-  /**
-   * <p>A single character used to indicate that a row should be ignored when the character is present at the start of that row. You can specify any character to indicate a comment line.</p>
-   */
-  Comments?: string;
-
-  /**
-   * <p>A single character used to separate individual fields in a record. You can specify an arbitrary delimiter.</p>
-   */
-  FieldDelimiter?: string;
-
-  /**
-   * <p>Describes the first line of input. Valid values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code>: First line is not a header.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IGNORE</code>: First line is a header, but you can't use the header values to
-   *               indicate the column in an expression. You can use column
-   *               position (such as _1, _2, …) to indicate the column
-   *               (<code>SELECT s._1 FROM OBJECT s</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Use</code>: First line is a header, and you can use the header value to
-   *               identify a column in an expression (<code>SELECT "name"
-   *                  FROM OBJECT</code>). </p>
-   *             </li>
-   *          </ul>
-   */
-  FileHeaderInfo?: FileHeaderInfo | string;
-
-  /**
-   * <p>A single character used for escaping when the field delimiter is part of the value.
-   *       For example, if the value is <code>a, b</code>, Amazon S3 wraps this
-   *       field value in quotation marks, as follows: <code>" a , b
-   *          "</code>.</p>
-   *          <p>Type: String</p>
-   *          <p>Default: <code>"</code>
-   *          </p>
-   *          <p>Ancestors: <code>CSV</code>
-   *          </p>
-   */
-  QuoteCharacter?: string;
-
-  /**
-   * <p>A single character used for escaping the quotation mark character inside an already escaped value. For example, the value """ a , b """ is parsed as " a , b ".</p>
-   */
-  QuoteEscapeCharacter?: string;
-
-  /**
-   * <p>A single character used to separate individual records in the input. Instead of the default value, you can specify an arbitrary delimiter.</p>
-   */
-  RecordDelimiter?: string;
-}
-
-export namespace CSVInput {
-  export const filterSensitiveLog = (obj: CSVInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CSVInput => __isa(o, "CSVInput");
-}
-
-/**
- * <p>Describes how uncompressed comma-separated values (CSV)-formatted results are formatted.</p>
- */
-export interface CSVOutput {
-  __type?: "CSVOutput";
-  /**
-   * <p>The value used to separate individual fields in a record. You can specify an arbitrary delimiter.</p>
-   */
-  FieldDelimiter?: string;
-
-  /**
-   * <p>A single character used for escaping when the field delimiter is part of the value. For example, if the value is <code>a, b</code>, Amazon S3 wraps this
-   *       field value in quotation marks, as follows: <code>" a , b
-   *          "</code>.</p>
-   */
-  QuoteCharacter?: string;
-
-  /**
-   * <p>The single character used for escaping the quote character inside an already escaped
-   *       value.</p>
-   */
-  QuoteEscapeCharacter?: string;
-
-  /**
-   * <p>Indicates whether to use quotation marks around output fields. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALWAYS</code>: Always use quotation marks for output fields.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ASNEEDED</code>: Use quotation marks for output fields when needed.</p>
-   *             </li>
-   *          </ul>
-   */
-  QuoteFields?: QuoteFields | string;
-
-  /**
-   * <p>A single character used to separate individual records in the output. Instead of the default value, you can specify an arbitrary delimiter.</p>
-   */
-  RecordDelimiter?: string;
-}
-
-export namespace CSVOutput {
-  export const filterSensitiveLog = (obj: CSVOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CSVOutput => __isa(o, "CSVOutput");
-}
-
-/**
  * <p>Container for all (if there are any) keys between Prefix and the next occurrence of the string specified by a delimiter.
  *          CommonPrefixes lists keys that act like subdirectories in the directory specified by Prefix.
  *          For example, if the prefix is notes/ and the delimiter is a slash (/) as in notes/summer/july, the common prefix is
@@ -632,6 +441,48 @@ export namespace CommonPrefix {
     ...obj
   });
   export const isa = (o: any): o is CommonPrefix => __isa(o, "CommonPrefix");
+}
+
+/**
+ * <p>The container for the completed multipart upload details.</p>
+ */
+export interface CompletedMultipartUpload {
+  __type?: "CompletedMultipartUpload";
+  /**
+   * <p>Array of CompletedPart data types.</p>
+   */
+  Parts?: CompletedPart[];
+}
+
+export namespace CompletedMultipartUpload {
+  export const filterSensitiveLog = (obj: CompletedMultipartUpload): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CompletedMultipartUpload =>
+    __isa(o, "CompletedMultipartUpload");
+}
+
+/**
+ * <p>Details of the parts that were uploaded.</p>
+ */
+export interface CompletedPart {
+  __type?: "CompletedPart";
+  /**
+   * <p>Entity tag returned when the part was uploaded.</p>
+   */
+  ETag?: string;
+
+  /**
+   * <p>Part number that identifies the part. This is a positive integer between 1 and 10,000.</p>
+   */
+  PartNumber?: number;
+}
+
+export namespace CompletedPart {
+  export const filterSensitiveLog = (obj: CompletedPart): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CompletedPart => __isa(o, "CompletedPart");
 }
 
 export interface CompleteMultipartUploadOutput {
@@ -733,48 +584,6 @@ export namespace CompleteMultipartUploadRequest {
   });
   export const isa = (o: any): o is CompleteMultipartUploadRequest =>
     __isa(o, "CompleteMultipartUploadRequest");
-}
-
-/**
- * <p>The container for the completed multipart upload details.</p>
- */
-export interface CompletedMultipartUpload {
-  __type?: "CompletedMultipartUpload";
-  /**
-   * <p>Array of CompletedPart data types.</p>
-   */
-  Parts?: CompletedPart[];
-}
-
-export namespace CompletedMultipartUpload {
-  export const filterSensitiveLog = (obj: CompletedMultipartUpload): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CompletedMultipartUpload =>
-    __isa(o, "CompletedMultipartUpload");
-}
-
-/**
- * <p>Details of the parts that were uploaded.</p>
- */
-export interface CompletedPart {
-  __type?: "CompletedPart";
-  /**
-   * <p>Entity tag returned when the part was uploaded.</p>
-   */
-  ETag?: string;
-
-  /**
-   * <p>Part number that identifies the part. This is a positive integer between 1 and 10,000.</p>
-   */
-  PartNumber?: number;
-}
-
-export namespace CompletedPart {
-  export const filterSensitiveLog = (obj: CompletedPart): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CompletedPart => __isa(o, "CompletedPart");
 }
 
 export type CompressionType = "BZIP2" | "GZIP" | "NONE";
@@ -1161,6 +970,70 @@ export namespace CopyPartResult {
 }
 
 /**
+ * <p>Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling
+ *          Cross-Origin Resource Sharing</a> in the
+ *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ */
+export interface CORSConfiguration {
+  __type?: "CORSConfiguration";
+  /**
+   * <p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.</p>
+   */
+  CORSRules: CORSRule[] | undefined;
+}
+
+export namespace CORSConfiguration {
+  export const filterSensitiveLog = (obj: CORSConfiguration): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CORSConfiguration =>
+    __isa(o, "CORSConfiguration");
+}
+
+/**
+ * <p>Specifies a cross-origin access rule for an Amazon S3 bucket.</p>
+ */
+export interface CORSRule {
+  __type?: "CORSRule";
+  /**
+   * <p>Headers that are specified in the <code>Access-Control-Request-Headers</code>
+   *       header. These headers are allowed in a preflight OPTIONS request. In response to
+   *       any preflight OPTIONS request, Amazon S3 returns any requested headers that are
+   *       allowed.</p>
+   */
+  AllowedHeaders?: string[];
+
+  /**
+   * <p>An HTTP method that you allow the origin to execute. Valid values are
+   *       <code>GET</code>, <code>PUT</code>, <code>HEAD</code>, <code>POST</code>, and
+   *       <code>DELETE</code>.</p>
+   */
+  AllowedMethods: string[] | undefined;
+
+  /**
+   * <p>One or more origins you want customers to be able to access the bucket from.</p>
+   */
+  AllowedOrigins: string[] | undefined;
+
+  /**
+   * <p>One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p>
+   */
+  ExposeHeaders?: string[];
+
+  /**
+   * <p>The time in seconds that your browser is to cache the preflight response for the specified resource.</p>
+   */
+  MaxAgeSeconds?: number;
+}
+
+export namespace CORSRule {
+  export const filterSensitiveLog = (obj: CORSRule): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CORSRule => __isa(o, "CORSRule");
+}
+
+/**
  * <p>The configuration information for the bucket.</p>
  */
 export interface CreateBucketConfiguration {
@@ -1503,6 +1376,133 @@ export namespace CreateMultipartUploadRequest {
 }
 
 /**
+ * <p>Describes how an uncompressed comma-separated values (CSV)-formatted input object is
+ *          formatted.</p>
+ */
+export interface CSVInput {
+  __type?: "CSVInput";
+  /**
+   * <p>Specifies that CSV field values may contain quoted record delimiters and such records should be allowed. Default value is FALSE. Setting this value to TRUE may lower performance.</p>
+   */
+  AllowQuotedRecordDelimiter?: boolean;
+
+  /**
+   * <p>A single character used to indicate that a row should be ignored when the character is present at the start of that row. You can specify any character to indicate a comment line.</p>
+   */
+  Comments?: string;
+
+  /**
+   * <p>A single character used to separate individual fields in a record. You can specify an arbitrary delimiter.</p>
+   */
+  FieldDelimiter?: string;
+
+  /**
+   * <p>Describes the first line of input. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code>: First line is not a header.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IGNORE</code>: First line is a header, but you can't use the header values to
+   *               indicate the column in an expression. You can use column
+   *               position (such as _1, _2, …) to indicate the column
+   *               (<code>SELECT s._1 FROM OBJECT s</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Use</code>: First line is a header, and you can use the header value to
+   *               identify a column in an expression (<code>SELECT "name"
+   *                  FROM OBJECT</code>). </p>
+   *             </li>
+   *          </ul>
+   */
+  FileHeaderInfo?: FileHeaderInfo | string;
+
+  /**
+   * <p>A single character used for escaping when the field delimiter is part of the value.
+   *       For example, if the value is <code>a, b</code>, Amazon S3 wraps this
+   *       field value in quotation marks, as follows: <code>" a , b
+   *          "</code>.</p>
+   *          <p>Type: String</p>
+   *          <p>Default: <code>"</code>
+   *          </p>
+   *          <p>Ancestors: <code>CSV</code>
+   *          </p>
+   */
+  QuoteCharacter?: string;
+
+  /**
+   * <p>A single character used for escaping the quotation mark character inside an already escaped value. For example, the value """ a , b """ is parsed as " a , b ".</p>
+   */
+  QuoteEscapeCharacter?: string;
+
+  /**
+   * <p>A single character used to separate individual records in the input. Instead of the default value, you can specify an arbitrary delimiter.</p>
+   */
+  RecordDelimiter?: string;
+}
+
+export namespace CSVInput {
+  export const filterSensitiveLog = (obj: CSVInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CSVInput => __isa(o, "CSVInput");
+}
+
+/**
+ * <p>Describes how uncompressed comma-separated values (CSV)-formatted results are formatted.</p>
+ */
+export interface CSVOutput {
+  __type?: "CSVOutput";
+  /**
+   * <p>The value used to separate individual fields in a record. You can specify an arbitrary delimiter.</p>
+   */
+  FieldDelimiter?: string;
+
+  /**
+   * <p>A single character used for escaping when the field delimiter is part of the value. For example, if the value is <code>a, b</code>, Amazon S3 wraps this
+   *       field value in quotation marks, as follows: <code>" a , b
+   *          "</code>.</p>
+   */
+  QuoteCharacter?: string;
+
+  /**
+   * <p>The single character used for escaping the quote character inside an already escaped
+   *       value.</p>
+   */
+  QuoteEscapeCharacter?: string;
+
+  /**
+   * <p>Indicates whether to use quotation marks around output fields. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALWAYS</code>: Always use quotation marks for output fields.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ASNEEDED</code>: Use quotation marks for output fields when needed.</p>
+   *             </li>
+   *          </ul>
+   */
+  QuoteFields?: QuoteFields | string;
+
+  /**
+   * <p>A single character used to separate individual records in the output. Instead of the default value, you can specify an arbitrary delimiter.</p>
+   */
+  RecordDelimiter?: string;
+}
+
+export namespace CSVOutput {
+  export const filterSensitiveLog = (obj: CSVOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CSVOutput => __isa(o, "CSVOutput");
+}
+
+/**
  * <p>The container element for specifying the default Object Lock retention settings for new objects placed in the specified bucket.</p>
  */
 export interface DefaultRetention {
@@ -1760,6 +1760,39 @@ export namespace DeleteBucketWebsiteRequest {
 }
 
 /**
+ * <p>Information about the deleted object.</p>
+ */
+export interface DeletedObject {
+  __type?: "DeletedObject";
+  /**
+   * <p>Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker. In a simple DELETE, this header indicates whether (true) or not (false) a delete marker was created.</p>
+   */
+  DeleteMarker?: boolean;
+
+  /**
+   * <p>The version ID of the delete marker created as a result of the DELETE operation. If you delete a specific object version, the value returned by this header is the version ID of the object version deleted.</p>
+   */
+  DeleteMarkerVersionId?: string;
+
+  /**
+   * <p>The name of the deleted object.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The version ID of the deleted object.</p>
+   */
+  VersionId?: string;
+}
+
+export namespace DeletedObject {
+  export const filterSensitiveLog = (obj: DeletedObject): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeletedObject => __isa(o, "DeletedObject");
+}
+
+/**
  * <p>Information about the delete marker.</p>
  */
 export interface DeleteMarkerEntry {
@@ -1903,49 +1936,6 @@ export namespace DeleteObjectRequest {
     __isa(o, "DeleteObjectRequest");
 }
 
-export interface DeleteObjectTaggingOutput {
-  __type?: "DeleteObjectTaggingOutput";
-  /**
-   * <p>The versionId of the object the tag-set was removed from.</p>
-   */
-  VersionId?: string;
-}
-
-export namespace DeleteObjectTaggingOutput {
-  export const filterSensitiveLog = (obj: DeleteObjectTaggingOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteObjectTaggingOutput =>
-    __isa(o, "DeleteObjectTaggingOutput");
-}
-
-export interface DeleteObjectTaggingRequest {
-  __type?: "DeleteObjectTaggingRequest";
-  /**
-   * <p>The bucket name containing the objects from which to remove the tags. </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>Name of the tag.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The versionId of the object that the tag-set will be removed from.</p>
-   */
-  VersionId?: string;
-}
-
-export namespace DeleteObjectTaggingRequest {
-  export const filterSensitiveLog = (obj: DeleteObjectTaggingRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteObjectTaggingRequest =>
-    __isa(o, "DeleteObjectTaggingRequest");
-}
-
 export interface DeleteObjectsOutput {
   __type?: "DeleteObjectsOutput";
   /**
@@ -2014,6 +2004,49 @@ export namespace DeleteObjectsRequest {
     __isa(o, "DeleteObjectsRequest");
 }
 
+export interface DeleteObjectTaggingOutput {
+  __type?: "DeleteObjectTaggingOutput";
+  /**
+   * <p>The versionId of the object the tag-set was removed from.</p>
+   */
+  VersionId?: string;
+}
+
+export namespace DeleteObjectTaggingOutput {
+  export const filterSensitiveLog = (obj: DeleteObjectTaggingOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteObjectTaggingOutput =>
+    __isa(o, "DeleteObjectTaggingOutput");
+}
+
+export interface DeleteObjectTaggingRequest {
+  __type?: "DeleteObjectTaggingRequest";
+  /**
+   * <p>The bucket name containing the objects from which to remove the tags. </p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>Name of the tag.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The versionId of the object that the tag-set will be removed from.</p>
+   */
+  VersionId?: string;
+}
+
+export namespace DeleteObjectTaggingRequest {
+  export const filterSensitiveLog = (obj: DeleteObjectTaggingRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteObjectTaggingRequest =>
+    __isa(o, "DeleteObjectTaggingRequest");
+}
+
 export interface DeletePublicAccessBlockRequest {
   __type?: "DeletePublicAccessBlockRequest";
   /**
@@ -2031,39 +2064,6 @@ export namespace DeletePublicAccessBlockRequest {
   });
   export const isa = (o: any): o is DeletePublicAccessBlockRequest =>
     __isa(o, "DeletePublicAccessBlockRequest");
-}
-
-/**
- * <p>Information about the deleted object.</p>
- */
-export interface DeletedObject {
-  __type?: "DeletedObject";
-  /**
-   * <p>Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker. In a simple DELETE, this header indicates whether (true) or not (false) a delete marker was created.</p>
-   */
-  DeleteMarker?: boolean;
-
-  /**
-   * <p>The version ID of the delete marker created as a result of the DELETE operation. If you delete a specific object version, the value returned by this header is the version ID of the object version deleted.</p>
-   */
-  DeleteMarkerVersionId?: string;
-
-  /**
-   * <p>The name of the deleted object.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>The version ID of the deleted object.</p>
-   */
-  VersionId?: string;
-}
-
-export namespace DeletedObject {
-  export const filterSensitiveLog = (obj: DeletedObject): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeletedObject => __isa(o, "DeletedObject");
 }
 
 /**
@@ -6669,148 +6669,6 @@ export namespace ListMultipartUploadsRequest {
     __isa(o, "ListMultipartUploadsRequest");
 }
 
-export interface ListObjectVersionsOutput {
-  __type?: "ListObjectVersionsOutput";
-  /**
-   * <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>
-   */
-  CommonPrefixes?: CommonPrefix[];
-
-  /**
-   * <p>Container for an object that is a delete marker.</p>
-   */
-  DeleteMarkers?: DeleteMarkerEntry[];
-
-  /**
-   * <p>The delimiter grouping the included keys. A delimiter is a character that you specify to
-   *          group keys. All keys that contain the same string between the prefix and the first
-   *          occurrence of the delimiter are grouped under a single result element in
-   *             <code>CommonPrefixes</code>. These groups are counted as one result against the max-keys
-   *          limitation. These keys are not returned elsewhere in the response.</p>
-   */
-  Delimiter?: string;
-
-  /**
-   * <p>
-   *       Encoding type used by Amazon S3 to encode object key names in the XML response.</p>
-   *
-   *          <p>If you specify encoding-type request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:</p>
-   *
-   *          <p>
-   *             <code>KeyMarker, NextKeyMarker, Prefix, Key</code>, and <code>Delimiter</code>.</p>
-   */
-  EncodingType?: EncodingType | string;
-
-  /**
-   * <p>A flag that indicates whether Amazon S3 returned all of the results that satisfied the search
-   *          criteria. If your results were truncated, you can make a follow-up paginated request using
-   *          the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in
-   *          another request to return the rest of the results.</p>
-   */
-  IsTruncated?: boolean;
-
-  /**
-   * <p>Marks the last key returned in a truncated response.</p>
-   */
-  KeyMarker?: string;
-
-  /**
-   * <p>Specifies the maximum number of objects to return.</p>
-   */
-  MaxKeys?: number;
-
-  /**
-   * <p>Bucket name.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>When the number of responses exceeds the value of <code>MaxKeys</code>,
-   *             <code>NextKeyMarker</code> specifies the first key not returned that satisfies the
-   *          search criteria. Use this value for the key-marker request parameter in a subsequent
-   *          request.</p>
-   */
-  NextKeyMarker?: string;
-
-  /**
-   * <p>When the number of responses exceeds the value of <code>MaxKeys</code>,
-   *             <code>NextVersionIdMarker</code> specifies the first object version not returned that
-   *          satisfies the search criteria. Use this value for the version-id-marker request parameter
-   *          in a subsequent request.</p>
-   */
-  NextVersionIdMarker?: string;
-
-  /**
-   * <p>Selects objects that start with the value supplied by this parameter.</p>
-   */
-  Prefix?: string;
-
-  /**
-   * <p>Marks the last version of the key returned in a truncated response.</p>
-   */
-  VersionIdMarker?: string;
-
-  /**
-   * <p>Container for version information.</p>
-   */
-  Versions?: ObjectVersion[];
-}
-
-export namespace ListObjectVersionsOutput {
-  export const filterSensitiveLog = (obj: ListObjectVersionsOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListObjectVersionsOutput =>
-    __isa(o, "ListObjectVersionsOutput");
-}
-
-export interface ListObjectVersionsRequest {
-  __type?: "ListObjectVersionsRequest";
-  /**
-   * <p>The bucket  name that contains the objects.  </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>A delimiter is a character that you specify to group keys. All keys that contain the same string between the <code>prefix</code> and the first occurrence of the delimiter are grouped under a single result element in CommonPrefixes. These groups are counted as one result against the max-keys limitation. These keys are not returned elsewhere in the response.</p>
-   */
-  Delimiter?: string;
-
-  /**
-   * <p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.</p>
-   */
-  EncodingType?: EncodingType | string;
-
-  /**
-   * <p>Specifies the key to start with when listing objects in a bucket.</p>
-   */
-  KeyMarker?: string;
-
-  /**
-   * <p>Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more. If additional keys satisfy the search criteria, but were not returned because max-keys was exceeded, the response contains <isTruncated>true</isTruncated>. To return the additional keys, see key-marker and version-id-marker.</p>
-   */
-  MaxKeys?: number;
-
-  /**
-   * <p>Use this parameter to select only those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different groupings of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.) You can use prefix with delimiter to roll up numerous objects into a single result under CommonPrefixes. </p>
-   */
-  Prefix?: string;
-
-  /**
-   * <p>Specifies the object version you want to start listing from.</p>
-   */
-  VersionIdMarker?: string;
-}
-
-export namespace ListObjectVersionsRequest {
-  export const filterSensitiveLog = (obj: ListObjectVersionsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListObjectVersionsRequest =>
-    __isa(o, "ListObjectVersionsRequest");
-}
-
 export interface ListObjectsOutput {
   __type?: "ListObjectsOutput";
   /**
@@ -7085,6 +6943,148 @@ export namespace ListObjectsV2Request {
     __isa(o, "ListObjectsV2Request");
 }
 
+export interface ListObjectVersionsOutput {
+  __type?: "ListObjectVersionsOutput";
+  /**
+   * <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>
+   */
+  CommonPrefixes?: CommonPrefix[];
+
+  /**
+   * <p>Container for an object that is a delete marker.</p>
+   */
+  DeleteMarkers?: DeleteMarkerEntry[];
+
+  /**
+   * <p>The delimiter grouping the included keys. A delimiter is a character that you specify to
+   *          group keys. All keys that contain the same string between the prefix and the first
+   *          occurrence of the delimiter are grouped under a single result element in
+   *             <code>CommonPrefixes</code>. These groups are counted as one result against the max-keys
+   *          limitation. These keys are not returned elsewhere in the response.</p>
+   */
+  Delimiter?: string;
+
+  /**
+   * <p>
+   *       Encoding type used by Amazon S3 to encode object key names in the XML response.</p>
+   *
+   *          <p>If you specify encoding-type request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:</p>
+   *
+   *          <p>
+   *             <code>KeyMarker, NextKeyMarker, Prefix, Key</code>, and <code>Delimiter</code>.</p>
+   */
+  EncodingType?: EncodingType | string;
+
+  /**
+   * <p>A flag that indicates whether Amazon S3 returned all of the results that satisfied the search
+   *          criteria. If your results were truncated, you can make a follow-up paginated request using
+   *          the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in
+   *          another request to return the rest of the results.</p>
+   */
+  IsTruncated?: boolean;
+
+  /**
+   * <p>Marks the last key returned in a truncated response.</p>
+   */
+  KeyMarker?: string;
+
+  /**
+   * <p>Specifies the maximum number of objects to return.</p>
+   */
+  MaxKeys?: number;
+
+  /**
+   * <p>Bucket name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>When the number of responses exceeds the value of <code>MaxKeys</code>,
+   *             <code>NextKeyMarker</code> specifies the first key not returned that satisfies the
+   *          search criteria. Use this value for the key-marker request parameter in a subsequent
+   *          request.</p>
+   */
+  NextKeyMarker?: string;
+
+  /**
+   * <p>When the number of responses exceeds the value of <code>MaxKeys</code>,
+   *             <code>NextVersionIdMarker</code> specifies the first object version not returned that
+   *          satisfies the search criteria. Use this value for the version-id-marker request parameter
+   *          in a subsequent request.</p>
+   */
+  NextVersionIdMarker?: string;
+
+  /**
+   * <p>Selects objects that start with the value supplied by this parameter.</p>
+   */
+  Prefix?: string;
+
+  /**
+   * <p>Marks the last version of the key returned in a truncated response.</p>
+   */
+  VersionIdMarker?: string;
+
+  /**
+   * <p>Container for version information.</p>
+   */
+  Versions?: ObjectVersion[];
+}
+
+export namespace ListObjectVersionsOutput {
+  export const filterSensitiveLog = (obj: ListObjectVersionsOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListObjectVersionsOutput =>
+    __isa(o, "ListObjectVersionsOutput");
+}
+
+export interface ListObjectVersionsRequest {
+  __type?: "ListObjectVersionsRequest";
+  /**
+   * <p>The bucket  name that contains the objects.  </p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>A delimiter is a character that you specify to group keys. All keys that contain the same string between the <code>prefix</code> and the first occurrence of the delimiter are grouped under a single result element in CommonPrefixes. These groups are counted as one result against the max-keys limitation. These keys are not returned elsewhere in the response.</p>
+   */
+  Delimiter?: string;
+
+  /**
+   * <p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.</p>
+   */
+  EncodingType?: EncodingType | string;
+
+  /**
+   * <p>Specifies the key to start with when listing objects in a bucket.</p>
+   */
+  KeyMarker?: string;
+
+  /**
+   * <p>Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more. If additional keys satisfy the search criteria, but were not returned because max-keys was exceeded, the response contains <isTruncated>true</isTruncated>. To return the additional keys, see key-marker and version-id-marker.</p>
+   */
+  MaxKeys?: number;
+
+  /**
+   * <p>Use this parameter to select only those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different groupings of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.) You can use prefix with delimiter to roll up numerous objects into a single result under CommonPrefixes. </p>
+   */
+  Prefix?: string;
+
+  /**
+   * <p>Specifies the object version you want to start listing from.</p>
+   */
+  VersionIdMarker?: string;
+}
+
+export namespace ListObjectVersionsRequest {
+  export const filterSensitiveLog = (obj: ListObjectVersionsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListObjectVersionsRequest =>
+    __isa(o, "ListObjectVersionsRequest");
+}
+
 export interface ListPartsOutput {
   __type?: "ListPartsOutput";
   /**
@@ -7259,10 +7259,6 @@ export namespace LoggingEnabled {
     __isa(o, "LoggingEnabled");
 }
 
-export type MFADelete = "Disabled" | "Enabled";
-
-export type MFADeleteStatus = "Disabled" | "Enabled";
-
 export type MetadataDirective = "COPY" | "REPLACE";
 
 /**
@@ -7402,6 +7398,10 @@ export namespace MetricsFilter {
 
 export type MetricsStatus = "Disabled" | "Enabled";
 
+export type MFADelete = "Disabled" | "Enabled";
+
+export type MFADeleteStatus = "Disabled" | "Enabled";
+
 /**
  * <p>Container for the <code>MultipartUpload</code> for the Amazon S3 object.</p>
  */
@@ -7444,51 +7444,6 @@ export namespace MultipartUpload {
   });
   export const isa = (o: any): o is MultipartUpload =>
     __isa(o, "MultipartUpload");
-}
-
-/**
- * <p>The specified bucket does not exist.</p>
- */
-export interface NoSuchBucket extends __SmithyException, $MetadataBearer {
-  name: "NoSuchBucket";
-  $fault: "client";
-}
-
-export namespace NoSuchBucket {
-  export const filterSensitiveLog = (obj: NoSuchBucket): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NoSuchBucket => __isa(o, "NoSuchBucket");
-}
-
-/**
- * <p>The specified key does not exist.</p>
- */
-export interface NoSuchKey extends __SmithyException, $MetadataBearer {
-  name: "NoSuchKey";
-  $fault: "client";
-}
-
-export namespace NoSuchKey {
-  export const filterSensitiveLog = (obj: NoSuchKey): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NoSuchKey => __isa(o, "NoSuchKey");
-}
-
-/**
- * <p>The specified multipart upload does not exist.</p>
- */
-export interface NoSuchUpload extends __SmithyException, $MetadataBearer {
-  name: "NoSuchUpload";
-  $fault: "client";
-}
-
-export namespace NoSuchUpload {
-  export const filterSensitiveLog = (obj: NoSuchUpload): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NoSuchUpload => __isa(o, "NoSuchUpload");
 }
 
 /**
@@ -7543,6 +7498,51 @@ export namespace NoncurrentVersionTransition {
   });
   export const isa = (o: any): o is NoncurrentVersionTransition =>
     __isa(o, "NoncurrentVersionTransition");
+}
+
+/**
+ * <p>The specified bucket does not exist.</p>
+ */
+export interface NoSuchBucket extends __SmithyException, $MetadataBearer {
+  name: "NoSuchBucket";
+  $fault: "client";
+}
+
+export namespace NoSuchBucket {
+  export const filterSensitiveLog = (obj: NoSuchBucket): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NoSuchBucket => __isa(o, "NoSuchBucket");
+}
+
+/**
+ * <p>The specified key does not exist.</p>
+ */
+export interface NoSuchKey extends __SmithyException, $MetadataBearer {
+  name: "NoSuchKey";
+  $fault: "client";
+}
+
+export namespace NoSuchKey {
+  export const filterSensitiveLog = (obj: NoSuchKey): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NoSuchKey => __isa(o, "NoSuchKey");
+}
+
+/**
+ * <p>The specified multipart upload does not exist.</p>
+ */
+export interface NoSuchUpload extends __SmithyException, $MetadataBearer {
+  name: "NoSuchUpload";
+  $fault: "client";
+}
+
+export namespace NoSuchUpload {
+  export const filterSensitiveLog = (obj: NoSuchUpload): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NoSuchUpload => __isa(o, "NoSuchUpload");
 }
 
 /**
@@ -9895,40 +9895,6 @@ export namespace S3Location {
 }
 
 /**
- * <p>Specifies the use of SSE-KMS to encrypt delivered inventory reports.</p>
- */
-export interface SSEKMS {
-  __type?: "SSEKMS";
-  /**
-   * <p>Specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) to use
-   *          for encrypting inventory reports.</p>
-   */
-  KeyId: string | undefined;
-}
-
-export namespace SSEKMS {
-  export const filterSensitiveLog = (obj: SSEKMS): any => ({
-    ...obj,
-    ...(obj.KeyId && { KeyId: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is SSEKMS => __isa(o, "SSEKMS");
-}
-
-/**
- * <p>Specifies the use of SSE-S3 to encrypt delivered inventory reports.</p>
- */
-export interface SSES3 {
-  __type?: "SSES3";
-}
-
-export namespace SSES3 {
-  export const filterSensitiveLog = (obj: SSES3): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SSES3 => __isa(o, "SSES3");
-}
-
-/**
  * <p>Specifies the byte range of the object to get the records from. A record is processed when its first byte is contained by the range. This parameter is optional,
  *          but when specified, it must not be empty. See RFC 2616, Section 14.35.1 about how to specify the start and end of the range.</p>
  */
@@ -10304,6 +10270,26 @@ export namespace SourceSelectionCriteria {
 }
 
 /**
+ * <p>Specifies the use of SSE-KMS to encrypt delivered inventory reports.</p>
+ */
+export interface SSEKMS {
+  __type?: "SSEKMS";
+  /**
+   * <p>Specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) to use
+   *          for encrypting inventory reports.</p>
+   */
+  KeyId: string | undefined;
+}
+
+export namespace SSEKMS {
+  export const filterSensitiveLog = (obj: SSEKMS): any => ({
+    ...obj,
+    ...(obj.KeyId && { KeyId: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is SSEKMS => __isa(o, "SSEKMS");
+}
+
+/**
  * <p>A container for filter information for the selection of S3 objects encrypted with AWS
  *       KMS.</p>
  */
@@ -10324,6 +10310,20 @@ export namespace SseKmsEncryptedObjects {
 }
 
 export type SseKmsEncryptedObjectsStatus = "Disabled" | "Enabled";
+
+/**
+ * <p>Specifies the use of SSE-S3 to encrypt delivered inventory reports.</p>
+ */
+export interface SSES3 {
+  __type?: "SSES3";
+}
+
+export namespace SSES3 {
+  export const filterSensitiveLog = (obj: SSES3): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SSES3 => __isa(o, "SSES3");
+}
 
 /**
  * <p>Container for the stats details.</p>

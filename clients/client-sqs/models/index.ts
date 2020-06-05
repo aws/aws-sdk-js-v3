@@ -985,38 +985,6 @@ export namespace ListDeadLetterSourceQueuesResult {
     __isa(o, "ListDeadLetterSourceQueuesResult");
 }
 
-export interface ListQueueTagsRequest {
-  __type?: "ListQueueTagsRequest";
-  /**
-   * <p>The URL of the queue.</p>
-   */
-  QueueUrl: string | undefined;
-}
-
-export namespace ListQueueTagsRequest {
-  export const filterSensitiveLog = (obj: ListQueueTagsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListQueueTagsRequest =>
-    __isa(o, "ListQueueTagsRequest");
-}
-
-export interface ListQueueTagsResult {
-  __type?: "ListQueueTagsResult";
-  /**
-   * <p>The list of all tags added to the specified queue.</p>
-   */
-  Tags?: { [key: string]: string };
-}
-
-export namespace ListQueueTagsResult {
-  export const filterSensitiveLog = (obj: ListQueueTagsResult): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListQueueTagsResult =>
-    __isa(o, "ListQueueTagsResult");
-}
-
 /**
  * <p></p>
  */
@@ -1054,6 +1022,38 @@ export namespace ListQueuesResult {
   });
   export const isa = (o: any): o is ListQueuesResult =>
     __isa(o, "ListQueuesResult");
+}
+
+export interface ListQueueTagsRequest {
+  __type?: "ListQueueTagsRequest";
+  /**
+   * <p>The URL of the queue.</p>
+   */
+  QueueUrl: string | undefined;
+}
+
+export namespace ListQueueTagsRequest {
+  export const filterSensitiveLog = (obj: ListQueueTagsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListQueueTagsRequest =>
+    __isa(o, "ListQueueTagsRequest");
+}
+
+export interface ListQueueTagsResult {
+  __type?: "ListQueueTagsResult";
+  /**
+   * <p>The list of all tags added to the specified queue.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace ListQueueTagsResult {
+  export const filterSensitiveLog = (obj: ListQueueTagsResult): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListQueueTagsResult =>
+    __isa(o, "ListQueueTagsResult");
 }
 
 /**

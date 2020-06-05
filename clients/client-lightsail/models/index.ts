@@ -209,6 +209,30 @@ export namespace AttachDiskResult {
     __isa(o, "AttachDiskResult");
 }
 
+/**
+ * <p>Describes a block storage disk that is attached to an instance, and is included in an
+ *       automatic snapshot.</p>
+ */
+export interface AttachedDisk {
+  __type?: "AttachedDisk";
+  /**
+   * <p>The path of the disk (e.g., <code>/dev/xvdf</code>).</p>
+   */
+  path?: string;
+
+  /**
+   * <p>The size of the disk in GB.</p>
+   */
+  sizeInGb?: number;
+}
+
+export namespace AttachedDisk {
+  export const filterSensitiveLog = (obj: AttachedDisk): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AttachedDisk => __isa(o, "AttachedDisk");
+}
+
 export interface AttachInstancesToLoadBalancerRequest {
   __type?: "AttachInstancesToLoadBalancerRequest";
   /**
@@ -335,30 +359,6 @@ export namespace AttachStaticIpResult {
   });
   export const isa = (o: any): o is AttachStaticIpResult =>
     __isa(o, "AttachStaticIpResult");
-}
-
-/**
- * <p>Describes a block storage disk that is attached to an instance, and is included in an
- *       automatic snapshot.</p>
- */
-export interface AttachedDisk {
-  __type?: "AttachedDisk";
-  /**
-   * <p>The path of the disk (e.g., <code>/dev/xvdf</code>).</p>
-   */
-  path?: string;
-
-  /**
-   * <p>The size of the disk in GB.</p>
-   */
-  sizeInGb?: number;
-}
-
-export namespace AttachedDisk {
-  export const filterSensitiveLog = (obj: AttachedDisk): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AttachedDisk => __isa(o, "AttachedDisk");
 }
 
 /**
@@ -1268,55 +1268,6 @@ export namespace CreateDomainResult {
     __isa(o, "CreateDomainResult");
 }
 
-export interface CreateInstanceSnapshotRequest {
-  __type?: "CreateInstanceSnapshotRequest";
-  /**
-   * <p>The Lightsail instance on which to base your snapshot.</p>
-   */
-  instanceName: string | undefined;
-
-  /**
-   * <p>The name for your new snapshot.</p>
-   */
-  instanceSnapshotName: string | undefined;
-
-  /**
-   * <p>The tag keys and optional values to add to the resource during create.</p>
-   *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
-   *       operation.</p>
-   */
-  tags?: Tag[];
-}
-
-export namespace CreateInstanceSnapshotRequest {
-  export const filterSensitiveLog = (
-    obj: CreateInstanceSnapshotRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CreateInstanceSnapshotRequest =>
-    __isa(o, "CreateInstanceSnapshotRequest");
-}
-
-export interface CreateInstanceSnapshotResult {
-  __type?: "CreateInstanceSnapshotResult";
-  /**
-   * <p>An array of key-value pairs containing information about the results of your create
-   *       instances snapshot request.</p>
-   */
-  operations?: Operation[];
-}
-
-export namespace CreateInstanceSnapshotResult {
-  export const filterSensitiveLog = (
-    obj: CreateInstanceSnapshotResult
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CreateInstanceSnapshotResult =>
-    __isa(o, "CreateInstanceSnapshotResult");
-}
-
 export interface CreateInstancesFromSnapshotRequest {
   __type?: "CreateInstancesFromSnapshotRequest";
   /**
@@ -1474,6 +1425,55 @@ export namespace CreateInstancesFromSnapshotResult {
   });
   export const isa = (o: any): o is CreateInstancesFromSnapshotResult =>
     __isa(o, "CreateInstancesFromSnapshotResult");
+}
+
+export interface CreateInstanceSnapshotRequest {
+  __type?: "CreateInstanceSnapshotRequest";
+  /**
+   * <p>The Lightsail instance on which to base your snapshot.</p>
+   */
+  instanceName: string | undefined;
+
+  /**
+   * <p>The name for your new snapshot.</p>
+   */
+  instanceSnapshotName: string | undefined;
+
+  /**
+   * <p>The tag keys and optional values to add to the resource during create.</p>
+   *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
+   *       operation.</p>
+   */
+  tags?: Tag[];
+}
+
+export namespace CreateInstanceSnapshotRequest {
+  export const filterSensitiveLog = (
+    obj: CreateInstanceSnapshotRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CreateInstanceSnapshotRequest =>
+    __isa(o, "CreateInstanceSnapshotRequest");
+}
+
+export interface CreateInstanceSnapshotResult {
+  __type?: "CreateInstanceSnapshotResult";
+  /**
+   * <p>An array of key-value pairs containing information about the results of your create
+   *       instances snapshot request.</p>
+   */
+  operations?: Operation[];
+}
+
+export namespace CreateInstanceSnapshotResult {
+  export const filterSensitiveLog = (
+    obj: CreateInstanceSnapshotResult
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CreateInstanceSnapshotResult =>
+    __isa(o, "CreateInstanceSnapshotResult");
 }
 
 export interface CreateInstancesRequest {
@@ -4228,38 +4228,6 @@ export namespace GetInstanceSnapshotsResult {
     __isa(o, "GetInstanceSnapshotsResult");
 }
 
-export interface GetInstanceStateRequest {
-  __type?: "GetInstanceStateRequest";
-  /**
-   * <p>The name of the instance to get state information about.</p>
-   */
-  instanceName: string | undefined;
-}
-
-export namespace GetInstanceStateRequest {
-  export const filterSensitiveLog = (obj: GetInstanceStateRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetInstanceStateRequest =>
-    __isa(o, "GetInstanceStateRequest");
-}
-
-export interface GetInstanceStateResult {
-  __type?: "GetInstanceStateResult";
-  /**
-   * <p>The state of the instance.</p>
-   */
-  state?: InstanceState;
-}
-
-export namespace GetInstanceStateResult {
-  export const filterSensitiveLog = (obj: GetInstanceStateResult): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetInstanceStateResult =>
-    __isa(o, "GetInstanceStateResult");
-}
-
 export interface GetInstancesRequest {
   __type?: "GetInstancesRequest";
   /**
@@ -4297,6 +4265,38 @@ export namespace GetInstancesResult {
   });
   export const isa = (o: any): o is GetInstancesResult =>
     __isa(o, "GetInstancesResult");
+}
+
+export interface GetInstanceStateRequest {
+  __type?: "GetInstanceStateRequest";
+  /**
+   * <p>The name of the instance to get state information about.</p>
+   */
+  instanceName: string | undefined;
+}
+
+export namespace GetInstanceStateRequest {
+  export const filterSensitiveLog = (obj: GetInstanceStateRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetInstanceStateRequest =>
+    __isa(o, "GetInstanceStateRequest");
+}
+
+export interface GetInstanceStateResult {
+  __type?: "GetInstanceStateResult";
+  /**
+   * <p>The state of the instance.</p>
+   */
+  state?: InstanceState;
+}
+
+export namespace GetInstanceStateResult {
+  export const filterSensitiveLog = (obj: GetInstanceStateResult): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetInstanceStateResult =>
+    __isa(o, "GetInstanceStateResult");
 }
 
 export interface GetKeyPairRequest {
@@ -4799,43 +4799,6 @@ export namespace GetLoadBalancerResult {
     __isa(o, "GetLoadBalancerResult");
 }
 
-export interface GetLoadBalancerTlsCertificatesRequest {
-  __type?: "GetLoadBalancerTlsCertificatesRequest";
-  /**
-   * <p>The name of the load balancer you associated with your SSL/TLS certificate.</p>
-   */
-  loadBalancerName: string | undefined;
-}
-
-export namespace GetLoadBalancerTlsCertificatesRequest {
-  export const filterSensitiveLog = (
-    obj: GetLoadBalancerTlsCertificatesRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetLoadBalancerTlsCertificatesRequest =>
-    __isa(o, "GetLoadBalancerTlsCertificatesRequest");
-}
-
-export interface GetLoadBalancerTlsCertificatesResult {
-  __type?: "GetLoadBalancerTlsCertificatesResult";
-  /**
-   * <p>An array of LoadBalancerTlsCertificate objects describing your SSL/TLS
-   *       certificates.</p>
-   */
-  tlsCertificates?: LoadBalancerTlsCertificate[];
-}
-
-export namespace GetLoadBalancerTlsCertificatesResult {
-  export const filterSensitiveLog = (
-    obj: GetLoadBalancerTlsCertificatesResult
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetLoadBalancerTlsCertificatesResult =>
-    __isa(o, "GetLoadBalancerTlsCertificatesResult");
-}
-
 export interface GetLoadBalancersRequest {
   __type?: "GetLoadBalancersRequest";
   /**
@@ -4872,6 +4835,43 @@ export namespace GetLoadBalancersResult {
   });
   export const isa = (o: any): o is GetLoadBalancersResult =>
     __isa(o, "GetLoadBalancersResult");
+}
+
+export interface GetLoadBalancerTlsCertificatesRequest {
+  __type?: "GetLoadBalancerTlsCertificatesRequest";
+  /**
+   * <p>The name of the load balancer you associated with your SSL/TLS certificate.</p>
+   */
+  loadBalancerName: string | undefined;
+}
+
+export namespace GetLoadBalancerTlsCertificatesRequest {
+  export const filterSensitiveLog = (
+    obj: GetLoadBalancerTlsCertificatesRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetLoadBalancerTlsCertificatesRequest =>
+    __isa(o, "GetLoadBalancerTlsCertificatesRequest");
+}
+
+export interface GetLoadBalancerTlsCertificatesResult {
+  __type?: "GetLoadBalancerTlsCertificatesResult";
+  /**
+   * <p>An array of LoadBalancerTlsCertificate objects describing your SSL/TLS
+   *       certificates.</p>
+   */
+  tlsCertificates?: LoadBalancerTlsCertificate[];
+}
+
+export namespace GetLoadBalancerTlsCertificatesResult {
+  export const filterSensitiveLog = (
+    obj: GetLoadBalancerTlsCertificatesResult
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetLoadBalancerTlsCertificatesResult =>
+    __isa(o, "GetLoadBalancerTlsCertificatesResult");
 }
 
 export interface GetOperationRequest {

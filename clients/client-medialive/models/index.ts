@@ -6299,6 +6299,54 @@ export namespace ListInputsResponse {
 }
 
 /**
+ * Placeholder documentation for ListMultiplexesRequest
+ */
+export interface ListMultiplexesRequest {
+  __type?: "ListMultiplexesRequest";
+  /**
+   * The maximum number of items to return.
+   */
+  MaxResults?: number;
+
+  /**
+   * The token to retrieve the next page of results.
+   */
+  NextToken?: string;
+}
+
+export namespace ListMultiplexesRequest {
+  export const filterSensitiveLog = (obj: ListMultiplexesRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListMultiplexesRequest =>
+    __isa(o, "ListMultiplexesRequest");
+}
+
+/**
+ * Placeholder documentation for ListMultiplexesResponse
+ */
+export interface ListMultiplexesResponse {
+  __type?: "ListMultiplexesResponse";
+  /**
+   * List of multiplexes.
+   */
+  Multiplexes?: MultiplexSummary[];
+
+  /**
+   * Token for the next ListMultiplexes request.
+   */
+  NextToken?: string;
+}
+
+export namespace ListMultiplexesResponse {
+  export const filterSensitiveLog = (obj: ListMultiplexesResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListMultiplexesResponse =>
+    __isa(o, "ListMultiplexesResponse");
+}
+
+/**
  * Placeholder documentation for ListMultiplexProgramsRequest
  */
 export interface ListMultiplexProgramsRequest {
@@ -6353,54 +6401,6 @@ export namespace ListMultiplexProgramsResponse {
   });
   export const isa = (o: any): o is ListMultiplexProgramsResponse =>
     __isa(o, "ListMultiplexProgramsResponse");
-}
-
-/**
- * Placeholder documentation for ListMultiplexesRequest
- */
-export interface ListMultiplexesRequest {
-  __type?: "ListMultiplexesRequest";
-  /**
-   * The maximum number of items to return.
-   */
-  MaxResults?: number;
-
-  /**
-   * The token to retrieve the next page of results.
-   */
-  NextToken?: string;
-}
-
-export namespace ListMultiplexesRequest {
-  export const filterSensitiveLog = (obj: ListMultiplexesRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListMultiplexesRequest =>
-    __isa(o, "ListMultiplexesRequest");
-}
-
-/**
- * Placeholder documentation for ListMultiplexesResponse
- */
-export interface ListMultiplexesResponse {
-  __type?: "ListMultiplexesResponse";
-  /**
-   * List of multiplexes.
-   */
-  Multiplexes?: MultiplexSummary[];
-
-  /**
-   * Token for the next ListMultiplexes request.
-   */
-  NextToken?: string;
-}
-
-export namespace ListMultiplexesResponse {
-  export const filterSensitiveLog = (obj: ListMultiplexesResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListMultiplexesResponse =>
-    __isa(o, "ListMultiplexesResponse");
 }
 
 /**

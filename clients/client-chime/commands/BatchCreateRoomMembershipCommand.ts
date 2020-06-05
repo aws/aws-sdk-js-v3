@@ -8,9 +8,9 @@ import {
   BatchCreateRoomMembershipResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1BatchCreateRoomMembershipCommand,
-  serializeAws_restJson1_1BatchCreateRoomMembershipCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1BatchCreateRoomMembershipCommand,
+  serializeAws_restJson1BatchCreateRoomMembershipCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class BatchCreateRoomMembershipCommand extends $Command<
     input: BatchCreateRoomMembershipCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1BatchCreateRoomMembershipCommand(
+    return serializeAws_restJson1BatchCreateRoomMembershipCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class BatchCreateRoomMembershipCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchCreateRoomMembershipCommandOutput> {
-    return deserializeAws_restJson1_1BatchCreateRoomMembershipCommand(
+    return deserializeAws_restJson1BatchCreateRoomMembershipCommand(
       output,
       context
     );

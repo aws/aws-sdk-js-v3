@@ -5,9 +5,9 @@ import {
 } from "../QLDBClient";
 import { GetBlockRequest, GetBlockResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetBlockCommand,
-  serializeAws_restJson1_1GetBlockCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetBlockCommand,
+  serializeAws_restJson1GetBlockCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetBlockCommand extends $Command<
     input: GetBlockCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetBlockCommand(input, context);
+    return serializeAws_restJson1GetBlockCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBlockCommandOutput> {
-    return deserializeAws_restJson1_1GetBlockCommand(output, context);
+    return deserializeAws_restJson1GetBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -8,9 +8,9 @@ import {
   UpdateDashboardPublishedVersionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommand,
-  serializeAws_restJson1_1UpdateDashboardPublishedVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateDashboardPublishedVersionCommand,
+  serializeAws_restJson1UpdateDashboardPublishedVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdateDashboardPublishedVersionCommand extends $Command<
     input: UpdateDashboardPublishedVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDashboardPublishedVersionCommand(
+    return serializeAws_restJson1UpdateDashboardPublishedVersionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdateDashboardPublishedVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDashboardPublishedVersionCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommand(
+    return deserializeAws_restJson1UpdateDashboardPublishedVersionCommand(
       output,
       context
     );

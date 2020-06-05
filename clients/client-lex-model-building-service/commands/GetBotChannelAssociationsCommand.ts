@@ -8,9 +8,9 @@ import {
   GetBotChannelAssociationsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetBotChannelAssociationsCommand,
-  serializeAws_restJson1_1GetBotChannelAssociationsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetBotChannelAssociationsCommand,
+  serializeAws_restJson1GetBotChannelAssociationsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetBotChannelAssociationsCommand extends $Command<
     input: GetBotChannelAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetBotChannelAssociationsCommand(
+    return serializeAws_restJson1GetBotChannelAssociationsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetBotChannelAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBotChannelAssociationsCommandOutput> {
-    return deserializeAws_restJson1_1GetBotChannelAssociationsCommand(
+    return deserializeAws_restJson1GetBotChannelAssociationsCommand(
       output,
       context
     );

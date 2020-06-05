@@ -8,9 +8,9 @@ import {
   GetDeviceDefinitionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetDeviceDefinitionCommand,
-  serializeAws_restJson1_1GetDeviceDefinitionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetDeviceDefinitionCommand,
+  serializeAws_restJson1GetDeviceDefinitionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetDeviceDefinitionCommand extends $Command<
     input: GetDeviceDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDeviceDefinitionCommand(input, context);
+    return serializeAws_restJson1GetDeviceDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDeviceDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1GetDeviceDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetDeviceDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { GetModelRequest, Model } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetModelCommand,
-  serializeAws_restJson1_1GetModelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetModelCommand,
+  serializeAws_restJson1GetModelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetModelCommand extends $Command<
     input: GetModelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetModelCommand(input, context);
+    return serializeAws_restJson1GetModelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetModelCommandOutput> {
-    return deserializeAws_restJson1_1GetModelCommand(output, context);
+    return deserializeAws_restJson1GetModelCommand(output, context);
   }
 
   // Start section: command_body_extra

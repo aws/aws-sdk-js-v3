@@ -4131,11 +4131,6 @@ export namespace Hdr10Metadata {
   export const isa = (o: any): o is Hdr10Metadata => __isa(o, "Hdr10Metadata");
 }
 
-export enum HlsAdMarkers {
-  ELEMENTAL = "ELEMENTAL",
-  ELEMENTAL_SCTE35 = "ELEMENTAL_SCTE35"
-}
-
 /**
  * Specify the details for each additional HLS manifest that you want the service to generate for this output group. Each manifest can reference a different subset of outputs in the group.
  */
@@ -4158,6 +4153,11 @@ export namespace HlsAdditionalManifest {
   });
   export const isa = (o: any): o is HlsAdditionalManifest =>
     __isa(o, "HlsAdditionalManifest");
+}
+
+export enum HlsAdMarkers {
+  ELEMENTAL = "ELEMENTAL",
+  ELEMENTAL_SCTE35 = "ELEMENTAL_SCTE35"
 }
 
 export enum HlsAudioOnlyContainer {
@@ -5522,63 +5522,6 @@ export enum LanguageCode {
   ZUL = "ZUL"
 }
 
-export interface ListJobTemplatesRequest {
-  __type?: "ListJobTemplatesRequest";
-  /**
-   * Optionally, specify a job template category to limit responses to only job templates from that category.
-   */
-  Category?: string;
-
-  /**
-   * Optional. When you request a list of job templates, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.
-   */
-  ListBy?: JobTemplateListBy | string;
-
-  /**
-   * Optional. Number of job templates, up to twenty, that will be returned at one time.
-   */
-  MaxResults?: number;
-
-  /**
-   * Use this string, provided with the response to a previous request, to request the next batch of job templates.
-   */
-  NextToken?: string;
-
-  /**
-   * When you request lists of resources, you can optionally specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
-   */
-  Order?: Order | string;
-}
-
-export namespace ListJobTemplatesRequest {
-  export const filterSensitiveLog = (obj: ListJobTemplatesRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListJobTemplatesRequest =>
-    __isa(o, "ListJobTemplatesRequest");
-}
-
-export interface ListJobTemplatesResponse {
-  __type?: "ListJobTemplatesResponse";
-  /**
-   * List of Job templates.
-   */
-  JobTemplates?: JobTemplate[];
-
-  /**
-   * Use this string to request the next batch of job templates.
-   */
-  NextToken?: string;
-}
-
-export namespace ListJobTemplatesResponse {
-  export const filterSensitiveLog = (obj: ListJobTemplatesResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListJobTemplatesResponse =>
-    __isa(o, "ListJobTemplatesResponse");
-}
-
 export interface ListJobsRequest {
   __type?: "ListJobsRequest";
   /**
@@ -5634,6 +5577,63 @@ export namespace ListJobsResponse {
   });
   export const isa = (o: any): o is ListJobsResponse =>
     __isa(o, "ListJobsResponse");
+}
+
+export interface ListJobTemplatesRequest {
+  __type?: "ListJobTemplatesRequest";
+  /**
+   * Optionally, specify a job template category to limit responses to only job templates from that category.
+   */
+  Category?: string;
+
+  /**
+   * Optional. When you request a list of job templates, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.
+   */
+  ListBy?: JobTemplateListBy | string;
+
+  /**
+   * Optional. Number of job templates, up to twenty, that will be returned at one time.
+   */
+  MaxResults?: number;
+
+  /**
+   * Use this string, provided with the response to a previous request, to request the next batch of job templates.
+   */
+  NextToken?: string;
+
+  /**
+   * When you request lists of resources, you can optionally specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+   */
+  Order?: Order | string;
+}
+
+export namespace ListJobTemplatesRequest {
+  export const filterSensitiveLog = (obj: ListJobTemplatesRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListJobTemplatesRequest =>
+    __isa(o, "ListJobTemplatesRequest");
+}
+
+export interface ListJobTemplatesResponse {
+  __type?: "ListJobTemplatesResponse";
+  /**
+   * List of Job templates.
+   */
+  JobTemplates?: JobTemplate[];
+
+  /**
+   * Use this string to request the next batch of job templates.
+   */
+  NextToken?: string;
+}
+
+export namespace ListJobTemplatesResponse {
+  export const filterSensitiveLog = (obj: ListJobTemplatesResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListJobTemplatesResponse =>
+    __isa(o, "ListJobTemplatesResponse");
 }
 
 export interface ListPresetsRequest {

@@ -8,9 +8,9 @@ import {
   StartPipelineReprocessingResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1StartPipelineReprocessingCommand,
-  serializeAws_restJson1_1StartPipelineReprocessingCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1StartPipelineReprocessingCommand,
+  serializeAws_restJson1StartPipelineReprocessingCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class StartPipelineReprocessingCommand extends $Command<
     input: StartPipelineReprocessingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StartPipelineReprocessingCommand(
+    return serializeAws_restJson1StartPipelineReprocessingCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class StartPipelineReprocessingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartPipelineReprocessingCommandOutput> {
-    return deserializeAws_restJson1_1StartPipelineReprocessingCommand(
+    return deserializeAws_restJson1StartPipelineReprocessingCommand(
       output,
       context
     );

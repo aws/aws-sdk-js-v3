@@ -8,9 +8,9 @@ import {
   UpdateApnsChannelResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateApnsChannelCommand,
-  serializeAws_restJson1_1UpdateApnsChannelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateApnsChannelCommand,
+  serializeAws_restJson1UpdateApnsChannelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class UpdateApnsChannelCommand extends $Command<
     input: UpdateApnsChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateApnsChannelCommand(input, context);
+    return serializeAws_restJson1UpdateApnsChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApnsChannelCommandOutput> {
-    return deserializeAws_restJson1_1UpdateApnsChannelCommand(output, context);
+    return deserializeAws_restJson1UpdateApnsChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

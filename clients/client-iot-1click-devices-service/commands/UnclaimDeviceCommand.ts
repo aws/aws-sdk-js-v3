@@ -5,9 +5,9 @@ import {
 } from "../IoT1ClickDevicesServiceClient";
 import { UnclaimDeviceRequest, UnclaimDeviceResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1UnclaimDeviceCommand,
-  serializeAws_restJson1_1UnclaimDeviceCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UnclaimDeviceCommand,
+  serializeAws_restJson1UnclaimDeviceCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class UnclaimDeviceCommand extends $Command<
     input: UnclaimDeviceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UnclaimDeviceCommand(input, context);
+    return serializeAws_restJson1UnclaimDeviceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UnclaimDeviceCommandOutput> {
-    return deserializeAws_restJson1_1UnclaimDeviceCommand(output, context);
+    return deserializeAws_restJson1UnclaimDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,9 +5,9 @@ import {
 } from "../CloudDirectoryClient";
 import { BatchWriteRequest, BatchWriteResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1BatchWriteCommand,
-  serializeAws_restJson1_1BatchWriteCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1BatchWriteCommand,
+  serializeAws_restJson1BatchWriteCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class BatchWriteCommand extends $Command<
     input: BatchWriteCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1BatchWriteCommand(input, context);
+    return serializeAws_restJson1BatchWriteCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchWriteCommandOutput> {
-    return deserializeAws_restJson1_1BatchWriteCommand(output, context);
+    return deserializeAws_restJson1BatchWriteCommand(output, context);
   }
 
   // Start section: command_body_extra

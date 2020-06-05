@@ -1,8 +1,8 @@
 import { ListSchemasRequest, ListSchemasResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListSchemasCommand,
-  serializeAws_restJson1_1ListSchemasCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListSchemasCommand,
+  serializeAws_restJson1ListSchemasCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -67,14 +67,14 @@ export class ListSchemasCommand extends $Command<
     input: ListSchemasCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListSchemasCommand(input, context);
+    return serializeAws_restJson1ListSchemasCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSchemasCommandOutput> {
-    return deserializeAws_restJson1_1ListSchemasCommand(output, context);
+    return deserializeAws_restJson1ListSchemasCommand(output, context);
   }
 
   // Start section: command_body_extra

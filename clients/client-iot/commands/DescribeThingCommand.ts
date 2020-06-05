@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { DescribeThingRequest, DescribeThingResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeThingCommand,
-  serializeAws_restJson1_1DescribeThingCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeThingCommand,
+  serializeAws_restJson1DescribeThingCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class DescribeThingCommand extends $Command<
     input: DescribeThingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeThingCommand(input, context);
+    return serializeAws_restJson1DescribeThingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeThingCommandOutput> {
-    return deserializeAws_restJson1_1DescribeThingCommand(output, context);
+    return deserializeAws_restJson1DescribeThingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,9 +5,9 @@ import {
 } from "../LexModelBuildingServiceClient";
 import { PutBotAliasRequest, PutBotAliasResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutBotAliasCommand,
-  serializeAws_restJson1_1PutBotAliasCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutBotAliasCommand,
+  serializeAws_restJson1PutBotAliasCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class PutBotAliasCommand extends $Command<
     input: PutBotAliasCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutBotAliasCommand(input, context);
+    return serializeAws_restJson1PutBotAliasCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBotAliasCommandOutput> {
-    return deserializeAws_restJson1_1PutBotAliasCommand(output, context);
+    return deserializeAws_restJson1PutBotAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

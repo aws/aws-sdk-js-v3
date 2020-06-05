@@ -5,9 +5,9 @@ import {
 } from "../MediaLiveClient";
 import { ListChannelsRequest, ListChannelsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListChannelsCommand,
-  serializeAws_restJson1_1ListChannelsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListChannelsCommand,
+  serializeAws_restJson1ListChannelsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListChannelsCommand extends $Command<
     input: ListChannelsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListChannelsCommand(input, context);
+    return serializeAws_restJson1ListChannelsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListChannelsCommandOutput> {
-    return deserializeAws_restJson1_1ListChannelsCommand(output, context);
+    return deserializeAws_restJson1ListChannelsCommand(output, context);
   }
 
   // Start section: command_body_extra

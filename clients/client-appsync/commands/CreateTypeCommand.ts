@@ -5,9 +5,9 @@ import {
 } from "../AppSyncClient";
 import { CreateTypeRequest, CreateTypeResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateTypeCommand,
-  serializeAws_restJson1_1CreateTypeCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateTypeCommand,
+  serializeAws_restJson1CreateTypeCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateTypeCommand extends $Command<
     input: CreateTypeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateTypeCommand(input, context);
+    return serializeAws_restJson1CreateTypeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTypeCommandOutput> {
-    return deserializeAws_restJson1_1CreateTypeCommand(output, context);
+    return deserializeAws_restJson1CreateTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

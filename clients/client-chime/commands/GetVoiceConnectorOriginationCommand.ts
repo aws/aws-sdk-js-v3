@@ -8,9 +8,9 @@ import {
   GetVoiceConnectorOriginationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetVoiceConnectorOriginationCommand,
-  serializeAws_restJson1_1GetVoiceConnectorOriginationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetVoiceConnectorOriginationCommand,
+  serializeAws_restJson1GetVoiceConnectorOriginationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetVoiceConnectorOriginationCommand extends $Command<
     input: GetVoiceConnectorOriginationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetVoiceConnectorOriginationCommand(
+    return serializeAws_restJson1GetVoiceConnectorOriginationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetVoiceConnectorOriginationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVoiceConnectorOriginationCommandOutput> {
-    return deserializeAws_restJson1_1GetVoiceConnectorOriginationCommand(
+    return deserializeAws_restJson1GetVoiceConnectorOriginationCommand(
       output,
       context
     );

@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { UpdateJobRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateJobCommand,
-  serializeAws_restJson1_1UpdateJobCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateJobCommand,
+  serializeAws_restJson1UpdateJobCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class UpdateJobCommand extends $Command<
     input: UpdateJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateJobCommand(input, context);
+    return serializeAws_restJson1UpdateJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateJobCommandOutput> {
-    return deserializeAws_restJson1_1UpdateJobCommand(output, context);
+    return deserializeAws_restJson1UpdateJobCommand(output, context);
   }
 
   // Start section: command_body_extra

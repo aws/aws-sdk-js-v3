@@ -8,9 +8,9 @@ import {
   UpdateFunctionDefinitionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateFunctionDefinitionCommand,
-  serializeAws_restJson1_1UpdateFunctionDefinitionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateFunctionDefinitionCommand,
+  serializeAws_restJson1UpdateFunctionDefinitionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdateFunctionDefinitionCommand extends $Command<
     input: UpdateFunctionDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateFunctionDefinitionCommand(
+    return serializeAws_restJson1UpdateFunctionDefinitionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdateFunctionDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFunctionDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1UpdateFunctionDefinitionCommand(
+    return deserializeAws_restJson1UpdateFunctionDefinitionCommand(
       output,
       context
     );

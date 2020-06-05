@@ -8,9 +8,9 @@ import {
   ListJobsByPipelineResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListJobsByPipelineCommand,
-  serializeAws_restJson1_1ListJobsByPipelineCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListJobsByPipelineCommand,
+  serializeAws_restJson1ListJobsByPipelineCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ListJobsByPipelineCommand extends $Command<
     input: ListJobsByPipelineCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListJobsByPipelineCommand(input, context);
+    return serializeAws_restJson1ListJobsByPipelineCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListJobsByPipelineCommandOutput> {
-    return deserializeAws_restJson1_1ListJobsByPipelineCommand(output, context);
+    return deserializeAws_restJson1ListJobsByPipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

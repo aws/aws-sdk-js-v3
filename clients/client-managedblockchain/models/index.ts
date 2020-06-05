@@ -875,6 +875,59 @@ export namespace ListNodesOutput {
     __isa(o, "ListNodesOutput");
 }
 
+export interface ListProposalsInput {
+  __type?: "ListProposalsInput";
+  /**
+   * <p>
+   *          The maximum number of proposals to return.
+   *       </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>
+   *          The unique identifier of the network.
+   *       </p>
+   */
+  NetworkId: string | undefined;
+
+  /**
+   * <p>
+   *          The pagination token that indicates the next set of results to retrieve.
+   *       </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListProposalsInput {
+  export const filterSensitiveLog = (obj: ListProposalsInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListProposalsInput =>
+    __isa(o, "ListProposalsInput");
+}
+
+export interface ListProposalsOutput {
+  __type?: "ListProposalsOutput";
+  /**
+   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The summary of each proposal made on the network.</p>
+   */
+  Proposals?: ProposalSummary[];
+}
+
+export namespace ListProposalsOutput {
+  export const filterSensitiveLog = (obj: ListProposalsOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListProposalsOutput =>
+    __isa(o, "ListProposalsOutput");
+}
+
 export interface ListProposalVotesInput {
   __type?: "ListProposalVotesInput";
   /**
@@ -937,59 +990,6 @@ export namespace ListProposalVotesOutput {
   });
   export const isa = (o: any): o is ListProposalVotesOutput =>
     __isa(o, "ListProposalVotesOutput");
-}
-
-export interface ListProposalsInput {
-  __type?: "ListProposalsInput";
-  /**
-   * <p>
-   *          The maximum number of proposals to return.
-   *       </p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>
-   *          The unique identifier of the network.
-   *       </p>
-   */
-  NetworkId: string | undefined;
-
-  /**
-   * <p>
-   *          The pagination token that indicates the next set of results to retrieve.
-   *       </p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListProposalsInput {
-  export const filterSensitiveLog = (obj: ListProposalsInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListProposalsInput =>
-    __isa(o, "ListProposalsInput");
-}
-
-export interface ListProposalsOutput {
-  __type?: "ListProposalsOutput";
-  /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The summary of each proposal made on the network.</p>
-   */
-  Proposals?: ProposalSummary[];
-}
-
-export namespace ListProposalsOutput {
-  export const filterSensitiveLog = (obj: ListProposalsOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListProposalsOutput =>
-    __isa(o, "ListProposalsOutput");
 }
 
 /**

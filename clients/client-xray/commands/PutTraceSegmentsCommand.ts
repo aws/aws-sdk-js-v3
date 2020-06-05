@@ -8,9 +8,9 @@ import {
   PutTraceSegmentsResult
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutTraceSegmentsCommand,
-  serializeAws_restJson1_1PutTraceSegmentsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutTraceSegmentsCommand,
+  serializeAws_restJson1PutTraceSegmentsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class PutTraceSegmentsCommand extends $Command<
     input: PutTraceSegmentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutTraceSegmentsCommand(input, context);
+    return serializeAws_restJson1PutTraceSegmentsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutTraceSegmentsCommandOutput> {
-    return deserializeAws_restJson1_1PutTraceSegmentsCommand(output, context);
+    return deserializeAws_restJson1PutTraceSegmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

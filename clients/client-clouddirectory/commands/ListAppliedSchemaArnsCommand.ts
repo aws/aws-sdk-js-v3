@@ -8,9 +8,9 @@ import {
   ListAppliedSchemaArnsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListAppliedSchemaArnsCommand,
-  serializeAws_restJson1_1ListAppliedSchemaArnsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListAppliedSchemaArnsCommand,
+  serializeAws_restJson1ListAppliedSchemaArnsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class ListAppliedSchemaArnsCommand extends $Command<
     input: ListAppliedSchemaArnsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListAppliedSchemaArnsCommand(input, context);
+    return serializeAws_restJson1ListAppliedSchemaArnsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAppliedSchemaArnsCommandOutput> {
-    return deserializeAws_restJson1_1ListAppliedSchemaArnsCommand(
+    return deserializeAws_restJson1ListAppliedSchemaArnsCommand(
       output,
       context
     );

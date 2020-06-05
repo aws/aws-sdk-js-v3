@@ -949,6 +949,47 @@ export enum ExportTaskStatusCode {
   RUNNING = "RUNNING"
 }
 
+/**
+ * <p>Represents a matched event.</p>
+ */
+export interface FilteredLogEvent {
+  __type?: "FilteredLogEvent";
+  /**
+   * <p>The ID of the event.</p>
+   */
+  eventId?: string;
+
+  /**
+   * <p>The time the event was ingested, expressed as the number of milliseconds after Jan 1,
+   *       1970 00:00:00 UTC.</p>
+   */
+  ingestionTime?: number;
+
+  /**
+   * <p>The name of the log stream to which this event belongs.</p>
+   */
+  logStreamName?: string;
+
+  /**
+   * <p>The data contained in the log event.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970
+   *       00:00:00 UTC.</p>
+   */
+  timestamp?: number;
+}
+
+export namespace FilteredLogEvent {
+  export const filterSensitiveLog = (obj: FilteredLogEvent): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is FilteredLogEvent =>
+    __isa(o, "FilteredLogEvent");
+}
+
 export interface FilterLogEventsRequest {
   __type?: "FilterLogEventsRequest";
   /**
@@ -1044,47 +1085,6 @@ export namespace FilterLogEventsResponse {
   });
   export const isa = (o: any): o is FilterLogEventsResponse =>
     __isa(o, "FilterLogEventsResponse");
-}
-
-/**
- * <p>Represents a matched event.</p>
- */
-export interface FilteredLogEvent {
-  __type?: "FilteredLogEvent";
-  /**
-   * <p>The ID of the event.</p>
-   */
-  eventId?: string;
-
-  /**
-   * <p>The time the event was ingested, expressed as the number of milliseconds after Jan 1,
-   *       1970 00:00:00 UTC.</p>
-   */
-  ingestionTime?: number;
-
-  /**
-   * <p>The name of the log stream to which this event belongs.</p>
-   */
-  logStreamName?: string;
-
-  /**
-   * <p>The data contained in the log event.</p>
-   */
-  message?: string;
-
-  /**
-   * <p>The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970
-   *       00:00:00 UTC.</p>
-   */
-  timestamp?: number;
-}
-
-export namespace FilteredLogEvent {
-  export const filterSensitiveLog = (obj: FilteredLogEvent): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is FilteredLogEvent =>
-    __isa(o, "FilteredLogEvent");
 }
 
 export interface GetLogEventsRequest {

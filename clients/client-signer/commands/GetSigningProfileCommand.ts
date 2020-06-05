@@ -3,9 +3,9 @@ import {
   GetSigningProfileResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetSigningProfileCommand,
-  serializeAws_restJson1_1GetSigningProfileCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetSigningProfileCommand,
+  serializeAws_restJson1GetSigningProfileCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -71,14 +71,14 @@ export class GetSigningProfileCommand extends $Command<
     input: GetSigningProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetSigningProfileCommand(input, context);
+    return serializeAws_restJson1GetSigningProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSigningProfileCommandOutput> {
-    return deserializeAws_restJson1_1GetSigningProfileCommand(output, context);
+    return deserializeAws_restJson1GetSigningProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

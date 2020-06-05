@@ -5,9 +5,9 @@ import {
 } from "../BackupClient";
 import { DeleteBackupPlanInput, DeleteBackupPlanOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteBackupPlanCommand,
-  serializeAws_restJson1_1DeleteBackupPlanCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteBackupPlanCommand,
+  serializeAws_restJson1DeleteBackupPlanCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class DeleteBackupPlanCommand extends $Command<
     input: DeleteBackupPlanCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteBackupPlanCommand(input, context);
+    return serializeAws_restJson1DeleteBackupPlanCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBackupPlanCommandOutput> {
-    return deserializeAws_restJson1_1DeleteBackupPlanCommand(output, context);
+    return deserializeAws_restJson1DeleteBackupPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -8,9 +8,9 @@ import {
   GetObjectAttributesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetObjectAttributesCommand,
-  serializeAws_restJson1_1GetObjectAttributesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetObjectAttributesCommand,
+  serializeAws_restJson1GetObjectAttributesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetObjectAttributesCommand extends $Command<
     input: GetObjectAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetObjectAttributesCommand(input, context);
+    return serializeAws_restJson1GetObjectAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetObjectAttributesCommandOutput> {
-    return deserializeAws_restJson1_1GetObjectAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetObjectAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

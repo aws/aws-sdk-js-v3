@@ -8,9 +8,9 @@ import {
   DeleteDeviceDefinitionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteDeviceDefinitionCommand,
-  serializeAws_restJson1_1DeleteDeviceDefinitionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteDeviceDefinitionCommand,
+  serializeAws_restJson1DeleteDeviceDefinitionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteDeviceDefinitionCommand extends $Command<
     input: DeleteDeviceDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDeviceDefinitionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DeleteDeviceDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDeviceDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDeviceDefinitionCommand(
+    return deserializeAws_restJson1DeleteDeviceDefinitionCommand(
       output,
       context
     );

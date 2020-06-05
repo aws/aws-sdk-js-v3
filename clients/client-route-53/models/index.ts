@@ -5371,20 +5371,6 @@ export namespace QueryLoggingConfigAlreadyExists {
     __isa(o, "QueryLoggingConfigAlreadyExists");
 }
 
-export type RRType =
-  | "A"
-  | "AAAA"
-  | "CAA"
-  | "CNAME"
-  | "MX"
-  | "NAPTR"
-  | "NS"
-  | "PTR"
-  | "SOA"
-  | "SPF"
-  | "SRV"
-  | "TXT";
-
 export type ResettableElementName =
   | "ChildHealthChecks"
   | "FullyQualifiedDomainName"
@@ -6016,6 +6002,20 @@ export namespace ReusableDelegationSetLimit {
 
 export type ReusableDelegationSetLimitType = "MAX_ZONES_BY_REUSABLE_DELEGATION_SET";
 
+export type RRType =
+  | "A"
+  | "AAAA"
+  | "CAA"
+  | "CNAME"
+  | "MX"
+  | "NAPTR"
+  | "NS"
+  | "PTR"
+  | "SOA"
+  | "SPF"
+  | "SRV"
+  | "TXT";
+
 export type Statistic =
   | "Average"
   | "Maximum"
@@ -6475,26 +6475,6 @@ export namespace TrafficPolicyAlreadyExists {
 }
 
 /**
- * <p>One or more traffic policy instances were created by using the specified traffic policy.</p>
- */
-export interface TrafficPolicyInUse extends __SmithyException, $MetadataBearer {
-  name: "TrafficPolicyInUse";
-  $fault: "client";
-  /**
-   * <p>Descriptive message for the error response.</p>
-   */
-  message?: string;
-}
-
-export namespace TrafficPolicyInUse {
-  export const filterSensitiveLog = (obj: TrafficPolicyInUse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TrafficPolicyInUse =>
-    __isa(o, "TrafficPolicyInUse");
-}
-
-/**
  * <p>A complex type that contains settings for the new traffic policy instance.</p>
  */
 export interface TrafficPolicyInstance {
@@ -6593,6 +6573,26 @@ export namespace TrafficPolicyInstanceAlreadyExists {
   });
   export const isa = (o: any): o is TrafficPolicyInstanceAlreadyExists =>
     __isa(o, "TrafficPolicyInstanceAlreadyExists");
+}
+
+/**
+ * <p>One or more traffic policy instances were created by using the specified traffic policy.</p>
+ */
+export interface TrafficPolicyInUse extends __SmithyException, $MetadataBearer {
+  name: "TrafficPolicyInUse";
+  $fault: "client";
+  /**
+   * <p>Descriptive message for the error response.</p>
+   */
+  message?: string;
+}
+
+export namespace TrafficPolicyInUse {
+  export const filterSensitiveLog = (obj: TrafficPolicyInUse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TrafficPolicyInUse =>
+    __isa(o, "TrafficPolicyInUse");
 }
 
 /**

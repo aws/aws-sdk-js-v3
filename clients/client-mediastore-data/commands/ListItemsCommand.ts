@@ -5,9 +5,9 @@ import {
 } from "../MediaStoreDataClient";
 import { ListItemsRequest, ListItemsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListItemsCommand,
-  serializeAws_restJson1_1ListItemsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListItemsCommand,
+  serializeAws_restJson1ListItemsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListItemsCommand extends $Command<
     input: ListItemsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListItemsCommand(input, context);
+    return serializeAws_restJson1ListItemsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListItemsCommandOutput> {
-    return deserializeAws_restJson1_1ListItemsCommand(output, context);
+    return deserializeAws_restJson1ListItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

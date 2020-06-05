@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { DeleteTopicRuleRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteTopicRuleCommand,
-  serializeAws_restJson1_1DeleteTopicRuleCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteTopicRuleCommand,
+  serializeAws_restJson1DeleteTopicRuleCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteTopicRuleCommand extends $Command<
     input: DeleteTopicRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteTopicRuleCommand(input, context);
+    return serializeAws_restJson1DeleteTopicRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTopicRuleCommandOutput> {
-    return deserializeAws_restJson1_1DeleteTopicRuleCommand(output, context);
+    return deserializeAws_restJson1DeleteTopicRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

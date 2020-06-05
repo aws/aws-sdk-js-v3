@@ -8,9 +8,9 @@ import {
   GetSamplingTargetsResult
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetSamplingTargetsCommand,
-  serializeAws_restJson1_1GetSamplingTargetsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetSamplingTargetsCommand,
+  serializeAws_restJson1GetSamplingTargetsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetSamplingTargetsCommand extends $Command<
     input: GetSamplingTargetsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetSamplingTargetsCommand(input, context);
+    return serializeAws_restJson1GetSamplingTargetsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSamplingTargetsCommandOutput> {
-    return deserializeAws_restJson1_1GetSamplingTargetsCommand(output, context);
+    return deserializeAws_restJson1GetSamplingTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

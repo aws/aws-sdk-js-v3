@@ -5,9 +5,9 @@ import {
 } from "../EKSClient";
 import { ListNodegroupsRequest, ListNodegroupsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListNodegroupsCommand,
-  serializeAws_restJson1_1ListNodegroupsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListNodegroupsCommand,
+  serializeAws_restJson1ListNodegroupsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class ListNodegroupsCommand extends $Command<
     input: ListNodegroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListNodegroupsCommand(input, context);
+    return serializeAws_restJson1ListNodegroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListNodegroupsCommandOutput> {
-    return deserializeAws_restJson1_1ListNodegroupsCommand(output, context);
+    return deserializeAws_restJson1ListNodegroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

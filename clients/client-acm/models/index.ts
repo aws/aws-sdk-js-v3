@@ -1086,27 +1086,6 @@ export namespace RemoveTagsFromCertificateRequest {
     __isa(o, "RemoveTagsFromCertificateRequest");
 }
 
-export interface RenewCertificateRequest {
-  __type?: "RenewCertificateRequest";
-  /**
-   * <p>String that contains the ARN of the ACM certificate to be renewed. This must be of the
-   *       form:</p>
-   *          <p>
-   *             <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>
-   *          </p>
-   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
-   */
-  CertificateArn: string | undefined;
-}
-
-export namespace RenewCertificateRequest {
-  export const filterSensitiveLog = (obj: RenewCertificateRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RenewCertificateRequest =>
-    __isa(o, "RenewCertificateRequest");
-}
-
 export enum RenewalEligibility {
   ELIGIBLE = "ELIGIBLE",
   INELIGIBLE = "INELIGIBLE"
@@ -1156,6 +1135,27 @@ export namespace RenewalSummary {
   });
   export const isa = (o: any): o is RenewalSummary =>
     __isa(o, "RenewalSummary");
+}
+
+export interface RenewCertificateRequest {
+  __type?: "RenewCertificateRequest";
+  /**
+   * <p>String that contains the ARN of the ACM certificate to be renewed. This must be of the
+   *       form:</p>
+   *          <p>
+   *             <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>
+   *          </p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   */
+  CertificateArn: string | undefined;
+}
+
+export namespace RenewCertificateRequest {
+  export const filterSensitiveLog = (obj: RenewCertificateRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RenewCertificateRequest =>
+    __isa(o, "RenewCertificateRequest");
 }
 
 export interface RequestCertificateRequest {

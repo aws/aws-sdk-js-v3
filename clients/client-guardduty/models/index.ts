@@ -841,39 +841,6 @@ export namespace DeleteFilterResponse {
     __isa(o, "DeleteFilterResponse");
 }
 
-export interface DeleteIPSetRequest {
-  __type?: "DeleteIPSetRequest";
-  /**
-   * <p>The unique ID of the detector associated with the IPSet.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * <p>The unique ID of the IPSet to delete.</p>
-   */
-  IpSetId: string | undefined;
-}
-
-export namespace DeleteIPSetRequest {
-  export const filterSensitiveLog = (obj: DeleteIPSetRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteIPSetRequest =>
-    __isa(o, "DeleteIPSetRequest");
-}
-
-export interface DeleteIPSetResponse {
-  __type?: "DeleteIPSetResponse";
-}
-
-export namespace DeleteIPSetResponse {
-  export const filterSensitiveLog = (obj: DeleteIPSetResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteIPSetResponse =>
-    __isa(o, "DeleteIPSetResponse");
-}
-
 export interface DeleteInvitationsRequest {
   __type?: "DeleteInvitationsRequest";
   /**
@@ -906,6 +873,39 @@ export namespace DeleteInvitationsResponse {
   });
   export const isa = (o: any): o is DeleteInvitationsResponse =>
     __isa(o, "DeleteInvitationsResponse");
+}
+
+export interface DeleteIPSetRequest {
+  __type?: "DeleteIPSetRequest";
+  /**
+   * <p>The unique ID of the detector associated with the IPSet.</p>
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The unique ID of the IPSet to delete.</p>
+   */
+  IpSetId: string | undefined;
+}
+
+export namespace DeleteIPSetRequest {
+  export const filterSensitiveLog = (obj: DeleteIPSetRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteIPSetRequest =>
+    __isa(o, "DeleteIPSetRequest");
+}
+
+export interface DeleteIPSetResponse {
+  __type?: "DeleteIPSetResponse";
+}
+
+export namespace DeleteIPSetResponse {
+  export const filterSensitiveLog = (obj: DeleteIPSetResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteIPSetResponse =>
+    __isa(o, "DeleteIPSetResponse");
 }
 
 export interface DeleteMembersRequest {
@@ -1402,10 +1402,6 @@ export enum FindingPublishingFrequency {
   SIX_HOURS = "SIX_HOURS"
 }
 
-export enum FindingStatisticType {
-  COUNT_BY_SEVERITY = "COUNT_BY_SEVERITY"
-}
-
 /**
  * <p>Contains information about finding statistics.</p>
  */
@@ -1423,6 +1419,10 @@ export namespace FindingStatistics {
   });
   export const isa = (o: any): o is FindingStatistics =>
     __isa(o, "FindingStatistics");
+}
+
+export enum FindingStatisticType {
+  COUNT_BY_SEVERITY = "COUNT_BY_SEVERITY"
 }
 
 /**
@@ -1658,6 +1658,36 @@ export namespace GetFindingsStatisticsResponse {
     __isa(o, "GetFindingsStatisticsResponse");
 }
 
+export interface GetInvitationsCountRequest {
+  __type?: "GetInvitationsCountRequest";
+}
+
+export namespace GetInvitationsCountRequest {
+  export const filterSensitiveLog = (obj: GetInvitationsCountRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetInvitationsCountRequest =>
+    __isa(o, "GetInvitationsCountRequest");
+}
+
+export interface GetInvitationsCountResponse {
+  __type?: "GetInvitationsCountResponse";
+  /**
+   * <p>The number of received invitations.</p>
+   */
+  InvitationsCount?: number;
+}
+
+export namespace GetInvitationsCountResponse {
+  export const filterSensitiveLog = (
+    obj: GetInvitationsCountResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetInvitationsCountResponse =>
+    __isa(o, "GetInvitationsCountResponse");
+}
+
 export interface GetIPSetRequest {
   __type?: "GetIPSetRequest";
   /**
@@ -1714,36 +1744,6 @@ export namespace GetIPSetResponse {
   });
   export const isa = (o: any): o is GetIPSetResponse =>
     __isa(o, "GetIPSetResponse");
-}
-
-export interface GetInvitationsCountRequest {
-  __type?: "GetInvitationsCountRequest";
-}
-
-export namespace GetInvitationsCountRequest {
-  export const filterSensitiveLog = (obj: GetInvitationsCountRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetInvitationsCountRequest =>
-    __isa(o, "GetInvitationsCountRequest");
-}
-
-export interface GetInvitationsCountResponse {
-  __type?: "GetInvitationsCountResponse";
-  /**
-   * <p>The number of received invitations.</p>
-   */
-  InvitationsCount?: number;
-}
-
-export namespace GetInvitationsCountResponse {
-  export const filterSensitiveLog = (
-    obj: GetInvitationsCountResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetInvitationsCountResponse =>
-    __isa(o, "GetInvitationsCountResponse");
 }
 
 export interface GetMasterAccountRequest {
@@ -2428,6 +2428,52 @@ export namespace ListFindingsResponse {
     __isa(o, "ListFindingsResponse");
 }
 
+export interface ListInvitationsRequest {
+  __type?: "ListInvitationsRequest";
+  /**
+   * <p>You can use this parameter to indicate the maximum number of items you want in the
+   *       response. The default value is 50. The maximum value is 50.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>You can use this parameter when paginating results. Set the value of this parameter to
+   *       null on your first call to the list action. For subsequent calls to the action fill nextToken
+   *       in the request with the value of NextToken from the previous response to continue listing
+   *       data.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListInvitationsRequest {
+  export const filterSensitiveLog = (obj: ListInvitationsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListInvitationsRequest =>
+    __isa(o, "ListInvitationsRequest");
+}
+
+export interface ListInvitationsResponse {
+  __type?: "ListInvitationsResponse";
+  /**
+   * <p>A list of invitation descriptions.</p>
+   */
+  Invitations?: Invitation[];
+
+  /**
+   * <p>Pagination parameter to be used on the next list operation to retrieve more items.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListInvitationsResponse {
+  export const filterSensitiveLog = (obj: ListInvitationsResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListInvitationsResponse =>
+    __isa(o, "ListInvitationsResponse");
+}
+
 export interface ListIPSetsRequest {
   __type?: "ListIPSetsRequest";
   /**
@@ -2477,52 +2523,6 @@ export namespace ListIPSetsResponse {
   });
   export const isa = (o: any): o is ListIPSetsResponse =>
     __isa(o, "ListIPSetsResponse");
-}
-
-export interface ListInvitationsRequest {
-  __type?: "ListInvitationsRequest";
-  /**
-   * <p>You can use this parameter to indicate the maximum number of items you want in the
-   *       response. The default value is 50. The maximum value is 50.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>You can use this parameter when paginating results. Set the value of this parameter to
-   *       null on your first call to the list action. For subsequent calls to the action fill nextToken
-   *       in the request with the value of NextToken from the previous response to continue listing
-   *       data.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListInvitationsRequest {
-  export const filterSensitiveLog = (obj: ListInvitationsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListInvitationsRequest =>
-    __isa(o, "ListInvitationsRequest");
-}
-
-export interface ListInvitationsResponse {
-  __type?: "ListInvitationsResponse";
-  /**
-   * <p>A list of invitation descriptions.</p>
-   */
-  Invitations?: Invitation[];
-
-  /**
-   * <p>Pagination parameter to be used on the next list operation to retrieve more items.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListInvitationsResponse {
-  export const filterSensitiveLog = (obj: ListInvitationsResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListInvitationsResponse =>
-    __isa(o, "ListInvitationsResponse");
 }
 
 export interface ListMembersRequest {
@@ -3428,25 +3428,6 @@ export namespace TagResourceResponse {
     __isa(o, "TagResourceResponse");
 }
 
-export enum ThreatIntelSetFormat {
-  ALIEN_VAULT = "ALIEN_VAULT",
-  FIRE_EYE = "FIRE_EYE",
-  OTX_CSV = "OTX_CSV",
-  PROOF_POINT = "PROOF_POINT",
-  STIX = "STIX",
-  TXT = "TXT"
-}
-
-export enum ThreatIntelSetStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  DEACTIVATING = "DEACTIVATING",
-  DELETED = "DELETED",
-  DELETE_PENDING = "DELETE_PENDING",
-  ERROR = "ERROR",
-  INACTIVE = "INACTIVE"
-}
-
 /**
  * <p>An instance of a threat intelligence detail that constitutes evidence for the
  *       finding.</p>
@@ -3471,6 +3452,25 @@ export namespace ThreatIntelligenceDetail {
   });
   export const isa = (o: any): o is ThreatIntelligenceDetail =>
     __isa(o, "ThreatIntelligenceDetail");
+}
+
+export enum ThreatIntelSetFormat {
+  ALIEN_VAULT = "ALIEN_VAULT",
+  FIRE_EYE = "FIRE_EYE",
+  OTX_CSV = "OTX_CSV",
+  PROOF_POINT = "PROOF_POINT",
+  STIX = "STIX",
+  TXT = "TXT"
+}
+
+export enum ThreatIntelSetStatus {
+  ACTIVATING = "ACTIVATING",
+  ACTIVE = "ACTIVE",
+  DEACTIVATING = "DEACTIVATING",
+  DELETED = "DELETED",
+  DELETE_PENDING = "DELETE_PENDING",
+  ERROR = "ERROR",
+  INACTIVE = "INACTIVE"
 }
 
 export interface UnarchiveFindingsRequest {

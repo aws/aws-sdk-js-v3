@@ -1,8 +1,8 @@
 import { DeleteSchemaVersionRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteSchemaVersionCommand,
-  serializeAws_restJson1_1DeleteSchemaVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteSchemaVersionCommand,
+  serializeAws_restJson1DeleteSchemaVersionCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -70,17 +70,14 @@ export class DeleteSchemaVersionCommand extends $Command<
     input: DeleteSchemaVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteSchemaVersionCommand(input, context);
+    return serializeAws_restJson1DeleteSchemaVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSchemaVersionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteSchemaVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteSchemaVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

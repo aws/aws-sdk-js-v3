@@ -478,79 +478,6 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class AlexaForBusiness extends AlexaForBusinessClient {
   /**
-   * <p>Triggers an asynchronous flow to send text, SSML, or audio announcements to rooms that
-   *          are identified by a search or filter. </p>
-   */
-  public sendAnnouncement(
-    args: SendAnnouncementCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SendAnnouncementCommandOutput>;
-  public sendAnnouncement(
-    args: SendAnnouncementCommandInput,
-    cb: (err: any, data?: SendAnnouncementCommandOutput) => void
-  ): void;
-  public sendAnnouncement(
-    args: SendAnnouncementCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: SendAnnouncementCommandOutput) => void
-  ): void;
-  public sendAnnouncement(
-    args: SendAnnouncementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendAnnouncementCommandOutput) => void),
-    cb?: (err: any, data?: SendAnnouncementCommandOutput) => void
-  ): Promise<SendAnnouncementCommandOutput> | void {
-    const command = new SendAnnouncementCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>When this action is called for a specified shared device, it allows authorized users to
-   *          delete the device's entire previous history of voice input data and associated response
-   *          data. This action can be called once every 24 hours for a specific shared device.</p>
-   */
-  public deleteDeviceUsageData(
-    args: DeleteDeviceUsageDataCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteDeviceUsageDataCommandOutput>;
-  public deleteDeviceUsageData(
-    args: DeleteDeviceUsageDataCommandInput,
-    cb: (err: any, data?: DeleteDeviceUsageDataCommandOutput) => void
-  ): void;
-  public deleteDeviceUsageData(
-    args: DeleteDeviceUsageDataCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDeviceUsageDataCommandOutput) => void
-  ): void;
-  public deleteDeviceUsageData(
-    args: DeleteDeviceUsageDataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDeviceUsageDataCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDeviceUsageDataCommandOutput) => void
-  ): Promise<DeleteDeviceUsageDataCommandOutput> | void {
-    const command = new DeleteDeviceUsageDataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Associates a skill with the organization under the customer's AWS account. If a skill
    *          is private, the user implicitly accepts access to this skill during enablement.</p>
    */
@@ -1330,6 +1257,43 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
     cb?: (err: any, data?: DeleteDeviceCommandOutput) => void
   ): Promise<DeleteDeviceCommandOutput> | void {
     const command = new DeleteDeviceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>When this action is called for a specified shared device, it allows authorized users to
+   *          delete the device's entire previous history of voice input data and associated response
+   *          data. This action can be called once every 24 hours for a specific shared device.</p>
+   */
+  public deleteDeviceUsageData(
+    args: DeleteDeviceUsageDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDeviceUsageDataCommandOutput>;
+  public deleteDeviceUsageData(
+    args: DeleteDeviceUsageDataCommandInput,
+    cb: (err: any, data?: DeleteDeviceUsageDataCommandOutput) => void
+  ): void;
+  public deleteDeviceUsageData(
+    args: DeleteDeviceUsageDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDeviceUsageDataCommandOutput) => void
+  ): void;
+  public deleteDeviceUsageData(
+    args: DeleteDeviceUsageDataCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDeviceUsageDataCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDeviceUsageDataCommandOutput) => void
+  ): Promise<DeleteDeviceUsageDataCommandOutput> | void {
+    const command = new DeleteDeviceUsageDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3231,6 +3195,42 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
     cb?: (err: any, data?: SearchUsersCommandOutput) => void
   ): Promise<SearchUsersCommandOutput> | void {
     const command = new SearchUsersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Triggers an asynchronous flow to send text, SSML, or audio announcements to rooms that
+   *          are identified by a search or filter. </p>
+   */
+  public sendAnnouncement(
+    args: SendAnnouncementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendAnnouncementCommandOutput>;
+  public sendAnnouncement(
+    args: SendAnnouncementCommandInput,
+    cb: (err: any, data?: SendAnnouncementCommandOutput) => void
+  ): void;
+  public sendAnnouncement(
+    args: SendAnnouncementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendAnnouncementCommandOutput) => void
+  ): void;
+  public sendAnnouncement(
+    args: SendAnnouncementCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SendAnnouncementCommandOutput) => void),
+    cb?: (err: any, data?: SendAnnouncementCommandOutput) => void
+  ): Promise<SendAnnouncementCommandOutput> | void {
+    const command = new SendAnnouncementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

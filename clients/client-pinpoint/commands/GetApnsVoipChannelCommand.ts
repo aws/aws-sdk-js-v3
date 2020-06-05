@@ -8,9 +8,9 @@ import {
   GetApnsVoipChannelResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetApnsVoipChannelCommand,
-  serializeAws_restJson1_1GetApnsVoipChannelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetApnsVoipChannelCommand,
+  serializeAws_restJson1GetApnsVoipChannelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetApnsVoipChannelCommand extends $Command<
     input: GetApnsVoipChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetApnsVoipChannelCommand(input, context);
+    return serializeAws_restJson1GetApnsVoipChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetApnsVoipChannelCommandOutput> {
-    return deserializeAws_restJson1_1GetApnsVoipChannelCommand(output, context);
+    return deserializeAws_restJson1GetApnsVoipChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

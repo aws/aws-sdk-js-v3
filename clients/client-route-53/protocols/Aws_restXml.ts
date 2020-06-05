@@ -2674,7 +2674,7 @@ const deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingDomainExists":
-    case "com.amazon.webservices.dns.v20130401#ConflictingDomainExists":
+    case "com.amazonaws.route53#ConflictingDomainExists":
       response = {
         ...(await deserializeAws_restXmlConflictingDomainExistsResponse(
           parsedOutput,
@@ -2685,7 +2685,7 @@ const deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -2696,7 +2696,7 @@ const deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError = async (
       };
       break;
     case "InvalidVPCId":
-    case "com.amazon.webservices.dns.v20130401#InvalidVPCId":
+    case "com.amazonaws.route53#InvalidVPCId":
       response = {
         ...(await deserializeAws_restXmlInvalidVPCIdResponse(
           parsedOutput,
@@ -2707,7 +2707,7 @@ const deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError = async (
       };
       break;
     case "LimitsExceeded":
-    case "com.amazon.webservices.dns.v20130401#LimitsExceeded":
+    case "com.amazonaws.route53#LimitsExceeded":
       response = {
         ...(await deserializeAws_restXmlLimitsExceededResponse(
           parsedOutput,
@@ -2718,7 +2718,7 @@ const deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError = async (
       };
       break;
     case "NoSuchHostedZone":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
       response = {
         ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(
           parsedOutput,
@@ -2729,7 +2729,7 @@ const deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "com.amazon.webservices.dns.v20130401#NotAuthorizedException":
+    case "com.amazonaws.route53#NotAuthorizedException":
       response = {
         ...(await deserializeAws_restXmlNotAuthorizedExceptionResponse(
           parsedOutput,
@@ -2740,7 +2740,7 @@ const deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError = async (
       };
       break;
     case "PublicZoneVPCAssociation":
-    case "com.amazon.webservices.dns.v20130401#PublicZoneVPCAssociation":
+    case "com.amazonaws.route53#PublicZoneVPCAssociation":
       response = {
         ...(await deserializeAws_restXmlPublicZoneVPCAssociationResponse(
           parsedOutput,
@@ -2806,7 +2806,7 @@ const deserializeAws_restXmlChangeResourceRecordSetsCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidChangeBatch":
-    case "com.amazon.webservices.dns.v20130401#InvalidChangeBatch":
+    case "com.amazonaws.route53#InvalidChangeBatch":
       response = {
         ...(await deserializeAws_restXmlInvalidChangeBatchResponse(
           parsedOutput,
@@ -2817,7 +2817,7 @@ const deserializeAws_restXmlChangeResourceRecordSetsCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -2828,7 +2828,7 @@ const deserializeAws_restXmlChangeResourceRecordSetsCommandError = async (
       };
       break;
     case "NoSuchHealthCheck":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHealthCheck":
+    case "com.amazonaws.route53#NoSuchHealthCheck":
       response = {
         ...(await deserializeAws_restXmlNoSuchHealthCheckResponse(
           parsedOutput,
@@ -2839,7 +2839,7 @@ const deserializeAws_restXmlChangeResourceRecordSetsCommandError = async (
       };
       break;
     case "NoSuchHostedZone":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
       response = {
         ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(
           parsedOutput,
@@ -2850,7 +2850,7 @@ const deserializeAws_restXmlChangeResourceRecordSetsCommandError = async (
       };
       break;
     case "PriorRequestNotComplete":
-    case "com.amazon.webservices.dns.v20130401#PriorRequestNotComplete":
+    case "com.amazonaws.route53#PriorRequestNotComplete":
       response = {
         ...(await deserializeAws_restXmlPriorRequestNotCompleteResponse(
           parsedOutput,
@@ -2909,7 +2909,7 @@ const deserializeAws_restXmlChangeTagsForResourceCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -2920,7 +2920,7 @@ const deserializeAws_restXmlChangeTagsForResourceCommandError = async (
       };
       break;
     case "NoSuchHealthCheck":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHealthCheck":
+    case "com.amazonaws.route53#NoSuchHealthCheck":
       response = {
         ...(await deserializeAws_restXmlNoSuchHealthCheckResponse(
           parsedOutput,
@@ -2931,7 +2931,7 @@ const deserializeAws_restXmlChangeTagsForResourceCommandError = async (
       };
       break;
     case "NoSuchHostedZone":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
       response = {
         ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(
           parsedOutput,
@@ -2942,7 +2942,7 @@ const deserializeAws_restXmlChangeTagsForResourceCommandError = async (
       };
       break;
     case "PriorRequestNotComplete":
-    case "com.amazon.webservices.dns.v20130401#PriorRequestNotComplete":
+    case "com.amazonaws.route53#PriorRequestNotComplete":
       response = {
         ...(await deserializeAws_restXmlPriorRequestNotCompleteResponse(
           parsedOutput,
@@ -2953,7 +2953,7 @@ const deserializeAws_restXmlChangeTagsForResourceCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazon.webservices.dns.v20130401#ThrottlingException":
+    case "com.amazonaws.route53#ThrottlingException":
       response = {
         ...(await deserializeAws_restXmlThrottlingExceptionResponse(
           parsedOutput,
@@ -3020,7 +3020,7 @@ const deserializeAws_restXmlCreateHealthCheckCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HealthCheckAlreadyExists":
-    case "com.amazon.webservices.dns.v20130401#HealthCheckAlreadyExists":
+    case "com.amazonaws.route53#HealthCheckAlreadyExists":
       response = {
         ...(await deserializeAws_restXmlHealthCheckAlreadyExistsResponse(
           parsedOutput,
@@ -3031,7 +3031,7 @@ const deserializeAws_restXmlCreateHealthCheckCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -3042,7 +3042,7 @@ const deserializeAws_restXmlCreateHealthCheckCommandError = async (
       };
       break;
     case "TooManyHealthChecks":
-    case "com.amazon.webservices.dns.v20130401#TooManyHealthChecks":
+    case "com.amazonaws.route53#TooManyHealthChecks":
       response = {
         ...(await deserializeAws_restXmlTooManyHealthChecksResponse(
           parsedOutput,
@@ -3127,7 +3127,7 @@ const deserializeAws_restXmlCreateHostedZoneCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingDomainExists":
-    case "com.amazon.webservices.dns.v20130401#ConflictingDomainExists":
+    case "com.amazonaws.route53#ConflictingDomainExists":
       response = {
         ...(await deserializeAws_restXmlConflictingDomainExistsResponse(
           parsedOutput,
@@ -3138,7 +3138,7 @@ const deserializeAws_restXmlCreateHostedZoneCommandError = async (
       };
       break;
     case "DelegationSetNotAvailable":
-    case "com.amazon.webservices.dns.v20130401#DelegationSetNotAvailable":
+    case "com.amazonaws.route53#DelegationSetNotAvailable":
       response = {
         ...(await deserializeAws_restXmlDelegationSetNotAvailableResponse(
           parsedOutput,
@@ -3149,7 +3149,7 @@ const deserializeAws_restXmlCreateHostedZoneCommandError = async (
       };
       break;
     case "DelegationSetNotReusable":
-    case "com.amazon.webservices.dns.v20130401#DelegationSetNotReusable":
+    case "com.amazonaws.route53#DelegationSetNotReusable":
       response = {
         ...(await deserializeAws_restXmlDelegationSetNotReusableResponse(
           parsedOutput,
@@ -3160,7 +3160,7 @@ const deserializeAws_restXmlCreateHostedZoneCommandError = async (
       };
       break;
     case "HostedZoneAlreadyExists":
-    case "com.amazon.webservices.dns.v20130401#HostedZoneAlreadyExists":
+    case "com.amazonaws.route53#HostedZoneAlreadyExists":
       response = {
         ...(await deserializeAws_restXmlHostedZoneAlreadyExistsResponse(
           parsedOutput,
@@ -3171,7 +3171,7 @@ const deserializeAws_restXmlCreateHostedZoneCommandError = async (
       };
       break;
     case "InvalidDomainName":
-    case "com.amazon.webservices.dns.v20130401#InvalidDomainName":
+    case "com.amazonaws.route53#InvalidDomainName":
       response = {
         ...(await deserializeAws_restXmlInvalidDomainNameResponse(
           parsedOutput,
@@ -3182,7 +3182,7 @@ const deserializeAws_restXmlCreateHostedZoneCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -3193,7 +3193,7 @@ const deserializeAws_restXmlCreateHostedZoneCommandError = async (
       };
       break;
     case "InvalidVPCId":
-    case "com.amazon.webservices.dns.v20130401#InvalidVPCId":
+    case "com.amazonaws.route53#InvalidVPCId":
       response = {
         ...(await deserializeAws_restXmlInvalidVPCIdResponse(
           parsedOutput,
@@ -3204,7 +3204,7 @@ const deserializeAws_restXmlCreateHostedZoneCommandError = async (
       };
       break;
     case "NoSuchDelegationSet":
-    case "com.amazon.webservices.dns.v20130401#NoSuchDelegationSet":
+    case "com.amazonaws.route53#NoSuchDelegationSet":
       response = {
         ...(await deserializeAws_restXmlNoSuchDelegationSetResponse(
           parsedOutput,
@@ -3215,7 +3215,7 @@ const deserializeAws_restXmlCreateHostedZoneCommandError = async (
       };
       break;
     case "TooManyHostedZones":
-    case "com.amazon.webservices.dns.v20130401#TooManyHostedZones":
+    case "com.amazonaws.route53#TooManyHostedZones":
       response = {
         ...(await deserializeAws_restXmlTooManyHostedZonesResponse(
           parsedOutput,
@@ -3285,7 +3285,7 @@ const deserializeAws_restXmlCreateQueryLoggingConfigCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
-    case "com.amazon.webservices.dns.v20130401#ConcurrentModification":
+    case "com.amazonaws.route53#ConcurrentModification":
       response = {
         ...(await deserializeAws_restXmlConcurrentModificationResponse(
           parsedOutput,
@@ -3296,7 +3296,7 @@ const deserializeAws_restXmlCreateQueryLoggingConfigCommandError = async (
       };
       break;
     case "InsufficientCloudWatchLogsResourcePolicy":
-    case "com.amazon.webservices.dns.v20130401#InsufficientCloudWatchLogsResourcePolicy":
+    case "com.amazonaws.route53#InsufficientCloudWatchLogsResourcePolicy":
       response = {
         ...(await deserializeAws_restXmlInsufficientCloudWatchLogsResourcePolicyResponse(
           parsedOutput,
@@ -3307,7 +3307,7 @@ const deserializeAws_restXmlCreateQueryLoggingConfigCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -3318,7 +3318,7 @@ const deserializeAws_restXmlCreateQueryLoggingConfigCommandError = async (
       };
       break;
     case "NoSuchCloudWatchLogsLogGroup":
-    case "com.amazon.webservices.dns.v20130401#NoSuchCloudWatchLogsLogGroup":
+    case "com.amazonaws.route53#NoSuchCloudWatchLogsLogGroup":
       response = {
         ...(await deserializeAws_restXmlNoSuchCloudWatchLogsLogGroupResponse(
           parsedOutput,
@@ -3329,7 +3329,7 @@ const deserializeAws_restXmlCreateQueryLoggingConfigCommandError = async (
       };
       break;
     case "NoSuchHostedZone":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
       response = {
         ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(
           parsedOutput,
@@ -3340,7 +3340,7 @@ const deserializeAws_restXmlCreateQueryLoggingConfigCommandError = async (
       };
       break;
     case "QueryLoggingConfigAlreadyExists":
-    case "com.amazon.webservices.dns.v20130401#QueryLoggingConfigAlreadyExists":
+    case "com.amazonaws.route53#QueryLoggingConfigAlreadyExists":
       response = {
         ...(await deserializeAws_restXmlQueryLoggingConfigAlreadyExistsResponse(
           parsedOutput,
@@ -3410,7 +3410,7 @@ const deserializeAws_restXmlCreateReusableDelegationSetCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DelegationSetAlreadyCreated":
-    case "com.amazon.webservices.dns.v20130401#DelegationSetAlreadyCreated":
+    case "com.amazonaws.route53#DelegationSetAlreadyCreated":
       response = {
         ...(await deserializeAws_restXmlDelegationSetAlreadyCreatedResponse(
           parsedOutput,
@@ -3421,7 +3421,7 @@ const deserializeAws_restXmlCreateReusableDelegationSetCommandError = async (
       };
       break;
     case "DelegationSetAlreadyReusable":
-    case "com.amazon.webservices.dns.v20130401#DelegationSetAlreadyReusable":
+    case "com.amazonaws.route53#DelegationSetAlreadyReusable":
       response = {
         ...(await deserializeAws_restXmlDelegationSetAlreadyReusableResponse(
           parsedOutput,
@@ -3432,7 +3432,7 @@ const deserializeAws_restXmlCreateReusableDelegationSetCommandError = async (
       };
       break;
     case "DelegationSetNotAvailable":
-    case "com.amazon.webservices.dns.v20130401#DelegationSetNotAvailable":
+    case "com.amazonaws.route53#DelegationSetNotAvailable":
       response = {
         ...(await deserializeAws_restXmlDelegationSetNotAvailableResponse(
           parsedOutput,
@@ -3443,7 +3443,7 @@ const deserializeAws_restXmlCreateReusableDelegationSetCommandError = async (
       };
       break;
     case "HostedZoneNotFound":
-    case "com.amazon.webservices.dns.v20130401#HostedZoneNotFound":
+    case "com.amazonaws.route53#HostedZoneNotFound":
       response = {
         ...(await deserializeAws_restXmlHostedZoneNotFoundResponse(
           parsedOutput,
@@ -3454,7 +3454,7 @@ const deserializeAws_restXmlCreateReusableDelegationSetCommandError = async (
       };
       break;
     case "InvalidArgument":
-    case "com.amazon.webservices.dns.v20130401#InvalidArgument":
+    case "com.amazonaws.route53#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -3465,7 +3465,7 @@ const deserializeAws_restXmlCreateReusableDelegationSetCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -3476,7 +3476,7 @@ const deserializeAws_restXmlCreateReusableDelegationSetCommandError = async (
       };
       break;
     case "LimitsExceeded":
-    case "com.amazon.webservices.dns.v20130401#LimitsExceeded":
+    case "com.amazonaws.route53#LimitsExceeded":
       response = {
         ...(await deserializeAws_restXmlLimitsExceededResponse(
           parsedOutput,
@@ -3546,7 +3546,7 @@ const deserializeAws_restXmlCreateTrafficPolicyCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -3557,7 +3557,7 @@ const deserializeAws_restXmlCreateTrafficPolicyCommandError = async (
       };
       break;
     case "InvalidTrafficPolicyDocument":
-    case "com.amazon.webservices.dns.v20130401#InvalidTrafficPolicyDocument":
+    case "com.amazonaws.route53#InvalidTrafficPolicyDocument":
       response = {
         ...(await deserializeAws_restXmlInvalidTrafficPolicyDocumentResponse(
           parsedOutput,
@@ -3568,7 +3568,7 @@ const deserializeAws_restXmlCreateTrafficPolicyCommandError = async (
       };
       break;
     case "TooManyTrafficPolicies":
-    case "com.amazon.webservices.dns.v20130401#TooManyTrafficPolicies":
+    case "com.amazonaws.route53#TooManyTrafficPolicies":
       response = {
         ...(await deserializeAws_restXmlTooManyTrafficPoliciesResponse(
           parsedOutput,
@@ -3579,7 +3579,7 @@ const deserializeAws_restXmlCreateTrafficPolicyCommandError = async (
       };
       break;
     case "TrafficPolicyAlreadyExists":
-    case "com.amazon.webservices.dns.v20130401#TrafficPolicyAlreadyExists":
+    case "com.amazonaws.route53#TrafficPolicyAlreadyExists":
       response = {
         ...(await deserializeAws_restXmlTrafficPolicyAlreadyExistsResponse(
           parsedOutput,
@@ -3649,7 +3649,7 @@ const deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -3660,7 +3660,7 @@ const deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError = async (
       };
       break;
     case "NoSuchHostedZone":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
       response = {
         ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(
           parsedOutput,
@@ -3671,7 +3671,7 @@ const deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError = async (
       };
       break;
     case "NoSuchTrafficPolicy":
-    case "com.amazon.webservices.dns.v20130401#NoSuchTrafficPolicy":
+    case "com.amazonaws.route53#NoSuchTrafficPolicy":
       response = {
         ...(await deserializeAws_restXmlNoSuchTrafficPolicyResponse(
           parsedOutput,
@@ -3682,7 +3682,7 @@ const deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError = async (
       };
       break;
     case "TooManyTrafficPolicyInstances":
-    case "com.amazon.webservices.dns.v20130401#TooManyTrafficPolicyInstances":
+    case "com.amazonaws.route53#TooManyTrafficPolicyInstances":
       response = {
         ...(await deserializeAws_restXmlTooManyTrafficPolicyInstancesResponse(
           parsedOutput,
@@ -3693,7 +3693,7 @@ const deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError = async (
       };
       break;
     case "TrafficPolicyInstanceAlreadyExists":
-    case "com.amazon.webservices.dns.v20130401#TrafficPolicyInstanceAlreadyExists":
+    case "com.amazonaws.route53#TrafficPolicyInstanceAlreadyExists":
       response = {
         ...(await deserializeAws_restXmlTrafficPolicyInstanceAlreadyExistsResponse(
           parsedOutput,
@@ -3763,7 +3763,7 @@ const deserializeAws_restXmlCreateTrafficPolicyVersionCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
-    case "com.amazon.webservices.dns.v20130401#ConcurrentModification":
+    case "com.amazonaws.route53#ConcurrentModification":
       response = {
         ...(await deserializeAws_restXmlConcurrentModificationResponse(
           parsedOutput,
@@ -3774,7 +3774,7 @@ const deserializeAws_restXmlCreateTrafficPolicyVersionCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -3785,7 +3785,7 @@ const deserializeAws_restXmlCreateTrafficPolicyVersionCommandError = async (
       };
       break;
     case "InvalidTrafficPolicyDocument":
-    case "com.amazon.webservices.dns.v20130401#InvalidTrafficPolicyDocument":
+    case "com.amazonaws.route53#InvalidTrafficPolicyDocument":
       response = {
         ...(await deserializeAws_restXmlInvalidTrafficPolicyDocumentResponse(
           parsedOutput,
@@ -3796,7 +3796,7 @@ const deserializeAws_restXmlCreateTrafficPolicyVersionCommandError = async (
       };
       break;
     case "NoSuchTrafficPolicy":
-    case "com.amazon.webservices.dns.v20130401#NoSuchTrafficPolicy":
+    case "com.amazonaws.route53#NoSuchTrafficPolicy":
       response = {
         ...(await deserializeAws_restXmlNoSuchTrafficPolicyResponse(
           parsedOutput,
@@ -3807,7 +3807,7 @@ const deserializeAws_restXmlCreateTrafficPolicyVersionCommandError = async (
       };
       break;
     case "TooManyTrafficPolicyVersionsForCurrentPolicy":
-    case "com.amazon.webservices.dns.v20130401#TooManyTrafficPolicyVersionsForCurrentPolicy":
+    case "com.amazonaws.route53#TooManyTrafficPolicyVersionsForCurrentPolicy":
       response = {
         ...(await deserializeAws_restXmlTooManyTrafficPolicyVersionsForCurrentPolicyResponse(
           parsedOutput,
@@ -3874,7 +3874,7 @@ const deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandError = asyn
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
-    case "com.amazon.webservices.dns.v20130401#ConcurrentModification":
+    case "com.amazonaws.route53#ConcurrentModification":
       response = {
         ...(await deserializeAws_restXmlConcurrentModificationResponse(
           parsedOutput,
@@ -3885,7 +3885,7 @@ const deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandError = asyn
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -3896,7 +3896,7 @@ const deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandError = asyn
       };
       break;
     case "InvalidVPCId":
-    case "com.amazon.webservices.dns.v20130401#InvalidVPCId":
+    case "com.amazonaws.route53#InvalidVPCId":
       response = {
         ...(await deserializeAws_restXmlInvalidVPCIdResponse(
           parsedOutput,
@@ -3907,7 +3907,7 @@ const deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandError = asyn
       };
       break;
     case "NoSuchHostedZone":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
       response = {
         ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(
           parsedOutput,
@@ -3918,7 +3918,7 @@ const deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandError = asyn
       };
       break;
     case "TooManyVPCAssociationAuthorizations":
-    case "com.amazon.webservices.dns.v20130401#TooManyVPCAssociationAuthorizations":
+    case "com.amazonaws.route53#TooManyVPCAssociationAuthorizations":
       response = {
         ...(await deserializeAws_restXmlTooManyVPCAssociationAuthorizationsResponse(
           parsedOutput,
@@ -3974,7 +3974,7 @@ const deserializeAws_restXmlDeleteHealthCheckCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HealthCheckInUse":
-    case "com.amazon.webservices.dns.v20130401#HealthCheckInUse":
+    case "com.amazonaws.route53#HealthCheckInUse":
       response = {
         ...(await deserializeAws_restXmlHealthCheckInUseResponse(
           parsedOutput,
@@ -3985,7 +3985,7 @@ const deserializeAws_restXmlDeleteHealthCheckCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -3996,7 +3996,7 @@ const deserializeAws_restXmlDeleteHealthCheckCommandError = async (
       };
       break;
     case "NoSuchHealthCheck":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHealthCheck":
+    case "com.amazonaws.route53#NoSuchHealthCheck":
       response = {
         ...(await deserializeAws_restXmlNoSuchHealthCheckResponse(
           parsedOutput,
@@ -4059,7 +4059,7 @@ const deserializeAws_restXmlDeleteHostedZoneCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HostedZoneNotEmpty":
-    case "com.amazon.webservices.dns.v20130401#HostedZoneNotEmpty":
+    case "com.amazonaws.route53#HostedZoneNotEmpty":
       response = {
         ...(await deserializeAws_restXmlHostedZoneNotEmptyResponse(
           parsedOutput,
@@ -4070,7 +4070,7 @@ const deserializeAws_restXmlDeleteHostedZoneCommandError = async (
       };
       break;
     case "InvalidDomainName":
-    case "com.amazon.webservices.dns.v20130401#InvalidDomainName":
+    case "com.amazonaws.route53#InvalidDomainName":
       response = {
         ...(await deserializeAws_restXmlInvalidDomainNameResponse(
           parsedOutput,
@@ -4081,7 +4081,7 @@ const deserializeAws_restXmlDeleteHostedZoneCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -4092,7 +4092,7 @@ const deserializeAws_restXmlDeleteHostedZoneCommandError = async (
       };
       break;
     case "NoSuchHostedZone":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
       response = {
         ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(
           parsedOutput,
@@ -4103,7 +4103,7 @@ const deserializeAws_restXmlDeleteHostedZoneCommandError = async (
       };
       break;
     case "PriorRequestNotComplete":
-    case "com.amazon.webservices.dns.v20130401#PriorRequestNotComplete":
+    case "com.amazonaws.route53#PriorRequestNotComplete":
       response = {
         ...(await deserializeAws_restXmlPriorRequestNotCompleteResponse(
           parsedOutput,
@@ -4162,7 +4162,7 @@ const deserializeAws_restXmlDeleteQueryLoggingConfigCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
-    case "com.amazon.webservices.dns.v20130401#ConcurrentModification":
+    case "com.amazonaws.route53#ConcurrentModification":
       response = {
         ...(await deserializeAws_restXmlConcurrentModificationResponse(
           parsedOutput,
@@ -4173,7 +4173,7 @@ const deserializeAws_restXmlDeleteQueryLoggingConfigCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -4184,7 +4184,7 @@ const deserializeAws_restXmlDeleteQueryLoggingConfigCommandError = async (
       };
       break;
     case "NoSuchQueryLoggingConfig":
-    case "com.amazon.webservices.dns.v20130401#NoSuchQueryLoggingConfig":
+    case "com.amazonaws.route53#NoSuchQueryLoggingConfig":
       response = {
         ...(await deserializeAws_restXmlNoSuchQueryLoggingConfigResponse(
           parsedOutput,
@@ -4243,7 +4243,7 @@ const deserializeAws_restXmlDeleteReusableDelegationSetCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DelegationSetInUse":
-    case "com.amazon.webservices.dns.v20130401#DelegationSetInUse":
+    case "com.amazonaws.route53#DelegationSetInUse":
       response = {
         ...(await deserializeAws_restXmlDelegationSetInUseResponse(
           parsedOutput,
@@ -4254,7 +4254,7 @@ const deserializeAws_restXmlDeleteReusableDelegationSetCommandError = async (
       };
       break;
     case "DelegationSetNotReusable":
-    case "com.amazon.webservices.dns.v20130401#DelegationSetNotReusable":
+    case "com.amazonaws.route53#DelegationSetNotReusable":
       response = {
         ...(await deserializeAws_restXmlDelegationSetNotReusableResponse(
           parsedOutput,
@@ -4265,7 +4265,7 @@ const deserializeAws_restXmlDeleteReusableDelegationSetCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -4276,7 +4276,7 @@ const deserializeAws_restXmlDeleteReusableDelegationSetCommandError = async (
       };
       break;
     case "NoSuchDelegationSet":
-    case "com.amazon.webservices.dns.v20130401#NoSuchDelegationSet":
+    case "com.amazonaws.route53#NoSuchDelegationSet":
       response = {
         ...(await deserializeAws_restXmlNoSuchDelegationSetResponse(
           parsedOutput,
@@ -4335,7 +4335,7 @@ const deserializeAws_restXmlDeleteTrafficPolicyCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
-    case "com.amazon.webservices.dns.v20130401#ConcurrentModification":
+    case "com.amazonaws.route53#ConcurrentModification":
       response = {
         ...(await deserializeAws_restXmlConcurrentModificationResponse(
           parsedOutput,
@@ -4346,7 +4346,7 @@ const deserializeAws_restXmlDeleteTrafficPolicyCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -4357,7 +4357,7 @@ const deserializeAws_restXmlDeleteTrafficPolicyCommandError = async (
       };
       break;
     case "NoSuchTrafficPolicy":
-    case "com.amazon.webservices.dns.v20130401#NoSuchTrafficPolicy":
+    case "com.amazonaws.route53#NoSuchTrafficPolicy":
       response = {
         ...(await deserializeAws_restXmlNoSuchTrafficPolicyResponse(
           parsedOutput,
@@ -4368,7 +4368,7 @@ const deserializeAws_restXmlDeleteTrafficPolicyCommandError = async (
       };
       break;
     case "TrafficPolicyInUse":
-    case "com.amazon.webservices.dns.v20130401#TrafficPolicyInUse":
+    case "com.amazonaws.route53#TrafficPolicyInUse":
       response = {
         ...(await deserializeAws_restXmlTrafficPolicyInUseResponse(
           parsedOutput,
@@ -4427,7 +4427,7 @@ const deserializeAws_restXmlDeleteTrafficPolicyInstanceCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -4438,7 +4438,7 @@ const deserializeAws_restXmlDeleteTrafficPolicyInstanceCommandError = async (
       };
       break;
     case "NoSuchTrafficPolicyInstance":
-    case "com.amazon.webservices.dns.v20130401#NoSuchTrafficPolicyInstance":
+    case "com.amazonaws.route53#NoSuchTrafficPolicyInstance":
       response = {
         ...(await deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse(
           parsedOutput,
@@ -4449,7 +4449,7 @@ const deserializeAws_restXmlDeleteTrafficPolicyInstanceCommandError = async (
       };
       break;
     case "PriorRequestNotComplete":
-    case "com.amazon.webservices.dns.v20130401#PriorRequestNotComplete":
+    case "com.amazonaws.route53#PriorRequestNotComplete":
       response = {
         ...(await deserializeAws_restXmlPriorRequestNotCompleteResponse(
           parsedOutput,
@@ -4508,7 +4508,7 @@ const deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandError = asyn
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
-    case "com.amazon.webservices.dns.v20130401#ConcurrentModification":
+    case "com.amazonaws.route53#ConcurrentModification":
       response = {
         ...(await deserializeAws_restXmlConcurrentModificationResponse(
           parsedOutput,
@@ -4519,7 +4519,7 @@ const deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandError = asyn
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -4530,7 +4530,7 @@ const deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandError = asyn
       };
       break;
     case "InvalidVPCId":
-    case "com.amazon.webservices.dns.v20130401#InvalidVPCId":
+    case "com.amazonaws.route53#InvalidVPCId":
       response = {
         ...(await deserializeAws_restXmlInvalidVPCIdResponse(
           parsedOutput,
@@ -4541,7 +4541,7 @@ const deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandError = asyn
       };
       break;
     case "NoSuchHostedZone":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
       response = {
         ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(
           parsedOutput,
@@ -4552,7 +4552,7 @@ const deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandError = asyn
       };
       break;
     case "VPCAssociationAuthorizationNotFound":
-    case "com.amazon.webservices.dns.v20130401#VPCAssociationAuthorizationNotFound":
+    case "com.amazonaws.route53#VPCAssociationAuthorizationNotFound":
       response = {
         ...(await deserializeAws_restXmlVPCAssociationAuthorizationNotFoundResponse(
           parsedOutput,
@@ -4618,7 +4618,7 @@ const deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -4629,7 +4629,7 @@ const deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError = async (
       };
       break;
     case "InvalidVPCId":
-    case "com.amazon.webservices.dns.v20130401#InvalidVPCId":
+    case "com.amazonaws.route53#InvalidVPCId":
       response = {
         ...(await deserializeAws_restXmlInvalidVPCIdResponse(
           parsedOutput,
@@ -4640,7 +4640,7 @@ const deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError = async (
       };
       break;
     case "LastVPCAssociation":
-    case "com.amazon.webservices.dns.v20130401#LastVPCAssociation":
+    case "com.amazonaws.route53#LastVPCAssociation":
       response = {
         ...(await deserializeAws_restXmlLastVPCAssociationResponse(
           parsedOutput,
@@ -4651,7 +4651,7 @@ const deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError = async (
       };
       break;
     case "NoSuchHostedZone":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
       response = {
         ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(
           parsedOutput,
@@ -4662,7 +4662,7 @@ const deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError = async (
       };
       break;
     case "VPCAssociationNotFound":
-    case "com.amazon.webservices.dns.v20130401#VPCAssociationNotFound":
+    case "com.amazonaws.route53#VPCAssociationNotFound":
       response = {
         ...(await deserializeAws_restXmlVPCAssociationNotFoundResponse(
           parsedOutput,
@@ -4726,7 +4726,7 @@ const deserializeAws_restXmlGetAccountLimitCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -4789,7 +4789,7 @@ const deserializeAws_restXmlGetChangeCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -4800,7 +4800,7 @@ const deserializeAws_restXmlGetChangeCommandError = async (
       };
       break;
     case "NoSuchChange":
-    case "com.amazon.webservices.dns.v20130401#NoSuchChange":
+    case "com.amazonaws.route53#NoSuchChange":
       response = {
         ...(await deserializeAws_restXmlNoSuchChangeResponse(
           parsedOutput,
@@ -4924,7 +4924,7 @@ const deserializeAws_restXmlGetGeoLocationCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -4935,7 +4935,7 @@ const deserializeAws_restXmlGetGeoLocationCommandError = async (
       };
       break;
     case "NoSuchGeoLocation":
-    case "com.amazon.webservices.dns.v20130401#NoSuchGeoLocation":
+    case "com.amazonaws.route53#NoSuchGeoLocation":
       response = {
         ...(await deserializeAws_restXmlNoSuchGeoLocationResponse(
           parsedOutput,
@@ -4998,7 +4998,7 @@ const deserializeAws_restXmlGetHealthCheckCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IncompatibleVersion":
-    case "com.amazon.webservices.dns.v20130401#IncompatibleVersion":
+    case "com.amazonaws.route53#IncompatibleVersion":
       response = {
         ...(await deserializeAws_restXmlIncompatibleVersionResponse(
           parsedOutput,
@@ -5009,7 +5009,7 @@ const deserializeAws_restXmlGetHealthCheckCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -5020,7 +5020,7 @@ const deserializeAws_restXmlGetHealthCheckCommandError = async (
       };
       break;
     case "NoSuchHealthCheck":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHealthCheck":
+    case "com.amazonaws.route53#NoSuchHealthCheck":
       response = {
         ...(await deserializeAws_restXmlNoSuchHealthCheckResponse(
           parsedOutput,
@@ -5146,7 +5146,7 @@ const deserializeAws_restXmlGetHealthCheckLastFailureReasonCommandError = async 
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -5157,7 +5157,7 @@ const deserializeAws_restXmlGetHealthCheckLastFailureReasonCommandError = async 
       };
       break;
     case "NoSuchHealthCheck":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHealthCheck":
+    case "com.amazonaws.route53#NoSuchHealthCheck":
       response = {
         ...(await deserializeAws_restXmlNoSuchHealthCheckResponse(
           parsedOutput,
@@ -5231,7 +5231,7 @@ const deserializeAws_restXmlGetHealthCheckStatusCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -5242,7 +5242,7 @@ const deserializeAws_restXmlGetHealthCheckStatusCommandError = async (
       };
       break;
     case "NoSuchHealthCheck":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHealthCheck":
+    case "com.amazonaws.route53#NoSuchHealthCheck":
       response = {
         ...(await deserializeAws_restXmlNoSuchHealthCheckResponse(
           parsedOutput,
@@ -5322,7 +5322,7 @@ const deserializeAws_restXmlGetHostedZoneCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -5333,7 +5333,7 @@ const deserializeAws_restXmlGetHostedZoneCommandError = async (
       };
       break;
     case "NoSuchHostedZone":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
       response = {
         ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(
           parsedOutput,
@@ -5396,7 +5396,7 @@ const deserializeAws_restXmlGetHostedZoneCountCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -5466,7 +5466,7 @@ const deserializeAws_restXmlGetHostedZoneLimitCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HostedZoneNotPrivate":
-    case "com.amazon.webservices.dns.v20130401#HostedZoneNotPrivate":
+    case "com.amazonaws.route53#HostedZoneNotPrivate":
       response = {
         ...(await deserializeAws_restXmlHostedZoneNotPrivateResponse(
           parsedOutput,
@@ -5477,7 +5477,7 @@ const deserializeAws_restXmlGetHostedZoneLimitCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -5488,7 +5488,7 @@ const deserializeAws_restXmlGetHostedZoneLimitCommandError = async (
       };
       break;
     case "NoSuchHostedZone":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
       response = {
         ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(
           parsedOutput,
@@ -5554,7 +5554,7 @@ const deserializeAws_restXmlGetQueryLoggingConfigCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -5565,7 +5565,7 @@ const deserializeAws_restXmlGetQueryLoggingConfigCommandError = async (
       };
       break;
     case "NoSuchQueryLoggingConfig":
-    case "com.amazon.webservices.dns.v20130401#NoSuchQueryLoggingConfig":
+    case "com.amazonaws.route53#NoSuchQueryLoggingConfig":
       response = {
         ...(await deserializeAws_restXmlNoSuchQueryLoggingConfigResponse(
           parsedOutput,
@@ -5631,7 +5631,7 @@ const deserializeAws_restXmlGetReusableDelegationSetCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DelegationSetNotReusable":
-    case "com.amazon.webservices.dns.v20130401#DelegationSetNotReusable":
+    case "com.amazonaws.route53#DelegationSetNotReusable":
       response = {
         ...(await deserializeAws_restXmlDelegationSetNotReusableResponse(
           parsedOutput,
@@ -5642,7 +5642,7 @@ const deserializeAws_restXmlGetReusableDelegationSetCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -5653,7 +5653,7 @@ const deserializeAws_restXmlGetReusableDelegationSetCommandError = async (
       };
       break;
     case "NoSuchDelegationSet":
-    case "com.amazon.webservices.dns.v20130401#NoSuchDelegationSet":
+    case "com.amazonaws.route53#NoSuchDelegationSet":
       response = {
         ...(await deserializeAws_restXmlNoSuchDelegationSetResponse(
           parsedOutput,
@@ -5723,7 +5723,7 @@ const deserializeAws_restXmlGetReusableDelegationSetLimitCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -5734,7 +5734,7 @@ const deserializeAws_restXmlGetReusableDelegationSetLimitCommandError = async (
       };
       break;
     case "NoSuchDelegationSet":
-    case "com.amazon.webservices.dns.v20130401#NoSuchDelegationSet":
+    case "com.amazonaws.route53#NoSuchDelegationSet":
       response = {
         ...(await deserializeAws_restXmlNoSuchDelegationSetResponse(
           parsedOutput,
@@ -5797,7 +5797,7 @@ const deserializeAws_restXmlGetTrafficPolicyCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -5808,7 +5808,7 @@ const deserializeAws_restXmlGetTrafficPolicyCommandError = async (
       };
       break;
     case "NoSuchTrafficPolicy":
-    case "com.amazon.webservices.dns.v20130401#NoSuchTrafficPolicy":
+    case "com.amazonaws.route53#NoSuchTrafficPolicy":
       response = {
         ...(await deserializeAws_restXmlNoSuchTrafficPolicyResponse(
           parsedOutput,
@@ -5874,7 +5874,7 @@ const deserializeAws_restXmlGetTrafficPolicyInstanceCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -5885,7 +5885,7 @@ const deserializeAws_restXmlGetTrafficPolicyInstanceCommandError = async (
       };
       break;
     case "NoSuchTrafficPolicyInstance":
-    case "com.amazon.webservices.dns.v20130401#NoSuchTrafficPolicyInstance":
+    case "com.amazonaws.route53#NoSuchTrafficPolicyInstance":
       response = {
         ...(await deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse(
           parsedOutput,
@@ -6030,7 +6030,7 @@ const deserializeAws_restXmlListGeoLocationsCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -6115,7 +6115,7 @@ const deserializeAws_restXmlListHealthChecksCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IncompatibleVersion":
-    case "com.amazon.webservices.dns.v20130401#IncompatibleVersion":
+    case "com.amazonaws.route53#IncompatibleVersion":
       response = {
         ...(await deserializeAws_restXmlIncompatibleVersionResponse(
           parsedOutput,
@@ -6126,7 +6126,7 @@ const deserializeAws_restXmlListHealthChecksCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -6211,7 +6211,7 @@ const deserializeAws_restXmlListHostedZonesCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DelegationSetNotReusable":
-    case "com.amazon.webservices.dns.v20130401#DelegationSetNotReusable":
+    case "com.amazonaws.route53#DelegationSetNotReusable":
       response = {
         ...(await deserializeAws_restXmlDelegationSetNotReusableResponse(
           parsedOutput,
@@ -6222,7 +6222,7 @@ const deserializeAws_restXmlListHostedZonesCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -6233,7 +6233,7 @@ const deserializeAws_restXmlListHostedZonesCommandError = async (
       };
       break;
     case "NoSuchDelegationSet":
-    case "com.amazon.webservices.dns.v20130401#NoSuchDelegationSet":
+    case "com.amazonaws.route53#NoSuchDelegationSet":
       response = {
         ...(await deserializeAws_restXmlNoSuchDelegationSetResponse(
           parsedOutput,
@@ -6329,7 +6329,7 @@ const deserializeAws_restXmlListHostedZonesByNameCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidDomainName":
-    case "com.amazon.webservices.dns.v20130401#InvalidDomainName":
+    case "com.amazonaws.route53#InvalidDomainName":
       response = {
         ...(await deserializeAws_restXmlInvalidDomainNameResponse(
           parsedOutput,
@@ -6340,7 +6340,7 @@ const deserializeAws_restXmlListHostedZonesByNameCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -6416,7 +6416,7 @@ const deserializeAws_restXmlListQueryLoggingConfigsCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -6427,7 +6427,7 @@ const deserializeAws_restXmlListQueryLoggingConfigsCommandError = async (
       };
       break;
     case "InvalidPaginationToken":
-    case "com.amazon.webservices.dns.v20130401#InvalidPaginationToken":
+    case "com.amazonaws.route53#InvalidPaginationToken":
       response = {
         ...(await deserializeAws_restXmlInvalidPaginationTokenResponse(
           parsedOutput,
@@ -6438,7 +6438,7 @@ const deserializeAws_restXmlListQueryLoggingConfigsCommandError = async (
       };
       break;
     case "NoSuchHostedZone":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
       response = {
         ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(
           parsedOutput,
@@ -6530,7 +6530,7 @@ const deserializeAws_restXmlListResourceRecordSetsCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -6541,7 +6541,7 @@ const deserializeAws_restXmlListResourceRecordSetsCommandError = async (
       };
       break;
     case "NoSuchHostedZone":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
       response = {
         ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(
           parsedOutput,
@@ -6629,7 +6629,7 @@ const deserializeAws_restXmlListReusableDelegationSetsCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -6695,7 +6695,7 @@ const deserializeAws_restXmlListTagsForResourceCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -6706,7 +6706,7 @@ const deserializeAws_restXmlListTagsForResourceCommandError = async (
       };
       break;
     case "NoSuchHealthCheck":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHealthCheck":
+    case "com.amazonaws.route53#NoSuchHealthCheck":
       response = {
         ...(await deserializeAws_restXmlNoSuchHealthCheckResponse(
           parsedOutput,
@@ -6717,7 +6717,7 @@ const deserializeAws_restXmlListTagsForResourceCommandError = async (
       };
       break;
     case "NoSuchHostedZone":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
       response = {
         ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(
           parsedOutput,
@@ -6728,7 +6728,7 @@ const deserializeAws_restXmlListTagsForResourceCommandError = async (
       };
       break;
     case "PriorRequestNotComplete":
-    case "com.amazon.webservices.dns.v20130401#PriorRequestNotComplete":
+    case "com.amazonaws.route53#PriorRequestNotComplete":
       response = {
         ...(await deserializeAws_restXmlPriorRequestNotCompleteResponse(
           parsedOutput,
@@ -6739,7 +6739,7 @@ const deserializeAws_restXmlListTagsForResourceCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazon.webservices.dns.v20130401#ThrottlingException":
+    case "com.amazonaws.route53#ThrottlingException":
       response = {
         ...(await deserializeAws_restXmlThrottlingExceptionResponse(
           parsedOutput,
@@ -6811,7 +6811,7 @@ const deserializeAws_restXmlListTagsForResourcesCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -6822,7 +6822,7 @@ const deserializeAws_restXmlListTagsForResourcesCommandError = async (
       };
       break;
     case "NoSuchHealthCheck":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHealthCheck":
+    case "com.amazonaws.route53#NoSuchHealthCheck":
       response = {
         ...(await deserializeAws_restXmlNoSuchHealthCheckResponse(
           parsedOutput,
@@ -6833,7 +6833,7 @@ const deserializeAws_restXmlListTagsForResourcesCommandError = async (
       };
       break;
     case "NoSuchHostedZone":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
       response = {
         ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(
           parsedOutput,
@@ -6844,7 +6844,7 @@ const deserializeAws_restXmlListTagsForResourcesCommandError = async (
       };
       break;
     case "PriorRequestNotComplete":
-    case "com.amazon.webservices.dns.v20130401#PriorRequestNotComplete":
+    case "com.amazonaws.route53#PriorRequestNotComplete":
       response = {
         ...(await deserializeAws_restXmlPriorRequestNotCompleteResponse(
           parsedOutput,
@@ -6855,7 +6855,7 @@ const deserializeAws_restXmlListTagsForResourcesCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazon.webservices.dns.v20130401#ThrottlingException":
+    case "com.amazonaws.route53#ThrottlingException":
       response = {
         ...(await deserializeAws_restXmlThrottlingExceptionResponse(
           parsedOutput,
@@ -6941,7 +6941,7 @@ const deserializeAws_restXmlListTrafficPoliciesCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -7037,7 +7037,7 @@ const deserializeAws_restXmlListTrafficPolicyInstancesCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -7048,7 +7048,7 @@ const deserializeAws_restXmlListTrafficPolicyInstancesCommandError = async (
       };
       break;
     case "NoSuchTrafficPolicyInstance":
-    case "com.amazon.webservices.dns.v20130401#NoSuchTrafficPolicyInstance":
+    case "com.amazonaws.route53#NoSuchTrafficPolicyInstance":
       response = {
         ...(await deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse(
           parsedOutput,
@@ -7140,7 +7140,7 @@ const deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommandError =
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -7151,7 +7151,7 @@ const deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommandError =
       };
       break;
     case "NoSuchHostedZone":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
       response = {
         ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(
           parsedOutput,
@@ -7162,7 +7162,7 @@ const deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommandError =
       };
       break;
     case "NoSuchTrafficPolicyInstance":
-    case "com.amazon.webservices.dns.v20130401#NoSuchTrafficPolicyInstance":
+    case "com.amazonaws.route53#NoSuchTrafficPolicyInstance":
       response = {
         ...(await deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse(
           parsedOutput,
@@ -7258,7 +7258,7 @@ const deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommandError = asy
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -7269,7 +7269,7 @@ const deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommandError = asy
       };
       break;
     case "NoSuchTrafficPolicy":
-    case "com.amazon.webservices.dns.v20130401#NoSuchTrafficPolicy":
+    case "com.amazonaws.route53#NoSuchTrafficPolicy":
       response = {
         ...(await deserializeAws_restXmlNoSuchTrafficPolicyResponse(
           parsedOutput,
@@ -7280,7 +7280,7 @@ const deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommandError = asy
       };
       break;
     case "NoSuchTrafficPolicyInstance":
-    case "com.amazon.webservices.dns.v20130401#NoSuchTrafficPolicyInstance":
+    case "com.amazonaws.route53#NoSuchTrafficPolicyInstance":
       response = {
         ...(await deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse(
           parsedOutput,
@@ -7364,7 +7364,7 @@ const deserializeAws_restXmlListTrafficPolicyVersionsCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -7375,7 +7375,7 @@ const deserializeAws_restXmlListTrafficPolicyVersionsCommandError = async (
       };
       break;
     case "NoSuchTrafficPolicy":
-    case "com.amazon.webservices.dns.v20130401#NoSuchTrafficPolicy":
+    case "com.amazonaws.route53#NoSuchTrafficPolicy":
       response = {
         ...(await deserializeAws_restXmlNoSuchTrafficPolicyResponse(
           parsedOutput,
@@ -7452,7 +7452,7 @@ const deserializeAws_restXmlListVPCAssociationAuthorizationsCommandError = async
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -7463,7 +7463,7 @@ const deserializeAws_restXmlListVPCAssociationAuthorizationsCommandError = async
       };
       break;
     case "InvalidPaginationToken":
-    case "com.amazon.webservices.dns.v20130401#InvalidPaginationToken":
+    case "com.amazonaws.route53#InvalidPaginationToken":
       response = {
         ...(await deserializeAws_restXmlInvalidPaginationTokenResponse(
           parsedOutput,
@@ -7474,7 +7474,7 @@ const deserializeAws_restXmlListVPCAssociationAuthorizationsCommandError = async
       };
       break;
     case "NoSuchHostedZone":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
       response = {
         ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(
           parsedOutput,
@@ -7563,7 +7563,7 @@ const deserializeAws_restXmlTestDNSAnswerCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -7574,7 +7574,7 @@ const deserializeAws_restXmlTestDNSAnswerCommandError = async (
       };
       break;
     case "NoSuchHostedZone":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
       response = {
         ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(
           parsedOutput,
@@ -7637,7 +7637,7 @@ const deserializeAws_restXmlUpdateHealthCheckCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HealthCheckVersionMismatch":
-    case "com.amazon.webservices.dns.v20130401#HealthCheckVersionMismatch":
+    case "com.amazonaws.route53#HealthCheckVersionMismatch":
       response = {
         ...(await deserializeAws_restXmlHealthCheckVersionMismatchResponse(
           parsedOutput,
@@ -7648,7 +7648,7 @@ const deserializeAws_restXmlUpdateHealthCheckCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -7659,7 +7659,7 @@ const deserializeAws_restXmlUpdateHealthCheckCommandError = async (
       };
       break;
     case "NoSuchHealthCheck":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHealthCheck":
+    case "com.amazonaws.route53#NoSuchHealthCheck":
       response = {
         ...(await deserializeAws_restXmlNoSuchHealthCheckResponse(
           parsedOutput,
@@ -7725,7 +7725,7 @@ const deserializeAws_restXmlUpdateHostedZoneCommentCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -7736,7 +7736,7 @@ const deserializeAws_restXmlUpdateHostedZoneCommentCommandError = async (
       };
       break;
     case "NoSuchHostedZone":
-    case "com.amazon.webservices.dns.v20130401#NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
       response = {
         ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(
           parsedOutput,
@@ -7802,7 +7802,7 @@ const deserializeAws_restXmlUpdateTrafficPolicyCommentCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
-    case "com.amazon.webservices.dns.v20130401#ConcurrentModification":
+    case "com.amazonaws.route53#ConcurrentModification":
       response = {
         ...(await deserializeAws_restXmlConcurrentModificationResponse(
           parsedOutput,
@@ -7813,7 +7813,7 @@ const deserializeAws_restXmlUpdateTrafficPolicyCommentCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -7824,7 +7824,7 @@ const deserializeAws_restXmlUpdateTrafficPolicyCommentCommandError = async (
       };
       break;
     case "NoSuchTrafficPolicy":
-    case "com.amazon.webservices.dns.v20130401#NoSuchTrafficPolicy":
+    case "com.amazonaws.route53#NoSuchTrafficPolicy":
       response = {
         ...(await deserializeAws_restXmlNoSuchTrafficPolicyResponse(
           parsedOutput,
@@ -7890,7 +7890,7 @@ const deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingTypes":
-    case "com.amazon.webservices.dns.v20130401#ConflictingTypes":
+    case "com.amazonaws.route53#ConflictingTypes":
       response = {
         ...(await deserializeAws_restXmlConflictingTypesResponse(
           parsedOutput,
@@ -7901,7 +7901,7 @@ const deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazon.webservices.dns.v20130401#InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
       response = {
         ...(await deserializeAws_restXmlInvalidInputResponse(
           parsedOutput,
@@ -7912,7 +7912,7 @@ const deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError = async (
       };
       break;
     case "NoSuchTrafficPolicy":
-    case "com.amazon.webservices.dns.v20130401#NoSuchTrafficPolicy":
+    case "com.amazonaws.route53#NoSuchTrafficPolicy":
       response = {
         ...(await deserializeAws_restXmlNoSuchTrafficPolicyResponse(
           parsedOutput,
@@ -7923,7 +7923,7 @@ const deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError = async (
       };
       break;
     case "NoSuchTrafficPolicyInstance":
-    case "com.amazon.webservices.dns.v20130401#NoSuchTrafficPolicyInstance":
+    case "com.amazonaws.route53#NoSuchTrafficPolicyInstance":
       response = {
         ...(await deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse(
           parsedOutput,
@@ -7934,7 +7934,7 @@ const deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError = async (
       };
       break;
     case "PriorRequestNotComplete":
-    case "com.amazon.webservices.dns.v20130401#PriorRequestNotComplete":
+    case "com.amazonaws.route53#PriorRequestNotComplete":
       response = {
         ...(await deserializeAws_restXmlPriorRequestNotCompleteResponse(
           parsedOutput,
@@ -8774,12 +8774,12 @@ const deserializeAws_restXmlTrafficPolicyAlreadyExistsResponse = async (
   return contents;
 };
 
-const deserializeAws_restXmlTrafficPolicyInUseResponse = async (
+const deserializeAws_restXmlTrafficPolicyInstanceAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
-): Promise<TrafficPolicyInUse> => {
-  const contents: TrafficPolicyInUse = {
-    name: "TrafficPolicyInUse",
+): Promise<TrafficPolicyInstanceAlreadyExists> => {
+  const contents: TrafficPolicyInstanceAlreadyExists = {
+    name: "TrafficPolicyInstanceAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -8791,12 +8791,12 @@ const deserializeAws_restXmlTrafficPolicyInUseResponse = async (
   return contents;
 };
 
-const deserializeAws_restXmlTrafficPolicyInstanceAlreadyExistsResponse = async (
+const deserializeAws_restXmlTrafficPolicyInUseResponse = async (
   parsedOutput: any,
   context: __SerdeContext
-): Promise<TrafficPolicyInstanceAlreadyExists> => {
-  const contents: TrafficPolicyInstanceAlreadyExists = {
-    name: "TrafficPolicyInstanceAlreadyExists",
+): Promise<TrafficPolicyInUse> => {
+  const contents: TrafficPolicyInUse = {
+    name: "TrafficPolicyInUse",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -9158,6 +9158,16 @@ const serializeAws_restXmlResourceRecord = (
   return bodyNode;
 };
 
+const serializeAws_restXmlResourceRecords = (
+  input: ResourceRecord[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => {
+    const node = serializeAws_restXmlResourceRecord(entry, context);
+    return node.withName("ResourceRecord");
+  });
+};
+
 const serializeAws_restXmlResourceRecordSet = (
   input: ResourceRecordSet,
   context: __SerdeContext
@@ -9249,16 +9259,6 @@ const serializeAws_restXmlResourceRecordSet = (
     bodyNode.addChildNode(node);
   }
   return bodyNode;
-};
-
-const serializeAws_restXmlResourceRecords = (
-  input: ResourceRecord[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => {
-    const node = serializeAws_restXmlResourceRecord(entry, context);
-    return node.withName("ResourceRecord");
-  });
 };
 
 const serializeAws_restXmlTag = (input: Tag, context: __SerdeContext): any => {
@@ -9972,6 +9972,15 @@ const deserializeAws_restXmlResourceRecord = (
   return contents;
 };
 
+const deserializeAws_restXmlResourceRecords = (
+  output: any,
+  context: __SerdeContext
+): ResourceRecord[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlResourceRecord(entry, context)
+  );
+};
+
 const deserializeAws_restXmlResourceRecordSet = (
   output: any,
   context: __SerdeContext
@@ -10055,15 +10064,6 @@ const deserializeAws_restXmlResourceRecordSets = (
 ): ResourceRecordSet[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restXmlResourceRecordSet(entry, context)
-  );
-};
-
-const deserializeAws_restXmlResourceRecords = (
-  output: any,
-  context: __SerdeContext
-): ResourceRecord[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restXmlResourceRecord(entry, context)
   );
 };
 

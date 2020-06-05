@@ -8,9 +8,9 @@ import {
   GetBuiltinIntentsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetBuiltinIntentsCommand,
-  serializeAws_restJson1_1GetBuiltinIntentsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetBuiltinIntentsCommand,
+  serializeAws_restJson1GetBuiltinIntentsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetBuiltinIntentsCommand extends $Command<
     input: GetBuiltinIntentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetBuiltinIntentsCommand(input, context);
+    return serializeAws_restJson1GetBuiltinIntentsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBuiltinIntentsCommandOutput> {
-    return deserializeAws_restJson1_1GetBuiltinIntentsCommand(output, context);
+    return deserializeAws_restJson1GetBuiltinIntentsCommand(output, context);
   }
 
   // Start section: command_body_extra

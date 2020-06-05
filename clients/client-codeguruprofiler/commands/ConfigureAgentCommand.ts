@@ -5,9 +5,9 @@ import {
 } from "../CodeGuruProfilerClient";
 import { ConfigureAgentRequest, ConfigureAgentResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ConfigureAgentCommand,
-  serializeAws_restJson1_1ConfigureAgentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ConfigureAgentCommand,
+  serializeAws_restJson1ConfigureAgentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class ConfigureAgentCommand extends $Command<
     input: ConfigureAgentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ConfigureAgentCommand(input, context);
+    return serializeAws_restJson1ConfigureAgentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ConfigureAgentCommandOutput> {
-    return deserializeAws_restJson1_1ConfigureAgentCommand(output, context);
+    return deserializeAws_restJson1ConfigureAgentCommand(output, context);
   }
 
   // Start section: command_body_extra

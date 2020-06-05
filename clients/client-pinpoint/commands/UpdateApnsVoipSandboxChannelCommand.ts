@@ -8,9 +8,9 @@ import {
   UpdateApnsVoipSandboxChannelResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateApnsVoipSandboxChannelCommand,
-  serializeAws_restJson1_1UpdateApnsVoipSandboxChannelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateApnsVoipSandboxChannelCommand,
+  serializeAws_restJson1UpdateApnsVoipSandboxChannelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdateApnsVoipSandboxChannelCommand extends $Command<
     input: UpdateApnsVoipSandboxChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateApnsVoipSandboxChannelCommand(
+    return serializeAws_restJson1UpdateApnsVoipSandboxChannelCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdateApnsVoipSandboxChannelCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApnsVoipSandboxChannelCommandOutput> {
-    return deserializeAws_restJson1_1UpdateApnsVoipSandboxChannelCommand(
+    return deserializeAws_restJson1UpdateApnsVoipSandboxChannelCommand(
       output,
       context
     );

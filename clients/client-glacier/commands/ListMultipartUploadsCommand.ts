@@ -8,9 +8,9 @@ import {
   ListMultipartUploadsOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListMultipartUploadsCommand,
-  serializeAws_restJson1_1ListMultipartUploadsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListMultipartUploadsCommand,
+  serializeAws_restJson1ListMultipartUploadsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListMultipartUploadsCommand extends $Command<
     input: ListMultipartUploadsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListMultipartUploadsCommand(input, context);
+    return serializeAws_restJson1ListMultipartUploadsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListMultipartUploadsCommandOutput> {
-    return deserializeAws_restJson1_1ListMultipartUploadsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListMultipartUploadsCommand(output, context);
   }
 
   // Start section: command_body_extra

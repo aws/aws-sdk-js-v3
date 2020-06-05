@@ -8,9 +8,9 @@ import {
   AttachTypedLinkResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1AttachTypedLinkCommand,
-  serializeAws_restJson1_1AttachTypedLinkCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AttachTypedLinkCommand,
+  serializeAws_restJson1AttachTypedLinkCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class AttachTypedLinkCommand extends $Command<
     input: AttachTypedLinkCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AttachTypedLinkCommand(input, context);
+    return serializeAws_restJson1AttachTypedLinkCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachTypedLinkCommandOutput> {
-    return deserializeAws_restJson1_1AttachTypedLinkCommand(output, context);
+    return deserializeAws_restJson1AttachTypedLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

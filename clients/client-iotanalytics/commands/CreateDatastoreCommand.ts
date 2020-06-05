@@ -8,9 +8,9 @@ import {
   CreateDatastoreResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateDatastoreCommand,
-  serializeAws_restJson1_1CreateDatastoreCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateDatastoreCommand,
+  serializeAws_restJson1CreateDatastoreCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class CreateDatastoreCommand extends $Command<
     input: CreateDatastoreCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateDatastoreCommand(input, context);
+    return serializeAws_restJson1CreateDatastoreCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDatastoreCommandOutput> {
-    return deserializeAws_restJson1_1CreateDatastoreCommand(output, context);
+    return deserializeAws_restJson1CreateDatastoreCommand(output, context);
   }
 
   // Start section: command_body_extra

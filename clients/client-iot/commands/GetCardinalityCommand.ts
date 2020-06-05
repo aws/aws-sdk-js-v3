@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { GetCardinalityRequest, GetCardinalityResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetCardinalityCommand,
-  serializeAws_restJson1_1GetCardinalityCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetCardinalityCommand,
+  serializeAws_restJson1GetCardinalityCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetCardinalityCommand extends $Command<
     input: GetCardinalityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetCardinalityCommand(input, context);
+    return serializeAws_restJson1GetCardinalityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCardinalityCommandOutput> {
-    return deserializeAws_restJson1_1GetCardinalityCommand(output, context);
+    return deserializeAws_restJson1GetCardinalityCommand(output, context);
   }
 
   // Start section: command_body_extra

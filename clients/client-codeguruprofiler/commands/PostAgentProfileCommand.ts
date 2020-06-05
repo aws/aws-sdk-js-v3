@@ -8,9 +8,9 @@ import {
   PostAgentProfileResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PostAgentProfileCommand,
-  serializeAws_restJson1_1PostAgentProfileCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PostAgentProfileCommand,
+  serializeAws_restJson1PostAgentProfileCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class PostAgentProfileCommand extends $Command<
     input: PostAgentProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PostAgentProfileCommand(input, context);
+    return serializeAws_restJson1PostAgentProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PostAgentProfileCommandOutput> {
-    return deserializeAws_restJson1_1PostAgentProfileCommand(output, context);
+    return deserializeAws_restJson1PostAgentProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

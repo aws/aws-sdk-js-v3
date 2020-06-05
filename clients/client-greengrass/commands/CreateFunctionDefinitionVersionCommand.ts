@@ -8,9 +8,9 @@ import {
   CreateFunctionDefinitionVersionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateFunctionDefinitionVersionCommand,
-  serializeAws_restJson1_1CreateFunctionDefinitionVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateFunctionDefinitionVersionCommand,
+  serializeAws_restJson1CreateFunctionDefinitionVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CreateFunctionDefinitionVersionCommand extends $Command<
     input: CreateFunctionDefinitionVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateFunctionDefinitionVersionCommand(
+    return serializeAws_restJson1CreateFunctionDefinitionVersionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CreateFunctionDefinitionVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateFunctionDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1_1CreateFunctionDefinitionVersionCommand(
+    return deserializeAws_restJson1CreateFunctionDefinitionVersionCommand(
       output,
       context
     );

@@ -8,9 +8,9 @@ import {
   RemoveFlowOutputResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1RemoveFlowOutputCommand,
-  serializeAws_restJson1_1RemoveFlowOutputCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1RemoveFlowOutputCommand,
+  serializeAws_restJson1RemoveFlowOutputCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class RemoveFlowOutputCommand extends $Command<
     input: RemoveFlowOutputCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RemoveFlowOutputCommand(input, context);
+    return serializeAws_restJson1RemoveFlowOutputCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveFlowOutputCommandOutput> {
-    return deserializeAws_restJson1_1RemoveFlowOutputCommand(output, context);
+    return deserializeAws_restJson1RemoveFlowOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

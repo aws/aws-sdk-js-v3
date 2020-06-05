@@ -5,9 +5,9 @@ import {
 } from "../AppSyncClient";
 import { FlushApiCacheRequest, FlushApiCacheResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1FlushApiCacheCommand,
-  serializeAws_restJson1_1FlushApiCacheCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1FlushApiCacheCommand,
+  serializeAws_restJson1FlushApiCacheCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class FlushApiCacheCommand extends $Command<
     input: FlushApiCacheCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1FlushApiCacheCommand(input, context);
+    return serializeAws_restJson1FlushApiCacheCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<FlushApiCacheCommandOutput> {
-    return deserializeAws_restJson1_1FlushApiCacheCommand(output, context);
+    return deserializeAws_restJson1FlushApiCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

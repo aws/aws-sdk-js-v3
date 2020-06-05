@@ -5,9 +5,9 @@ import {
 } from "../DataExchangeClient";
 import { DeleteAssetRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteAssetCommand,
-  serializeAws_restJson1_1DeleteAssetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteAssetCommand,
+  serializeAws_restJson1DeleteAssetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteAssetCommand extends $Command<
     input: DeleteAssetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteAssetCommand(input, context);
+    return serializeAws_restJson1DeleteAssetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAssetCommandOutput> {
-    return deserializeAws_restJson1_1DeleteAssetCommand(output, context);
+    return deserializeAws_restJson1DeleteAssetCommand(output, context);
   }
 
   // Start section: command_body_extra

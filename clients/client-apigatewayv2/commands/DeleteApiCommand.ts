@@ -5,9 +5,9 @@ import {
 } from "../ApiGatewayV2Client";
 import { DeleteApiRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteApiCommand,
-  serializeAws_restJson1_1DeleteApiCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteApiCommand,
+  serializeAws_restJson1DeleteApiCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteApiCommand extends $Command<
     input: DeleteApiCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteApiCommand(input, context);
+    return serializeAws_restJson1DeleteApiCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApiCommandOutput> {
-    return deserializeAws_restJson1_1DeleteApiCommand(output, context);
+    return deserializeAws_restJson1DeleteApiCommand(output, context);
   }
 
   // Start section: command_body_extra

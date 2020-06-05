@@ -8,9 +8,9 @@ import {
   UpdateEventConfigurationsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateEventConfigurationsCommand,
-  serializeAws_restJson1_1UpdateEventConfigurationsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateEventConfigurationsCommand,
+  serializeAws_restJson1UpdateEventConfigurationsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdateEventConfigurationsCommand extends $Command<
     input: UpdateEventConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateEventConfigurationsCommand(
+    return serializeAws_restJson1UpdateEventConfigurationsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdateEventConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEventConfigurationsCommandOutput> {
-    return deserializeAws_restJson1_1UpdateEventConfigurationsCommand(
+    return deserializeAws_restJson1UpdateEventConfigurationsCommand(
       output,
       context
     );

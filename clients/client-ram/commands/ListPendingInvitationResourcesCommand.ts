@@ -8,9 +8,9 @@ import {
   ListPendingInvitationResourcesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListPendingInvitationResourcesCommand,
-  serializeAws_restJson1_1ListPendingInvitationResourcesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListPendingInvitationResourcesCommand,
+  serializeAws_restJson1ListPendingInvitationResourcesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListPendingInvitationResourcesCommand extends $Command<
     input: ListPendingInvitationResourcesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListPendingInvitationResourcesCommand(
+    return serializeAws_restJson1ListPendingInvitationResourcesCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListPendingInvitationResourcesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPendingInvitationResourcesCommandOutput> {
-    return deserializeAws_restJson1_1ListPendingInvitationResourcesCommand(
+    return deserializeAws_restJson1ListPendingInvitationResourcesCommand(
       output,
       context
     );

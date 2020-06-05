@@ -8,9 +8,9 @@ import {
   GetDomainStatisticsReportResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetDomainStatisticsReportCommand,
-  serializeAws_restJson1_1GetDomainStatisticsReportCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetDomainStatisticsReportCommand,
+  serializeAws_restJson1GetDomainStatisticsReportCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetDomainStatisticsReportCommand extends $Command<
     input: GetDomainStatisticsReportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDomainStatisticsReportCommand(
+    return serializeAws_restJson1GetDomainStatisticsReportCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetDomainStatisticsReportCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDomainStatisticsReportCommandOutput> {
-    return deserializeAws_restJson1_1GetDomainStatisticsReportCommand(
+    return deserializeAws_restJson1GetDomainStatisticsReportCommand(
       output,
       context
     );

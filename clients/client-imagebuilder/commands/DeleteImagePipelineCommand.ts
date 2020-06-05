@@ -8,9 +8,9 @@ import {
   DeleteImagePipelineResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteImagePipelineCommand,
-  serializeAws_restJson1_1DeleteImagePipelineCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteImagePipelineCommand,
+  serializeAws_restJson1DeleteImagePipelineCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteImagePipelineCommand extends $Command<
     input: DeleteImagePipelineCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteImagePipelineCommand(input, context);
+    return serializeAws_restJson1DeleteImagePipelineCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteImagePipelineCommandOutput> {
-    return deserializeAws_restJson1_1DeleteImagePipelineCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteImagePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

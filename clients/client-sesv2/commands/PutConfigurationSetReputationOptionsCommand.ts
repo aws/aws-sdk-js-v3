@@ -8,9 +8,9 @@ import {
   PutConfigurationSetReputationOptionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutConfigurationSetReputationOptionsCommand,
-  serializeAws_restJson1_1PutConfigurationSetReputationOptionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutConfigurationSetReputationOptionsCommand,
+  serializeAws_restJson1PutConfigurationSetReputationOptionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -76,7 +76,7 @@ export class PutConfigurationSetReputationOptionsCommand extends $Command<
     input: PutConfigurationSetReputationOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutConfigurationSetReputationOptionsCommand(
+    return serializeAws_restJson1PutConfigurationSetReputationOptionsCommand(
       input,
       context
     );
@@ -86,7 +86,7 @@ export class PutConfigurationSetReputationOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationSetReputationOptionsCommandOutput> {
-    return deserializeAws_restJson1_1PutConfigurationSetReputationOptionsCommand(
+    return deserializeAws_restJson1PutConfigurationSetReputationOptionsCommand(
       output,
       context
     );

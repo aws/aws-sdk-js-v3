@@ -8,9 +8,9 @@ import {
   UpdatePublishingDestinationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdatePublishingDestinationCommand,
-  serializeAws_restJson1_1UpdatePublishingDestinationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdatePublishingDestinationCommand,
+  serializeAws_restJson1UpdatePublishingDestinationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdatePublishingDestinationCommand extends $Command<
     input: UpdatePublishingDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdatePublishingDestinationCommand(
+    return serializeAws_restJson1UpdatePublishingDestinationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdatePublishingDestinationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePublishingDestinationCommandOutput> {
-    return deserializeAws_restJson1_1UpdatePublishingDestinationCommand(
+    return deserializeAws_restJson1UpdatePublishingDestinationCommand(
       output,
       context
     );

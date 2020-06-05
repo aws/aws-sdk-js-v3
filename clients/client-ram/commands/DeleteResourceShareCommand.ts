@@ -8,9 +8,9 @@ import {
   DeleteResourceShareResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteResourceShareCommand,
-  serializeAws_restJson1_1DeleteResourceShareCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteResourceShareCommand,
+  serializeAws_restJson1DeleteResourceShareCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteResourceShareCommand extends $Command<
     input: DeleteResourceShareCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteResourceShareCommand(input, context);
+    return serializeAws_restJson1DeleteResourceShareCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteResourceShareCommandOutput> {
-    return deserializeAws_restJson1_1DeleteResourceShareCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteResourceShareCommand(output, context);
   }
 
   // Start section: command_body_extra

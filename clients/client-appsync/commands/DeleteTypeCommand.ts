@@ -5,9 +5,9 @@ import {
 } from "../AppSyncClient";
 import { DeleteTypeRequest, DeleteTypeResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteTypeCommand,
-  serializeAws_restJson1_1DeleteTypeCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteTypeCommand,
+  serializeAws_restJson1DeleteTypeCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteTypeCommand extends $Command<
     input: DeleteTypeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteTypeCommand(input, context);
+    return serializeAws_restJson1DeleteTypeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTypeCommandOutput> {
-    return deserializeAws_restJson1_1DeleteTypeCommand(output, context);
+    return deserializeAws_restJson1DeleteTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

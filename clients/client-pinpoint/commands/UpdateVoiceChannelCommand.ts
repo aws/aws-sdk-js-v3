@@ -8,9 +8,9 @@ import {
   UpdateVoiceChannelResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateVoiceChannelCommand,
-  serializeAws_restJson1_1UpdateVoiceChannelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateVoiceChannelCommand,
+  serializeAws_restJson1UpdateVoiceChannelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class UpdateVoiceChannelCommand extends $Command<
     input: UpdateVoiceChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateVoiceChannelCommand(input, context);
+    return serializeAws_restJson1UpdateVoiceChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateVoiceChannelCommandOutput> {
-    return deserializeAws_restJson1_1UpdateVoiceChannelCommand(output, context);
+    return deserializeAws_restJson1UpdateVoiceChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

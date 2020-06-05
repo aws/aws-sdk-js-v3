@@ -8,9 +8,9 @@ import {
   ListDevelopmentSchemaArnsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommand,
-  serializeAws_restJson1_1ListDevelopmentSchemaArnsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListDevelopmentSchemaArnsCommand,
+  serializeAws_restJson1ListDevelopmentSchemaArnsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListDevelopmentSchemaArnsCommand extends $Command<
     input: ListDevelopmentSchemaArnsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListDevelopmentSchemaArnsCommand(
+    return serializeAws_restJson1ListDevelopmentSchemaArnsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListDevelopmentSchemaArnsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDevelopmentSchemaArnsCommandOutput> {
-    return deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommand(
+    return deserializeAws_restJson1ListDevelopmentSchemaArnsCommand(
       output,
       context
     );

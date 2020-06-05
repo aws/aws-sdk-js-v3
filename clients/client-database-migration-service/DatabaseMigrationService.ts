@@ -884,41 +884,6 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   * <p>Returns information about the type of endpoints available.</p>
-   */
-  public describeEndpointTypes(
-    args: DescribeEndpointTypesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeEndpointTypesCommandOutput>;
-  public describeEndpointTypes(
-    args: DescribeEndpointTypesCommandInput,
-    cb: (err: any, data?: DescribeEndpointTypesCommandOutput) => void
-  ): void;
-  public describeEndpointTypes(
-    args: DescribeEndpointTypesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeEndpointTypesCommandOutput) => void
-  ): void;
-  public describeEndpointTypes(
-    args: DescribeEndpointTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEndpointTypesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeEndpointTypesCommandOutput) => void
-  ): Promise<DescribeEndpointTypesCommandOutput> | void {
-    const command = new DescribeEndpointTypesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Returns information about the endpoints for your account in the current region.</p>
    */
   public describeEndpoints(
@@ -942,6 +907,41 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
     cb?: (err: any, data?: DescribeEndpointsCommandOutput) => void
   ): Promise<DescribeEndpointsCommandOutput> | void {
     const command = new DescribeEndpointsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about the type of endpoints available.</p>
+   */
+  public describeEndpointTypes(
+    args: DescribeEndpointTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEndpointTypesCommandOutput>;
+  public describeEndpointTypes(
+    args: DescribeEndpointTypesCommandInput,
+    cb: (err: any, data?: DescribeEndpointTypesCommandOutput) => void
+  ): void;
+  public describeEndpointTypes(
+    args: DescribeEndpointTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEndpointTypesCommandOutput) => void
+  ): void;
+  public describeEndpointTypes(
+    args: DescribeEndpointTypesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeEndpointTypesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEndpointTypesCommandOutput) => void
+  ): Promise<DescribeEndpointTypesCommandOutput> | void {
+    const command = new DescribeEndpointTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -993,6 +993,45 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * <p> Lists events for a given source identifier and source type. You can also specify a
+   *          start and end time. For more information on AWS DMS events, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working with Events and
+   *             Notifications</a> in the <i>AWS Database Migration User
+   *          Guide.</i>
+   *          </p>
+   */
+  public describeEvents(
+    args: DescribeEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEventsCommandOutput>;
+  public describeEvents(
+    args: DescribeEventsCommandInput,
+    cb: (err: any, data?: DescribeEventsCommandOutput) => void
+  ): void;
+  public describeEvents(
+    args: DescribeEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEventsCommandOutput) => void
+  ): void;
+  public describeEvents(
+    args: DescribeEventsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeEventsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEventsCommandOutput) => void
+  ): Promise<DescribeEventsCommandOutput> | void {
+    const command = new DescribeEventsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists all the event subscriptions for a customer account. The description of a
    *          subscription includes <code>SubscriptionName</code>, <code>SNSTopicARN</code>,
    *             <code>CustomerID</code>, <code>SourceType</code>, <code>SourceID</code>,
@@ -1021,45 +1060,6 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
     cb?: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
   ): Promise<DescribeEventSubscriptionsCommandOutput> | void {
     const command = new DescribeEventSubscriptionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p> Lists events for a given source identifier and source type. You can also specify a
-   *          start and end time. For more information on AWS DMS events, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working with Events and
-   *             Notifications</a> in the <i>AWS Database Migration User
-   *          Guide.</i>
-   *          </p>
-   */
-  public describeEvents(
-    args: DescribeEventsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeEventsCommandOutput>;
-  public describeEvents(
-    args: DescribeEventsCommandInput,
-    cb: (err: any, data?: DescribeEventsCommandOutput) => void
-  ): void;
-  public describeEvents(
-    args: DescribeEventsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeEventsCommandOutput) => void
-  ): void;
-  public describeEvents(
-    args: DescribeEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeEventsCommandOutput) => void
-  ): Promise<DescribeEventsCommandOutput> | void {
-    const command = new DescribeEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1202,6 +1202,42 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * <p>Returns information about replication instances for your account in the current
+   *          region.</p>
+   */
+  public describeReplicationInstances(
+    args: DescribeReplicationInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReplicationInstancesCommandOutput>;
+  public describeReplicationInstances(
+    args: DescribeReplicationInstancesCommandInput,
+    cb: (err: any, data?: DescribeReplicationInstancesCommandOutput) => void
+  ): void;
+  public describeReplicationInstances(
+    args: DescribeReplicationInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReplicationInstancesCommandOutput) => void
+  ): void;
+  public describeReplicationInstances(
+    args: DescribeReplicationInstancesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeReplicationInstancesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReplicationInstancesCommandOutput) => void
+  ): Promise<DescribeReplicationInstancesCommandOutput> | void {
+    const command = new DescribeReplicationInstancesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about the task logs for the specified task.</p>
    */
   public describeReplicationInstanceTaskLogs(
@@ -1237,42 +1273,6 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
     ) => void
   ): Promise<DescribeReplicationInstanceTaskLogsCommandOutput> | void {
     const command = new DescribeReplicationInstanceTaskLogsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns information about replication instances for your account in the current
-   *          region.</p>
-   */
-  public describeReplicationInstances(
-    args: DescribeReplicationInstancesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeReplicationInstancesCommandOutput>;
-  public describeReplicationInstances(
-    args: DescribeReplicationInstancesCommandInput,
-    cb: (err: any, data?: DescribeReplicationInstancesCommandOutput) => void
-  ): void;
-  public describeReplicationInstances(
-    args: DescribeReplicationInstancesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeReplicationInstancesCommandOutput) => void
-  ): void;
-  public describeReplicationInstances(
-    args: DescribeReplicationInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeReplicationInstancesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeReplicationInstancesCommandOutput) => void
-  ): Promise<DescribeReplicationInstancesCommandOutput> | void {
-    const command = new DescribeReplicationInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

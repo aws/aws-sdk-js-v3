@@ -118,7 +118,7 @@ const deserializeAws_json1_1DescribeServicesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExpiredNextTokenException":
-    case "com.amazonaws.awspricelistservice#ExpiredNextTokenException":
+    case "com.amazonaws.pricing#ExpiredNextTokenException":
       response = {
         ...(await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(
           parsedOutput,
@@ -129,7 +129,7 @@ const deserializeAws_json1_1DescribeServicesCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.awspricelistservice#InternalErrorException":
+    case "com.amazonaws.pricing#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -140,7 +140,7 @@ const deserializeAws_json1_1DescribeServicesCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.awspricelistservice#InvalidNextTokenException":
+    case "com.amazonaws.pricing#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -151,7 +151,7 @@ const deserializeAws_json1_1DescribeServicesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awspricelistservice#InvalidParameterException":
+    case "com.amazonaws.pricing#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -162,7 +162,7 @@ const deserializeAws_json1_1DescribeServicesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.awspricelistservice#NotFoundException":
+    case "com.amazonaws.pricing#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -225,7 +225,7 @@ const deserializeAws_json1_1GetAttributeValuesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExpiredNextTokenException":
-    case "com.amazonaws.awspricelistservice#ExpiredNextTokenException":
+    case "com.amazonaws.pricing#ExpiredNextTokenException":
       response = {
         ...(await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(
           parsedOutput,
@@ -236,7 +236,7 @@ const deserializeAws_json1_1GetAttributeValuesCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.awspricelistservice#InternalErrorException":
+    case "com.amazonaws.pricing#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -247,7 +247,7 @@ const deserializeAws_json1_1GetAttributeValuesCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.awspricelistservice#InvalidNextTokenException":
+    case "com.amazonaws.pricing#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -258,7 +258,7 @@ const deserializeAws_json1_1GetAttributeValuesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awspricelistservice#InvalidParameterException":
+    case "com.amazonaws.pricing#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -269,7 +269,7 @@ const deserializeAws_json1_1GetAttributeValuesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.awspricelistservice#NotFoundException":
+    case "com.amazonaws.pricing#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -329,7 +329,7 @@ const deserializeAws_json1_1GetProductsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExpiredNextTokenException":
-    case "com.amazonaws.awspricelistservice#ExpiredNextTokenException":
+    case "com.amazonaws.pricing#ExpiredNextTokenException":
       response = {
         ...(await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(
           parsedOutput,
@@ -340,7 +340,7 @@ const deserializeAws_json1_1GetProductsCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.awspricelistservice#InternalErrorException":
+    case "com.amazonaws.pricing#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -351,7 +351,7 @@ const deserializeAws_json1_1GetProductsCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.awspricelistservice#InvalidNextTokenException":
+    case "com.amazonaws.pricing#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -362,7 +362,7 @@ const deserializeAws_json1_1GetProductsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awspricelistservice#InvalidParameterException":
+    case "com.amazonaws.pricing#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -373,7 +373,7 @@ const deserializeAws_json1_1GetProductsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.awspricelistservice#NotFoundException":
+    case "com.amazonaws.pricing#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,

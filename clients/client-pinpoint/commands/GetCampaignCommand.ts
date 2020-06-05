@@ -5,9 +5,9 @@ import {
 } from "../PinpointClient";
 import { GetCampaignRequest, GetCampaignResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetCampaignCommand,
-  serializeAws_restJson1_1GetCampaignCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetCampaignCommand,
+  serializeAws_restJson1GetCampaignCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetCampaignCommand extends $Command<
     input: GetCampaignCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetCampaignCommand(input, context);
+    return serializeAws_restJson1GetCampaignCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCampaignCommandOutput> {
-    return deserializeAws_restJson1_1GetCampaignCommand(output, context);
+    return deserializeAws_restJson1GetCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

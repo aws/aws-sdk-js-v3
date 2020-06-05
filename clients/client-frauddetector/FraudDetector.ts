@@ -509,41 +509,6 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   * <p>Gets a particular detector version. </p>
-   */
-  public getDetectorVersion(
-    args: GetDetectorVersionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDetectorVersionCommandOutput>;
-  public getDetectorVersion(
-    args: GetDetectorVersionCommandInput,
-    cb: (err: any, data?: GetDetectorVersionCommandOutput) => void
-  ): void;
-  public getDetectorVersion(
-    args: GetDetectorVersionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDetectorVersionCommandOutput) => void
-  ): void;
-  public getDetectorVersion(
-    args: GetDetectorVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDetectorVersionCommandOutput) => void),
-    cb?: (err: any, data?: GetDetectorVersionCommandOutput) => void
-  ): Promise<GetDetectorVersionCommandOutput> | void {
-    const command = new GetDetectorVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Gets all of detectors. This is a paginated API. If you
    *          provide a null <code>maxSizePerPage</code>, this actions retrieves a maximum of 10 records
    *          per page. If you provide a <code>maxSizePerPage</code>, the value must be between 5 and 10.
@@ -572,6 +537,41 @@ export class FraudDetector extends FraudDetectorClient {
     cb?: (err: any, data?: GetDetectorsCommandOutput) => void
   ): Promise<GetDetectorsCommandOutput> | void {
     const command = new GetDetectorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a particular detector version. </p>
+   */
+  public getDetectorVersion(
+    args: GetDetectorVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDetectorVersionCommandOutput>;
+  public getDetectorVersion(
+    args: GetDetectorVersionCommandInput,
+    cb: (err: any, data?: GetDetectorVersionCommandOutput) => void
+  ): void;
+  public getDetectorVersion(
+    args: GetDetectorVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDetectorVersionCommandOutput) => void
+  ): void;
+  public getDetectorVersion(
+    args: GetDetectorVersionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDetectorVersionCommandOutput) => void),
+    cb?: (err: any, data?: GetDetectorVersionCommandOutput) => void
+  ): Promise<GetDetectorVersionCommandOutput> | void {
+    const command = new GetDetectorVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -624,41 +624,6 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   * <p>Gets a model version. </p>
-   */
-  public getModelVersion(
-    args: GetModelVersionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetModelVersionCommandOutput>;
-  public getModelVersion(
-    args: GetModelVersionCommandInput,
-    cb: (err: any, data?: GetModelVersionCommandOutput) => void
-  ): void;
-  public getModelVersion(
-    args: GetModelVersionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetModelVersionCommandOutput) => void
-  ): void;
-  public getModelVersion(
-    args: GetModelVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetModelVersionCommandOutput) => void),
-    cb?: (err: any, data?: GetModelVersionCommandOutput) => void
-  ): Promise<GetModelVersionCommandOutput> | void {
-    const command = new GetModelVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Gets all of the models for the AWS account, or the specified model type, or gets a single model for the specified model type, model ID combination.
    *         </p>
    */
@@ -683,6 +648,41 @@ export class FraudDetector extends FraudDetectorClient {
     cb?: (err: any, data?: GetModelsCommandOutput) => void
   ): Promise<GetModelsCommandOutput> | void {
     const command = new GetModelsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a model version. </p>
+   */
+  public getModelVersion(
+    args: GetModelVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetModelVersionCommandOutput>;
+  public getModelVersion(
+    args: GetModelVersionCommandInput,
+    cb: (err: any, data?: GetModelVersionCommandOutput) => void
+  ): void;
+  public getModelVersion(
+    args: GetModelVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetModelVersionCommandOutput) => void
+  ): void;
+  public getModelVersion(
+    args: GetModelVersionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetModelVersionCommandOutput) => void),
+    cb?: (err: any, data?: GetModelVersionCommandOutput) => void
+  ): Promise<GetModelVersionCommandOutput> | void {
+    const command = new GetModelVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

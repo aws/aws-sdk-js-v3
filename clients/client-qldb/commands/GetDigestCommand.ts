@@ -5,9 +5,9 @@ import {
 } from "../QLDBClient";
 import { GetDigestRequest, GetDigestResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetDigestCommand,
-  serializeAws_restJson1_1GetDigestCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetDigestCommand,
+  serializeAws_restJson1GetDigestCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetDigestCommand extends $Command<
     input: GetDigestCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDigestCommand(input, context);
+    return serializeAws_restJson1GetDigestCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDigestCommandOutput> {
-    return deserializeAws_restJson1_1GetDigestCommand(output, context);
+    return deserializeAws_restJson1GetDigestCommand(output, context);
   }
 
   // Start section: command_body_extra

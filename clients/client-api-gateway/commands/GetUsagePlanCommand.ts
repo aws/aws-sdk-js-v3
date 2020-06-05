@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { GetUsagePlanRequest, UsagePlan } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetUsagePlanCommand,
-  serializeAws_restJson1_1GetUsagePlanCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetUsagePlanCommand,
+  serializeAws_restJson1GetUsagePlanCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetUsagePlanCommand extends $Command<
     input: GetUsagePlanCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetUsagePlanCommand(input, context);
+    return serializeAws_restJson1GetUsagePlanCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetUsagePlanCommandOutput> {
-    return deserializeAws_restJson1_1GetUsagePlanCommand(output, context);
+    return deserializeAws_restJson1GetUsagePlanCommand(output, context);
   }
 
   // Start section: command_body_extra

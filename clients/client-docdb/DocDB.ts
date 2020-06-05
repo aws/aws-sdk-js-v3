@@ -863,6 +863,42 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * <p>Returns information about provisioned Amazon DocumentDB DB clusters. This API operation supports
+   *             pagination.</p>
+   */
+  public describeDBClusters(
+    args: DescribeDBClustersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDBClustersCommandOutput>;
+  public describeDBClusters(
+    args: DescribeDBClustersCommandInput,
+    cb: (err: any, data?: DescribeDBClustersCommandOutput) => void
+  ): void;
+  public describeDBClusters(
+    args: DescribeDBClustersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDBClustersCommandOutput) => void
+  ): void;
+  public describeDBClusters(
+    args: DescribeDBClustersCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeDBClustersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDBClustersCommandOutput) => void
+  ): Promise<DescribeDBClustersCommandOutput> | void {
+    const command = new DescribeDBClustersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of DB cluster snapshot attribute names and values for a manual DB
    *             cluster snapshot.</p>
    *         <p>When you share snapshots with other AWS accounts,
@@ -941,42 +977,6 @@ export class DocDB extends DocDBClient {
     cb?: (err: any, data?: DescribeDBClusterSnapshotsCommandOutput) => void
   ): Promise<DescribeDBClusterSnapshotsCommandOutput> | void {
     const command = new DescribeDBClusterSnapshotsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns information about provisioned Amazon DocumentDB DB clusters. This API operation supports
-   *             pagination.</p>
-   */
-  public describeDBClusters(
-    args: DescribeDBClustersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeDBClustersCommandOutput>;
-  public describeDBClusters(
-    args: DescribeDBClustersCommandInput,
-    cb: (err: any, data?: DescribeDBClustersCommandOutput) => void
-  ): void;
-  public describeDBClusters(
-    args: DescribeDBClustersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeDBClustersCommandOutput) => void
-  ): void;
-  public describeDBClusters(
-    args: DescribeDBClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBClustersCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDBClustersCommandOutput) => void
-  ): Promise<DescribeDBClustersCommandOutput> | void {
-    const command = new DescribeDBClustersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

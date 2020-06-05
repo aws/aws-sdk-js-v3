@@ -644,6 +644,21 @@ export const serializeAws_json1_1ListQualificationTypesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListReviewableHITsCommand = async (
+  input: ListReviewableHITsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "MTurkRequesterServiceV20170117.ListReviewableHITs"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1ListReviewableHITsRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListReviewPolicyResultsForHITCommand = async (
   input: ListReviewPolicyResultsForHITCommandInput,
   context: __SerdeContext
@@ -656,21 +671,6 @@ export const serializeAws_json1_1ListReviewPolicyResultsForHITCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListReviewPolicyResultsForHITRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1ListReviewableHITsCommand = async (
-  input: ListReviewableHITsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MTurkRequesterServiceV20170117.ListReviewableHITs"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListReviewableHITsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -893,7 +893,7 @@ const deserializeAws_json1_1AcceptQualificationRequestCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -904,7 +904,7 @@ const deserializeAws_json1_1AcceptQualificationRequestCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -964,7 +964,7 @@ const deserializeAws_json1_1ApproveAssignmentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -975,7 +975,7 @@ const deserializeAws_json1_1ApproveAssignmentCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -1041,7 +1041,7 @@ const deserializeAws_json1_1AssociateQualificationWithWorkerCommandError = async
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -1052,7 +1052,7 @@ const deserializeAws_json1_1AssociateQualificationWithWorkerCommandError = async
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -1118,7 +1118,7 @@ const deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommandError = asyn
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -1129,7 +1129,7 @@ const deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommandError = asyn
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -1189,7 +1189,7 @@ const deserializeAws_json1_1CreateHITCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -1200,7 +1200,7 @@ const deserializeAws_json1_1CreateHITCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -1260,7 +1260,7 @@ const deserializeAws_json1_1CreateHITTypeCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -1271,7 +1271,7 @@ const deserializeAws_json1_1CreateHITTypeCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -1334,7 +1334,7 @@ const deserializeAws_json1_1CreateHITWithHITTypeCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -1345,7 +1345,7 @@ const deserializeAws_json1_1CreateHITWithHITTypeCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -1411,7 +1411,7 @@ const deserializeAws_json1_1CreateQualificationTypeCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -1422,7 +1422,7 @@ const deserializeAws_json1_1CreateQualificationTypeCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -1482,7 +1482,7 @@ const deserializeAws_json1_1CreateWorkerBlockCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -1493,7 +1493,7 @@ const deserializeAws_json1_1CreateWorkerBlockCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -1553,7 +1553,7 @@ const deserializeAws_json1_1DeleteHITCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -1564,7 +1564,7 @@ const deserializeAws_json1_1DeleteHITCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -1630,7 +1630,7 @@ const deserializeAws_json1_1DeleteQualificationTypeCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -1641,7 +1641,7 @@ const deserializeAws_json1_1DeleteQualificationTypeCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -1701,7 +1701,7 @@ const deserializeAws_json1_1DeleteWorkerBlockCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -1712,7 +1712,7 @@ const deserializeAws_json1_1DeleteWorkerBlockCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -1778,7 +1778,7 @@ const deserializeAws_json1_1DisassociateQualificationFromWorkerCommandError = as
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -1789,7 +1789,7 @@ const deserializeAws_json1_1DisassociateQualificationFromWorkerCommandError = as
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -1849,7 +1849,7 @@ const deserializeAws_json1_1GetAccountBalanceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -1860,7 +1860,7 @@ const deserializeAws_json1_1GetAccountBalanceCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -1920,7 +1920,7 @@ const deserializeAws_json1_1GetAssignmentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -1931,7 +1931,7 @@ const deserializeAws_json1_1GetAssignmentCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -1991,7 +1991,7 @@ const deserializeAws_json1_1GetFileUploadURLCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -2002,7 +2002,7 @@ const deserializeAws_json1_1GetFileUploadURLCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -2062,7 +2062,7 @@ const deserializeAws_json1_1GetHITCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -2073,7 +2073,7 @@ const deserializeAws_json1_1GetHITCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -2136,7 +2136,7 @@ const deserializeAws_json1_1GetQualificationScoreCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -2147,7 +2147,7 @@ const deserializeAws_json1_1GetQualificationScoreCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -2210,7 +2210,7 @@ const deserializeAws_json1_1GetQualificationTypeCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -2221,7 +2221,7 @@ const deserializeAws_json1_1GetQualificationTypeCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -2284,7 +2284,7 @@ const deserializeAws_json1_1ListAssignmentsForHITCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -2295,7 +2295,7 @@ const deserializeAws_json1_1ListAssignmentsForHITCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -2355,7 +2355,7 @@ const deserializeAws_json1_1ListBonusPaymentsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -2366,7 +2366,7 @@ const deserializeAws_json1_1ListBonusPaymentsCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -2426,7 +2426,7 @@ const deserializeAws_json1_1ListHITsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -2437,7 +2437,7 @@ const deserializeAws_json1_1ListHITsCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -2503,7 +2503,7 @@ const deserializeAws_json1_1ListHITsForQualificationTypeCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -2514,7 +2514,7 @@ const deserializeAws_json1_1ListHITsForQualificationTypeCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -2580,7 +2580,7 @@ const deserializeAws_json1_1ListQualificationRequestsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -2591,7 +2591,7 @@ const deserializeAws_json1_1ListQualificationRequestsCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -2657,7 +2657,7 @@ const deserializeAws_json1_1ListQualificationTypesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -2668,7 +2668,81 @@ const deserializeAws_json1_1ListQualificationTypesCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
+      response = {
+        ...(await deserializeAws_json1_1ServiceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListReviewableHITsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReviewableHITsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListReviewableHITsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListReviewableHITsResponse(data, context);
+  const response: ListReviewableHITsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListReviewableHITsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListReviewableHITsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReviewableHITsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "RequestError":
+    case "com.amazonaws.mturk#RequestError":
+      response = {
+        ...(await deserializeAws_json1_1RequestErrorResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -2734,7 +2808,7 @@ const deserializeAws_json1_1ListReviewPolicyResultsForHITCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -2745,81 +2819,7 @@ const deserializeAws_json1_1ListReviewPolicyResultsForHITCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
-      response = {
-        ...(await deserializeAws_json1_1ServiceFaultResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1ListReviewableHITsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListReviewableHITsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListReviewableHITsCommandError(
-      output,
-      context
-    );
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1ListReviewableHITsResponse(data, context);
-  const response: ListReviewableHITsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "ListReviewableHITsResponse",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1ListReviewableHITsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListReviewableHITsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
-      response = {
-        ...(await deserializeAws_json1_1RequestErrorResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -2879,7 +2879,7 @@ const deserializeAws_json1_1ListWorkerBlocksCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -2890,7 +2890,7 @@ const deserializeAws_json1_1ListWorkerBlocksCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -2956,7 +2956,7 @@ const deserializeAws_json1_1ListWorkersWithQualificationTypeCommandError = async
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -2967,7 +2967,7 @@ const deserializeAws_json1_1ListWorkersWithQualificationTypeCommandError = async
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -3027,7 +3027,7 @@ const deserializeAws_json1_1NotifyWorkersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -3038,7 +3038,7 @@ const deserializeAws_json1_1NotifyWorkersCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -3098,7 +3098,7 @@ const deserializeAws_json1_1RejectAssignmentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -3109,7 +3109,7 @@ const deserializeAws_json1_1RejectAssignmentCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -3175,7 +3175,7 @@ const deserializeAws_json1_1RejectQualificationRequestCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -3186,7 +3186,7 @@ const deserializeAws_json1_1RejectQualificationRequestCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -3246,7 +3246,7 @@ const deserializeAws_json1_1SendBonusCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -3257,7 +3257,7 @@ const deserializeAws_json1_1SendBonusCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -3323,7 +3323,7 @@ const deserializeAws_json1_1SendTestEventNotificationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -3334,7 +3334,7 @@ const deserializeAws_json1_1SendTestEventNotificationCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -3400,7 +3400,7 @@ const deserializeAws_json1_1UpdateExpirationForHITCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -3411,7 +3411,7 @@ const deserializeAws_json1_1UpdateExpirationForHITCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -3474,7 +3474,7 @@ const deserializeAws_json1_1UpdateHITReviewStatusCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -3485,7 +3485,7 @@ const deserializeAws_json1_1UpdateHITReviewStatusCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -3548,7 +3548,7 @@ const deserializeAws_json1_1UpdateHITTypeOfHITCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -3559,7 +3559,7 @@ const deserializeAws_json1_1UpdateHITTypeOfHITCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -3625,7 +3625,7 @@ const deserializeAws_json1_1UpdateNotificationSettingsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -3636,7 +3636,7 @@ const deserializeAws_json1_1UpdateNotificationSettingsCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -3702,7 +3702,7 @@ const deserializeAws_json1_1UpdateQualificationTypeCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "RequestError":
-    case "com.amazonaws.services.mturk.requester.model#RequestError":
+    case "com.amazonaws.mturk#RequestError":
       response = {
         ...(await deserializeAws_json1_1RequestErrorResponse(
           parsedOutput,
@@ -3713,7 +3713,7 @@ const deserializeAws_json1_1UpdateQualificationTypeCommandError = async (
       };
       break;
     case "ServiceFault":
-    case "com.amazonaws.services.mturk.requester.model#ServiceFault":
+    case "com.amazonaws.mturk#ServiceFault":
       response = {
         ...(await deserializeAws_json1_1ServiceFaultResponse(
           parsedOutput,
@@ -4229,6 +4229,18 @@ const serializeAws_json1_1ListQualificationTypesRequest = (
   };
 };
 
+const serializeAws_json1_1ListReviewableHITsRequest = (
+  input: ListReviewableHITsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.HITTypeId !== undefined && { HITTypeId: input.HITTypeId }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Status !== undefined && { Status: input.Status })
+  };
+};
+
 const serializeAws_json1_1ListReviewPolicyResultsForHITRequest = (
   input: ListReviewPolicyResultsForHITRequest,
   context: __SerdeContext
@@ -4249,18 +4261,6 @@ const serializeAws_json1_1ListReviewPolicyResultsForHITRequest = (
     ...(input.RetrieveResults !== undefined && {
       RetrieveResults: input.RetrieveResults
     })
-  };
-};
-
-const serializeAws_json1_1ListReviewableHITsRequest = (
-  input: ListReviewableHITsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.HITTypeId !== undefined && { HITTypeId: input.HITTypeId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.Status !== undefined && { Status: input.Status })
   };
 };
 
@@ -5165,6 +5165,27 @@ const deserializeAws_json1_1ListQualificationTypesResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListReviewableHITsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListReviewableHITsResponse => {
+  return {
+    __type: "ListReviewableHITsResponse",
+    HITs:
+      output.HITs !== undefined && output.HITs !== null
+        ? deserializeAws_json1_1HITList(output.HITs, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    NumResults:
+      output.NumResults !== undefined && output.NumResults !== null
+        ? output.NumResults
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1ListReviewPolicyResultsForHITResponse = (
   output: any,
   context: __SerdeContext
@@ -5202,27 +5223,6 @@ const deserializeAws_json1_1ListReviewPolicyResultsForHITResponse = (
     NextToken:
       output.NextToken !== undefined && output.NextToken !== null
         ? output.NextToken
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ListReviewableHITsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListReviewableHITsResponse => {
-  return {
-    __type: "ListReviewableHITsResponse",
-    HITs:
-      output.HITs !== undefined && output.HITs !== null
-        ? deserializeAws_json1_1HITList(output.HITs, context)
-        : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
-    NumResults:
-      output.NumResults !== undefined && output.NumResults !== null
-        ? output.NumResults
         : undefined
   } as any;
 };
@@ -5625,6 +5625,23 @@ const deserializeAws_json1_1RejectQualificationRequestResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1RequestError = (
+  output: any,
+  context: __SerdeContext
+): RequestError => {
+  return {
+    __type: "RequestError",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    TurkErrorCode:
+      output.TurkErrorCode !== undefined && output.TurkErrorCode !== null
+        ? output.TurkErrorCode
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1ReviewActionDetail = (
   output: any,
   context: __SerdeContext
@@ -5773,6 +5790,23 @@ const deserializeAws_json1_1SendTestEventNotificationResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ServiceFault = (
+  output: any,
+  context: __SerdeContext
+): ServiceFault => {
+  return {
+    __type: "ServiceFault",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    TurkErrorCode:
+      output.TurkErrorCode !== undefined && output.TurkErrorCode !== null
+        ? output.TurkErrorCode
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1StringList = (
   output: any,
   context: __SerdeContext
@@ -5857,40 +5891,6 @@ const deserializeAws_json1_1WorkerBlockList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WorkerBlock(entry, context)
   );
-};
-
-const deserializeAws_json1_1RequestError = (
-  output: any,
-  context: __SerdeContext
-): RequestError => {
-  return {
-    __type: "RequestError",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    TurkErrorCode:
-      output.TurkErrorCode !== undefined && output.TurkErrorCode !== null
-        ? output.TurkErrorCode
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ServiceFault = (
-  output: any,
-  context: __SerdeContext
-): ServiceFault => {
-  return {
-    __type: "ServiceFault",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    TurkErrorCode:
-      output.TurkErrorCode !== undefined && output.TurkErrorCode !== null
-        ? output.TurkErrorCode
-        : undefined
-  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

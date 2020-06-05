@@ -5,9 +5,9 @@ import {
 } from "../AppSyncClient";
 import { ListApiKeysRequest, ListApiKeysResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListApiKeysCommand,
-  serializeAws_restJson1_1ListApiKeysCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListApiKeysCommand,
+  serializeAws_restJson1ListApiKeysCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListApiKeysCommand extends $Command<
     input: ListApiKeysCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListApiKeysCommand(input, context);
+    return serializeAws_restJson1ListApiKeysCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListApiKeysCommandOutput> {
-    return deserializeAws_restJson1_1ListApiKeysCommand(output, context);
+    return deserializeAws_restJson1ListApiKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

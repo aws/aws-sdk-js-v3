@@ -569,21 +569,6 @@ export const serializeAws_json1_1DiscoverInputSchemaCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListApplicationSnapshotsCommand = async (
-  input: ListApplicationSnapshotsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "KinesisAnalytics_20180523.ListApplicationSnapshots"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListApplicationSnapshotsRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1ListApplicationsCommand = async (
   input: ListApplicationsCommandInput,
   context: __SerdeContext
@@ -595,6 +580,21 @@ export const serializeAws_json1_1ListApplicationsCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListApplicationsRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListApplicationSnapshotsCommand = async (
+  input: ListApplicationSnapshotsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "KinesisAnalytics_20180523.ListApplicationSnapshots"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1ListApplicationSnapshotsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -726,7 +726,7 @@ const deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommandError = 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -737,7 +737,7 @@ const deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommandError = 
       };
       break;
     case "InvalidApplicationConfigurationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidApplicationConfigurationException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
       response = {
         ...(await deserializeAws_json1_1InvalidApplicationConfigurationExceptionResponse(
           parsedOutput,
@@ -748,7 +748,7 @@ const deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommandError = 
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -759,7 +759,7 @@ const deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommandError = 
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -770,7 +770,7 @@ const deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommandError = 
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -781,7 +781,7 @@ const deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommandError = 
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -844,7 +844,7 @@ const deserializeAws_json1_1AddApplicationInputCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CodeValidationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#CodeValidationException":
+    case "com.amazonaws.kinesisanalyticsv2#CodeValidationException":
       response = {
         ...(await deserializeAws_json1_1CodeValidationExceptionResponse(
           parsedOutput,
@@ -855,7 +855,7 @@ const deserializeAws_json1_1AddApplicationInputCommandError = async (
       };
       break;
     case "ConcurrentModificationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -866,7 +866,7 @@ const deserializeAws_json1_1AddApplicationInputCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -877,7 +877,7 @@ const deserializeAws_json1_1AddApplicationInputCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -888,7 +888,7 @@ const deserializeAws_json1_1AddApplicationInputCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -899,7 +899,7 @@ const deserializeAws_json1_1AddApplicationInputCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -965,7 +965,7 @@ const deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommandErr
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -976,7 +976,7 @@ const deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommandErr
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -987,7 +987,7 @@ const deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommandErr
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -998,7 +998,7 @@ const deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommandErr
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1009,7 +1009,7 @@ const deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommandErr
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1072,7 +1072,7 @@ const deserializeAws_json1_1AddApplicationOutputCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -1083,7 +1083,7 @@ const deserializeAws_json1_1AddApplicationOutputCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1094,7 +1094,7 @@ const deserializeAws_json1_1AddApplicationOutputCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1105,7 +1105,7 @@ const deserializeAws_json1_1AddApplicationOutputCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1116,7 +1116,7 @@ const deserializeAws_json1_1AddApplicationOutputCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1182,7 +1182,7 @@ const deserializeAws_json1_1AddApplicationReferenceDataSourceCommandError = asyn
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -1193,7 +1193,7 @@ const deserializeAws_json1_1AddApplicationReferenceDataSourceCommandError = asyn
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1204,7 +1204,7 @@ const deserializeAws_json1_1AddApplicationReferenceDataSourceCommandError = asyn
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1215,7 +1215,7 @@ const deserializeAws_json1_1AddApplicationReferenceDataSourceCommandError = asyn
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1226,7 +1226,7 @@ const deserializeAws_json1_1AddApplicationReferenceDataSourceCommandError = asyn
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1292,7 +1292,7 @@ const deserializeAws_json1_1AddApplicationVpcConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -1303,7 +1303,7 @@ const deserializeAws_json1_1AddApplicationVpcConfigurationCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1314,7 +1314,7 @@ const deserializeAws_json1_1AddApplicationVpcConfigurationCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1325,7 +1325,7 @@ const deserializeAws_json1_1AddApplicationVpcConfigurationCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1385,7 +1385,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CodeValidationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#CodeValidationException":
+    case "com.amazonaws.kinesisanalyticsv2#CodeValidationException":
       response = {
         ...(await deserializeAws_json1_1CodeValidationExceptionResponse(
           parsedOutput,
@@ -1396,7 +1396,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
       };
       break;
     case "ConcurrentModificationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -1407,7 +1407,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1418,7 +1418,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1429,7 +1429,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.analytics.v20180523#LimitExceededException":
+    case "com.amazonaws.kinesisanalyticsv2#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1440,7 +1440,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1451,7 +1451,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
       };
       break;
     case "TooManyTagsException":
-    case "com.amazonaws.kinesis.analytics.v20180523#TooManyTagsException":
+    case "com.amazonaws.kinesisanalyticsv2#TooManyTagsException":
       response = {
         ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
           parsedOutput,
@@ -1517,7 +1517,7 @@ const deserializeAws_json1_1CreateApplicationSnapshotCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1528,7 +1528,7 @@ const deserializeAws_json1_1CreateApplicationSnapshotCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1539,7 +1539,7 @@ const deserializeAws_json1_1CreateApplicationSnapshotCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.analytics.v20180523#LimitExceededException":
+    case "com.amazonaws.kinesisanalyticsv2#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1550,7 +1550,7 @@ const deserializeAws_json1_1CreateApplicationSnapshotCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1561,7 +1561,7 @@ const deserializeAws_json1_1CreateApplicationSnapshotCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1572,7 +1572,7 @@ const deserializeAws_json1_1CreateApplicationSnapshotCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#UnsupportedOperationException":
+    case "com.amazonaws.kinesisanalyticsv2#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -1632,7 +1632,7 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -1643,7 +1643,7 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
       };
       break;
     case "InvalidApplicationConfigurationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidApplicationConfigurationException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
       response = {
         ...(await deserializeAws_json1_1InvalidApplicationConfigurationExceptionResponse(
           parsedOutput,
@@ -1654,7 +1654,7 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1665,7 +1665,7 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1676,7 +1676,7 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1687,7 +1687,7 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1753,7 +1753,7 @@ const deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommandError
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -1764,7 +1764,7 @@ const deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommandError
       };
       break;
     case "InvalidApplicationConfigurationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidApplicationConfigurationException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
       response = {
         ...(await deserializeAws_json1_1InvalidApplicationConfigurationExceptionResponse(
           parsedOutput,
@@ -1775,7 +1775,7 @@ const deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommandError
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1786,7 +1786,7 @@ const deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommandError
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1797,7 +1797,7 @@ const deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommandError
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1808,7 +1808,7 @@ const deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommandError
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1874,7 +1874,7 @@ const deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -1885,7 +1885,7 @@ const deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1896,7 +1896,7 @@ const deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1907,7 +1907,7 @@ const deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1918,7 +1918,7 @@ const deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1984,7 +1984,7 @@ const deserializeAws_json1_1DeleteApplicationOutputCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -1995,7 +1995,7 @@ const deserializeAws_json1_1DeleteApplicationOutputCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -2006,7 +2006,7 @@ const deserializeAws_json1_1DeleteApplicationOutputCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2017,7 +2017,7 @@ const deserializeAws_json1_1DeleteApplicationOutputCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2028,7 +2028,7 @@ const deserializeAws_json1_1DeleteApplicationOutputCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2094,7 +2094,7 @@ const deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommandError = a
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2105,7 +2105,7 @@ const deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommandError = a
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -2116,7 +2116,7 @@ const deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommandError = a
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2127,7 +2127,7 @@ const deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommandError = a
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2138,7 +2138,7 @@ const deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommandError = a
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2204,7 +2204,7 @@ const deserializeAws_json1_1DeleteApplicationSnapshotCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -2215,7 +2215,7 @@ const deserializeAws_json1_1DeleteApplicationSnapshotCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2226,7 +2226,7 @@ const deserializeAws_json1_1DeleteApplicationSnapshotCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2237,7 +2237,7 @@ const deserializeAws_json1_1DeleteApplicationSnapshotCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2248,7 +2248,7 @@ const deserializeAws_json1_1DeleteApplicationSnapshotCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#UnsupportedOperationException":
+    case "com.amazonaws.kinesisanalyticsv2#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -2314,7 +2314,7 @@ const deserializeAws_json1_1DeleteApplicationVpcConfigurationCommandError = asyn
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2325,7 +2325,7 @@ const deserializeAws_json1_1DeleteApplicationVpcConfigurationCommandError = asyn
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -2336,7 +2336,7 @@ const deserializeAws_json1_1DeleteApplicationVpcConfigurationCommandError = asyn
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2347,7 +2347,7 @@ const deserializeAws_json1_1DeleteApplicationVpcConfigurationCommandError = asyn
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2410,7 +2410,7 @@ const deserializeAws_json1_1DescribeApplicationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -2421,7 +2421,7 @@ const deserializeAws_json1_1DescribeApplicationCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2432,7 +2432,7 @@ const deserializeAws_json1_1DescribeApplicationCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2498,7 +2498,7 @@ const deserializeAws_json1_1DescribeApplicationSnapshotCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -2509,7 +2509,7 @@ const deserializeAws_json1_1DescribeApplicationSnapshotCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2520,7 +2520,7 @@ const deserializeAws_json1_1DescribeApplicationSnapshotCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#UnsupportedOperationException":
+    case "com.amazonaws.kinesisanalyticsv2#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -2583,7 +2583,7 @@ const deserializeAws_json1_1DiscoverInputSchemaCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -2594,7 +2594,7 @@ const deserializeAws_json1_1DiscoverInputSchemaCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2605,7 +2605,7 @@ const deserializeAws_json1_1DiscoverInputSchemaCommandError = async (
       };
       break;
     case "ResourceProvisionedThroughputExceededException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceProvisionedThroughputExceededException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ResourceProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -2616,7 +2616,7 @@ const deserializeAws_json1_1DiscoverInputSchemaCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ServiceUnavailableException":
+    case "com.amazonaws.kinesisanalyticsv2#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -2627,9 +2627,69 @@ const deserializeAws_json1_1DiscoverInputSchemaCommandError = async (
       };
       break;
     case "UnableToDetectSchemaException":
-    case "com.amazonaws.kinesis.analytics.v20180523#UnableToDetectSchemaException":
+    case "com.amazonaws.kinesisanalyticsv2#UnableToDetectSchemaException":
       response = {
         ...(await deserializeAws_json1_1UnableToDetectSchemaExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListApplicationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListApplicationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListApplicationsResponse(data, context);
+  const response: ListApplicationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListApplicationsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListApplicationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
           context
         )),
@@ -2693,7 +2753,7 @@ const deserializeAws_json1_1ListApplicationSnapshotsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -2704,69 +2764,9 @@ const deserializeAws_json1_1ListApplicationSnapshotsCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#UnsupportedOperationException":
+    case "com.amazonaws.kinesisanalyticsv2#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1ListApplicationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApplicationsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListApplicationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1ListApplicationsResponse(data, context);
-  const response: ListApplicationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "ListApplicationsResponse",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1ListApplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
           context
         )),
@@ -2827,7 +2827,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2838,7 +2838,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -2849,7 +2849,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2909,7 +2909,7 @@ const deserializeAws_json1_1StartApplicationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidApplicationConfigurationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidApplicationConfigurationException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
       response = {
         ...(await deserializeAws_json1_1InvalidApplicationConfigurationExceptionResponse(
           parsedOutput,
@@ -2920,7 +2920,7 @@ const deserializeAws_json1_1StartApplicationCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -2931,7 +2931,7 @@ const deserializeAws_json1_1StartApplicationCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2942,7 +2942,7 @@ const deserializeAws_json1_1StartApplicationCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2953,7 +2953,7 @@ const deserializeAws_json1_1StartApplicationCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3013,7 +3013,7 @@ const deserializeAws_json1_1StopApplicationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidApplicationConfigurationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidApplicationConfigurationException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
       response = {
         ...(await deserializeAws_json1_1InvalidApplicationConfigurationExceptionResponse(
           parsedOutput,
@@ -3024,7 +3024,7 @@ const deserializeAws_json1_1StopApplicationCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -3035,7 +3035,7 @@ const deserializeAws_json1_1StopApplicationCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3046,7 +3046,7 @@ const deserializeAws_json1_1StopApplicationCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -3057,7 +3057,7 @@ const deserializeAws_json1_1StopApplicationCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3117,7 +3117,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -3128,7 +3128,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -3139,7 +3139,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -3150,7 +3150,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3161,7 +3161,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "TooManyTagsException":
-    case "com.amazonaws.kinesis.analytics.v20180523#TooManyTagsException":
+    case "com.amazonaws.kinesisanalyticsv2#TooManyTagsException":
       response = {
         ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
           parsedOutput,
@@ -3221,7 +3221,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -3232,7 +3232,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -3243,7 +3243,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -3254,7 +3254,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3265,7 +3265,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "TooManyTagsException":
-    case "com.amazonaws.kinesis.analytics.v20180523#TooManyTagsException":
+    case "com.amazonaws.kinesisanalyticsv2#TooManyTagsException":
       response = {
         ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
           parsedOutput,
@@ -3325,7 +3325,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CodeValidationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#CodeValidationException":
+    case "com.amazonaws.kinesisanalyticsv2#CodeValidationException":
       response = {
         ...(await deserializeAws_json1_1CodeValidationExceptionResponse(
           parsedOutput,
@@ -3336,7 +3336,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
       };
       break;
     case "ConcurrentModificationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -3347,7 +3347,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
       };
       break;
     case "InvalidApplicationConfigurationException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidApplicationConfigurationException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
       response = {
         ...(await deserializeAws_json1_1InvalidApplicationConfigurationExceptionResponse(
           parsedOutput,
@@ -3358,7 +3358,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -3369,7 +3369,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3380,7 +3380,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -3391,7 +3391,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3922,20 +3922,6 @@ const serializeAws_json1_1ApplicationSnapshotConfigurationUpdate = (
   };
 };
 
-const serializeAws_json1_1CSVMappingParameters = (
-  input: CSVMappingParameters,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.RecordColumnDelimiter !== undefined && {
-      RecordColumnDelimiter: input.RecordColumnDelimiter
-    }),
-    ...(input.RecordRowDelimiter !== undefined && {
-      RecordRowDelimiter: input.RecordRowDelimiter
-    })
-  };
-};
-
 const serializeAws_json1_1CheckpointConfiguration = (
   input: CheckpointConfiguration,
   context: __SerdeContext
@@ -3987,6 +3973,15 @@ const serializeAws_json1_1CloudWatchLoggingOption = (
   };
 };
 
+const serializeAws_json1_1CloudWatchLoggingOptions = (
+  input: CloudWatchLoggingOption[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry =>
+    serializeAws_json1_1CloudWatchLoggingOption(entry, context)
+  );
+};
+
 const serializeAws_json1_1CloudWatchLoggingOptionUpdate = (
   input: CloudWatchLoggingOptionUpdate,
   context: __SerdeContext
@@ -4007,15 +4002,6 @@ const serializeAws_json1_1CloudWatchLoggingOptionUpdates = (
 ): any => {
   return input.map(entry =>
     serializeAws_json1_1CloudWatchLoggingOptionUpdate(entry, context)
-  );
-};
-
-const serializeAws_json1_1CloudWatchLoggingOptions = (
-  input: CloudWatchLoggingOption[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_1CloudWatchLoggingOption(entry, context)
   );
 };
 
@@ -4102,6 +4088,20 @@ const serializeAws_json1_1CreateApplicationSnapshotRequest = (
     }),
     ...(input.SnapshotName !== undefined && {
       SnapshotName: input.SnapshotName
+    })
+  };
+};
+
+const serializeAws_json1_1CSVMappingParameters = (
+  input: CSVMappingParameters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.RecordColumnDelimiter !== undefined && {
+      RecordColumnDelimiter: input.RecordColumnDelimiter
+    }),
+    ...(input.RecordRowDelimiter !== undefined && {
+      RecordRowDelimiter: input.RecordRowDelimiter
     })
   };
 };
@@ -4480,6 +4480,13 @@ const serializeAws_json1_1InputProcessingConfigurationUpdate = (
   };
 };
 
+const serializeAws_json1_1Inputs = (
+  input: Input[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => serializeAws_json1_1Input(entry, context));
+};
+
 const serializeAws_json1_1InputSchemaUpdate = (
   input: InputSchemaUpdate,
   context: __SerdeContext
@@ -4561,13 +4568,6 @@ const serializeAws_json1_1InputUpdates = (
   context: __SerdeContext
 ): any => {
   return input.map(entry => serializeAws_json1_1InputUpdate(entry, context));
-};
-
-const serializeAws_json1_1Inputs = (
-  input: Input[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_json1_1Input(entry, context));
 };
 
 const serializeAws_json1_1JSONMappingParameters = (
@@ -4798,6 +4798,13 @@ const serializeAws_json1_1Output = (
   };
 };
 
+const serializeAws_json1_1Outputs = (
+  input: Output[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => serializeAws_json1_1Output(entry, context));
+};
+
 const serializeAws_json1_1OutputUpdate = (
   input: OutputUpdate,
   context: __SerdeContext
@@ -4837,13 +4844,6 @@ const serializeAws_json1_1OutputUpdates = (
   context: __SerdeContext
 ): any => {
   return input.map(entry => serializeAws_json1_1OutputUpdate(entry, context));
-};
-
-const serializeAws_json1_1Outputs = (
-  input: Output[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_json1_1Output(entry, context));
 };
 
 const serializeAws_json1_1ParallelismConfiguration = (
@@ -4974,6 +4974,15 @@ const serializeAws_json1_1ReferenceDataSource = (
   };
 };
 
+const serializeAws_json1_1ReferenceDataSources = (
+  input: ReferenceDataSource[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry =>
+    serializeAws_json1_1ReferenceDataSource(entry, context)
+  );
+};
+
 const serializeAws_json1_1ReferenceDataSourceUpdate = (
   input: ReferenceDataSourceUpdate,
   context: __SerdeContext
@@ -5004,15 +5013,6 @@ const serializeAws_json1_1ReferenceDataSourceUpdates = (
 ): any => {
   return input.map(entry =>
     serializeAws_json1_1ReferenceDataSourceUpdate(entry, context)
-  );
-};
-
-const serializeAws_json1_1ReferenceDataSources = (
-  input: ReferenceDataSource[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_1ReferenceDataSource(entry, context)
   );
 };
 
@@ -5358,6 +5358,15 @@ const serializeAws_json1_1VpcConfiguration = (
   };
 };
 
+const serializeAws_json1_1VpcConfigurations = (
+  input: VpcConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry =>
+    serializeAws_json1_1VpcConfiguration(entry, context)
+  );
+};
+
 const serializeAws_json1_1VpcConfigurationUpdate = (
   input: VpcConfigurationUpdate,
   context: __SerdeContext
@@ -5387,15 +5396,6 @@ const serializeAws_json1_1VpcConfigurationUpdates = (
 ): any => {
   return input.map(entry =>
     serializeAws_json1_1VpcConfigurationUpdate(entry, context)
-  );
-};
-
-const serializeAws_json1_1VpcConfigurations = (
-  input: VpcConfiguration[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_1VpcConfiguration(entry, context)
   );
 };
 
@@ -5784,25 +5784,6 @@ const deserializeAws_json1_1ApplicationSummary = (
   } as any;
 };
 
-const deserializeAws_json1_1CSVMappingParameters = (
-  output: any,
-  context: __SerdeContext
-): CSVMappingParameters => {
-  return {
-    __type: "CSVMappingParameters",
-    RecordColumnDelimiter:
-      output.RecordColumnDelimiter !== undefined &&
-      output.RecordColumnDelimiter !== null
-        ? output.RecordColumnDelimiter
-        : undefined,
-    RecordRowDelimiter:
-      output.RecordRowDelimiter !== undefined &&
-      output.RecordRowDelimiter !== null
-        ? output.RecordRowDelimiter
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1CheckpointConfigurationDescription = (
   output: any,
   context: __SerdeContext
@@ -5941,6 +5922,25 @@ const deserializeAws_json1_1CreateApplicationSnapshotResponse = (
 ): CreateApplicationSnapshotResponse => {
   return {
     __type: "CreateApplicationSnapshotResponse"
+  } as any;
+};
+
+const deserializeAws_json1_1CSVMappingParameters = (
+  output: any,
+  context: __SerdeContext
+): CSVMappingParameters => {
+  return {
+    __type: "CSVMappingParameters",
+    RecordColumnDelimiter:
+      output.RecordColumnDelimiter !== undefined &&
+      output.RecordColumnDelimiter !== null
+        ? output.RecordColumnDelimiter
+        : undefined,
+    RecordRowDelimiter:
+      output.RecordRowDelimiter !== undefined &&
+      output.RecordRowDelimiter !== null
+        ? output.RecordRowDelimiter
+        : undefined
   } as any;
 };
 

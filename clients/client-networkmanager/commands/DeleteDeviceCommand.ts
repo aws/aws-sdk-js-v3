@@ -5,9 +5,9 @@ import {
 } from "../NetworkManagerClient";
 import { DeleteDeviceRequest, DeleteDeviceResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteDeviceCommand,
-  serializeAws_restJson1_1DeleteDeviceCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteDeviceCommand,
+  serializeAws_restJson1DeleteDeviceCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteDeviceCommand extends $Command<
     input: DeleteDeviceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDeviceCommand(input, context);
+    return serializeAws_restJson1DeleteDeviceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDeviceCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDeviceCommand(output, context);
+    return deserializeAws_restJson1DeleteDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

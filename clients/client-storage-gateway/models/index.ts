@@ -6,2158 +6,6 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- * <p>AWS Storage Gateway returns the Amazon Resource Name (ARN) of the activated gateway.
- *          It is a string made of information such as your account, gateway name, and AWS Region. This
- *          ARN is used to reference the gateway in other API operations as well as resource-based
- *          authorization.</p>
- *          <note>
- *             <p>For gateways activated prior to September 02, 2015, the gateway ARN contains the
- *             gateway name rather than the gateway ID. Changing the name of the gateway has no effect
- *             on the gateway ARN.</p>
- *          </note>
- */
-export interface ActivateGatewayOutput {
-  __type?: "ActivateGatewayOutput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-}
-
-export namespace ActivateGatewayOutput {
-  export const filterSensitiveLog = (obj: ActivateGatewayOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ActivateGatewayOutput =>
-    __isa(o, "ActivateGatewayOutput");
-}
-
-/**
- * <p>A JSON object containing one or more of the following fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>AddWorkingStorageInput$DiskIds</a>
- *                </p>
- *             </li>
- *          </ul>
- */
-export interface AddWorkingStorageInput {
-  __type?: "AddWorkingStorageInput";
-  /**
-   * <p>An array of strings that identify disks that are to be configured as working storage.
-   *          Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs
-   *          from the <a>ListLocalDisks</a> API.</p>
-   */
-  DiskIds: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace AddWorkingStorageInput {
-  export const filterSensitiveLog = (obj: AddWorkingStorageInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AddWorkingStorageInput =>
-    __isa(o, "AddWorkingStorageInput");
-}
-
-/**
- * <p>A JSON object containing the of the gateway for which working storage was
- *          configured.</p>
- */
-export interface AddWorkingStorageOutput {
-  __type?: "AddWorkingStorageOutput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-}
-
-export namespace AddWorkingStorageOutput {
-  export const filterSensitiveLog = (obj: AddWorkingStorageOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AddWorkingStorageOutput =>
-    __isa(o, "AddWorkingStorageOutput");
-}
-
-/**
- * <p>Describes Challenge-Handshake Authentication Protocol (CHAP) information that
- *          supports authentication between your gateway and iSCSI initiators.</p>
- */
-export interface ChapInfo {
-  __type?: "ChapInfo";
-  /**
-   * <p>The iSCSI initiator that connects to the target.</p>
-   */
-  InitiatorName?: string;
-
-  /**
-   * <p>The secret key that the initiator (for example, the Windows client) must provide to
-   *          participate in mutual CHAP with the target.</p>
-   */
-  SecretToAuthenticateInitiator?: string;
-
-  /**
-   * <p>The secret key that the target must provide to participate in mutual CHAP with the
-   *          initiator (e.g. Windows client).</p>
-   */
-  SecretToAuthenticateTarget?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the volume.</p>
-   *          <p> Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens
-   *          (-).</p>
-   */
-  TargetARN?: string;
-}
-
-export namespace ChapInfo {
-  export const filterSensitiveLog = (obj: ChapInfo): any => ({
-    ...obj,
-    ...(obj.SecretToAuthenticateInitiator && {
-      SecretToAuthenticateInitiator: SENSITIVE_STRING
-    }),
-    ...(obj.SecretToAuthenticateTarget && {
-      SecretToAuthenticateTarget: SENSITIVE_STRING
-    })
-  });
-  export const isa = (o: any): o is ChapInfo => __isa(o, "ChapInfo");
-}
-
-/**
- * <p>A JSON object containing one or more of the following fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreateSnapshotInput$SnapshotDescription</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreateSnapshotInput$VolumeARN</a>
- *                </p>
- *             </li>
- *          </ul>
- */
-export interface CreateSnapshotInput {
-  __type?: "CreateSnapshotInput";
-  /**
-   * <p>Textual description of the snapshot that appears in the Amazon EC2 console, Elastic
-   *          Block Store snapshots panel in the <b>Description</b> field, and
-   *          in the AWS Storage Gateway snapshot <b>Details</b> pane,
-   *             <b>Description</b> field</p>
-   */
-  SnapshotDescription: string | undefined;
-
-  /**
-   * <p>A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.</p>
-   *          <note>
-   *             <p>Valid characters for key and value are letters, spaces, and numbers representable
-   *             in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
-   *             length of a tag's key is 128 characters, and the maximum length for a tag's value is
-   *             256.</p>
-   *          </note>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
-   *          operation to return a list of gateway volumes.</p>
-   */
-  VolumeARN: string | undefined;
-}
-
-export namespace CreateSnapshotInput {
-  export const filterSensitiveLog = (obj: CreateSnapshotInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CreateSnapshotInput =>
-    __isa(o, "CreateSnapshotInput");
-}
-
-/**
- * <p>A JSON object containing the following fields:</p>
- */
-export interface CreateSnapshotOutput {
-  __type?: "CreateSnapshotOutput";
-  /**
-   * <p>The snapshot ID that is used to refer to the snapshot in future operations such as
-   *          describing snapshots (Amazon Elastic Compute Cloud API <code>DescribeSnapshots</code>) or
-   *          creating a volume from a snapshot (<a>CreateStorediSCSIVolume</a>).</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the volume of which the snapshot was
-   *          taken.</p>
-   */
-  VolumeARN?: string;
-}
-
-export namespace CreateSnapshotOutput {
-  export const filterSensitiveLog = (obj: CreateSnapshotOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CreateSnapshotOutput =>
-    __isa(o, "CreateSnapshotOutput");
-}
-
-/**
- * <p>A JSON object containing one or more of the following fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreateStorediSCSIVolumeInput$DiskId</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreateStorediSCSIVolumeInput$NetworkInterfaceId</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreateStorediSCSIVolumeInput$PreserveExistingData</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreateStorediSCSIVolumeInput$SnapshotId</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreateStorediSCSIVolumeInput$TargetName</a>
- *                </p>
- *             </li>
- *          </ul>
- */
-export interface CreateStorediSCSIVolumeInput {
-  __type?: "CreateStorediSCSIVolumeInput";
-  /**
-   * <p>The unique identifier for the gateway local disk that is configured as a stored
-   *          volume. Use <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html">ListLocalDisks</a> to
-   *          list disk IDs for a gateway.</p>
-   */
-  DiskId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-
-  /**
-   * <p>True to use Amazon S3 server side encryption with your own AWS KMS key, or false to
-   *          use a key managed by Amazon S3. Optional.</p>
-   */
-  KMSEncrypted?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used for Amazon S3 server side
-   *          encryption. This value can only be set when KMSEncrypted is true. Optional.</p>
-   */
-  KMSKey?: string;
-
-  /**
-   * <p>The network interface of the gateway on which to expose the iSCSI target. Only IPv4
-   *          addresses are accepted. Use <a>DescribeGatewayInformation</a> to get a list of
-   *          the network interfaces available on a gateway.</p>
-   *          <p> Valid Values: A valid IP address.</p>
-   */
-  NetworkInterfaceId: string | undefined;
-
-  /**
-   * <p>Specify this field as true if you want to preserve the data on the local disk.
-   *          Otherwise, specifying this field as false creates an empty volume.</p>
-   *          <p> Valid Values: true, false</p>
-   */
-  PreserveExistingData: boolean | undefined;
-
-  /**
-   * <p>The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored
-   *          volume. Specify this field if you want to create the iSCSI storage volume from a snapshot
-   *          otherwise do not include this field. To list snapshots for your account use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a> in the <i>Amazon Elastic Compute Cloud API
-   *             Reference</i>.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>A list of up to 50 tags that can be assigned to a stored volume. Each tag is a key-value pair.</p>
-   *          <note>
-   *             <p>Valid characters for key and value are letters, spaces, and numbers representable
-   *             in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
-   *             length of a tag's key is 128 characters, and the maximum length for a tag's value is
-   *             256.</p>
-   *          </note>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The name of the iSCSI target used by an initiator to connect to a volume and used as
-   *          a suffix for the target ARN. For example, specifying <code>TargetName</code> as
-   *             <i>myvolume</i> results in the target ARN of
-   *             <code>arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume</code>.
-   *          The target name must be unique across all volumes on a gateway.</p>
-   *          <p>If you don't specify a value, Storage Gateway uses the value that was previously used
-   *          for this volume as the new target name.</p>
-   */
-  TargetName: string | undefined;
-}
-
-export namespace CreateStorediSCSIVolumeInput {
-  export const filterSensitiveLog = (
-    obj: CreateStorediSCSIVolumeInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CreateStorediSCSIVolumeInput =>
-    __isa(o, "CreateStorediSCSIVolumeInput");
-}
-
-/**
- * <p>A JSON object containing the following fields:</p>
- */
-export interface CreateStorediSCSIVolumeOutput {
-  __type?: "CreateStorediSCSIVolumeOutput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name
-   *          that initiators can use to connect to the target.</p>
-   */
-  TargetARN?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the configured volume.</p>
-   */
-  VolumeARN?: string;
-
-  /**
-   * <p>The size of the volume in bytes.</p>
-   */
-  VolumeSizeInBytes?: number;
-}
-
-export namespace CreateStorediSCSIVolumeOutput {
-  export const filterSensitiveLog = (
-    obj: CreateStorediSCSIVolumeOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CreateStorediSCSIVolumeOutput =>
-    __isa(o, "CreateStorediSCSIVolumeOutput");
-}
-
-/**
- * <p>A JSON object containing the of the gateway whose bandwidth rate information was
- *          deleted.</p>
- */
-export interface DeleteBandwidthRateLimitOutput {
-  __type?: "DeleteBandwidthRateLimitOutput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-}
-
-export namespace DeleteBandwidthRateLimitOutput {
-  export const filterSensitiveLog = (
-    obj: DeleteBandwidthRateLimitOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteBandwidthRateLimitOutput =>
-    __isa(o, "DeleteBandwidthRateLimitOutput");
-}
-
-/**
- * <p>A JSON object containing one or more of the following fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>DeleteChapCredentialsInput$InitiatorName</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteChapCredentialsInput$TargetARN</a>
- *                </p>
- *             </li>
- *          </ul>
- */
-export interface DeleteChapCredentialsInput {
-  __type?: "DeleteChapCredentialsInput";
-  /**
-   * <p>The iSCSI initiator that connects to the target.</p>
-   */
-  InitiatorName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for
-   *          specified VolumeARN.</p>
-   */
-  TargetARN: string | undefined;
-}
-
-export namespace DeleteChapCredentialsInput {
-  export const filterSensitiveLog = (obj: DeleteChapCredentialsInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteChapCredentialsInput =>
-    __isa(o, "DeleteChapCredentialsInput");
-}
-
-/**
- * <p>A JSON object containing the following fields:</p>
- */
-export interface DeleteChapCredentialsOutput {
-  __type?: "DeleteChapCredentialsOutput";
-  /**
-   * <p>The iSCSI initiator that connects to the target.</p>
-   */
-  InitiatorName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the target.</p>
-   */
-  TargetARN?: string;
-}
-
-export namespace DeleteChapCredentialsOutput {
-  export const filterSensitiveLog = (
-    obj: DeleteChapCredentialsOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteChapCredentialsOutput =>
-    __isa(o, "DeleteChapCredentialsOutput");
-}
-
-/**
- * <p>A JSON object containing the ID of the gateway to delete.</p>
- */
-export interface DeleteGatewayInput {
-  __type?: "DeleteGatewayInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace DeleteGatewayInput {
-  export const filterSensitiveLog = (obj: DeleteGatewayInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteGatewayInput =>
-    __isa(o, "DeleteGatewayInput");
-}
-
-/**
- * <p>A JSON object containing the ID of the deleted gateway.</p>
- */
-export interface DeleteGatewayOutput {
-  __type?: "DeleteGatewayOutput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-}
-
-export namespace DeleteGatewayOutput {
-  export const filterSensitiveLog = (obj: DeleteGatewayOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteGatewayOutput =>
-    __isa(o, "DeleteGatewayOutput");
-}
-
-/**
- * <p>A JSON object containing the <a>DeleteVolumeInput$VolumeARN</a> to
- *          delete.</p>
- */
-export interface DeleteVolumeInput {
-  __type?: "DeleteVolumeInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
-   *          operation to return a list of gateway volumes.</p>
-   */
-  VolumeARN: string | undefined;
-}
-
-export namespace DeleteVolumeInput {
-  export const filterSensitiveLog = (obj: DeleteVolumeInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteVolumeInput =>
-    __isa(o, "DeleteVolumeInput");
-}
-
-/**
- * <p>A JSON object containing the of the storage volume that was deleted</p>
- */
-export interface DeleteVolumeOutput {
-  __type?: "DeleteVolumeOutput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the storage volume that was deleted. It is the same
-   *          ARN you provided in the request.</p>
-   */
-  VolumeARN?: string;
-}
-
-export namespace DeleteVolumeOutput {
-  export const filterSensitiveLog = (obj: DeleteVolumeOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteVolumeOutput =>
-    __isa(o, "DeleteVolumeOutput");
-}
-
-/**
- * <p>A JSON object containing the of the gateway.</p>
- */
-export interface DescribeBandwidthRateLimitInput {
-  __type?: "DescribeBandwidthRateLimitInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace DescribeBandwidthRateLimitInput {
-  export const filterSensitiveLog = (
-    obj: DescribeBandwidthRateLimitInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeBandwidthRateLimitInput =>
-    __isa(o, "DescribeBandwidthRateLimitInput");
-}
-
-/**
- * <p>A JSON object containing the following fields:</p>
- */
-export interface DescribeBandwidthRateLimitOutput {
-  __type?: "DescribeBandwidthRateLimitOutput";
-  /**
-   * <p>The average download bandwidth rate limit in bits per second. This field does not
-   *          appear in the response if the download rate limit is not set.</p>
-   */
-  AverageDownloadRateLimitInBitsPerSec?: number;
-
-  /**
-   * <p>The average upload bandwidth rate limit in bits per second. This field does not
-   *          appear in the response if the upload rate limit is not set.</p>
-   */
-  AverageUploadRateLimitInBitsPerSec?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-}
-
-export namespace DescribeBandwidthRateLimitOutput {
-  export const filterSensitiveLog = (
-    obj: DescribeBandwidthRateLimitOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeBandwidthRateLimitOutput =>
-    __isa(o, "DescribeBandwidthRateLimitOutput");
-}
-
-/**
- * <p>A JSON object containing the Amazon Resource Name (ARN) of the iSCSI volume
- *          target.</p>
- */
-export interface DescribeChapCredentialsInput {
-  __type?: "DescribeChapCredentialsInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for
-   *          specified VolumeARN.</p>
-   */
-  TargetARN: string | undefined;
-}
-
-export namespace DescribeChapCredentialsInput {
-  export const filterSensitiveLog = (
-    obj: DescribeChapCredentialsInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeChapCredentialsInput =>
-    __isa(o, "DescribeChapCredentialsInput");
-}
-
-/**
- * <p>A JSON object containing a .</p>
- */
-export interface DescribeChapCredentialsOutput {
-  __type?: "DescribeChapCredentialsOutput";
-  /**
-   * <p>An array of <a>ChapInfo</a> objects that represent CHAP credentials. Each
-   *          object in the array contains CHAP credential information for one target-initiator pair. If
-   *          no CHAP credentials are set, an empty array is returned. CHAP credential information is
-   *          provided in a JSON object with the following fields:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>InitiatorName</b>: The iSCSI initiator that connects to
-   *                the target.</p>
-   *
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>SecretToAuthenticateInitiator</b>: The secret key that
-   *                the initiator (for example, the Windows client) must provide to participate in mutual
-   *                CHAP with the target.</p>
-   *
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>SecretToAuthenticateTarget</b>: The secret key that the
-   *                target must provide to participate in mutual CHAP with the initiator (e.g. Windows
-   *                client).</p>
-   *
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>TargetARN</b>: The Amazon Resource Name (ARN) of the
-   *                storage volume.</p>
-   *
-   *             </li>
-   *          </ul>
-   */
-  ChapCredentials?: ChapInfo[];
-}
-
-export namespace DescribeChapCredentialsOutput {
-  export const filterSensitiveLog = (
-    obj: DescribeChapCredentialsOutput
-  ): any => ({
-    ...obj,
-    ...(obj.ChapCredentials && {
-      ChapCredentials: obj.ChapCredentials.map(item =>
-        ChapInfo.filterSensitiveLog(item)
-      )
-    })
-  });
-  export const isa = (o: any): o is DescribeChapCredentialsOutput =>
-    __isa(o, "DescribeChapCredentialsOutput");
-}
-
-/**
- * <p>A JSON object containing the ID of the gateway.</p>
- */
-export interface DescribeGatewayInformationInput {
-  __type?: "DescribeGatewayInformationInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace DescribeGatewayInformationInput {
-  export const filterSensitiveLog = (
-    obj: DescribeGatewayInformationInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeGatewayInformationInput =>
-    __isa(o, "DescribeGatewayInformationInput");
-}
-
-/**
- * <p>A JSON object containing the of the gateway.</p>
- */
-export interface DescribeMaintenanceStartTimeInput {
-  __type?: "DescribeMaintenanceStartTimeInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace DescribeMaintenanceStartTimeInput {
-  export const filterSensitiveLog = (
-    obj: DescribeMaintenanceStartTimeInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeMaintenanceStartTimeInput =>
-    __isa(o, "DescribeMaintenanceStartTimeInput");
-}
-
-/**
- * <p>A JSON object containing the <a>DescribeSnapshotScheduleInput$VolumeARN</a> of the volume.</p>
- */
-export interface DescribeSnapshotScheduleInput {
-  __type?: "DescribeSnapshotScheduleInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
-   *          operation to return a list of gateway volumes.</p>
-   */
-  VolumeARN: string | undefined;
-}
-
-export namespace DescribeSnapshotScheduleInput {
-  export const filterSensitiveLog = (
-    obj: DescribeSnapshotScheduleInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeSnapshotScheduleInput =>
-    __isa(o, "DescribeSnapshotScheduleInput");
-}
-
-/**
- * <p>A JSON object containing a list of <a>DescribeStorediSCSIVolumesInput$VolumeARNs</a>.</p>
- */
-export interface DescribeStorediSCSIVolumesInput {
-  __type?: "DescribeStorediSCSIVolumesInput";
-  /**
-   * <p>An array of strings where each string represents the Amazon Resource Name (ARN) of a
-   *          stored volume. All of the specified stored volumes must from the same gateway. Use <a>ListVolumes</a> to get volume ARNs for a gateway.</p>
-   */
-  VolumeARNs: string[] | undefined;
-}
-
-export namespace DescribeStorediSCSIVolumesInput {
-  export const filterSensitiveLog = (
-    obj: DescribeStorediSCSIVolumesInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeStorediSCSIVolumesInput =>
-    __isa(o, "DescribeStorediSCSIVolumesInput");
-}
-
-/**
- * <p>A JSON object containing the of the gateway.</p>
- */
-export interface DescribeWorkingStorageInput {
-  __type?: "DescribeWorkingStorageInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace DescribeWorkingStorageInput {
-  export const filterSensitiveLog = (
-    obj: DescribeWorkingStorageInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeWorkingStorageInput =>
-    __isa(o, "DescribeWorkingStorageInput");
-}
-
-/**
- * <p>A JSON object containing the following fields:</p>
- */
-export interface DescribeWorkingStorageOutput {
-  __type?: "DescribeWorkingStorageOutput";
-  /**
-   * <p>An array of the gateway's local disk IDs that are configured as working storage. Each
-   *          local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If
-   *          no local disks are configured as working storage, then the DiskIds array is
-   *          empty.</p>
-   */
-  DiskIds?: string[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-
-  /**
-   * <p>The total working storage in bytes allocated for the gateway. If no working storage
-   *          is configured for the gateway, this field returns 0.</p>
-   */
-  WorkingStorageAllocatedInBytes?: number;
-
-  /**
-   * <p>The total working storage in bytes in use by the gateway. If no working storage is
-   *          configured for the gateway, this field returns 0.</p>
-   */
-  WorkingStorageUsedInBytes?: number;
-}
-
-export namespace DescribeWorkingStorageOutput {
-  export const filterSensitiveLog = (
-    obj: DescribeWorkingStorageOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeWorkingStorageOutput =>
-    __isa(o, "DescribeWorkingStorageOutput");
-}
-
-export type ErrorCode =
-  | "ActivationKeyExpired"
-  | "ActivationKeyInvalid"
-  | "ActivationKeyNotFound"
-  | "AuthenticationFailure"
-  | "BandwidthThrottleScheduleNotFound"
-  | "Blocked"
-  | "CannotExportSnapshot"
-  | "ChapCredentialNotFound"
-  | "DiskAlreadyAllocated"
-  | "DiskDoesNotExist"
-  | "DiskSizeGreaterThanVolumeMaxSize"
-  | "DiskSizeLessThanVolumeSize"
-  | "DiskSizeNotGigAligned"
-  | "DuplicateCertificateInfo"
-  | "DuplicateSchedule"
-  | "EndpointNotFound"
-  | "GatewayInternalError"
-  | "GatewayNotConnected"
-  | "GatewayNotFound"
-  | "GatewayProxyNetworkConnectionBusy"
-  | "IAMNotSupported"
-  | "InitiatorInvalid"
-  | "InitiatorNotFound"
-  | "InternalError"
-  | "InvalidEndpoint"
-  | "InvalidGateway"
-  | "InvalidParameters"
-  | "InvalidSchedule"
-  | "JoinDomainInProgress"
-  | "LocalStorageLimitExceeded"
-  | "LunAlreadyAllocated "
-  | "LunInvalid"
-  | "MaximumContentLengthExceeded"
-  | "MaximumTapeCartridgeCountExceeded"
-  | "MaximumVolumeCountExceeded"
-  | "NetworkConfigurationChanged"
-  | "NoDisksAvailable"
-  | "NotImplemented"
-  | "NotSupported"
-  | "OperationAborted"
-  | "OutdatedGateway"
-  | "ParametersNotImplemented"
-  | "RegionInvalid"
-  | "RequestTimeout"
-  | "ServiceUnavailable"
-  | "SnapshotDeleted"
-  | "SnapshotIdInvalid"
-  | "SnapshotInProgress"
-  | "SnapshotNotFound"
-  | "SnapshotScheduleNotFound"
-  | "StagingAreaFull"
-  | "StorageFailure"
-  | "TapeCartridgeNotFound"
-  | "TargetAlreadyExists"
-  | "TargetInvalid"
-  | "TargetNotFound"
-  | "UnauthorizedOperation"
-  | "VolumeAlreadyExists"
-  | "VolumeIdInvalid"
-  | "VolumeInUse"
-  | "VolumeNotFound"
-  | "VolumeNotReady";
-
-/**
- * <p>An internal server error has occurred during the request. For more information, see
- *          the error and message fields.</p>
- */
-export interface InternalServerError
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InternalServerError";
-  $fault: "server";
-  /**
-   * <p>A <a>StorageGatewayError</a> that provides more information about the
-   *          cause of the error.</p>
-   */
-  error?: StorageGatewayError;
-
-  /**
-   * <p>A human-readable message describing the error that occurred.</p>
-   */
-  message?: string;
-}
-
-export namespace InternalServerError {
-  export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InternalServerError =>
-    __isa(o, "InternalServerError");
-}
-
-/**
- * <p>An exception occurred because an invalid gateway request was issued to the service.
- *          For more information, see the error and message fields.</p>
- */
-export interface InvalidGatewayRequestException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidGatewayRequestException";
-  $fault: "client";
-  /**
-   * <p>A <a>StorageGatewayError</a> that provides more detail about the cause of
-   *          the error.</p>
-   */
-  error?: StorageGatewayError;
-
-  /**
-   * <p>A human-readable message describing the error that occurred.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidGatewayRequestException {
-  export const filterSensitiveLog = (
-    obj: InvalidGatewayRequestException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidGatewayRequestException =>
-    __isa(o, "InvalidGatewayRequestException");
-}
-
-/**
- * <p>A JSON object containing zero or more of the following fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>ListGatewaysInput$Limit</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListGatewaysInput$Marker</a>
- *                </p>
- *             </li>
- *          </ul>
- */
-export interface ListGatewaysInput {
-  __type?: "ListGatewaysInput";
-  /**
-   * <p>Specifies that the list of gateways returned be limited to the specified number of
-   *          items.</p>
-   */
-  Limit?: number;
-
-  /**
-   * <p>An opaque string that indicates the position at which to begin the returned list of
-   *          gateways.</p>
-   */
-  Marker?: string;
-}
-
-export namespace ListGatewaysInput {
-  export const filterSensitiveLog = (obj: ListGatewaysInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListGatewaysInput =>
-    __isa(o, "ListGatewaysInput");
-}
-
-/**
- * <p>A JSON object containing the of the gateway.</p>
- */
-export interface ListLocalDisksInput {
-  __type?: "ListLocalDisksInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace ListLocalDisksInput {
-  export const filterSensitiveLog = (obj: ListLocalDisksInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListLocalDisksInput =>
-    __isa(o, "ListLocalDisksInput");
-}
-
-/**
- * <p>A JSON object that contains one or more of the following fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>ListVolumesInput$Limit</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListVolumesInput$Marker</a>
- *                </p>
- *             </li>
- *          </ul>
- */
-export interface ListVolumesInput {
-  __type?: "ListVolumesInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-
-  /**
-   * <p>Specifies that the list of volumes returned be limited to the specified number of
-   *          items.</p>
-   */
-  Limit?: number;
-
-  /**
-   * <p>A string that indicates the position at which to begin the returned list of volumes.
-   *          Obtain the marker from the response of a previous List iSCSI Volumes request.</p>
-   */
-  Marker?: string;
-}
-
-export namespace ListVolumesInput {
-  export const filterSensitiveLog = (obj: ListVolumesInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListVolumesInput =>
-    __isa(o, "ListVolumesInput");
-}
-
-/**
- * <p>Describes a gateway's network interface.</p>
- */
-export interface NetworkInterface {
-  __type?: "NetworkInterface";
-  /**
-   * <p>The Internet Protocol version 4 (IPv4) address of the interface.</p>
-   */
-  Ipv4Address?: string;
-
-  /**
-   * <p>The Internet Protocol version 6 (IPv6) address of the interface. <i>Currently
-   *             not supported</i>.</p>
-   */
-  Ipv6Address?: string;
-
-  /**
-   * <p>The Media Access Control (MAC) address of the interface.</p>
-   *          <note>
-   *             <p>This is currently unsupported and will not be returned in output.</p>
-   *          </note>
-   */
-  MacAddress?: string;
-}
-
-export namespace NetworkInterface {
-  export const filterSensitiveLog = (obj: NetworkInterface): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NetworkInterface =>
-    __isa(o, "NetworkInterface");
-}
-
-/**
- * <p>An internal server error has occurred because the service is unavailable. For more
- *          information, see the error and message fields.</p>
- */
-export interface ServiceUnavailableError
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ServiceUnavailableError";
-  $fault: "server";
-  /**
-   * <p>A <a>StorageGatewayError</a> that provides more information about the
-   *          cause of the error.</p>
-   */
-  error?: StorageGatewayError;
-
-  /**
-   * <p>A human-readable message describing the error that occurred.</p>
-   */
-  message?: string;
-}
-
-export namespace ServiceUnavailableError {
-  export const filterSensitiveLog = (obj: ServiceUnavailableError): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ServiceUnavailableError =>
-    __isa(o, "ServiceUnavailableError");
-}
-
-/**
- * <p>A JSON object containing the of the gateway to shut down.</p>
- */
-export interface ShutdownGatewayInput {
-  __type?: "ShutdownGatewayInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace ShutdownGatewayInput {
-  export const filterSensitiveLog = (obj: ShutdownGatewayInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ShutdownGatewayInput =>
-    __isa(o, "ShutdownGatewayInput");
-}
-
-/**
- * <p>A JSON object containing the of the gateway that was shut down.</p>
- */
-export interface ShutdownGatewayOutput {
-  __type?: "ShutdownGatewayOutput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-}
-
-export namespace ShutdownGatewayOutput {
-  export const filterSensitiveLog = (obj: ShutdownGatewayOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ShutdownGatewayOutput =>
-    __isa(o, "ShutdownGatewayOutput");
-}
-
-/**
- * <p>A JSON object containing the of the gateway to start.</p>
- */
-export interface StartGatewayInput {
-  __type?: "StartGatewayInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace StartGatewayInput {
-  export const filterSensitiveLog = (obj: StartGatewayInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StartGatewayInput =>
-    __isa(o, "StartGatewayInput");
-}
-
-/**
- * <p>A JSON object containing the of the gateway that was restarted.</p>
- */
-export interface StartGatewayOutput {
-  __type?: "StartGatewayOutput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-}
-
-export namespace StartGatewayOutput {
-  export const filterSensitiveLog = (obj: StartGatewayOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StartGatewayOutput =>
-    __isa(o, "StartGatewayOutput");
-}
-
-/**
- * <p>Provides additional information about an error that was returned by the service as an
- *          or. See the <code>errorCode</code> and <code>errorDetails</code> members for more
- *          information about the error.</p>
- */
-export interface StorageGatewayError {
-  __type?: "StorageGatewayError";
-  /**
-   * <p>Additional information about the error.</p>
-   */
-  errorCode?: ErrorCode | string;
-
-  /**
-   * <p>Human-readable text that provides detail about the error that occurred.</p>
-   */
-  errorDetails?: { [key: string]: string };
-}
-
-export namespace StorageGatewayError {
-  export const filterSensitiveLog = (obj: StorageGatewayError): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StorageGatewayError =>
-    __isa(o, "StorageGatewayError");
-}
-
-/**
- * <p>A JSON object containing one or more of the following fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>UpdateBandwidthRateLimitInput$AverageDownloadRateLimitInBitsPerSec</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateBandwidthRateLimitInput$AverageUploadRateLimitInBitsPerSec</a>
- *                </p>
- *             </li>
- *          </ul>
- */
-export interface UpdateBandwidthRateLimitInput {
-  __type?: "UpdateBandwidthRateLimitInput";
-  /**
-   * <p>The average download bandwidth rate limit in bits per second.</p>
-   */
-  AverageDownloadRateLimitInBitsPerSec?: number;
-
-  /**
-   * <p>The average upload bandwidth rate limit in bits per second.</p>
-   */
-  AverageUploadRateLimitInBitsPerSec?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace UpdateBandwidthRateLimitInput {
-  export const filterSensitiveLog = (
-    obj: UpdateBandwidthRateLimitInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateBandwidthRateLimitInput =>
-    __isa(o, "UpdateBandwidthRateLimitInput");
-}
-
-/**
- * <p>A JSON object containing the of the gateway whose throttle information was
- *          updated.</p>
- */
-export interface UpdateBandwidthRateLimitOutput {
-  __type?: "UpdateBandwidthRateLimitOutput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-}
-
-export namespace UpdateBandwidthRateLimitOutput {
-  export const filterSensitiveLog = (
-    obj: UpdateBandwidthRateLimitOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateBandwidthRateLimitOutput =>
-    __isa(o, "UpdateBandwidthRateLimitOutput");
-}
-
-/**
- * <p>A JSON object containing one or more of the following fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>UpdateChapCredentialsInput$InitiatorName</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateChapCredentialsInput$SecretToAuthenticateInitiator</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateChapCredentialsInput$SecretToAuthenticateTarget</a>
- *                </p>
- *
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateChapCredentialsInput$TargetARN</a>
- *                </p>
- *             </li>
- *          </ul>
- */
-export interface UpdateChapCredentialsInput {
-  __type?: "UpdateChapCredentialsInput";
-  /**
-   * <p>The iSCSI initiator that connects to the target.</p>
-   */
-  InitiatorName: string | undefined;
-
-  /**
-   * <p>The secret key that the initiator (for example, the Windows client) must provide to
-   *          participate in mutual CHAP with the target.</p>
-   *          <note>
-   *             <p>The secret key must be between 12 and 16 bytes when encoded in UTF-8.</p>
-   *          </note>
-   */
-  SecretToAuthenticateInitiator: string | undefined;
-
-  /**
-   * <p>The secret key that the target must provide to participate in mutual CHAP with the
-   *          initiator (e.g. Windows client).</p>
-   *          <p>Byte constraints: Minimum bytes of 12. Maximum bytes of 16.</p>
-   *          <note>
-   *             <p>The secret key must be between 12 and 16 bytes when encoded in UTF-8.</p>
-   *          </note>
-   */
-  SecretToAuthenticateTarget?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return the TargetARN for specified
-   *          VolumeARN.</p>
-   */
-  TargetARN: string | undefined;
-}
-
-export namespace UpdateChapCredentialsInput {
-  export const filterSensitiveLog = (obj: UpdateChapCredentialsInput): any => ({
-    ...obj,
-    ...(obj.SecretToAuthenticateInitiator && {
-      SecretToAuthenticateInitiator: SENSITIVE_STRING
-    }),
-    ...(obj.SecretToAuthenticateTarget && {
-      SecretToAuthenticateTarget: SENSITIVE_STRING
-    })
-  });
-  export const isa = (o: any): o is UpdateChapCredentialsInput =>
-    __isa(o, "UpdateChapCredentialsInput");
-}
-
-/**
- * <p>A JSON object containing the following fields:</p>
- */
-export interface UpdateChapCredentialsOutput {
-  __type?: "UpdateChapCredentialsOutput";
-  /**
-   * <p>The iSCSI initiator that connects to the target. This is the same initiator name
-   *          specified in the request.</p>
-   */
-  InitiatorName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the target. This is the same target specified in
-   *          the request.</p>
-   */
-  TargetARN?: string;
-}
-
-export namespace UpdateChapCredentialsOutput {
-  export const filterSensitiveLog = (
-    obj: UpdateChapCredentialsOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateChapCredentialsOutput =>
-    __isa(o, "UpdateChapCredentialsOutput");
-}
-
-/**
- * <p>A JSON object containing the ARN of the gateway that was updated.</p>
- */
-export interface UpdateGatewayInformationOutput {
-  __type?: "UpdateGatewayInformationOutput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-
-  /**
-   * <p>The name you configured for your gateway.</p>
-   */
-  GatewayName?: string;
-}
-
-export namespace UpdateGatewayInformationOutput {
-  export const filterSensitiveLog = (
-    obj: UpdateGatewayInformationOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateGatewayInformationOutput =>
-    __isa(o, "UpdateGatewayInformationOutput");
-}
-
-/**
- * <p>A JSON object containing the of the gateway to update.</p>
- */
-export interface UpdateGatewaySoftwareNowInput {
-  __type?: "UpdateGatewaySoftwareNowInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace UpdateGatewaySoftwareNowInput {
-  export const filterSensitiveLog = (
-    obj: UpdateGatewaySoftwareNowInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateGatewaySoftwareNowInput =>
-    __isa(o, "UpdateGatewaySoftwareNowInput");
-}
-
-/**
- * <p>A JSON object containing the of the gateway that was updated.</p>
- */
-export interface UpdateGatewaySoftwareNowOutput {
-  __type?: "UpdateGatewaySoftwareNowOutput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-}
-
-export namespace UpdateGatewaySoftwareNowOutput {
-  export const filterSensitiveLog = (
-    obj: UpdateGatewaySoftwareNowOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateGatewaySoftwareNowOutput =>
-    __isa(o, "UpdateGatewaySoftwareNowOutput");
-}
-
-/**
- * <p>A JSON object containing the following fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>UpdateMaintenanceStartTimeInput$DayOfMonth</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateMaintenanceStartTimeInput$DayOfWeek</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateMaintenanceStartTimeInput$HourOfDay</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateMaintenanceStartTimeInput$MinuteOfHour</a>
- *                </p>
- *             </li>
- *          </ul>
- */
-export interface UpdateMaintenanceStartTimeInput {
-  __type?: "UpdateMaintenanceStartTimeInput";
-  /**
-   * <p>The day of the month component of the maintenance start time represented as an ordinal number from
-   *          1 to 28, where 1 represents the first day of the month and 28 represents the last day of
-   *          the month.</p>
-   *          <note>
-   *             <p>This value is only available for tape and volume gateways.</p>
-   *          </note>
-   */
-  DayOfMonth?: number;
-
-  /**
-   * <p>The day of the week component of the maintenance start time week represented as an
-   *          ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.</p>
-   */
-  DayOfWeek?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-
-  /**
-   * <p>The hour component of the maintenance start time represented as
-   *             <i>hh</i>, where <i>hh</i> is the hour (00 to 23). The hour
-   *          of the day is in the time zone of the gateway.</p>
-   */
-  HourOfDay: number | undefined;
-
-  /**
-   * <p>The minute component of the maintenance start time represented as
-   *             <i>mm</i>, where <i>mm</i> is the minute (00 to 59). The
-   *          minute of the hour is in the time zone of the gateway.</p>
-   */
-  MinuteOfHour: number | undefined;
-}
-
-export namespace UpdateMaintenanceStartTimeInput {
-  export const filterSensitiveLog = (
-    obj: UpdateMaintenanceStartTimeInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateMaintenanceStartTimeInput =>
-    __isa(o, "UpdateMaintenanceStartTimeInput");
-}
-
-/**
- * <p>A JSON object containing the of the gateway whose maintenance start time is
- *          updated.</p>
- */
-export interface UpdateMaintenanceStartTimeOutput {
-  __type?: "UpdateMaintenanceStartTimeOutput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-}
-
-export namespace UpdateMaintenanceStartTimeOutput {
-  export const filterSensitiveLog = (
-    obj: UpdateMaintenanceStartTimeOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateMaintenanceStartTimeOutput =>
-    __isa(o, "UpdateMaintenanceStartTimeOutput");
-}
-
-/**
- * <p>A JSON object containing one or more of the following fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>UpdateSnapshotScheduleInput$Description</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateSnapshotScheduleInput$RecurrenceInHours</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateSnapshotScheduleInput$StartAt</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateSnapshotScheduleInput$VolumeARN</a>
- *                </p>
- *             </li>
- *          </ul>
- */
-export interface UpdateSnapshotScheduleInput {
-  __type?: "UpdateSnapshotScheduleInput";
-  /**
-   * <p>Optional description of the snapshot that overwrites the existing
-   *          description.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Frequency of snapshots. Specify the number of hours between snapshots.</p>
-   */
-  RecurrenceInHours: number | undefined;
-
-  /**
-   * <p>The hour of the day at which the snapshot schedule begins represented as
-   *             <i>hh</i>, where <i>hh</i> is the hour (0 to 23). The hour
-   *          of the day is in the time zone of the gateway.</p>
-   */
-  StartAt: number | undefined;
-
-  /**
-   * <p>A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.</p>
-   *          <note>
-   *             <p>Valid characters for key and value are letters, spaces, and numbers representable
-   *             in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
-   *             length of a tag's key is 128 characters, and the maximum length for a tag's value is
-   *             256.</p>
-   *          </note>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
-   *          operation to return a list of gateway volumes.</p>
-   */
-  VolumeARN: string | undefined;
-}
-
-export namespace UpdateSnapshotScheduleInput {
-  export const filterSensitiveLog = (
-    obj: UpdateSnapshotScheduleInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateSnapshotScheduleInput =>
-    __isa(o, "UpdateSnapshotScheduleInput");
-}
-
-/**
- * <p>A JSON object containing the of the updated storage volume.</p>
- */
-export interface UpdateSnapshotScheduleOutput {
-  __type?: "UpdateSnapshotScheduleOutput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
-   *          operation to return a list of gateway volumes.</p>
-   */
-  VolumeARN?: string;
-}
-
-export namespace UpdateSnapshotScheduleOutput {
-  export const filterSensitiveLog = (
-    obj: UpdateSnapshotScheduleOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateSnapshotScheduleOutput =>
-    __isa(o, "UpdateSnapshotScheduleOutput");
-}
-
-/**
- * <p>Lists iSCSI information about a volume.</p>
- */
-export interface VolumeiSCSIAttributes {
-  __type?: "VolumeiSCSIAttributes";
-  /**
-   * <p>Indicates whether mutual CHAP is enabled for the iSCSI target.</p>
-   */
-  ChapEnabled?: boolean;
-
-  /**
-   * <p>The logical disk number.</p>
-   */
-  LunNumber?: number;
-
-  /**
-   * <p>The network interface identifier.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * <p>The port used to communicate with iSCSI targets.</p>
-   */
-  NetworkInterfacePort?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the volume target.</p>
-   */
-  TargetARN?: string;
-}
-
-export namespace VolumeiSCSIAttributes {
-  export const filterSensitiveLog = (obj: VolumeiSCSIAttributes): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is VolumeiSCSIAttributes =>
-    __isa(o, "VolumeiSCSIAttributes");
-}
-
-export interface AddCacheInput {
-  __type?: "AddCacheInput";
-  /**
-   * <p>An array of strings that identify disks that are to be configured as working storage.
-   *          Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs
-   *          from the <a>ListLocalDisks</a> API.</p>
-   */
-  DiskIds: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace AddCacheInput {
-  export const filterSensitiveLog = (obj: AddCacheInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AddCacheInput => __isa(o, "AddCacheInput");
-}
-
-export interface AddCacheOutput {
-  __type?: "AddCacheOutput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-}
-
-export namespace AddCacheOutput {
-  export const filterSensitiveLog = (obj: AddCacheOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AddCacheOutput =>
-    __isa(o, "AddCacheOutput");
-}
-
-export interface AddUploadBufferInput {
-  __type?: "AddUploadBufferInput";
-  /**
-   * <p>An array of strings that identify disks that are to be configured as working storage.
-   *          Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs
-   *          from the <a>ListLocalDisks</a> API.</p>
-   */
-  DiskIds: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace AddUploadBufferInput {
-  export const filterSensitiveLog = (obj: AddUploadBufferInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AddUploadBufferInput =>
-    __isa(o, "AddUploadBufferInput");
-}
-
-export interface AddUploadBufferOutput {
-  __type?: "AddUploadBufferOutput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-}
-
-export namespace AddUploadBufferOutput {
-  export const filterSensitiveLog = (obj: AddUploadBufferOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AddUploadBufferOutput =>
-    __isa(o, "AddUploadBufferOutput");
-}
-
-export interface CreateCachediSCSIVolumeInput {
-  __type?: "CreateCachediSCSIVolumeInput";
-  /**
-   * <p>A unique identifier that you use to retry a request. If you retry a request, use the
-   *          same <code>ClientToken</code> you specified in the initial request.</p>
-   */
-  ClientToken: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-
-  /**
-   * <p>True to use Amazon S3 server side encryption with your own AWS KMS key, or false to
-   *          use a key managed by Amazon S3. Optional.</p>
-   */
-  KMSEncrypted?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side
-   *          encryption. This value can only be set when KMSEncrypted is true. Optional.</p>
-   */
-  KMSKey?: string;
-
-  /**
-   * <p>The network interface of the gateway on which to expose the iSCSI target. Only IPv4
-   *          addresses are accepted. Use <a>DescribeGatewayInformation</a> to get a list of
-   *          the network interfaces available on a gateway.</p>
-   *          <p> Valid Values: A valid IP address.</p>
-   */
-  NetworkInterfaceId: string | undefined;
-
-  /**
-   * <p>The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new cached
-   *          volume. Specify this field if you want to create the iSCSI storage volume from a snapshot
-   *          otherwise do not include this field. To list snapshots for your account use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a> in the <i>Amazon Elastic Compute Cloud API
-   *             Reference</i>.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>The ARN for an existing volume. Specifying this ARN makes the new volume into an
-   *          exact copy of the specified existing volume's latest recovery point. The
-   *             <code>VolumeSizeInBytes</code> value for this new volume must be equal to or larger than
-   *          the size of the existing volume, in bytes.</p>
-   */
-  SourceVolumeARN?: string;
-
-  /**
-   * <p>A list of up to 50 tags that you can assign to a cached volume. Each tag is a
-   *          key-value pair.</p>
-   *          <note>
-   *             <p>Valid characters for key and value are letters, spaces, and numbers that you can
-   *             represent in UTF-8 format, and the following special characters: + - = . _ : / @. The
-   *             maximum length of a tag's key is 128 characters, and the maximum length for a
-   *             tag's value is 256 characters.</p>
-   *          </note>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The name of the iSCSI target used by an initiator to connect to a volume and used as
-   *          a suffix for the target ARN. For example, specifying <code>TargetName</code> as
-   *             <i>myvolume</i> results in the target ARN of
-   *             <code>arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume</code>.
-   *          The target name must be unique across all volumes on a gateway.</p>
-   *          <p>If you don't specify a value, Storage Gateway uses the value that was previously used
-   *          for this volume as the new target name.</p>
-   */
-  TargetName: string | undefined;
-
-  /**
-   * <p>The size of the volume in bytes.</p>
-   */
-  VolumeSizeInBytes: number | undefined;
-}
-
-export namespace CreateCachediSCSIVolumeInput {
-  export const filterSensitiveLog = (
-    obj: CreateCachediSCSIVolumeInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CreateCachediSCSIVolumeInput =>
-    __isa(o, "CreateCachediSCSIVolumeInput");
-}
-
-export interface CreateCachediSCSIVolumeOutput {
-  __type?: "CreateCachediSCSIVolumeOutput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name
-   *          that initiators can use to connect to the target.</p>
-   */
-  TargetARN?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the configured volume.</p>
-   */
-  VolumeARN?: string;
-}
-
-export namespace CreateCachediSCSIVolumeOutput {
-  export const filterSensitiveLog = (
-    obj: CreateCachediSCSIVolumeOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CreateCachediSCSIVolumeOutput =>
-    __isa(o, "CreateCachediSCSIVolumeOutput");
-}
-
-export interface CreateSnapshotFromVolumeRecoveryPointOutput {
-  __type?: "CreateSnapshotFromVolumeRecoveryPointOutput";
-  /**
-   * <p>The ID of the snapshot.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for
-   *          specified VolumeARN.</p>
-   */
-  VolumeARN?: string;
-
-  /**
-   * <p>The time the volume was created from the recovery point.</p>
-   */
-  VolumeRecoveryPointTime?: string;
-}
-
-export namespace CreateSnapshotFromVolumeRecoveryPointOutput {
-  export const filterSensitiveLog = (
-    obj: CreateSnapshotFromVolumeRecoveryPointOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is CreateSnapshotFromVolumeRecoveryPointOutput =>
-    __isa(o, "CreateSnapshotFromVolumeRecoveryPointOutput");
-}
-
-export interface DeleteSnapshotScheduleInput {
-  __type?: "DeleteSnapshotScheduleInput";
-  /**
-   * <p>The volume which snapshot schedule to delete.</p>
-   */
-  VolumeARN: string | undefined;
-}
-
-export namespace DeleteSnapshotScheduleInput {
-  export const filterSensitiveLog = (
-    obj: DeleteSnapshotScheduleInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteSnapshotScheduleInput =>
-    __isa(o, "DeleteSnapshotScheduleInput");
-}
-
-export interface DeleteSnapshotScheduleOutput {
-  __type?: "DeleteSnapshotScheduleOutput";
-  /**
-   * <p>The volume which snapshot schedule was deleted.</p>
-   */
-  VolumeARN?: string;
-}
-
-export namespace DeleteSnapshotScheduleOutput {
-  export const filterSensitiveLog = (
-    obj: DeleteSnapshotScheduleOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteSnapshotScheduleOutput =>
-    __isa(o, "DeleteSnapshotScheduleOutput");
-}
-
-export interface DescribeCacheInput {
-  __type?: "DescribeCacheInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace DescribeCacheInput {
-  export const filterSensitiveLog = (obj: DescribeCacheInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeCacheInput =>
-    __isa(o, "DescribeCacheInput");
-}
-
-export interface DescribeCacheOutput {
-  __type?: "DescribeCacheOutput";
-  /**
-   * <p>The amount of cache in bytes allocated to the a gateway.</p>
-   */
-  CacheAllocatedInBytes?: number;
-
-  /**
-   * <p>The file share's contribution to the overall percentage of the gateway's cache that has
-   *          not been persisted to AWS. The sample is taken at the end of the reporting period.</p>
-   */
-  CacheDirtyPercentage?: number;
-
-  /**
-   * <p>Percent of application read operations from the file shares that are served from cache.
-   *          The sample is taken at the end of the reporting period.</p>
-   */
-  CacheHitPercentage?: number;
-
-  /**
-   * <p>Percent of application read operations from the file shares that are not served from cache.
-   *          The sample is taken at the end of the reporting period.</p>
-   */
-  CacheMissPercentage?: number;
-
-  /**
-   * <p>Percent use of the gateway's cache storage. This metric applies only to the
-   *          gateway-cached volume setup. The sample is taken at the end of the reporting period.</p>
-   */
-  CacheUsedPercentage?: number;
-
-  /**
-   * <p>An array of strings that identify disks that are to be configured as working storage.
-   *          Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs
-   *          from the <a>ListLocalDisks</a> API.</p>
-   */
-  DiskIds?: string[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-}
-
-export namespace DescribeCacheOutput {
-  export const filterSensitiveLog = (obj: DescribeCacheOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeCacheOutput =>
-    __isa(o, "DescribeCacheOutput");
-}
-
-export interface DescribeCachediSCSIVolumesInput {
-  __type?: "DescribeCachediSCSIVolumesInput";
-  /**
-   * <p>An array of strings where each string represents the Amazon Resource Name (ARN) of a
-   *          cached volume. All of the specified cached volumes must from the same gateway. Use <a>ListVolumes</a> to get volume ARNs for a gateway.</p>
-   */
-  VolumeARNs: string[] | undefined;
-}
-
-export namespace DescribeCachediSCSIVolumesInput {
-  export const filterSensitiveLog = (
-    obj: DescribeCachediSCSIVolumesInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeCachediSCSIVolumesInput =>
-    __isa(o, "DescribeCachediSCSIVolumesInput");
-}
-
-export interface DescribeUploadBufferInput {
-  __type?: "DescribeUploadBufferInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace DescribeUploadBufferInput {
-  export const filterSensitiveLog = (obj: DescribeUploadBufferInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeUploadBufferInput =>
-    __isa(o, "DescribeUploadBufferInput");
-}
-
-export interface DescribeUploadBufferOutput {
-  __type?: "DescribeUploadBufferOutput";
-  /**
-   * <p>An array of the gateway's local disk IDs that are configured as working storage. Each
-   *          local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If
-   *          no local disks are configured as working storage, then the DiskIds array is
-   *          empty.</p>
-   */
-  DiskIds?: string[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-
-  /**
-   * <p>The total number of bytes allocated in the gateway's as upload buffer.</p>
-   */
-  UploadBufferAllocatedInBytes?: number;
-
-  /**
-   * <p>The total number of bytes being used in the gateway's upload buffer.</p>
-   */
-  UploadBufferUsedInBytes?: number;
-}
-
-export namespace DescribeUploadBufferOutput {
-  export const filterSensitiveLog = (obj: DescribeUploadBufferOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeUploadBufferOutput =>
-    __isa(o, "DescribeUploadBufferOutput");
-}
-
-export interface ListVolumeRecoveryPointsInput {
-  __type?: "ListVolumeRecoveryPointsInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace ListVolumeRecoveryPointsInput {
-  export const filterSensitiveLog = (
-    obj: ListVolumeRecoveryPointsInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListVolumeRecoveryPointsInput =>
-    __isa(o, "ListVolumeRecoveryPointsInput");
-}
-
-export interface ListVolumeRecoveryPointsOutput {
-  __type?: "ListVolumeRecoveryPointsOutput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-
-  /**
-   * <p>An array of <a>VolumeRecoveryPointInfo</a> objects.</p>
-   */
-  VolumeRecoveryPointInfos?: VolumeRecoveryPointInfo[];
-}
-
-export namespace ListVolumeRecoveryPointsOutput {
-  export const filterSensitiveLog = (
-    obj: ListVolumeRecoveryPointsOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListVolumeRecoveryPointsOutput =>
-    __isa(o, "ListVolumeRecoveryPointsOutput");
-}
-
-/**
- * <p>Describes a storage volume recovery point object.</p>
- */
-export interface VolumeRecoveryPointInfo {
-  __type?: "VolumeRecoveryPointInfo";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the volume target.</p>
-   */
-  VolumeARN?: string;
-
-  /**
-   * <p>The time the recovery point was taken.</p>
-   */
-  VolumeRecoveryPointTime?: string;
-
-  /**
-   * <p>The size of the volume in bytes.</p>
-   */
-  VolumeSizeInBytes?: number;
-
-  /**
-   * <p>The size of the data stored on the volume in bytes.</p>
-   *          <note>
-   *             <p>This value is not available for volumes created prior to May 13, 2015, until you
-   *             store data on the volume.</p>
-   *          </note>
-   */
-  VolumeUsageInBytes?: number;
-}
-
-export namespace VolumeRecoveryPointInfo {
-  export const filterSensitiveLog = (obj: VolumeRecoveryPointInfo): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is VolumeRecoveryPointInfo =>
-    __isa(o, "VolumeRecoveryPointInfo");
-}
-
-/**
  * <p>A JSON object containing one or more of the following fields:</p>
  *          <ul>
  *             <li>
@@ -2284,6 +132,34 @@ export namespace ActivateGatewayInput {
     __isa(o, "ActivateGatewayInput");
 }
 
+/**
+ * <p>AWS Storage Gateway returns the Amazon Resource Name (ARN) of the activated gateway.
+ *          It is a string made of information such as your account, gateway name, and AWS Region. This
+ *          ARN is used to reference the gateway in other API operations as well as resource-based
+ *          authorization.</p>
+ *          <note>
+ *             <p>For gateways activated prior to September 02, 2015, the gateway ARN contains the
+ *             gateway name rather than the gateway ID. Changing the name of the gateway has no effect
+ *             on the gateway ARN.</p>
+ *          </note>
+ */
+export interface ActivateGatewayOutput {
+  __type?: "ActivateGatewayOutput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+}
+
+export namespace ActivateGatewayOutput {
+  export const filterSensitiveLog = (obj: ActivateGatewayOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ActivateGatewayOutput =>
+    __isa(o, "ActivateGatewayOutput");
+}
+
 export type ActiveDirectoryStatus =
   | "ACCESS_DENIED"
   | "DETACHED"
@@ -2292,6 +168,46 @@ export type ActiveDirectoryStatus =
   | "NETWORK_ERROR"
   | "TIMEOUT"
   | "UNKNOWN_ERROR";
+
+export interface AddCacheInput {
+  __type?: "AddCacheInput";
+  /**
+   * <p>An array of strings that identify disks that are to be configured as working storage.
+   *          Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs
+   *          from the <a>ListLocalDisks</a> API.</p>
+   */
+  DiskIds: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace AddCacheInput {
+  export const filterSensitiveLog = (obj: AddCacheInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AddCacheInput => __isa(o, "AddCacheInput");
+}
+
+export interface AddCacheOutput {
+  __type?: "AddCacheOutput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+}
+
+export namespace AddCacheOutput {
+  export const filterSensitiveLog = (obj: AddCacheOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AddCacheOutput =>
+    __isa(o, "AddCacheOutput");
+}
 
 /**
  * <p>AddTagsToResourceInput</p>
@@ -2341,6 +257,102 @@ export namespace AddTagsToResourceOutput {
   });
   export const isa = (o: any): o is AddTagsToResourceOutput =>
     __isa(o, "AddTagsToResourceOutput");
+}
+
+export interface AddUploadBufferInput {
+  __type?: "AddUploadBufferInput";
+  /**
+   * <p>An array of strings that identify disks that are to be configured as working storage.
+   *          Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs
+   *          from the <a>ListLocalDisks</a> API.</p>
+   */
+  DiskIds: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace AddUploadBufferInput {
+  export const filterSensitiveLog = (obj: AddUploadBufferInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AddUploadBufferInput =>
+    __isa(o, "AddUploadBufferInput");
+}
+
+export interface AddUploadBufferOutput {
+  __type?: "AddUploadBufferOutput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+}
+
+export namespace AddUploadBufferOutput {
+  export const filterSensitiveLog = (obj: AddUploadBufferOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AddUploadBufferOutput =>
+    __isa(o, "AddUploadBufferOutput");
+}
+
+/**
+ * <p>A JSON object containing one or more of the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>AddWorkingStorageInput$DiskIds</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
+export interface AddWorkingStorageInput {
+  __type?: "AddWorkingStorageInput";
+  /**
+   * <p>An array of strings that identify disks that are to be configured as working storage.
+   *          Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs
+   *          from the <a>ListLocalDisks</a> API.</p>
+   */
+  DiskIds: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace AddWorkingStorageInput {
+  export const filterSensitiveLog = (obj: AddWorkingStorageInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AddWorkingStorageInput =>
+    __isa(o, "AddWorkingStorageInput");
+}
+
+/**
+ * <p>A JSON object containing the of the gateway for which working storage was
+ *          configured.</p>
+ */
+export interface AddWorkingStorageOutput {
+  __type?: "AddWorkingStorageOutput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+}
+
+export namespace AddWorkingStorageOutput {
+  export const filterSensitiveLog = (obj: AddWorkingStorageOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AddWorkingStorageOutput =>
+    __isa(o, "AddWorkingStorageOutput");
 }
 
 export interface AssignTapePoolInput {
@@ -2658,6 +670,163 @@ export namespace CancelRetrievalOutput {
   });
   export const isa = (o: any): o is CancelRetrievalOutput =>
     __isa(o, "CancelRetrievalOutput");
+}
+
+/**
+ * <p>Describes Challenge-Handshake Authentication Protocol (CHAP) information that
+ *          supports authentication between your gateway and iSCSI initiators.</p>
+ */
+export interface ChapInfo {
+  __type?: "ChapInfo";
+  /**
+   * <p>The iSCSI initiator that connects to the target.</p>
+   */
+  InitiatorName?: string;
+
+  /**
+   * <p>The secret key that the initiator (for example, the Windows client) must provide to
+   *          participate in mutual CHAP with the target.</p>
+   */
+  SecretToAuthenticateInitiator?: string;
+
+  /**
+   * <p>The secret key that the target must provide to participate in mutual CHAP with the
+   *          initiator (e.g. Windows client).</p>
+   */
+  SecretToAuthenticateTarget?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the volume.</p>
+   *          <p> Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens
+   *          (-).</p>
+   */
+  TargetARN?: string;
+}
+
+export namespace ChapInfo {
+  export const filterSensitiveLog = (obj: ChapInfo): any => ({
+    ...obj,
+    ...(obj.SecretToAuthenticateInitiator && {
+      SecretToAuthenticateInitiator: SENSITIVE_STRING
+    }),
+    ...(obj.SecretToAuthenticateTarget && {
+      SecretToAuthenticateTarget: SENSITIVE_STRING
+    })
+  });
+  export const isa = (o: any): o is ChapInfo => __isa(o, "ChapInfo");
+}
+
+export interface CreateCachediSCSIVolumeInput {
+  __type?: "CreateCachediSCSIVolumeInput";
+  /**
+   * <p>A unique identifier that you use to retry a request. If you retry a request, use the
+   *          same <code>ClientToken</code> you specified in the initial request.</p>
+   */
+  ClientToken: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+
+  /**
+   * <p>True to use Amazon S3 server side encryption with your own AWS KMS key, or false to
+   *          use a key managed by Amazon S3. Optional.</p>
+   */
+  KMSEncrypted?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side
+   *          encryption. This value can only be set when KMSEncrypted is true. Optional.</p>
+   */
+  KMSKey?: string;
+
+  /**
+   * <p>The network interface of the gateway on which to expose the iSCSI target. Only IPv4
+   *          addresses are accepted. Use <a>DescribeGatewayInformation</a> to get a list of
+   *          the network interfaces available on a gateway.</p>
+   *          <p> Valid Values: A valid IP address.</p>
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * <p>The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new cached
+   *          volume. Specify this field if you want to create the iSCSI storage volume from a snapshot
+   *          otherwise do not include this field. To list snapshots for your account use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a> in the <i>Amazon Elastic Compute Cloud API
+   *             Reference</i>.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The ARN for an existing volume. Specifying this ARN makes the new volume into an
+   *          exact copy of the specified existing volume's latest recovery point. The
+   *             <code>VolumeSizeInBytes</code> value for this new volume must be equal to or larger than
+   *          the size of the existing volume, in bytes.</p>
+   */
+  SourceVolumeARN?: string;
+
+  /**
+   * <p>A list of up to 50 tags that you can assign to a cached volume. Each tag is a
+   *          key-value pair.</p>
+   *          <note>
+   *             <p>Valid characters for key and value are letters, spaces, and numbers that you can
+   *             represent in UTF-8 format, and the following special characters: + - = . _ : / @. The
+   *             maximum length of a tag's key is 128 characters, and the maximum length for a
+   *             tag's value is 256 characters.</p>
+   *          </note>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The name of the iSCSI target used by an initiator to connect to a volume and used as
+   *          a suffix for the target ARN. For example, specifying <code>TargetName</code> as
+   *             <i>myvolume</i> results in the target ARN of
+   *             <code>arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume</code>.
+   *          The target name must be unique across all volumes on a gateway.</p>
+   *          <p>If you don't specify a value, Storage Gateway uses the value that was previously used
+   *          for this volume as the new target name.</p>
+   */
+  TargetName: string | undefined;
+
+  /**
+   * <p>The size of the volume in bytes.</p>
+   */
+  VolumeSizeInBytes: number | undefined;
+}
+
+export namespace CreateCachediSCSIVolumeInput {
+  export const filterSensitiveLog = (
+    obj: CreateCachediSCSIVolumeInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CreateCachediSCSIVolumeInput =>
+    __isa(o, "CreateCachediSCSIVolumeInput");
+}
+
+export interface CreateCachediSCSIVolumeOutput {
+  __type?: "CreateCachediSCSIVolumeOutput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name
+   *          that initiators can use to connect to the target.</p>
+   */
+  TargetARN?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the configured volume.</p>
+   */
+  VolumeARN?: string;
+}
+
+export namespace CreateCachediSCSIVolumeOutput {
+  export const filterSensitiveLog = (
+    obj: CreateCachediSCSIVolumeOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CreateCachediSCSIVolumeOutput =>
+    __isa(o, "CreateCachediSCSIVolumeOutput");
 }
 
 /**
@@ -3009,40 +1178,64 @@ export namespace CreateSnapshotFromVolumeRecoveryPointInput {
     __isa(o, "CreateSnapshotFromVolumeRecoveryPointInput");
 }
 
+export interface CreateSnapshotFromVolumeRecoveryPointOutput {
+  __type?: "CreateSnapshotFromVolumeRecoveryPointOutput";
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for
+   *          specified VolumeARN.</p>
+   */
+  VolumeARN?: string;
+
+  /**
+   * <p>The time the volume was created from the recovery point.</p>
+   */
+  VolumeRecoveryPointTime?: string;
+}
+
+export namespace CreateSnapshotFromVolumeRecoveryPointOutput {
+  export const filterSensitiveLog = (
+    obj: CreateSnapshotFromVolumeRecoveryPointOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is CreateSnapshotFromVolumeRecoveryPointOutput =>
+    __isa(o, "CreateSnapshotFromVolumeRecoveryPointOutput");
+}
+
 /**
- * <p>CreateTapeWithBarcodeInput</p>
+ * <p>A JSON object containing one or more of the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateSnapshotInput$SnapshotDescription</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateSnapshotInput$VolumeARN</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
-export interface CreateTapeWithBarcodeInput {
-  __type?: "CreateTapeWithBarcodeInput";
+export interface CreateSnapshotInput {
+  __type?: "CreateSnapshotInput";
   /**
-   * <p>The unique Amazon Resource Name (ARN) that represents the gateway to associate the
-   *          virtual tape with. Use the <a>ListGateways</a> operation to return a list of
-   *          gateways for your account and AWS Region.</p>
+   * <p>Textual description of the snapshot that appears in the Amazon EC2 console, Elastic
+   *          Block Store snapshots panel in the <b>Description</b> field, and
+   *          in the AWS Storage Gateway snapshot <b>Details</b> pane,
+   *             <b>Description</b> field</p>
    */
-  GatewayARN: string | undefined;
+  SnapshotDescription: string | undefined;
 
   /**
-   * <p>True to use Amazon S3 server side encryption with your own AWS KMS key, or false to
-   *          use a key managed by Amazon S3. Optional.</p>
-   */
-  KMSEncrypted?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AWS KMS Key used for Amazon S3 server side
-   *          encryption. This value can only be set when KMSEncrypted is true. Optional.</p>
-   */
-  KMSKey?: string;
-
-  /**
-   * <p>The ID of the pool that you want to add your tape to for archiving.
-   *          The tape in this pool is archived in the S3 storage class that is associated with the pool.
-   *          When you use your backup application to eject the tape, the tape is archived directly into the storage class (Glacier or Deep Archive) that corresponds to the pool.</p>
-   *          <p>Valid values: "GLACIER", "DEEP_ARCHIVE"</p>
-   */
-  PoolId?: string;
-
-  /**
-   * <p>A list of up to 50 tags that can be assigned to a virtual tape that has a barcode. Each tag is a key-value pair.</p>
+   * <p>A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.</p>
    *          <note>
    *             <p>Valid characters for key and value are letters, spaces, and numbers representable
    *             in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
@@ -3053,51 +1246,190 @@ export interface CreateTapeWithBarcodeInput {
   Tags?: Tag[];
 
   /**
-   * <p>The barcode that you want to assign to the tape.</p>
-   *          <note>
-   *             <p>Barcodes cannot be reused. This includes barcodes used for tapes that have been
-   *             deleted.</p>
-   *          </note>
+   * <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
+   *          operation to return a list of gateway volumes.</p>
    */
-  TapeBarcode: string | undefined;
-
-  /**
-   * <p>The size, in bytes, of the virtual tape that you want to create.</p>
-   *          <note>
-   *             <p>The size must be aligned by gigabyte (1024*1024*1024 byte).</p>
-   *          </note>
-   */
-  TapeSizeInBytes: number | undefined;
+  VolumeARN: string | undefined;
 }
 
-export namespace CreateTapeWithBarcodeInput {
-  export const filterSensitiveLog = (obj: CreateTapeWithBarcodeInput): any => ({
+export namespace CreateSnapshotInput {
+  export const filterSensitiveLog = (obj: CreateSnapshotInput): any => ({
     ...obj
   });
-  export const isa = (o: any): o is CreateTapeWithBarcodeInput =>
-    __isa(o, "CreateTapeWithBarcodeInput");
+  export const isa = (o: any): o is CreateSnapshotInput =>
+    __isa(o, "CreateSnapshotInput");
 }
 
 /**
- * <p>CreateTapeOutput</p>
+ * <p>A JSON object containing the following fields:</p>
  */
-export interface CreateTapeWithBarcodeOutput {
-  __type?: "CreateTapeWithBarcodeOutput";
+export interface CreateSnapshotOutput {
+  __type?: "CreateSnapshotOutput";
   /**
-   * <p>A unique Amazon Resource Name (ARN) that represents the virtual tape that was
-   *          created.</p>
+   * <p>The snapshot ID that is used to refer to the snapshot in future operations such as
+   *          describing snapshots (Amazon Elastic Compute Cloud API <code>DescribeSnapshots</code>) or
+   *          creating a volume from a snapshot (<a>CreateStorediSCSIVolume</a>).</p>
    */
-  TapeARN?: string;
+  SnapshotId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the volume of which the snapshot was
+   *          taken.</p>
+   */
+  VolumeARN?: string;
 }
 
-export namespace CreateTapeWithBarcodeOutput {
+export namespace CreateSnapshotOutput {
+  export const filterSensitiveLog = (obj: CreateSnapshotOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CreateSnapshotOutput =>
+    __isa(o, "CreateSnapshotOutput");
+}
+
+/**
+ * <p>A JSON object containing one or more of the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateStorediSCSIVolumeInput$DiskId</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateStorediSCSIVolumeInput$NetworkInterfaceId</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateStorediSCSIVolumeInput$PreserveExistingData</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateStorediSCSIVolumeInput$SnapshotId</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateStorediSCSIVolumeInput$TargetName</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
+export interface CreateStorediSCSIVolumeInput {
+  __type?: "CreateStorediSCSIVolumeInput";
+  /**
+   * <p>The unique identifier for the gateway local disk that is configured as a stored
+   *          volume. Use <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html">ListLocalDisks</a> to
+   *          list disk IDs for a gateway.</p>
+   */
+  DiskId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+
+  /**
+   * <p>True to use Amazon S3 server side encryption with your own AWS KMS key, or false to
+   *          use a key managed by Amazon S3. Optional.</p>
+   */
+  KMSEncrypted?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used for Amazon S3 server side
+   *          encryption. This value can only be set when KMSEncrypted is true. Optional.</p>
+   */
+  KMSKey?: string;
+
+  /**
+   * <p>The network interface of the gateway on which to expose the iSCSI target. Only IPv4
+   *          addresses are accepted. Use <a>DescribeGatewayInformation</a> to get a list of
+   *          the network interfaces available on a gateway.</p>
+   *          <p> Valid Values: A valid IP address.</p>
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * <p>Specify this field as true if you want to preserve the data on the local disk.
+   *          Otherwise, specifying this field as false creates an empty volume.</p>
+   *          <p> Valid Values: true, false</p>
+   */
+  PreserveExistingData: boolean | undefined;
+
+  /**
+   * <p>The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored
+   *          volume. Specify this field if you want to create the iSCSI storage volume from a snapshot
+   *          otherwise do not include this field. To list snapshots for your account use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a> in the <i>Amazon Elastic Compute Cloud API
+   *             Reference</i>.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>A list of up to 50 tags that can be assigned to a stored volume. Each tag is a key-value pair.</p>
+   *          <note>
+   *             <p>Valid characters for key and value are letters, spaces, and numbers representable
+   *             in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
+   *             length of a tag's key is 128 characters, and the maximum length for a tag's value is
+   *             256.</p>
+   *          </note>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The name of the iSCSI target used by an initiator to connect to a volume and used as
+   *          a suffix for the target ARN. For example, specifying <code>TargetName</code> as
+   *             <i>myvolume</i> results in the target ARN of
+   *             <code>arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume</code>.
+   *          The target name must be unique across all volumes on a gateway.</p>
+   *          <p>If you don't specify a value, Storage Gateway uses the value that was previously used
+   *          for this volume as the new target name.</p>
+   */
+  TargetName: string | undefined;
+}
+
+export namespace CreateStorediSCSIVolumeInput {
   export const filterSensitiveLog = (
-    obj: CreateTapeWithBarcodeOutput
+    obj: CreateStorediSCSIVolumeInput
   ): any => ({
     ...obj
   });
-  export const isa = (o: any): o is CreateTapeWithBarcodeOutput =>
-    __isa(o, "CreateTapeWithBarcodeOutput");
+  export const isa = (o: any): o is CreateStorediSCSIVolumeInput =>
+    __isa(o, "CreateStorediSCSIVolumeInput");
+}
+
+/**
+ * <p>A JSON object containing the following fields:</p>
+ */
+export interface CreateStorediSCSIVolumeOutput {
+  __type?: "CreateStorediSCSIVolumeOutput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name
+   *          that initiators can use to connect to the target.</p>
+   */
+  TargetARN?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the configured volume.</p>
+   */
+  VolumeARN?: string;
+
+  /**
+   * <p>The size of the volume in bytes.</p>
+   */
+  VolumeSizeInBytes?: number;
+}
+
+export namespace CreateStorediSCSIVolumeOutput {
+  export const filterSensitiveLog = (
+    obj: CreateStorediSCSIVolumeOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CreateStorediSCSIVolumeOutput =>
+    __isa(o, "CreateStorediSCSIVolumeOutput");
 }
 
 /**
@@ -3206,6 +1538,97 @@ export namespace CreateTapesOutput {
 }
 
 /**
+ * <p>CreateTapeWithBarcodeInput</p>
+ */
+export interface CreateTapeWithBarcodeInput {
+  __type?: "CreateTapeWithBarcodeInput";
+  /**
+   * <p>The unique Amazon Resource Name (ARN) that represents the gateway to associate the
+   *          virtual tape with. Use the <a>ListGateways</a> operation to return a list of
+   *          gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+
+  /**
+   * <p>True to use Amazon S3 server side encryption with your own AWS KMS key, or false to
+   *          use a key managed by Amazon S3. Optional.</p>
+   */
+  KMSEncrypted?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS KMS Key used for Amazon S3 server side
+   *          encryption. This value can only be set when KMSEncrypted is true. Optional.</p>
+   */
+  KMSKey?: string;
+
+  /**
+   * <p>The ID of the pool that you want to add your tape to for archiving.
+   *          The tape in this pool is archived in the S3 storage class that is associated with the pool.
+   *          When you use your backup application to eject the tape, the tape is archived directly into the storage class (Glacier or Deep Archive) that corresponds to the pool.</p>
+   *          <p>Valid values: "GLACIER", "DEEP_ARCHIVE"</p>
+   */
+  PoolId?: string;
+
+  /**
+   * <p>A list of up to 50 tags that can be assigned to a virtual tape that has a barcode. Each tag is a key-value pair.</p>
+   *          <note>
+   *             <p>Valid characters for key and value are letters, spaces, and numbers representable
+   *             in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
+   *             length of a tag's key is 128 characters, and the maximum length for a tag's value is
+   *             256.</p>
+   *          </note>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The barcode that you want to assign to the tape.</p>
+   *          <note>
+   *             <p>Barcodes cannot be reused. This includes barcodes used for tapes that have been
+   *             deleted.</p>
+   *          </note>
+   */
+  TapeBarcode: string | undefined;
+
+  /**
+   * <p>The size, in bytes, of the virtual tape that you want to create.</p>
+   *          <note>
+   *             <p>The size must be aligned by gigabyte (1024*1024*1024 byte).</p>
+   *          </note>
+   */
+  TapeSizeInBytes: number | undefined;
+}
+
+export namespace CreateTapeWithBarcodeInput {
+  export const filterSensitiveLog = (obj: CreateTapeWithBarcodeInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CreateTapeWithBarcodeInput =>
+    __isa(o, "CreateTapeWithBarcodeInput");
+}
+
+/**
+ * <p>CreateTapeOutput</p>
+ */
+export interface CreateTapeWithBarcodeOutput {
+  __type?: "CreateTapeWithBarcodeOutput";
+  /**
+   * <p>A unique Amazon Resource Name (ARN) that represents the virtual tape that was
+   *          created.</p>
+   */
+  TapeARN?: string;
+}
+
+export namespace CreateTapeWithBarcodeOutput {
+  export const filterSensitiveLog = (
+    obj: CreateTapeWithBarcodeOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CreateTapeWithBarcodeOutput =>
+    __isa(o, "CreateTapeWithBarcodeOutput");
+}
+
+/**
  * <p>A JSON object containing the following fields:</p>
  *          <ul>
  *             <li>
@@ -3239,6 +1662,92 @@ export namespace DeleteBandwidthRateLimitInput {
   });
   export const isa = (o: any): o is DeleteBandwidthRateLimitInput =>
     __isa(o, "DeleteBandwidthRateLimitInput");
+}
+
+/**
+ * <p>A JSON object containing the of the gateway whose bandwidth rate information was
+ *          deleted.</p>
+ */
+export interface DeleteBandwidthRateLimitOutput {
+  __type?: "DeleteBandwidthRateLimitOutput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+}
+
+export namespace DeleteBandwidthRateLimitOutput {
+  export const filterSensitiveLog = (
+    obj: DeleteBandwidthRateLimitOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteBandwidthRateLimitOutput =>
+    __isa(o, "DeleteBandwidthRateLimitOutput");
+}
+
+/**
+ * <p>A JSON object containing one or more of the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteChapCredentialsInput$InitiatorName</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteChapCredentialsInput$TargetARN</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
+export interface DeleteChapCredentialsInput {
+  __type?: "DeleteChapCredentialsInput";
+  /**
+   * <p>The iSCSI initiator that connects to the target.</p>
+   */
+  InitiatorName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for
+   *          specified VolumeARN.</p>
+   */
+  TargetARN: string | undefined;
+}
+
+export namespace DeleteChapCredentialsInput {
+  export const filterSensitiveLog = (obj: DeleteChapCredentialsInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteChapCredentialsInput =>
+    __isa(o, "DeleteChapCredentialsInput");
+}
+
+/**
+ * <p>A JSON object containing the following fields:</p>
+ */
+export interface DeleteChapCredentialsOutput {
+  __type?: "DeleteChapCredentialsOutput";
+  /**
+   * <p>The iSCSI initiator that connects to the target.</p>
+   */
+  InitiatorName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target.</p>
+   */
+  TargetARN?: string;
+}
+
+export namespace DeleteChapCredentialsOutput {
+  export const filterSensitiveLog = (
+    obj: DeleteChapCredentialsOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteChapCredentialsOutput =>
+    __isa(o, "DeleteChapCredentialsOutput");
 }
 
 /**
@@ -3285,6 +1794,82 @@ export namespace DeleteFileShareOutput {
   });
   export const isa = (o: any): o is DeleteFileShareOutput =>
     __isa(o, "DeleteFileShareOutput");
+}
+
+/**
+ * <p>A JSON object containing the ID of the gateway to delete.</p>
+ */
+export interface DeleteGatewayInput {
+  __type?: "DeleteGatewayInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace DeleteGatewayInput {
+  export const filterSensitiveLog = (obj: DeleteGatewayInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteGatewayInput =>
+    __isa(o, "DeleteGatewayInput");
+}
+
+/**
+ * <p>A JSON object containing the ID of the deleted gateway.</p>
+ */
+export interface DeleteGatewayOutput {
+  __type?: "DeleteGatewayOutput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+}
+
+export namespace DeleteGatewayOutput {
+  export const filterSensitiveLog = (obj: DeleteGatewayOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteGatewayOutput =>
+    __isa(o, "DeleteGatewayOutput");
+}
+
+export interface DeleteSnapshotScheduleInput {
+  __type?: "DeleteSnapshotScheduleInput";
+  /**
+   * <p>The volume which snapshot schedule to delete.</p>
+   */
+  VolumeARN: string | undefined;
+}
+
+export namespace DeleteSnapshotScheduleInput {
+  export const filterSensitiveLog = (
+    obj: DeleteSnapshotScheduleInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteSnapshotScheduleInput =>
+    __isa(o, "DeleteSnapshotScheduleInput");
+}
+
+export interface DeleteSnapshotScheduleOutput {
+  __type?: "DeleteSnapshotScheduleOutput";
+  /**
+   * <p>The volume which snapshot schedule was deleted.</p>
+   */
+  VolumeARN?: string;
+}
+
+export namespace DeleteSnapshotScheduleOutput {
+  export const filterSensitiveLog = (
+    obj: DeleteSnapshotScheduleOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteSnapshotScheduleOutput =>
+    __isa(o, "DeleteSnapshotScheduleOutput");
 }
 
 /**
@@ -3372,6 +1957,47 @@ export namespace DeleteTapeOutput {
     __isa(o, "DeleteTapeOutput");
 }
 
+/**
+ * <p>A JSON object containing the <a>DeleteVolumeInput$VolumeARN</a> to
+ *          delete.</p>
+ */
+export interface DeleteVolumeInput {
+  __type?: "DeleteVolumeInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
+   *          operation to return a list of gateway volumes.</p>
+   */
+  VolumeARN: string | undefined;
+}
+
+export namespace DeleteVolumeInput {
+  export const filterSensitiveLog = (obj: DeleteVolumeInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteVolumeInput =>
+    __isa(o, "DeleteVolumeInput");
+}
+
+/**
+ * <p>A JSON object containing the of the storage volume that was deleted</p>
+ */
+export interface DeleteVolumeOutput {
+  __type?: "DeleteVolumeOutput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the storage volume that was deleted. It is the same
+   *          ARN you provided in the request.</p>
+   */
+  VolumeARN?: string;
+}
+
+export namespace DeleteVolumeOutput {
+  export const filterSensitiveLog = (obj: DeleteVolumeOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteVolumeOutput =>
+    __isa(o, "DeleteVolumeOutput");
+}
+
 export interface DescribeAvailabilityMonitorTestInput {
   __type?: "DescribeAvailabilityMonitorTestInput";
   /**
@@ -3423,6 +2049,81 @@ export namespace DescribeAvailabilityMonitorTestOutput {
 }
 
 /**
+ * <p>A JSON object containing the of the gateway.</p>
+ */
+export interface DescribeBandwidthRateLimitInput {
+  __type?: "DescribeBandwidthRateLimitInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace DescribeBandwidthRateLimitInput {
+  export const filterSensitiveLog = (
+    obj: DescribeBandwidthRateLimitInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeBandwidthRateLimitInput =>
+    __isa(o, "DescribeBandwidthRateLimitInput");
+}
+
+/**
+ * <p>A JSON object containing the following fields:</p>
+ */
+export interface DescribeBandwidthRateLimitOutput {
+  __type?: "DescribeBandwidthRateLimitOutput";
+  /**
+   * <p>The average download bandwidth rate limit in bits per second. This field does not
+   *          appear in the response if the download rate limit is not set.</p>
+   */
+  AverageDownloadRateLimitInBitsPerSec?: number;
+
+  /**
+   * <p>The average upload bandwidth rate limit in bits per second. This field does not
+   *          appear in the response if the upload rate limit is not set.</p>
+   */
+  AverageUploadRateLimitInBitsPerSec?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+}
+
+export namespace DescribeBandwidthRateLimitOutput {
+  export const filterSensitiveLog = (
+    obj: DescribeBandwidthRateLimitOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeBandwidthRateLimitOutput =>
+    __isa(o, "DescribeBandwidthRateLimitOutput");
+}
+
+export interface DescribeCachediSCSIVolumesInput {
+  __type?: "DescribeCachediSCSIVolumesInput";
+  /**
+   * <p>An array of strings where each string represents the Amazon Resource Name (ARN) of a
+   *          cached volume. All of the specified cached volumes must from the same gateway. Use <a>ListVolumes</a> to get volume ARNs for a gateway.</p>
+   */
+  VolumeARNs: string[] | undefined;
+}
+
+export namespace DescribeCachediSCSIVolumesInput {
+  export const filterSensitiveLog = (
+    obj: DescribeCachediSCSIVolumesInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeCachediSCSIVolumesInput =>
+    __isa(o, "DescribeCachediSCSIVolumesInput");
+}
+
+/**
  * <p>A JSON object containing the following fields:</p>
  */
 export interface DescribeCachediSCSIVolumesOutput {
@@ -3442,6 +2143,178 @@ export namespace DescribeCachediSCSIVolumesOutput {
   });
   export const isa = (o: any): o is DescribeCachediSCSIVolumesOutput =>
     __isa(o, "DescribeCachediSCSIVolumesOutput");
+}
+
+export interface DescribeCacheInput {
+  __type?: "DescribeCacheInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace DescribeCacheInput {
+  export const filterSensitiveLog = (obj: DescribeCacheInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeCacheInput =>
+    __isa(o, "DescribeCacheInput");
+}
+
+export interface DescribeCacheOutput {
+  __type?: "DescribeCacheOutput";
+  /**
+   * <p>The amount of cache in bytes allocated to the a gateway.</p>
+   */
+  CacheAllocatedInBytes?: number;
+
+  /**
+   * <p>The file share's contribution to the overall percentage of the gateway's cache that has
+   *          not been persisted to AWS. The sample is taken at the end of the reporting period.</p>
+   */
+  CacheDirtyPercentage?: number;
+
+  /**
+   * <p>Percent of application read operations from the file shares that are served from cache.
+   *          The sample is taken at the end of the reporting period.</p>
+   */
+  CacheHitPercentage?: number;
+
+  /**
+   * <p>Percent of application read operations from the file shares that are not served from cache.
+   *          The sample is taken at the end of the reporting period.</p>
+   */
+  CacheMissPercentage?: number;
+
+  /**
+   * <p>Percent use of the gateway's cache storage. This metric applies only to the
+   *          gateway-cached volume setup. The sample is taken at the end of the reporting period.</p>
+   */
+  CacheUsedPercentage?: number;
+
+  /**
+   * <p>An array of strings that identify disks that are to be configured as working storage.
+   *          Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs
+   *          from the <a>ListLocalDisks</a> API.</p>
+   */
+  DiskIds?: string[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+}
+
+export namespace DescribeCacheOutput {
+  export const filterSensitiveLog = (obj: DescribeCacheOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeCacheOutput =>
+    __isa(o, "DescribeCacheOutput");
+}
+
+/**
+ * <p>A JSON object containing the Amazon Resource Name (ARN) of the iSCSI volume
+ *          target.</p>
+ */
+export interface DescribeChapCredentialsInput {
+  __type?: "DescribeChapCredentialsInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for
+   *          specified VolumeARN.</p>
+   */
+  TargetARN: string | undefined;
+}
+
+export namespace DescribeChapCredentialsInput {
+  export const filterSensitiveLog = (
+    obj: DescribeChapCredentialsInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeChapCredentialsInput =>
+    __isa(o, "DescribeChapCredentialsInput");
+}
+
+/**
+ * <p>A JSON object containing a .</p>
+ */
+export interface DescribeChapCredentialsOutput {
+  __type?: "DescribeChapCredentialsOutput";
+  /**
+   * <p>An array of <a>ChapInfo</a> objects that represent CHAP credentials. Each
+   *          object in the array contains CHAP credential information for one target-initiator pair. If
+   *          no CHAP credentials are set, an empty array is returned. CHAP credential information is
+   *          provided in a JSON object with the following fields:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>InitiatorName</b>: The iSCSI initiator that connects to
+   *                the target.</p>
+   *
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>SecretToAuthenticateInitiator</b>: The secret key that
+   *                the initiator (for example, the Windows client) must provide to participate in mutual
+   *                CHAP with the target.</p>
+   *
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>SecretToAuthenticateTarget</b>: The secret key that the
+   *                target must provide to participate in mutual CHAP with the initiator (e.g. Windows
+   *                client).</p>
+   *
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>TargetARN</b>: The Amazon Resource Name (ARN) of the
+   *                storage volume.</p>
+   *
+   *             </li>
+   *          </ul>
+   */
+  ChapCredentials?: ChapInfo[];
+}
+
+export namespace DescribeChapCredentialsOutput {
+  export const filterSensitiveLog = (
+    obj: DescribeChapCredentialsOutput
+  ): any => ({
+    ...obj,
+    ...(obj.ChapCredentials && {
+      ChapCredentials: obj.ChapCredentials.map(item =>
+        ChapInfo.filterSensitiveLog(item)
+      )
+    })
+  });
+  export const isa = (o: any): o is DescribeChapCredentialsOutput =>
+    __isa(o, "DescribeChapCredentialsOutput");
+}
+
+/**
+ * <p>A JSON object containing the ID of the gateway.</p>
+ */
+export interface DescribeGatewayInformationInput {
+  __type?: "DescribeGatewayInformationInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace DescribeGatewayInformationInput {
+  export const filterSensitiveLog = (
+    obj: DescribeGatewayInformationInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeGatewayInformationInput =>
+    __isa(o, "DescribeGatewayInformationInput");
 }
 
 /**
@@ -3543,6 +2416,28 @@ export namespace DescribeGatewayInformationOutput {
   });
   export const isa = (o: any): o is DescribeGatewayInformationOutput =>
     __isa(o, "DescribeGatewayInformationOutput");
+}
+
+/**
+ * <p>A JSON object containing the of the gateway.</p>
+ */
+export interface DescribeMaintenanceStartTimeInput {
+  __type?: "DescribeMaintenanceStartTimeInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace DescribeMaintenanceStartTimeInput {
+  export const filterSensitiveLog = (
+    obj: DescribeMaintenanceStartTimeInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeMaintenanceStartTimeInput =>
+    __isa(o, "DescribeMaintenanceStartTimeInput");
 }
 
 /**
@@ -3806,6 +2701,28 @@ export namespace DescribeSMBSettingsOutput {
     __isa(o, "DescribeSMBSettingsOutput");
 }
 
+/**
+ * <p>A JSON object containing the <a>DescribeSnapshotScheduleInput$VolumeARN</a> of the volume.</p>
+ */
+export interface DescribeSnapshotScheduleInput {
+  __type?: "DescribeSnapshotScheduleInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
+   *          operation to return a list of gateway volumes.</p>
+   */
+  VolumeARN: string | undefined;
+}
+
+export namespace DescribeSnapshotScheduleInput {
+  export const filterSensitiveLog = (
+    obj: DescribeSnapshotScheduleInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeSnapshotScheduleInput =>
+    __isa(o, "DescribeSnapshotScheduleInput");
+}
+
 export interface DescribeSnapshotScheduleOutput {
   __type?: "DescribeSnapshotScheduleOutput";
   /**
@@ -3852,6 +2769,28 @@ export namespace DescribeSnapshotScheduleOutput {
   });
   export const isa = (o: any): o is DescribeSnapshotScheduleOutput =>
     __isa(o, "DescribeSnapshotScheduleOutput");
+}
+
+/**
+ * <p>A JSON object containing a list of <a>DescribeStorediSCSIVolumesInput$VolumeARNs</a>.</p>
+ */
+export interface DescribeStorediSCSIVolumesInput {
+  __type?: "DescribeStorediSCSIVolumesInput";
+  /**
+   * <p>An array of strings where each string represents the Amazon Resource Name (ARN) of a
+   *          stored volume. All of the specified stored volumes must from the same gateway. Use <a>ListVolumes</a> to get volume ARNs for a gateway.</p>
+   */
+  VolumeARNs: string[] | undefined;
+}
+
+export namespace DescribeStorediSCSIVolumesInput {
+  export const filterSensitiveLog = (
+    obj: DescribeStorediSCSIVolumesInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeStorediSCSIVolumesInput =>
+    __isa(o, "DescribeStorediSCSIVolumesInput");
 }
 
 export interface DescribeStorediSCSIVolumesOutput {
@@ -4176,6 +3115,58 @@ export namespace DescribeTapesOutput {
     __isa(o, "DescribeTapesOutput");
 }
 
+export interface DescribeUploadBufferInput {
+  __type?: "DescribeUploadBufferInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace DescribeUploadBufferInput {
+  export const filterSensitiveLog = (obj: DescribeUploadBufferInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeUploadBufferInput =>
+    __isa(o, "DescribeUploadBufferInput");
+}
+
+export interface DescribeUploadBufferOutput {
+  __type?: "DescribeUploadBufferOutput";
+  /**
+   * <p>An array of the gateway's local disk IDs that are configured as working storage. Each
+   *          local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If
+   *          no local disks are configured as working storage, then the DiskIds array is
+   *          empty.</p>
+   */
+  DiskIds?: string[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+
+  /**
+   * <p>The total number of bytes allocated in the gateway's as upload buffer.</p>
+   */
+  UploadBufferAllocatedInBytes?: number;
+
+  /**
+   * <p>The total number of bytes being used in the gateway's upload buffer.</p>
+   */
+  UploadBufferUsedInBytes?: number;
+}
+
+export namespace DescribeUploadBufferOutput {
+  export const filterSensitiveLog = (obj: DescribeUploadBufferOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeUploadBufferOutput =>
+    __isa(o, "DescribeUploadBufferOutput");
+}
+
 /**
  * <p>DescribeVTLDevicesInput</p>
  */
@@ -4250,6 +3241,70 @@ export namespace DescribeVTLDevicesOutput {
   });
   export const isa = (o: any): o is DescribeVTLDevicesOutput =>
     __isa(o, "DescribeVTLDevicesOutput");
+}
+
+/**
+ * <p>A JSON object containing the of the gateway.</p>
+ */
+export interface DescribeWorkingStorageInput {
+  __type?: "DescribeWorkingStorageInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace DescribeWorkingStorageInput {
+  export const filterSensitiveLog = (
+    obj: DescribeWorkingStorageInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeWorkingStorageInput =>
+    __isa(o, "DescribeWorkingStorageInput");
+}
+
+/**
+ * <p>A JSON object containing the following fields:</p>
+ */
+export interface DescribeWorkingStorageOutput {
+  __type?: "DescribeWorkingStorageOutput";
+  /**
+   * <p>An array of the gateway's local disk IDs that are configured as working storage. Each
+   *          local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If
+   *          no local disks are configured as working storage, then the DiskIds array is
+   *          empty.</p>
+   */
+  DiskIds?: string[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+
+  /**
+   * <p>The total working storage in bytes allocated for the gateway. If no working storage
+   *          is configured for the gateway, this field returns 0.</p>
+   */
+  WorkingStorageAllocatedInBytes?: number;
+
+  /**
+   * <p>The total working storage in bytes in use by the gateway. If no working storage is
+   *          configured for the gateway, this field returns 0.</p>
+   */
+  WorkingStorageUsedInBytes?: number;
+}
+
+export namespace DescribeWorkingStorageOutput {
+  export const filterSensitiveLog = (
+    obj: DescribeWorkingStorageOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeWorkingStorageOutput =>
+    __isa(o, "DescribeWorkingStorageOutput");
 }
 
 /**
@@ -4432,6 +3487,70 @@ export namespace Disk {
   export const isa = (o: any): o is Disk => __isa(o, "Disk");
 }
 
+export type ErrorCode =
+  | "ActivationKeyExpired"
+  | "ActivationKeyInvalid"
+  | "ActivationKeyNotFound"
+  | "AuthenticationFailure"
+  | "BandwidthThrottleScheduleNotFound"
+  | "Blocked"
+  | "CannotExportSnapshot"
+  | "ChapCredentialNotFound"
+  | "DiskAlreadyAllocated"
+  | "DiskDoesNotExist"
+  | "DiskSizeGreaterThanVolumeMaxSize"
+  | "DiskSizeLessThanVolumeSize"
+  | "DiskSizeNotGigAligned"
+  | "DuplicateCertificateInfo"
+  | "DuplicateSchedule"
+  | "EndpointNotFound"
+  | "GatewayInternalError"
+  | "GatewayNotConnected"
+  | "GatewayNotFound"
+  | "GatewayProxyNetworkConnectionBusy"
+  | "IAMNotSupported"
+  | "InitiatorInvalid"
+  | "InitiatorNotFound"
+  | "InternalError"
+  | "InvalidEndpoint"
+  | "InvalidGateway"
+  | "InvalidParameters"
+  | "InvalidSchedule"
+  | "JoinDomainInProgress"
+  | "LocalStorageLimitExceeded"
+  | "LunAlreadyAllocated "
+  | "LunInvalid"
+  | "MaximumContentLengthExceeded"
+  | "MaximumTapeCartridgeCountExceeded"
+  | "MaximumVolumeCountExceeded"
+  | "NetworkConfigurationChanged"
+  | "NoDisksAvailable"
+  | "NotImplemented"
+  | "NotSupported"
+  | "OperationAborted"
+  | "OutdatedGateway"
+  | "ParametersNotImplemented"
+  | "RegionInvalid"
+  | "RequestTimeout"
+  | "ServiceUnavailable"
+  | "SnapshotDeleted"
+  | "SnapshotIdInvalid"
+  | "SnapshotInProgress"
+  | "SnapshotNotFound"
+  | "SnapshotScheduleNotFound"
+  | "StagingAreaFull"
+  | "StorageFailure"
+  | "TapeCartridgeNotFound"
+  | "TargetAlreadyExists"
+  | "TargetInvalid"
+  | "TargetNotFound"
+  | "UnauthorizedOperation"
+  | "VolumeAlreadyExists"
+  | "VolumeIdInvalid"
+  | "VolumeInUse"
+  | "VolumeNotFound"
+  | "VolumeNotReady";
+
 /**
  * <p>Describes a file share.</p>
  */
@@ -4527,6 +3646,66 @@ export namespace GatewayInfo {
 }
 
 export type HostEnvironment = "EC2" | "HYPER-V" | "OTHER" | "VMWARE";
+
+/**
+ * <p>An internal server error has occurred during the request. For more information, see
+ *          the error and message fields.</p>
+ */
+export interface InternalServerError
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InternalServerError";
+  $fault: "server";
+  /**
+   * <p>A <a>StorageGatewayError</a> that provides more information about the
+   *          cause of the error.</p>
+   */
+  error?: StorageGatewayError;
+
+  /**
+   * <p>A human-readable message describing the error that occurred.</p>
+   */
+  message?: string;
+}
+
+export namespace InternalServerError {
+  export const filterSensitiveLog = (obj: InternalServerError): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InternalServerError =>
+    __isa(o, "InternalServerError");
+}
+
+/**
+ * <p>An exception occurred because an invalid gateway request was issued to the service.
+ *          For more information, see the error and message fields.</p>
+ */
+export interface InvalidGatewayRequestException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidGatewayRequestException";
+  $fault: "client";
+  /**
+   * <p>A <a>StorageGatewayError</a> that provides more detail about the cause of
+   *          the error.</p>
+   */
+  error?: StorageGatewayError;
+
+  /**
+   * <p>A human-readable message describing the error that occurred.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidGatewayRequestException {
+  export const filterSensitiveLog = (
+    obj: InvalidGatewayRequestException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidGatewayRequestException =>
+    __isa(o, "InvalidGatewayRequestException");
+}
 
 /**
  * <p>JoinDomainInput</p>
@@ -4704,6 +3883,44 @@ export namespace ListFileSharesOutput {
     __isa(o, "ListFileSharesOutput");
 }
 
+/**
+ * <p>A JSON object containing zero or more of the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>ListGatewaysInput$Limit</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListGatewaysInput$Marker</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
+export interface ListGatewaysInput {
+  __type?: "ListGatewaysInput";
+  /**
+   * <p>Specifies that the list of gateways returned be limited to the specified number of
+   *          items.</p>
+   */
+  Limit?: number;
+
+  /**
+   * <p>An opaque string that indicates the position at which to begin the returned list of
+   *          gateways.</p>
+   */
+  Marker?: string;
+}
+
+export namespace ListGatewaysInput {
+  export const filterSensitiveLog = (obj: ListGatewaysInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListGatewaysInput =>
+    __isa(o, "ListGatewaysInput");
+}
+
 export interface ListGatewaysOutput {
   __type?: "ListGatewaysOutput";
   /**
@@ -4724,6 +3941,26 @@ export namespace ListGatewaysOutput {
   });
   export const isa = (o: any): o is ListGatewaysOutput =>
     __isa(o, "ListGatewaysOutput");
+}
+
+/**
+ * <p>A JSON object containing the of the gateway.</p>
+ */
+export interface ListLocalDisksInput {
+  __type?: "ListLocalDisksInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace ListLocalDisksInput {
+  export const filterSensitiveLog = (obj: ListLocalDisksInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListLocalDisksInput =>
+    __isa(o, "ListLocalDisksInput");
 }
 
 export interface ListLocalDisksOutput {
@@ -4946,6 +4183,93 @@ export namespace ListVolumeInitiatorsOutput {
     __isa(o, "ListVolumeInitiatorsOutput");
 }
 
+export interface ListVolumeRecoveryPointsInput {
+  __type?: "ListVolumeRecoveryPointsInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace ListVolumeRecoveryPointsInput {
+  export const filterSensitiveLog = (
+    obj: ListVolumeRecoveryPointsInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListVolumeRecoveryPointsInput =>
+    __isa(o, "ListVolumeRecoveryPointsInput");
+}
+
+export interface ListVolumeRecoveryPointsOutput {
+  __type?: "ListVolumeRecoveryPointsOutput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+
+  /**
+   * <p>An array of <a>VolumeRecoveryPointInfo</a> objects.</p>
+   */
+  VolumeRecoveryPointInfos?: VolumeRecoveryPointInfo[];
+}
+
+export namespace ListVolumeRecoveryPointsOutput {
+  export const filterSensitiveLog = (
+    obj: ListVolumeRecoveryPointsOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListVolumeRecoveryPointsOutput =>
+    __isa(o, "ListVolumeRecoveryPointsOutput");
+}
+
+/**
+ * <p>A JSON object that contains one or more of the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>ListVolumesInput$Limit</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListVolumesInput$Marker</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
+export interface ListVolumesInput {
+  __type?: "ListVolumesInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+
+  /**
+   * <p>Specifies that the list of volumes returned be limited to the specified number of
+   *          items.</p>
+   */
+  Limit?: number;
+
+  /**
+   * <p>A string that indicates the position at which to begin the returned list of volumes.
+   *          Obtain the marker from the response of a previous List iSCSI Volumes request.</p>
+   */
+  Marker?: string;
+}
+
+export namespace ListVolumesInput {
+  export const filterSensitiveLog = (obj: ListVolumesInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListVolumesInput =>
+    __isa(o, "ListVolumesInput");
+}
+
 /**
  * <p>A JSON object containing the following fields:</p>
  *          <ul>
@@ -4989,6 +4313,39 @@ export namespace ListVolumesOutput {
   });
   export const isa = (o: any): o is ListVolumesOutput =>
     __isa(o, "ListVolumesOutput");
+}
+
+/**
+ * <p>Describes a gateway's network interface.</p>
+ */
+export interface NetworkInterface {
+  __type?: "NetworkInterface";
+  /**
+   * <p>The Internet Protocol version 4 (IPv4) address of the interface.</p>
+   */
+  Ipv4Address?: string;
+
+  /**
+   * <p>The Internet Protocol version 6 (IPv6) address of the interface. <i>Currently
+   *             not supported</i>.</p>
+   */
+  Ipv6Address?: string;
+
+  /**
+   * <p>The Media Access Control (MAC) address of the interface.</p>
+   *          <note>
+   *             <p>This is currently unsupported and will not be returned in output.</p>
+   *          </note>
+   */
+  MacAddress?: string;
+}
+
+export namespace NetworkInterface {
+  export const filterSensitiveLog = (obj: NetworkInterface): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NetworkInterface =>
+    __isa(o, "NetworkInterface");
 }
 
 /**
@@ -5474,6 +4831,165 @@ export namespace RetrieveTapeRecoveryPointOutput {
 }
 
 /**
+ * <p>An internal server error has occurred because the service is unavailable. For more
+ *          information, see the error and message fields.</p>
+ */
+export interface ServiceUnavailableError
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ServiceUnavailableError";
+  $fault: "server";
+  /**
+   * <p>A <a>StorageGatewayError</a> that provides more information about the
+   *          cause of the error.</p>
+   */
+  error?: StorageGatewayError;
+
+  /**
+   * <p>A human-readable message describing the error that occurred.</p>
+   */
+  message?: string;
+}
+
+export namespace ServiceUnavailableError {
+  export const filterSensitiveLog = (obj: ServiceUnavailableError): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ServiceUnavailableError =>
+    __isa(o, "ServiceUnavailableError");
+}
+
+/**
+ * <p>SetLocalConsolePasswordInput</p>
+ */
+export interface SetLocalConsolePasswordInput {
+  __type?: "SetLocalConsolePasswordInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+
+  /**
+   * <p>The password you want to set for your VM local console.</p>
+   */
+  LocalConsolePassword: string | undefined;
+}
+
+export namespace SetLocalConsolePasswordInput {
+  export const filterSensitiveLog = (
+    obj: SetLocalConsolePasswordInput
+  ): any => ({
+    ...obj,
+    ...(obj.LocalConsolePassword && { LocalConsolePassword: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is SetLocalConsolePasswordInput =>
+    __isa(o, "SetLocalConsolePasswordInput");
+}
+
+export interface SetLocalConsolePasswordOutput {
+  __type?: "SetLocalConsolePasswordOutput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+}
+
+export namespace SetLocalConsolePasswordOutput {
+  export const filterSensitiveLog = (
+    obj: SetLocalConsolePasswordOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SetLocalConsolePasswordOutput =>
+    __isa(o, "SetLocalConsolePasswordOutput");
+}
+
+/**
+ * <p>SetSMBGuestPasswordInput</p>
+ */
+export interface SetSMBGuestPasswordInput {
+  __type?: "SetSMBGuestPasswordInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the file gateway the SMB file share is associated
+   *          with.</p>
+   */
+  GatewayARN: string | undefined;
+
+  /**
+   * <p>The password that you want to set for your SMB Server.</p>
+   */
+  Password: string | undefined;
+}
+
+export namespace SetSMBGuestPasswordInput {
+  export const filterSensitiveLog = (obj: SetSMBGuestPasswordInput): any => ({
+    ...obj,
+    ...(obj.Password && { Password: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is SetSMBGuestPasswordInput =>
+    __isa(o, "SetSMBGuestPasswordInput");
+}
+
+export interface SetSMBGuestPasswordOutput {
+  __type?: "SetSMBGuestPasswordOutput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+}
+
+export namespace SetSMBGuestPasswordOutput {
+  export const filterSensitiveLog = (obj: SetSMBGuestPasswordOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SetSMBGuestPasswordOutput =>
+    __isa(o, "SetSMBGuestPasswordOutput");
+}
+
+/**
+ * <p>A JSON object containing the of the gateway to shut down.</p>
+ */
+export interface ShutdownGatewayInput {
+  __type?: "ShutdownGatewayInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace ShutdownGatewayInput {
+  export const filterSensitiveLog = (obj: ShutdownGatewayInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ShutdownGatewayInput =>
+    __isa(o, "ShutdownGatewayInput");
+}
+
+/**
+ * <p>A JSON object containing the of the gateway that was shut down.</p>
+ */
+export interface ShutdownGatewayOutput {
+  __type?: "ShutdownGatewayOutput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+}
+
+export namespace ShutdownGatewayOutput {
+  export const filterSensitiveLog = (obj: ShutdownGatewayOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ShutdownGatewayOutput =>
+    __isa(o, "ShutdownGatewayOutput");
+}
+
+/**
  * <p>The Windows file permissions and ownership information assigned, by default, to
  *          native S3 objects when file gateway discovers them in S3 buckets. This operation is only
  *          supported for file gateways.</p>
@@ -5631,96 +5147,6 @@ export type SMBSecurityStrategy =
   | "MandatoryEncryption"
   | "MandatorySigning";
 
-/**
- * <p>SetLocalConsolePasswordInput</p>
- */
-export interface SetLocalConsolePasswordInput {
-  __type?: "SetLocalConsolePasswordInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-
-  /**
-   * <p>The password you want to set for your VM local console.</p>
-   */
-  LocalConsolePassword: string | undefined;
-}
-
-export namespace SetLocalConsolePasswordInput {
-  export const filterSensitiveLog = (
-    obj: SetLocalConsolePasswordInput
-  ): any => ({
-    ...obj,
-    ...(obj.LocalConsolePassword && { LocalConsolePassword: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is SetLocalConsolePasswordInput =>
-    __isa(o, "SetLocalConsolePasswordInput");
-}
-
-export interface SetLocalConsolePasswordOutput {
-  __type?: "SetLocalConsolePasswordOutput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-}
-
-export namespace SetLocalConsolePasswordOutput {
-  export const filterSensitiveLog = (
-    obj: SetLocalConsolePasswordOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SetLocalConsolePasswordOutput =>
-    __isa(o, "SetLocalConsolePasswordOutput");
-}
-
-/**
- * <p>SetSMBGuestPasswordInput</p>
- */
-export interface SetSMBGuestPasswordInput {
-  __type?: "SetSMBGuestPasswordInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the file gateway the SMB file share is associated
-   *          with.</p>
-   */
-  GatewayARN: string | undefined;
-
-  /**
-   * <p>The password that you want to set for your SMB Server.</p>
-   */
-  Password: string | undefined;
-}
-
-export namespace SetSMBGuestPasswordInput {
-  export const filterSensitiveLog = (obj: SetSMBGuestPasswordInput): any => ({
-    ...obj,
-    ...(obj.Password && { Password: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is SetSMBGuestPasswordInput =>
-    __isa(o, "SetSMBGuestPasswordInput");
-}
-
-export interface SetSMBGuestPasswordOutput {
-  __type?: "SetSMBGuestPasswordOutput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-}
-
-export namespace SetSMBGuestPasswordOutput {
-  export const filterSensitiveLog = (obj: SetSMBGuestPasswordOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SetSMBGuestPasswordOutput =>
-    __isa(o, "SetSMBGuestPasswordOutput");
-}
-
 export interface StartAvailabilityMonitorTestInput {
   __type?: "StartAvailabilityMonitorTestInput";
   /**
@@ -5757,6 +5183,72 @@ export namespace StartAvailabilityMonitorTestOutput {
   });
   export const isa = (o: any): o is StartAvailabilityMonitorTestOutput =>
     __isa(o, "StartAvailabilityMonitorTestOutput");
+}
+
+/**
+ * <p>A JSON object containing the of the gateway to start.</p>
+ */
+export interface StartGatewayInput {
+  __type?: "StartGatewayInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace StartGatewayInput {
+  export const filterSensitiveLog = (obj: StartGatewayInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StartGatewayInput =>
+    __isa(o, "StartGatewayInput");
+}
+
+/**
+ * <p>A JSON object containing the of the gateway that was restarted.</p>
+ */
+export interface StartGatewayOutput {
+  __type?: "StartGatewayOutput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+}
+
+export namespace StartGatewayOutput {
+  export const filterSensitiveLog = (obj: StartGatewayOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StartGatewayOutput =>
+    __isa(o, "StartGatewayOutput");
+}
+
+/**
+ * <p>Provides additional information about an error that was returned by the service as an
+ *          or. See the <code>errorCode</code> and <code>errorDetails</code> members for more
+ *          information about the error.</p>
+ */
+export interface StorageGatewayError {
+  __type?: "StorageGatewayError";
+  /**
+   * <p>Additional information about the error.</p>
+   */
+  errorCode?: ErrorCode | string;
+
+  /**
+   * <p>Human-readable text that provides detail about the error that occurred.</p>
+   */
+  errorDetails?: { [key: string]: string };
+}
+
+export namespace StorageGatewayError {
+  export const filterSensitiveLog = (obj: StorageGatewayError): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StorageGatewayError =>
+    __isa(o, "StorageGatewayError");
 }
 
 /**
@@ -6126,6 +5618,174 @@ export namespace TapeRecoveryPointInfo {
     __isa(o, "TapeRecoveryPointInfo");
 }
 
+/**
+ * <p>A JSON object containing one or more of the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateBandwidthRateLimitInput$AverageDownloadRateLimitInBitsPerSec</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateBandwidthRateLimitInput$AverageUploadRateLimitInBitsPerSec</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
+export interface UpdateBandwidthRateLimitInput {
+  __type?: "UpdateBandwidthRateLimitInput";
+  /**
+   * <p>The average download bandwidth rate limit in bits per second.</p>
+   */
+  AverageDownloadRateLimitInBitsPerSec?: number;
+
+  /**
+   * <p>The average upload bandwidth rate limit in bits per second.</p>
+   */
+  AverageUploadRateLimitInBitsPerSec?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace UpdateBandwidthRateLimitInput {
+  export const filterSensitiveLog = (
+    obj: UpdateBandwidthRateLimitInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateBandwidthRateLimitInput =>
+    __isa(o, "UpdateBandwidthRateLimitInput");
+}
+
+/**
+ * <p>A JSON object containing the of the gateway whose throttle information was
+ *          updated.</p>
+ */
+export interface UpdateBandwidthRateLimitOutput {
+  __type?: "UpdateBandwidthRateLimitOutput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+}
+
+export namespace UpdateBandwidthRateLimitOutput {
+  export const filterSensitiveLog = (
+    obj: UpdateBandwidthRateLimitOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateBandwidthRateLimitOutput =>
+    __isa(o, "UpdateBandwidthRateLimitOutput");
+}
+
+/**
+ * <p>A JSON object containing one or more of the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateChapCredentialsInput$InitiatorName</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateChapCredentialsInput$SecretToAuthenticateInitiator</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateChapCredentialsInput$SecretToAuthenticateTarget</a>
+ *                </p>
+ *
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateChapCredentialsInput$TargetARN</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
+export interface UpdateChapCredentialsInput {
+  __type?: "UpdateChapCredentialsInput";
+  /**
+   * <p>The iSCSI initiator that connects to the target.</p>
+   */
+  InitiatorName: string | undefined;
+
+  /**
+   * <p>The secret key that the initiator (for example, the Windows client) must provide to
+   *          participate in mutual CHAP with the target.</p>
+   *          <note>
+   *             <p>The secret key must be between 12 and 16 bytes when encoded in UTF-8.</p>
+   *          </note>
+   */
+  SecretToAuthenticateInitiator: string | undefined;
+
+  /**
+   * <p>The secret key that the target must provide to participate in mutual CHAP with the
+   *          initiator (e.g. Windows client).</p>
+   *          <p>Byte constraints: Minimum bytes of 12. Maximum bytes of 16.</p>
+   *          <note>
+   *             <p>The secret key must be between 12 and 16 bytes when encoded in UTF-8.</p>
+   *          </note>
+   */
+  SecretToAuthenticateTarget?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return the TargetARN for specified
+   *          VolumeARN.</p>
+   */
+  TargetARN: string | undefined;
+}
+
+export namespace UpdateChapCredentialsInput {
+  export const filterSensitiveLog = (obj: UpdateChapCredentialsInput): any => ({
+    ...obj,
+    ...(obj.SecretToAuthenticateInitiator && {
+      SecretToAuthenticateInitiator: SENSITIVE_STRING
+    }),
+    ...(obj.SecretToAuthenticateTarget && {
+      SecretToAuthenticateTarget: SENSITIVE_STRING
+    })
+  });
+  export const isa = (o: any): o is UpdateChapCredentialsInput =>
+    __isa(o, "UpdateChapCredentialsInput");
+}
+
+/**
+ * <p>A JSON object containing the following fields:</p>
+ */
+export interface UpdateChapCredentialsOutput {
+  __type?: "UpdateChapCredentialsOutput";
+  /**
+   * <p>The iSCSI initiator that connects to the target. This is the same initiator name
+   *          specified in the request.</p>
+   */
+  InitiatorName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target. This is the same target specified in
+   *          the request.</p>
+   */
+  TargetARN?: string;
+}
+
+export namespace UpdateChapCredentialsOutput {
+  export const filterSensitiveLog = (
+    obj: UpdateChapCredentialsOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateChapCredentialsOutput =>
+    __isa(o, "UpdateChapCredentialsOutput");
+}
+
 export interface UpdateGatewayInformationInput {
   __type?: "UpdateGatewayInformationInput";
   /**
@@ -6159,6 +5819,174 @@ export namespace UpdateGatewayInformationInput {
   });
   export const isa = (o: any): o is UpdateGatewayInformationInput =>
     __isa(o, "UpdateGatewayInformationInput");
+}
+
+/**
+ * <p>A JSON object containing the ARN of the gateway that was updated.</p>
+ */
+export interface UpdateGatewayInformationOutput {
+  __type?: "UpdateGatewayInformationOutput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+
+  /**
+   * <p>The name you configured for your gateway.</p>
+   */
+  GatewayName?: string;
+}
+
+export namespace UpdateGatewayInformationOutput {
+  export const filterSensitiveLog = (
+    obj: UpdateGatewayInformationOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateGatewayInformationOutput =>
+    __isa(o, "UpdateGatewayInformationOutput");
+}
+
+/**
+ * <p>A JSON object containing the of the gateway to update.</p>
+ */
+export interface UpdateGatewaySoftwareNowInput {
+  __type?: "UpdateGatewaySoftwareNowInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace UpdateGatewaySoftwareNowInput {
+  export const filterSensitiveLog = (
+    obj: UpdateGatewaySoftwareNowInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateGatewaySoftwareNowInput =>
+    __isa(o, "UpdateGatewaySoftwareNowInput");
+}
+
+/**
+ * <p>A JSON object containing the of the gateway that was updated.</p>
+ */
+export interface UpdateGatewaySoftwareNowOutput {
+  __type?: "UpdateGatewaySoftwareNowOutput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+}
+
+export namespace UpdateGatewaySoftwareNowOutput {
+  export const filterSensitiveLog = (
+    obj: UpdateGatewaySoftwareNowOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateGatewaySoftwareNowOutput =>
+    __isa(o, "UpdateGatewaySoftwareNowOutput");
+}
+
+/**
+ * <p>A JSON object containing the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateMaintenanceStartTimeInput$DayOfMonth</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateMaintenanceStartTimeInput$DayOfWeek</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateMaintenanceStartTimeInput$HourOfDay</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateMaintenanceStartTimeInput$MinuteOfHour</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
+export interface UpdateMaintenanceStartTimeInput {
+  __type?: "UpdateMaintenanceStartTimeInput";
+  /**
+   * <p>The day of the month component of the maintenance start time represented as an ordinal number from
+   *          1 to 28, where 1 represents the first day of the month and 28 represents the last day of
+   *          the month.</p>
+   *          <note>
+   *             <p>This value is only available for tape and volume gateways.</p>
+   *          </note>
+   */
+  DayOfMonth?: number;
+
+  /**
+   * <p>The day of the week component of the maintenance start time week represented as an
+   *          ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.</p>
+   */
+  DayOfWeek?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+
+  /**
+   * <p>The hour component of the maintenance start time represented as
+   *             <i>hh</i>, where <i>hh</i> is the hour (00 to 23). The hour
+   *          of the day is in the time zone of the gateway.</p>
+   */
+  HourOfDay: number | undefined;
+
+  /**
+   * <p>The minute component of the maintenance start time represented as
+   *             <i>mm</i>, where <i>mm</i> is the minute (00 to 59). The
+   *          minute of the hour is in the time zone of the gateway.</p>
+   */
+  MinuteOfHour: number | undefined;
+}
+
+export namespace UpdateMaintenanceStartTimeInput {
+  export const filterSensitiveLog = (
+    obj: UpdateMaintenanceStartTimeInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateMaintenanceStartTimeInput =>
+    __isa(o, "UpdateMaintenanceStartTimeInput");
+}
+
+/**
+ * <p>A JSON object containing the of the gateway whose maintenance start time is
+ *          updated.</p>
+ */
+export interface UpdateMaintenanceStartTimeOutput {
+  __type?: "UpdateMaintenanceStartTimeOutput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+}
+
+export namespace UpdateMaintenanceStartTimeOutput {
+  export const filterSensitiveLog = (
+    obj: UpdateMaintenanceStartTimeOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateMaintenanceStartTimeOutput =>
+    __isa(o, "UpdateMaintenanceStartTimeOutput");
 }
 
 /**
@@ -6456,6 +6284,101 @@ export namespace UpdateSMBSecurityStrategyOutput {
     __isa(o, "UpdateSMBSecurityStrategyOutput");
 }
 
+/**
+ * <p>A JSON object containing one or more of the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateSnapshotScheduleInput$Description</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateSnapshotScheduleInput$RecurrenceInHours</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateSnapshotScheduleInput$StartAt</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateSnapshotScheduleInput$VolumeARN</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
+export interface UpdateSnapshotScheduleInput {
+  __type?: "UpdateSnapshotScheduleInput";
+  /**
+   * <p>Optional description of the snapshot that overwrites the existing
+   *          description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Frequency of snapshots. Specify the number of hours between snapshots.</p>
+   */
+  RecurrenceInHours: number | undefined;
+
+  /**
+   * <p>The hour of the day at which the snapshot schedule begins represented as
+   *             <i>hh</i>, where <i>hh</i> is the hour (0 to 23). The hour
+   *          of the day is in the time zone of the gateway.</p>
+   */
+  StartAt: number | undefined;
+
+  /**
+   * <p>A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.</p>
+   *          <note>
+   *             <p>Valid characters for key and value are letters, spaces, and numbers representable
+   *             in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
+   *             length of a tag's key is 128 characters, and the maximum length for a tag's value is
+   *             256.</p>
+   *          </note>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
+   *          operation to return a list of gateway volumes.</p>
+   */
+  VolumeARN: string | undefined;
+}
+
+export namespace UpdateSnapshotScheduleInput {
+  export const filterSensitiveLog = (
+    obj: UpdateSnapshotScheduleInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateSnapshotScheduleInput =>
+    __isa(o, "UpdateSnapshotScheduleInput");
+}
+
+/**
+ * <p>A JSON object containing the of the updated storage volume.</p>
+ */
+export interface UpdateSnapshotScheduleOutput {
+  __type?: "UpdateSnapshotScheduleOutput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
+   *          operation to return a list of gateway volumes.</p>
+   */
+  VolumeARN?: string;
+}
+
+export namespace UpdateSnapshotScheduleOutput {
+  export const filterSensitiveLog = (
+    obj: UpdateSnapshotScheduleOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateSnapshotScheduleOutput =>
+    __isa(o, "UpdateSnapshotScheduleOutput");
+}
+
 export interface UpdateVTLDeviceTypeInput {
   __type?: "UpdateVTLDeviceTypeInput";
   /**
@@ -6495,45 +6418,6 @@ export namespace UpdateVTLDeviceTypeOutput {
   });
   export const isa = (o: any): o is UpdateVTLDeviceTypeOutput =>
     __isa(o, "UpdateVTLDeviceTypeOutput");
-}
-
-/**
- * <p>Represents a device object associated with a tape gateway.</p>
- */
-export interface VTLDevice {
-  __type?: "VTLDevice";
-  /**
-   * <p>A list of iSCSI information about a VTL device.</p>
-   */
-  DeviceiSCSIAttributes?: DeviceiSCSIAttributes;
-
-  /**
-   * <p>Specifies the unique Amazon Resource Name (ARN) of the device (tape drive or media
-   *          changer).</p>
-   */
-  VTLDeviceARN?: string;
-
-  /**
-   * <p>Specifies the model number of device that the VTL device emulates.</p>
-   */
-  VTLDeviceProductIdentifier?: string;
-
-  /**
-   * <p>Specifies the type of device that the VTL device emulates.</p>
-   */
-  VTLDeviceType?: string;
-
-  /**
-   * <p>Specifies the vendor of the device that the VTL device object emulates.</p>
-   */
-  VTLDeviceVendor?: string;
-}
-
-export namespace VTLDevice {
-  export const filterSensitiveLog = (obj: VTLDevice): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is VTLDevice => __isa(o, "VTLDevice");
 }
 
 /**
@@ -6598,4 +6482,120 @@ export namespace VolumeInfo {
     ...obj
   });
   export const isa = (o: any): o is VolumeInfo => __isa(o, "VolumeInfo");
+}
+
+/**
+ * <p>Lists iSCSI information about a volume.</p>
+ */
+export interface VolumeiSCSIAttributes {
+  __type?: "VolumeiSCSIAttributes";
+  /**
+   * <p>Indicates whether mutual CHAP is enabled for the iSCSI target.</p>
+   */
+  ChapEnabled?: boolean;
+
+  /**
+   * <p>The logical disk number.</p>
+   */
+  LunNumber?: number;
+
+  /**
+   * <p>The network interface identifier.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>The port used to communicate with iSCSI targets.</p>
+   */
+  NetworkInterfacePort?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the volume target.</p>
+   */
+  TargetARN?: string;
+}
+
+export namespace VolumeiSCSIAttributes {
+  export const filterSensitiveLog = (obj: VolumeiSCSIAttributes): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is VolumeiSCSIAttributes =>
+    __isa(o, "VolumeiSCSIAttributes");
+}
+
+/**
+ * <p>Describes a storage volume recovery point object.</p>
+ */
+export interface VolumeRecoveryPointInfo {
+  __type?: "VolumeRecoveryPointInfo";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the volume target.</p>
+   */
+  VolumeARN?: string;
+
+  /**
+   * <p>The time the recovery point was taken.</p>
+   */
+  VolumeRecoveryPointTime?: string;
+
+  /**
+   * <p>The size of the volume in bytes.</p>
+   */
+  VolumeSizeInBytes?: number;
+
+  /**
+   * <p>The size of the data stored on the volume in bytes.</p>
+   *          <note>
+   *             <p>This value is not available for volumes created prior to May 13, 2015, until you
+   *             store data on the volume.</p>
+   *          </note>
+   */
+  VolumeUsageInBytes?: number;
+}
+
+export namespace VolumeRecoveryPointInfo {
+  export const filterSensitiveLog = (obj: VolumeRecoveryPointInfo): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is VolumeRecoveryPointInfo =>
+    __isa(o, "VolumeRecoveryPointInfo");
+}
+
+/**
+ * <p>Represents a device object associated with a tape gateway.</p>
+ */
+export interface VTLDevice {
+  __type?: "VTLDevice";
+  /**
+   * <p>A list of iSCSI information about a VTL device.</p>
+   */
+  DeviceiSCSIAttributes?: DeviceiSCSIAttributes;
+
+  /**
+   * <p>Specifies the unique Amazon Resource Name (ARN) of the device (tape drive or media
+   *          changer).</p>
+   */
+  VTLDeviceARN?: string;
+
+  /**
+   * <p>Specifies the model number of device that the VTL device emulates.</p>
+   */
+  VTLDeviceProductIdentifier?: string;
+
+  /**
+   * <p>Specifies the type of device that the VTL device emulates.</p>
+   */
+  VTLDeviceType?: string;
+
+  /**
+   * <p>Specifies the vendor of the device that the VTL device object emulates.</p>
+   */
+  VTLDeviceVendor?: string;
+}
+
+export namespace VTLDevice {
+  export const filterSensitiveLog = (obj: VTLDevice): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is VTLDevice => __isa(o, "VTLDevice");
 }

@@ -8,9 +8,9 @@ import {
   GetEmailChannelResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetEmailChannelCommand,
-  serializeAws_restJson1_1GetEmailChannelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetEmailChannelCommand,
+  serializeAws_restJson1GetEmailChannelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetEmailChannelCommand extends $Command<
     input: GetEmailChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetEmailChannelCommand(input, context);
+    return serializeAws_restJson1GetEmailChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEmailChannelCommandOutput> {
-    return deserializeAws_restJson1_1GetEmailChannelCommand(output, context);
+    return deserializeAws_restJson1GetEmailChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

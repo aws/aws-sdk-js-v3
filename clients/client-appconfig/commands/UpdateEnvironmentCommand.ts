@@ -5,9 +5,9 @@ import {
 } from "../AppConfigClient";
 import { Environment, UpdateEnvironmentRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateEnvironmentCommand,
-  serializeAws_restJson1_1UpdateEnvironmentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateEnvironmentCommand,
+  serializeAws_restJson1UpdateEnvironmentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class UpdateEnvironmentCommand extends $Command<
     input: UpdateEnvironmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateEnvironmentCommand(input, context);
+    return serializeAws_restJson1UpdateEnvironmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEnvironmentCommandOutput> {
-    return deserializeAws_restJson1_1UpdateEnvironmentCommand(output, context);
+    return deserializeAws_restJson1UpdateEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

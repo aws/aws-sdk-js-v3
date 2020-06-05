@@ -5,9 +5,9 @@ import {
 } from "../WorkDocsClient";
 import { CreateCommentRequest, CreateCommentResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateCommentCommand,
-  serializeAws_restJson1_1CreateCommentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateCommentCommand,
+  serializeAws_restJson1CreateCommentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class CreateCommentCommand extends $Command<
     input: CreateCommentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateCommentCommand(input, context);
+    return serializeAws_restJson1CreateCommentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCommentCommandOutput> {
-    return deserializeAws_restJson1_1CreateCommentCommand(output, context);
+    return deserializeAws_restJson1CreateCommentCommand(output, context);
   }
 
   // Start section: command_body_extra

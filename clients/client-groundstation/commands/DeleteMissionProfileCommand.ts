@@ -8,9 +8,9 @@ import {
   MissionProfileIdResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteMissionProfileCommand,
-  serializeAws_restJson1_1DeleteMissionProfileCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteMissionProfileCommand,
+  serializeAws_restJson1DeleteMissionProfileCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteMissionProfileCommand extends $Command<
     input: DeleteMissionProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteMissionProfileCommand(input, context);
+    return serializeAws_restJson1DeleteMissionProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMissionProfileCommandOutput> {
-    return deserializeAws_restJson1_1DeleteMissionProfileCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteMissionProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

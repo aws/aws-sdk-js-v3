@@ -8,9 +8,9 @@ import {
   UpdateDetectorModelResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateDetectorModelCommand,
-  serializeAws_restJson1_1UpdateDetectorModelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateDetectorModelCommand,
+  serializeAws_restJson1UpdateDetectorModelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class UpdateDetectorModelCommand extends $Command<
     input: UpdateDetectorModelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDetectorModelCommand(input, context);
+    return serializeAws_restJson1UpdateDetectorModelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDetectorModelCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDetectorModelCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateDetectorModelCommand(output, context);
   }
 
   // Start section: command_body_extra

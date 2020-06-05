@@ -5,9 +5,9 @@ import {
 } from "../PinpointClient";
 import { UpdateJourneyRequest, UpdateJourneyResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateJourneyCommand,
-  serializeAws_restJson1_1UpdateJourneyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateJourneyCommand,
+  serializeAws_restJson1UpdateJourneyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class UpdateJourneyCommand extends $Command<
     input: UpdateJourneyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateJourneyCommand(input, context);
+    return serializeAws_restJson1UpdateJourneyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateJourneyCommandOutput> {
-    return deserializeAws_restJson1_1UpdateJourneyCommand(output, context);
+    return deserializeAws_restJson1UpdateJourneyCommand(output, context);
   }
 
   // Start section: command_body_extra

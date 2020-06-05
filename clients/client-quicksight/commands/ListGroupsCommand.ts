@@ -5,9 +5,9 @@ import {
 } from "../QuickSightClient";
 import { ListGroupsRequest, ListGroupsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListGroupsCommand,
-  serializeAws_restJson1_1ListGroupsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListGroupsCommand,
+  serializeAws_restJson1ListGroupsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListGroupsCommand extends $Command<
     input: ListGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListGroupsCommand(input, context);
+    return serializeAws_restJson1ListGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListGroupsCommandOutput> {
-    return deserializeAws_restJson1_1ListGroupsCommand(output, context);
+    return deserializeAws_restJson1ListGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,9 +5,9 @@ import {
 } from "../GroundStationClient";
 import { ListContactsRequest, ListContactsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListContactsCommand,
-  serializeAws_restJson1_1ListContactsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListContactsCommand,
+  serializeAws_restJson1ListContactsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListContactsCommand extends $Command<
     input: ListContactsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListContactsCommand(input, context);
+    return serializeAws_restJson1ListContactsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListContactsCommandOutput> {
-    return deserializeAws_restJson1_1ListContactsCommand(output, context);
+    return deserializeAws_restJson1ListContactsCommand(output, context);
   }
 
   // Start section: command_body_extra

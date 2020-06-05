@@ -5,9 +5,9 @@ import {
 } from "../AppConfigClient";
 import { DeleteConfigurationProfileRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteConfigurationProfileCommand,
-  serializeAws_restJson1_1DeleteConfigurationProfileCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteConfigurationProfileCommand,
+  serializeAws_restJson1DeleteConfigurationProfileCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class DeleteConfigurationProfileCommand extends $Command<
     input: DeleteConfigurationProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteConfigurationProfileCommand(
+    return serializeAws_restJson1DeleteConfigurationProfileCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class DeleteConfigurationProfileCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigurationProfileCommandOutput> {
-    return deserializeAws_restJson1_1DeleteConfigurationProfileCommand(
+    return deserializeAws_restJson1DeleteConfigurationProfileCommand(
       output,
       context
     );

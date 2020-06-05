@@ -8,9 +8,9 @@ import {
   DescribeVirtualRouterOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeVirtualRouterCommand,
-  serializeAws_restJson1_1DescribeVirtualRouterCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeVirtualRouterCommand,
+  serializeAws_restJson1DescribeVirtualRouterCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class DescribeVirtualRouterCommand extends $Command<
     input: DescribeVirtualRouterCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeVirtualRouterCommand(input, context);
+    return serializeAws_restJson1DescribeVirtualRouterCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVirtualRouterCommandOutput> {
-    return deserializeAws_restJson1_1DescribeVirtualRouterCommand(
+    return deserializeAws_restJson1DescribeVirtualRouterCommand(
       output,
       context
     );

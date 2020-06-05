@@ -243,42 +243,6 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
-   * <p>Retrieves the default service quotas values. The Value returned for each quota is the AWS
-   *       default value, even if the quotas have been increased.. </p>
-   */
-  public getAWSDefaultServiceQuota(
-    args: GetAWSDefaultServiceQuotaCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetAWSDefaultServiceQuotaCommandOutput>;
-  public getAWSDefaultServiceQuota(
-    args: GetAWSDefaultServiceQuotaCommandInput,
-    cb: (err: any, data?: GetAWSDefaultServiceQuotaCommandOutput) => void
-  ): void;
-  public getAWSDefaultServiceQuota(
-    args: GetAWSDefaultServiceQuotaCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetAWSDefaultServiceQuotaCommandOutput) => void
-  ): void;
-  public getAWSDefaultServiceQuota(
-    args: GetAWSDefaultServiceQuotaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAWSDefaultServiceQuotaCommandOutput) => void),
-    cb?: (err: any, data?: GetAWSDefaultServiceQuotaCommandOutput) => void
-  ): Promise<GetAWSDefaultServiceQuotaCommandOutput> | void {
-    const command = new GetAWSDefaultServiceQuotaCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Retrieves the <code>ServiceQuotaTemplateAssociationStatus</code> value from the service.
    *       Use this action to determine if the Service Quota template is associated, or enabled. </p>
    */
@@ -315,6 +279,42 @@ export class ServiceQuotas extends ServiceQuotasClient {
     ) => void
   ): Promise<GetAssociationForServiceQuotaTemplateCommandOutput> | void {
     const command = new GetAssociationForServiceQuotaTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the default service quotas values. The Value returned for each quota is the AWS
+   *       default value, even if the quotas have been increased.. </p>
+   */
+  public getAWSDefaultServiceQuota(
+    args: GetAWSDefaultServiceQuotaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAWSDefaultServiceQuotaCommandOutput>;
+  public getAWSDefaultServiceQuota(
+    args: GetAWSDefaultServiceQuotaCommandInput,
+    cb: (err: any, data?: GetAWSDefaultServiceQuotaCommandOutput) => void
+  ): void;
+  public getAWSDefaultServiceQuota(
+    args: GetAWSDefaultServiceQuotaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAWSDefaultServiceQuotaCommandOutput) => void
+  ): void;
+  public getAWSDefaultServiceQuota(
+    args: GetAWSDefaultServiceQuotaCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetAWSDefaultServiceQuotaCommandOutput) => void),
+    cb?: (err: any, data?: GetAWSDefaultServiceQuotaCommandOutput) => void
+  ): Promise<GetAWSDefaultServiceQuotaCommandOutput> | void {
+    const command = new GetAWSDefaultServiceQuotaCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

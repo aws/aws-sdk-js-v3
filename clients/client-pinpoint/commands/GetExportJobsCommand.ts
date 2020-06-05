@@ -5,9 +5,9 @@ import {
 } from "../PinpointClient";
 import { GetExportJobsRequest, GetExportJobsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetExportJobsCommand,
-  serializeAws_restJson1_1GetExportJobsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetExportJobsCommand,
+  serializeAws_restJson1GetExportJobsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetExportJobsCommand extends $Command<
     input: GetExportJobsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetExportJobsCommand(input, context);
+    return serializeAws_restJson1GetExportJobsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetExportJobsCommandOutput> {
-    return deserializeAws_restJson1_1GetExportJobsCommand(output, context);
+    return deserializeAws_restJson1GetExportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

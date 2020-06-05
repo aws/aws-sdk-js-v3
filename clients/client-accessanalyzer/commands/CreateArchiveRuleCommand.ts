@@ -5,9 +5,9 @@ import {
 } from "../AccessAnalyzerClient";
 import { CreateArchiveRuleRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateArchiveRuleCommand,
-  serializeAws_restJson1_1CreateArchiveRuleCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateArchiveRuleCommand,
+  serializeAws_restJson1CreateArchiveRuleCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateArchiveRuleCommand extends $Command<
     input: CreateArchiveRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateArchiveRuleCommand(input, context);
+    return serializeAws_restJson1CreateArchiveRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateArchiveRuleCommandOutput> {
-    return deserializeAws_restJson1_1CreateArchiveRuleCommand(output, context);
+    return deserializeAws_restJson1CreateArchiveRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -222,7 +222,7 @@ const deserializeAws_json1_1DescribeReportCreationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConstraintViolationException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#ConstraintViolationException":
+    case "com.amazonaws.resourcegroupstaggingapi#ConstraintViolationException":
       response = {
         ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(
           parsedOutput,
@@ -233,7 +233,7 @@ const deserializeAws_json1_1DescribeReportCreationCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#InternalServiceException":
+    case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -244,7 +244,7 @@ const deserializeAws_json1_1DescribeReportCreationCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#InvalidParameterException":
+    case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -255,7 +255,7 @@ const deserializeAws_json1_1DescribeReportCreationCommandError = async (
       };
       break;
     case "ThrottledException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#ThrottledException":
+    case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
       response = {
         ...(await deserializeAws_json1_1ThrottledExceptionResponse(
           parsedOutput,
@@ -318,7 +318,7 @@ const deserializeAws_json1_1GetComplianceSummaryCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConstraintViolationException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#ConstraintViolationException":
+    case "com.amazonaws.resourcegroupstaggingapi#ConstraintViolationException":
       response = {
         ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(
           parsedOutput,
@@ -329,7 +329,7 @@ const deserializeAws_json1_1GetComplianceSummaryCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#InternalServiceException":
+    case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -340,7 +340,7 @@ const deserializeAws_json1_1GetComplianceSummaryCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#InvalidParameterException":
+    case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -351,7 +351,7 @@ const deserializeAws_json1_1GetComplianceSummaryCommandError = async (
       };
       break;
     case "ThrottledException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#ThrottledException":
+    case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
       response = {
         ...(await deserializeAws_json1_1ThrottledExceptionResponse(
           parsedOutput,
@@ -411,7 +411,7 @@ const deserializeAws_json1_1GetResourcesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#InternalServiceException":
+    case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -422,7 +422,7 @@ const deserializeAws_json1_1GetResourcesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#InvalidParameterException":
+    case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -433,7 +433,7 @@ const deserializeAws_json1_1GetResourcesCommandError = async (
       };
       break;
     case "PaginationTokenExpiredException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#PaginationTokenExpiredException":
+    case "com.amazonaws.resourcegroupstaggingapi#PaginationTokenExpiredException":
       response = {
         ...(await deserializeAws_json1_1PaginationTokenExpiredExceptionResponse(
           parsedOutput,
@@ -444,7 +444,7 @@ const deserializeAws_json1_1GetResourcesCommandError = async (
       };
       break;
     case "ThrottledException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#ThrottledException":
+    case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
       response = {
         ...(await deserializeAws_json1_1ThrottledExceptionResponse(
           parsedOutput,
@@ -504,7 +504,7 @@ const deserializeAws_json1_1GetTagKeysCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#InternalServiceException":
+    case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -515,7 +515,7 @@ const deserializeAws_json1_1GetTagKeysCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#InvalidParameterException":
+    case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -526,7 +526,7 @@ const deserializeAws_json1_1GetTagKeysCommandError = async (
       };
       break;
     case "PaginationTokenExpiredException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#PaginationTokenExpiredException":
+    case "com.amazonaws.resourcegroupstaggingapi#PaginationTokenExpiredException":
       response = {
         ...(await deserializeAws_json1_1PaginationTokenExpiredExceptionResponse(
           parsedOutput,
@@ -537,7 +537,7 @@ const deserializeAws_json1_1GetTagKeysCommandError = async (
       };
       break;
     case "ThrottledException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#ThrottledException":
+    case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
       response = {
         ...(await deserializeAws_json1_1ThrottledExceptionResponse(
           parsedOutput,
@@ -597,7 +597,7 @@ const deserializeAws_json1_1GetTagValuesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#InternalServiceException":
+    case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -608,7 +608,7 @@ const deserializeAws_json1_1GetTagValuesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#InvalidParameterException":
+    case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -619,7 +619,7 @@ const deserializeAws_json1_1GetTagValuesCommandError = async (
       };
       break;
     case "PaginationTokenExpiredException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#PaginationTokenExpiredException":
+    case "com.amazonaws.resourcegroupstaggingapi#PaginationTokenExpiredException":
       response = {
         ...(await deserializeAws_json1_1PaginationTokenExpiredExceptionResponse(
           parsedOutput,
@@ -630,7 +630,7 @@ const deserializeAws_json1_1GetTagValuesCommandError = async (
       };
       break;
     case "ThrottledException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#ThrottledException":
+    case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
       response = {
         ...(await deserializeAws_json1_1ThrottledExceptionResponse(
           parsedOutput,
@@ -693,7 +693,7 @@ const deserializeAws_json1_1StartReportCreationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#ConcurrentModificationException":
+    case "com.amazonaws.resourcegroupstaggingapi#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -704,7 +704,7 @@ const deserializeAws_json1_1StartReportCreationCommandError = async (
       };
       break;
     case "ConstraintViolationException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#ConstraintViolationException":
+    case "com.amazonaws.resourcegroupstaggingapi#ConstraintViolationException":
       response = {
         ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(
           parsedOutput,
@@ -715,7 +715,7 @@ const deserializeAws_json1_1StartReportCreationCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#InternalServiceException":
+    case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -726,7 +726,7 @@ const deserializeAws_json1_1StartReportCreationCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#InvalidParameterException":
+    case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -737,7 +737,7 @@ const deserializeAws_json1_1StartReportCreationCommandError = async (
       };
       break;
     case "ThrottledException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#ThrottledException":
+    case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
       response = {
         ...(await deserializeAws_json1_1ThrottledExceptionResponse(
           parsedOutput,
@@ -797,7 +797,7 @@ const deserializeAws_json1_1TagResourcesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#InternalServiceException":
+    case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -808,7 +808,7 @@ const deserializeAws_json1_1TagResourcesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#InvalidParameterException":
+    case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -819,7 +819,7 @@ const deserializeAws_json1_1TagResourcesCommandError = async (
       };
       break;
     case "ThrottledException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#ThrottledException":
+    case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
       response = {
         ...(await deserializeAws_json1_1ThrottledExceptionResponse(
           parsedOutput,
@@ -879,7 +879,7 @@ const deserializeAws_json1_1UntagResourcesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#InternalServiceException":
+    case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -890,7 +890,7 @@ const deserializeAws_json1_1UntagResourcesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#InvalidParameterException":
+    case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -901,7 +901,7 @@ const deserializeAws_json1_1UntagResourcesCommandError = async (
       };
       break;
     case "ThrottledException":
-    case "com.amazonaws.tagging.router.service.model.v20170126#ThrottledException":
+    case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
       response = {
         ...(await deserializeAws_json1_1ThrottledExceptionResponse(
           parsedOutput,

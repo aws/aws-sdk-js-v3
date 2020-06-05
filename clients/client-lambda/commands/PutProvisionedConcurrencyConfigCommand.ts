@@ -8,9 +8,9 @@ import {
   PutProvisionedConcurrencyConfigResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutProvisionedConcurrencyConfigCommand,
-  serializeAws_restJson1_1PutProvisionedConcurrencyConfigCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutProvisionedConcurrencyConfigCommand,
+  serializeAws_restJson1PutProvisionedConcurrencyConfigCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class PutProvisionedConcurrencyConfigCommand extends $Command<
     input: PutProvisionedConcurrencyConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutProvisionedConcurrencyConfigCommand(
+    return serializeAws_restJson1PutProvisionedConcurrencyConfigCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class PutProvisionedConcurrencyConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutProvisionedConcurrencyConfigCommandOutput> {
-    return deserializeAws_restJson1_1PutProvisionedConcurrencyConfigCommand(
+    return deserializeAws_restJson1PutProvisionedConcurrencyConfigCommand(
       output,
       context
     );

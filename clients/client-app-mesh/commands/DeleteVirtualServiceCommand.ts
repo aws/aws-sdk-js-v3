@@ -8,9 +8,9 @@ import {
   DeleteVirtualServiceOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteVirtualServiceCommand,
-  serializeAws_restJson1_1DeleteVirtualServiceCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteVirtualServiceCommand,
+  serializeAws_restJson1DeleteVirtualServiceCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteVirtualServiceCommand extends $Command<
     input: DeleteVirtualServiceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteVirtualServiceCommand(input, context);
+    return serializeAws_restJson1DeleteVirtualServiceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVirtualServiceCommandOutput> {
-    return deserializeAws_restJson1_1DeleteVirtualServiceCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteVirtualServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

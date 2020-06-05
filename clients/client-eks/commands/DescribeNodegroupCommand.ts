@@ -8,9 +8,9 @@ import {
   DescribeNodegroupResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeNodegroupCommand,
-  serializeAws_restJson1_1DescribeNodegroupCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeNodegroupCommand,
+  serializeAws_restJson1DescribeNodegroupCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DescribeNodegroupCommand extends $Command<
     input: DescribeNodegroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeNodegroupCommand(input, context);
+    return serializeAws_restJson1DescribeNodegroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNodegroupCommandOutput> {
-    return deserializeAws_restJson1_1DescribeNodegroupCommand(output, context);
+    return deserializeAws_restJson1DescribeNodegroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -2986,6 +2986,15 @@ const deserializeAws_json1_1ProjectNotFoundException = (
   } as any;
 };
 
+const deserializeAws_json1_1ProjectsList = (
+  output: any,
+  context: __SerdeContext
+): ProjectSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ProjectSummary(entry, context)
+  );
+};
+
 const deserializeAws_json1_1ProjectStatus = (
   output: any,
   context: __SerdeContext
@@ -3018,15 +3027,6 @@ const deserializeAws_json1_1ProjectSummary = (
         ? output.projectId
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1ProjectsList = (
-  output: any,
-  context: __SerdeContext
-): ProjectSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ProjectSummary(entry, context)
-  );
 };
 
 const deserializeAws_json1_1Resource = (
@@ -3231,6 +3231,15 @@ const deserializeAws_json1_1UserProfileNotFoundException = (
   } as any;
 };
 
+const deserializeAws_json1_1UserProfilesList = (
+  output: any,
+  context: __SerdeContext
+): UserProfileSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1UserProfileSummary(entry, context)
+  );
+};
+
 const deserializeAws_json1_1UserProfileSummary = (
   output: any,
   context: __SerdeContext
@@ -3254,15 +3263,6 @@ const deserializeAws_json1_1UserProfileSummary = (
         ? output.userArn
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1UserProfilesList = (
-  output: any,
-  context: __SerdeContext
-): UserProfileSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1UserProfileSummary(entry, context)
-  );
 };
 
 const deserializeAws_json1_1ValidationException = (

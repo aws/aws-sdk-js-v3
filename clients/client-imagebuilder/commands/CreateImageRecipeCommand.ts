@@ -8,9 +8,9 @@ import {
   CreateImageRecipeResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateImageRecipeCommand,
-  serializeAws_restJson1_1CreateImageRecipeCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateImageRecipeCommand,
+  serializeAws_restJson1CreateImageRecipeCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class CreateImageRecipeCommand extends $Command<
     input: CreateImageRecipeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateImageRecipeCommand(input, context);
+    return serializeAws_restJson1CreateImageRecipeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateImageRecipeCommandOutput> {
-    return deserializeAws_restJson1_1CreateImageRecipeCommand(output, context);
+    return deserializeAws_restJson1CreateImageRecipeCommand(output, context);
   }
 
   // Start section: command_body_extra

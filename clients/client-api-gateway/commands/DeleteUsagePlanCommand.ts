@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { DeleteUsagePlanRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteUsagePlanCommand,
-  serializeAws_restJson1_1DeleteUsagePlanCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteUsagePlanCommand,
+  serializeAws_restJson1DeleteUsagePlanCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteUsagePlanCommand extends $Command<
     input: DeleteUsagePlanCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteUsagePlanCommand(input, context);
+    return serializeAws_restJson1DeleteUsagePlanCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteUsagePlanCommandOutput> {
-    return deserializeAws_restJson1_1DeleteUsagePlanCommand(output, context);
+    return deserializeAws_restJson1DeleteUsagePlanCommand(output, context);
   }
 
   // Start section: command_body_extra

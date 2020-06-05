@@ -615,7 +615,7 @@ const deserializeAws_json1_1CancelTaskExecutionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -626,7 +626,7 @@ const deserializeAws_json1_1CancelTaskExecutionCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -686,7 +686,7 @@ const deserializeAws_json1_1CreateAgentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -697,7 +697,7 @@ const deserializeAws_json1_1CreateAgentCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -757,7 +757,7 @@ const deserializeAws_json1_1CreateLocationEfsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -768,7 +768,7 @@ const deserializeAws_json1_1CreateLocationEfsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -828,7 +828,7 @@ const deserializeAws_json1_1CreateLocationNfsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -839,7 +839,7 @@ const deserializeAws_json1_1CreateLocationNfsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -899,7 +899,7 @@ const deserializeAws_json1_1CreateLocationS3CommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -910,7 +910,7 @@ const deserializeAws_json1_1CreateLocationS3CommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -970,7 +970,7 @@ const deserializeAws_json1_1CreateLocationSmbCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -981,7 +981,7 @@ const deserializeAws_json1_1CreateLocationSmbCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1041,7 +1041,7 @@ const deserializeAws_json1_1CreateTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1052,7 +1052,7 @@ const deserializeAws_json1_1CreateTaskCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1112,7 +1112,7 @@ const deserializeAws_json1_1DeleteAgentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1123,7 +1123,7 @@ const deserializeAws_json1_1DeleteAgentCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1183,7 +1183,7 @@ const deserializeAws_json1_1DeleteLocationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1194,7 +1194,7 @@ const deserializeAws_json1_1DeleteLocationCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1254,7 +1254,7 @@ const deserializeAws_json1_1DeleteTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1265,7 +1265,7 @@ const deserializeAws_json1_1DeleteTaskCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1325,7 +1325,7 @@ const deserializeAws_json1_1DescribeAgentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1336,7 +1336,7 @@ const deserializeAws_json1_1DescribeAgentCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1399,7 +1399,7 @@ const deserializeAws_json1_1DescribeLocationEfsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1410,7 +1410,7 @@ const deserializeAws_json1_1DescribeLocationEfsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1473,7 +1473,7 @@ const deserializeAws_json1_1DescribeLocationNfsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1484,7 +1484,7 @@ const deserializeAws_json1_1DescribeLocationNfsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1547,7 +1547,7 @@ const deserializeAws_json1_1DescribeLocationS3CommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1558,7 +1558,7 @@ const deserializeAws_json1_1DescribeLocationS3CommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1621,7 +1621,7 @@ const deserializeAws_json1_1DescribeLocationSmbCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1632,7 +1632,7 @@ const deserializeAws_json1_1DescribeLocationSmbCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1692,7 +1692,7 @@ const deserializeAws_json1_1DescribeTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1703,7 +1703,7 @@ const deserializeAws_json1_1DescribeTaskCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1766,7 +1766,7 @@ const deserializeAws_json1_1DescribeTaskExecutionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1777,7 +1777,7 @@ const deserializeAws_json1_1DescribeTaskExecutionCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1837,7 +1837,7 @@ const deserializeAws_json1_1ListAgentsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1848,7 +1848,7 @@ const deserializeAws_json1_1ListAgentsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1908,7 +1908,7 @@ const deserializeAws_json1_1ListLocationsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1919,7 +1919,7 @@ const deserializeAws_json1_1ListLocationsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1982,7 +1982,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1993,7 +1993,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2056,7 +2056,7 @@ const deserializeAws_json1_1ListTaskExecutionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -2067,7 +2067,7 @@ const deserializeAws_json1_1ListTaskExecutionsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2127,7 +2127,7 @@ const deserializeAws_json1_1ListTasksCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -2138,7 +2138,7 @@ const deserializeAws_json1_1ListTasksCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2201,7 +2201,7 @@ const deserializeAws_json1_1StartTaskExecutionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -2212,7 +2212,7 @@ const deserializeAws_json1_1StartTaskExecutionCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2272,7 +2272,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -2283,7 +2283,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2343,7 +2343,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -2354,7 +2354,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2414,7 +2414,7 @@ const deserializeAws_json1_1UpdateAgentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -2425,7 +2425,7 @@ const deserializeAws_json1_1UpdateAgentCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2485,7 +2485,7 @@ const deserializeAws_json1_1UpdateTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.fmrs#InternalException":
+    case "com.amazonaws.datasync#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -2496,7 +2496,7 @@ const deserializeAws_json1_1UpdateTaskCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.fmrs#InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,

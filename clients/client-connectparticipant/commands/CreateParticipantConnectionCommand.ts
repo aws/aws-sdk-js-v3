@@ -8,9 +8,9 @@ import {
   CreateParticipantConnectionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateParticipantConnectionCommand,
-  serializeAws_restJson1_1CreateParticipantConnectionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateParticipantConnectionCommand,
+  serializeAws_restJson1CreateParticipantConnectionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CreateParticipantConnectionCommand extends $Command<
     input: CreateParticipantConnectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateParticipantConnectionCommand(
+    return serializeAws_restJson1CreateParticipantConnectionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CreateParticipantConnectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateParticipantConnectionCommandOutput> {
-    return deserializeAws_restJson1_1CreateParticipantConnectionCommand(
+    return deserializeAws_restJson1CreateParticipantConnectionCommand(
       output,
       context
     );

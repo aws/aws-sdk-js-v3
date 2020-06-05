@@ -5,9 +5,9 @@ import {
 } from "../WorkDocsClient";
 import { DeleteLabelsRequest, DeleteLabelsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteLabelsCommand,
-  serializeAws_restJson1_1DeleteLabelsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteLabelsCommand,
+  serializeAws_restJson1DeleteLabelsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteLabelsCommand extends $Command<
     input: DeleteLabelsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteLabelsCommand(input, context);
+    return serializeAws_restJson1DeleteLabelsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLabelsCommandOutput> {
-    return deserializeAws_restJson1_1DeleteLabelsCommand(output, context);
+    return deserializeAws_restJson1DeleteLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

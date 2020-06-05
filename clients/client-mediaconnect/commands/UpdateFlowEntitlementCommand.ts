@@ -8,9 +8,9 @@ import {
   UpdateFlowEntitlementResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateFlowEntitlementCommand,
-  serializeAws_restJson1_1UpdateFlowEntitlementCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateFlowEntitlementCommand,
+  serializeAws_restJson1UpdateFlowEntitlementCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class UpdateFlowEntitlementCommand extends $Command<
     input: UpdateFlowEntitlementCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateFlowEntitlementCommand(input, context);
+    return serializeAws_restJson1UpdateFlowEntitlementCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFlowEntitlementCommandOutput> {
-    return deserializeAws_restJson1_1UpdateFlowEntitlementCommand(
+    return deserializeAws_restJson1UpdateFlowEntitlementCommand(
       output,
       context
     );

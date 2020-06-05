@@ -772,43 +772,6 @@ export namespace ListRegistriesResponse {
     __isa(o, "ListRegistriesResponse");
 }
 
-export interface ListSchemaVersionsRequest {
-  __type?: "ListSchemaVersionsRequest";
-  Limit?: number;
-  NextToken?: string;
-  RegistryName: string | undefined;
-  SchemaName: string | undefined;
-}
-
-export namespace ListSchemaVersionsRequest {
-  export const filterSensitiveLog = (obj: ListSchemaVersionsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListSchemaVersionsRequest =>
-    __isa(o, "ListSchemaVersionsRequest");
-}
-
-export interface ListSchemaVersionsResponse {
-  __type?: "ListSchemaVersionsResponse";
-  /**
-   * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>An array of schema version summaries.</p>
-   */
-  SchemaVersions?: SchemaVersionSummary[];
-}
-
-export namespace ListSchemaVersionsResponse {
-  export const filterSensitiveLog = (obj: ListSchemaVersionsResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListSchemaVersionsResponse =>
-    __isa(o, "ListSchemaVersionsResponse");
-}
-
 export interface ListSchemasRequest {
   __type?: "ListSchemasRequest";
   Limit?: number;
@@ -844,6 +807,43 @@ export namespace ListSchemasResponse {
   });
   export const isa = (o: any): o is ListSchemasResponse =>
     __isa(o, "ListSchemasResponse");
+}
+
+export interface ListSchemaVersionsRequest {
+  __type?: "ListSchemaVersionsRequest";
+  Limit?: number;
+  NextToken?: string;
+  RegistryName: string | undefined;
+  SchemaName: string | undefined;
+}
+
+export namespace ListSchemaVersionsRequest {
+  export const filterSensitiveLog = (obj: ListSchemaVersionsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListSchemaVersionsRequest =>
+    __isa(o, "ListSchemaVersionsRequest");
+}
+
+export interface ListSchemaVersionsResponse {
+  __type?: "ListSchemaVersionsResponse";
+  /**
+   * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>An array of schema version summaries.</p>
+   */
+  SchemaVersions?: SchemaVersionSummary[];
+}
+
+export namespace ListSchemaVersionsResponse {
+  export const filterSensitiveLog = (obj: ListSchemaVersionsResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListSchemaVersionsResponse =>
+    __isa(o, "ListSchemaVersionsResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -1069,6 +1069,43 @@ export namespace SchemaVersionSummary {
     __isa(o, "SchemaVersionSummary");
 }
 
+export interface SearchSchemasRequest {
+  __type?: "SearchSchemasRequest";
+  Keywords: string | undefined;
+  Limit?: number;
+  NextToken?: string;
+  RegistryName: string | undefined;
+}
+
+export namespace SearchSchemasRequest {
+  export const filterSensitiveLog = (obj: SearchSchemasRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SearchSchemasRequest =>
+    __isa(o, "SearchSchemasRequest");
+}
+
+export interface SearchSchemasResponse {
+  __type?: "SearchSchemasResponse";
+  /**
+   * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>An array of SearchSchemaSummary information.</p>
+   */
+  Schemas?: SearchSchemaSummary[];
+}
+
+export namespace SearchSchemasResponse {
+  export const filterSensitiveLog = (obj: SearchSchemasResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SearchSchemasResponse =>
+    __isa(o, "SearchSchemasResponse");
+}
+
 export interface SearchSchemaSummary {
   __type?: "SearchSchemaSummary";
   /**
@@ -1115,43 +1152,6 @@ export namespace SearchSchemaVersionSummary {
   });
   export const isa = (o: any): o is SearchSchemaVersionSummary =>
     __isa(o, "SearchSchemaVersionSummary");
-}
-
-export interface SearchSchemasRequest {
-  __type?: "SearchSchemasRequest";
-  Keywords: string | undefined;
-  Limit?: number;
-  NextToken?: string;
-  RegistryName: string | undefined;
-}
-
-export namespace SearchSchemasRequest {
-  export const filterSensitiveLog = (obj: SearchSchemasRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SearchSchemasRequest =>
-    __isa(o, "SearchSchemasRequest");
-}
-
-export interface SearchSchemasResponse {
-  __type?: "SearchSchemasResponse";
-  /**
-   * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>An array of SearchSchemaSummary information.</p>
-   */
-  Schemas?: SearchSchemaSummary[];
-}
-
-export namespace SearchSchemasResponse {
-  export const filterSensitiveLog = (obj: SearchSchemasResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SearchSchemasResponse =>
-    __isa(o, "SearchSchemasResponse");
 }
 
 export interface ServiceUnavailableException

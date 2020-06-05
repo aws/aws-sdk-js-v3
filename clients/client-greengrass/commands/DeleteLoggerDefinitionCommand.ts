@@ -8,9 +8,9 @@ import {
   DeleteLoggerDefinitionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteLoggerDefinitionCommand,
-  serializeAws_restJson1_1DeleteLoggerDefinitionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteLoggerDefinitionCommand,
+  serializeAws_restJson1DeleteLoggerDefinitionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteLoggerDefinitionCommand extends $Command<
     input: DeleteLoggerDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteLoggerDefinitionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DeleteLoggerDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLoggerDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteLoggerDefinitionCommand(
+    return deserializeAws_restJson1DeleteLoggerDefinitionCommand(
       output,
       context
     );

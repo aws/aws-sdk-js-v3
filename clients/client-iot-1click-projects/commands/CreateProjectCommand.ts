@@ -5,9 +5,9 @@ import {
 } from "../IoT1ClickProjectsClient";
 import { CreateProjectRequest, CreateProjectResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateProjectCommand,
-  serializeAws_restJson1_1CreateProjectCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateProjectCommand,
+  serializeAws_restJson1CreateProjectCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class CreateProjectCommand extends $Command<
     input: CreateProjectCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateProjectCommand(input, context);
+    return serializeAws_restJson1CreateProjectCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateProjectCommandOutput> {
-    return deserializeAws_restJson1_1CreateProjectCommand(output, context);
+    return deserializeAws_restJson1CreateProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

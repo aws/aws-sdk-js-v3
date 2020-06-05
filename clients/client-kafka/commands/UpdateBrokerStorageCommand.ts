@@ -8,9 +8,9 @@ import {
   UpdateBrokerStorageResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateBrokerStorageCommand,
-  serializeAws_restJson1_1UpdateBrokerStorageCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateBrokerStorageCommand,
+  serializeAws_restJson1UpdateBrokerStorageCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class UpdateBrokerStorageCommand extends $Command<
     input: UpdateBrokerStorageCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateBrokerStorageCommand(input, context);
+    return serializeAws_restJson1UpdateBrokerStorageCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateBrokerStorageCommandOutput> {
-    return deserializeAws_restJson1_1UpdateBrokerStorageCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateBrokerStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

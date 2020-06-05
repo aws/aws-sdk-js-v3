@@ -5,9 +5,9 @@ import {
 } from "../WorkDocsClient";
 import { AbortDocumentVersionUploadRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1AbortDocumentVersionUploadCommand,
-  serializeAws_restJson1_1AbortDocumentVersionUploadCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AbortDocumentVersionUploadCommand,
+  serializeAws_restJson1AbortDocumentVersionUploadCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class AbortDocumentVersionUploadCommand extends $Command<
     input: AbortDocumentVersionUploadCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AbortDocumentVersionUploadCommand(
+    return serializeAws_restJson1AbortDocumentVersionUploadCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class AbortDocumentVersionUploadCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AbortDocumentVersionUploadCommandOutput> {
-    return deserializeAws_restJson1_1AbortDocumentVersionUploadCommand(
+    return deserializeAws_restJson1AbortDocumentVersionUploadCommand(
       output,
       context
     );

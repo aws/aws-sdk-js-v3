@@ -517,6 +517,41 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * <p>Gets information about one or more deployments. The maximum number of deployments that can be returned is 25.</p>
+   */
+  public batchGetDeployments(
+    args: BatchGetDeploymentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetDeploymentsCommandOutput>;
+  public batchGetDeployments(
+    args: BatchGetDeploymentsCommandInput,
+    cb: (err: any, data?: BatchGetDeploymentsCommandOutput) => void
+  ): void;
+  public batchGetDeployments(
+    args: BatchGetDeploymentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetDeploymentsCommandOutput) => void
+  ): void;
+  public batchGetDeployments(
+    args: BatchGetDeploymentsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchGetDeploymentsCommandOutput) => void),
+    cb?: (err: any, data?: BatchGetDeploymentsCommandOutput) => void
+  ): Promise<BatchGetDeploymentsCommandOutput> | void {
+    const command = new BatchGetDeploymentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p> Returns an array of one or more targets associated with a deployment. This method works with all
    *             compute types and should be used instead of the deprecated
    *             <code>BatchGetDeploymentInstances</code>.
@@ -561,41 +596,6 @@ export class CodeDeploy extends CodeDeployClient {
     cb?: (err: any, data?: BatchGetDeploymentTargetsCommandOutput) => void
   ): Promise<BatchGetDeploymentTargetsCommandOutput> | void {
     const command = new BatchGetDeploymentTargetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets information about one or more deployments. The maximum number of deployments that can be returned is 25.</p>
-   */
-  public batchGetDeployments(
-    args: BatchGetDeploymentsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchGetDeploymentsCommandOutput>;
-  public batchGetDeployments(
-    args: BatchGetDeploymentsCommandInput,
-    cb: (err: any, data?: BatchGetDeploymentsCommandOutput) => void
-  ): void;
-  public batchGetDeployments(
-    args: BatchGetDeploymentsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchGetDeploymentsCommandOutput) => void
-  ): void;
-  public batchGetDeployments(
-    args: BatchGetDeploymentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetDeploymentsCommandOutput) => void),
-    cb?: (err: any, data?: BatchGetDeploymentsCommandOutput) => void
-  ): Promise<BatchGetDeploymentsCommandOutput> | void {
-    const command = new BatchGetDeploymentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1469,41 +1469,6 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   * <p> Returns an array of target IDs that are associated a deployment. </p>
-   */
-  public listDeploymentTargets(
-    args: ListDeploymentTargetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDeploymentTargetsCommandOutput>;
-  public listDeploymentTargets(
-    args: ListDeploymentTargetsCommandInput,
-    cb: (err: any, data?: ListDeploymentTargetsCommandOutput) => void
-  ): void;
-  public listDeploymentTargets(
-    args: ListDeploymentTargetsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDeploymentTargetsCommandOutput) => void
-  ): void;
-  public listDeploymentTargets(
-    args: ListDeploymentTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDeploymentTargetsCommandOutput) => void),
-    cb?: (err: any, data?: ListDeploymentTargetsCommandOutput) => void
-  ): Promise<ListDeploymentTargetsCommandOutput> | void {
-    const command = new ListDeploymentTargetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Lists the deployments in a deployment group for an application registered with the IAM
    *             user or AWS account.</p>
    */
@@ -1528,6 +1493,41 @@ export class CodeDeploy extends CodeDeployClient {
     cb?: (err: any, data?: ListDeploymentsCommandOutput) => void
   ): Promise<ListDeploymentsCommandOutput> | void {
     const command = new ListDeploymentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p> Returns an array of target IDs that are associated a deployment. </p>
+   */
+  public listDeploymentTargets(
+    args: ListDeploymentTargetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDeploymentTargetsCommandOutput>;
+  public listDeploymentTargets(
+    args: ListDeploymentTargetsCommandInput,
+    cb: (err: any, data?: ListDeploymentTargetsCommandOutput) => void
+  ): void;
+  public listDeploymentTargets(
+    args: ListDeploymentTargetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDeploymentTargetsCommandOutput) => void
+  ): void;
+  public listDeploymentTargets(
+    args: ListDeploymentTargetsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDeploymentTargetsCommandOutput) => void),
+    cb?: (err: any, data?: ListDeploymentTargetsCommandOutput) => void
+  ): Promise<ListDeploymentTargetsCommandOutput> | void {
+    const command = new ListDeploymentTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

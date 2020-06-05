@@ -8,9 +8,9 @@ import {
   UpdateAccountSettingsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateAccountSettingsCommand,
-  serializeAws_restJson1_1UpdateAccountSettingsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateAccountSettingsCommand,
+  serializeAws_restJson1UpdateAccountSettingsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class UpdateAccountSettingsCommand extends $Command<
     input: UpdateAccountSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateAccountSettingsCommand(input, context);
+    return serializeAws_restJson1UpdateAccountSettingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAccountSettingsCommandOutput> {
-    return deserializeAws_restJson1_1UpdateAccountSettingsCommand(
+    return deserializeAws_restJson1UpdateAccountSettingsCommand(
       output,
       context
     );

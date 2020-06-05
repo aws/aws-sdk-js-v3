@@ -8,9 +8,9 @@ import {
   GetEnabledStandardsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetEnabledStandardsCommand,
-  serializeAws_restJson1_1GetEnabledStandardsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetEnabledStandardsCommand,
+  serializeAws_restJson1GetEnabledStandardsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetEnabledStandardsCommand extends $Command<
     input: GetEnabledStandardsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetEnabledStandardsCommand(input, context);
+    return serializeAws_restJson1GetEnabledStandardsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEnabledStandardsCommandOutput> {
-    return deserializeAws_restJson1_1GetEnabledStandardsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetEnabledStandardsCommand(output, context);
   }
 
   // Start section: command_body_extra

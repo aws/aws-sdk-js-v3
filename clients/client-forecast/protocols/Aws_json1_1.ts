@@ -624,7 +624,7 @@ const deserializeAws_json1_1CreateDatasetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -635,7 +635,7 @@ const deserializeAws_json1_1CreateDatasetCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.seer.service#LimitExceededException":
+    case "com.amazonaws.forecast#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -646,7 +646,7 @@ const deserializeAws_json1_1CreateDatasetCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.seer.service#ResourceAlreadyExistsException":
+    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -709,7 +709,7 @@ const deserializeAws_json1_1CreateDatasetGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -720,7 +720,7 @@ const deserializeAws_json1_1CreateDatasetGroupCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.seer.service#LimitExceededException":
+    case "com.amazonaws.forecast#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -731,7 +731,7 @@ const deserializeAws_json1_1CreateDatasetGroupCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.seer.service#ResourceAlreadyExistsException":
+    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -742,7 +742,7 @@ const deserializeAws_json1_1CreateDatasetGroupCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.seer.service#ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -753,7 +753,7 @@ const deserializeAws_json1_1CreateDatasetGroupCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.seer.service#ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -819,7 +819,7 @@ const deserializeAws_json1_1CreateDatasetImportJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -830,7 +830,7 @@ const deserializeAws_json1_1CreateDatasetImportJobCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.seer.service#LimitExceededException":
+    case "com.amazonaws.forecast#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -841,7 +841,7 @@ const deserializeAws_json1_1CreateDatasetImportJobCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.seer.service#ResourceAlreadyExistsException":
+    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -852,7 +852,7 @@ const deserializeAws_json1_1CreateDatasetImportJobCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.seer.service#ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -863,7 +863,7 @@ const deserializeAws_json1_1CreateDatasetImportJobCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.seer.service#ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -923,7 +923,7 @@ const deserializeAws_json1_1CreateForecastCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -934,7 +934,7 @@ const deserializeAws_json1_1CreateForecastCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.seer.service#LimitExceededException":
+    case "com.amazonaws.forecast#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -945,7 +945,7 @@ const deserializeAws_json1_1CreateForecastCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.seer.service#ResourceAlreadyExistsException":
+    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -956,7 +956,7 @@ const deserializeAws_json1_1CreateForecastCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.seer.service#ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -967,7 +967,7 @@ const deserializeAws_json1_1CreateForecastCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.seer.service#ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1033,7 +1033,7 @@ const deserializeAws_json1_1CreateForecastExportJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1044,7 +1044,7 @@ const deserializeAws_json1_1CreateForecastExportJobCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.seer.service#LimitExceededException":
+    case "com.amazonaws.forecast#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1055,7 +1055,7 @@ const deserializeAws_json1_1CreateForecastExportJobCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.seer.service#ResourceAlreadyExistsException":
+    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1066,7 +1066,7 @@ const deserializeAws_json1_1CreateForecastExportJobCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.seer.service#ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1077,7 +1077,7 @@ const deserializeAws_json1_1CreateForecastExportJobCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.seer.service#ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1137,7 +1137,7 @@ const deserializeAws_json1_1CreatePredictorCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1148,7 +1148,7 @@ const deserializeAws_json1_1CreatePredictorCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.seer.service#LimitExceededException":
+    case "com.amazonaws.forecast#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1159,7 +1159,7 @@ const deserializeAws_json1_1CreatePredictorCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.seer.service#ResourceAlreadyExistsException":
+    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1170,7 +1170,7 @@ const deserializeAws_json1_1CreatePredictorCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.seer.service#ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1181,7 +1181,7 @@ const deserializeAws_json1_1CreatePredictorCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.seer.service#ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1237,7 +1237,7 @@ const deserializeAws_json1_1DeleteDatasetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1248,7 +1248,7 @@ const deserializeAws_json1_1DeleteDatasetCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.seer.service#ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1259,7 +1259,7 @@ const deserializeAws_json1_1DeleteDatasetCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.seer.service#ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1318,7 +1318,7 @@ const deserializeAws_json1_1DeleteDatasetGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1329,7 +1329,7 @@ const deserializeAws_json1_1DeleteDatasetGroupCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.seer.service#ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1340,7 +1340,7 @@ const deserializeAws_json1_1DeleteDatasetGroupCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.seer.service#ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1399,7 +1399,7 @@ const deserializeAws_json1_1DeleteDatasetImportJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1410,7 +1410,7 @@ const deserializeAws_json1_1DeleteDatasetImportJobCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.seer.service#ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1421,7 +1421,7 @@ const deserializeAws_json1_1DeleteDatasetImportJobCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.seer.service#ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1477,7 +1477,7 @@ const deserializeAws_json1_1DeleteForecastCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1488,7 +1488,7 @@ const deserializeAws_json1_1DeleteForecastCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.seer.service#ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1499,7 +1499,7 @@ const deserializeAws_json1_1DeleteForecastCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.seer.service#ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1558,7 +1558,7 @@ const deserializeAws_json1_1DeleteForecastExportJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1569,7 +1569,7 @@ const deserializeAws_json1_1DeleteForecastExportJobCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.seer.service#ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1580,7 +1580,7 @@ const deserializeAws_json1_1DeleteForecastExportJobCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.seer.service#ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1636,7 +1636,7 @@ const deserializeAws_json1_1DeletePredictorCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1647,7 +1647,7 @@ const deserializeAws_json1_1DeletePredictorCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.seer.service#ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1658,7 +1658,7 @@ const deserializeAws_json1_1DeletePredictorCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.seer.service#ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1718,7 +1718,7 @@ const deserializeAws_json1_1DescribeDatasetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1729,7 +1729,7 @@ const deserializeAws_json1_1DescribeDatasetCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.seer.service#ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1792,7 +1792,7 @@ const deserializeAws_json1_1DescribeDatasetGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1803,7 +1803,7 @@ const deserializeAws_json1_1DescribeDatasetGroupCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.seer.service#ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1869,7 +1869,7 @@ const deserializeAws_json1_1DescribeDatasetImportJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1880,7 +1880,7 @@ const deserializeAws_json1_1DescribeDatasetImportJobCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.seer.service#ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1940,7 +1940,7 @@ const deserializeAws_json1_1DescribeForecastCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1951,7 +1951,7 @@ const deserializeAws_json1_1DescribeForecastCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.seer.service#ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2017,7 +2017,7 @@ const deserializeAws_json1_1DescribeForecastExportJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2028,7 +2028,7 @@ const deserializeAws_json1_1DescribeForecastExportJobCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.seer.service#ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2088,7 +2088,7 @@ const deserializeAws_json1_1DescribePredictorCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2099,7 +2099,7 @@ const deserializeAws_json1_1DescribePredictorCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.seer.service#ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2162,7 +2162,7 @@ const deserializeAws_json1_1GetAccuracyMetricsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2173,7 +2173,7 @@ const deserializeAws_json1_1GetAccuracyMetricsCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.seer.service#ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2184,7 +2184,7 @@ const deserializeAws_json1_1GetAccuracyMetricsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.seer.service#ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2244,7 +2244,7 @@ const deserializeAws_json1_1ListDatasetGroupsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNextTokenException":
-    case "com.amazonaws.seer.service#InvalidNextTokenException":
+    case "com.amazonaws.forecast#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -2307,7 +2307,7 @@ const deserializeAws_json1_1ListDatasetImportJobsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2318,7 +2318,7 @@ const deserializeAws_json1_1ListDatasetImportJobsCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.seer.service#InvalidNextTokenException":
+    case "com.amazonaws.forecast#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -2378,7 +2378,7 @@ const deserializeAws_json1_1ListDatasetsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNextTokenException":
-    case "com.amazonaws.seer.service#InvalidNextTokenException":
+    case "com.amazonaws.forecast#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -2444,7 +2444,7 @@ const deserializeAws_json1_1ListForecastExportJobsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2455,7 +2455,7 @@ const deserializeAws_json1_1ListForecastExportJobsCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.seer.service#InvalidNextTokenException":
+    case "com.amazonaws.forecast#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -2515,7 +2515,7 @@ const deserializeAws_json1_1ListForecastsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2526,7 +2526,7 @@ const deserializeAws_json1_1ListForecastsCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.seer.service#InvalidNextTokenException":
+    case "com.amazonaws.forecast#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -2586,7 +2586,7 @@ const deserializeAws_json1_1ListPredictorsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2597,7 +2597,7 @@ const deserializeAws_json1_1ListPredictorsCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.seer.service#InvalidNextTokenException":
+    case "com.amazonaws.forecast#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -2660,7 +2660,7 @@ const deserializeAws_json1_1UpdateDatasetGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.service#InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2671,7 +2671,7 @@ const deserializeAws_json1_1UpdateDatasetGroupCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.seer.service#ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2682,7 +2682,7 @@ const deserializeAws_json1_1UpdateDatasetGroupCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.seer.service#ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3727,17 +3727,13 @@ const deserializeAws_json1_1DataDestination = (
   } as any;
 };
 
-const deserializeAws_json1_1DataSource = (
+const deserializeAws_json1_1DatasetGroups = (
   output: any,
   context: __SerdeContext
-): DataSource => {
-  return {
-    __type: "DataSource",
-    S3Config:
-      output.S3Config !== undefined && output.S3Config !== null
-        ? deserializeAws_json1_1S3Config(output.S3Config, context)
-        : undefined
-  } as any;
+): DatasetGroupSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1DatasetGroupSummary(entry, context)
+  );
 };
 
 const deserializeAws_json1_1DatasetGroupSummary = (
@@ -3766,12 +3762,12 @@ const deserializeAws_json1_1DatasetGroupSummary = (
   } as any;
 };
 
-const deserializeAws_json1_1DatasetGroups = (
+const deserializeAws_json1_1DatasetImportJobs = (
   output: any,
   context: __SerdeContext
-): DatasetGroupSummary[] => {
+): DatasetImportJobSummary[] => {
   return (output || []).map((entry: any) =>
-    deserializeAws_json1_1DatasetGroupSummary(entry, context)
+    deserializeAws_json1_1DatasetImportJobSummary(entry, context)
   );
 };
 
@@ -3815,12 +3811,12 @@ const deserializeAws_json1_1DatasetImportJobSummary = (
   } as any;
 };
 
-const deserializeAws_json1_1DatasetImportJobs = (
+const deserializeAws_json1_1Datasets = (
   output: any,
   context: __SerdeContext
-): DatasetImportJobSummary[] => {
+): DatasetSummary[] => {
   return (output || []).map((entry: any) =>
-    deserializeAws_json1_1DatasetImportJobSummary(entry, context)
+    deserializeAws_json1_1DatasetSummary(entry, context)
   );
 };
 
@@ -3858,13 +3854,17 @@ const deserializeAws_json1_1DatasetSummary = (
   } as any;
 };
 
-const deserializeAws_json1_1Datasets = (
+const deserializeAws_json1_1DataSource = (
   output: any,
   context: __SerdeContext
-): DatasetSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1DatasetSummary(entry, context)
-  );
+): DataSource => {
+  return {
+    __type: "DataSource",
+    S3Config:
+      output.S3Config !== undefined && output.S3Config !== null
+        ? deserializeAws_json1_1S3Config(output.S3Config, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeDatasetGroupResponse = (
@@ -4387,6 +4387,15 @@ const deserializeAws_json1_1ForecastDimensions = (
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_json1_1ForecastExportJobs = (
+  output: any,
+  context: __SerdeContext
+): ForecastExportJobSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ForecastExportJobSummary(entry, context)
+  );
+};
+
 const deserializeAws_json1_1ForecastExportJobSummary = (
   output: any,
   context: __SerdeContext
@@ -4427,12 +4436,12 @@ const deserializeAws_json1_1ForecastExportJobSummary = (
   } as any;
 };
 
-const deserializeAws_json1_1ForecastExportJobs = (
+const deserializeAws_json1_1Forecasts = (
   output: any,
   context: __SerdeContext
-): ForecastExportJobSummary[] => {
+): ForecastSummary[] => {
   return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ForecastExportJobSummary(entry, context)
+    deserializeAws_json1_1ForecastSummary(entry, context)
   );
 };
 
@@ -4483,15 +4492,6 @@ const deserializeAws_json1_1ForecastTypes = (
   context: __SerdeContext
 ): string[] => {
   return (output || []).map((entry: any) => entry);
-};
-
-const deserializeAws_json1_1Forecasts = (
-  output: any,
-  context: __SerdeContext
-): ForecastSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ForecastSummary(entry, context)
-  );
 };
 
 const deserializeAws_json1_1GetAccuracyMetricsResponse = (
@@ -4834,6 +4834,15 @@ const deserializeAws_json1_1PredictorExecutions = (
   );
 };
 
+const deserializeAws_json1_1Predictors = (
+  output: any,
+  context: __SerdeContext
+): PredictorSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1PredictorSummary(entry, context)
+  );
+};
+
 const deserializeAws_json1_1PredictorSummary = (
   output: any,
   context: __SerdeContext
@@ -4870,15 +4879,6 @@ const deserializeAws_json1_1PredictorSummary = (
         ? output.Status
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1Predictors = (
-  output: any,
-  context: __SerdeContext
-): PredictorSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1PredictorSummary(entry, context)
-  );
 };
 
 const deserializeAws_json1_1ResourceAlreadyExistsException = (
@@ -4996,13 +4996,30 @@ const deserializeAws_json1_1Statistics = (
       output.CountDistinct !== undefined && output.CountDistinct !== null
         ? output.CountDistinct
         : undefined,
+    CountDistinctLong:
+      output.CountDistinctLong !== undefined &&
+      output.CountDistinctLong !== null
+        ? output.CountDistinctLong
+        : undefined,
+    CountLong:
+      output.CountLong !== undefined && output.CountLong !== null
+        ? output.CountLong
+        : undefined,
     CountNan:
       output.CountNan !== undefined && output.CountNan !== null
         ? output.CountNan
         : undefined,
+    CountNanLong:
+      output.CountNanLong !== undefined && output.CountNanLong !== null
+        ? output.CountNanLong
+        : undefined,
     CountNull:
       output.CountNull !== undefined && output.CountNull !== null
         ? output.CountNull
+        : undefined,
+    CountNullLong:
+      output.CountNullLong !== undefined && output.CountNullLong !== null
+        ? output.CountNullLong
         : undefined,
     Max:
       output.Max !== undefined && output.Max !== null ? output.Max : undefined,
@@ -5050,6 +5067,15 @@ const deserializeAws_json1_1TestWindowDetails = (
   );
 };
 
+const deserializeAws_json1_1TestWindows = (
+  output: any,
+  context: __SerdeContext
+): WindowSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1WindowSummary(entry, context)
+  );
+};
+
 const deserializeAws_json1_1TestWindowSummary = (
   output: any,
   context: __SerdeContext
@@ -5073,15 +5099,6 @@ const deserializeAws_json1_1TestWindowSummary = (
         ? new Date(Math.round(output.TestWindowStart * 1000))
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1TestWindows = (
-  output: any,
-  context: __SerdeContext
-): WindowSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1WindowSummary(entry, context)
-  );
 };
 
 const deserializeAws_json1_1TrainingParameters = (

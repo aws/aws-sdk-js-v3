@@ -118,41 +118,6 @@ export namespace AlarmsLimitExceededException {
 }
 
 /**
- * <p> A revision for an AWS Lambda or Amazon ECS deployment that is a YAML-formatted or
- *             JSON-formatted string. For AWS Lambda and Amazon ECS deployments, the revision is the
- *             same as the AppSpec file. This method replaces the deprecated <code>RawString</code>
- *             data type. </p>
- */
-export interface AppSpecContent {
-  __type?: "AppSpecContent";
-  /**
-   * <p> The YAML-formatted or JSON-formatted revision string. </p>
-   *         <p> For an AWS Lambda deployment, the content includes a Lambda function name, the alias
-   *             for its original version, and the alias for its replacement version. The deployment
-   *             shifts traffic from the original version of the Lambda function to the replacement
-   *             version. </p>
-   *         <p> For an Amazon ECS deployment, the content includes the task name, information about
-   *             the load balancer that serves traffic to the container, and more. </p>
-   *         <p> For both types of deployments, the content can specify Lambda functions that run at
-   *             specified hooks, such as <code>BeforeInstall</code>, during a deployment. </p>
-   */
-  content?: string;
-
-  /**
-   * <p> The SHA256 hash value of the revision content. </p>
-   */
-  sha256?: string;
-}
-
-export namespace AppSpecContent {
-  export const filterSensitiveLog = (obj: AppSpecContent): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AppSpecContent =>
-    __isa(o, "AppSpecContent");
-}
-
-/**
  * <p>An application with the specified name with the IAM user or AWS account already
  *             exists.</p>
  */
@@ -299,6 +264,41 @@ export enum ApplicationRevisionSortBy {
   FirstUsedTime = "firstUsedTime",
   LastUsedTime = "lastUsedTime",
   RegisterTime = "registerTime"
+}
+
+/**
+ * <p> A revision for an AWS Lambda or Amazon ECS deployment that is a YAML-formatted or
+ *             JSON-formatted string. For AWS Lambda and Amazon ECS deployments, the revision is the
+ *             same as the AppSpec file. This method replaces the deprecated <code>RawString</code>
+ *             data type. </p>
+ */
+export interface AppSpecContent {
+  __type?: "AppSpecContent";
+  /**
+   * <p> The YAML-formatted or JSON-formatted revision string. </p>
+   *         <p> For an AWS Lambda deployment, the content includes a Lambda function name, the alias
+   *             for its original version, and the alias for its replacement version. The deployment
+   *             shifts traffic from the original version of the Lambda function to the replacement
+   *             version. </p>
+   *         <p> For an Amazon ECS deployment, the content includes the task name, information about
+   *             the load balancer that serves traffic to the container, and more. </p>
+   *         <p> For both types of deployments, the content can specify Lambda functions that run at
+   *             specified hooks, such as <code>BeforeInstall</code>, during a deployment. </p>
+   */
+  content?: string;
+
+  /**
+   * <p> The SHA256 hash value of the revision content. </p>
+   */
+  sha256?: string;
+}
+
+export namespace AppSpecContent {
+  export const filterSensitiveLog = (obj: AppSpecContent): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AppSpecContent =>
+    __isa(o, "AppSpecContent");
 }
 
 /**
@@ -583,6 +583,44 @@ export namespace BatchGetDeploymentInstancesOutput {
     __isa(o, "BatchGetDeploymentInstancesOutput");
 }
 
+/**
+ * <p> Represents the input of a BatchGetDeployments operation. </p>
+ */
+export interface BatchGetDeploymentsInput {
+  __type?: "BatchGetDeploymentsInput";
+  /**
+   * <p> A list of deployment IDs, separated by spaces. The maximum number of deployment IDs you can specify is 25.</p>
+   */
+  deploymentIds: string[] | undefined;
+}
+
+export namespace BatchGetDeploymentsInput {
+  export const filterSensitiveLog = (obj: BatchGetDeploymentsInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is BatchGetDeploymentsInput =>
+    __isa(o, "BatchGetDeploymentsInput");
+}
+
+/**
+ * <p> Represents the output of a BatchGetDeployments operation. </p>
+ */
+export interface BatchGetDeploymentsOutput {
+  __type?: "BatchGetDeploymentsOutput";
+  /**
+   * <p> Information about the deployments. </p>
+   */
+  deploymentsInfo?: DeploymentInfo[];
+}
+
+export namespace BatchGetDeploymentsOutput {
+  export const filterSensitiveLog = (obj: BatchGetDeploymentsOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is BatchGetDeploymentsOutput =>
+    __isa(o, "BatchGetDeploymentsOutput");
+}
+
 export interface BatchGetDeploymentTargetsInput {
   __type?: "BatchGetDeploymentTargetsInput";
   /**
@@ -660,44 +698,6 @@ export namespace BatchGetDeploymentTargetsOutput {
   });
   export const isa = (o: any): o is BatchGetDeploymentTargetsOutput =>
     __isa(o, "BatchGetDeploymentTargetsOutput");
-}
-
-/**
- * <p> Represents the input of a BatchGetDeployments operation. </p>
- */
-export interface BatchGetDeploymentsInput {
-  __type?: "BatchGetDeploymentsInput";
-  /**
-   * <p> A list of deployment IDs, separated by spaces. The maximum number of deployment IDs you can specify is 25.</p>
-   */
-  deploymentIds: string[] | undefined;
-}
-
-export namespace BatchGetDeploymentsInput {
-  export const filterSensitiveLog = (obj: BatchGetDeploymentsInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is BatchGetDeploymentsInput =>
-    __isa(o, "BatchGetDeploymentsInput");
-}
-
-/**
- * <p> Represents the output of a BatchGetDeployments operation. </p>
- */
-export interface BatchGetDeploymentsOutput {
-  __type?: "BatchGetDeploymentsOutput";
-  /**
-   * <p> Information about the deployments. </p>
-   */
-  deploymentsInfo?: DeploymentInfo[];
-}
-
-export namespace BatchGetDeploymentsOutput {
-  export const filterSensitiveLog = (obj: BatchGetDeploymentsOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is BatchGetDeploymentsOutput =>
-    __isa(o, "BatchGetDeploymentsOutput");
 }
 
 /**
@@ -1525,30 +1525,6 @@ export namespace DeploymentConfigDoesNotExistException {
 }
 
 /**
- * <p>The deployment configuration is still in use.</p>
- */
-export interface DeploymentConfigInUseException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DeploymentConfigInUseException";
-  $fault: "client";
-  /**
-   * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
-   */
-  message?: string;
-}
-
-export namespace DeploymentConfigInUseException {
-  export const filterSensitiveLog = (
-    obj: DeploymentConfigInUseException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeploymentConfigInUseException =>
-    __isa(o, "DeploymentConfigInUseException");
-}
-
-/**
  * <p>Information about a deployment configuration.</p>
  */
 export interface DeploymentConfigInfo {
@@ -1591,6 +1567,30 @@ export namespace DeploymentConfigInfo {
   });
   export const isa = (o: any): o is DeploymentConfigInfo =>
     __isa(o, "DeploymentConfigInfo");
+}
+
+/**
+ * <p>The deployment configuration is still in use.</p>
+ */
+export interface DeploymentConfigInUseException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DeploymentConfigInUseException";
+  $fault: "client";
+  /**
+   * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
+   */
+  message?: string;
+}
+
+export namespace DeploymentConfigInUseException {
+  export const filterSensitiveLog = (
+    obj: DeploymentConfigInUseException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeploymentConfigInUseException =>
+    __isa(o, "DeploymentConfigInUseException");
 }
 
 /**
@@ -5839,71 +5839,6 @@ export namespace ListDeploymentInstancesOutput {
     __isa(o, "ListDeploymentInstancesOutput");
 }
 
-export interface ListDeploymentTargetsInput {
-  __type?: "ListDeploymentTargetsInput";
-  /**
-   * <p> The unique ID of a deployment. </p>
-   */
-  deploymentId?: string;
-
-  /**
-   * <p> A token identifier returned from the previous <code>ListDeploymentTargets</code>
-   *             call. It can be used to return the next set of deployment targets in the list. </p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p> A key used to filter the returned targets. The two valid values are:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                     <code>TargetStatus</code> - A <code>TargetStatus</code> filter string can be <code>Failed</code>, <code>InProgress</code>, <code>Pending</code>,
-   *                     <code>Ready</code>, <code>Skipped</code>, <code>Succeeded</code>, or <code>Unknown</code>.
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>ServerInstanceLabel</code> - A <code>ServerInstanceLabel</code> filter string can be <code>Blue</code> or <code>Green</code>.
-   *                 </p>
-   *             </li>
-   *          </ul>
-   */
-  targetFilters?: { [key: string]: string[] };
-}
-
-export namespace ListDeploymentTargetsInput {
-  export const filterSensitiveLog = (obj: ListDeploymentTargetsInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListDeploymentTargetsInput =>
-    __isa(o, "ListDeploymentTargetsInput");
-}
-
-export interface ListDeploymentTargetsOutput {
-  __type?: "ListDeploymentTargetsOutput";
-  /**
-   * <p> If a large amount of information is returned, a token identifier is also  returned.
-   *             It can be used in a subsequent <code>ListDeploymentTargets</code> call to return the
-   *             next set of deployment targets in the list. </p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p> The unique IDs of deployment targets. </p>
-   */
-  targetIds?: string[];
-}
-
-export namespace ListDeploymentTargetsOutput {
-  export const filterSensitiveLog = (
-    obj: ListDeploymentTargetsOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListDeploymentTargetsOutput =>
-    __isa(o, "ListDeploymentTargetsOutput");
-}
-
 /**
  * <p>Represents the input of a ListDeployments operation.</p>
  */
@@ -6001,6 +5936,71 @@ export namespace ListDeploymentsOutput {
   });
   export const isa = (o: any): o is ListDeploymentsOutput =>
     __isa(o, "ListDeploymentsOutput");
+}
+
+export interface ListDeploymentTargetsInput {
+  __type?: "ListDeploymentTargetsInput";
+  /**
+   * <p> The unique ID of a deployment. </p>
+   */
+  deploymentId?: string;
+
+  /**
+   * <p> A token identifier returned from the previous <code>ListDeploymentTargets</code>
+   *             call. It can be used to return the next set of deployment targets in the list. </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p> A key used to filter the returned targets. The two valid values are:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>TargetStatus</code> - A <code>TargetStatus</code> filter string can be <code>Failed</code>, <code>InProgress</code>, <code>Pending</code>,
+   *                     <code>Ready</code>, <code>Skipped</code>, <code>Succeeded</code>, or <code>Unknown</code>.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>ServerInstanceLabel</code> - A <code>ServerInstanceLabel</code> filter string can be <code>Blue</code> or <code>Green</code>.
+   *                 </p>
+   *             </li>
+   *          </ul>
+   */
+  targetFilters?: { [key: string]: string[] };
+}
+
+export namespace ListDeploymentTargetsInput {
+  export const filterSensitiveLog = (obj: ListDeploymentTargetsInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListDeploymentTargetsInput =>
+    __isa(o, "ListDeploymentTargetsInput");
+}
+
+export interface ListDeploymentTargetsOutput {
+  __type?: "ListDeploymentTargetsOutput";
+  /**
+   * <p> If a large amount of information is returned, a token identifier is also  returned.
+   *             It can be used in a subsequent <code>ListDeploymentTargets</code> call to return the
+   *             next set of deployment targets in the list. </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p> The unique IDs of deployment targets. </p>
+   */
+  targetIds?: string[];
+}
+
+export namespace ListDeploymentTargetsOutput {
+  export const filterSensitiveLog = (
+    obj: ListDeploymentTargetsOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListDeploymentTargetsOutput =>
+    __isa(o, "ListDeploymentTargetsOutput");
 }
 
 /**

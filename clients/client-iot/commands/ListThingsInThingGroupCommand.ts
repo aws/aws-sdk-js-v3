@@ -8,9 +8,9 @@ import {
   ListThingsInThingGroupResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListThingsInThingGroupCommand,
-  serializeAws_restJson1_1ListThingsInThingGroupCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListThingsInThingGroupCommand,
+  serializeAws_restJson1ListThingsInThingGroupCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListThingsInThingGroupCommand extends $Command<
     input: ListThingsInThingGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListThingsInThingGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1ListThingsInThingGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListThingsInThingGroupCommandOutput> {
-    return deserializeAws_restJson1_1ListThingsInThingGroupCommand(
+    return deserializeAws_restJson1ListThingsInThingGroupCommand(
       output,
       context
     );

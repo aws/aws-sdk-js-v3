@@ -8,9 +8,9 @@ import {
   GetEmailTemplateResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetEmailTemplateCommand,
-  serializeAws_restJson1_1GetEmailTemplateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetEmailTemplateCommand,
+  serializeAws_restJson1GetEmailTemplateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetEmailTemplateCommand extends $Command<
     input: GetEmailTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetEmailTemplateCommand(input, context);
+    return serializeAws_restJson1GetEmailTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEmailTemplateCommandOutput> {
-    return deserializeAws_restJson1_1GetEmailTemplateCommand(output, context);
+    return deserializeAws_restJson1GetEmailTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

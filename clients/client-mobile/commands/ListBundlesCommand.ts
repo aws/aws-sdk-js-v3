@@ -5,9 +5,9 @@ import {
 } from "../MobileClient";
 import { ListBundlesRequest, ListBundlesResult } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListBundlesCommand,
-  serializeAws_restJson1_1ListBundlesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListBundlesCommand,
+  serializeAws_restJson1ListBundlesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListBundlesCommand extends $Command<
     input: ListBundlesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListBundlesCommand(input, context);
+    return serializeAws_restJson1ListBundlesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBundlesCommandOutput> {
-    return deserializeAws_restJson1_1ListBundlesCommand(output, context);
+    return deserializeAws_restJson1ListBundlesCommand(output, context);
   }
 
   // Start section: command_body_extra

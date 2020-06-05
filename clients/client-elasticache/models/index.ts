@@ -6,1082 +6,6 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- * <p>Two or more incompatible parameters were specified.</p>
- */
-export interface InvalidParameterCombinationException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidParameterCombinationException";
-  $fault: "client";
-  /**
-   * <p>Two or more parameters that must not be used together were used together.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidParameterCombinationException {
-  export const filterSensitiveLog = (
-    obj: InvalidParameterCombinationException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidParameterCombinationException =>
-    __isa(o, "InvalidParameterCombinationException");
-}
-
-/**
- * <p>The value for a parameter is invalid.</p>
- */
-export interface InvalidParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidParameterValueException";
-  $fault: "client";
-  /**
-   * <p>A parameter value is invalid.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidParameterValueException {
-  export const filterSensitiveLog = (
-    obj: InvalidParameterValueException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidParameterValueException =>
-    __isa(o, "InvalidParameterValueException");
-}
-
-/**
- * <p>The customer has exceeded the allowed rate of API calls.</p>
- */
-export interface APICallRateForCustomerExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "APICallRateForCustomerExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace APICallRateForCustomerExceededFault {
-  export const filterSensitiveLog = (
-    obj: APICallRateForCustomerExceededFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is APICallRateForCustomerExceededFault =>
-    __isa(o, "APICallRateForCustomerExceededFault");
-}
-
-/**
- * <p>The specified Amazon EC2 security group is already authorized for the specified cache security group.</p>
- */
-export interface AuthorizationAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "AuthorizationAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace AuthorizationAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: AuthorizationAlreadyExistsFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AuthorizationAlreadyExistsFault =>
-    __isa(o, "AuthorizationAlreadyExistsFault");
-}
-
-/**
- * <p>The specified Amazon EC2 security group is not authorized for the specified cache security group.</p>
- */
-export interface AuthorizationNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "AuthorizationNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace AuthorizationNotFoundFault {
-  export const filterSensitiveLog = (obj: AuthorizationNotFoundFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AuthorizationNotFoundFault =>
-    __isa(o, "AuthorizationNotFoundFault");
-}
-
-/**
- * <p>You already have a cluster with the given identifier.</p>
- */
-export interface CacheClusterAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CacheClusterAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheClusterAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: CacheClusterAlreadyExistsFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CacheClusterAlreadyExistsFault =>
-    __isa(o, "CacheClusterAlreadyExistsFault");
-}
-
-/**
- * <p>The requested cluster ID does not refer to an existing cluster.</p>
- */
-export interface CacheClusterNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CacheClusterNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheClusterNotFoundFault {
-  export const filterSensitiveLog = (obj: CacheClusterNotFoundFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CacheClusterNotFoundFault =>
-    __isa(o, "CacheClusterNotFoundFault");
-}
-
-/**
- * <p>A cache parameter group with the requested name already exists.</p>
- */
-export interface CacheParameterGroupAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CacheParameterGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheParameterGroupAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: CacheParameterGroupAlreadyExistsFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CacheParameterGroupAlreadyExistsFault =>
-    __isa(o, "CacheParameterGroupAlreadyExistsFault");
-}
-
-/**
- * <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
- */
-export interface CacheParameterGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CacheParameterGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheParameterGroupNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: CacheParameterGroupNotFoundFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CacheParameterGroupNotFoundFault =>
-    __isa(o, "CacheParameterGroupNotFoundFault");
-}
-
-/**
- * <p>The request cannot be processed because it would exceed the maximum number of cache security groups.</p>
- */
-export interface CacheParameterGroupQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CacheParameterGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheParameterGroupQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: CacheParameterGroupQuotaExceededFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CacheParameterGroupQuotaExceededFault =>
-    __isa(o, "CacheParameterGroupQuotaExceededFault");
-}
-
-/**
- * <p>A cache security group with the specified name already exists.</p>
- */
-export interface CacheSecurityGroupAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CacheSecurityGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheSecurityGroupAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: CacheSecurityGroupAlreadyExistsFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CacheSecurityGroupAlreadyExistsFault =>
-    __isa(o, "CacheSecurityGroupAlreadyExistsFault");
-}
-
-/**
- * <p>The requested cache security group name does not refer to an existing cache security group.</p>
- */
-export interface CacheSecurityGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CacheSecurityGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheSecurityGroupNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: CacheSecurityGroupNotFoundFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CacheSecurityGroupNotFoundFault =>
-    __isa(o, "CacheSecurityGroupNotFoundFault");
-}
-
-/**
- * <p>The request cannot be processed because it would exceed the allowed number of cache security groups.</p>
- */
-export interface CacheSecurityGroupQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CacheSecurityGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheSecurityGroupQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: CacheSecurityGroupQuotaExceededFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CacheSecurityGroupQuotaExceededFault =>
-    __isa(o, "CacheSecurityGroupQuotaExceededFault");
-}
-
-/**
- * <p>The requested cache subnet group name is already in use by an existing cache subnet group.</p>
- */
-export interface CacheSubnetGroupAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CacheSubnetGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheSubnetGroupAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: CacheSubnetGroupAlreadyExistsFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CacheSubnetGroupAlreadyExistsFault =>
-    __isa(o, "CacheSubnetGroupAlreadyExistsFault");
-}
-
-/**
- * <p>The requested cache subnet group is currently in use.</p>
- */
-export interface CacheSubnetGroupInUse
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CacheSubnetGroupInUse";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheSubnetGroupInUse {
-  export const filterSensitiveLog = (obj: CacheSubnetGroupInUse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CacheSubnetGroupInUse =>
-    __isa(o, "CacheSubnetGroupInUse");
-}
-
-/**
- * <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
- */
-export interface CacheSubnetGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CacheSubnetGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheSubnetGroupNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: CacheSubnetGroupNotFoundFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CacheSubnetGroupNotFoundFault =>
-    __isa(o, "CacheSubnetGroupNotFoundFault");
-}
-
-/**
- * <p>The request cannot be processed because it would exceed the allowed number of cache subnet groups.</p>
- */
-export interface CacheSubnetGroupQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CacheSubnetGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheSubnetGroupQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: CacheSubnetGroupQuotaExceededFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CacheSubnetGroupQuotaExceededFault =>
-    __isa(o, "CacheSubnetGroupQuotaExceededFault");
-}
-
-/**
- * <p>The request cannot be processed because it would exceed the allowed number of subnets in a cache subnet group.</p>
- */
-export interface CacheSubnetQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CacheSubnetQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheSubnetQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: CacheSubnetQuotaExceededFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CacheSubnetQuotaExceededFault =>
-    __isa(o, "CacheSubnetQuotaExceededFault");
-}
-
-/**
- * <p>The request cannot be processed because it would exceed the allowed number of clusters per customer.</p>
- */
-export interface ClusterQuotaForCustomerExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ClusterQuotaForCustomerExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterQuotaForCustomerExceededFault {
-  export const filterSensitiveLog = (
-    obj: ClusterQuotaForCustomerExceededFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ClusterQuotaForCustomerExceededFault =>
-    __isa(o, "ClusterQuotaForCustomerExceededFault");
-}
-
-/**
- * <p>The requested cache node type is not available in the specified Availability Zone.
- *             For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
- */
-export interface InsufficientCacheClusterCapacityFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InsufficientCacheClusterCapacityFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InsufficientCacheClusterCapacityFault {
-  export const filterSensitiveLog = (
-    obj: InsufficientCacheClusterCapacityFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InsufficientCacheClusterCapacityFault =>
-    __isa(o, "InsufficientCacheClusterCapacityFault");
-}
-
-/**
- * <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
- */
-export interface InvalidARNFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidARNFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidARNFault {
-  export const filterSensitiveLog = (obj: InvalidARNFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidARNFault =>
-    __isa(o, "InvalidARNFault");
-}
-
-/**
- * <p>The requested cluster is not in the <code>available</code> state.</p>
- */
-export interface InvalidCacheClusterStateFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidCacheClusterStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidCacheClusterStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidCacheClusterStateFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidCacheClusterStateFault =>
-    __isa(o, "InvalidCacheClusterStateFault");
-}
-
-/**
- * <p>The current state of the cache parameter group does not allow the requested operation to occur.</p>
- */
-export interface InvalidCacheParameterGroupStateFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidCacheParameterGroupStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidCacheParameterGroupStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidCacheParameterGroupStateFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidCacheParameterGroupStateFault =>
-    __isa(o, "InvalidCacheParameterGroupStateFault");
-}
-
-/**
- * <p>The current state of the cache security group does not allow deletion.</p>
- */
-export interface InvalidCacheSecurityGroupStateFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidCacheSecurityGroupStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidCacheSecurityGroupStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidCacheSecurityGroupStateFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidCacheSecurityGroupStateFault =>
-    __isa(o, "InvalidCacheSecurityGroupStateFault");
-}
-
-/**
- * <p>The KMS key supplied is not valid.</p>
- */
-export interface InvalidKMSKeyFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidKMSKeyFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidKMSKeyFault {
-  export const filterSensitiveLog = (obj: InvalidKMSKeyFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidKMSKeyFault =>
-    __isa(o, "InvalidKMSKeyFault");
-}
-
-/**
- * <p>The requested replication group is not in the <code>available</code> state.</p>
- */
-export interface InvalidReplicationGroupStateFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidReplicationGroupStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidReplicationGroupStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidReplicationGroupStateFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidReplicationGroupStateFault =>
-    __isa(o, "InvalidReplicationGroupStateFault");
-}
-
-/**
- * <p>The current state of the snapshot does not allow the requested operation to occur.</p>
- */
-export interface InvalidSnapshotStateFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidSnapshotStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidSnapshotStateFault {
-  export const filterSensitiveLog = (obj: InvalidSnapshotStateFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidSnapshotStateFault =>
-    __isa(o, "InvalidSnapshotStateFault");
-}
-
-/**
- * <p>An invalid subnet identifier was specified.</p>
- */
-export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
-  name: "InvalidSubnet";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidSubnet {
-  export const filterSensitiveLog = (obj: InvalidSubnet): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidSubnet => __isa(o, "InvalidSubnet");
-}
-
-/**
- * <p>The VPC network is in an invalid state.</p>
- */
-export interface InvalidVPCNetworkStateFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidVPCNetworkStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidVPCNetworkStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidVPCNetworkStateFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidVPCNetworkStateFault =>
-    __isa(o, "InvalidVPCNetworkStateFault");
-}
-
-/**
- * <p>The operation was not performed because no changes were required.</p>
- */
-export interface NoOperationFault extends __SmithyException, $MetadataBearer {
-  name: "NoOperationFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NoOperationFault {
-  export const filterSensitiveLog = (obj: NoOperationFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NoOperationFault =>
-    __isa(o, "NoOperationFault");
-}
-
-/**
- * <p>The node group specified by the <code>NodeGroupId</code> parameter could not be found.
- *             Please verify that the node group exists and that you spelled the <code>NodeGroupId</code> value correctly.</p>
- */
-export interface NodeGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "NodeGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NodeGroupNotFoundFault {
-  export const filterSensitiveLog = (obj: NodeGroupNotFoundFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NodeGroupNotFoundFault =>
-    __isa(o, "NodeGroupNotFoundFault");
-}
-
-/**
- * <p>The request cannot be processed because it would exceed the maximum allowed number
- *             of node groups (shards) in a single replication group. The default maximum is 90</p>
- */
-export interface NodeGroupsPerReplicationGroupQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "NodeGroupsPerReplicationGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NodeGroupsPerReplicationGroupQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: NodeGroupsPerReplicationGroupQuotaExceededFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is NodeGroupsPerReplicationGroupQuotaExceededFault =>
-    __isa(o, "NodeGroupsPerReplicationGroupQuotaExceededFault");
-}
-
-/**
- * <p>The request cannot be processed because it would exceed the allowed number of cache nodes in a single cluster.</p>
- */
-export interface NodeQuotaForClusterExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "NodeQuotaForClusterExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NodeQuotaForClusterExceededFault {
-  export const filterSensitiveLog = (
-    obj: NodeQuotaForClusterExceededFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NodeQuotaForClusterExceededFault =>
-    __isa(o, "NodeQuotaForClusterExceededFault");
-}
-
-/**
- * <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
- */
-export interface NodeQuotaForCustomerExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "NodeQuotaForCustomerExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NodeQuotaForCustomerExceededFault {
-  export const filterSensitiveLog = (
-    obj: NodeQuotaForCustomerExceededFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NodeQuotaForCustomerExceededFault =>
-    __isa(o, "NodeQuotaForCustomerExceededFault");
-}
-
-/**
- * <p>The specified replication group already exists.</p>
- */
-export interface ReplicationGroupAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ReplicationGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReplicationGroupAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: ReplicationGroupAlreadyExistsFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ReplicationGroupAlreadyExistsFault =>
-    __isa(o, "ReplicationGroupAlreadyExistsFault");
-}
-
-/**
- * <p>The targeted replication group is not available. </p>
- */
-export interface ReplicationGroupAlreadyUnderMigrationFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ReplicationGroupAlreadyUnderMigrationFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReplicationGroupAlreadyUnderMigrationFault {
-  export const filterSensitiveLog = (
-    obj: ReplicationGroupAlreadyUnderMigrationFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is ReplicationGroupAlreadyUnderMigrationFault =>
-    __isa(o, "ReplicationGroupAlreadyUnderMigrationFault");
-}
-
-/**
- * <p>The specified replication group does not exist.</p>
- */
-export interface ReplicationGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ReplicationGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReplicationGroupNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: ReplicationGroupNotFoundFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ReplicationGroupNotFoundFault =>
-    __isa(o, "ReplicationGroupNotFoundFault");
-}
-
-/**
- * <p>The designated replication group is not available for data migration.</p>
- */
-export interface ReplicationGroupNotUnderMigrationFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ReplicationGroupNotUnderMigrationFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReplicationGroupNotUnderMigrationFault {
-  export const filterSensitiveLog = (
-    obj: ReplicationGroupNotUnderMigrationFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ReplicationGroupNotUnderMigrationFault =>
-    __isa(o, "ReplicationGroupNotUnderMigrationFault");
-}
-
-/**
- * <p>You already have a reservation with the given identifier.</p>
- */
-export interface ReservedCacheNodeAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ReservedCacheNodeAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReservedCacheNodeAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: ReservedCacheNodeAlreadyExistsFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ReservedCacheNodeAlreadyExistsFault =>
-    __isa(o, "ReservedCacheNodeAlreadyExistsFault");
-}
-
-/**
- * <p>The requested reserved cache node was not found.</p>
- */
-export interface ReservedCacheNodeNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ReservedCacheNodeNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReservedCacheNodeNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: ReservedCacheNodeNotFoundFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ReservedCacheNodeNotFoundFault =>
-    __isa(o, "ReservedCacheNodeNotFoundFault");
-}
-
-/**
- * <p>The request cannot be processed because it would exceed the user's cache node quota.</p>
- */
-export interface ReservedCacheNodeQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ReservedCacheNodeQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReservedCacheNodeQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: ReservedCacheNodeQuotaExceededFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ReservedCacheNodeQuotaExceededFault =>
-    __isa(o, "ReservedCacheNodeQuotaExceededFault");
-}
-
-/**
- * <p>The requested cache node offering does not exist.</p>
- */
-export interface ReservedCacheNodesOfferingNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ReservedCacheNodesOfferingNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReservedCacheNodesOfferingNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: ReservedCacheNodesOfferingNotFoundFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ReservedCacheNodesOfferingNotFoundFault =>
-    __isa(o, "ReservedCacheNodesOfferingNotFoundFault");
-}
-
-/**
- * <p>The specified service linked role (SLR) was not found.</p>
- */
-export interface ServiceLinkedRoleNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ServiceLinkedRoleNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ServiceLinkedRoleNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: ServiceLinkedRoleNotFoundFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ServiceLinkedRoleNotFoundFault =>
-    __isa(o, "ServiceLinkedRoleNotFoundFault");
-}
-
-/**
- * <p>The service update doesn't exist</p>
- */
-export interface ServiceUpdateNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ServiceUpdateNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ServiceUpdateNotFoundFault {
-  export const filterSensitiveLog = (obj: ServiceUpdateNotFoundFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ServiceUpdateNotFoundFault =>
-    __isa(o, "ServiceUpdateNotFoundFault");
-}
-
-/**
- * <p>You already have a snapshot with the given name.</p>
- */
-export interface SnapshotAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "SnapshotAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SnapshotAlreadyExistsFault {
-  export const filterSensitiveLog = (obj: SnapshotAlreadyExistsFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SnapshotAlreadyExistsFault =>
-    __isa(o, "SnapshotAlreadyExistsFault");
-}
-
-/**
- * <p>You attempted one of the following operations:</p>
- *         <ul>
- *             <li>
- *                <p>Creating a snapshot of a Redis cluster running on a <code>cache.t1.micro</code> cache
- *                     node.</p>
- *             </li>
- *             <li>
- *                <p>Creating a snapshot of a cluster that is running Memcached rather than Redis.</p>
- *             </li>
- *          </ul>
- *         <p>Neither of these are supported by ElastiCache.</p>
- */
-export interface SnapshotFeatureNotSupportedFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "SnapshotFeatureNotSupportedFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SnapshotFeatureNotSupportedFault {
-  export const filterSensitiveLog = (
-    obj: SnapshotFeatureNotSupportedFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SnapshotFeatureNotSupportedFault =>
-    __isa(o, "SnapshotFeatureNotSupportedFault");
-}
-
-/**
- * <p>The requested snapshot name does not refer to an existing snapshot.</p>
- */
-export interface SnapshotNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "SnapshotNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SnapshotNotFoundFault {
-  export const filterSensitiveLog = (obj: SnapshotNotFoundFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SnapshotNotFoundFault =>
-    __isa(o, "SnapshotNotFoundFault");
-}
-
-/**
- * <p>The request cannot be processed because it would exceed the maximum number of snapshots.</p>
- */
-export interface SnapshotQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "SnapshotQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SnapshotQuotaExceededFault {
-  export const filterSensitiveLog = (obj: SnapshotQuotaExceededFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SnapshotQuotaExceededFault =>
-    __isa(o, "SnapshotQuotaExceededFault");
-}
-
-/**
- * <p>The requested subnet is being used by another cache subnet group.</p>
- */
-export interface SubnetInUse extends __SmithyException, $MetadataBearer {
-  name: "SubnetInUse";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SubnetInUse {
-  export const filterSensitiveLog = (obj: SubnetInUse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SubnetInUse => __isa(o, "SubnetInUse");
-}
-
-/**
- * <p>The requested tag was not found on this resource.</p>
- */
-export interface TagNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "TagNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace TagNotFoundFault {
-  export const filterSensitiveLog = (obj: TagNotFoundFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TagNotFoundFault =>
-    __isa(o, "TagNotFoundFault");
-}
-
-/**
- * <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
- */
-export interface TagQuotaPerResourceExceeded
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TagQuotaPerResourceExceeded";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace TagQuotaPerResourceExceeded {
-  export const filterSensitiveLog = (
-    obj: TagQuotaPerResourceExceeded
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TagQuotaPerResourceExceeded =>
-    __isa(o, "TagQuotaPerResourceExceeded");
-}
-
-/**
- * <p>The <code>TestFailover</code> action is not available.</p>
- */
-export interface TestFailoverNotAvailableFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TestFailoverNotAvailableFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace TestFailoverNotAvailableFault {
-  export const filterSensitiveLog = (
-    obj: TestFailoverNotAvailableFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TestFailoverNotAvailableFault =>
-    __isa(o, "TestFailoverNotAvailableFault");
-}
-
-export enum AZMode {
-  CROSS_AZ = "cross-az",
-  SINGLE_AZ = "single-az"
-}
-
-/**
  * <p>Represents the input of an AddTagsToResource operation.</p>
  */
 export interface AddTagsToResourceMessage {
@@ -1144,9 +68,66 @@ export namespace AllowedNodeTypeModificationsMessage {
     __isa(o, "AllowedNodeTypeModificationsMessage");
 }
 
-export type AuthTokenUpdateStatus = "ROTATING" | "SETTING";
+/**
+ * <p>The customer has exceeded the allowed rate of API calls.</p>
+ */
+export interface APICallRateForCustomerExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "APICallRateForCustomerExceededFault";
+  $fault: "client";
+  message?: string;
+}
 
-export type AuthTokenUpdateStrategyType = "ROTATE" | "SET";
+export namespace APICallRateForCustomerExceededFault {
+  export const filterSensitiveLog = (
+    obj: APICallRateForCustomerExceededFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is APICallRateForCustomerExceededFault =>
+    __isa(o, "APICallRateForCustomerExceededFault");
+}
+
+/**
+ * <p>The specified Amazon EC2 security group is already authorized for the specified cache security group.</p>
+ */
+export interface AuthorizationAlreadyExistsFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "AuthorizationAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace AuthorizationAlreadyExistsFault {
+  export const filterSensitiveLog = (
+    obj: AuthorizationAlreadyExistsFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AuthorizationAlreadyExistsFault =>
+    __isa(o, "AuthorizationAlreadyExistsFault");
+}
+
+/**
+ * <p>The specified Amazon EC2 security group is not authorized for the specified cache security group.</p>
+ */
+export interface AuthorizationNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "AuthorizationNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace AuthorizationNotFoundFault {
+  export const filterSensitiveLog = (obj: AuthorizationNotFoundFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AuthorizationNotFoundFault =>
+    __isa(o, "AuthorizationNotFoundFault");
+}
 
 /**
  * <p>Represents the input of an AuthorizeCacheSecurityGroupIngress operation.</p>
@@ -1216,6 +197,10 @@ export namespace AuthorizeCacheSecurityGroupIngressResult {
     __isa(o, "AuthorizeCacheSecurityGroupIngressResult");
 }
 
+export type AuthTokenUpdateStatus = "ROTATING" | "SETTING";
+
+export type AuthTokenUpdateStrategyType = "ROTATE" | "SET";
+
 export enum AutomaticFailoverStatus {
   DISABLED = "disabled",
   DISABLING = "disabling",
@@ -1240,6 +225,11 @@ export namespace AvailabilityZone {
   });
   export const isa = (o: any): o is AvailabilityZone =>
     __isa(o, "AvailabilityZone");
+}
+
+export enum AZMode {
+  CROSS_AZ = "cross-az",
+  SINGLE_AZ = "single-az"
 }
 
 export interface BatchApplyUpdateActionMessage {
@@ -1698,6 +688,27 @@ export namespace CacheCluster {
 }
 
 /**
+ * <p>You already have a cluster with the given identifier.</p>
+ */
+export interface CacheClusterAlreadyExistsFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CacheClusterAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheClusterAlreadyExistsFault {
+  export const filterSensitiveLog = (
+    obj: CacheClusterAlreadyExistsFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CacheClusterAlreadyExistsFault =>
+    __isa(o, "CacheClusterAlreadyExistsFault");
+}
+
+/**
  * <p>Represents the output of a <code>DescribeCacheClusters</code> operation.</p>
  */
 export interface CacheClusterMessage {
@@ -1719,6 +730,25 @@ export namespace CacheClusterMessage {
   });
   export const isa = (o: any): o is CacheClusterMessage =>
     __isa(o, "CacheClusterMessage");
+}
+
+/**
+ * <p>The requested cluster ID does not refer to an existing cluster.</p>
+ */
+export interface CacheClusterNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CacheClusterNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheClusterNotFoundFault {
+  export const filterSensitiveLog = (obj: CacheClusterNotFoundFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CacheClusterNotFoundFault =>
+    __isa(o, "CacheClusterNotFoundFault");
 }
 
 /**
@@ -2192,6 +1222,27 @@ export namespace CacheParameterGroup {
 }
 
 /**
+ * <p>A cache parameter group with the requested name already exists.</p>
+ */
+export interface CacheParameterGroupAlreadyExistsFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CacheParameterGroupAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheParameterGroupAlreadyExistsFault {
+  export const filterSensitiveLog = (
+    obj: CacheParameterGroupAlreadyExistsFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CacheParameterGroupAlreadyExistsFault =>
+    __isa(o, "CacheParameterGroupAlreadyExistsFault");
+}
+
+/**
  * <p>Represents the output of a <code>DescribeCacheParameters</code> operation.</p>
  */
 export interface CacheParameterGroupDetails {
@@ -2255,33 +1306,45 @@ export namespace CacheParameterGroupNameMessage {
 }
 
 /**
- * <p>Status of the cache parameter group.</p>
+ * <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
  */
-export interface CacheParameterGroupStatus {
-  __type?: "CacheParameterGroupStatus";
-  /**
-   * <p>A list of the cache node IDs which need to be rebooted for parameter changes to be applied.
-   *             A node ID is a numeric identifier (0001, 0002, etc.).</p>
-   */
-  CacheNodeIdsToReboot?: string[];
-
-  /**
-   * <p>The name of the cache parameter group.</p>
-   */
-  CacheParameterGroupName?: string;
-
-  /**
-   * <p>The status of parameter updates.</p>
-   */
-  ParameterApplyStatus?: string;
+export interface CacheParameterGroupNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CacheParameterGroupNotFoundFault";
+  $fault: "client";
+  message?: string;
 }
 
-export namespace CacheParameterGroupStatus {
-  export const filterSensitiveLog = (obj: CacheParameterGroupStatus): any => ({
+export namespace CacheParameterGroupNotFoundFault {
+  export const filterSensitiveLog = (
+    obj: CacheParameterGroupNotFoundFault
+  ): any => ({
     ...obj
   });
-  export const isa = (o: any): o is CacheParameterGroupStatus =>
-    __isa(o, "CacheParameterGroupStatus");
+  export const isa = (o: any): o is CacheParameterGroupNotFoundFault =>
+    __isa(o, "CacheParameterGroupNotFoundFault");
+}
+
+/**
+ * <p>The request cannot be processed because it would exceed the maximum number of cache security groups.</p>
+ */
+export interface CacheParameterGroupQuotaExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CacheParameterGroupQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheParameterGroupQuotaExceededFault {
+  export const filterSensitiveLog = (
+    obj: CacheParameterGroupQuotaExceededFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CacheParameterGroupQuotaExceededFault =>
+    __isa(o, "CacheParameterGroupQuotaExceededFault");
 }
 
 /**
@@ -2309,6 +1372,36 @@ export namespace CacheParameterGroupsMessage {
   });
   export const isa = (o: any): o is CacheParameterGroupsMessage =>
     __isa(o, "CacheParameterGroupsMessage");
+}
+
+/**
+ * <p>Status of the cache parameter group.</p>
+ */
+export interface CacheParameterGroupStatus {
+  __type?: "CacheParameterGroupStatus";
+  /**
+   * <p>A list of the cache node IDs which need to be rebooted for parameter changes to be applied.
+   *             A node ID is a numeric identifier (0001, 0002, etc.).</p>
+   */
+  CacheNodeIdsToReboot?: string[];
+
+  /**
+   * <p>The name of the cache parameter group.</p>
+   */
+  CacheParameterGroupName?: string;
+
+  /**
+   * <p>The status of parameter updates.</p>
+   */
+  ParameterApplyStatus?: string;
+}
+
+export namespace CacheParameterGroupStatus {
+  export const filterSensitiveLog = (obj: CacheParameterGroupStatus): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CacheParameterGroupStatus =>
+    __isa(o, "CacheParameterGroupStatus");
 }
 
 /**
@@ -2363,6 +1456,27 @@ export namespace CacheSecurityGroup {
 }
 
 /**
+ * <p>A cache security group with the specified name already exists.</p>
+ */
+export interface CacheSecurityGroupAlreadyExistsFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CacheSecurityGroupAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheSecurityGroupAlreadyExistsFault {
+  export const filterSensitiveLog = (
+    obj: CacheSecurityGroupAlreadyExistsFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CacheSecurityGroupAlreadyExistsFault =>
+    __isa(o, "CacheSecurityGroupAlreadyExistsFault");
+}
+
+/**
  * <p>Represents a cluster's status within a particular cache security group.</p>
  */
 export interface CacheSecurityGroupMembership {
@@ -2413,6 +1527,48 @@ export namespace CacheSecurityGroupMessage {
 }
 
 /**
+ * <p>The requested cache security group name does not refer to an existing cache security group.</p>
+ */
+export interface CacheSecurityGroupNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CacheSecurityGroupNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheSecurityGroupNotFoundFault {
+  export const filterSensitiveLog = (
+    obj: CacheSecurityGroupNotFoundFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CacheSecurityGroupNotFoundFault =>
+    __isa(o, "CacheSecurityGroupNotFoundFault");
+}
+
+/**
+ * <p>The request cannot be processed because it would exceed the allowed number of cache security groups.</p>
+ */
+export interface CacheSecurityGroupQuotaExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CacheSecurityGroupQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheSecurityGroupQuotaExceededFault {
+  export const filterSensitiveLog = (
+    obj: CacheSecurityGroupQuotaExceededFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CacheSecurityGroupQuotaExceededFault =>
+    __isa(o, "CacheSecurityGroupQuotaExceededFault");
+}
+
+/**
  * <p>Represents the output of one of the following operations:</p>
  *         <ul>
  *             <li>
@@ -2459,6 +1615,46 @@ export namespace CacheSubnetGroup {
 }
 
 /**
+ * <p>The requested cache subnet group name is already in use by an existing cache subnet group.</p>
+ */
+export interface CacheSubnetGroupAlreadyExistsFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CacheSubnetGroupAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheSubnetGroupAlreadyExistsFault {
+  export const filterSensitiveLog = (
+    obj: CacheSubnetGroupAlreadyExistsFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CacheSubnetGroupAlreadyExistsFault =>
+    __isa(o, "CacheSubnetGroupAlreadyExistsFault");
+}
+
+/**
+ * <p>The requested cache subnet group is currently in use.</p>
+ */
+export interface CacheSubnetGroupInUse
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CacheSubnetGroupInUse";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheSubnetGroupInUse {
+  export const filterSensitiveLog = (obj: CacheSubnetGroupInUse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CacheSubnetGroupInUse =>
+    __isa(o, "CacheSubnetGroupInUse");
+}
+
+/**
  * <p>Represents the output of a <code>DescribeCacheSubnetGroups</code> operation.</p>
  */
 export interface CacheSubnetGroupMessage {
@@ -2482,7 +1678,91 @@ export namespace CacheSubnetGroupMessage {
     __isa(o, "CacheSubnetGroupMessage");
 }
 
+/**
+ * <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
+ */
+export interface CacheSubnetGroupNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CacheSubnetGroupNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheSubnetGroupNotFoundFault {
+  export const filterSensitiveLog = (
+    obj: CacheSubnetGroupNotFoundFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CacheSubnetGroupNotFoundFault =>
+    __isa(o, "CacheSubnetGroupNotFoundFault");
+}
+
+/**
+ * <p>The request cannot be processed because it would exceed the allowed number of cache subnet groups.</p>
+ */
+export interface CacheSubnetGroupQuotaExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CacheSubnetGroupQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheSubnetGroupQuotaExceededFault {
+  export const filterSensitiveLog = (
+    obj: CacheSubnetGroupQuotaExceededFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CacheSubnetGroupQuotaExceededFault =>
+    __isa(o, "CacheSubnetGroupQuotaExceededFault");
+}
+
+/**
+ * <p>The request cannot be processed because it would exceed the allowed number of subnets in a cache subnet group.</p>
+ */
+export interface CacheSubnetQuotaExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CacheSubnetQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheSubnetQuotaExceededFault {
+  export const filterSensitiveLog = (
+    obj: CacheSubnetQuotaExceededFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CacheSubnetQuotaExceededFault =>
+    __isa(o, "CacheSubnetQuotaExceededFault");
+}
+
 export type ChangeType = "immediate" | "requires-reboot";
+
+/**
+ * <p>The request cannot be processed because it would exceed the allowed number of clusters per customer.</p>
+ */
+export interface ClusterQuotaForCustomerExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ClusterQuotaForCustomerExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterQuotaForCustomerExceededFault {
+  export const filterSensitiveLog = (
+    obj: ClusterQuotaForCustomerExceededFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ClusterQuotaForCustomerExceededFault =>
+    __isa(o, "ClusterQuotaForCustomerExceededFault");
+}
 
 export interface CompleteMigrationMessage {
   __type?: "CompleteMigrationMessage";
@@ -5508,6 +4788,250 @@ export namespace IncreaseReplicaCountResult {
 }
 
 /**
+ * <p>The requested cache node type is not available in the specified Availability Zone.
+ *             For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ */
+export interface InsufficientCacheClusterCapacityFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InsufficientCacheClusterCapacityFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InsufficientCacheClusterCapacityFault {
+  export const filterSensitiveLog = (
+    obj: InsufficientCacheClusterCapacityFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InsufficientCacheClusterCapacityFault =>
+    __isa(o, "InsufficientCacheClusterCapacityFault");
+}
+
+/**
+ * <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ */
+export interface InvalidARNFault extends __SmithyException, $MetadataBearer {
+  name: "InvalidARNFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidARNFault {
+  export const filterSensitiveLog = (obj: InvalidARNFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidARNFault =>
+    __isa(o, "InvalidARNFault");
+}
+
+/**
+ * <p>The requested cluster is not in the <code>available</code> state.</p>
+ */
+export interface InvalidCacheClusterStateFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidCacheClusterStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidCacheClusterStateFault {
+  export const filterSensitiveLog = (
+    obj: InvalidCacheClusterStateFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidCacheClusterStateFault =>
+    __isa(o, "InvalidCacheClusterStateFault");
+}
+
+/**
+ * <p>The current state of the cache parameter group does not allow the requested operation to occur.</p>
+ */
+export interface InvalidCacheParameterGroupStateFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidCacheParameterGroupStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidCacheParameterGroupStateFault {
+  export const filterSensitiveLog = (
+    obj: InvalidCacheParameterGroupStateFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidCacheParameterGroupStateFault =>
+    __isa(o, "InvalidCacheParameterGroupStateFault");
+}
+
+/**
+ * <p>The current state of the cache security group does not allow deletion.</p>
+ */
+export interface InvalidCacheSecurityGroupStateFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidCacheSecurityGroupStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidCacheSecurityGroupStateFault {
+  export const filterSensitiveLog = (
+    obj: InvalidCacheSecurityGroupStateFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidCacheSecurityGroupStateFault =>
+    __isa(o, "InvalidCacheSecurityGroupStateFault");
+}
+
+/**
+ * <p>The KMS key supplied is not valid.</p>
+ */
+export interface InvalidKMSKeyFault extends __SmithyException, $MetadataBearer {
+  name: "InvalidKMSKeyFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidKMSKeyFault {
+  export const filterSensitiveLog = (obj: InvalidKMSKeyFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidKMSKeyFault =>
+    __isa(o, "InvalidKMSKeyFault");
+}
+
+/**
+ * <p>Two or more incompatible parameters were specified.</p>
+ */
+export interface InvalidParameterCombinationException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidParameterCombinationException";
+  $fault: "client";
+  /**
+   * <p>Two or more parameters that must not be used together were used together.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidParameterCombinationException {
+  export const filterSensitiveLog = (
+    obj: InvalidParameterCombinationException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidParameterCombinationException =>
+    __isa(o, "InvalidParameterCombinationException");
+}
+
+/**
+ * <p>The value for a parameter is invalid.</p>
+ */
+export interface InvalidParameterValueException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidParameterValueException";
+  $fault: "client";
+  /**
+   * <p>A parameter value is invalid.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidParameterValueException {
+  export const filterSensitiveLog = (
+    obj: InvalidParameterValueException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidParameterValueException =>
+    __isa(o, "InvalidParameterValueException");
+}
+
+/**
+ * <p>The requested replication group is not in the <code>available</code> state.</p>
+ */
+export interface InvalidReplicationGroupStateFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidReplicationGroupStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidReplicationGroupStateFault {
+  export const filterSensitiveLog = (
+    obj: InvalidReplicationGroupStateFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidReplicationGroupStateFault =>
+    __isa(o, "InvalidReplicationGroupStateFault");
+}
+
+/**
+ * <p>The current state of the snapshot does not allow the requested operation to occur.</p>
+ */
+export interface InvalidSnapshotStateFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidSnapshotStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidSnapshotStateFault {
+  export const filterSensitiveLog = (obj: InvalidSnapshotStateFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidSnapshotStateFault =>
+    __isa(o, "InvalidSnapshotStateFault");
+}
+
+/**
+ * <p>An invalid subnet identifier was specified.</p>
+ */
+export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
+  name: "InvalidSubnet";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidSubnet {
+  export const filterSensitiveLog = (obj: InvalidSubnet): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidSubnet => __isa(o, "InvalidSubnet");
+}
+
+/**
+ * <p>The VPC network is in an invalid state.</p>
+ */
+export interface InvalidVPCNetworkStateFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidVPCNetworkStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidVPCNetworkStateFault {
+  export const filterSensitiveLog = (
+    obj: InvalidVPCNetworkStateFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidVPCNetworkStateFault =>
+    __isa(o, "InvalidVPCNetworkStateFault");
+}
+
+/**
  * <p>The input parameters for the <code>ListAllowedNodeTypeModifications</code> operation.</p>
  */
 export interface ListAllowedNodeTypeModificationsMessage {
@@ -6577,6 +6101,50 @@ export namespace NodeGroupMemberUpdateStatus {
 }
 
 /**
+ * <p>The node group specified by the <code>NodeGroupId</code> parameter could not be found.
+ *             Please verify that the node group exists and that you spelled the <code>NodeGroupId</code> value correctly.</p>
+ */
+export interface NodeGroupNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "NodeGroupNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NodeGroupNotFoundFault {
+  export const filterSensitiveLog = (obj: NodeGroupNotFoundFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NodeGroupNotFoundFault =>
+    __isa(o, "NodeGroupNotFoundFault");
+}
+
+/**
+ * <p>The request cannot be processed because it would exceed the maximum allowed number
+ *             of node groups (shards) in a single replication group. The default maximum is 90</p>
+ */
+export interface NodeGroupsPerReplicationGroupQuotaExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "NodeGroupsPerReplicationGroupQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NodeGroupsPerReplicationGroupQuotaExceededFault {
+  export const filterSensitiveLog = (
+    obj: NodeGroupsPerReplicationGroupQuotaExceededFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is NodeGroupsPerReplicationGroupQuotaExceededFault =>
+    __isa(o, "NodeGroupsPerReplicationGroupQuotaExceededFault");
+}
+
+/**
  * <p>The status of the service update on the node group </p>
  */
 export interface NodeGroupUpdateStatus {
@@ -6598,6 +6166,48 @@ export namespace NodeGroupUpdateStatus {
   });
   export const isa = (o: any): o is NodeGroupUpdateStatus =>
     __isa(o, "NodeGroupUpdateStatus");
+}
+
+/**
+ * <p>The request cannot be processed because it would exceed the allowed number of cache nodes in a single cluster.</p>
+ */
+export interface NodeQuotaForClusterExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "NodeQuotaForClusterExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NodeQuotaForClusterExceededFault {
+  export const filterSensitiveLog = (
+    obj: NodeQuotaForClusterExceededFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NodeQuotaForClusterExceededFault =>
+    __isa(o, "NodeQuotaForClusterExceededFault");
+}
+
+/**
+ * <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
+ */
+export interface NodeQuotaForCustomerExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "NodeQuotaForCustomerExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NodeQuotaForCustomerExceededFault {
+  export const filterSensitiveLog = (
+    obj: NodeQuotaForCustomerExceededFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NodeQuotaForCustomerExceededFault =>
+    __isa(o, "NodeQuotaForCustomerExceededFault");
 }
 
 /**
@@ -6660,6 +6270,23 @@ export enum NodeUpdateStatus {
   STOPPED = "stopped",
   STOPPING = "stopping",
   WAITING_TO_START = "waiting-to-start"
+}
+
+/**
+ * <p>The operation was not performed because no changes were required.</p>
+ */
+export interface NoOperationFault extends __SmithyException, $MetadataBearer {
+  name: "NoOperationFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NoOperationFault {
+  export const filterSensitiveLog = (obj: NoOperationFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NoOperationFault =>
+    __isa(o, "NoOperationFault");
 }
 
 /**
@@ -7173,6 +6800,50 @@ export namespace ReplicationGroup {
 }
 
 /**
+ * <p>The specified replication group already exists.</p>
+ */
+export interface ReplicationGroupAlreadyExistsFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ReplicationGroupAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReplicationGroupAlreadyExistsFault {
+  export const filterSensitiveLog = (
+    obj: ReplicationGroupAlreadyExistsFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ReplicationGroupAlreadyExistsFault =>
+    __isa(o, "ReplicationGroupAlreadyExistsFault");
+}
+
+/**
+ * <p>The targeted replication group is not available. </p>
+ */
+export interface ReplicationGroupAlreadyUnderMigrationFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ReplicationGroupAlreadyUnderMigrationFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReplicationGroupAlreadyUnderMigrationFault {
+  export const filterSensitiveLog = (
+    obj: ReplicationGroupAlreadyUnderMigrationFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is ReplicationGroupAlreadyUnderMigrationFault =>
+    __isa(o, "ReplicationGroupAlreadyUnderMigrationFault");
+}
+
+/**
  * <p>Represents the output of a <code>DescribeReplicationGroups</code> operation.</p>
  */
 export interface ReplicationGroupMessage {
@@ -7194,6 +6865,48 @@ export namespace ReplicationGroupMessage {
   });
   export const isa = (o: any): o is ReplicationGroupMessage =>
     __isa(o, "ReplicationGroupMessage");
+}
+
+/**
+ * <p>The specified replication group does not exist.</p>
+ */
+export interface ReplicationGroupNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ReplicationGroupNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReplicationGroupNotFoundFault {
+  export const filterSensitiveLog = (
+    obj: ReplicationGroupNotFoundFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ReplicationGroupNotFoundFault =>
+    __isa(o, "ReplicationGroupNotFoundFault");
+}
+
+/**
+ * <p>The designated replication group is not available for data migration.</p>
+ */
+export interface ReplicationGroupNotUnderMigrationFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ReplicationGroupNotUnderMigrationFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReplicationGroupNotUnderMigrationFault {
+  export const filterSensitiveLog = (
+    obj: ReplicationGroupNotUnderMigrationFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ReplicationGroupNotUnderMigrationFault =>
+    __isa(o, "ReplicationGroupNotUnderMigrationFault");
 }
 
 /**
@@ -7490,6 +7203,27 @@ export namespace ReservedCacheNode {
 }
 
 /**
+ * <p>You already have a reservation with the given identifier.</p>
+ */
+export interface ReservedCacheNodeAlreadyExistsFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ReservedCacheNodeAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReservedCacheNodeAlreadyExistsFault {
+  export const filterSensitiveLog = (
+    obj: ReservedCacheNodeAlreadyExistsFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ReservedCacheNodeAlreadyExistsFault =>
+    __isa(o, "ReservedCacheNodeAlreadyExistsFault");
+}
+
+/**
  * <p>Represents the output of a <code>DescribeReservedCacheNodes</code> operation.</p>
  */
 export interface ReservedCacheNodeMessage {
@@ -7511,6 +7245,48 @@ export namespace ReservedCacheNodeMessage {
   });
   export const isa = (o: any): o is ReservedCacheNodeMessage =>
     __isa(o, "ReservedCacheNodeMessage");
+}
+
+/**
+ * <p>The requested reserved cache node was not found.</p>
+ */
+export interface ReservedCacheNodeNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ReservedCacheNodeNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReservedCacheNodeNotFoundFault {
+  export const filterSensitiveLog = (
+    obj: ReservedCacheNodeNotFoundFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ReservedCacheNodeNotFoundFault =>
+    __isa(o, "ReservedCacheNodeNotFoundFault");
+}
+
+/**
+ * <p>The request cannot be processed because it would exceed the user's cache node quota.</p>
+ */
+export interface ReservedCacheNodeQuotaExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ReservedCacheNodeQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReservedCacheNodeQuotaExceededFault {
+  export const filterSensitiveLog = (
+    obj: ReservedCacheNodeQuotaExceededFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ReservedCacheNodeQuotaExceededFault =>
+    __isa(o, "ReservedCacheNodeQuotaExceededFault");
 }
 
 /**
@@ -7755,6 +7531,27 @@ export namespace ReservedCacheNodesOfferingMessage {
 }
 
 /**
+ * <p>The requested cache node offering does not exist.</p>
+ */
+export interface ReservedCacheNodesOfferingNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ReservedCacheNodesOfferingNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReservedCacheNodesOfferingNotFoundFault {
+  export const filterSensitiveLog = (
+    obj: ReservedCacheNodesOfferingNotFoundFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ReservedCacheNodesOfferingNotFoundFault =>
+    __isa(o, "ReservedCacheNodesOfferingNotFoundFault");
+}
+
+/**
  * <p>Represents the input of a <code>ResetCacheParameterGroup</code> operation.</p>
  */
 export interface ResetCacheParameterGroupMessage {
@@ -7934,6 +7731,27 @@ export namespace SecurityGroupMembership {
 }
 
 /**
+ * <p>The specified service linked role (SLR) was not found.</p>
+ */
+export interface ServiceLinkedRoleNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ServiceLinkedRoleNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ServiceLinkedRoleNotFoundFault {
+  export const filterSensitiveLog = (
+    obj: ServiceLinkedRoleNotFoundFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ServiceLinkedRoleNotFoundFault =>
+    __isa(o, "ServiceLinkedRoleNotFoundFault");
+}
+
+/**
  * <p>An update that you can apply to your Redis clusters.</p>
  */
 export interface ServiceUpdate {
@@ -8006,21 +7824,30 @@ export namespace ServiceUpdate {
   export const isa = (o: any): o is ServiceUpdate => __isa(o, "ServiceUpdate");
 }
 
+/**
+ * <p>The service update doesn't exist</p>
+ */
+export interface ServiceUpdateNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ServiceUpdateNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ServiceUpdateNotFoundFault {
+  export const filterSensitiveLog = (obj: ServiceUpdateNotFoundFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ServiceUpdateNotFoundFault =>
+    __isa(o, "ServiceUpdateNotFoundFault");
+}
+
 export enum ServiceUpdateSeverity {
   CRITICAL = "critical",
   IMPORTANT = "important",
   LOW = "low",
   MEDIUM = "medium"
-}
-
-export enum ServiceUpdateStatus {
-  AVAILABLE = "available",
-  CANCELLED = "cancelled",
-  EXPIRED = "expired"
-}
-
-export enum ServiceUpdateType {
-  SECURITY_UPDATE = "security-update"
 }
 
 export interface ServiceUpdatesMessage {
@@ -8045,6 +7872,16 @@ export namespace ServiceUpdatesMessage {
   });
   export const isa = (o: any): o is ServiceUpdatesMessage =>
     __isa(o, "ServiceUpdatesMessage");
+}
+
+export enum ServiceUpdateStatus {
+  AVAILABLE = "available",
+  CANCELLED = "cancelled",
+  EXPIRED = "expired"
+}
+
+export enum ServiceUpdateType {
+  SECURITY_UPDATE = "security-update"
 }
 
 export enum SlaMet {
@@ -8442,6 +8279,94 @@ export namespace Snapshot {
   export const isa = (o: any): o is Snapshot => __isa(o, "Snapshot");
 }
 
+/**
+ * <p>You already have a snapshot with the given name.</p>
+ */
+export interface SnapshotAlreadyExistsFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "SnapshotAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SnapshotAlreadyExistsFault {
+  export const filterSensitiveLog = (obj: SnapshotAlreadyExistsFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SnapshotAlreadyExistsFault =>
+    __isa(o, "SnapshotAlreadyExistsFault");
+}
+
+/**
+ * <p>You attempted one of the following operations:</p>
+ *         <ul>
+ *             <li>
+ *                <p>Creating a snapshot of a Redis cluster running on a <code>cache.t1.micro</code> cache
+ *                     node.</p>
+ *             </li>
+ *             <li>
+ *                <p>Creating a snapshot of a cluster that is running Memcached rather than Redis.</p>
+ *             </li>
+ *          </ul>
+ *         <p>Neither of these are supported by ElastiCache.</p>
+ */
+export interface SnapshotFeatureNotSupportedFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "SnapshotFeatureNotSupportedFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SnapshotFeatureNotSupportedFault {
+  export const filterSensitiveLog = (
+    obj: SnapshotFeatureNotSupportedFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SnapshotFeatureNotSupportedFault =>
+    __isa(o, "SnapshotFeatureNotSupportedFault");
+}
+
+/**
+ * <p>The requested snapshot name does not refer to an existing snapshot.</p>
+ */
+export interface SnapshotNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "SnapshotNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SnapshotNotFoundFault {
+  export const filterSensitiveLog = (obj: SnapshotNotFoundFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SnapshotNotFoundFault =>
+    __isa(o, "SnapshotNotFoundFault");
+}
+
+/**
+ * <p>The request cannot be processed because it would exceed the maximum number of snapshots.</p>
+ */
+export interface SnapshotQuotaExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "SnapshotQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SnapshotQuotaExceededFault {
+  export const filterSensitiveLog = (obj: SnapshotQuotaExceededFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SnapshotQuotaExceededFault =>
+    __isa(o, "SnapshotQuotaExceededFault");
+}
+
 export type SourceType =
   | "cache-cluster"
   | "cache-parameter-group"
@@ -8511,6 +8436,22 @@ export namespace Subnet {
 }
 
 /**
+ * <p>The requested subnet is being used by another cache subnet group.</p>
+ */
+export interface SubnetInUse extends __SmithyException, $MetadataBearer {
+  name: "SubnetInUse";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SubnetInUse {
+  export const filterSensitiveLog = (obj: SubnetInUse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SubnetInUse => __isa(o, "SubnetInUse");
+}
+
+/**
  * <p>A cost allocation Tag that can be added to an ElastiCache cluster or replication group.
  *             Tags are composed of a Key/Value pair. A tag with a null Value is permitted.</p>
  */
@@ -8554,6 +8495,44 @@ export namespace TagListMessage {
     __isa(o, "TagListMessage");
 }
 
+/**
+ * <p>The requested tag was not found on this resource.</p>
+ */
+export interface TagNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "TagNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace TagNotFoundFault {
+  export const filterSensitiveLog = (obj: TagNotFoundFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TagNotFoundFault =>
+    __isa(o, "TagNotFoundFault");
+}
+
+/**
+ * <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+ */
+export interface TagQuotaPerResourceExceeded
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TagQuotaPerResourceExceeded";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace TagQuotaPerResourceExceeded {
+  export const filterSensitiveLog = (
+    obj: TagQuotaPerResourceExceeded
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TagQuotaPerResourceExceeded =>
+    __isa(o, "TagQuotaPerResourceExceeded");
+}
+
 export interface TestFailoverMessage {
   __type?: "TestFailoverMessage";
   /**
@@ -8576,6 +8555,27 @@ export namespace TestFailoverMessage {
   });
   export const isa = (o: any): o is TestFailoverMessage =>
     __isa(o, "TestFailoverMessage");
+}
+
+/**
+ * <p>The <code>TestFailover</code> action is not available.</p>
+ */
+export interface TestFailoverNotAvailableFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TestFailoverNotAvailableFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace TestFailoverNotAvailableFault {
+  export const filterSensitiveLog = (
+    obj: TestFailoverNotAvailableFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TestFailoverNotAvailableFault =>
+    __isa(o, "TestFailoverNotAvailableFault");
 }
 
 export interface TestFailoverResult {
@@ -8777,15 +8777,6 @@ export namespace UpdateActionResultsMessage {
     __isa(o, "UpdateActionResultsMessage");
 }
 
-export enum UpdateActionStatus {
-  COMPLETE = "complete",
-  IN_PROGRESS = "in-progress",
-  NOT_APPLIED = "not-applied",
-  STOPPED = "stopped",
-  STOPPING = "stopping",
-  WAITING_TO_START = "waiting-to-start"
-}
-
 export interface UpdateActionsMessage {
   __type?: "UpdateActionsMessage";
   /**
@@ -8808,4 +8799,13 @@ export namespace UpdateActionsMessage {
   });
   export const isa = (o: any): o is UpdateActionsMessage =>
     __isa(o, "UpdateActionsMessage");
+}
+
+export enum UpdateActionStatus {
+  COMPLETE = "complete",
+  IN_PROGRESS = "in-progress",
+  NOT_APPLIED = "not-applied",
+  STOPPED = "stopped",
+  STOPPING = "stopping",
+  WAITING_TO_START = "waiting-to-start"
 }

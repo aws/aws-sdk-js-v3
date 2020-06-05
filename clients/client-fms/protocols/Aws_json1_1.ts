@@ -408,7 +408,7 @@ const deserializeAws_json1_1AssociateAdminAccountCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -419,7 +419,7 @@ const deserializeAws_json1_1AssociateAdminAccountCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -430,7 +430,7 @@ const deserializeAws_json1_1AssociateAdminAccountCommandError = async (
       };
       break;
     case "InvalidOperationException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -441,7 +441,7 @@ const deserializeAws_json1_1AssociateAdminAccountCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -500,7 +500,7 @@ const deserializeAws_json1_1DeleteNotificationChannelCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -511,7 +511,7 @@ const deserializeAws_json1_1DeleteNotificationChannelCommandError = async (
       };
       break;
     case "InvalidOperationException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -522,7 +522,7 @@ const deserializeAws_json1_1DeleteNotificationChannelCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -578,7 +578,7 @@ const deserializeAws_json1_1DeletePolicyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -589,7 +589,7 @@ const deserializeAws_json1_1DeletePolicyCommandError = async (
       };
       break;
     case "InvalidOperationException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -600,7 +600,7 @@ const deserializeAws_json1_1DeletePolicyCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -659,7 +659,7 @@ const deserializeAws_json1_1DisassociateAdminAccountCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -670,7 +670,7 @@ const deserializeAws_json1_1DisassociateAdminAccountCommandError = async (
       };
       break;
     case "InvalidOperationException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -681,7 +681,7 @@ const deserializeAws_json1_1DisassociateAdminAccountCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -741,7 +741,7 @@ const deserializeAws_json1_1GetAdminAccountCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -752,7 +752,7 @@ const deserializeAws_json1_1GetAdminAccountCommandError = async (
       };
       break;
     case "InvalidOperationException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -763,7 +763,7 @@ const deserializeAws_json1_1GetAdminAccountCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -826,7 +826,7 @@ const deserializeAws_json1_1GetComplianceDetailCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -837,7 +837,7 @@ const deserializeAws_json1_1GetComplianceDetailCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -903,7 +903,7 @@ const deserializeAws_json1_1GetNotificationChannelCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -914,7 +914,7 @@ const deserializeAws_json1_1GetNotificationChannelCommandError = async (
       };
       break;
     case "InvalidOperationException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -925,7 +925,7 @@ const deserializeAws_json1_1GetNotificationChannelCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -985,7 +985,7 @@ const deserializeAws_json1_1GetPolicyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -996,7 +996,7 @@ const deserializeAws_json1_1GetPolicyCommandError = async (
       };
       break;
     case "InvalidOperationException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -1007,7 +1007,7 @@ const deserializeAws_json1_1GetPolicyCommandError = async (
       };
       break;
     case "InvalidTypeException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InvalidTypeException":
+    case "com.amazonaws.fms#InvalidTypeException":
       response = {
         ...(await deserializeAws_json1_1InvalidTypeExceptionResponse(
           parsedOutput,
@@ -1018,7 +1018,7 @@ const deserializeAws_json1_1GetPolicyCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1081,7 +1081,7 @@ const deserializeAws_json1_1GetProtectionStatusCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1092,7 +1092,7 @@ const deserializeAws_json1_1GetProtectionStatusCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1103,7 +1103,7 @@ const deserializeAws_json1_1GetProtectionStatusCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1166,7 +1166,7 @@ const deserializeAws_json1_1ListComplianceStatusCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1177,7 +1177,7 @@ const deserializeAws_json1_1ListComplianceStatusCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1240,7 +1240,7 @@ const deserializeAws_json1_1ListMemberAccountsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1251,7 +1251,7 @@ const deserializeAws_json1_1ListMemberAccountsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1311,7 +1311,7 @@ const deserializeAws_json1_1ListPoliciesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1322,7 +1322,7 @@ const deserializeAws_json1_1ListPoliciesCommandError = async (
       };
       break;
     case "InvalidOperationException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -1333,7 +1333,7 @@ const deserializeAws_json1_1ListPoliciesCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.roshi.customerapi.v20180101#LimitExceededException":
+    case "com.amazonaws.fms#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1344,7 +1344,7 @@ const deserializeAws_json1_1ListPoliciesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1407,7 +1407,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1418,7 +1418,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1429,7 +1429,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "InvalidOperationException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -1440,7 +1440,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1499,7 +1499,7 @@ const deserializeAws_json1_1PutNotificationChannelCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1510,7 +1510,7 @@ const deserializeAws_json1_1PutNotificationChannelCommandError = async (
       };
       break;
     case "InvalidOperationException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -1521,7 +1521,7 @@ const deserializeAws_json1_1PutNotificationChannelCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1581,7 +1581,7 @@ const deserializeAws_json1_1PutPolicyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1592,7 +1592,7 @@ const deserializeAws_json1_1PutPolicyCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1603,7 +1603,7 @@ const deserializeAws_json1_1PutPolicyCommandError = async (
       };
       break;
     case "InvalidOperationException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -1614,7 +1614,7 @@ const deserializeAws_json1_1PutPolicyCommandError = async (
       };
       break;
     case "InvalidTypeException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InvalidTypeException":
+    case "com.amazonaws.fms#InvalidTypeException":
       response = {
         ...(await deserializeAws_json1_1InvalidTypeExceptionResponse(
           parsedOutput,
@@ -1625,7 +1625,7 @@ const deserializeAws_json1_1PutPolicyCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.roshi.customerapi.v20180101#LimitExceededException":
+    case "com.amazonaws.fms#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1636,7 +1636,7 @@ const deserializeAws_json1_1PutPolicyCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1696,7 +1696,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1707,7 +1707,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1718,7 +1718,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "InvalidOperationException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -1729,7 +1729,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.roshi.customerapi.v20180101#LimitExceededException":
+    case "com.amazonaws.fms#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1740,7 +1740,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1800,7 +1800,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1811,7 +1811,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1822,7 +1822,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "InvalidOperationException":
-    case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -1833,7 +1833,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,

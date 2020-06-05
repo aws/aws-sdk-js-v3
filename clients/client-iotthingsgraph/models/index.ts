@@ -201,6 +201,34 @@ export namespace CreateSystemTemplateResponse {
     __isa(o, "CreateSystemTemplateResponse");
 }
 
+/**
+ * <p>A document that defines an entity. </p>
+ */
+export interface DefinitionDocument {
+  __type?: "DefinitionDocument";
+  /**
+   * <p>The language used to define the entity. <code>GRAPHQL</code> is the only valid value.</p>
+   */
+  language: DefinitionLanguage | string | undefined;
+
+  /**
+   * <p>The GraphQL text that defines the entity.</p>
+   */
+  text: string | undefined;
+}
+
+export namespace DefinitionDocument {
+  export const filterSensitiveLog = (obj: DefinitionDocument): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DefinitionDocument =>
+    __isa(o, "DefinitionDocument");
+}
+
+export enum DefinitionLanguage {
+  GRAPHQL = "GRAPHQL"
+}
+
 export interface DeleteFlowTemplateRequest {
   __type?: "DeleteFlowTemplateRequest";
   /**
@@ -332,6 +360,35 @@ export namespace DeleteSystemTemplateResponse {
   });
   export const isa = (o: any): o is DeleteSystemTemplateResponse =>
     __isa(o, "DeleteSystemTemplateResponse");
+}
+
+/**
+ * <p>An object that contains the ID and revision number of a workflow or system that is part of a deployment.</p>
+ */
+export interface DependencyRevision {
+  __type?: "DependencyRevision";
+  /**
+   * <p>The ID of the workflow or system.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The revision number of the workflow or system.</p>
+   */
+  revisionNumber?: number;
+}
+
+export namespace DependencyRevision {
+  export const filterSensitiveLog = (obj: DependencyRevision): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DependencyRevision =>
+    __isa(o, "DependencyRevision");
+}
+
+export enum DeploymentTarget {
+  CLOUD = "CLOUD",
+  GREENGRASS = "GREENGRASS"
 }
 
 export interface DeploySystemInstanceRequest {
@@ -538,6 +595,287 @@ export namespace DissociateEntityFromThingResponse {
   });
   export const isa = (o: any): o is DissociateEntityFromThingResponse =>
     __isa(o, "DissociateEntityFromThingResponse");
+}
+
+/**
+ * <p>Describes the properties of an entity.</p>
+ */
+export interface EntityDescription {
+  __type?: "EntityDescription";
+  /**
+   * <p>The entity ARN.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The time at which the entity was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The definition document of the entity.</p>
+   */
+  definition?: DefinitionDocument;
+
+  /**
+   * <p>The entity ID.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The entity type.</p>
+   */
+  type?: EntityType | string;
+}
+
+export namespace EntityDescription {
+  export const filterSensitiveLog = (obj: EntityDescription): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is EntityDescription =>
+    __isa(o, "EntityDescription");
+}
+
+/**
+ * <p>An object that filters an entity search. Multiple filters function as OR criteria in the search. For example a search that includes
+ *       a <code>NAMESPACE</code> and a <code>REFERENCED_ENTITY_ID</code> filter searches for entities in the specified namespace that use the entity specified by
+ *       the value of <code>REFERENCED_ENTITY_ID</code>.</p>
+ */
+export interface EntityFilter {
+  __type?: "EntityFilter";
+  /**
+   * <p>The name of the entity search filter field. <code>REFERENCED_ENTITY_ID</code> filters on entities that are used by the entity in the result set. For example,
+   *          you can filter on the ID of a property that is used in a state.</p>
+   */
+  name?: EntityFilterName | string;
+
+  /**
+   * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
+   */
+  value?: string[];
+}
+
+export namespace EntityFilter {
+  export const filterSensitiveLog = (obj: EntityFilter): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is EntityFilter => __isa(o, "EntityFilter");
+}
+
+export enum EntityFilterName {
+  NAME = "NAME",
+  NAMESPACE = "NAMESPACE",
+  REFERENCED_ENTITY_ID = "REFERENCED_ENTITY_ID",
+  SEMANTIC_TYPE_PATH = "SEMANTIC_TYPE_PATH"
+}
+
+export enum EntityType {
+  ACTION = "ACTION",
+  CAPABILITY = "CAPABILITY",
+  DEVICE = "DEVICE",
+  DEVICE_MODEL = "DEVICE_MODEL",
+  ENUM = "ENUM",
+  EVENT = "EVENT",
+  MAPPING = "MAPPING",
+  PROPERTY = "PROPERTY",
+  SERVICE = "SERVICE",
+  STATE = "STATE"
+}
+
+export enum FlowExecutionEventType {
+  ACKNOWLEDGE_TASK_MESSAGE = "ACKNOWLEDGE_TASK_MESSAGE",
+  ACTIVITY_FAILED = "ACTIVITY_FAILED",
+  ACTIVITY_SCHEDULED = "ACTIVITY_SCHEDULED",
+  ACTIVITY_STARTED = "ACTIVITY_STARTED",
+  ACTIVITY_SUCCEEDED = "ACTIVITY_SUCCEEDED",
+  EXECUTION_ABORTED = "EXECUTION_ABORTED",
+  EXECUTION_FAILED = "EXECUTION_FAILED",
+  EXECUTION_STARTED = "EXECUTION_STARTED",
+  EXECUTION_SUCCEEDED = "EXECUTION_SUCCEEDED",
+  SCHEDULE_NEXT_READY_STEPS_TASK = "SCHEDULE_NEXT_READY_STEPS_TASK",
+  START_FLOW_EXECUTION_TASK = "START_FLOW_EXECUTION_TASK",
+  STEP_FAILED = "STEP_FAILED",
+  STEP_STARTED = "STEP_STARTED",
+  STEP_SUCCEEDED = "STEP_SUCCEEDED",
+  THING_ACTION_TASK = "THING_ACTION_TASK",
+  THING_ACTION_TASK_FAILED = "THING_ACTION_TASK_FAILED",
+  THING_ACTION_TASK_SUCCEEDED = "THING_ACTION_TASK_SUCCEEDED"
+}
+
+/**
+ * <p>An object that contains information about a flow event.</p>
+ */
+export interface FlowExecutionMessage {
+  __type?: "FlowExecutionMessage";
+  /**
+   * <p>The type of flow event .</p>
+   */
+  eventType?: FlowExecutionEventType | string;
+
+  /**
+   * <p>The unique identifier of the message.</p>
+   */
+  messageId?: string;
+
+  /**
+   * <p>A string containing information about the flow event.</p>
+   */
+  payload?: string;
+
+  /**
+   * <p>The date and time when the message was last updated.</p>
+   */
+  timestamp?: Date;
+}
+
+export namespace FlowExecutionMessage {
+  export const filterSensitiveLog = (obj: FlowExecutionMessage): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is FlowExecutionMessage =>
+    __isa(o, "FlowExecutionMessage");
+}
+
+export enum FlowExecutionStatus {
+  ABORTED = "ABORTED",
+  FAILED = "FAILED",
+  RUNNING = "RUNNING",
+  SUCCEEDED = "SUCCEEDED"
+}
+
+/**
+ * <p>An object that contains summary information about a flow execution.</p>
+ */
+export interface FlowExecutionSummary {
+  __type?: "FlowExecutionSummary";
+  /**
+   * <p>The date and time when the flow execution summary was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The ID of the flow execution.</p>
+   */
+  flowExecutionId?: string;
+
+  /**
+   * <p>The ID of the flow.</p>
+   */
+  flowTemplateId?: string;
+
+  /**
+   * <p>The current status of the flow execution.</p>
+   */
+  status?: FlowExecutionStatus | string;
+
+  /**
+   * <p>The ID of the system instance that contains the flow.</p>
+   */
+  systemInstanceId?: string;
+
+  /**
+   * <p>The date and time when the flow execution summary was last updated.</p>
+   */
+  updatedAt?: Date;
+}
+
+export namespace FlowExecutionSummary {
+  export const filterSensitiveLog = (obj: FlowExecutionSummary): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is FlowExecutionSummary =>
+    __isa(o, "FlowExecutionSummary");
+}
+
+/**
+ * <p>An object that contains a workflow's definition and summary information.</p>
+ */
+export interface FlowTemplateDescription {
+  __type?: "FlowTemplateDescription";
+  /**
+   * <p>A workflow's definition document.</p>
+   */
+  definition?: DefinitionDocument;
+
+  /**
+   * <p>An object that contains summary information about a workflow.</p>
+   */
+  summary?: FlowTemplateSummary;
+
+  /**
+   * <p>The version of the user's namespace against which the workflow was validated. Use this value in your system instance.</p>
+   */
+  validatedNamespaceVersion?: number;
+}
+
+export namespace FlowTemplateDescription {
+  export const filterSensitiveLog = (obj: FlowTemplateDescription): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is FlowTemplateDescription =>
+    __isa(o, "FlowTemplateDescription");
+}
+
+/**
+ * <p>An object that filters a workflow search.</p>
+ */
+export interface FlowTemplateFilter {
+  __type?: "FlowTemplateFilter";
+  /**
+   * <p>The name of the search filter field.</p>
+   */
+  name: FlowTemplateFilterName | string | undefined;
+
+  /**
+   * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
+   */
+  value: string[] | undefined;
+}
+
+export namespace FlowTemplateFilter {
+  export const filterSensitiveLog = (obj: FlowTemplateFilter): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is FlowTemplateFilter =>
+    __isa(o, "FlowTemplateFilter");
+}
+
+export enum FlowTemplateFilterName {
+  DEVICE_MODEL_ID = "DEVICE_MODEL_ID"
+}
+
+/**
+ * <p>An object that contains summary information about a workflow.</p>
+ */
+export interface FlowTemplateSummary {
+  __type?: "FlowTemplateSummary";
+  /**
+   * <p>The ARN of the workflow.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The date when the workflow was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The ID of the workflow.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The revision number of the workflow.</p>
+   */
+  revisionNumber?: number;
+}
+
+export namespace FlowTemplateSummary {
+  export const filterSensitiveLog = (obj: FlowTemplateSummary): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is FlowTemplateSummary =>
+    __isa(o, "FlowTemplateSummary");
 }
 
 export interface GetEntitiesRequest {
@@ -923,6 +1261,63 @@ export namespace GetUploadStatusResponse {
     __isa(o, "GetUploadStatusResponse");
 }
 
+/**
+ * <p></p>
+ */
+export interface InternalFailureException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InternalFailureException";
+  $fault: "server";
+  message?: string;
+}
+
+export namespace InternalFailureException {
+  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InternalFailureException =>
+    __isa(o, "InternalFailureException");
+}
+
+/**
+ * <p></p>
+ */
+export interface InvalidRequestException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidRequestException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidRequestException {
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidRequestException =>
+    __isa(o, "InvalidRequestException");
+}
+
+/**
+ * <p></p>
+ */
+export interface LimitExceededException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
+}
+
 export interface ListFlowExecutionMessagesRequest {
   __type?: "ListFlowExecutionMessagesRequest";
   /**
@@ -1021,6 +1416,99 @@ export namespace ListTagsForResourceResponse {
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
+}
+
+/**
+ * <p>An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.</p>
+ */
+export interface MetricsConfiguration {
+  __type?: "MetricsConfiguration";
+  /**
+   * <p>A Boolean that specifies whether cloud metrics are collected.</p>
+   */
+  cloudMetricEnabled?: boolean;
+
+  /**
+   * <p>The ARN of the role that is used to collect cloud metrics.</p>
+   */
+  metricRuleRoleArn?: string;
+}
+
+export namespace MetricsConfiguration {
+  export const filterSensitiveLog = (obj: MetricsConfiguration): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is MetricsConfiguration =>
+    __isa(o, "MetricsConfiguration");
+}
+
+export enum NamespaceDeletionStatus {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  SUCCEEDED = "SUCCEEDED"
+}
+
+export enum NamespaceDeletionStatusErrorCodes {
+  VALIDATION_FAILED = "VALIDATION_FAILED"
+}
+
+/**
+ * <p></p>
+ */
+export interface ResourceAlreadyExistsException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceAlreadyExistsException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceAlreadyExistsException {
+  export const filterSensitiveLog = (
+    obj: ResourceAlreadyExistsException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceAlreadyExistsException =>
+    __isa(o, "ResourceAlreadyExistsException");
+}
+
+/**
+ * <p></p>
+ */
+export interface ResourceInUseException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceInUseException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceInUseException {
+  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceInUseException =>
+    __isa(o, "ResourceInUseException");
+}
+
+/**
+ * <p></p>
+ */
+export interface ResourceNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 export interface SearchEntitiesRequest {
@@ -1359,814 +1847,6 @@ export namespace SearchThingsResponse {
     __isa(o, "SearchThingsResponse");
 }
 
-export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource whose tags are returned.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>A list of tags to add to the resource.></p>
-   */
-  tags: Tag[] | undefined;
-}
-
-export namespace TagResourceRequest {
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
-}
-
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
-
-export namespace TagResourceResponse {
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
-}
-
-export interface UndeploySystemInstanceRequest {
-  __type?: "UndeploySystemInstanceRequest";
-  /**
-   * <p>The ID of the system instance to remove from its target.</p>
-   */
-  id?: string;
-}
-
-export namespace UndeploySystemInstanceRequest {
-  export const filterSensitiveLog = (
-    obj: UndeploySystemInstanceRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UndeploySystemInstanceRequest =>
-    __isa(o, "UndeploySystemInstanceRequest");
-}
-
-export interface UndeploySystemInstanceResponse {
-  __type?: "UndeploySystemInstanceResponse";
-  /**
-   * <p>An object that contains summary information about the system instance that was removed from its target.</p>
-   */
-  summary?: SystemInstanceSummary;
-}
-
-export namespace UndeploySystemInstanceResponse {
-  export const filterSensitiveLog = (
-    obj: UndeploySystemInstanceResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UndeploySystemInstanceResponse =>
-    __isa(o, "UndeploySystemInstanceResponse");
-}
-
-export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource whose tags are to be removed.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed. </p>
-   *          <p>This parameter to the API requires a JSON text string argument. For information on how to format a JSON parameter for the various command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html#cli-using-param-json">Using JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. </p>
-   */
-  tagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
-}
-
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
-
-export namespace UntagResourceResponse {
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
-}
-
-export interface UpdateFlowTemplateRequest {
-  __type?: "UpdateFlowTemplateRequest";
-  /**
-   * <p>The version of the user's namespace.</p>
-   *          <p>If no value is specified, the latest version is used by default. Use the <code>GetFlowTemplateRevisions</code> if you want to find earlier revisions of the flow
-   *       to update.</p>
-   */
-  compatibleNamespaceVersion?: number;
-
-  /**
-   * <p>The <code>DefinitionDocument</code> that contains the updated workflow definition.</p>
-   */
-  definition: DefinitionDocument | undefined;
-
-  /**
-   * <p>The ID of the workflow to be updated.</p>
-   *          <p>The ID should be in the following format.</p>
-   *          <p>
-   *             <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code>
-   *          </p>
-   */
-  id: string | undefined;
-}
-
-export namespace UpdateFlowTemplateRequest {
-  export const filterSensitiveLog = (obj: UpdateFlowTemplateRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateFlowTemplateRequest =>
-    __isa(o, "UpdateFlowTemplateRequest");
-}
-
-export interface UpdateFlowTemplateResponse {
-  __type?: "UpdateFlowTemplateResponse";
-  /**
-   * <p>An object containing summary information about the updated workflow.</p>
-   */
-  summary?: FlowTemplateSummary;
-}
-
-export namespace UpdateFlowTemplateResponse {
-  export const filterSensitiveLog = (obj: UpdateFlowTemplateResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateFlowTemplateResponse =>
-    __isa(o, "UpdateFlowTemplateResponse");
-}
-
-export interface UpdateSystemTemplateRequest {
-  __type?: "UpdateSystemTemplateRequest";
-  /**
-   * <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
-   *          <p>If no value is specified, the latest version is used by default.</p>
-   */
-  compatibleNamespaceVersion?: number;
-
-  /**
-   * <p>The <code>DefinitionDocument</code> that contains the updated system definition.</p>
-   */
-  definition: DefinitionDocument | undefined;
-
-  /**
-   * <p>The ID of the system to be updated.</p>
-   *          <p>The ID should be in the following format.</p>
-   *          <p>
-   *             <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code>
-   *          </p>
-   */
-  id: string | undefined;
-}
-
-export namespace UpdateSystemTemplateRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateSystemTemplateRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateSystemTemplateRequest =>
-    __isa(o, "UpdateSystemTemplateRequest");
-}
-
-export interface UpdateSystemTemplateResponse {
-  __type?: "UpdateSystemTemplateResponse";
-  /**
-   * <p>An object containing summary information about the updated system.</p>
-   */
-  summary?: SystemTemplateSummary;
-}
-
-export namespace UpdateSystemTemplateResponse {
-  export const filterSensitiveLog = (
-    obj: UpdateSystemTemplateResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateSystemTemplateResponse =>
-    __isa(o, "UpdateSystemTemplateResponse");
-}
-
-export interface UploadEntityDefinitionsRequest {
-  __type?: "UploadEntityDefinitionsRequest";
-  /**
-   * <p>A Boolean that specifies whether to deprecate all entities in the latest version before uploading the new <code>DefinitionDocument</code>.
-   *          If set to <code>true</code>, the upload will create a new namespace version.</p>
-   */
-  deprecateExistingEntities?: boolean;
-
-  /**
-   * <p>The <code>DefinitionDocument</code> that defines the updated entities.</p>
-   */
-  document?: DefinitionDocument;
-
-  /**
-   * <p>A Boolean that specifies whether to synchronize with the latest version of the public namespace. If set to <code>true</code>, the upload will create a new namespace version.</p>
-   */
-  syncWithPublicNamespace?: boolean;
-}
-
-export namespace UploadEntityDefinitionsRequest {
-  export const filterSensitiveLog = (
-    obj: UploadEntityDefinitionsRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UploadEntityDefinitionsRequest =>
-    __isa(o, "UploadEntityDefinitionsRequest");
-}
-
-export interface UploadEntityDefinitionsResponse {
-  __type?: "UploadEntityDefinitionsResponse";
-  /**
-   * <p>The ID that specifies the upload action. You can use this to track the status of the upload.</p>
-   */
-  uploadId: string | undefined;
-}
-
-export namespace UploadEntityDefinitionsResponse {
-  export const filterSensitiveLog = (
-    obj: UploadEntityDefinitionsResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UploadEntityDefinitionsResponse =>
-    __isa(o, "UploadEntityDefinitionsResponse");
-}
-
-/**
- * <p>Metadata assigned to an AWS IoT Things Graph resource consisting of a key-value pair.</p>
- */
-export interface Tag {
-  __type?: "Tag";
-  /**
-   * <p>The required name of the tag. The string value can be from 1 to 128 Unicode characters in length.</p>
-   */
-  key: string | undefined;
-
-  /**
-   * <p>The optional value of the tag. The string value can be from 1 to 256 Unicode characters in length.</p>
-   */
-  value: string | undefined;
-}
-
-export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
-}
-
-/**
- * <p>A document that defines an entity. </p>
- */
-export interface DefinitionDocument {
-  __type?: "DefinitionDocument";
-  /**
-   * <p>The language used to define the entity. <code>GRAPHQL</code> is the only valid value.</p>
-   */
-  language: DefinitionLanguage | string | undefined;
-
-  /**
-   * <p>The GraphQL text that defines the entity.</p>
-   */
-  text: string | undefined;
-}
-
-export namespace DefinitionDocument {
-  export const filterSensitiveLog = (obj: DefinitionDocument): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DefinitionDocument =>
-    __isa(o, "DefinitionDocument");
-}
-
-export enum DefinitionLanguage {
-  GRAPHQL = "GRAPHQL"
-}
-
-/**
- * <p></p>
- */
-export interface InternalFailureException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InternalFailureException";
-  $fault: "server";
-  message?: string;
-}
-
-export namespace InternalFailureException {
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InternalFailureException =>
-    __isa(o, "InternalFailureException");
-}
-
-/**
- * <p></p>
- */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidRequestException {
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
-}
-
-/**
- * <p></p>
- */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
-}
-
-/**
- * <p></p>
- */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: ResourceAlreadyExistsException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceAlreadyExistsException =>
-    __isa(o, "ResourceAlreadyExistsException");
-}
-
-/**
- * <p></p>
- */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceInUseException {
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
-}
-
-/**
- * <p></p>
- */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
-}
-
-/**
- * <p></p>
- */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ThrottlingException {
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
-}
-
-/**
- * <p>Describes the properties of an entity.</p>
- */
-export interface EntityDescription {
-  __type?: "EntityDescription";
-  /**
-   * <p>The entity ARN.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The time at which the entity was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>The definition document of the entity.</p>
-   */
-  definition?: DefinitionDocument;
-
-  /**
-   * <p>The entity ID.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>The entity type.</p>
-   */
-  type?: EntityType | string;
-}
-
-export namespace EntityDescription {
-  export const filterSensitiveLog = (obj: EntityDescription): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is EntityDescription =>
-    __isa(o, "EntityDescription");
-}
-
-/**
- * <p>An object that filters an entity search. Multiple filters function as OR criteria in the search. For example a search that includes
- *       a <code>NAMESPACE</code> and a <code>REFERENCED_ENTITY_ID</code> filter searches for entities in the specified namespace that use the entity specified by
- *       the value of <code>REFERENCED_ENTITY_ID</code>.</p>
- */
-export interface EntityFilter {
-  __type?: "EntityFilter";
-  /**
-   * <p>The name of the entity search filter field. <code>REFERENCED_ENTITY_ID</code> filters on entities that are used by the entity in the result set. For example,
-   *          you can filter on the ID of a property that is used in a state.</p>
-   */
-  name?: EntityFilterName | string;
-
-  /**
-   * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
-   */
-  value?: string[];
-}
-
-export namespace EntityFilter {
-  export const filterSensitiveLog = (obj: EntityFilter): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is EntityFilter => __isa(o, "EntityFilter");
-}
-
-export enum EntityFilterName {
-  NAME = "NAME",
-  NAMESPACE = "NAMESPACE",
-  REFERENCED_ENTITY_ID = "REFERENCED_ENTITY_ID",
-  SEMANTIC_TYPE_PATH = "SEMANTIC_TYPE_PATH"
-}
-
-export enum EntityType {
-  ACTION = "ACTION",
-  CAPABILITY = "CAPABILITY",
-  DEVICE = "DEVICE",
-  DEVICE_MODEL = "DEVICE_MODEL",
-  ENUM = "ENUM",
-  EVENT = "EVENT",
-  MAPPING = "MAPPING",
-  PROPERTY = "PROPERTY",
-  SERVICE = "SERVICE",
-  STATE = "STATE"
-}
-
-export enum NamespaceDeletionStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED"
-}
-
-export enum NamespaceDeletionStatusErrorCodes {
-  VALIDATION_FAILED = "VALIDATION_FAILED"
-}
-
-/**
- * <p>An AWS IoT thing.</p>
- */
-export interface Thing {
-  __type?: "Thing";
-  /**
-   * <p>The ARN of the thing.</p>
-   */
-  thingArn?: string;
-
-  /**
-   * <p>The name of the thing.</p>
-   */
-  thingName?: string;
-}
-
-export namespace Thing {
-  export const filterSensitiveLog = (obj: Thing): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Thing => __isa(o, "Thing");
-}
-
-export enum UploadStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED"
-}
-
-/**
- * <p>An object that contains the ID and revision number of a workflow or system that is part of a deployment.</p>
- */
-export interface DependencyRevision {
-  __type?: "DependencyRevision";
-  /**
-   * <p>The ID of the workflow or system.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>The revision number of the workflow or system.</p>
-   */
-  revisionNumber?: number;
-}
-
-export namespace DependencyRevision {
-  export const filterSensitiveLog = (obj: DependencyRevision): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DependencyRevision =>
-    __isa(o, "DependencyRevision");
-}
-
-export enum DeploymentTarget {
-  CLOUD = "CLOUD",
-  GREENGRASS = "GREENGRASS"
-}
-
-export enum FlowExecutionEventType {
-  ACKNOWLEDGE_TASK_MESSAGE = "ACKNOWLEDGE_TASK_MESSAGE",
-  ACTIVITY_FAILED = "ACTIVITY_FAILED",
-  ACTIVITY_SCHEDULED = "ACTIVITY_SCHEDULED",
-  ACTIVITY_STARTED = "ACTIVITY_STARTED",
-  ACTIVITY_SUCCEEDED = "ACTIVITY_SUCCEEDED",
-  EXECUTION_ABORTED = "EXECUTION_ABORTED",
-  EXECUTION_FAILED = "EXECUTION_FAILED",
-  EXECUTION_STARTED = "EXECUTION_STARTED",
-  EXECUTION_SUCCEEDED = "EXECUTION_SUCCEEDED",
-  SCHEDULE_NEXT_READY_STEPS_TASK = "SCHEDULE_NEXT_READY_STEPS_TASK",
-  START_FLOW_EXECUTION_TASK = "START_FLOW_EXECUTION_TASK",
-  STEP_FAILED = "STEP_FAILED",
-  STEP_STARTED = "STEP_STARTED",
-  STEP_SUCCEEDED = "STEP_SUCCEEDED",
-  THING_ACTION_TASK = "THING_ACTION_TASK",
-  THING_ACTION_TASK_FAILED = "THING_ACTION_TASK_FAILED",
-  THING_ACTION_TASK_SUCCEEDED = "THING_ACTION_TASK_SUCCEEDED"
-}
-
-/**
- * <p>An object that contains information about a flow event.</p>
- */
-export interface FlowExecutionMessage {
-  __type?: "FlowExecutionMessage";
-  /**
-   * <p>The type of flow event .</p>
-   */
-  eventType?: FlowExecutionEventType | string;
-
-  /**
-   * <p>The unique identifier of the message.</p>
-   */
-  messageId?: string;
-
-  /**
-   * <p>A string containing information about the flow event.</p>
-   */
-  payload?: string;
-
-  /**
-   * <p>The date and time when the message was last updated.</p>
-   */
-  timestamp?: Date;
-}
-
-export namespace FlowExecutionMessage {
-  export const filterSensitiveLog = (obj: FlowExecutionMessage): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is FlowExecutionMessage =>
-    __isa(o, "FlowExecutionMessage");
-}
-
-export enum FlowExecutionStatus {
-  ABORTED = "ABORTED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED"
-}
-
-/**
- * <p>An object that contains summary information about a flow execution.</p>
- */
-export interface FlowExecutionSummary {
-  __type?: "FlowExecutionSummary";
-  /**
-   * <p>The date and time when the flow execution summary was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>The ID of the flow execution.</p>
-   */
-  flowExecutionId?: string;
-
-  /**
-   * <p>The ID of the flow.</p>
-   */
-  flowTemplateId?: string;
-
-  /**
-   * <p>The current status of the flow execution.</p>
-   */
-  status?: FlowExecutionStatus | string;
-
-  /**
-   * <p>The ID of the system instance that contains the flow.</p>
-   */
-  systemInstanceId?: string;
-
-  /**
-   * <p>The date and time when the flow execution summary was last updated.</p>
-   */
-  updatedAt?: Date;
-}
-
-export namespace FlowExecutionSummary {
-  export const filterSensitiveLog = (obj: FlowExecutionSummary): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is FlowExecutionSummary =>
-    __isa(o, "FlowExecutionSummary");
-}
-
-/**
- * <p>An object that contains a workflow's definition and summary information.</p>
- */
-export interface FlowTemplateDescription {
-  __type?: "FlowTemplateDescription";
-  /**
-   * <p>A workflow's definition document.</p>
-   */
-  definition?: DefinitionDocument;
-
-  /**
-   * <p>An object that contains summary information about a workflow.</p>
-   */
-  summary?: FlowTemplateSummary;
-
-  /**
-   * <p>The version of the user's namespace against which the workflow was validated. Use this value in your system instance.</p>
-   */
-  validatedNamespaceVersion?: number;
-}
-
-export namespace FlowTemplateDescription {
-  export const filterSensitiveLog = (obj: FlowTemplateDescription): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is FlowTemplateDescription =>
-    __isa(o, "FlowTemplateDescription");
-}
-
-/**
- * <p>An object that filters a workflow search.</p>
- */
-export interface FlowTemplateFilter {
-  __type?: "FlowTemplateFilter";
-  /**
-   * <p>The name of the search filter field.</p>
-   */
-  name: FlowTemplateFilterName | string | undefined;
-
-  /**
-   * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
-   */
-  value: string[] | undefined;
-}
-
-export namespace FlowTemplateFilter {
-  export const filterSensitiveLog = (obj: FlowTemplateFilter): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is FlowTemplateFilter =>
-    __isa(o, "FlowTemplateFilter");
-}
-
-export enum FlowTemplateFilterName {
-  DEVICE_MODEL_ID = "DEVICE_MODEL_ID"
-}
-
-/**
- * <p>An object that contains summary information about a workflow.</p>
- */
-export interface FlowTemplateSummary {
-  __type?: "FlowTemplateSummary";
-  /**
-   * <p>The ARN of the workflow.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The date when the workflow was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>The ID of the workflow.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>The revision number of the workflow.</p>
-   */
-  revisionNumber?: number;
-}
-
-export namespace FlowTemplateSummary {
-  export const filterSensitiveLog = (obj: FlowTemplateSummary): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is FlowTemplateSummary =>
-    __isa(o, "FlowTemplateSummary");
-}
-
-/**
- * <p>An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.</p>
- */
-export interface MetricsConfiguration {
-  __type?: "MetricsConfiguration";
-  /**
-   * <p>A Boolean that specifies whether cloud metrics are collected.</p>
-   */
-  cloudMetricEnabled?: boolean;
-
-  /**
-   * <p>The ARN of the role that is used to collect cloud metrics.</p>
-   */
-  metricRuleRoleArn?: string;
-}
-
-export namespace MetricsConfiguration {
-  export const filterSensitiveLog = (obj: MetricsConfiguration): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is MetricsConfiguration =>
-    __isa(o, "MetricsConfiguration");
-}
-
 export enum SystemInstanceDeploymentStatus {
   BOOTSTRAP = "BOOTSTRAP",
   DELETED_IN_TARGET = "DELETED_IN_TARGET",
@@ -2411,4 +2091,324 @@ export namespace SystemTemplateSummary {
   });
   export const isa = (o: any): o is SystemTemplateSummary =>
     __isa(o, "SystemTemplateSummary");
+}
+
+/**
+ * <p>Metadata assigned to an AWS IoT Things Graph resource consisting of a key-value pair.</p>
+ */
+export interface Tag {
+  __type?: "Tag";
+  /**
+   * <p>The required name of the tag. The string value can be from 1 to 128 Unicode characters in length.</p>
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The optional value of the tag. The string value can be from 1 to 256 Unicode characters in length.</p>
+   */
+  value: string | undefined;
+}
+
+export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
+}
+
+export interface TagResourceRequest {
+  __type?: "TagResourceRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource whose tags are returned.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>A list of tags to add to the resource.></p>
+   */
+  tags: Tag[] | undefined;
+}
+
+export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TagResourceRequest =>
+    __isa(o, "TagResourceRequest");
+}
+
+export interface TagResourceResponse {
+  __type?: "TagResourceResponse";
+}
+
+export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TagResourceResponse =>
+    __isa(o, "TagResourceResponse");
+}
+
+/**
+ * <p>An AWS IoT thing.</p>
+ */
+export interface Thing {
+  __type?: "Thing";
+  /**
+   * <p>The ARN of the thing.</p>
+   */
+  thingArn?: string;
+
+  /**
+   * <p>The name of the thing.</p>
+   */
+  thingName?: string;
+}
+
+export namespace Thing {
+  export const filterSensitiveLog = (obj: Thing): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Thing => __isa(o, "Thing");
+}
+
+/**
+ * <p></p>
+ */
+export interface ThrottlingException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ThrottlingException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
+}
+
+export interface UndeploySystemInstanceRequest {
+  __type?: "UndeploySystemInstanceRequest";
+  /**
+   * <p>The ID of the system instance to remove from its target.</p>
+   */
+  id?: string;
+}
+
+export namespace UndeploySystemInstanceRequest {
+  export const filterSensitiveLog = (
+    obj: UndeploySystemInstanceRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UndeploySystemInstanceRequest =>
+    __isa(o, "UndeploySystemInstanceRequest");
+}
+
+export interface UndeploySystemInstanceResponse {
+  __type?: "UndeploySystemInstanceResponse";
+  /**
+   * <p>An object that contains summary information about the system instance that was removed from its target.</p>
+   */
+  summary?: SystemInstanceSummary;
+}
+
+export namespace UndeploySystemInstanceResponse {
+  export const filterSensitiveLog = (
+    obj: UndeploySystemInstanceResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UndeploySystemInstanceResponse =>
+    __isa(o, "UndeploySystemInstanceResponse");
+}
+
+export interface UntagResourceRequest {
+  __type?: "UntagResourceRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource whose tags are to be removed.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed. </p>
+   *          <p>This parameter to the API requires a JSON text string argument. For information on how to format a JSON parameter for the various command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html#cli-using-param-json">Using JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. </p>
+   */
+  tagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UntagResourceRequest =>
+    __isa(o, "UntagResourceRequest");
+}
+
+export interface UntagResourceResponse {
+  __type?: "UntagResourceResponse";
+}
+
+export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UntagResourceResponse =>
+    __isa(o, "UntagResourceResponse");
+}
+
+export interface UpdateFlowTemplateRequest {
+  __type?: "UpdateFlowTemplateRequest";
+  /**
+   * <p>The version of the user's namespace.</p>
+   *          <p>If no value is specified, the latest version is used by default. Use the <code>GetFlowTemplateRevisions</code> if you want to find earlier revisions of the flow
+   *       to update.</p>
+   */
+  compatibleNamespaceVersion?: number;
+
+  /**
+   * <p>The <code>DefinitionDocument</code> that contains the updated workflow definition.</p>
+   */
+  definition: DefinitionDocument | undefined;
+
+  /**
+   * <p>The ID of the workflow to be updated.</p>
+   *          <p>The ID should be in the following format.</p>
+   *          <p>
+   *             <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code>
+   *          </p>
+   */
+  id: string | undefined;
+}
+
+export namespace UpdateFlowTemplateRequest {
+  export const filterSensitiveLog = (obj: UpdateFlowTemplateRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateFlowTemplateRequest =>
+    __isa(o, "UpdateFlowTemplateRequest");
+}
+
+export interface UpdateFlowTemplateResponse {
+  __type?: "UpdateFlowTemplateResponse";
+  /**
+   * <p>An object containing summary information about the updated workflow.</p>
+   */
+  summary?: FlowTemplateSummary;
+}
+
+export namespace UpdateFlowTemplateResponse {
+  export const filterSensitiveLog = (obj: UpdateFlowTemplateResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateFlowTemplateResponse =>
+    __isa(o, "UpdateFlowTemplateResponse");
+}
+
+export interface UpdateSystemTemplateRequest {
+  __type?: "UpdateSystemTemplateRequest";
+  /**
+   * <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
+   *          <p>If no value is specified, the latest version is used by default.</p>
+   */
+  compatibleNamespaceVersion?: number;
+
+  /**
+   * <p>The <code>DefinitionDocument</code> that contains the updated system definition.</p>
+   */
+  definition: DefinitionDocument | undefined;
+
+  /**
+   * <p>The ID of the system to be updated.</p>
+   *          <p>The ID should be in the following format.</p>
+   *          <p>
+   *             <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code>
+   *          </p>
+   */
+  id: string | undefined;
+}
+
+export namespace UpdateSystemTemplateRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateSystemTemplateRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateSystemTemplateRequest =>
+    __isa(o, "UpdateSystemTemplateRequest");
+}
+
+export interface UpdateSystemTemplateResponse {
+  __type?: "UpdateSystemTemplateResponse";
+  /**
+   * <p>An object containing summary information about the updated system.</p>
+   */
+  summary?: SystemTemplateSummary;
+}
+
+export namespace UpdateSystemTemplateResponse {
+  export const filterSensitiveLog = (
+    obj: UpdateSystemTemplateResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateSystemTemplateResponse =>
+    __isa(o, "UpdateSystemTemplateResponse");
+}
+
+export interface UploadEntityDefinitionsRequest {
+  __type?: "UploadEntityDefinitionsRequest";
+  /**
+   * <p>A Boolean that specifies whether to deprecate all entities in the latest version before uploading the new <code>DefinitionDocument</code>.
+   *          If set to <code>true</code>, the upload will create a new namespace version.</p>
+   */
+  deprecateExistingEntities?: boolean;
+
+  /**
+   * <p>The <code>DefinitionDocument</code> that defines the updated entities.</p>
+   */
+  document?: DefinitionDocument;
+
+  /**
+   * <p>A Boolean that specifies whether to synchronize with the latest version of the public namespace. If set to <code>true</code>, the upload will create a new namespace version.</p>
+   */
+  syncWithPublicNamespace?: boolean;
+}
+
+export namespace UploadEntityDefinitionsRequest {
+  export const filterSensitiveLog = (
+    obj: UploadEntityDefinitionsRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UploadEntityDefinitionsRequest =>
+    __isa(o, "UploadEntityDefinitionsRequest");
+}
+
+export interface UploadEntityDefinitionsResponse {
+  __type?: "UploadEntityDefinitionsResponse";
+  /**
+   * <p>The ID that specifies the upload action. You can use this to track the status of the upload.</p>
+   */
+  uploadId: string | undefined;
+}
+
+export namespace UploadEntityDefinitionsResponse {
+  export const filterSensitiveLog = (
+    obj: UploadEntityDefinitionsResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UploadEntityDefinitionsResponse =>
+    __isa(o, "UploadEntityDefinitionsResponse");
+}
+
+export enum UploadStatus {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  SUCCEEDED = "SUCCEEDED"
 }

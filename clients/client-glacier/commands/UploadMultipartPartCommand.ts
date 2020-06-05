@@ -8,9 +8,9 @@ import {
   UploadMultipartPartOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UploadMultipartPartCommand,
-  serializeAws_restJson1_1UploadMultipartPartCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UploadMultipartPartCommand,
+  serializeAws_restJson1UploadMultipartPartCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -79,17 +79,14 @@ export class UploadMultipartPartCommand extends $Command<
     input: UploadMultipartPartCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UploadMultipartPartCommand(input, context);
+    return serializeAws_restJson1UploadMultipartPartCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UploadMultipartPartCommandOutput> {
-    return deserializeAws_restJson1_1UploadMultipartPartCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UploadMultipartPartCommand(output, context);
   }
 
   // Start section: command_body_extra

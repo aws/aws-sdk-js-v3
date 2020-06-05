@@ -8,9 +8,9 @@ import {
   CreateIntentVersionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateIntentVersionCommand,
-  serializeAws_restJson1_1CreateIntentVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateIntentVersionCommand,
+  serializeAws_restJson1CreateIntentVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class CreateIntentVersionCommand extends $Command<
     input: CreateIntentVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateIntentVersionCommand(input, context);
+    return serializeAws_restJson1CreateIntentVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateIntentVersionCommandOutput> {
-    return deserializeAws_restJson1_1CreateIntentVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateIntentVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

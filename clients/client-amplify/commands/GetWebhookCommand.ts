@@ -5,9 +5,9 @@ import {
 } from "../AmplifyClient";
 import { GetWebhookRequest, GetWebhookResult } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetWebhookCommand,
-  serializeAws_restJson1_1GetWebhookCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetWebhookCommand,
+  serializeAws_restJson1GetWebhookCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetWebhookCommand extends $Command<
     input: GetWebhookCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetWebhookCommand(input, context);
+    return serializeAws_restJson1GetWebhookCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetWebhookCommandOutput> {
-    return deserializeAws_restJson1_1GetWebhookCommand(output, context);
+    return deserializeAws_restJson1GetWebhookCommand(output, context);
   }
 
   // Start section: command_body_extra

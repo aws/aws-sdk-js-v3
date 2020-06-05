@@ -8,9 +8,9 @@ import {
   ListPhoneNumbersResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListPhoneNumbersCommand,
-  serializeAws_restJson1_1ListPhoneNumbersCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListPhoneNumbersCommand,
+  serializeAws_restJson1ListPhoneNumbersCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ListPhoneNumbersCommand extends $Command<
     input: ListPhoneNumbersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListPhoneNumbersCommand(input, context);
+    return serializeAws_restJson1ListPhoneNumbersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPhoneNumbersCommandOutput> {
-    return deserializeAws_restJson1_1ListPhoneNumbersCommand(output, context);
+    return deserializeAws_restJson1ListPhoneNumbersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -8,9 +8,9 @@ import {
   DescribeIngestionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeIngestionCommand,
-  serializeAws_restJson1_1DescribeIngestionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeIngestionCommand,
+  serializeAws_restJson1DescribeIngestionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DescribeIngestionCommand extends $Command<
     input: DescribeIngestionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeIngestionCommand(input, context);
+    return serializeAws_restJson1DescribeIngestionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeIngestionCommandOutput> {
-    return deserializeAws_restJson1_1DescribeIngestionCommand(output, context);
+    return deserializeAws_restJson1DescribeIngestionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -8,9 +8,9 @@ import {
   ListJobExecutionsForJobResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListJobExecutionsForJobCommand,
-  serializeAws_restJson1_1ListJobExecutionsForJobCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListJobExecutionsForJobCommand,
+  serializeAws_restJson1ListJobExecutionsForJobCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListJobExecutionsForJobCommand extends $Command<
     input: ListJobExecutionsForJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListJobExecutionsForJobCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1ListJobExecutionsForJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListJobExecutionsForJobCommandOutput> {
-    return deserializeAws_restJson1_1ListJobExecutionsForJobCommand(
+    return deserializeAws_restJson1ListJobExecutionsForJobCommand(
       output,
       context
     );

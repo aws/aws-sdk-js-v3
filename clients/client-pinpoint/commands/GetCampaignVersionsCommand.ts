@@ -8,9 +8,9 @@ import {
   GetCampaignVersionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetCampaignVersionsCommand,
-  serializeAws_restJson1_1GetCampaignVersionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetCampaignVersionsCommand,
+  serializeAws_restJson1GetCampaignVersionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetCampaignVersionsCommand extends $Command<
     input: GetCampaignVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetCampaignVersionsCommand(input, context);
+    return serializeAws_restJson1GetCampaignVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCampaignVersionsCommandOutput> {
-    return deserializeAws_restJson1_1GetCampaignVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetCampaignVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

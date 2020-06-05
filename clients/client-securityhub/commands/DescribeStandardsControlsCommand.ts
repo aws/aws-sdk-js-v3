@@ -8,9 +8,9 @@ import {
   DescribeStandardsControlsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeStandardsControlsCommand,
-  serializeAws_restJson1_1DescribeStandardsControlsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeStandardsControlsCommand,
+  serializeAws_restJson1DescribeStandardsControlsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeStandardsControlsCommand extends $Command<
     input: DescribeStandardsControlsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeStandardsControlsCommand(
+    return serializeAws_restJson1DescribeStandardsControlsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeStandardsControlsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStandardsControlsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeStandardsControlsCommand(
+    return deserializeAws_restJson1DescribeStandardsControlsCommand(
       output,
       context
     );

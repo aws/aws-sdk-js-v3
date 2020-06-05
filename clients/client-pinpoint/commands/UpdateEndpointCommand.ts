@@ -5,9 +5,9 @@ import {
 } from "../PinpointClient";
 import { UpdateEndpointRequest, UpdateEndpointResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateEndpointCommand,
-  serializeAws_restJson1_1UpdateEndpointCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateEndpointCommand,
+  serializeAws_restJson1UpdateEndpointCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class UpdateEndpointCommand extends $Command<
     input: UpdateEndpointCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateEndpointCommand(input, context);
+    return serializeAws_restJson1UpdateEndpointCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEndpointCommandOutput> {
-    return deserializeAws_restJson1_1UpdateEndpointCommand(output, context);
+    return deserializeAws_restJson1UpdateEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

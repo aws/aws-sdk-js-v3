@@ -5,9 +5,9 @@ import {
 } from "../PinpointClient";
 import { DeleteSegmentRequest, DeleteSegmentResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteSegmentCommand,
-  serializeAws_restJson1_1DeleteSegmentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteSegmentCommand,
+  serializeAws_restJson1DeleteSegmentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class DeleteSegmentCommand extends $Command<
     input: DeleteSegmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteSegmentCommand(input, context);
+    return serializeAws_restJson1DeleteSegmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSegmentCommandOutput> {
-    return deserializeAws_restJson1_1DeleteSegmentCommand(output, context);
+    return deserializeAws_restJson1DeleteSegmentCommand(output, context);
   }
 
   // Start section: command_body_extra

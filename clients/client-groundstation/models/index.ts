@@ -5,6 +5,11 @@ import {
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum AngleUnits {
+  DEGREE_ANGLE = "DEGREE_ANGLE",
+  RADIAN = "RADIAN"
+}
+
 /**
  * <p>Information about how AWS Ground Station should configure an
  *          antenna for downlink during a contact.</p>
@@ -70,6 +75,8 @@ export interface AntennaUplinkConfig {
    * <p>EIRP of the target.</p>
    */
   targetEirp: Eirp | undefined;
+
+  transmitDisabled?: boolean;
 }
 
 export namespace AntennaUplinkConfig {
@@ -78,6 +85,12 @@ export namespace AntennaUplinkConfig {
   });
   export const isa = (o: any): o is AntennaUplinkConfig =>
     __isa(o, "AntennaUplinkConfig");
+}
+
+export enum BandwidthUnits {
+  GHZ = "GHz",
+  KHZ = "kHz",
+  MHZ = "MHz"
 }
 
 /**
@@ -97,6 +110,15 @@ export namespace CancelContactRequest {
   });
   export const isa = (o: any): o is CancelContactRequest =>
     __isa(o, "CancelContactRequest");
+}
+
+export enum ConfigCapabilityType {
+  ANTENNA_DOWNLINK = "antenna-downlink",
+  ANTENNA_DOWNLINK_DEMOD_DECODE = "antenna-downlink-demod-decode",
+  ANTENNA_UPLINK = "antenna-uplink",
+  DATAFLOW_ENDPOINT = "dataflow-endpoint",
+  TRACKING = "tracking",
+  UPLINK_ECHO = "uplink-echo"
 }
 
 /**
@@ -163,7 +185,7 @@ export namespace ConfigListItem {
 }
 
 /**
- * <p>Object containing the parameters for a <code>Config</code>.</p>
+ * <p>Object containing the parameters of a <code>Config</code>.</p>
  *          <p>See the subtype definitions for what each type of <code>Config</code> contains.</p>
  */
 export type ConfigTypeData =
@@ -342,6 +364,11 @@ export interface ContactData {
   prePassStartTime?: Date;
 
   /**
+   * <p>Region of a contact.</p>
+   */
+  region?: string;
+
+  /**
    * <p>ARN of a satellite.</p>
    */
   satelliteArn?: string;
@@ -381,6 +408,21 @@ export namespace ContactIdResponse {
   });
   export const isa = (o: any): o is ContactIdResponse =>
     __isa(o, "ContactIdResponse");
+}
+
+export enum ContactStatus {
+  AVAILABLE = "AVAILABLE",
+  AWS_CANCELLED = "AWS_CANCELLED",
+  CANCELLED = "CANCELLED",
+  CANCELLING = "CANCELLING",
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  FAILED_TO_SCHEDULE = "FAILED_TO_SCHEDULE",
+  PASS = "PASS",
+  POSTPASS = "POSTPASS",
+  PREPASS = "PREPASS",
+  SCHEDULED = "SCHEDULED",
+  SCHEDULING = "SCHEDULING"
 }
 
 /**
@@ -454,8 +496,9 @@ export interface CreateMissionProfileRequest {
   contactPrePassDurationSeconds?: number;
 
   /**
-   * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a from <code>Config</code> and a to
-   *          <code>Config</code>.</p>
+   * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i>
+   *             <code>Config</code> and a <i>to</i>
+   *             <code>Config</code>.</p>
    */
   dataflowEdges: string[][] | undefined;
 
@@ -490,6 +533,12 @@ export namespace CreateMissionProfileRequest {
     __isa(o, "CreateMissionProfileRequest");
 }
 
+export enum Criticality {
+  PREFERRED = "PREFERRED",
+  REMOVED = "REMOVED",
+  REQUIRED = "REQUIRED"
+}
+
 /**
  * <p>Information about a dataflow endpoint.</p>
  */
@@ -500,6 +549,7 @@ export interface DataflowEndpoint {
    */
   address?: SocketAddress;
 
+  mtu?: number;
   /**
    * <p>Name of a dataflow endpoint.</p>
    */
@@ -528,6 +578,11 @@ export interface DataflowEndpointConfig {
    * <p>Name of a dataflow endpoint.</p>
    */
   dataflowEndpointName: string | undefined;
+
+  /**
+   * <p>Region of a dataflow endpoint.</p>
+   */
+  dataflowEndpointRegion?: string;
 }
 
 export namespace DataflowEndpointConfig {
@@ -544,7 +599,7 @@ export namespace DataflowEndpointConfig {
 export interface DataflowEndpointGroupIdResponse {
   __type?: "DataflowEndpointGroupIdResponse";
   /**
-   * <p>ID of a dataflow endpoint group.</p>
+   * <p>UUID of a dataflow endpoint group.</p>
    */
   dataflowEndpointGroupId?: string;
 }
@@ -631,7 +686,7 @@ export namespace DeleteConfigRequest {
 export interface DeleteDataflowEndpointGroupRequest {
   __type?: "DeleteDataflowEndpointGroupRequest";
   /**
-   * <p>ID of a dataflow endpoint group.</p>
+   * <p>UUID of a dataflow endpoint group.</p>
    */
   dataflowEndpointGroupId: string | undefined;
 }
@@ -684,6 +739,29 @@ export namespace DemodulationConfig {
   });
   export const isa = (o: any): o is DemodulationConfig =>
     __isa(o, "DemodulationConfig");
+}
+
+/**
+ * <p>Dependency encountered an error.</p>
+ */
+export interface DependencyException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DependencyException";
+  $fault: "server";
+  message?: string;
+  /**
+   * <p/>
+   */
+  parameterName?: string;
+}
+
+export namespace DependencyException {
+  export const filterSensitiveLog = (obj: DependencyException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DependencyException =>
+    __isa(o, "DependencyException");
 }
 
 /**
@@ -756,6 +834,11 @@ export interface DescribeContactResponse {
   prePassStartTime?: Date;
 
   /**
+   * <p>Region of a contact.</p>
+   */
+  region?: string;
+
+  /**
    * <p>ARN of a satellite.</p>
    */
   satelliteArn?: string;
@@ -777,6 +860,56 @@ export namespace DescribeContactResponse {
   });
   export const isa = (o: any): o is DescribeContactResponse =>
     __isa(o, "DescribeContactResponse");
+}
+
+/**
+ * <p>Object that represents EIRP.</p>
+ */
+export interface Eirp {
+  __type?: "Eirp";
+  /**
+   * <p>Units of an EIRP.</p>
+   */
+  units: EirpUnits | string | undefined;
+
+  /**
+   * <p>Value of an EIRP.</p>
+   */
+  value: number | undefined;
+}
+
+export namespace Eirp {
+  export const filterSensitiveLog = (obj: Eirp): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Eirp => __isa(o, "Eirp");
+}
+
+export enum EirpUnits {
+  DBW = "dBW"
+}
+
+/**
+ * <p>Elevation angle of the satellite in the sky during a contact.</p>
+ */
+export interface Elevation {
+  __type?: "Elevation";
+  /**
+   * <p>Elevation angle units.</p>
+   */
+  unit: AngleUnits | string | undefined;
+
+  /**
+   * <p>Elevation angle value.</p>
+   */
+  value: number | undefined;
+}
+
+export namespace Elevation {
+  export const filterSensitiveLog = (obj: Elevation): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Elevation => __isa(o, "Elevation");
 }
 
 /**
@@ -809,6 +942,59 @@ export enum EndpointStatus {
   deleted = "deleted",
   deleting = "deleting",
   failed = "failed"
+}
+
+/**
+ * <p>Object that describes the frequency.</p>
+ */
+export interface Frequency {
+  __type?: "Frequency";
+  /**
+   * <p>Frequency units.</p>
+   */
+  units: FrequencyUnits | string | undefined;
+
+  /**
+   * <p>Frequency value.</p>
+   */
+  value: number | undefined;
+}
+
+export namespace Frequency {
+  export const filterSensitiveLog = (obj: Frequency): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Frequency => __isa(o, "Frequency");
+}
+
+/**
+ * <p>Object that describes the frequency bandwidth.</p>
+ */
+export interface FrequencyBandwidth {
+  __type?: "FrequencyBandwidth";
+  /**
+   * <p>Frequency bandwidth units.</p>
+   */
+  units: BandwidthUnits | string | undefined;
+
+  /**
+   * <p>Frequency bandwidth value.</p>
+   */
+  value: number | undefined;
+}
+
+export namespace FrequencyBandwidth {
+  export const filterSensitiveLog = (obj: FrequencyBandwidth): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is FrequencyBandwidth =>
+    __isa(o, "FrequencyBandwidth");
+}
+
+export enum FrequencyUnits {
+  GHZ = "GHz",
+  KHZ = "kHz",
+  MHZ = "MHz"
 }
 
 /**
@@ -940,6 +1126,69 @@ export namespace GetDataflowEndpointGroupResponse {
 /**
  * <p/>
  */
+export interface GetMinuteUsageRequest {
+  __type?: "GetMinuteUsageRequest";
+  /**
+   * <p>The month being requested, with a value of 1-12.</p>
+   */
+  month: number | undefined;
+
+  /**
+   * <p>The year being requested, in the format of YYYY.</p>
+   */
+  year: number | undefined;
+}
+
+export namespace GetMinuteUsageRequest {
+  export const filterSensitiveLog = (obj: GetMinuteUsageRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetMinuteUsageRequest =>
+    __isa(o, "GetMinuteUsageRequest");
+}
+
+/**
+ * <p/>
+ */
+export interface GetMinuteUsageResponse {
+  __type?: "GetMinuteUsageResponse";
+  /**
+   * <p>Estimated number of minutes remaining for an account, specific to the month being requested.</p>
+   */
+  estimatedMinutesRemaining?: number;
+
+  /**
+   * <p>Returns whether or not an account has signed up for the reserved minutes pricing plan, specific to the month being requested.</p>
+   */
+  isReservedMinutesCustomer?: boolean;
+
+  /**
+   * <p>Total number of reserved minutes allocated, specific to the month being requested.</p>
+   */
+  totalReservedMinuteAllocation?: number;
+
+  /**
+   * <p>Total scheduled minutes for an account, specific to the month being requested.</p>
+   */
+  totalScheduledMinutes?: number;
+
+  /**
+   * <p>Upcoming minutes scheduled for an account, specific to the month being requested.</p>
+   */
+  upcomingMinutesScheduled?: number;
+}
+
+export namespace GetMinuteUsageResponse {
+  export const filterSensitiveLog = (obj: GetMinuteUsageResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetMinuteUsageResponse =>
+    __isa(o, "GetMinuteUsageResponse");
+}
+
+/**
+ * <p/>
+ */
 export interface GetMissionProfileRequest {
   __type?: "GetMissionProfileRequest";
   /**
@@ -972,8 +1221,9 @@ export interface GetMissionProfileResponse {
   contactPrePassDurationSeconds?: number;
 
   /**
-   * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a from <code>Config</code> and a to
-   *          <code>Config</code>.</p>
+   * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i>
+   *             <code>Config</code> and a <i>to</i>
+   *             <code>Config</code>.</p>
    */
   dataflowEdges?: string[][];
 
@@ -988,7 +1238,7 @@ export interface GetMissionProfileResponse {
   missionProfileArn?: string;
 
   /**
-   * <p>ID of a mission profile.</p>
+   * <p>UUID of a mission profile.</p>
    */
   missionProfileId?: string;
 
@@ -1019,6 +1269,111 @@ export namespace GetMissionProfileResponse {
   });
   export const isa = (o: any): o is GetMissionProfileResponse =>
     __isa(o, "GetMissionProfileResponse");
+}
+
+/**
+ * <p/>
+ */
+export interface GetSatelliteRequest {
+  __type?: "GetSatelliteRequest";
+  /**
+   * <p>UUID of a satellite.</p>
+   */
+  satelliteId: string | undefined;
+}
+
+export namespace GetSatelliteRequest {
+  export const filterSensitiveLog = (obj: GetSatelliteRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetSatelliteRequest =>
+    __isa(o, "GetSatelliteRequest");
+}
+
+/**
+ * <p/>
+ */
+export interface GetSatelliteResponse {
+  __type?: "GetSatelliteResponse";
+  /**
+   * <p>A list of ground stations to which the satellite is on-boarded.</p>
+   */
+  groundStations?: string[];
+
+  /**
+   * <p>NORAD satellite ID number.</p>
+   */
+  noradSatelliteID?: number;
+
+  /**
+   * <p>ARN of a satellite.</p>
+   */
+  satelliteArn?: string;
+
+  /**
+   * <p>UUID of a satellite.</p>
+   */
+  satelliteId?: string;
+}
+
+export namespace GetSatelliteResponse {
+  export const filterSensitiveLog = (obj: GetSatelliteResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetSatelliteResponse =>
+    __isa(o, "GetSatelliteResponse");
+}
+
+/**
+ * <p>Information about the ground station data.</p>
+ */
+export interface GroundStationData {
+  __type?: "GroundStationData";
+  /**
+   * <p>UUID of a ground station.</p>
+   */
+  groundStationId?: string;
+
+  /**
+   * <p>Name of a ground station.</p>
+   */
+  groundStationName?: string;
+
+  /**
+   * <p>Ground station Region.</p>
+   */
+  region?: string;
+}
+
+export namespace GroundStationData {
+  export const filterSensitiveLog = (obj: GroundStationData): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GroundStationData =>
+    __isa(o, "GroundStationData");
+}
+
+/**
+ * <p>One or more parameters are not valid.</p>
+ */
+export interface InvalidParameterException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidParameterException";
+  $fault: "client";
+  message?: string;
+  /**
+   * <p/>
+   */
+  parameterName?: string;
+}
+
+export namespace InvalidParameterException {
+  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidParameterException =>
+    __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -1202,630 +1557,6 @@ export namespace ListDataflowEndpointGroupsResponse {
 /**
  * <p/>
  */
-export interface ListMissionProfilesRequest {
-  __type?: "ListMissionProfilesRequest";
-  /**
-   * <p>Maximum number of mission profiles returned.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>Next token returned in the request of a previous <code>ListMissionProfiles</code> call. Used to get the next page of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListMissionProfilesRequest {
-  export const filterSensitiveLog = (obj: ListMissionProfilesRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListMissionProfilesRequest =>
-    __isa(o, "ListMissionProfilesRequest");
-}
-
-/**
- * <p/>
- */
-export interface ListMissionProfilesResponse {
-  __type?: "ListMissionProfilesResponse";
-  /**
-   * <p>List of mission profiles</p>
-   */
-  missionProfileList?: MissionProfileListItem[];
-
-  /**
-   * <p>Next token returned in the response of a previous <code>ListMissionProfiles</code> call. Used to get the next page of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListMissionProfilesResponse {
-  export const filterSensitiveLog = (
-    obj: ListMissionProfilesResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListMissionProfilesResponse =>
-    __isa(o, "ListMissionProfilesResponse");
-}
-
-/**
- * <p/>
- */
-export interface MissionProfileIdResponse {
-  __type?: "MissionProfileIdResponse";
-  /**
-   * <p>ID of a mission profile.</p>
-   */
-  missionProfileId?: string;
-}
-
-export namespace MissionProfileIdResponse {
-  export const filterSensitiveLog = (obj: MissionProfileIdResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is MissionProfileIdResponse =>
-    __isa(o, "MissionProfileIdResponse");
-}
-
-/**
- * <p>Item in a list of mission profiles.</p>
- */
-export interface MissionProfileListItem {
-  __type?: "MissionProfileListItem";
-  /**
-   * <p>ARN of a mission profile.</p>
-   */
-  missionProfileArn?: string;
-
-  /**
-   * <p>ID of a mission profile.</p>
-   */
-  missionProfileId?: string;
-
-  /**
-   * <p>Name of a mission profile.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>Region of a mission profile.</p>
-   */
-  region?: string;
-}
-
-export namespace MissionProfileListItem {
-  export const filterSensitiveLog = (obj: MissionProfileListItem): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is MissionProfileListItem =>
-    __isa(o, "MissionProfileListItem");
-}
-
-/**
- * <p/>
- */
-export interface ReserveContactRequest {
-  __type?: "ReserveContactRequest";
-  /**
-   * <p>End time of a contact.</p>
-   */
-  endTime: Date | undefined;
-
-  /**
-   * <p>Name of a ground station.</p>
-   */
-  groundStation: string | undefined;
-
-  /**
-   * <p>ARN of a mission profile.</p>
-   */
-  missionProfileArn: string | undefined;
-
-  /**
-   * <p>ARN of a satellite</p>
-   */
-  satelliteArn: string | undefined;
-
-  /**
-   * <p>Start time of a contact.</p>
-   */
-  startTime: Date | undefined;
-
-  /**
-   * <p>Tags assigned to a contact.</p>
-   */
-  tags?: { [key: string]: string };
-}
-
-export namespace ReserveContactRequest {
-  export const filterSensitiveLog = (obj: ReserveContactRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ReserveContactRequest =>
-    __isa(o, "ReserveContactRequest");
-}
-
-/**
- * <p>Object that determines whether tracking should be used during a contact
- *          executed with this <code>Config</code> in the mission profile.</p>
- */
-export interface TrackingConfig {
-  __type?: "TrackingConfig";
-  /**
-   * <p>Current setting for autotrack.</p>
-   */
-  autotrack: Criticality | string | undefined;
-}
-
-export namespace TrackingConfig {
-  export const filterSensitiveLog = (obj: TrackingConfig): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TrackingConfig =>
-    __isa(o, "TrackingConfig");
-}
-
-/**
- * <p/>
- */
-export interface UpdateConfigRequest {
-  __type?: "UpdateConfigRequest";
-  /**
-   * <p>Parameters for a <code>Config</code>.</p>
-   */
-  configData: ConfigTypeData | undefined;
-
-  /**
-   * <p>UUID of a <code>Config</code>.</p>
-   */
-  configId: string | undefined;
-
-  /**
-   * <p>Type of a <code>Config</code>.</p>
-   */
-  configType: ConfigCapabilityType | string | undefined;
-
-  /**
-   * <p>Name of a <code>Config</code>.</p>
-   */
-  name: string | undefined;
-}
-
-export namespace UpdateConfigRequest {
-  export const filterSensitiveLog = (obj: UpdateConfigRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateConfigRequest =>
-    __isa(o, "UpdateConfigRequest");
-}
-
-/**
- * <p/>
- */
-export interface UpdateMissionProfileRequest {
-  __type?: "UpdateMissionProfileRequest";
-  /**
-   * <p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>
-   */
-  contactPostPassDurationSeconds?: number;
-
-  /**
-   * <p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>
-   */
-  contactPrePassDurationSeconds?: number;
-
-  /**
-   * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a from <code>Config</code> and a to
-   *          <code>Config</code>.</p>
-   */
-  dataflowEdges?: string[][];
-
-  /**
-   * <p>Smallest amount of time in seconds that you’d like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration.</p>
-   */
-  minimumViableContactDurationSeconds?: number;
-
-  /**
-   * <p>ID of a mission profile.</p>
-   */
-  missionProfileId: string | undefined;
-
-  /**
-   * <p>Name of a mission profile.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>ARN of a tracking <code>Config</code>.</p>
-   */
-  trackingConfigArn?: string;
-}
-
-export namespace UpdateMissionProfileRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateMissionProfileRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateMissionProfileRequest =>
-    __isa(o, "UpdateMissionProfileRequest");
-}
-
-/**
- * <p>Information about an uplink echo <code>Config</code>.</p>
- *          <p>Parameters from the <code>AntennaUplinkConfig</code>, corresponding to the
- *          specified <code>AntennaUplinkConfigArn</code>, are used when this <code>UplinkEchoConfig</code>
- *          is used in a contact.</p>
- */
-export interface UplinkEchoConfig {
-  __type?: "UplinkEchoConfig";
-  /**
-   * <p>ARN of an uplink <code>Config</code>.</p>
-   */
-  antennaUplinkConfigArn: string | undefined;
-
-  /**
-   * <p>Whether or not an uplink <code>Config</code> is enabled.</p>
-   */
-  enabled: boolean | undefined;
-}
-
-export namespace UplinkEchoConfig {
-  export const filterSensitiveLog = (obj: UplinkEchoConfig): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UplinkEchoConfig =>
-    __isa(o, "UplinkEchoConfig");
-}
-
-export enum AngleUnits {
-  DEGREE_ANGLE = "DEGREE_ANGLE",
-  RADIAN = "RADIAN"
-}
-
-export enum BandwidthUnits {
-  GHZ = "GHz",
-  KHZ = "kHz",
-  MHZ = "MHz"
-}
-
-export enum ConfigCapabilityType {
-  ANTENNA_DOWNLINK = "antenna-downlink",
-  ANTENNA_DOWNLINK_DEMOD_DECODE = "antenna-downlink-demod-decode",
-  ANTENNA_UPLINK = "antenna-uplink",
-  DATAFLOW_ENDPOINT = "dataflow-endpoint",
-  TRACKING = "tracking",
-  UPLINK_ECHO = "uplink-echo"
-}
-
-export enum ContactStatus {
-  AVAILABLE = "AVAILABLE",
-  AWS_CANCELLED = "AWS_CANCELLED",
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  FAILED_TO_SCHEDULE = "FAILED_TO_SCHEDULE",
-  PASS = "PASS",
-  POSTPASS = "POSTPASS",
-  PREPASS = "PREPASS",
-  SCHEDULED = "SCHEDULED",
-  SCHEDULING = "SCHEDULING"
-}
-
-export enum Criticality {
-  PREFERRED = "PREFERRED",
-  REMOVED = "REMOVED",
-  REQUIRED = "REQUIRED"
-}
-
-/**
- * <p>Dependency encountered an error.</p>
- */
-export interface DependencyException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DependencyException";
-  $fault: "server";
-  message?: string;
-  /**
-   * <p/>
-   */
-  parameterName?: string;
-}
-
-export namespace DependencyException {
-  export const filterSensitiveLog = (obj: DependencyException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DependencyException =>
-    __isa(o, "DependencyException");
-}
-
-/**
- * <p>Object that represents EIRP.</p>
- */
-export interface Eirp {
-  __type?: "Eirp";
-  /**
-   * <p>Units of an EIRP.</p>
-   */
-  units: EirpUnits | string | undefined;
-
-  /**
-   * <p>Value of an EIRP.</p>
-   */
-  value: number | undefined;
-}
-
-export namespace Eirp {
-  export const filterSensitiveLog = (obj: Eirp): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Eirp => __isa(o, "Eirp");
-}
-
-export enum EirpUnits {
-  DBW = "dBW"
-}
-
-/**
- * <p>Elevation angle of the satellite in the sky during a contact.</p>
- */
-export interface Elevation {
-  __type?: "Elevation";
-  /**
-   * <p>Elevation angle units.</p>
-   */
-  unit: AngleUnits | string | undefined;
-
-  /**
-   * <p>Elevation angle value.</p>
-   */
-  value: number | undefined;
-}
-
-export namespace Elevation {
-  export const filterSensitiveLog = (obj: Elevation): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Elevation => __isa(o, "Elevation");
-}
-
-/**
- * <p>Object that describes the frequency.</p>
- */
-export interface Frequency {
-  __type?: "Frequency";
-  /**
-   * <p>Frequency units.</p>
-   */
-  units: FrequencyUnits | string | undefined;
-
-  /**
-   * <p>Frequency value.</p>
-   */
-  value: number | undefined;
-}
-
-export namespace Frequency {
-  export const filterSensitiveLog = (obj: Frequency): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Frequency => __isa(o, "Frequency");
-}
-
-/**
- * <p>Object that describes the frequency bandwidth.</p>
- */
-export interface FrequencyBandwidth {
-  __type?: "FrequencyBandwidth";
-  /**
-   * <p>Frequency bandwidth units.</p>
-   */
-  units: BandwidthUnits | string | undefined;
-
-  /**
-   * <p>Frequency bandwidth value.</p>
-   */
-  value: number | undefined;
-}
-
-export namespace FrequencyBandwidth {
-  export const filterSensitiveLog = (obj: FrequencyBandwidth): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is FrequencyBandwidth =>
-    __isa(o, "FrequencyBandwidth");
-}
-
-export enum FrequencyUnits {
-  GHZ = "GHz",
-  KHZ = "kHz",
-  MHZ = "MHz"
-}
-
-/**
- * <p/>
- */
-export interface GetMinuteUsageRequest {
-  __type?: "GetMinuteUsageRequest";
-  /**
-   * <p>The month being requested, with a value of 1-12.</p>
-   */
-  month: number | undefined;
-
-  /**
-   * <p>The year being requested, in the format of YYYY.</p>
-   */
-  year: number | undefined;
-}
-
-export namespace GetMinuteUsageRequest {
-  export const filterSensitiveLog = (obj: GetMinuteUsageRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetMinuteUsageRequest =>
-    __isa(o, "GetMinuteUsageRequest");
-}
-
-/**
- * <p/>
- */
-export interface GetMinuteUsageResponse {
-  __type?: "GetMinuteUsageResponse";
-  /**
-   * <p>Estimated number of minutes remaining for an account, specific to the month being requested.</p>
-   */
-  estimatedMinutesRemaining?: number;
-
-  /**
-   * <p>Returns whether or not an account has signed up for the reserved minutes pricing plan, specific to the month being requested.</p>
-   */
-  isReservedMinutesCustomer?: boolean;
-
-  /**
-   * <p>Total number of reserved minutes allocated, specific to the month being requested.</p>
-   */
-  totalReservedMinuteAllocation?: number;
-
-  /**
-   * <p>Total scheduled minutes for an account, specific to the month being requested.</p>
-   */
-  totalScheduledMinutes?: number;
-
-  /**
-   * <p>Upcoming minutes scheduled for an account, specific to the month being requested.</p>
-   */
-  upcomingMinutesScheduled?: number;
-}
-
-export namespace GetMinuteUsageResponse {
-  export const filterSensitiveLog = (obj: GetMinuteUsageResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetMinuteUsageResponse =>
-    __isa(o, "GetMinuteUsageResponse");
-}
-
-/**
- * <p/>
- */
-export interface GetSatelliteRequest {
-  __type?: "GetSatelliteRequest";
-  /**
-   * <p>UUID of a satellite.</p>
-   */
-  satelliteId: string | undefined;
-}
-
-export namespace GetSatelliteRequest {
-  export const filterSensitiveLog = (obj: GetSatelliteRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetSatelliteRequest =>
-    __isa(o, "GetSatelliteRequest");
-}
-
-/**
- * <p/>
- */
-export interface GetSatelliteResponse {
-  __type?: "GetSatelliteResponse";
-  /**
-   * <p>When a satellite was created.</p>
-   */
-  dateCreated?: Date;
-
-  /**
-   * <p>When a satellite was last updated.</p>
-   */
-  lastUpdated?: Date;
-
-  /**
-   * <p>NORAD satellite ID number.</p>
-   */
-  noradSatelliteID?: number;
-
-  /**
-   * <p>ARN of a satellite.</p>
-   */
-  satelliteArn?: string;
-
-  /**
-   * <p>UUID of a satellite.</p>
-   */
-  satelliteId?: string;
-
-  /**
-   * <p>Tags assigned to a satellite.</p>
-   */
-  tags?: { [key: string]: string };
-}
-
-export namespace GetSatelliteResponse {
-  export const filterSensitiveLog = (obj: GetSatelliteResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetSatelliteResponse =>
-    __isa(o, "GetSatelliteResponse");
-}
-
-/**
- * <p>Information about the ground station data.</p>
- */
-export interface GroundStationData {
-  __type?: "GroundStationData";
-  /**
-   * <p>ID of a ground station.</p>
-   */
-  groundStationId?: string;
-
-  /**
-   * <p>Name of a ground station.</p>
-   */
-  groundStationName?: string;
-
-  /**
-   * <p>Ground station Region.</p>
-   */
-  region?: string;
-}
-
-export namespace GroundStationData {
-  export const filterSensitiveLog = (obj: GroundStationData): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GroundStationData =>
-    __isa(o, "GroundStationData");
-}
-
-/**
- * <p>One or more parameters are not valid.</p>
- */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
-  message?: string;
-  /**
-   * <p/>
-   */
-  parameterName?: string;
-}
-
-export namespace InvalidParameterException {
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidParameterException =>
-    __isa(o, "InvalidParameterException");
-}
-
-/**
- * <p/>
- */
 export interface ListGroundStationsRequest {
   __type?: "ListGroundStationsRequest";
   /**
@@ -1837,6 +1568,11 @@ export interface ListGroundStationsRequest {
    * <p>Next token that can be supplied in the next call to get the next page of ground stations.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Satellite ID to retrieve on-boarded ground stations.</p>
+   */
+  satelliteId?: string;
 }
 
 export namespace ListGroundStationsRequest {
@@ -1869,6 +1605,56 @@ export namespace ListGroundStationsResponse {
   });
   export const isa = (o: any): o is ListGroundStationsResponse =>
     __isa(o, "ListGroundStationsResponse");
+}
+
+/**
+ * <p/>
+ */
+export interface ListMissionProfilesRequest {
+  __type?: "ListMissionProfilesRequest";
+  /**
+   * <p>Maximum number of mission profiles returned.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>Next token returned in the request of a previous <code>ListMissionProfiles</code> call. Used to get the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListMissionProfilesRequest {
+  export const filterSensitiveLog = (obj: ListMissionProfilesRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListMissionProfilesRequest =>
+    __isa(o, "ListMissionProfilesRequest");
+}
+
+/**
+ * <p/>
+ */
+export interface ListMissionProfilesResponse {
+  __type?: "ListMissionProfilesResponse";
+  /**
+   * <p>List of mission profiles.</p>
+   */
+  missionProfileList?: MissionProfileListItem[];
+
+  /**
+   * <p>Next token returned in the response of a previous <code>ListMissionProfiles</code> call. Used to get the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListMissionProfilesResponse {
+  export const filterSensitiveLog = (
+    obj: ListMissionProfilesResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListMissionProfilesResponse =>
+    __isa(o, "ListMissionProfilesResponse");
 }
 
 /**
@@ -1959,10 +1745,132 @@ export namespace ListTagsForResourceResponse {
     __isa(o, "ListTagsForResourceResponse");
 }
 
+/**
+ * <p/>
+ */
+export interface MissionProfileIdResponse {
+  __type?: "MissionProfileIdResponse";
+  /**
+   * <p>UUID of a mission profile.</p>
+   */
+  missionProfileId?: string;
+}
+
+export namespace MissionProfileIdResponse {
+  export const filterSensitiveLog = (obj: MissionProfileIdResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is MissionProfileIdResponse =>
+    __isa(o, "MissionProfileIdResponse");
+}
+
+/**
+ * <p>Item in a list of mission profiles.</p>
+ */
+export interface MissionProfileListItem {
+  __type?: "MissionProfileListItem";
+  /**
+   * <p>ARN of a mission profile.</p>
+   */
+  missionProfileArn?: string;
+
+  /**
+   * <p>UUID of a mission profile.</p>
+   */
+  missionProfileId?: string;
+
+  /**
+   * <p>Name of a mission profile.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Region of a mission profile.</p>
+   */
+  region?: string;
+}
+
+export namespace MissionProfileListItem {
+  export const filterSensitiveLog = (obj: MissionProfileListItem): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is MissionProfileListItem =>
+    __isa(o, "MissionProfileListItem");
+}
+
 export enum Polarization {
   LEFT_HAND = "LEFT_HAND",
   NONE = "NONE",
   RIGHT_HAND = "RIGHT_HAND"
+}
+
+/**
+ * <p/>
+ */
+export interface ReserveContactRequest {
+  __type?: "ReserveContactRequest";
+  /**
+   * <p>End time of a contact.</p>
+   */
+  endTime: Date | undefined;
+
+  /**
+   * <p>Name of a ground station.</p>
+   */
+  groundStation: string | undefined;
+
+  /**
+   * <p>ARN of a mission profile.</p>
+   */
+  missionProfileArn: string | undefined;
+
+  /**
+   * <p>ARN of a satellite</p>
+   */
+  satelliteArn: string | undefined;
+
+  /**
+   * <p>Start time of a contact.</p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>Tags assigned to a contact.</p>
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace ReserveContactRequest {
+  export const filterSensitiveLog = (obj: ReserveContactRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ReserveContactRequest =>
+    __isa(o, "ReserveContactRequest");
+}
+
+/**
+ * <p>Account limits for this resource have been exceeded.</p>
+ */
+export interface ResourceLimitExceededException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceLimitExceededException";
+  $fault: "client";
+  message?: string;
+  /**
+   * <p/>
+   */
+  parameterName?: string;
+}
+
+export namespace ResourceLimitExceededException {
+  export const filterSensitiveLog = (
+    obj: ResourceLimitExceededException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceLimitExceededException =>
+    __isa(o, "ResourceLimitExceededException");
 }
 
 /**
@@ -1990,6 +1898,11 @@ export namespace ResourceNotFoundException {
 export interface SatelliteListItem {
   __type?: "SatelliteListItem";
   /**
+   * <p>A list of ground stations to which the satellite is on-boarded.</p>
+   */
+  groundStations?: string[];
+
+  /**
    * <p>NORAD satellite ID number.</p>
    */
   noradSatelliteID?: number;
@@ -2000,7 +1913,7 @@ export interface SatelliteListItem {
   satelliteArn?: string;
 
   /**
-   * <p>ID of a satellite.</p>
+   * <p>UUID of a satellite.</p>
    */
   satelliteId?: string;
 }
@@ -2107,7 +2020,7 @@ export interface TagResourceRequest {
   /**
    * <p>Tags assigned to a resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags: { [key: string]: string } | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -2131,6 +2044,26 @@ export namespace TagResourceResponse {
   });
   export const isa = (o: any): o is TagResourceResponse =>
     __isa(o, "TagResourceResponse");
+}
+
+/**
+ * <p>Object that determines whether tracking should be used during a contact
+ *          executed with this <code>Config</code> in the mission profile.</p>
+ */
+export interface TrackingConfig {
+  __type?: "TrackingConfig";
+  /**
+   * <p>Current setting for autotrack.</p>
+   */
+  autotrack: Criticality | string | undefined;
+}
+
+export namespace TrackingConfig {
+  export const filterSensitiveLog = (obj: TrackingConfig): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TrackingConfig =>
+    __isa(o, "TrackingConfig");
 }
 
 /**
@@ -2170,6 +2103,120 @@ export namespace UntagResourceResponse {
   });
   export const isa = (o: any): o is UntagResourceResponse =>
     __isa(o, "UntagResourceResponse");
+}
+
+/**
+ * <p/>
+ */
+export interface UpdateConfigRequest {
+  __type?: "UpdateConfigRequest";
+  /**
+   * <p>Parameters of a <code>Config</code>.</p>
+   */
+  configData: ConfigTypeData | undefined;
+
+  /**
+   * <p>UUID of a <code>Config</code>.</p>
+   */
+  configId: string | undefined;
+
+  /**
+   * <p>Type of a <code>Config</code>.</p>
+   */
+  configType: ConfigCapabilityType | string | undefined;
+
+  /**
+   * <p>Name of a <code>Config</code>.</p>
+   */
+  name: string | undefined;
+}
+
+export namespace UpdateConfigRequest {
+  export const filterSensitiveLog = (obj: UpdateConfigRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateConfigRequest =>
+    __isa(o, "UpdateConfigRequest");
+}
+
+/**
+ * <p/>
+ */
+export interface UpdateMissionProfileRequest {
+  __type?: "UpdateMissionProfileRequest";
+  /**
+   * <p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>
+   */
+  contactPostPassDurationSeconds?: number;
+
+  /**
+   * <p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>
+   */
+  contactPrePassDurationSeconds?: number;
+
+  /**
+   * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i>
+   *             <code>Config</code> and a <i>to</i>
+   *             <code>Config</code>.</p>
+   */
+  dataflowEdges?: string[][];
+
+  /**
+   * <p>Smallest amount of time in seconds that you’d like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration.</p>
+   */
+  minimumViableContactDurationSeconds?: number;
+
+  /**
+   * <p>UUID of a mission profile.</p>
+   */
+  missionProfileId: string | undefined;
+
+  /**
+   * <p>Name of a mission profile.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>ARN of a tracking <code>Config</code>.</p>
+   */
+  trackingConfigArn?: string;
+}
+
+export namespace UpdateMissionProfileRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateMissionProfileRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateMissionProfileRequest =>
+    __isa(o, "UpdateMissionProfileRequest");
+}
+
+/**
+ * <p>Information about an uplink echo <code>Config</code>.</p>
+ *          <p>Parameters from the <code>AntennaUplinkConfig</code>, corresponding to the
+ *          specified <code>AntennaUplinkConfigArn</code>, are used when this <code>UplinkEchoConfig</code>
+ *          is used in a contact.</p>
+ */
+export interface UplinkEchoConfig {
+  __type?: "UplinkEchoConfig";
+  /**
+   * <p>ARN of an uplink <code>Config</code>.</p>
+   */
+  antennaUplinkConfigArn: string | undefined;
+
+  /**
+   * <p>Whether or not an uplink <code>Config</code> is enabled.</p>
+   */
+  enabled: boolean | undefined;
+}
+
+export namespace UplinkEchoConfig {
+  export const filterSensitiveLog = (obj: UplinkEchoConfig): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UplinkEchoConfig =>
+    __isa(o, "UplinkEchoConfig");
 }
 
 /**

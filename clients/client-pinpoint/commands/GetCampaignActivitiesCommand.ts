@@ -8,9 +8,9 @@ import {
   GetCampaignActivitiesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetCampaignActivitiesCommand,
-  serializeAws_restJson1_1GetCampaignActivitiesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetCampaignActivitiesCommand,
+  serializeAws_restJson1GetCampaignActivitiesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class GetCampaignActivitiesCommand extends $Command<
     input: GetCampaignActivitiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetCampaignActivitiesCommand(input, context);
+    return serializeAws_restJson1GetCampaignActivitiesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCampaignActivitiesCommandOutput> {
-    return deserializeAws_restJson1_1GetCampaignActivitiesCommand(
+    return deserializeAws_restJson1GetCampaignActivitiesCommand(
       output,
       context
     );

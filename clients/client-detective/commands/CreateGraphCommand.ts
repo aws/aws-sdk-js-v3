@@ -5,9 +5,9 @@ import {
 } from "../DetectiveClient";
 import { CreateGraphResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateGraphCommand,
-  serializeAws_restJson1_1CreateGraphCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateGraphCommand,
+  serializeAws_restJson1CreateGraphCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateGraphCommand extends $Command<
     input: CreateGraphCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateGraphCommand(input, context);
+    return serializeAws_restJson1CreateGraphCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateGraphCommandOutput> {
-    return deserializeAws_restJson1_1CreateGraphCommand(output, context);
+    return deserializeAws_restJson1CreateGraphCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -8,9 +8,9 @@ import {
   UpdateContactAttributesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateContactAttributesCommand,
-  serializeAws_restJson1_1UpdateContactAttributesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateContactAttributesCommand,
+  serializeAws_restJson1UpdateContactAttributesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class UpdateContactAttributesCommand extends $Command<
     input: UpdateContactAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateContactAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1UpdateContactAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateContactAttributesCommandOutput> {
-    return deserializeAws_restJson1_1UpdateContactAttributesCommand(
+    return deserializeAws_restJson1UpdateContactAttributesCommand(
       output,
       context
     );

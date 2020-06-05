@@ -8,9 +8,9 @@ import {
   ListVoiceConnectorsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListVoiceConnectorsCommand,
-  serializeAws_restJson1_1ListVoiceConnectorsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListVoiceConnectorsCommand,
+  serializeAws_restJson1ListVoiceConnectorsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListVoiceConnectorsCommand extends $Command<
     input: ListVoiceConnectorsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListVoiceConnectorsCommand(input, context);
+    return serializeAws_restJson1ListVoiceConnectorsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListVoiceConnectorsCommandOutput> {
-    return deserializeAws_restJson1_1ListVoiceConnectorsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListVoiceConnectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

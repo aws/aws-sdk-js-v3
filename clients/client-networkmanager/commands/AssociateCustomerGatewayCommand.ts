@@ -8,9 +8,9 @@ import {
   AssociateCustomerGatewayResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1AssociateCustomerGatewayCommand,
-  serializeAws_restJson1_1AssociateCustomerGatewayCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AssociateCustomerGatewayCommand,
+  serializeAws_restJson1AssociateCustomerGatewayCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class AssociateCustomerGatewayCommand extends $Command<
     input: AssociateCustomerGatewayCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AssociateCustomerGatewayCommand(
+    return serializeAws_restJson1AssociateCustomerGatewayCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class AssociateCustomerGatewayCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateCustomerGatewayCommandOutput> {
-    return deserializeAws_restJson1_1AssociateCustomerGatewayCommand(
+    return deserializeAws_restJson1AssociateCustomerGatewayCommand(
       output,
       context
     );

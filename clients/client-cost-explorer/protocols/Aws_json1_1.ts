@@ -524,7 +524,7 @@ const deserializeAws_json1_1CreateCostCategoryDefinitionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
-    case "com.amazonaws.awsinsightsindexservice.v0#LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -535,7 +535,7 @@ const deserializeAws_json1_1CreateCostCategoryDefinitionCommandError = async (
       };
       break;
     case "ServiceQuotaExceededException":
-    case "com.amazonaws.awsinsightsindexservice.v0#ServiceQuotaExceededException":
+    case "com.amazonaws.costexplorer#ServiceQuotaExceededException":
       response = {
         ...(await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(
           parsedOutput,
@@ -601,7 +601,7 @@ const deserializeAws_json1_1DeleteCostCategoryDefinitionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
-    case "com.amazonaws.awsinsightsindexservice.v0#LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -612,7 +612,7 @@ const deserializeAws_json1_1DeleteCostCategoryDefinitionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.awsinsightsindexservice.v0#ResourceNotFoundException":
+    case "com.amazonaws.costexplorer#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -678,7 +678,7 @@ const deserializeAws_json1_1DescribeCostCategoryDefinitionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
-    case "com.amazonaws.awsinsightsindexservice.v0#LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -689,7 +689,7 @@ const deserializeAws_json1_1DescribeCostCategoryDefinitionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.awsinsightsindexservice.v0#ResourceNotFoundException":
+    case "com.amazonaws.costexplorer#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -749,7 +749,7 @@ const deserializeAws_json1_1GetCostAndUsageCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BillExpirationException":
-    case "com.amazonaws.awsinsightsindexservice.v0#BillExpirationException":
+    case "com.amazonaws.costexplorer#BillExpirationException":
       response = {
         ...(await deserializeAws_json1_1BillExpirationExceptionResponse(
           parsedOutput,
@@ -760,7 +760,7 @@ const deserializeAws_json1_1GetCostAndUsageCommandError = async (
       };
       break;
     case "DataUnavailableException":
-    case "com.amazonaws.awsinsightsindexservice.v0#DataUnavailableException":
+    case "com.amazonaws.costexplorer#DataUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DataUnavailableExceptionResponse(
           parsedOutput,
@@ -771,7 +771,7 @@ const deserializeAws_json1_1GetCostAndUsageCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.awsinsightsindexservice.v0#InvalidNextTokenException":
+    case "com.amazonaws.costexplorer#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -782,7 +782,7 @@ const deserializeAws_json1_1GetCostAndUsageCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.awsinsightsindexservice.v0#LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -793,7 +793,7 @@ const deserializeAws_json1_1GetCostAndUsageCommandError = async (
       };
       break;
     case "RequestChangedException":
-    case "com.amazonaws.awsinsightsindexservice.v0#RequestChangedException":
+    case "com.amazonaws.costexplorer#RequestChangedException":
       response = {
         ...(await deserializeAws_json1_1RequestChangedExceptionResponse(
           parsedOutput,
@@ -859,7 +859,7 @@ const deserializeAws_json1_1GetCostAndUsageWithResourcesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BillExpirationException":
-    case "com.amazonaws.awsinsightsindexservice.v0#BillExpirationException":
+    case "com.amazonaws.costexplorer#BillExpirationException":
       response = {
         ...(await deserializeAws_json1_1BillExpirationExceptionResponse(
           parsedOutput,
@@ -870,7 +870,7 @@ const deserializeAws_json1_1GetCostAndUsageWithResourcesCommandError = async (
       };
       break;
     case "DataUnavailableException":
-    case "com.amazonaws.awsinsightsindexservice.v0#DataUnavailableException":
+    case "com.amazonaws.costexplorer#DataUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DataUnavailableExceptionResponse(
           parsedOutput,
@@ -881,7 +881,7 @@ const deserializeAws_json1_1GetCostAndUsageWithResourcesCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.awsinsightsindexservice.v0#InvalidNextTokenException":
+    case "com.amazonaws.costexplorer#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -892,7 +892,7 @@ const deserializeAws_json1_1GetCostAndUsageWithResourcesCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.awsinsightsindexservice.v0#LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -903,7 +903,7 @@ const deserializeAws_json1_1GetCostAndUsageWithResourcesCommandError = async (
       };
       break;
     case "RequestChangedException":
-    case "com.amazonaws.awsinsightsindexservice.v0#RequestChangedException":
+    case "com.amazonaws.costexplorer#RequestChangedException":
       response = {
         ...(await deserializeAws_json1_1RequestChangedExceptionResponse(
           parsedOutput,
@@ -963,7 +963,7 @@ const deserializeAws_json1_1GetCostForecastCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DataUnavailableException":
-    case "com.amazonaws.awsinsightsindexservice.v0#DataUnavailableException":
+    case "com.amazonaws.costexplorer#DataUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DataUnavailableExceptionResponse(
           parsedOutput,
@@ -974,7 +974,7 @@ const deserializeAws_json1_1GetCostForecastCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.awsinsightsindexservice.v0#LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1037,7 +1037,7 @@ const deserializeAws_json1_1GetDimensionValuesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BillExpirationException":
-    case "com.amazonaws.awsinsightsindexservice.v0#BillExpirationException":
+    case "com.amazonaws.costexplorer#BillExpirationException":
       response = {
         ...(await deserializeAws_json1_1BillExpirationExceptionResponse(
           parsedOutput,
@@ -1048,7 +1048,7 @@ const deserializeAws_json1_1GetDimensionValuesCommandError = async (
       };
       break;
     case "DataUnavailableException":
-    case "com.amazonaws.awsinsightsindexservice.v0#DataUnavailableException":
+    case "com.amazonaws.costexplorer#DataUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DataUnavailableExceptionResponse(
           parsedOutput,
@@ -1059,7 +1059,7 @@ const deserializeAws_json1_1GetDimensionValuesCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.awsinsightsindexservice.v0#InvalidNextTokenException":
+    case "com.amazonaws.costexplorer#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1070,7 +1070,7 @@ const deserializeAws_json1_1GetDimensionValuesCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.awsinsightsindexservice.v0#LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1081,7 +1081,7 @@ const deserializeAws_json1_1GetDimensionValuesCommandError = async (
       };
       break;
     case "RequestChangedException":
-    case "com.amazonaws.awsinsightsindexservice.v0#RequestChangedException":
+    case "com.amazonaws.costexplorer#RequestChangedException":
       response = {
         ...(await deserializeAws_json1_1RequestChangedExceptionResponse(
           parsedOutput,
@@ -1147,7 +1147,7 @@ const deserializeAws_json1_1GetReservationCoverageCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DataUnavailableException":
-    case "com.amazonaws.awsinsightsindexservice.v0#DataUnavailableException":
+    case "com.amazonaws.costexplorer#DataUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DataUnavailableExceptionResponse(
           parsedOutput,
@@ -1158,7 +1158,7 @@ const deserializeAws_json1_1GetReservationCoverageCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.awsinsightsindexservice.v0#InvalidNextTokenException":
+    case "com.amazonaws.costexplorer#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1169,7 +1169,7 @@ const deserializeAws_json1_1GetReservationCoverageCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.awsinsightsindexservice.v0#LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1235,7 +1235,7 @@ const deserializeAws_json1_1GetReservationPurchaseRecommendationCommandError = a
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DataUnavailableException":
-    case "com.amazonaws.awsinsightsindexservice.v0#DataUnavailableException":
+    case "com.amazonaws.costexplorer#DataUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DataUnavailableExceptionResponse(
           parsedOutput,
@@ -1246,7 +1246,7 @@ const deserializeAws_json1_1GetReservationPurchaseRecommendationCommandError = a
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.awsinsightsindexservice.v0#InvalidNextTokenException":
+    case "com.amazonaws.costexplorer#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1257,7 +1257,7 @@ const deserializeAws_json1_1GetReservationPurchaseRecommendationCommandError = a
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.awsinsightsindexservice.v0#LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1323,7 +1323,7 @@ const deserializeAws_json1_1GetReservationUtilizationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DataUnavailableException":
-    case "com.amazonaws.awsinsightsindexservice.v0#DataUnavailableException":
+    case "com.amazonaws.costexplorer#DataUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DataUnavailableExceptionResponse(
           parsedOutput,
@@ -1334,7 +1334,7 @@ const deserializeAws_json1_1GetReservationUtilizationCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.awsinsightsindexservice.v0#InvalidNextTokenException":
+    case "com.amazonaws.costexplorer#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1345,7 +1345,7 @@ const deserializeAws_json1_1GetReservationUtilizationCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.awsinsightsindexservice.v0#LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1411,7 +1411,7 @@ const deserializeAws_json1_1GetRightsizingRecommendationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNextTokenException":
-    case "com.amazonaws.awsinsightsindexservice.v0#InvalidNextTokenException":
+    case "com.amazonaws.costexplorer#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1422,7 +1422,7 @@ const deserializeAws_json1_1GetRightsizingRecommendationCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.awsinsightsindexservice.v0#LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1488,7 +1488,7 @@ const deserializeAws_json1_1GetSavingsPlansCoverageCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DataUnavailableException":
-    case "com.amazonaws.awsinsightsindexservice.v0#DataUnavailableException":
+    case "com.amazonaws.costexplorer#DataUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DataUnavailableExceptionResponse(
           parsedOutput,
@@ -1499,7 +1499,7 @@ const deserializeAws_json1_1GetSavingsPlansCoverageCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.awsinsightsindexservice.v0#InvalidNextTokenException":
+    case "com.amazonaws.costexplorer#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1510,7 +1510,7 @@ const deserializeAws_json1_1GetSavingsPlansCoverageCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.awsinsightsindexservice.v0#LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1576,7 +1576,7 @@ const deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommandError = 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNextTokenException":
-    case "com.amazonaws.awsinsightsindexservice.v0#InvalidNextTokenException":
+    case "com.amazonaws.costexplorer#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1587,7 +1587,7 @@ const deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommandError = 
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.awsinsightsindexservice.v0#LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1653,7 +1653,7 @@ const deserializeAws_json1_1GetSavingsPlansUtilizationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DataUnavailableException":
-    case "com.amazonaws.awsinsightsindexservice.v0#DataUnavailableException":
+    case "com.amazonaws.costexplorer#DataUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DataUnavailableExceptionResponse(
           parsedOutput,
@@ -1664,7 +1664,7 @@ const deserializeAws_json1_1GetSavingsPlansUtilizationCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.awsinsightsindexservice.v0#LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1730,7 +1730,7 @@ const deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommandError = asyn
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DataUnavailableException":
-    case "com.amazonaws.awsinsightsindexservice.v0#DataUnavailableException":
+    case "com.amazonaws.costexplorer#DataUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DataUnavailableExceptionResponse(
           parsedOutput,
@@ -1741,7 +1741,7 @@ const deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommandError = asyn
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.awsinsightsindexservice.v0#InvalidNextTokenException":
+    case "com.amazonaws.costexplorer#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1752,7 +1752,7 @@ const deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommandError = asyn
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.awsinsightsindexservice.v0#LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1812,7 +1812,7 @@ const deserializeAws_json1_1GetTagsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BillExpirationException":
-    case "com.amazonaws.awsinsightsindexservice.v0#BillExpirationException":
+    case "com.amazonaws.costexplorer#BillExpirationException":
       response = {
         ...(await deserializeAws_json1_1BillExpirationExceptionResponse(
           parsedOutput,
@@ -1823,7 +1823,7 @@ const deserializeAws_json1_1GetTagsCommandError = async (
       };
       break;
     case "DataUnavailableException":
-    case "com.amazonaws.awsinsightsindexservice.v0#DataUnavailableException":
+    case "com.amazonaws.costexplorer#DataUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DataUnavailableExceptionResponse(
           parsedOutput,
@@ -1834,7 +1834,7 @@ const deserializeAws_json1_1GetTagsCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.awsinsightsindexservice.v0#InvalidNextTokenException":
+    case "com.amazonaws.costexplorer#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1845,7 +1845,7 @@ const deserializeAws_json1_1GetTagsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.awsinsightsindexservice.v0#LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1856,7 +1856,7 @@ const deserializeAws_json1_1GetTagsCommandError = async (
       };
       break;
     case "RequestChangedException":
-    case "com.amazonaws.awsinsightsindexservice.v0#RequestChangedException":
+    case "com.amazonaws.costexplorer#RequestChangedException":
       response = {
         ...(await deserializeAws_json1_1RequestChangedExceptionResponse(
           parsedOutput,
@@ -1916,7 +1916,7 @@ const deserializeAws_json1_1GetUsageForecastCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DataUnavailableException":
-    case "com.amazonaws.awsinsightsindexservice.v0#DataUnavailableException":
+    case "com.amazonaws.costexplorer#DataUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DataUnavailableExceptionResponse(
           parsedOutput,
@@ -1927,7 +1927,7 @@ const deserializeAws_json1_1GetUsageForecastCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.awsinsightsindexservice.v0#LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1938,7 +1938,7 @@ const deserializeAws_json1_1GetUsageForecastCommandError = async (
       };
       break;
     case "UnresolvableUsageUnitException":
-    case "com.amazonaws.awsinsightsindexservice.v0#UnresolvableUsageUnitException":
+    case "com.amazonaws.costexplorer#UnresolvableUsageUnitException":
       response = {
         ...(await deserializeAws_json1_1UnresolvableUsageUnitExceptionResponse(
           parsedOutput,
@@ -2004,7 +2004,7 @@ const deserializeAws_json1_1ListCostCategoryDefinitionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
-    case "com.amazonaws.awsinsightsindexservice.v0#LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2070,7 +2070,7 @@ const deserializeAws_json1_1UpdateCostCategoryDefinitionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
-    case "com.amazonaws.awsinsightsindexservice.v0#LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2081,7 +2081,7 @@ const deserializeAws_json1_1UpdateCostCategoryDefinitionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.awsinsightsindexservice.v0#ResourceNotFoundException":
+    case "com.amazonaws.costexplorer#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2092,7 +2092,7 @@ const deserializeAws_json1_1UpdateCostCategoryDefinitionCommandError = async (
       };
       break;
     case "ServiceQuotaExceededException":
-    case "com.amazonaws.awsinsightsindexservice.v0#ServiceQuotaExceededException":
+    case "com.amazonaws.costexplorer#ServiceQuotaExceededException":
       response = {
         ...(await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(
           parsedOutput,
@@ -3333,36 +3333,6 @@ const deserializeAws_json1_1EC2Specification = (
   } as any;
 };
 
-const deserializeAws_json1_1ESInstanceDetails = (
-  output: any,
-  context: __SerdeContext
-): ESInstanceDetails => {
-  return {
-    __type: "ESInstanceDetails",
-    CurrentGeneration:
-      output.CurrentGeneration !== undefined &&
-      output.CurrentGeneration !== null
-        ? output.CurrentGeneration
-        : undefined,
-    InstanceClass:
-      output.InstanceClass !== undefined && output.InstanceClass !== null
-        ? output.InstanceClass
-        : undefined,
-    InstanceSize:
-      output.InstanceSize !== undefined && output.InstanceSize !== null
-        ? output.InstanceSize
-        : undefined,
-    Region:
-      output.Region !== undefined && output.Region !== null
-        ? output.Region
-        : undefined,
-    SizeFlexEligible:
-      output.SizeFlexEligible !== undefined && output.SizeFlexEligible !== null
-        ? output.SizeFlexEligible
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1ElastiCacheInstanceDetails = (
   output: any,
   context: __SerdeContext
@@ -3386,6 +3356,36 @@ const deserializeAws_json1_1ElastiCacheInstanceDetails = (
       output.ProductDescription !== undefined &&
       output.ProductDescription !== null
         ? output.ProductDescription
+        : undefined,
+    Region:
+      output.Region !== undefined && output.Region !== null
+        ? output.Region
+        : undefined,
+    SizeFlexEligible:
+      output.SizeFlexEligible !== undefined && output.SizeFlexEligible !== null
+        ? output.SizeFlexEligible
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ESInstanceDetails = (
+  output: any,
+  context: __SerdeContext
+): ESInstanceDetails => {
+  return {
+    __type: "ESInstanceDetails",
+    CurrentGeneration:
+      output.CurrentGeneration !== undefined &&
+      output.CurrentGeneration !== null
+        ? output.CurrentGeneration
+        : undefined,
+    InstanceClass:
+      output.InstanceClass !== undefined && output.InstanceClass !== null
+        ? output.InstanceClass
+        : undefined,
+    InstanceSize:
+      output.InstanceSize !== undefined && output.InstanceSize !== null
+        ? output.InstanceSize
         : undefined,
     Region:
       output.Region !== undefined && output.Region !== null
@@ -3988,6 +3988,19 @@ const deserializeAws_json1_1ListCostCategoryDefinitionsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1Metrics = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: MetricValue } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: MetricValue }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1MetricValue(value, context)
+    }),
+    {}
+  );
+};
+
 const deserializeAws_json1_1MetricValue = (
   output: any,
   context: __SerdeContext
@@ -4003,19 +4016,6 @@ const deserializeAws_json1_1MetricValue = (
         ? output.Unit
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1Metrics = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: MetricValue } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: MetricValue }, [key, value]: [string, any]) => ({
-      ...acc,
-      [key]: deserializeAws_json1_1MetricValue(value, context)
-    }),
-    {}
-  );
 };
 
 const deserializeAws_json1_1ModifyRecommendationDetail = (
@@ -4401,6 +4401,15 @@ const deserializeAws_json1_1ReservationPurchaseRecommendationMetadata = (
   } as any;
 };
 
+const deserializeAws_json1_1ReservationPurchaseRecommendations = (
+  output: any,
+  context: __SerdeContext
+): ReservationPurchaseRecommendation[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ReservationPurchaseRecommendation(entry, context)
+  );
+};
+
 const deserializeAws_json1_1ReservationPurchaseRecommendationSummary = (
   output: any,
   context: __SerdeContext
@@ -4422,15 +4431,6 @@ const deserializeAws_json1_1ReservationPurchaseRecommendationSummary = (
         ? output.TotalEstimatedMonthlySavingsPercentage
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1ReservationPurchaseRecommendations = (
-  output: any,
-  context: __SerdeContext
-): ReservationPurchaseRecommendation[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ReservationPurchaseRecommendation(entry, context)
-  );
 };
 
 const deserializeAws_json1_1ReservationUtilizationGroup = (

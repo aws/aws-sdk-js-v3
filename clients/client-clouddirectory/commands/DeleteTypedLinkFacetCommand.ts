@@ -8,9 +8,9 @@ import {
   DeleteTypedLinkFacetResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteTypedLinkFacetCommand,
-  serializeAws_restJson1_1DeleteTypedLinkFacetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteTypedLinkFacetCommand,
+  serializeAws_restJson1DeleteTypedLinkFacetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteTypedLinkFacetCommand extends $Command<
     input: DeleteTypedLinkFacetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteTypedLinkFacetCommand(input, context);
+    return serializeAws_restJson1DeleteTypedLinkFacetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTypedLinkFacetCommandOutput> {
-    return deserializeAws_restJson1_1DeleteTypedLinkFacetCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteTypedLinkFacetCommand(output, context);
   }
 
   // Start section: command_body_extra

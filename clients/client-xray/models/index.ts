@@ -1828,46 +1828,6 @@ export namespace SamplingRuleUpdate {
 }
 
 /**
- * <p>Aggregated request sampling data for a sampling rule across all services for a 10
- *       second window.</p>
- */
-export interface SamplingStatisticSummary {
-  __type?: "SamplingStatisticSummary";
-  /**
-   * <p>The number of requests recorded with borrowed reservoir quota.</p>
-   */
-  BorrowCount?: number;
-
-  /**
-   * <p>The number of requests that matched the rule.</p>
-   */
-  RequestCount?: number;
-
-  /**
-   * <p>The name of the sampling rule.</p>
-   */
-  RuleName?: string;
-
-  /**
-   * <p>The number of requests recorded.</p>
-   */
-  SampledCount?: number;
-
-  /**
-   * <p>The start time of the reporting window.</p>
-   */
-  Timestamp?: Date;
-}
-
-export namespace SamplingStatisticSummary {
-  export const filterSensitiveLog = (obj: SamplingStatisticSummary): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SamplingStatisticSummary =>
-    __isa(o, "SamplingStatisticSummary");
-}
-
-/**
  * <p>Request sampling results for a single rule from a service. Results are for the last 10
  *       seconds unless the service has been assigned a longer reporting interval after a previous call
  *       to <a>GetSamplingTargets</a>.</p>
@@ -1911,6 +1871,46 @@ export namespace SamplingStatisticsDocument {
   });
   export const isa = (o: any): o is SamplingStatisticsDocument =>
     __isa(o, "SamplingStatisticsDocument");
+}
+
+/**
+ * <p>Aggregated request sampling data for a sampling rule across all services for a 10
+ *       second window.</p>
+ */
+export interface SamplingStatisticSummary {
+  __type?: "SamplingStatisticSummary";
+  /**
+   * <p>The number of requests recorded with borrowed reservoir quota.</p>
+   */
+  BorrowCount?: number;
+
+  /**
+   * <p>The number of requests that matched the rule.</p>
+   */
+  RequestCount?: number;
+
+  /**
+   * <p>The name of the sampling rule.</p>
+   */
+  RuleName?: string;
+
+  /**
+   * <p>The number of requests recorded.</p>
+   */
+  SampledCount?: number;
+
+  /**
+   * <p>The start time of the reporting window.</p>
+   */
+  Timestamp?: Date;
+}
+
+export namespace SamplingStatisticSummary {
+  export const filterSensitiveLog = (obj: SamplingStatisticSummary): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SamplingStatisticSummary =>
+    __isa(o, "SamplingStatisticSummary");
 }
 
 /**

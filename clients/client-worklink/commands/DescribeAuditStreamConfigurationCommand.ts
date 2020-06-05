@@ -8,9 +8,9 @@ import {
   DescribeAuditStreamConfigurationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeAuditStreamConfigurationCommand,
-  serializeAws_restJson1_1DescribeAuditStreamConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeAuditStreamConfigurationCommand,
+  serializeAws_restJson1DescribeAuditStreamConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeAuditStreamConfigurationCommand extends $Command<
     input: DescribeAuditStreamConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeAuditStreamConfigurationCommand(
+    return serializeAws_restJson1DescribeAuditStreamConfigurationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeAuditStreamConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAuditStreamConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DescribeAuditStreamConfigurationCommand(
+    return deserializeAws_restJson1DescribeAuditStreamConfigurationCommand(
       output,
       context
     );

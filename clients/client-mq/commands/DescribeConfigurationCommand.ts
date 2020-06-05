@@ -8,9 +8,9 @@ import {
   mqClientResolvedConfig
 } from "../mqClient";
 import {
-  deserializeAws_restJson1_1DescribeConfigurationCommand,
-  serializeAws_restJson1_1DescribeConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeConfigurationCommand,
+  serializeAws_restJson1DescribeConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class DescribeConfigurationCommand extends $Command<
     input: DescribeConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeConfigurationCommand(input, context);
+    return serializeAws_restJson1DescribeConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DescribeConfigurationCommand(
+    return deserializeAws_restJson1DescribeConfigurationCommand(
       output,
       context
     );

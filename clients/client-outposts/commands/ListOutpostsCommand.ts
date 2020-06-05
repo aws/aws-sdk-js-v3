@@ -5,9 +5,9 @@ import {
 } from "../OutpostsClient";
 import { ListOutpostsInput, ListOutpostsOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListOutpostsCommand,
-  serializeAws_restJson1_1ListOutpostsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListOutpostsCommand,
+  serializeAws_restJson1ListOutpostsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListOutpostsCommand extends $Command<
     input: ListOutpostsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListOutpostsCommand(input, context);
+    return serializeAws_restJson1ListOutpostsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListOutpostsCommandOutput> {
-    return deserializeAws_restJson1_1ListOutpostsCommand(output, context);
+    return deserializeAws_restJson1ListOutpostsCommand(output, context);
   }
 
   // Start section: command_body_extra

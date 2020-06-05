@@ -177,6 +177,7 @@ import {
   BackupSummary,
   BatchGetItemInput,
   BatchGetItemOutput,
+  BatchResponse,
   BatchWriteItemInput,
   BatchWriteItemOutput,
   BillingModeSummary,
@@ -253,6 +254,8 @@ import {
   ItemCollectionMetrics,
   ItemCollectionSizeLimitExceededException,
   ItemResponse,
+  Key,
+  KeySchema,
   KeySchemaElement,
   KeysAndAttributes,
   LimitExceededException,
@@ -367,21 +370,6 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
-
-export const serializeAws_json1_0DescribeEndpointsCommand = async (
-  input: DescribeEndpointsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.DescribeEndpoints"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0DescribeEndpointsRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
 
 export const serializeAws_json1_0BatchGetItemCommand = async (
   input: BatchGetItemCommandInput,
@@ -532,6 +520,21 @@ export const serializeAws_json1_0DescribeContributorInsightsCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeContributorInsightsInput(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0DescribeEndpointsCommand = async (
+  input: DescribeEndpointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeEndpoints"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_0DescribeEndpointsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -949,55 +952,6 @@ export const serializeAws_json1_0UpdateTimeToLiveCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_0DescribeEndpointsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_0DescribeEndpointsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_0DescribeEndpointsResponse(data, context);
-  const response: DescribeEndpointsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DescribeEndpointsResponse",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_0DescribeEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
 export const deserializeAws_json1_0BatchGetItemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1030,19 +984,8 @@ const deserializeAws_json1_0BatchGetItemCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -1052,8 +995,19 @@ const deserializeAws_json1_0BatchGetItemCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb.v20120810#ProvisionedThroughputExceededException":
+    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -1064,7 +1018,7 @@ const deserializeAws_json1_0BatchGetItemCommandError = async (
       };
       break;
     case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb.v20120810#RequestLimitExceeded":
+    case "com.amazonaws.dynamodb#RequestLimitExceeded":
       response = {
         ...(await deserializeAws_json1_0RequestLimitExceededResponse(
           parsedOutput,
@@ -1075,7 +1029,7 @@ const deserializeAws_json1_0BatchGetItemCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1134,19 +1088,8 @@ const deserializeAws_json1_0BatchWriteItemCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -1156,8 +1099,19 @@ const deserializeAws_json1_0BatchWriteItemCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ItemCollectionSizeLimitExceededException":
-    case "com.amazonaws.dynamodb.v20120810#ItemCollectionSizeLimitExceededException":
+    case "com.amazonaws.dynamodb#ItemCollectionSizeLimitExceededException":
       response = {
         ...(await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(
           parsedOutput,
@@ -1168,7 +1122,7 @@ const deserializeAws_json1_0BatchWriteItemCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb.v20120810#ProvisionedThroughputExceededException":
+    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -1179,7 +1133,7 @@ const deserializeAws_json1_0BatchWriteItemCommandError = async (
       };
       break;
     case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb.v20120810#RequestLimitExceeded":
+    case "com.amazonaws.dynamodb#RequestLimitExceeded":
       response = {
         ...(await deserializeAws_json1_0RequestLimitExceededResponse(
           parsedOutput,
@@ -1190,7 +1144,7 @@ const deserializeAws_json1_0BatchWriteItemCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1249,19 +1203,8 @@ const deserializeAws_json1_0CreateBackupCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "BackupInUseException":
-    case "com.amazonaws.dynamodb.v20120810#BackupInUseException":
+    case "com.amazonaws.dynamodb#BackupInUseException":
       response = {
         ...(await deserializeAws_json1_0BackupInUseExceptionResponse(
           parsedOutput,
@@ -1272,7 +1215,7 @@ const deserializeAws_json1_0CreateBackupCommandError = async (
       };
       break;
     case "ContinuousBackupsUnavailableException":
-    case "com.amazonaws.dynamodb.v20120810#ContinuousBackupsUnavailableException":
+    case "com.amazonaws.dynamodb#ContinuousBackupsUnavailableException":
       response = {
         ...(await deserializeAws_json1_0ContinuousBackupsUnavailableExceptionResponse(
           parsedOutput,
@@ -1283,7 +1226,7 @@ const deserializeAws_json1_0CreateBackupCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -1293,8 +1236,19 @@ const deserializeAws_json1_0CreateBackupCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "LimitExceededException":
-    case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
           parsedOutput,
@@ -1305,7 +1259,7 @@ const deserializeAws_json1_0CreateBackupCommandError = async (
       };
       break;
     case "TableInUseException":
-    case "com.amazonaws.dynamodb.v20120810#TableInUseException":
+    case "com.amazonaws.dynamodb#TableInUseException":
       response = {
         ...(await deserializeAws_json1_0TableInUseExceptionResponse(
           parsedOutput,
@@ -1316,7 +1270,7 @@ const deserializeAws_json1_0CreateBackupCommandError = async (
       };
       break;
     case "TableNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#TableNotFoundException":
+    case "com.amazonaws.dynamodb#TableNotFoundException":
       response = {
         ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(
           parsedOutput,
@@ -1375,19 +1329,8 @@ const deserializeAws_json1_0CreateGlobalTableCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "GlobalTableAlreadyExistsException":
-    case "com.amazonaws.dynamodb.v20120810#GlobalTableAlreadyExistsException":
+    case "com.amazonaws.dynamodb#GlobalTableAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_0GlobalTableAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1398,7 +1341,7 @@ const deserializeAws_json1_0CreateGlobalTableCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -1408,8 +1351,19 @@ const deserializeAws_json1_0CreateGlobalTableCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "LimitExceededException":
-    case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
           parsedOutput,
@@ -1420,7 +1374,7 @@ const deserializeAws_json1_0CreateGlobalTableCommandError = async (
       };
       break;
     case "TableNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#TableNotFoundException":
+    case "com.amazonaws.dynamodb#TableNotFoundException":
       response = {
         ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(
           parsedOutput,
@@ -1479,19 +1433,8 @@ const deserializeAws_json1_0CreateTableCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -1501,8 +1444,19 @@ const deserializeAws_json1_0CreateTableCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "LimitExceededException":
-    case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
           parsedOutput,
@@ -1513,7 +1467,7 @@ const deserializeAws_json1_0CreateTableCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceInUseException":
+    case "com.amazonaws.dynamodb#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1572,19 +1526,8 @@ const deserializeAws_json1_0DeleteBackupCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "BackupInUseException":
-    case "com.amazonaws.dynamodb.v20120810#BackupInUseException":
+    case "com.amazonaws.dynamodb#BackupInUseException":
       response = {
         ...(await deserializeAws_json1_0BackupInUseExceptionResponse(
           parsedOutput,
@@ -1595,7 +1538,7 @@ const deserializeAws_json1_0DeleteBackupCommandError = async (
       };
       break;
     case "BackupNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#BackupNotFoundException":
+    case "com.amazonaws.dynamodb#BackupNotFoundException":
       response = {
         ...(await deserializeAws_json1_0BackupNotFoundExceptionResponse(
           parsedOutput,
@@ -1606,7 +1549,7 @@ const deserializeAws_json1_0DeleteBackupCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -1616,8 +1559,19 @@ const deserializeAws_json1_0DeleteBackupCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "LimitExceededException":
-    case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
           parsedOutput,
@@ -1676,19 +1630,8 @@ const deserializeAws_json1_0DeleteItemCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "ConditionalCheckFailedException":
-    case "com.amazonaws.dynamodb.v20120810#ConditionalCheckFailedException":
+    case "com.amazonaws.dynamodb#ConditionalCheckFailedException":
       response = {
         ...(await deserializeAws_json1_0ConditionalCheckFailedExceptionResponse(
           parsedOutput,
@@ -1699,7 +1642,7 @@ const deserializeAws_json1_0DeleteItemCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -1709,8 +1652,19 @@ const deserializeAws_json1_0DeleteItemCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ItemCollectionSizeLimitExceededException":
-    case "com.amazonaws.dynamodb.v20120810#ItemCollectionSizeLimitExceededException":
+    case "com.amazonaws.dynamodb#ItemCollectionSizeLimitExceededException":
       response = {
         ...(await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(
           parsedOutput,
@@ -1721,7 +1675,7 @@ const deserializeAws_json1_0DeleteItemCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb.v20120810#ProvisionedThroughputExceededException":
+    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -1732,7 +1686,7 @@ const deserializeAws_json1_0DeleteItemCommandError = async (
       };
       break;
     case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb.v20120810#RequestLimitExceeded":
+    case "com.amazonaws.dynamodb#RequestLimitExceeded":
       response = {
         ...(await deserializeAws_json1_0RequestLimitExceededResponse(
           parsedOutput,
@@ -1743,7 +1697,7 @@ const deserializeAws_json1_0DeleteItemCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1754,7 +1708,7 @@ const deserializeAws_json1_0DeleteItemCommandError = async (
       };
       break;
     case "TransactionConflictException":
-    case "com.amazonaws.dynamodb.v20120810#TransactionConflictException":
+    case "com.amazonaws.dynamodb#TransactionConflictException":
       response = {
         ...(await deserializeAws_json1_0TransactionConflictExceptionResponse(
           parsedOutput,
@@ -1813,19 +1767,8 @@ const deserializeAws_json1_0DeleteTableCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -1835,8 +1778,19 @@ const deserializeAws_json1_0DeleteTableCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "LimitExceededException":
-    case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
           parsedOutput,
@@ -1847,7 +1801,7 @@ const deserializeAws_json1_0DeleteTableCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceInUseException":
+    case "com.amazonaws.dynamodb#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1858,7 +1812,7 @@ const deserializeAws_json1_0DeleteTableCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1917,19 +1871,8 @@ const deserializeAws_json1_0DescribeBackupCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "BackupNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#BackupNotFoundException":
+    case "com.amazonaws.dynamodb#BackupNotFoundException":
       response = {
         ...(await deserializeAws_json1_0BackupNotFoundExceptionResponse(
           parsedOutput,
@@ -1940,9 +1883,20 @@ const deserializeAws_json1_0DescribeBackupCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
           parsedOutput,
           context
         )),
@@ -2005,19 +1959,8 @@ const deserializeAws_json1_0DescribeContinuousBackupsCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -2027,8 +1970,19 @@ const deserializeAws_json1_0DescribeContinuousBackupsCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "TableNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#TableNotFoundException":
+    case "com.amazonaws.dynamodb#TableNotFoundException":
       response = {
         ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(
           parsedOutput,
@@ -2094,7 +2048,7 @@ const deserializeAws_json1_0DescribeContributorInsightsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -2105,7 +2059,7 @@ const deserializeAws_json1_0DescribeContributorInsightsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2115,6 +2069,55 @@ const deserializeAws_json1_0DescribeContributorInsightsCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_0DescribeEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEndpointsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_0DescribeEndpointsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DescribeEndpointsResponse(data, context);
+  const response: DescribeEndpointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeEndpointsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DescribeEndpointsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEndpointsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -2167,19 +2170,8 @@ const deserializeAws_json1_0DescribeGlobalTableCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "GlobalTableNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#GlobalTableNotFoundException":
+    case "com.amazonaws.dynamodb#GlobalTableNotFoundException":
       response = {
         ...(await deserializeAws_json1_0GlobalTableNotFoundExceptionResponse(
           parsedOutput,
@@ -2190,9 +2182,20 @@ const deserializeAws_json1_0DescribeGlobalTableCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
           parsedOutput,
           context
         )),
@@ -2255,19 +2258,8 @@ const deserializeAws_json1_0DescribeGlobalTableSettingsCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "GlobalTableNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#GlobalTableNotFoundException":
+    case "com.amazonaws.dynamodb#GlobalTableNotFoundException":
       response = {
         ...(await deserializeAws_json1_0GlobalTableNotFoundExceptionResponse(
           parsedOutput,
@@ -2278,9 +2270,20 @@ const deserializeAws_json1_0DescribeGlobalTableSettingsCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
           parsedOutput,
           context
         )),
@@ -2337,10 +2340,10 @@ const deserializeAws_json1_0DescribeLimitsCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
+    case "InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
           context
         )),
@@ -2348,10 +2351,10 @@ const deserializeAws_json1_0DescribeLimitsCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
           parsedOutput,
           context
         )),
@@ -2408,19 +2411,8 @@ const deserializeAws_json1_0DescribeTableCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -2431,7 +2423,7 @@ const deserializeAws_json1_0DescribeTableCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2497,7 +2489,7 @@ const deserializeAws_json1_0DescribeTableReplicaAutoScalingCommandError = async 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -2508,7 +2500,7 @@ const deserializeAws_json1_0DescribeTableReplicaAutoScalingCommandError = async 
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2570,19 +2562,8 @@ const deserializeAws_json1_0DescribeTimeToLiveCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -2592,8 +2573,19 @@ const deserializeAws_json1_0DescribeTimeToLiveCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2652,19 +2644,8 @@ const deserializeAws_json1_0GetItemCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -2674,8 +2655,19 @@ const deserializeAws_json1_0GetItemCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb.v20120810#ProvisionedThroughputExceededException":
+    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -2686,7 +2678,7 @@ const deserializeAws_json1_0GetItemCommandError = async (
       };
       break;
     case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb.v20120810#RequestLimitExceeded":
+    case "com.amazonaws.dynamodb#RequestLimitExceeded":
       response = {
         ...(await deserializeAws_json1_0RequestLimitExceededResponse(
           parsedOutput,
@@ -2697,7 +2689,7 @@ const deserializeAws_json1_0GetItemCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2756,10 +2748,10 @@ const deserializeAws_json1_0ListBackupsCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
+    case "InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
           context
         )),
@@ -2767,10 +2759,10 @@ const deserializeAws_json1_0ListBackupsCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
           parsedOutput,
           context
         )),
@@ -2831,7 +2823,7 @@ const deserializeAws_json1_0ListContributorInsightsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -2842,7 +2834,7 @@ const deserializeAws_json1_0ListContributorInsightsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2901,10 +2893,10 @@ const deserializeAws_json1_0ListGlobalTablesCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
+    case "InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
           context
         )),
@@ -2912,10 +2904,10 @@ const deserializeAws_json1_0ListGlobalTablesCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
           parsedOutput,
           context
         )),
@@ -2972,19 +2964,8 @@ const deserializeAws_json1_0ListTablesCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -3046,19 +3027,8 @@ const deserializeAws_json1_0ListTagsOfResourceCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -3068,8 +3038,19 @@ const deserializeAws_json1_0ListTagsOfResourceCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3128,19 +3109,8 @@ const deserializeAws_json1_0PutItemCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "ConditionalCheckFailedException":
-    case "com.amazonaws.dynamodb.v20120810#ConditionalCheckFailedException":
+    case "com.amazonaws.dynamodb#ConditionalCheckFailedException":
       response = {
         ...(await deserializeAws_json1_0ConditionalCheckFailedExceptionResponse(
           parsedOutput,
@@ -3151,7 +3121,7 @@ const deserializeAws_json1_0PutItemCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -3161,10 +3131,10 @@ const deserializeAws_json1_0PutItemCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "ItemCollectionSizeLimitExceededException":
-    case "com.amazonaws.dynamodb.v20120810#ItemCollectionSizeLimitExceededException":
+    case "LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
           parsedOutput,
           context
         )),
@@ -3173,7 +3143,7 @@ const deserializeAws_json1_0PutItemCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb.v20120810#ProvisionedThroughputExceededException":
+    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -3184,7 +3154,7 @@ const deserializeAws_json1_0PutItemCommandError = async (
       };
       break;
     case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb.v20120810#RequestLimitExceeded":
+    case "com.amazonaws.dynamodb#RequestLimitExceeded":
       response = {
         ...(await deserializeAws_json1_0RequestLimitExceededResponse(
           parsedOutput,
@@ -3195,20 +3165,9 @@ const deserializeAws_json1_0PutItemCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "TransactionConflictException":
-    case "com.amazonaws.dynamodb.v20120810#TransactionConflictException":
-      response = {
-        ...(await deserializeAws_json1_0TransactionConflictExceptionResponse(
           parsedOutput,
           context
         )),
@@ -3265,19 +3224,8 @@ const deserializeAws_json1_0QueryCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -3287,8 +3235,19 @@ const deserializeAws_json1_0QueryCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb.v20120810#ProvisionedThroughputExceededException":
+    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -3299,7 +3258,7 @@ const deserializeAws_json1_0QueryCommandError = async (
       };
       break;
     case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb.v20120810#RequestLimitExceeded":
+    case "com.amazonaws.dynamodb#RequestLimitExceeded":
       response = {
         ...(await deserializeAws_json1_0RequestLimitExceededResponse(
           parsedOutput,
@@ -3310,7 +3269,7 @@ const deserializeAws_json1_0QueryCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3372,19 +3331,8 @@ const deserializeAws_json1_0RestoreTableFromBackupCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "BackupInUseException":
-    case "com.amazonaws.dynamodb.v20120810#BackupInUseException":
+    case "com.amazonaws.dynamodb#BackupInUseException":
       response = {
         ...(await deserializeAws_json1_0BackupInUseExceptionResponse(
           parsedOutput,
@@ -3395,7 +3343,7 @@ const deserializeAws_json1_0RestoreTableFromBackupCommandError = async (
       };
       break;
     case "BackupNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#BackupNotFoundException":
+    case "com.amazonaws.dynamodb#BackupNotFoundException":
       response = {
         ...(await deserializeAws_json1_0BackupNotFoundExceptionResponse(
           parsedOutput,
@@ -3406,7 +3354,7 @@ const deserializeAws_json1_0RestoreTableFromBackupCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -3416,8 +3364,19 @@ const deserializeAws_json1_0RestoreTableFromBackupCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "LimitExceededException":
-    case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
           parsedOutput,
@@ -3428,7 +3387,7 @@ const deserializeAws_json1_0RestoreTableFromBackupCommandError = async (
       };
       break;
     case "TableAlreadyExistsException":
-    case "com.amazonaws.dynamodb.v20120810#TableAlreadyExistsException":
+    case "com.amazonaws.dynamodb#TableAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_0TableAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -3439,7 +3398,7 @@ const deserializeAws_json1_0RestoreTableFromBackupCommandError = async (
       };
       break;
     case "TableInUseException":
-    case "com.amazonaws.dynamodb.v20120810#TableInUseException":
+    case "com.amazonaws.dynamodb#TableInUseException":
       response = {
         ...(await deserializeAws_json1_0TableInUseExceptionResponse(
           parsedOutput,
@@ -3504,19 +3463,8 @@ const deserializeAws_json1_0RestoreTableToPointInTimeCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -3526,8 +3474,19 @@ const deserializeAws_json1_0RestoreTableToPointInTimeCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "InvalidRestoreTimeException":
-    case "com.amazonaws.dynamodb.v20120810#InvalidRestoreTimeException":
+    case "com.amazonaws.dynamodb#InvalidRestoreTimeException":
       response = {
         ...(await deserializeAws_json1_0InvalidRestoreTimeExceptionResponse(
           parsedOutput,
@@ -3538,7 +3497,7 @@ const deserializeAws_json1_0RestoreTableToPointInTimeCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
           parsedOutput,
@@ -3549,7 +3508,7 @@ const deserializeAws_json1_0RestoreTableToPointInTimeCommandError = async (
       };
       break;
     case "PointInTimeRecoveryUnavailableException":
-    case "com.amazonaws.dynamodb.v20120810#PointInTimeRecoveryUnavailableException":
+    case "com.amazonaws.dynamodb#PointInTimeRecoveryUnavailableException":
       response = {
         ...(await deserializeAws_json1_0PointInTimeRecoveryUnavailableExceptionResponse(
           parsedOutput,
@@ -3560,7 +3519,7 @@ const deserializeAws_json1_0RestoreTableToPointInTimeCommandError = async (
       };
       break;
     case "TableAlreadyExistsException":
-    case "com.amazonaws.dynamodb.v20120810#TableAlreadyExistsException":
+    case "com.amazonaws.dynamodb#TableAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_0TableAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -3571,7 +3530,7 @@ const deserializeAws_json1_0RestoreTableToPointInTimeCommandError = async (
       };
       break;
     case "TableInUseException":
-    case "com.amazonaws.dynamodb.v20120810#TableInUseException":
+    case "com.amazonaws.dynamodb#TableInUseException":
       response = {
         ...(await deserializeAws_json1_0TableInUseExceptionResponse(
           parsedOutput,
@@ -3582,7 +3541,7 @@ const deserializeAws_json1_0RestoreTableToPointInTimeCommandError = async (
       };
       break;
     case "TableNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#TableNotFoundException":
+    case "com.amazonaws.dynamodb#TableNotFoundException":
       response = {
         ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(
           parsedOutput,
@@ -3641,19 +3600,8 @@ const deserializeAws_json1_0ScanCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -3664,7 +3612,7 @@ const deserializeAws_json1_0ScanCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb.v20120810#ProvisionedThroughputExceededException":
+    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -3675,7 +3623,7 @@ const deserializeAws_json1_0ScanCommandError = async (
       };
       break;
     case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb.v20120810#RequestLimitExceeded":
+    case "com.amazonaws.dynamodb#RequestLimitExceeded":
       response = {
         ...(await deserializeAws_json1_0RequestLimitExceededResponse(
           parsedOutput,
@@ -3686,7 +3634,7 @@ const deserializeAws_json1_0ScanCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3741,19 +3689,8 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -3763,8 +3700,19 @@ const deserializeAws_json1_0TagResourceCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "LimitExceededException":
-    case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
           parsedOutput,
@@ -3775,7 +3723,7 @@ const deserializeAws_json1_0TagResourceCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceInUseException":
+    case "com.amazonaws.dynamodb#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(
           parsedOutput,
@@ -3786,7 +3734,7 @@ const deserializeAws_json1_0TagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3845,19 +3793,8 @@ const deserializeAws_json1_0TransactGetItemsCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -3867,8 +3804,19 @@ const deserializeAws_json1_0TransactGetItemsCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb.v20120810#ProvisionedThroughputExceededException":
+    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -3879,7 +3827,7 @@ const deserializeAws_json1_0TransactGetItemsCommandError = async (
       };
       break;
     case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb.v20120810#RequestLimitExceeded":
+    case "com.amazonaws.dynamodb#RequestLimitExceeded":
       response = {
         ...(await deserializeAws_json1_0RequestLimitExceededResponse(
           parsedOutput,
@@ -3890,7 +3838,7 @@ const deserializeAws_json1_0TransactGetItemsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3901,7 +3849,7 @@ const deserializeAws_json1_0TransactGetItemsCommandError = async (
       };
       break;
     case "TransactionCanceledException":
-    case "com.amazonaws.dynamodb.v20120810#TransactionCanceledException":
+    case "com.amazonaws.dynamodb#TransactionCanceledException":
       response = {
         ...(await deserializeAws_json1_0TransactionCanceledExceptionResponse(
           parsedOutput,
@@ -3963,19 +3911,8 @@ const deserializeAws_json1_0TransactWriteItemsCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "IdempotentParameterMismatchException":
-    case "com.amazonaws.dynamodb.v20120810#IdempotentParameterMismatchException":
+    case "com.amazonaws.dynamodb#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_json1_0IdempotentParameterMismatchExceptionResponse(
           parsedOutput,
@@ -3986,7 +3923,7 @@ const deserializeAws_json1_0TransactWriteItemsCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -3996,8 +3933,19 @@ const deserializeAws_json1_0TransactWriteItemsCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb.v20120810#ProvisionedThroughputExceededException":
+    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -4008,7 +3956,7 @@ const deserializeAws_json1_0TransactWriteItemsCommandError = async (
       };
       break;
     case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb.v20120810#RequestLimitExceeded":
+    case "com.amazonaws.dynamodb#RequestLimitExceeded":
       response = {
         ...(await deserializeAws_json1_0RequestLimitExceededResponse(
           parsedOutput,
@@ -4019,7 +3967,7 @@ const deserializeAws_json1_0TransactWriteItemsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4030,7 +3978,7 @@ const deserializeAws_json1_0TransactWriteItemsCommandError = async (
       };
       break;
     case "TransactionCanceledException":
-    case "com.amazonaws.dynamodb.v20120810#TransactionCanceledException":
+    case "com.amazonaws.dynamodb#TransactionCanceledException":
       response = {
         ...(await deserializeAws_json1_0TransactionCanceledExceptionResponse(
           parsedOutput,
@@ -4041,7 +3989,7 @@ const deserializeAws_json1_0TransactWriteItemsCommandError = async (
       };
       break;
     case "TransactionInProgressException":
-    case "com.amazonaws.dynamodb.v20120810#TransactionInProgressException":
+    case "com.amazonaws.dynamodb#TransactionInProgressException":
       response = {
         ...(await deserializeAws_json1_0TransactionInProgressExceptionResponse(
           parsedOutput,
@@ -4096,19 +4044,8 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -4118,8 +4055,19 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "LimitExceededException":
-    case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
           parsedOutput,
@@ -4130,7 +4078,7 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceInUseException":
+    case "com.amazonaws.dynamodb#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(
           parsedOutput,
@@ -4141,7 +4089,7 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4203,19 +4151,8 @@ const deserializeAws_json1_0UpdateContinuousBackupsCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "ContinuousBackupsUnavailableException":
-    case "com.amazonaws.dynamodb.v20120810#ContinuousBackupsUnavailableException":
+    case "com.amazonaws.dynamodb#ContinuousBackupsUnavailableException":
       response = {
         ...(await deserializeAws_json1_0ContinuousBackupsUnavailableExceptionResponse(
           parsedOutput,
@@ -4226,7 +4163,7 @@ const deserializeAws_json1_0UpdateContinuousBackupsCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -4236,8 +4173,19 @@ const deserializeAws_json1_0UpdateContinuousBackupsCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "TableNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#TableNotFoundException":
+    case "com.amazonaws.dynamodb#TableNotFoundException":
       response = {
         ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(
           parsedOutput,
@@ -4303,7 +4251,7 @@ const deserializeAws_json1_0UpdateContributorInsightsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -4314,7 +4262,7 @@ const deserializeAws_json1_0UpdateContributorInsightsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4373,19 +4321,8 @@ const deserializeAws_json1_0UpdateGlobalTableCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "GlobalTableNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#GlobalTableNotFoundException":
+    case "com.amazonaws.dynamodb#GlobalTableNotFoundException":
       response = {
         ...(await deserializeAws_json1_0GlobalTableNotFoundExceptionResponse(
           parsedOutput,
@@ -4396,7 +4333,7 @@ const deserializeAws_json1_0UpdateGlobalTableCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -4406,8 +4343,19 @@ const deserializeAws_json1_0UpdateGlobalTableCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ReplicaAlreadyExistsException":
-    case "com.amazonaws.dynamodb.v20120810#ReplicaAlreadyExistsException":
+    case "com.amazonaws.dynamodb#ReplicaAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_0ReplicaAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -4418,7 +4366,7 @@ const deserializeAws_json1_0UpdateGlobalTableCommandError = async (
       };
       break;
     case "ReplicaNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ReplicaNotFoundException":
+    case "com.amazonaws.dynamodb#ReplicaNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ReplicaNotFoundExceptionResponse(
           parsedOutput,
@@ -4429,7 +4377,7 @@ const deserializeAws_json1_0UpdateGlobalTableCommandError = async (
       };
       break;
     case "TableNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#TableNotFoundException":
+    case "com.amazonaws.dynamodb#TableNotFoundException":
       response = {
         ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(
           parsedOutput,
@@ -4494,19 +4442,8 @@ const deserializeAws_json1_0UpdateGlobalTableSettingsCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "GlobalTableNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#GlobalTableNotFoundException":
+    case "com.amazonaws.dynamodb#GlobalTableNotFoundException":
       response = {
         ...(await deserializeAws_json1_0GlobalTableNotFoundExceptionResponse(
           parsedOutput,
@@ -4517,7 +4454,7 @@ const deserializeAws_json1_0UpdateGlobalTableSettingsCommandError = async (
       };
       break;
     case "IndexNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#IndexNotFoundException":
+    case "com.amazonaws.dynamodb#IndexNotFoundException":
       response = {
         ...(await deserializeAws_json1_0IndexNotFoundExceptionResponse(
           parsedOutput,
@@ -4528,7 +4465,7 @@ const deserializeAws_json1_0UpdateGlobalTableSettingsCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -4538,8 +4475,19 @@ const deserializeAws_json1_0UpdateGlobalTableSettingsCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "LimitExceededException":
-    case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
           parsedOutput,
@@ -4550,7 +4498,7 @@ const deserializeAws_json1_0UpdateGlobalTableSettingsCommandError = async (
       };
       break;
     case "ReplicaNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ReplicaNotFoundException":
+    case "com.amazonaws.dynamodb#ReplicaNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ReplicaNotFoundExceptionResponse(
           parsedOutput,
@@ -4561,7 +4509,7 @@ const deserializeAws_json1_0UpdateGlobalTableSettingsCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceInUseException":
+    case "com.amazonaws.dynamodb#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(
           parsedOutput,
@@ -4620,19 +4568,8 @@ const deserializeAws_json1_0UpdateItemCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "ConditionalCheckFailedException":
-    case "com.amazonaws.dynamodb.v20120810#ConditionalCheckFailedException":
+    case "com.amazonaws.dynamodb#ConditionalCheckFailedException":
       response = {
         ...(await deserializeAws_json1_0ConditionalCheckFailedExceptionResponse(
           parsedOutput,
@@ -4643,7 +4580,7 @@ const deserializeAws_json1_0UpdateItemCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -4653,8 +4590,19 @@ const deserializeAws_json1_0UpdateItemCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ItemCollectionSizeLimitExceededException":
-    case "com.amazonaws.dynamodb.v20120810#ItemCollectionSizeLimitExceededException":
+    case "com.amazonaws.dynamodb#ItemCollectionSizeLimitExceededException":
       response = {
         ...(await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(
           parsedOutput,
@@ -4665,7 +4613,7 @@ const deserializeAws_json1_0UpdateItemCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb.v20120810#ProvisionedThroughputExceededException":
+    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -4676,7 +4624,7 @@ const deserializeAws_json1_0UpdateItemCommandError = async (
       };
       break;
     case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb.v20120810#RequestLimitExceeded":
+    case "com.amazonaws.dynamodb#RequestLimitExceeded":
       response = {
         ...(await deserializeAws_json1_0RequestLimitExceededResponse(
           parsedOutput,
@@ -4687,7 +4635,7 @@ const deserializeAws_json1_0UpdateItemCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4698,7 +4646,7 @@ const deserializeAws_json1_0UpdateItemCommandError = async (
       };
       break;
     case "TransactionConflictException":
-    case "com.amazonaws.dynamodb.v20120810#TransactionConflictException":
+    case "com.amazonaws.dynamodb#TransactionConflictException":
       response = {
         ...(await deserializeAws_json1_0TransactionConflictExceptionResponse(
           parsedOutput,
@@ -4757,19 +4705,8 @@ const deserializeAws_json1_0UpdateTableCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -4779,8 +4716,19 @@ const deserializeAws_json1_0UpdateTableCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "LimitExceededException":
-    case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
           parsedOutput,
@@ -4791,7 +4739,7 @@ const deserializeAws_json1_0UpdateTableCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceInUseException":
+    case "com.amazonaws.dynamodb#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(
           parsedOutput,
@@ -4802,7 +4750,7 @@ const deserializeAws_json1_0UpdateTableCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4868,7 +4816,7 @@ const deserializeAws_json1_0UpdateTableReplicaAutoScalingCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -4879,7 +4827,7 @@ const deserializeAws_json1_0UpdateTableReplicaAutoScalingCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
           parsedOutput,
@@ -4890,7 +4838,7 @@ const deserializeAws_json1_0UpdateTableReplicaAutoScalingCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceInUseException":
+    case "com.amazonaws.dynamodb#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(
           parsedOutput,
@@ -4901,7 +4849,7 @@ const deserializeAws_json1_0UpdateTableReplicaAutoScalingCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4960,19 +4908,8 @@ const deserializeAws_json1_0UpdateTimeToLiveCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -4982,8 +4919,19 @@ const deserializeAws_json1_0UpdateTimeToLiveCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "LimitExceededException":
-    case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
           parsedOutput,
@@ -4994,7 +4942,7 @@ const deserializeAws_json1_0UpdateTimeToLiveCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceInUseException":
+    case "com.amazonaws.dynamodb#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(
           parsedOutput,
@@ -5005,7 +4953,7 @@ const deserializeAws_json1_0UpdateTimeToLiveCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -5030,24 +4978,6 @@ const deserializeAws_json1_0UpdateTimeToLiveCommandError = async (
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-};
-
-const deserializeAws_json1_0InvalidEndpointExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidEndpointException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidEndpointException(
-    body,
-    context
-  );
-  const contents: InvalidEndpointException = {
-    name: "InvalidEndpointException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
 };
 
 const deserializeAws_json1_0BackupInUseExceptionResponse = async (
@@ -5206,6 +5136,24 @@ const deserializeAws_json1_0InternalServerErrorResponse = async (
   const contents: InternalServerError = {
     name: "InternalServerError",
     $fault: "server",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_0InvalidEndpointExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidEndpointException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_0InvalidEndpointException(
+    body,
+    context
+  );
+  const contents: InvalidEndpointException = {
+    name: "InvalidEndpointException",
+    $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
@@ -5500,13 +5448,6 @@ const deserializeAws_json1_0TransactionInProgressExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_json1_0DescribeEndpointsRequest = (
-  input: DescribeEndpointsRequest,
-  context: __SerdeContext
-): any => {
-  return {};
-};
-
 const serializeAws_json1_0AttributeDefinition = (
   input: AttributeDefinition,
   context: __SerdeContext
@@ -5559,21 +5500,13 @@ const serializeAws_json1_0AttributeValue = (
 ): any => {
   return {
     ...(input.B !== undefined && { B: context.base64Encoder(input.B) }),
-    ...(input.BOOL !== undefined && { BOOL: input.BOOL }),
     ...(input.BS !== undefined && {
       BS: serializeAws_json1_0BinarySetAttributeValue(input.BS, context)
-    }),
-    ...(input.L !== undefined && {
-      L: serializeAws_json1_0ListAttributeValue(input.L, context)
-    }),
-    ...(input.M !== undefined && {
-      M: serializeAws_json1_0MapAttributeValue(input.M, context)
     }),
     ...(input.N !== undefined && { N: input.N }),
     ...(input.NS !== undefined && {
       NS: serializeAws_json1_0NumberSetAttributeValue(input.NS, context)
     }),
-    ...(input.NULL !== undefined && { NULL: input.NULL }),
     ...(input.S !== undefined && { S: input.S }),
     ...(input.SS !== undefined && {
       SS: serializeAws_json1_0StringSetAttributeValue(input.SS, context)
@@ -5669,9 +5602,6 @@ const serializeAws_json1_0BatchGetItemInput = (
         input.RequestItems,
         context
       )
-    }),
-    ...(input.ReturnConsumedCapacity !== undefined && {
-      ReturnConsumedCapacity: input.ReturnConsumedCapacity
     })
   };
 };
@@ -5702,12 +5632,6 @@ const serializeAws_json1_0BatchWriteItemInput = (
         input.RequestItems,
         context
       )
-    }),
-    ...(input.ReturnConsumedCapacity !== undefined && {
-      ReturnConsumedCapacity: input.ReturnConsumedCapacity
-    }),
-    ...(input.ReturnItemCollectionMetrics !== undefined && {
-      ReturnItemCollectionMetrics: input.ReturnItemCollectionMetrics
     })
   };
 };
@@ -5967,38 +5891,14 @@ const serializeAws_json1_0DeleteItemInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConditionExpression !== undefined && {
-      ConditionExpression: input.ConditionExpression
-    }),
-    ...(input.ConditionalOperator !== undefined && {
-      ConditionalOperator: input.ConditionalOperator
-    }),
     ...(input.Expected !== undefined && {
       Expected: serializeAws_json1_0ExpectedAttributeMap(
         input.Expected,
         context
       )
     }),
-    ...(input.ExpressionAttributeNames !== undefined && {
-      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
-        input.ExpressionAttributeNames,
-        context
-      )
-    }),
-    ...(input.ExpressionAttributeValues !== undefined && {
-      ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
-        input.ExpressionAttributeValues,
-        context
-      )
-    }),
     ...(input.Key !== undefined && {
       Key: serializeAws_json1_0Key(input.Key, context)
-    }),
-    ...(input.ReturnConsumedCapacity !== undefined && {
-      ReturnConsumedCapacity: input.ReturnConsumedCapacity
-    }),
-    ...(input.ReturnItemCollectionMetrics !== undefined && {
-      ReturnItemCollectionMetrics: input.ReturnItemCollectionMetrics
     }),
     ...(input.ReturnValues !== undefined && {
       ReturnValues: input.ReturnValues
@@ -6071,6 +5971,13 @@ const serializeAws_json1_0DescribeContributorInsightsInput = (
     ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
     ...(input.TableName !== undefined && { TableName: input.TableName })
   };
+};
+
+const serializeAws_json1_0DescribeEndpointsRequest = (
+  input: DescribeEndpointsRequest,
+  context: __SerdeContext
+): any => {
+  return {};
 };
 
 const serializeAws_json1_0DescribeGlobalTableInput = (
@@ -6376,58 +6283,28 @@ const serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdateList = (
   );
 };
 
-const serializeAws_json1_0Key = (
-  input: { [key: string]: AttributeValue },
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => ({
-      ...acc,
-      [key]: serializeAws_json1_0AttributeValue(value, context)
+const serializeAws_json1_0Key = (input: Key, context: __SerdeContext): any => {
+  return {
+    ...(input.HashKeyElement !== undefined && {
+      HashKeyElement: serializeAws_json1_0AttributeValue(
+        input.HashKeyElement,
+        context
+      )
     }),
-    {}
-  );
-};
-
-const serializeAws_json1_0KeyConditions = (
-  input: { [key: string]: Condition },
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: Condition }, [key, value]: [string, any]) => ({
-      ...acc,
-      [key]: serializeAws_json1_0Condition(value, context)
-    }),
-    {}
-  );
+    ...(input.RangeKeyElement !== undefined && {
+      RangeKeyElement: serializeAws_json1_0AttributeValue(
+        input.RangeKeyElement,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_0KeyList = (
-  input: { [key: string]: AttributeValue }[],
+  input: Key[],
   context: __SerdeContext
 ): any => {
   return input.map(entry => serializeAws_json1_0Key(entry, context));
-};
-
-const serializeAws_json1_0KeySchema = (
-  input: KeySchemaElement[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_0KeySchemaElement(entry, context)
-  );
-};
-
-const serializeAws_json1_0KeySchemaElement = (
-  input: KeySchemaElement,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AttributeName !== undefined && {
-      AttributeName: input.AttributeName
-    }),
-    ...(input.KeyType !== undefined && { KeyType: input.KeyType })
-  };
 };
 
 const serializeAws_json1_0KeysAndAttributes = (
@@ -6459,11 +6336,38 @@ const serializeAws_json1_0KeysAndAttributes = (
   };
 };
 
-const serializeAws_json1_0ListAttributeValue = (
-  input: AttributeValue[],
+const serializeAws_json1_0KeySchema = (
+  input: KeySchema,
   context: __SerdeContext
 ): any => {
-  return input.map(entry => serializeAws_json1_0AttributeValue(entry, context));
+  return {
+    ...(input.HashKeyElement !== undefined && {
+      HashKeyElement: serializeAws_json1_0KeySchemaElement(
+        input.HashKeyElement,
+        context
+      )
+    }),
+    ...(input.RangeKeyElement !== undefined && {
+      RangeKeyElement: serializeAws_json1_0KeySchemaElement(
+        input.RangeKeyElement,
+        context
+      )
+    })
+  };
+};
+
+const serializeAws_json1_0KeySchemaElement = (
+  input: KeySchemaElement,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AttributeName !== undefined && {
+      AttributeName: input.AttributeName
+    }),
+    ...(input.AttributeType !== undefined && {
+      AttributeType: input.AttributeType
+    })
+  };
 };
 
 const serializeAws_json1_0ListBackupsInput = (
@@ -6557,19 +6461,6 @@ const serializeAws_json1_0LocalSecondaryIndexList = (
 ): any => {
   return input.map(entry =>
     serializeAws_json1_0LocalSecondaryIndex(entry, context)
-  );
-};
-
-const serializeAws_json1_0MapAttributeValue = (
-  input: { [key: string]: AttributeValue },
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => ({
-      ...acc,
-      [key]: serializeAws_json1_0AttributeValue(value, context)
-    }),
-    {}
   );
 };
 
@@ -6748,60 +6639,32 @@ const serializeAws_json1_0QueryInput = (
         context
       )
     }),
-    ...(input.ConditionalOperator !== undefined && {
-      ConditionalOperator: input.ConditionalOperator
-    }),
     ...(input.ConsistentRead !== undefined && {
       ConsistentRead: input.ConsistentRead
     }),
+    ...(input.Count !== undefined && { Count: input.Count }),
     ...(input.ExclusiveStartKey !== undefined && {
       ExclusiveStartKey: serializeAws_json1_0Key(
         input.ExclusiveStartKey,
         context
       )
     }),
-    ...(input.ExpressionAttributeNames !== undefined && {
-      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
-        input.ExpressionAttributeNames,
-        context
-      )
-    }),
-    ...(input.ExpressionAttributeValues !== undefined && {
-      ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
-        input.ExpressionAttributeValues,
-        context
-      )
-    }),
-    ...(input.FilterExpression !== undefined && {
-      FilterExpression: input.FilterExpression
-    }),
-    ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
-    ...(input.KeyConditionExpression !== undefined && {
-      KeyConditionExpression: input.KeyConditionExpression
-    }),
-    ...(input.KeyConditions !== undefined && {
-      KeyConditions: serializeAws_json1_0KeyConditions(
-        input.KeyConditions,
+    ...(input.HashKeyValue !== undefined && {
+      HashKeyValue: serializeAws_json1_0AttributeValue(
+        input.HashKeyValue,
         context
       )
     }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.ProjectionExpression !== undefined && {
-      ProjectionExpression: input.ProjectionExpression
-    }),
-    ...(input.QueryFilter !== undefined && {
-      QueryFilter: serializeAws_json1_0FilterConditionMap(
-        input.QueryFilter,
+    ...(input.RangeKeyCondition !== undefined && {
+      RangeKeyCondition: serializeAws_json1_0Condition(
+        input.RangeKeyCondition,
         context
       )
-    }),
-    ...(input.ReturnConsumedCapacity !== undefined && {
-      ReturnConsumedCapacity: input.ReturnConsumedCapacity
     }),
     ...(input.ScanIndexForward !== undefined && {
       ScanIndexForward: input.ScanIndexForward
     }),
-    ...(input.Select !== undefined && { Select: input.Select }),
     ...(input.TableName !== undefined && { TableName: input.TableName })
   };
 };
@@ -6969,27 +6832,6 @@ const serializeAws_json1_0ReplicaSettingsUpdateList = (
   );
 };
 
-const serializeAws_json1_0ReplicaUpdate = (
-  input: ReplicaUpdate,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Create !== undefined && {
-      Create: serializeAws_json1_0CreateReplicaAction(input.Create, context)
-    }),
-    ...(input.Delete !== undefined && {
-      Delete: serializeAws_json1_0DeleteReplicaAction(input.Delete, context)
-    })
-  };
-};
-
-const serializeAws_json1_0ReplicaUpdateList = (
-  input: ReplicaUpdate[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_json1_0ReplicaUpdate(entry, context));
-};
-
 const serializeAws_json1_0ReplicationGroupUpdate = (
   input: ReplicationGroupUpdate,
   context: __SerdeContext
@@ -7023,6 +6865,27 @@ const serializeAws_json1_0ReplicationGroupUpdateList = (
   return input.map(entry =>
     serializeAws_json1_0ReplicationGroupUpdate(entry, context)
   );
+};
+
+const serializeAws_json1_0ReplicaUpdate = (
+  input: ReplicaUpdate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Create !== undefined && {
+      Create: serializeAws_json1_0CreateReplicaAction(input.Create, context)
+    }),
+    ...(input.Delete !== undefined && {
+      Delete: serializeAws_json1_0DeleteReplicaAction(input.Delete, context)
+    })
+  };
+};
+
+const serializeAws_json1_0ReplicaUpdateList = (
+  input: ReplicaUpdate[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => serializeAws_json1_0ReplicaUpdate(entry, context));
 };
 
 const serializeAws_json1_0RestoreTableFromBackupInput = (
@@ -7099,19 +6962,6 @@ const serializeAws_json1_0RestoreTableToPointInTimeInput = (
   };
 };
 
-const serializeAws_json1_0SSESpecification = (
-  input: SSESpecification,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
-    ...(input.KMSMasterKeyId !== undefined && {
-      KMSMasterKeyId: input.KMSMasterKeyId
-    }),
-    ...(input.SSEType !== undefined && { SSEType: input.SSEType })
-  };
-};
-
 const serializeAws_json1_0ScanInput = (
   input: ScanInput,
   context: __SerdeContext
@@ -7123,53 +6973,34 @@ const serializeAws_json1_0ScanInput = (
         context
       )
     }),
-    ...(input.ConditionalOperator !== undefined && {
-      ConditionalOperator: input.ConditionalOperator
-    }),
-    ...(input.ConsistentRead !== undefined && {
-      ConsistentRead: input.ConsistentRead
-    }),
+    ...(input.Count !== undefined && { Count: input.Count }),
     ...(input.ExclusiveStartKey !== undefined && {
       ExclusiveStartKey: serializeAws_json1_0Key(
         input.ExclusiveStartKey,
         context
       )
     }),
-    ...(input.ExpressionAttributeNames !== undefined && {
-      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
-        input.ExpressionAttributeNames,
-        context
-      )
-    }),
-    ...(input.ExpressionAttributeValues !== undefined && {
-      ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
-        input.ExpressionAttributeValues,
-        context
-      )
-    }),
-    ...(input.FilterExpression !== undefined && {
-      FilterExpression: input.FilterExpression
-    }),
-    ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.ProjectionExpression !== undefined && {
-      ProjectionExpression: input.ProjectionExpression
-    }),
-    ...(input.ReturnConsumedCapacity !== undefined && {
-      ReturnConsumedCapacity: input.ReturnConsumedCapacity
-    }),
     ...(input.ScanFilter !== undefined && {
       ScanFilter: serializeAws_json1_0FilterConditionMap(
         input.ScanFilter,
         context
       )
     }),
-    ...(input.Segment !== undefined && { Segment: input.Segment }),
-    ...(input.Select !== undefined && { Select: input.Select }),
-    ...(input.TableName !== undefined && { TableName: input.TableName }),
-    ...(input.TotalSegments !== undefined && {
-      TotalSegments: input.TotalSegments
-    })
+    ...(input.TableName !== undefined && { TableName: input.TableName })
+  };
+};
+
+const serializeAws_json1_0SSESpecification = (
+  input: SSESpecification,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+    ...(input.KMSMasterKeyId !== undefined && {
+      KMSMasterKeyId: input.KMSMasterKeyId
+    }),
+    ...(input.SSEType !== undefined && { SSEType: input.SSEType })
   };
 };
 
@@ -7662,59 +7493,6 @@ const serializeAws_json1_0WriteRequests = (
   return input.map(entry => serializeAws_json1_0WriteRequest(entry, context));
 };
 
-const deserializeAws_json1_0DescribeEndpointsResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeEndpointsResponse => {
-  return {
-    __type: "DescribeEndpointsResponse",
-    Endpoints:
-      output.Endpoints !== undefined && output.Endpoints !== null
-        ? deserializeAws_json1_0Endpoints(output.Endpoints, context)
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_0Endpoint = (
-  output: any,
-  context: __SerdeContext
-): Endpoint => {
-  return {
-    __type: "Endpoint",
-    Address:
-      output.Address !== undefined && output.Address !== null
-        ? output.Address
-        : undefined,
-    CachePeriodInMinutes:
-      output.CachePeriodInMinutes !== undefined &&
-      output.CachePeriodInMinutes !== null
-        ? output.CachePeriodInMinutes
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_0Endpoints = (
-  output: any,
-  context: __SerdeContext
-): Endpoint[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0Endpoint(entry, context)
-  );
-};
-
-const deserializeAws_json1_0InvalidEndpointException = (
-  output: any,
-  context: __SerdeContext
-): InvalidEndpointException => {
-  return {
-    __type: "InvalidEndpointException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_0ArchivalSummary = (
   output: any,
   context: __SerdeContext
@@ -7793,30 +7571,14 @@ const deserializeAws_json1_0AttributeValue = (
       output.B !== undefined && output.B !== null
         ? context.base64Decoder(output.B)
         : undefined,
-    BOOL:
-      output.BOOL !== undefined && output.BOOL !== null
-        ? output.BOOL
-        : undefined,
     BS:
       output.BS !== undefined && output.BS !== null
         ? deserializeAws_json1_0BinarySetAttributeValue(output.BS, context)
-        : undefined,
-    L:
-      output.L !== undefined && output.L !== null
-        ? deserializeAws_json1_0ListAttributeValue(output.L, context)
-        : undefined,
-    M:
-      output.M !== undefined && output.M !== null
-        ? deserializeAws_json1_0MapAttributeValue(output.M, context)
         : undefined,
     N: output.N !== undefined && output.N !== null ? output.N : undefined,
     NS:
       output.NS !== undefined && output.NS !== null
         ? deserializeAws_json1_0NumberSetAttributeValue(output.NS, context)
-        : undefined,
-    NULL:
-      output.NULL !== undefined && output.NULL !== null
-        ? output.NULL
         : undefined,
     S: output.S !== undefined && output.S !== null ? output.S : undefined,
     SS:
@@ -8115,17 +7877,32 @@ const deserializeAws_json1_0BatchGetRequestMap = (
 const deserializeAws_json1_0BatchGetResponseMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: { [key: string]: AttributeValue }[] } => {
+): { [key: string]: BatchResponse } => {
   return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: { [key: string]: AttributeValue }[] },
-      [key, value]: [string, any]
-    ) => ({
+    (acc: { [key: string]: BatchResponse }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: deserializeAws_json1_0ItemList(value, context)
+      [key]: deserializeAws_json1_0BatchResponse(value, context)
     }),
     {}
   );
+};
+
+const deserializeAws_json1_0BatchResponse = (
+  output: any,
+  context: __SerdeContext
+): BatchResponse => {
+  return {
+    __type: "BatchResponse",
+    ConsumedCapacityUnits:
+      output.ConsumedCapacityUnits !== undefined &&
+      output.ConsumedCapacityUnits !== null
+        ? output.ConsumedCapacityUnits
+        : undefined,
+    Items:
+      output.Items !== undefined && output.Items !== null
+        ? deserializeAws_json1_0ItemList(output.Items, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0BatchWriteItemOutput = (
@@ -8588,6 +8365,19 @@ const deserializeAws_json1_0DescribeContributorInsightsOutput = (
   } as any;
 };
 
+const deserializeAws_json1_0DescribeEndpointsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeEndpointsResponse => {
+  return {
+    __type: "DescribeEndpointsResponse",
+    Endpoints:
+      output.Endpoints !== undefined && output.Endpoints !== null
+        ? deserializeAws_json1_0Endpoints(output.Endpoints, context)
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_0DescribeGlobalTableOutput = (
   output: any,
   context: __SerdeContext
@@ -8701,6 +8491,33 @@ const deserializeAws_json1_0DescribeTimeToLiveOutput = (
   } as any;
 };
 
+const deserializeAws_json1_0Endpoint = (
+  output: any,
+  context: __SerdeContext
+): Endpoint => {
+  return {
+    __type: "Endpoint",
+    Address:
+      output.Address !== undefined && output.Address !== null
+        ? output.Address
+        : undefined,
+    CachePeriodInMinutes:
+      output.CachePeriodInMinutes !== undefined &&
+      output.CachePeriodInMinutes !== null
+        ? output.CachePeriodInMinutes
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_0Endpoints = (
+  output: any,
+  context: __SerdeContext
+): Endpoint[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_0Endpoint(entry, context)
+  );
+};
+
 const deserializeAws_json1_0ExpressionAttributeNameMap = (
   output: any,
   context: __SerdeContext
@@ -8810,6 +8627,15 @@ const deserializeAws_json1_0GlobalSecondaryIndexDescriptionList = (
   );
 };
 
+const deserializeAws_json1_0GlobalSecondaryIndexes = (
+  output: any,
+  context: __SerdeContext
+): GlobalSecondaryIndexInfo[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_0GlobalSecondaryIndexInfo(entry, context)
+  );
+};
+
 const deserializeAws_json1_0GlobalSecondaryIndexInfo = (
   output: any,
   context: __SerdeContext
@@ -8837,15 +8663,6 @@ const deserializeAws_json1_0GlobalSecondaryIndexInfo = (
           )
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_0GlobalSecondaryIndexes = (
-  output: any,
-  context: __SerdeContext
-): GlobalSecondaryIndexInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0GlobalSecondaryIndexInfo(entry, context)
-  );
 };
 
 const deserializeAws_json1_0GlobalTable = (
@@ -8968,6 +8785,19 @@ const deserializeAws_json1_0InternalServerError = (
     message:
       output.message !== undefined && output.message !== null
         ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_0InvalidEndpointException = (
+  output: any,
+  context: __SerdeContext
+): InvalidEndpointException => {
+  return {
+    __type: "InvalidEndpointException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
         : undefined
   } as any;
 };
@@ -9102,49 +8932,27 @@ const deserializeAws_json1_0ItemResponseList = (
 const deserializeAws_json1_0Key = (
   output: any,
   context: __SerdeContext
-): { [key: string]: AttributeValue } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => ({
-      ...acc,
-      [key]: deserializeAws_json1_0AttributeValue(value, context)
-    }),
-    {}
-  );
+): Key => {
+  return {
+    __type: "Key",
+    HashKeyElement:
+      output.HashKeyElement !== undefined && output.HashKeyElement !== null
+        ? deserializeAws_json1_0AttributeValue(output.HashKeyElement, context)
+        : undefined,
+    RangeKeyElement:
+      output.RangeKeyElement !== undefined && output.RangeKeyElement !== null
+        ? deserializeAws_json1_0AttributeValue(output.RangeKeyElement, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0KeyList = (
   output: any,
   context: __SerdeContext
-): { [key: string]: AttributeValue }[] => {
+): Key[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0Key(entry, context)
   );
-};
-
-const deserializeAws_json1_0KeySchema = (
-  output: any,
-  context: __SerdeContext
-): KeySchemaElement[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0KeySchemaElement(entry, context)
-  );
-};
-
-const deserializeAws_json1_0KeySchemaElement = (
-  output: any,
-  context: __SerdeContext
-): KeySchemaElement => {
-  return {
-    __type: "KeySchemaElement",
-    AttributeName:
-      output.AttributeName !== undefined && output.AttributeName !== null
-        ? output.AttributeName
-        : undefined,
-    KeyType:
-      output.KeyType !== undefined && output.KeyType !== null
-        ? output.KeyType
-        : undefined
-  } as any;
 };
 
 const deserializeAws_json1_0KeysAndAttributes = (
@@ -9184,6 +8992,43 @@ const deserializeAws_json1_0KeysAndAttributes = (
   } as any;
 };
 
+const deserializeAws_json1_0KeySchema = (
+  output: any,
+  context: __SerdeContext
+): KeySchema => {
+  return {
+    __type: "KeySchema",
+    HashKeyElement:
+      output.HashKeyElement !== undefined && output.HashKeyElement !== null
+        ? deserializeAws_json1_0KeySchemaElement(output.HashKeyElement, context)
+        : undefined,
+    RangeKeyElement:
+      output.RangeKeyElement !== undefined && output.RangeKeyElement !== null
+        ? deserializeAws_json1_0KeySchemaElement(
+            output.RangeKeyElement,
+            context
+          )
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_0KeySchemaElement = (
+  output: any,
+  context: __SerdeContext
+): KeySchemaElement => {
+  return {
+    __type: "KeySchemaElement",
+    AttributeName:
+      output.AttributeName !== undefined && output.AttributeName !== null
+        ? output.AttributeName
+        : undefined,
+    AttributeType:
+      output.AttributeType !== undefined && output.AttributeType !== null
+        ? output.AttributeType
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_0LimitExceededException = (
   output: any,
   context: __SerdeContext
@@ -9195,15 +9040,6 @@ const deserializeAws_json1_0LimitExceededException = (
         ? output.message
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_0ListAttributeValue = (
-  output: any,
-  context: __SerdeContext
-): AttributeValue[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0AttributeValue(entry, context)
-  );
 };
 
 const deserializeAws_json1_0ListBackupsOutput = (
@@ -9340,6 +9176,15 @@ const deserializeAws_json1_0LocalSecondaryIndexDescriptionList = (
   );
 };
 
+const deserializeAws_json1_0LocalSecondaryIndexes = (
+  output: any,
+  context: __SerdeContext
+): LocalSecondaryIndexInfo[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_0LocalSecondaryIndexInfo(entry, context)
+  );
+};
+
 const deserializeAws_json1_0LocalSecondaryIndexInfo = (
   output: any,
   context: __SerdeContext
@@ -9359,28 +9204,6 @@ const deserializeAws_json1_0LocalSecondaryIndexInfo = (
         ? deserializeAws_json1_0Projection(output.Projection, context)
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_0LocalSecondaryIndexes = (
-  output: any,
-  context: __SerdeContext
-): LocalSecondaryIndexInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0LocalSecondaryIndexInfo(entry, context)
-  );
-};
-
-const deserializeAws_json1_0MapAttributeValue = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: AttributeValue } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => ({
-      ...acc,
-      [key]: deserializeAws_json1_0AttributeValue(value, context)
-    }),
-    {}
-  );
 };
 
 const deserializeAws_json1_0NonKeyAttributeNameList = (
@@ -9594,12 +9417,10 @@ const deserializeAws_json1_0QueryOutput = (
 ): QueryOutput => {
   return {
     __type: "QueryOutput",
-    ConsumedCapacity:
-      output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
-        ? deserializeAws_json1_0ConsumedCapacity(
-            output.ConsumedCapacity,
-            context
-          )
+    ConsumedCapacityUnits:
+      output.ConsumedCapacityUnits !== undefined &&
+      output.ConsumedCapacityUnits !== null
+        ? output.ConsumedCapacityUnits
         : undefined,
     Count:
       output.Count !== undefined && output.Count !== null
@@ -9612,10 +9433,6 @@ const deserializeAws_json1_0QueryOutput = (
     LastEvaluatedKey:
       output.LastEvaluatedKey !== undefined && output.LastEvaluatedKey !== null
         ? deserializeAws_json1_0Key(output.LastEvaluatedKey, context)
-        : undefined,
-    ScannedCount:
-      output.ScannedCount !== undefined && output.ScannedCount !== null
-        ? output.ScannedCount
         : undefined
   } as any;
 };
@@ -10069,32 +9886,6 @@ const deserializeAws_json1_0RestoreTableToPointInTimeOutput = (
   } as any;
 };
 
-const deserializeAws_json1_0SSEDescription = (
-  output: any,
-  context: __SerdeContext
-): SSEDescription => {
-  return {
-    __type: "SSEDescription",
-    InaccessibleEncryptionDateTime:
-      output.InaccessibleEncryptionDateTime !== undefined &&
-      output.InaccessibleEncryptionDateTime !== null
-        ? new Date(Math.round(output.InaccessibleEncryptionDateTime * 1000))
-        : undefined,
-    KMSMasterKeyArn:
-      output.KMSMasterKeyArn !== undefined && output.KMSMasterKeyArn !== null
-        ? output.KMSMasterKeyArn
-        : undefined,
-    SSEType:
-      output.SSEType !== undefined && output.SSEType !== null
-        ? output.SSEType
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_0ScanOutput = (
   output: any,
   context: __SerdeContext
@@ -10231,6 +10022,32 @@ const deserializeAws_json1_0SourceTableFeatureDetails = (
             output.TimeToLiveDescription,
             context
           )
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_0SSEDescription = (
+  output: any,
+  context: __SerdeContext
+): SSEDescription => {
+  return {
+    __type: "SSEDescription",
+    InaccessibleEncryptionDateTime:
+      output.InaccessibleEncryptionDateTime !== undefined &&
+      output.InaccessibleEncryptionDateTime !== null
+        ? new Date(Math.round(output.InaccessibleEncryptionDateTime * 1000))
+        : undefined,
+    KMSMasterKeyArn:
+      output.KMSMasterKeyArn !== undefined && output.KMSMasterKeyArn !== null
+        ? output.KMSMasterKeyArn
+        : undefined,
+    SSEType:
+      output.SSEType !== undefined && output.SSEType !== null
+        ? output.SSEType
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
         : undefined
   } as any;
 };
@@ -10526,30 +10343,6 @@ const deserializeAws_json1_0TransactGetItemsOutput = (
   } as any;
 };
 
-const deserializeAws_json1_0TransactWriteItemsOutput = (
-  output: any,
-  context: __SerdeContext
-): TransactWriteItemsOutput => {
-  return {
-    __type: "TransactWriteItemsOutput",
-    ConsumedCapacity:
-      output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
-        ? deserializeAws_json1_0ConsumedCapacityMultiple(
-            output.ConsumedCapacity,
-            context
-          )
-        : undefined,
-    ItemCollectionMetrics:
-      output.ItemCollectionMetrics !== undefined &&
-      output.ItemCollectionMetrics !== null
-        ? deserializeAws_json1_0ItemCollectionMetricsPerTable(
-            output.ItemCollectionMetrics,
-            context
-          )
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_0TransactionCanceledException = (
   output: any,
   context: __SerdeContext
@@ -10593,6 +10386,30 @@ const deserializeAws_json1_0TransactionInProgressException = (
     Message:
       output.Message !== undefined && output.Message !== null
         ? output.Message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_0TransactWriteItemsOutput = (
+  output: any,
+  context: __SerdeContext
+): TransactWriteItemsOutput => {
+  return {
+    __type: "TransactWriteItemsOutput",
+    ConsumedCapacity:
+      output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
+        ? deserializeAws_json1_0ConsumedCapacityMultiple(
+            output.ConsumedCapacity,
+            context
+          )
+        : undefined,
+    ItemCollectionMetrics:
+      output.ItemCollectionMetrics !== undefined &&
+      output.ItemCollectionMetrics !== null
+        ? deserializeAws_json1_0ItemCollectionMetricsPerTable(
+            output.ItemCollectionMetrics,
+            context
+          )
         : undefined
   } as any;
 };

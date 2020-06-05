@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { ApiKeyIds, ImportApiKeysRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1ImportApiKeysCommand,
-  serializeAws_restJson1_1ImportApiKeysCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ImportApiKeysCommand,
+  serializeAws_restJson1ImportApiKeysCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ImportApiKeysCommand extends $Command<
     input: ImportApiKeysCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ImportApiKeysCommand(input, context);
+    return serializeAws_restJson1ImportApiKeysCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ImportApiKeysCommandOutput> {
-    return deserializeAws_restJson1_1ImportApiKeysCommand(output, context);
+    return deserializeAws_restJson1ImportApiKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

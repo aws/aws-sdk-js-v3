@@ -3,9 +3,9 @@ import {
   DescribeSigningJobResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeSigningJobCommand,
-  serializeAws_restJson1_1DescribeSigningJobCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeSigningJobCommand,
+  serializeAws_restJson1DescribeSigningJobCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -71,14 +71,14 @@ export class DescribeSigningJobCommand extends $Command<
     input: DescribeSigningJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeSigningJobCommand(input, context);
+    return serializeAws_restJson1DescribeSigningJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSigningJobCommandOutput> {
-    return deserializeAws_restJson1_1DescribeSigningJobCommand(output, context);
+    return deserializeAws_restJson1DescribeSigningJobCommand(output, context);
   }
 
   // Start section: command_body_extra

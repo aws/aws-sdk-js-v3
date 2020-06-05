@@ -8,9 +8,9 @@ import {
   ListDeviceEventsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListDeviceEventsCommand,
-  serializeAws_restJson1_1ListDeviceEventsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListDeviceEventsCommand,
+  serializeAws_restJson1ListDeviceEventsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ListDeviceEventsCommand extends $Command<
     input: ListDeviceEventsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListDeviceEventsCommand(input, context);
+    return serializeAws_restJson1ListDeviceEventsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDeviceEventsCommandOutput> {
-    return deserializeAws_restJson1_1ListDeviceEventsCommand(output, context);
+    return deserializeAws_restJson1ListDeviceEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

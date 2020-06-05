@@ -8,9 +8,9 @@ import {
   InitiateDocumentVersionUploadResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1InitiateDocumentVersionUploadCommand,
-  serializeAws_restJson1_1InitiateDocumentVersionUploadCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1InitiateDocumentVersionUploadCommand,
+  serializeAws_restJson1InitiateDocumentVersionUploadCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class InitiateDocumentVersionUploadCommand extends $Command<
     input: InitiateDocumentVersionUploadCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1InitiateDocumentVersionUploadCommand(
+    return serializeAws_restJson1InitiateDocumentVersionUploadCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class InitiateDocumentVersionUploadCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InitiateDocumentVersionUploadCommandOutput> {
-    return deserializeAws_restJson1_1InitiateDocumentVersionUploadCommand(
+    return deserializeAws_restJson1InitiateDocumentVersionUploadCommand(
       output,
       context
     );

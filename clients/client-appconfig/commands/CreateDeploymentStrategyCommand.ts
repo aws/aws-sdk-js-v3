@@ -8,9 +8,9 @@ import {
   DeploymentStrategy
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateDeploymentStrategyCommand,
-  serializeAws_restJson1_1CreateDeploymentStrategyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateDeploymentStrategyCommand,
+  serializeAws_restJson1CreateDeploymentStrategyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CreateDeploymentStrategyCommand extends $Command<
     input: CreateDeploymentStrategyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateDeploymentStrategyCommand(
+    return serializeAws_restJson1CreateDeploymentStrategyCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CreateDeploymentStrategyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDeploymentStrategyCommandOutput> {
-    return deserializeAws_restJson1_1CreateDeploymentStrategyCommand(
+    return deserializeAws_restJson1CreateDeploymentStrategyCommand(
       output,
       context
     );

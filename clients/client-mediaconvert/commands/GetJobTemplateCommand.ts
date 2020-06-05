@@ -5,9 +5,9 @@ import {
 } from "../MediaConvertClient";
 import { GetJobTemplateRequest, GetJobTemplateResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetJobTemplateCommand,
-  serializeAws_restJson1_1GetJobTemplateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetJobTemplateCommand,
+  serializeAws_restJson1GetJobTemplateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetJobTemplateCommand extends $Command<
     input: GetJobTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetJobTemplateCommand(input, context);
+    return serializeAws_restJson1GetJobTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetJobTemplateCommandOutput> {
-    return deserializeAws_restJson1_1GetJobTemplateCommand(output, context);
+    return deserializeAws_restJson1GetJobTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

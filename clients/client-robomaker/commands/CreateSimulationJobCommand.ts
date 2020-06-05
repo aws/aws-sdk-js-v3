@@ -8,9 +8,9 @@ import {
   CreateSimulationJobResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateSimulationJobCommand,
-  serializeAws_restJson1_1CreateSimulationJobCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateSimulationJobCommand,
+  serializeAws_restJson1CreateSimulationJobCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class CreateSimulationJobCommand extends $Command<
     input: CreateSimulationJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateSimulationJobCommand(input, context);
+    return serializeAws_restJson1CreateSimulationJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSimulationJobCommandOutput> {
-    return deserializeAws_restJson1_1CreateSimulationJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateSimulationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

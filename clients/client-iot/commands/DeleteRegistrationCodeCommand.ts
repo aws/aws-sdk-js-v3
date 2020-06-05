@@ -8,9 +8,9 @@ import {
   DeleteRegistrationCodeResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteRegistrationCodeCommand,
-  serializeAws_restJson1_1DeleteRegistrationCodeCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteRegistrationCodeCommand,
+  serializeAws_restJson1DeleteRegistrationCodeCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteRegistrationCodeCommand extends $Command<
     input: DeleteRegistrationCodeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteRegistrationCodeCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DeleteRegistrationCodeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRegistrationCodeCommandOutput> {
-    return deserializeAws_restJson1_1DeleteRegistrationCodeCommand(
+    return deserializeAws_restJson1DeleteRegistrationCodeCommand(
       output,
       context
     );

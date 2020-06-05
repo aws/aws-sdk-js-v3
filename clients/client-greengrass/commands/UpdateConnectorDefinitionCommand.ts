@@ -8,9 +8,9 @@ import {
   UpdateConnectorDefinitionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateConnectorDefinitionCommand,
-  serializeAws_restJson1_1UpdateConnectorDefinitionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateConnectorDefinitionCommand,
+  serializeAws_restJson1UpdateConnectorDefinitionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdateConnectorDefinitionCommand extends $Command<
     input: UpdateConnectorDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateConnectorDefinitionCommand(
+    return serializeAws_restJson1UpdateConnectorDefinitionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdateConnectorDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConnectorDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1UpdateConnectorDefinitionCommand(
+    return deserializeAws_restJson1UpdateConnectorDefinitionCommand(
       output,
       context
     );

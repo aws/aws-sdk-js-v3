@@ -659,6 +659,54 @@ export namespace CreateIndexResponse {
 }
 
 /**
+ * <p>Provides the information necessary to connect a database to an index. </p>
+ */
+export interface DatabaseConfiguration {
+  __type?: "DatabaseConfiguration";
+  /**
+   * <p>Information about the database column that provides information for user context
+   *             filtering.</p>
+   */
+  AclConfiguration?: AclConfiguration;
+
+  /**
+   * <p>Information about where the index should get the document information from the
+   *             database.</p>
+   */
+  ColumnConfiguration: ColumnConfiguration | undefined;
+
+  /**
+   * <p>The information necessary to connect to a database.</p>
+   */
+  ConnectionConfiguration: ConnectionConfiguration | undefined;
+
+  /**
+   * <p>The type of database engine that runs the database.</p>
+   */
+  DatabaseEngineType: DatabaseEngineType | string | undefined;
+
+  /**
+   * <p>Provides information for connecting to an Amazon VPC.</p>
+   */
+  VpcConfiguration?: DataSourceVpcConfiguration;
+}
+
+export namespace DatabaseConfiguration {
+  export const filterSensitiveLog = (obj: DatabaseConfiguration): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DatabaseConfiguration =>
+    __isa(o, "DatabaseConfiguration");
+}
+
+export enum DatabaseEngineType {
+  RDS_AURORA_MYSQL = "RDS_AURORA_MYSQL",
+  RDS_AURORA_POSTGRESQL = "RDS_AURORA_POSTGRESQL",
+  RDS_MYSQL = "RDS_MYSQL",
+  RDS_POSTGRESQL = "RDS_POSTGRESQL"
+}
+
+/**
  * <p>Configuration information for a Amazon Kendra data source.</p>
  */
 export interface DataSourceConfiguration {
@@ -871,54 +919,6 @@ export namespace DataSourceVpcConfiguration {
   });
   export const isa = (o: any): o is DataSourceVpcConfiguration =>
     __isa(o, "DataSourceVpcConfiguration");
-}
-
-/**
- * <p>Provides the information necessary to connect a database to an index. </p>
- */
-export interface DatabaseConfiguration {
-  __type?: "DatabaseConfiguration";
-  /**
-   * <p>Information about the database column that provides information for user context
-   *             filtering.</p>
-   */
-  AclConfiguration?: AclConfiguration;
-
-  /**
-   * <p>Information about where the index should get the document information from the
-   *             database.</p>
-   */
-  ColumnConfiguration: ColumnConfiguration | undefined;
-
-  /**
-   * <p>The information necessary to connect to a database.</p>
-   */
-  ConnectionConfiguration: ConnectionConfiguration | undefined;
-
-  /**
-   * <p>The type of database engine that runs the database.</p>
-   */
-  DatabaseEngineType: DatabaseEngineType | string | undefined;
-
-  /**
-   * <p>Provides information for connecting to an Amazon VPC.</p>
-   */
-  VpcConfiguration?: DataSourceVpcConfiguration;
-}
-
-export namespace DatabaseConfiguration {
-  export const filterSensitiveLog = (obj: DatabaseConfiguration): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DatabaseConfiguration =>
-    __isa(o, "DatabaseConfiguration");
-}
-
-export enum DatabaseEngineType {
-  RDS_AURORA_MYSQL = "RDS_AURORA_MYSQL",
-  RDS_AURORA_POSTGRESQL = "RDS_AURORA_POSTGRESQL",
-  RDS_MYSQL = "RDS_MYSQL",
-  RDS_POSTGRESQL = "RDS_POSTGRESQL"
 }
 
 export interface DeleteFaqRequest {
@@ -1681,6 +1681,56 @@ export namespace InternalServerException {
     __isa(o, "InternalServerException");
 }
 
+export interface ListDataSourcesRequest {
+  __type?: "ListDataSourcesRequest";
+  /**
+   * <p>The identifier of the index that contains the data source.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The maximum number of data sources to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous response was incomplete (because there is more data to retrieve),
+   *       Amazon Kendra returns a pagination token in the response. You can use this pagination token to
+   *       retrieve the next set of data sources (<code>DataSourceSummaryItems</code>). </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListDataSourcesRequest {
+  export const filterSensitiveLog = (obj: ListDataSourcesRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListDataSourcesRequest =>
+    __isa(o, "ListDataSourcesRequest");
+}
+
+export interface ListDataSourcesResponse {
+  __type?: "ListDataSourcesResponse";
+  /**
+   * <p>If the response is truncated, Amazon Kendra returns this token that you can use in the
+   *       subsequent request to retrieve the next set of data sources. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>An array of summary information for one or more data sources.</p>
+   */
+  SummaryItems?: DataSourceSummary[];
+}
+
+export namespace ListDataSourcesResponse {
+  export const filterSensitiveLog = (obj: ListDataSourcesResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListDataSourcesResponse =>
+    __isa(o, "ListDataSourcesResponse");
+}
+
 export interface ListDataSourceSyncJobsRequest {
   __type?: "ListDataSourceSyncJobsRequest";
   /**
@@ -1753,56 +1803,6 @@ export namespace ListDataSourceSyncJobsResponse {
   });
   export const isa = (o: any): o is ListDataSourceSyncJobsResponse =>
     __isa(o, "ListDataSourceSyncJobsResponse");
-}
-
-export interface ListDataSourcesRequest {
-  __type?: "ListDataSourcesRequest";
-  /**
-   * <p>The identifier of the index that contains the data source.</p>
-   */
-  IndexId: string | undefined;
-
-  /**
-   * <p>The maximum number of data sources to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>If the previous response was incomplete (because there is more data to retrieve),
-   *       Amazon Kendra returns a pagination token in the response. You can use this pagination token to
-   *       retrieve the next set of data sources (<code>DataSourceSummaryItems</code>). </p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListDataSourcesRequest {
-  export const filterSensitiveLog = (obj: ListDataSourcesRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListDataSourcesRequest =>
-    __isa(o, "ListDataSourcesRequest");
-}
-
-export interface ListDataSourcesResponse {
-  __type?: "ListDataSourcesResponse";
-  /**
-   * <p>If the response is truncated, Amazon Kendra returns this token that you can use in the
-   *       subsequent request to retrieve the next set of data sources. </p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>An array of summary information for one or more data sources.</p>
-   */
-  SummaryItems?: DataSourceSummary[];
-}
-
-export namespace ListDataSourcesResponse {
-  export const filterSensitiveLog = (obj: ListDataSourcesResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListDataSourcesResponse =>
-    __isa(o, "ListDataSourcesResponse");
 }
 
 export interface ListFaqsRequest {

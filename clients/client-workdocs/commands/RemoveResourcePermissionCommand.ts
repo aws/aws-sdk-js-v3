@@ -5,9 +5,9 @@ import {
 } from "../WorkDocsClient";
 import { RemoveResourcePermissionRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1RemoveResourcePermissionCommand,
-  serializeAws_restJson1_1RemoveResourcePermissionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1RemoveResourcePermissionCommand,
+  serializeAws_restJson1RemoveResourcePermissionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class RemoveResourcePermissionCommand extends $Command<
     input: RemoveResourcePermissionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RemoveResourcePermissionCommand(
+    return serializeAws_restJson1RemoveResourcePermissionCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class RemoveResourcePermissionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveResourcePermissionCommandOutput> {
-    return deserializeAws_restJson1_1RemoveResourcePermissionCommand(
+    return deserializeAws_restJson1RemoveResourcePermissionCommand(
       output,
       context
     );

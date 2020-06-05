@@ -2479,44 +2479,6 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
-   * Lists the versions of a connector definition, which are containers for connectors. Connectors run on the Greengrass core and contain built-in integration with local infrastructure, device protocols, AWS, and other cloud services.
-   */
-  public listConnectorDefinitionVersions(
-    args: ListConnectorDefinitionVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListConnectorDefinitionVersionsCommandOutput>;
-  public listConnectorDefinitionVersions(
-    args: ListConnectorDefinitionVersionsCommandInput,
-    cb: (err: any, data?: ListConnectorDefinitionVersionsCommandOutput) => void
-  ): void;
-  public listConnectorDefinitionVersions(
-    args: ListConnectorDefinitionVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListConnectorDefinitionVersionsCommandOutput) => void
-  ): void;
-  public listConnectorDefinitionVersions(
-    args: ListConnectorDefinitionVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListConnectorDefinitionVersionsCommandOutput
-        ) => void),
-    cb?: (err: any, data?: ListConnectorDefinitionVersionsCommandOutput) => void
-  ): Promise<ListConnectorDefinitionVersionsCommandOutput> | void {
-    const command = new ListConnectorDefinitionVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * Retrieves a list of connector definitions.
    */
   public listConnectorDefinitions(
@@ -2552,29 +2514,32 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
-   * Lists the versions of a core definition.
+   * Lists the versions of a connector definition, which are containers for connectors. Connectors run on the Greengrass core and contain built-in integration with local infrastructure, device protocols, AWS, and other cloud services.
    */
-  public listCoreDefinitionVersions(
-    args: ListCoreDefinitionVersionsCommandInput,
+  public listConnectorDefinitionVersions(
+    args: ListConnectorDefinitionVersionsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListCoreDefinitionVersionsCommandOutput>;
-  public listCoreDefinitionVersions(
-    args: ListCoreDefinitionVersionsCommandInput,
-    cb: (err: any, data?: ListCoreDefinitionVersionsCommandOutput) => void
+  ): Promise<ListConnectorDefinitionVersionsCommandOutput>;
+  public listConnectorDefinitionVersions(
+    args: ListConnectorDefinitionVersionsCommandInput,
+    cb: (err: any, data?: ListConnectorDefinitionVersionsCommandOutput) => void
   ): void;
-  public listCoreDefinitionVersions(
-    args: ListCoreDefinitionVersionsCommandInput,
+  public listConnectorDefinitionVersions(
+    args: ListConnectorDefinitionVersionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListCoreDefinitionVersionsCommandOutput) => void
+    cb: (err: any, data?: ListConnectorDefinitionVersionsCommandOutput) => void
   ): void;
-  public listCoreDefinitionVersions(
-    args: ListCoreDefinitionVersionsCommandInput,
+  public listConnectorDefinitionVersions(
+    args: ListConnectorDefinitionVersionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListCoreDefinitionVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListCoreDefinitionVersionsCommandOutput) => void
-  ): Promise<ListCoreDefinitionVersionsCommandOutput> | void {
-    const command = new ListCoreDefinitionVersionsCommand(args);
+      | ((
+          err: any,
+          data?: ListConnectorDefinitionVersionsCommandOutput
+        ) => void),
+    cb?: (err: any, data?: ListConnectorDefinitionVersionsCommandOutput) => void
+  ): Promise<ListConnectorDefinitionVersionsCommandOutput> | void {
+    const command = new ListConnectorDefinitionVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2622,6 +2587,41 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * Lists the versions of a core definition.
+   */
+  public listCoreDefinitionVersions(
+    args: ListCoreDefinitionVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCoreDefinitionVersionsCommandOutput>;
+  public listCoreDefinitionVersions(
+    args: ListCoreDefinitionVersionsCommandInput,
+    cb: (err: any, data?: ListCoreDefinitionVersionsCommandOutput) => void
+  ): void;
+  public listCoreDefinitionVersions(
+    args: ListCoreDefinitionVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCoreDefinitionVersionsCommandOutput) => void
+  ): void;
+  public listCoreDefinitionVersions(
+    args: ListCoreDefinitionVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListCoreDefinitionVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListCoreDefinitionVersionsCommandOutput) => void
+  ): Promise<ListCoreDefinitionVersionsCommandOutput> | void {
+    const command = new ListCoreDefinitionVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * Returns a history of deployments for the group.
    */
   public listDeployments(
@@ -2645,6 +2645,41 @@ export class Greengrass extends GreengrassClient {
     cb?: (err: any, data?: ListDeploymentsCommandOutput) => void
   ): Promise<ListDeploymentsCommandOutput> | void {
     const command = new ListDeploymentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Retrieves a list of device definitions.
+   */
+  public listDeviceDefinitions(
+    args: ListDeviceDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDeviceDefinitionsCommandOutput>;
+  public listDeviceDefinitions(
+    args: ListDeviceDefinitionsCommandInput,
+    cb: (err: any, data?: ListDeviceDefinitionsCommandOutput) => void
+  ): void;
+  public listDeviceDefinitions(
+    args: ListDeviceDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDeviceDefinitionsCommandOutput) => void
+  ): void;
+  public listDeviceDefinitions(
+    args: ListDeviceDefinitionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDeviceDefinitionsCommandOutput) => void),
+    cb?: (err: any, data?: ListDeviceDefinitionsCommandOutput) => void
+  ): Promise<ListDeviceDefinitionsCommandOutput> | void {
+    const command = new ListDeviceDefinitionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2692,29 +2727,29 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
-   * Retrieves a list of device definitions.
+   * Retrieves a list of Lambda function definitions.
    */
-  public listDeviceDefinitions(
-    args: ListDeviceDefinitionsCommandInput,
+  public listFunctionDefinitions(
+    args: ListFunctionDefinitionsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListDeviceDefinitionsCommandOutput>;
-  public listDeviceDefinitions(
-    args: ListDeviceDefinitionsCommandInput,
-    cb: (err: any, data?: ListDeviceDefinitionsCommandOutput) => void
+  ): Promise<ListFunctionDefinitionsCommandOutput>;
+  public listFunctionDefinitions(
+    args: ListFunctionDefinitionsCommandInput,
+    cb: (err: any, data?: ListFunctionDefinitionsCommandOutput) => void
   ): void;
-  public listDeviceDefinitions(
-    args: ListDeviceDefinitionsCommandInput,
+  public listFunctionDefinitions(
+    args: ListFunctionDefinitionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDeviceDefinitionsCommandOutput) => void
+    cb: (err: any, data?: ListFunctionDefinitionsCommandOutput) => void
   ): void;
-  public listDeviceDefinitions(
-    args: ListDeviceDefinitionsCommandInput,
+  public listFunctionDefinitions(
+    args: ListFunctionDefinitionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListDeviceDefinitionsCommandOutput) => void),
-    cb?: (err: any, data?: ListDeviceDefinitionsCommandOutput) => void
-  ): Promise<ListDeviceDefinitionsCommandOutput> | void {
-    const command = new ListDeviceDefinitionsCommand(args);
+      | ((err: any, data?: ListFunctionDefinitionsCommandOutput) => void),
+    cb?: (err: any, data?: ListFunctionDefinitionsCommandOutput) => void
+  ): Promise<ListFunctionDefinitionsCommandOutput> | void {
+    const command = new ListFunctionDefinitionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2765,41 +2800,6 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
-   * Retrieves a list of Lambda function definitions.
-   */
-  public listFunctionDefinitions(
-    args: ListFunctionDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListFunctionDefinitionsCommandOutput>;
-  public listFunctionDefinitions(
-    args: ListFunctionDefinitionsCommandInput,
-    cb: (err: any, data?: ListFunctionDefinitionsCommandOutput) => void
-  ): void;
-  public listFunctionDefinitions(
-    args: ListFunctionDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListFunctionDefinitionsCommandOutput) => void
-  ): void;
-  public listFunctionDefinitions(
-    args: ListFunctionDefinitionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFunctionDefinitionsCommandOutput) => void),
-    cb?: (err: any, data?: ListFunctionDefinitionsCommandOutput) => void
-  ): Promise<ListFunctionDefinitionsCommandOutput> | void {
-    const command = new ListFunctionDefinitionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * Retrieves the current CAs for a group.
    */
   public listGroupCertificateAuthorities(
@@ -2826,41 +2826,6 @@ export class Greengrass extends GreengrassClient {
     cb?: (err: any, data?: ListGroupCertificateAuthoritiesCommandOutput) => void
   ): Promise<ListGroupCertificateAuthoritiesCommandOutput> | void {
     const command = new ListGroupCertificateAuthoritiesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Lists the versions of a group.
-   */
-  public listGroupVersions(
-    args: ListGroupVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListGroupVersionsCommandOutput>;
-  public listGroupVersions(
-    args: ListGroupVersionsCommandInput,
-    cb: (err: any, data?: ListGroupVersionsCommandOutput) => void
-  ): void;
-  public listGroupVersions(
-    args: ListGroupVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListGroupVersionsCommandOutput) => void
-  ): void;
-  public listGroupVersions(
-    args: ListGroupVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGroupVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListGroupVersionsCommandOutput) => void
-  ): Promise<ListGroupVersionsCommandOutput> | void {
-    const command = new ListGroupVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2908,29 +2873,29 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
-   * Lists the versions of a logger definition.
+   * Lists the versions of a group.
    */
-  public listLoggerDefinitionVersions(
-    args: ListLoggerDefinitionVersionsCommandInput,
+  public listGroupVersions(
+    args: ListGroupVersionsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListLoggerDefinitionVersionsCommandOutput>;
-  public listLoggerDefinitionVersions(
-    args: ListLoggerDefinitionVersionsCommandInput,
-    cb: (err: any, data?: ListLoggerDefinitionVersionsCommandOutput) => void
+  ): Promise<ListGroupVersionsCommandOutput>;
+  public listGroupVersions(
+    args: ListGroupVersionsCommandInput,
+    cb: (err: any, data?: ListGroupVersionsCommandOutput) => void
   ): void;
-  public listLoggerDefinitionVersions(
-    args: ListLoggerDefinitionVersionsCommandInput,
+  public listGroupVersions(
+    args: ListGroupVersionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListLoggerDefinitionVersionsCommandOutput) => void
+    cb: (err: any, data?: ListGroupVersionsCommandOutput) => void
   ): void;
-  public listLoggerDefinitionVersions(
-    args: ListLoggerDefinitionVersionsCommandInput,
+  public listGroupVersions(
+    args: ListGroupVersionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListLoggerDefinitionVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListLoggerDefinitionVersionsCommandOutput) => void
-  ): Promise<ListLoggerDefinitionVersionsCommandOutput> | void {
-    const command = new ListLoggerDefinitionVersionsCommand(args);
+      | ((err: any, data?: ListGroupVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListGroupVersionsCommandOutput) => void
+  ): Promise<ListGroupVersionsCommandOutput> | void {
+    const command = new ListGroupVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2966,6 +2931,76 @@ export class Greengrass extends GreengrassClient {
     cb?: (err: any, data?: ListLoggerDefinitionsCommandOutput) => void
   ): Promise<ListLoggerDefinitionsCommandOutput> | void {
     const command = new ListLoggerDefinitionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Lists the versions of a logger definition.
+   */
+  public listLoggerDefinitionVersions(
+    args: ListLoggerDefinitionVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLoggerDefinitionVersionsCommandOutput>;
+  public listLoggerDefinitionVersions(
+    args: ListLoggerDefinitionVersionsCommandInput,
+    cb: (err: any, data?: ListLoggerDefinitionVersionsCommandOutput) => void
+  ): void;
+  public listLoggerDefinitionVersions(
+    args: ListLoggerDefinitionVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLoggerDefinitionVersionsCommandOutput) => void
+  ): void;
+  public listLoggerDefinitionVersions(
+    args: ListLoggerDefinitionVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListLoggerDefinitionVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListLoggerDefinitionVersionsCommandOutput) => void
+  ): Promise<ListLoggerDefinitionVersionsCommandOutput> | void {
+    const command = new ListLoggerDefinitionVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Retrieves a list of resource definitions.
+   */
+  public listResourceDefinitions(
+    args: ListResourceDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourceDefinitionsCommandOutput>;
+  public listResourceDefinitions(
+    args: ListResourceDefinitionsCommandInput,
+    cb: (err: any, data?: ListResourceDefinitionsCommandOutput) => void
+  ): void;
+  public listResourceDefinitions(
+    args: ListResourceDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourceDefinitionsCommandOutput) => void
+  ): void;
+  public listResourceDefinitions(
+    args: ListResourceDefinitionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListResourceDefinitionsCommandOutput) => void),
+    cb?: (err: any, data?: ListResourceDefinitionsCommandOutput) => void
+  ): Promise<ListResourceDefinitionsCommandOutput> | void {
+    const command = new ListResourceDefinitionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3016,29 +3051,29 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
-   * Retrieves a list of resource definitions.
+   * Retrieves a list of subscription definitions.
    */
-  public listResourceDefinitions(
-    args: ListResourceDefinitionsCommandInput,
+  public listSubscriptionDefinitions(
+    args: ListSubscriptionDefinitionsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListResourceDefinitionsCommandOutput>;
-  public listResourceDefinitions(
-    args: ListResourceDefinitionsCommandInput,
-    cb: (err: any, data?: ListResourceDefinitionsCommandOutput) => void
+  ): Promise<ListSubscriptionDefinitionsCommandOutput>;
+  public listSubscriptionDefinitions(
+    args: ListSubscriptionDefinitionsCommandInput,
+    cb: (err: any, data?: ListSubscriptionDefinitionsCommandOutput) => void
   ): void;
-  public listResourceDefinitions(
-    args: ListResourceDefinitionsCommandInput,
+  public listSubscriptionDefinitions(
+    args: ListSubscriptionDefinitionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListResourceDefinitionsCommandOutput) => void
+    cb: (err: any, data?: ListSubscriptionDefinitionsCommandOutput) => void
   ): void;
-  public listResourceDefinitions(
-    args: ListResourceDefinitionsCommandInput,
+  public listSubscriptionDefinitions(
+    args: ListSubscriptionDefinitionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListResourceDefinitionsCommandOutput) => void),
-    cb?: (err: any, data?: ListResourceDefinitionsCommandOutput) => void
-  ): Promise<ListResourceDefinitionsCommandOutput> | void {
-    const command = new ListResourceDefinitionsCommand(args);
+      | ((err: any, data?: ListSubscriptionDefinitionsCommandOutput) => void),
+    cb?: (err: any, data?: ListSubscriptionDefinitionsCommandOutput) => void
+  ): Promise<ListSubscriptionDefinitionsCommandOutput> | void {
+    const command = new ListSubscriptionDefinitionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3086,41 +3121,6 @@ export class Greengrass extends GreengrassClient {
     ) => void
   ): Promise<ListSubscriptionDefinitionVersionsCommandOutput> | void {
     const command = new ListSubscriptionDefinitionVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Retrieves a list of subscription definitions.
-   */
-  public listSubscriptionDefinitions(
-    args: ListSubscriptionDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSubscriptionDefinitionsCommandOutput>;
-  public listSubscriptionDefinitions(
-    args: ListSubscriptionDefinitionsCommandInput,
-    cb: (err: any, data?: ListSubscriptionDefinitionsCommandOutput) => void
-  ): void;
-  public listSubscriptionDefinitions(
-    args: ListSubscriptionDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListSubscriptionDefinitionsCommandOutput) => void
-  ): void;
-  public listSubscriptionDefinitions(
-    args: ListSubscriptionDefinitionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSubscriptionDefinitionsCommandOutput) => void),
-    cb?: (err: any, data?: ListSubscriptionDefinitionsCommandOutput) => void
-  ): Promise<ListSubscriptionDefinitionsCommandOutput> | void {
-    const command = new ListSubscriptionDefinitionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

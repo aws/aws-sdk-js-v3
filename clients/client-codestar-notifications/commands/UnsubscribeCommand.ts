@@ -5,9 +5,9 @@ import {
 } from "../codestarnotificationsClient";
 import { UnsubscribeRequest, UnsubscribeResult } from "../models/index";
 import {
-  deserializeAws_restJson1_1UnsubscribeCommand,
-  serializeAws_restJson1_1UnsubscribeCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UnsubscribeCommand,
+  serializeAws_restJson1UnsubscribeCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class UnsubscribeCommand extends $Command<
     input: UnsubscribeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UnsubscribeCommand(input, context);
+    return serializeAws_restJson1UnsubscribeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UnsubscribeCommandOutput> {
-    return deserializeAws_restJson1_1UnsubscribeCommand(output, context);
+    return deserializeAws_restJson1UnsubscribeCommand(output, context);
   }
 
   // Start section: command_body_extra

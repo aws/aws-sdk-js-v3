@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { GatewayResponse, UpdateGatewayResponseRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateGatewayResponseCommand,
-  serializeAws_restJson1_1UpdateGatewayResponseCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateGatewayResponseCommand,
+  serializeAws_restJson1UpdateGatewayResponseCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class UpdateGatewayResponseCommand extends $Command<
     input: UpdateGatewayResponseCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateGatewayResponseCommand(input, context);
+    return serializeAws_restJson1UpdateGatewayResponseCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateGatewayResponseCommandOutput> {
-    return deserializeAws_restJson1_1UpdateGatewayResponseCommand(
+    return deserializeAws_restJson1UpdateGatewayResponseCommand(
       output,
       context
     );

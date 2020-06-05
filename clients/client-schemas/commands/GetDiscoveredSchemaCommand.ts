@@ -3,9 +3,9 @@ import {
   GetDiscoveredSchemaResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetDiscoveredSchemaCommand,
-  serializeAws_restJson1_1GetDiscoveredSchemaCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetDiscoveredSchemaCommand,
+  serializeAws_restJson1GetDiscoveredSchemaCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -74,17 +74,14 @@ export class GetDiscoveredSchemaCommand extends $Command<
     input: GetDiscoveredSchemaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDiscoveredSchemaCommand(input, context);
+    return serializeAws_restJson1GetDiscoveredSchemaCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDiscoveredSchemaCommandOutput> {
-    return deserializeAws_restJson1_1GetDiscoveredSchemaCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetDiscoveredSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -588,74 +588,6 @@ export namespace Builder {
 }
 
 /**
- * <p>CPU utilization metrics for an instance.</p>
- */
-export interface CPUUtilization {
-  __type?: "CPUUtilization";
-  /**
-   * <p>Available on Linux environments only.</p>
-   *          <p>Percentage of time that the CPU has spent in the <code>I/O Wait</code> state over the
-   *       last 10 seconds.</p>
-   */
-  IOWait?: number;
-
-  /**
-   * <p>Available on Linux environments only.</p>
-   *          <p>Percentage of time that the CPU has spent in the <code>IRQ</code> state over the last
-   *       10 seconds.</p>
-   */
-  IRQ?: number;
-
-  /**
-   * <p>Percentage of time that the CPU has spent in the <code>Idle</code> state over the last
-   *       10 seconds.</p>
-   */
-  Idle?: number;
-
-  /**
-   * <p>Available on Linux environments only.</p>
-   *          <p>Percentage of time that the CPU has spent in the <code>Nice</code> state over the last
-   *       10 seconds.</p>
-   */
-  Nice?: number;
-
-  /**
-   * <p>Available on Windows environments only.</p>
-   *          <p>Percentage of time that the CPU has spent in the <code>Privileged</code> state over the
-   *       last 10 seconds.</p>
-   */
-  Privileged?: number;
-
-  /**
-   * <p>Available on Linux environments only.</p>
-   *          <p>Percentage of time that the CPU has spent in the <code>SoftIRQ</code> state over the
-   *       last 10 seconds.</p>
-   */
-  SoftIRQ?: number;
-
-  /**
-   * <p>Available on Linux environments only.</p>
-   *          <p>Percentage of time that the CPU has spent in the <code>System</code> state over the
-   *       last 10 seconds.</p>
-   */
-  System?: number;
-
-  /**
-   * <p>Percentage of time that the CPU has spent in the <code>User</code> state over the last
-   *       10 seconds.</p>
-   */
-  User?: number;
-}
-
-export namespace CPUUtilization {
-  export const filterSensitiveLog = (obj: CPUUtilization): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CPUUtilization =>
-    __isa(o, "CPUUtilization");
-}
-
-/**
  * <p>Results message indicating whether a CNAME is available.</p>
  */
 export interface CheckDNSAvailabilityMessage {
@@ -916,6 +848,37 @@ export namespace ConfigurationOptionDescription {
 }
 
 /**
+ * <p>Describes the settings for a specified configuration set.</p>
+ */
+export interface ConfigurationOptionsDescription {
+  __type?: "ConfigurationOptionsDescription";
+  /**
+   * <p> A list of <a>ConfigurationOptionDescription</a>. </p>
+   */
+  Options?: ConfigurationOptionDescription[];
+
+  /**
+   * <p>The ARN of the platform.</p>
+   */
+  PlatformArn?: string;
+
+  /**
+   * <p>The name of the solution stack these configuration options belong to.</p>
+   */
+  SolutionStackName?: string;
+}
+
+export namespace ConfigurationOptionsDescription {
+  export const filterSensitiveLog = (
+    obj: ConfigurationOptionsDescription
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ConfigurationOptionsDescription =>
+    __isa(o, "ConfigurationOptionsDescription");
+}
+
+/**
  * <p> A specification identifying an individual configuration option along with its current
  *       value. For a list of possible option values, go to <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html">Option Values</a> in the
  *       <i>AWS Elastic Beanstalk Developer Guide</i>. </p>
@@ -952,37 +915,6 @@ export namespace ConfigurationOptionSetting {
 }
 
 export type ConfigurationOptionValueType = "List" | "Scalar";
-
-/**
- * <p>Describes the settings for a specified configuration set.</p>
- */
-export interface ConfigurationOptionsDescription {
-  __type?: "ConfigurationOptionsDescription";
-  /**
-   * <p> A list of <a>ConfigurationOptionDescription</a>. </p>
-   */
-  Options?: ConfigurationOptionDescription[];
-
-  /**
-   * <p>The ARN of the platform.</p>
-   */
-  PlatformArn?: string;
-
-  /**
-   * <p>The name of the solution stack these configuration options belong to.</p>
-   */
-  SolutionStackName?: string;
-}
-
-export namespace ConfigurationOptionsDescription {
-  export const filterSensitiveLog = (
-    obj: ConfigurationOptionsDescription
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ConfigurationOptionsDescription =>
-    __isa(o, "ConfigurationOptionsDescription");
-}
 
 /**
  * <p>Describes the settings for a configuration set.</p>
@@ -1118,6 +1050,74 @@ export namespace ConfigurationSettingsValidationMessages {
   });
   export const isa = (o: any): o is ConfigurationSettingsValidationMessages =>
     __isa(o, "ConfigurationSettingsValidationMessages");
+}
+
+/**
+ * <p>CPU utilization metrics for an instance.</p>
+ */
+export interface CPUUtilization {
+  __type?: "CPUUtilization";
+  /**
+   * <p>Available on Linux environments only.</p>
+   *          <p>Percentage of time that the CPU has spent in the <code>I/O Wait</code> state over the
+   *       last 10 seconds.</p>
+   */
+  IOWait?: number;
+
+  /**
+   * <p>Available on Linux environments only.</p>
+   *          <p>Percentage of time that the CPU has spent in the <code>IRQ</code> state over the last
+   *       10 seconds.</p>
+   */
+  IRQ?: number;
+
+  /**
+   * <p>Percentage of time that the CPU has spent in the <code>Idle</code> state over the last
+   *       10 seconds.</p>
+   */
+  Idle?: number;
+
+  /**
+   * <p>Available on Linux environments only.</p>
+   *          <p>Percentage of time that the CPU has spent in the <code>Nice</code> state over the last
+   *       10 seconds.</p>
+   */
+  Nice?: number;
+
+  /**
+   * <p>Available on Windows environments only.</p>
+   *          <p>Percentage of time that the CPU has spent in the <code>Privileged</code> state over the
+   *       last 10 seconds.</p>
+   */
+  Privileged?: number;
+
+  /**
+   * <p>Available on Linux environments only.</p>
+   *          <p>Percentage of time that the CPU has spent in the <code>SoftIRQ</code> state over the
+   *       last 10 seconds.</p>
+   */
+  SoftIRQ?: number;
+
+  /**
+   * <p>Available on Linux environments only.</p>
+   *          <p>Percentage of time that the CPU has spent in the <code>System</code> state over the
+   *       last 10 seconds.</p>
+   */
+  System?: number;
+
+  /**
+   * <p>Percentage of time that the CPU has spent in the <code>User</code> state over the last
+   *       10 seconds.</p>
+   */
+  User?: number;
+}
+
+export namespace CPUUtilization {
+  export const filterSensitiveLog = (obj: CPUUtilization): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CPUUtilization =>
+    __isa(o, "CPUUtilization");
 }
 
 /**
@@ -1773,6 +1773,28 @@ export namespace DescribeAccountAttributesResult {
 }
 
 /**
+ * <p>Request to describe one or more applications.</p>
+ */
+export interface DescribeApplicationsMessage {
+  __type?: "DescribeApplicationsMessage";
+  /**
+   * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include
+   *       those with the specified names.</p>
+   */
+  ApplicationNames?: string[];
+}
+
+export namespace DescribeApplicationsMessage {
+  export const filterSensitiveLog = (
+    obj: DescribeApplicationsMessage
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeApplicationsMessage =>
+    __isa(o, "DescribeApplicationsMessage");
+}
+
+/**
  * <p>Request to describe application versions.</p>
  */
 export interface DescribeApplicationVersionsMessage {
@@ -1812,28 +1834,6 @@ export namespace DescribeApplicationVersionsMessage {
   });
   export const isa = (o: any): o is DescribeApplicationVersionsMessage =>
     __isa(o, "DescribeApplicationVersionsMessage");
-}
-
-/**
- * <p>Request to describe one or more applications.</p>
- */
-export interface DescribeApplicationsMessage {
-  __type?: "DescribeApplicationsMessage";
-  /**
-   * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include
-   *       those with the specified names.</p>
-   */
-  ApplicationNames?: string[];
-}
-
-export namespace DescribeApplicationsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeApplicationsMessage
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeApplicationsMessage =>
-    __isa(o, "DescribeApplicationsMessage");
 }
 
 /**
@@ -3288,6 +3288,29 @@ export namespace ListAvailableSolutionStacksResultMessage {
     __isa(o, "ListAvailableSolutionStacksResultMessage");
 }
 
+/**
+ * <p>Describes the properties of a Listener for the LoadBalancer.</p>
+ */
+export interface Listener {
+  __type?: "Listener";
+  /**
+   * <p>The port that is used by the Listener.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>The protocol that is used by the Listener.</p>
+   */
+  Protocol?: string;
+}
+
+export namespace Listener {
+  export const filterSensitiveLog = (obj: Listener): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Listener => __isa(o, "Listener");
+}
+
 export interface ListPlatformVersionsRequest {
   __type?: "ListPlatformVersionsRequest";
   /**
@@ -3358,29 +3381,6 @@ export namespace ListTagsForResourceMessage {
   });
   export const isa = (o: any): o is ListTagsForResourceMessage =>
     __isa(o, "ListTagsForResourceMessage");
-}
-
-/**
- * <p>Describes the properties of a Listener for the LoadBalancer.</p>
- */
-export interface Listener {
-  __type?: "Listener";
-  /**
-   * <p>The port that is used by the Listener.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>The protocol that is used by the Listener.</p>
-   */
-  Protocol?: string;
-}
-
-export namespace Listener {
-  export const filterSensitiveLog = (obj: Listener): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Listener => __isa(o, "Listener");
 }
 
 /**
@@ -4804,30 +4804,6 @@ export namespace TerminateEnvironmentMessage {
 }
 
 /**
- * <p>The specified account has reached its limit of application versions.</p>
- */
-export interface TooManyApplicationVersionsException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyApplicationVersionsException";
-  $fault: "client";
-  /**
-   * <p>The exception error message.</p>
-   */
-  message?: string;
-}
-
-export namespace TooManyApplicationVersionsException {
-  export const filterSensitiveLog = (
-    obj: TooManyApplicationVersionsException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyApplicationVersionsException =>
-    __isa(o, "TooManyApplicationVersionsException");
-}
-
-/**
  * <p>The specified account has reached its limit of applications.</p>
  */
 export interface TooManyApplicationsException
@@ -4849,6 +4825,30 @@ export namespace TooManyApplicationsException {
   });
   export const isa = (o: any): o is TooManyApplicationsException =>
     __isa(o, "TooManyApplicationsException");
+}
+
+/**
+ * <p>The specified account has reached its limit of application versions.</p>
+ */
+export interface TooManyApplicationVersionsException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyApplicationVersionsException";
+  $fault: "client";
+  /**
+   * <p>The exception error message.</p>
+   */
+  message?: string;
+}
+
+export namespace TooManyApplicationVersionsException {
+  export const filterSensitiveLog = (
+    obj: TooManyApplicationVersionsException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyApplicationVersionsException =>
+    __isa(o, "TooManyApplicationVersionsException");
 }
 
 /**

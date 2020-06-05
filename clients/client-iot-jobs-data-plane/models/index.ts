@@ -29,154 +29,6 @@ export namespace CertificateValidationException {
     __isa(o, "CertificateValidationException");
 }
 
-/**
- * <p>The contents of the request were invalid. For example, this code is returned when an UpdateJobExecution request contains invalid status details. The message contains details about the error.</p>
- */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidRequestException {
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
-}
-
-/**
- * <p>An update attempted to change the job execution to a state that is invalid because of the job execution's
- *          current state (for example, an attempt to change a request in state SUCCESS to state IN_PROGRESS). In this
- *          case, the body of the error message also contains the executionState field.</p>
- */
-export interface InvalidStateTransitionException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidStateTransitionException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidStateTransitionException {
-  export const filterSensitiveLog = (
-    obj: InvalidStateTransitionException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidStateTransitionException =>
-    __isa(o, "InvalidStateTransitionException");
-}
-
-/**
- * <p>The specified resource does not exist.</p>
- */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
-}
-
-/**
- * <p>The service is temporarily unavailable.</p>
- */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (
-    obj: ServiceUnavailableException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ServiceUnavailableException =>
-    __isa(o, "ServiceUnavailableException");
-}
-
-/**
- * <p>The job is in a terminal state.</p>
- */
-export interface TerminalStateException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TerminalStateException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace TerminalStateException {
-  export const filterSensitiveLog = (obj: TerminalStateException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TerminalStateException =>
-    __isa(o, "TerminalStateException");
-}
-
-export enum JobExecutionStatus {
-  CANCELED = "CANCELED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  QUEUED = "QUEUED",
-  REJECTED = "REJECTED",
-  REMOVED = "REMOVED",
-  SUCCEEDED = "SUCCEEDED",
-  TIMED_OUT = "TIMED_OUT"
-}
-
-/**
- * <p>The rate exceeds the limit.</p>
- */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  /**
-   * <p>The message associated with the exception.</p>
-   */
-  message?: string;
-
-  /**
-   * <p>The payload associated with the exception.</p>
-   */
-  payload?: Uint8Array;
-}
-
-export namespace ThrottlingException {
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
-}
-
 export interface DescribeJobExecutionRequest {
   __type?: "DescribeJobExecutionRequest";
   /**
@@ -268,6 +120,51 @@ export namespace GetPendingJobExecutionsResponse {
   });
   export const isa = (o: any): o is GetPendingJobExecutionsResponse =>
     __isa(o, "GetPendingJobExecutionsResponse");
+}
+
+/**
+ * <p>The contents of the request were invalid. For example, this code is returned when an UpdateJobExecution request contains invalid status details. The message contains details about the error.</p>
+ */
+export interface InvalidRequestException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidRequestException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidRequestException {
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidRequestException =>
+    __isa(o, "InvalidRequestException");
+}
+
+/**
+ * <p>An update attempted to change the job execution to a state that is invalid because of the job execution's
+ *          current state (for example, an attempt to change a request in state SUCCESS to state IN_PROGRESS). In this
+ *          case, the body of the error message also contains the executionState field.</p>
+ */
+export interface InvalidStateTransitionException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidStateTransitionException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidStateTransitionException {
+  export const filterSensitiveLog = (
+    obj: InvalidStateTransitionException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidStateTransitionException =>
+    __isa(o, "InvalidStateTransitionException");
 }
 
 /**
@@ -373,6 +270,17 @@ export namespace JobExecutionState {
     __isa(o, "JobExecutionState");
 }
 
+export enum JobExecutionStatus {
+  CANCELED = "CANCELED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  QUEUED = "QUEUED",
+  REJECTED = "REJECTED",
+  REMOVED = "REMOVED",
+  SUCCEEDED = "SUCCEEDED",
+  TIMED_OUT = "TIMED_OUT"
+}
+
 /**
  * <p>Contains a subset of information about a job execution.</p>
  */
@@ -416,6 +324,52 @@ export namespace JobExecutionSummary {
   });
   export const isa = (o: any): o is JobExecutionSummary =>
     __isa(o, "JobExecutionSummary");
+}
+
+/**
+ * <p>The specified resource does not exist.</p>
+ */
+export interface ResourceNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
+}
+
+/**
+ * <p>The service is temporarily unavailable.</p>
+ */
+export interface ServiceUnavailableException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ServiceUnavailableException";
+  $fault: "server";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace ServiceUnavailableException {
+  export const filterSensitiveLog = (
+    obj: ServiceUnavailableException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ServiceUnavailableException =>
+    __isa(o, "ServiceUnavailableException");
 }
 
 export interface StartNextPendingJobExecutionRequest {
@@ -469,6 +423,52 @@ export namespace StartNextPendingJobExecutionResponse {
   });
   export const isa = (o: any): o is StartNextPendingJobExecutionResponse =>
     __isa(o, "StartNextPendingJobExecutionResponse");
+}
+
+/**
+ * <p>The job is in a terminal state.</p>
+ */
+export interface TerminalStateException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TerminalStateException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace TerminalStateException {
+  export const filterSensitiveLog = (obj: TerminalStateException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TerminalStateException =>
+    __isa(o, "TerminalStateException");
+}
+
+/**
+ * <p>The rate exceeds the limit.</p>
+ */
+export interface ThrottlingException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ThrottlingException";
+  $fault: "client";
+  /**
+   * <p>The message associated with the exception.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>The payload associated with the exception.</p>
+   */
+  payload?: Uint8Array;
+}
+
+export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
 }
 
 export interface UpdateJobExecutionRequest {

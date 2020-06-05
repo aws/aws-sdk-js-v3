@@ -354,7 +354,7 @@ const deserializeAws_json1_1CreateDeliveryStreamCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.firehose.v20150804#InvalidArgumentException":
+    case "com.amazonaws.firehose#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -365,7 +365,7 @@ const deserializeAws_json1_1CreateDeliveryStreamCommandError = async (
       };
       break;
     case "InvalidKMSResourceException":
-    case "com.amazonaws.firehose.v20150804#InvalidKMSResourceException":
+    case "com.amazonaws.firehose#InvalidKMSResourceException":
       response = {
         ...(await deserializeAws_json1_1InvalidKMSResourceExceptionResponse(
           parsedOutput,
@@ -376,7 +376,7 @@ const deserializeAws_json1_1CreateDeliveryStreamCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.firehose.v20150804#LimitExceededException":
+    case "com.amazonaws.firehose#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -387,7 +387,7 @@ const deserializeAws_json1_1CreateDeliveryStreamCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.firehose.v20150804#ResourceInUseException":
+    case "com.amazonaws.firehose#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -450,7 +450,7 @@ const deserializeAws_json1_1DeleteDeliveryStreamCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUseException":
-    case "com.amazonaws.firehose.v20150804#ResourceInUseException":
+    case "com.amazonaws.firehose#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -461,7 +461,7 @@ const deserializeAws_json1_1DeleteDeliveryStreamCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.firehose.v20150804#ResourceNotFoundException":
+    case "com.amazonaws.firehose#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -524,7 +524,7 @@ const deserializeAws_json1_1DescribeDeliveryStreamCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.firehose.v20150804#ResourceNotFoundException":
+    case "com.amazonaws.firehose#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -642,7 +642,7 @@ const deserializeAws_json1_1ListTagsForDeliveryStreamCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.firehose.v20150804#InvalidArgumentException":
+    case "com.amazonaws.firehose#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -653,7 +653,7 @@ const deserializeAws_json1_1ListTagsForDeliveryStreamCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.firehose.v20150804#LimitExceededException":
+    case "com.amazonaws.firehose#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -664,7 +664,7 @@ const deserializeAws_json1_1ListTagsForDeliveryStreamCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.firehose.v20150804#ResourceNotFoundException":
+    case "com.amazonaws.firehose#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -724,7 +724,7 @@ const deserializeAws_json1_1PutRecordCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.firehose.v20150804#InvalidArgumentException":
+    case "com.amazonaws.firehose#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -735,7 +735,7 @@ const deserializeAws_json1_1PutRecordCommandError = async (
       };
       break;
     case "InvalidKMSResourceException":
-    case "com.amazonaws.firehose.v20150804#InvalidKMSResourceException":
+    case "com.amazonaws.firehose#InvalidKMSResourceException":
       response = {
         ...(await deserializeAws_json1_1InvalidKMSResourceExceptionResponse(
           parsedOutput,
@@ -746,7 +746,7 @@ const deserializeAws_json1_1PutRecordCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.firehose.v20150804#ResourceNotFoundException":
+    case "com.amazonaws.firehose#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -757,7 +757,7 @@ const deserializeAws_json1_1PutRecordCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.firehose.v20150804#ServiceUnavailableException":
+    case "com.amazonaws.firehose#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -817,7 +817,7 @@ const deserializeAws_json1_1PutRecordBatchCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.firehose.v20150804#InvalidArgumentException":
+    case "com.amazonaws.firehose#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -828,7 +828,7 @@ const deserializeAws_json1_1PutRecordBatchCommandError = async (
       };
       break;
     case "InvalidKMSResourceException":
-    case "com.amazonaws.firehose.v20150804#InvalidKMSResourceException":
+    case "com.amazonaws.firehose#InvalidKMSResourceException":
       response = {
         ...(await deserializeAws_json1_1InvalidKMSResourceExceptionResponse(
           parsedOutput,
@@ -839,7 +839,7 @@ const deserializeAws_json1_1PutRecordBatchCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.firehose.v20150804#ResourceNotFoundException":
+    case "com.amazonaws.firehose#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -850,7 +850,7 @@ const deserializeAws_json1_1PutRecordBatchCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.firehose.v20150804#ServiceUnavailableException":
+    case "com.amazonaws.firehose#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -916,7 +916,7 @@ const deserializeAws_json1_1StartDeliveryStreamEncryptionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.firehose.v20150804#InvalidArgumentException":
+    case "com.amazonaws.firehose#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -927,7 +927,7 @@ const deserializeAws_json1_1StartDeliveryStreamEncryptionCommandError = async (
       };
       break;
     case "InvalidKMSResourceException":
-    case "com.amazonaws.firehose.v20150804#InvalidKMSResourceException":
+    case "com.amazonaws.firehose#InvalidKMSResourceException":
       response = {
         ...(await deserializeAws_json1_1InvalidKMSResourceExceptionResponse(
           parsedOutput,
@@ -938,7 +938,7 @@ const deserializeAws_json1_1StartDeliveryStreamEncryptionCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.firehose.v20150804#LimitExceededException":
+    case "com.amazonaws.firehose#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -949,7 +949,7 @@ const deserializeAws_json1_1StartDeliveryStreamEncryptionCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.firehose.v20150804#ResourceInUseException":
+    case "com.amazonaws.firehose#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -960,7 +960,7 @@ const deserializeAws_json1_1StartDeliveryStreamEncryptionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.firehose.v20150804#ResourceNotFoundException":
+    case "com.amazonaws.firehose#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1026,7 +1026,7 @@ const deserializeAws_json1_1StopDeliveryStreamEncryptionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.firehose.v20150804#InvalidArgumentException":
+    case "com.amazonaws.firehose#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1037,7 +1037,7 @@ const deserializeAws_json1_1StopDeliveryStreamEncryptionCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.firehose.v20150804#LimitExceededException":
+    case "com.amazonaws.firehose#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1048,7 +1048,7 @@ const deserializeAws_json1_1StopDeliveryStreamEncryptionCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.firehose.v20150804#ResourceInUseException":
+    case "com.amazonaws.firehose#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1059,7 +1059,7 @@ const deserializeAws_json1_1StopDeliveryStreamEncryptionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.firehose.v20150804#ResourceNotFoundException":
+    case "com.amazonaws.firehose#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1119,7 +1119,7 @@ const deserializeAws_json1_1TagDeliveryStreamCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.firehose.v20150804#InvalidArgumentException":
+    case "com.amazonaws.firehose#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1130,7 +1130,7 @@ const deserializeAws_json1_1TagDeliveryStreamCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.firehose.v20150804#LimitExceededException":
+    case "com.amazonaws.firehose#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1141,7 +1141,7 @@ const deserializeAws_json1_1TagDeliveryStreamCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.firehose.v20150804#ResourceInUseException":
+    case "com.amazonaws.firehose#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1152,7 +1152,7 @@ const deserializeAws_json1_1TagDeliveryStreamCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.firehose.v20150804#ResourceNotFoundException":
+    case "com.amazonaws.firehose#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1215,7 +1215,7 @@ const deserializeAws_json1_1UntagDeliveryStreamCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.firehose.v20150804#InvalidArgumentException":
+    case "com.amazonaws.firehose#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1226,7 +1226,7 @@ const deserializeAws_json1_1UntagDeliveryStreamCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.firehose.v20150804#LimitExceededException":
+    case "com.amazonaws.firehose#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1237,7 +1237,7 @@ const deserializeAws_json1_1UntagDeliveryStreamCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.firehose.v20150804#ResourceInUseException":
+    case "com.amazonaws.firehose#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1248,7 +1248,7 @@ const deserializeAws_json1_1UntagDeliveryStreamCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.firehose.v20150804#ResourceNotFoundException":
+    case "com.amazonaws.firehose#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1308,7 +1308,7 @@ const deserializeAws_json1_1UpdateDestinationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.firehose.v20150804#ConcurrentModificationException":
+    case "com.amazonaws.firehose#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -1319,7 +1319,7 @@ const deserializeAws_json1_1UpdateDestinationCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.firehose.v20150804#InvalidArgumentException":
+    case "com.amazonaws.firehose#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1330,7 +1330,7 @@ const deserializeAws_json1_1UpdateDestinationCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.firehose.v20150804#ResourceInUseException":
+    case "com.amazonaws.firehose#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1341,7 +1341,7 @@ const deserializeAws_json1_1UpdateDestinationCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.firehose.v20150804#ResourceNotFoundException":
+    case "com.amazonaws.firehose#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1973,17 +1973,6 @@ const serializeAws_json1_1InputFormatConfiguration = (
   };
 };
 
-const serializeAws_json1_1KMSEncryptionConfig = (
-  input: KMSEncryptionConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AWSKMSKeyARN !== undefined && {
-      AWSKMSKeyARN: input.AWSKMSKeyARN
-    })
-  };
-};
-
 const serializeAws_json1_1KinesisStreamSourceConfiguration = (
   input: KinesisStreamSourceConfiguration,
   context: __SerdeContext
@@ -1993,6 +1982,17 @@ const serializeAws_json1_1KinesisStreamSourceConfiguration = (
       KinesisStreamARN: input.KinesisStreamARN
     }),
     ...(input.RoleARN !== undefined && { RoleARN: input.RoleARN })
+  };
+};
+
+const serializeAws_json1_1KMSEncryptionConfig = (
+  input: KMSEncryptionConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AWSKMSKeyARN !== undefined && {
+      AWSKMSKeyARN: input.AWSKMSKeyARN
+    })
   };
 };
 
@@ -3309,19 +3309,6 @@ const deserializeAws_json1_1InvalidKMSResourceException = (
   } as any;
 };
 
-const deserializeAws_json1_1KMSEncryptionConfig = (
-  output: any,
-  context: __SerdeContext
-): KMSEncryptionConfig => {
-  return {
-    __type: "KMSEncryptionConfig",
-    AWSKMSKeyARN:
-      output.AWSKMSKeyARN !== undefined && output.AWSKMSKeyARN !== null
-        ? output.AWSKMSKeyARN
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1KinesisStreamSourceDescription = (
   output: any,
   context: __SerdeContext
@@ -3340,6 +3327,19 @@ const deserializeAws_json1_1KinesisStreamSourceDescription = (
     RoleARN:
       output.RoleARN !== undefined && output.RoleARN !== null
         ? output.RoleARN
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1KMSEncryptionConfig = (
+  output: any,
+  context: __SerdeContext
+): KMSEncryptionConfig => {
+  return {
+    __type: "KMSEncryptionConfig",
+    AWSKMSKeyARN:
+      output.AWSKMSKeyARN !== undefined && output.AWSKMSKeyARN !== null
+        ? output.AWSKMSKeyARN
         : undefined
   } as any;
 };

@@ -5,9 +5,9 @@ import {
 } from "../EFSClient";
 import { ModifyMountTargetSecurityGroupsRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommand,
-  serializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ModifyMountTargetSecurityGroupsCommand,
+  serializeAws_restJson1ModifyMountTargetSecurityGroupsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class ModifyMountTargetSecurityGroupsCommand extends $Command<
     input: ModifyMountTargetSecurityGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommand(
+    return serializeAws_restJson1ModifyMountTargetSecurityGroupsCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class ModifyMountTargetSecurityGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyMountTargetSecurityGroupsCommandOutput> {
-    return deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommand(
+    return deserializeAws_restJson1ModifyMountTargetSecurityGroupsCommand(
       output,
       context
     );

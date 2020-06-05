@@ -8,9 +8,9 @@ import {
   BatchCreateAttendeeResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1BatchCreateAttendeeCommand,
-  serializeAws_restJson1_1BatchCreateAttendeeCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1BatchCreateAttendeeCommand,
+  serializeAws_restJson1BatchCreateAttendeeCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class BatchCreateAttendeeCommand extends $Command<
     input: BatchCreateAttendeeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1BatchCreateAttendeeCommand(input, context);
+    return serializeAws_restJson1BatchCreateAttendeeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchCreateAttendeeCommandOutput> {
-    return deserializeAws_restJson1_1BatchCreateAttendeeCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1BatchCreateAttendeeCommand(output, context);
   }
 
   // Start section: command_body_extra

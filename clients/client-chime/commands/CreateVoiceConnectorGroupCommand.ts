@@ -8,9 +8,9 @@ import {
   CreateVoiceConnectorGroupResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateVoiceConnectorGroupCommand,
-  serializeAws_restJson1_1CreateVoiceConnectorGroupCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateVoiceConnectorGroupCommand,
+  serializeAws_restJson1CreateVoiceConnectorGroupCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CreateVoiceConnectorGroupCommand extends $Command<
     input: CreateVoiceConnectorGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateVoiceConnectorGroupCommand(
+    return serializeAws_restJson1CreateVoiceConnectorGroupCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CreateVoiceConnectorGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVoiceConnectorGroupCommandOutput> {
-    return deserializeAws_restJson1_1CreateVoiceConnectorGroupCommand(
+    return deserializeAws_restJson1CreateVoiceConnectorGroupCommand(
       output,
       context
     );

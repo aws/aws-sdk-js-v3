@@ -5,9 +5,9 @@ import {
 } from "../MediaStoreDataClient";
 import { PutObjectRequest, PutObjectResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutObjectCommand,
-  serializeAws_restJson1_1PutObjectCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutObjectCommand,
+  serializeAws_restJson1PutObjectCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -69,14 +69,14 @@ export class PutObjectCommand extends $Command<
     input: PutObjectCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutObjectCommand(input, context);
+    return serializeAws_restJson1PutObjectCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutObjectCommandOutput> {
-    return deserializeAws_restJson1_1PutObjectCommand(output, context);
+    return deserializeAws_restJson1PutObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

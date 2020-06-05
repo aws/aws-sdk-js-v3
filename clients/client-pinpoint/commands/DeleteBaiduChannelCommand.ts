@@ -8,9 +8,9 @@ import {
   DeleteBaiduChannelResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteBaiduChannelCommand,
-  serializeAws_restJson1_1DeleteBaiduChannelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteBaiduChannelCommand,
+  serializeAws_restJson1DeleteBaiduChannelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DeleteBaiduChannelCommand extends $Command<
     input: DeleteBaiduChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteBaiduChannelCommand(input, context);
+    return serializeAws_restJson1DeleteBaiduChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBaiduChannelCommandOutput> {
-    return deserializeAws_restJson1_1DeleteBaiduChannelCommand(output, context);
+    return deserializeAws_restJson1DeleteBaiduChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

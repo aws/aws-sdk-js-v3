@@ -162,6 +162,32 @@ export namespace AssociateDiscoveredResourceResult {
     __isa(o, "AssociateDiscoveredResourceResult");
 }
 
+/**
+ * <p>An ARN of the AWS cloud resource target receiving the migration (e.g., AMI, EC2
+ *          instance, RDS instance, etc.).</p>
+ */
+export interface CreatedArtifact {
+  __type?: "CreatedArtifact";
+  /**
+   * <p>A description that can be free-form text to record additional detail about the artifact
+   *          for clarity or for later reference.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>An ARN that uniquely identifies the result of a migration task.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace CreatedArtifact {
+  export const filterSensitiveLog = (obj: CreatedArtifact): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CreatedArtifact =>
+    __isa(o, "CreatedArtifact");
+}
+
 export interface CreateProgressUpdateStreamRequest {
   __type?: "CreateProgressUpdateStreamRequest";
   /**
@@ -200,32 +226,6 @@ export namespace CreateProgressUpdateStreamResult {
   });
   export const isa = (o: any): o is CreateProgressUpdateStreamResult =>
     __isa(o, "CreateProgressUpdateStreamResult");
-}
-
-/**
- * <p>An ARN of the AWS cloud resource target receiving the migration (e.g., AMI, EC2
- *          instance, RDS instance, etc.).</p>
- */
-export interface CreatedArtifact {
-  __type?: "CreatedArtifact";
-  /**
-   * <p>A description that can be free-form text to record additional detail about the artifact
-   *          for clarity or for later reference.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>An ARN that uniquely identifies the result of a migration task.</p>
-   */
-  Name: string | undefined;
-}
-
-export namespace CreatedArtifact {
-  export const filterSensitiveLog = (obj: CreatedArtifact): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CreatedArtifact =>
-    __isa(o, "CreatedArtifact");
 }
 
 export interface DeleteProgressUpdateStreamRequest {

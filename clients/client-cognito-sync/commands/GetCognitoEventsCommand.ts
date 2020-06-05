@@ -8,9 +8,9 @@ import {
   GetCognitoEventsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetCognitoEventsCommand,
-  serializeAws_restJson1_1GetCognitoEventsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetCognitoEventsCommand,
+  serializeAws_restJson1GetCognitoEventsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetCognitoEventsCommand extends $Command<
     input: GetCognitoEventsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetCognitoEventsCommand(input, context);
+    return serializeAws_restJson1GetCognitoEventsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCognitoEventsCommandOutput> {
-    return deserializeAws_restJson1_1GetCognitoEventsCommand(output, context);
+    return deserializeAws_restJson1GetCognitoEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

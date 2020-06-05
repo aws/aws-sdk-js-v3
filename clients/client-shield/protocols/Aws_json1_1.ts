@@ -452,7 +452,7 @@ const deserializeAws_json1_1AssociateDRTLogBucketCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedForDependencyException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#AccessDeniedForDependencyException":
+    case "com.amazonaws.shield#AccessDeniedForDependencyException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedForDependencyExceptionResponse(
           parsedOutput,
@@ -463,7 +463,7 @@ const deserializeAws_json1_1AssociateDRTLogBucketCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -474,7 +474,7 @@ const deserializeAws_json1_1AssociateDRTLogBucketCommandError = async (
       };
       break;
     case "InvalidOperationException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidOperationException":
+    case "com.amazonaws.shield#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -485,7 +485,7 @@ const deserializeAws_json1_1AssociateDRTLogBucketCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidParameterException":
+    case "com.amazonaws.shield#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -496,7 +496,7 @@ const deserializeAws_json1_1AssociateDRTLogBucketCommandError = async (
       };
       break;
     case "LimitsExceededException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#LimitsExceededException":
+    case "com.amazonaws.shield#LimitsExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitsExceededExceptionResponse(
           parsedOutput,
@@ -507,7 +507,7 @@ const deserializeAws_json1_1AssociateDRTLogBucketCommandError = async (
       };
       break;
     case "NoAssociatedRoleException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#NoAssociatedRoleException":
+    case "com.amazonaws.shield#NoAssociatedRoleException":
       response = {
         ...(await deserializeAws_json1_1NoAssociatedRoleExceptionResponse(
           parsedOutput,
@@ -518,7 +518,7 @@ const deserializeAws_json1_1AssociateDRTLogBucketCommandError = async (
       };
       break;
     case "OptimisticLockException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#OptimisticLockException":
+    case "com.amazonaws.shield#OptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1OptimisticLockExceptionResponse(
           parsedOutput,
@@ -529,7 +529,7 @@ const deserializeAws_json1_1AssociateDRTLogBucketCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -589,7 +589,7 @@ const deserializeAws_json1_1AssociateDRTRoleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedForDependencyException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#AccessDeniedForDependencyException":
+    case "com.amazonaws.shield#AccessDeniedForDependencyException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedForDependencyExceptionResponse(
           parsedOutput,
@@ -600,7 +600,7 @@ const deserializeAws_json1_1AssociateDRTRoleCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -611,7 +611,7 @@ const deserializeAws_json1_1AssociateDRTRoleCommandError = async (
       };
       break;
     case "InvalidOperationException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidOperationException":
+    case "com.amazonaws.shield#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -622,7 +622,7 @@ const deserializeAws_json1_1AssociateDRTRoleCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidParameterException":
+    case "com.amazonaws.shield#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -633,7 +633,7 @@ const deserializeAws_json1_1AssociateDRTRoleCommandError = async (
       };
       break;
     case "OptimisticLockException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#OptimisticLockException":
+    case "com.amazonaws.shield#OptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1OptimisticLockExceptionResponse(
           parsedOutput,
@@ -644,7 +644,7 @@ const deserializeAws_json1_1AssociateDRTRoleCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -704,7 +704,7 @@ const deserializeAws_json1_1CreateProtectionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -715,7 +715,7 @@ const deserializeAws_json1_1CreateProtectionCommandError = async (
       };
       break;
     case "InvalidOperationException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidOperationException":
+    case "com.amazonaws.shield#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -726,7 +726,7 @@ const deserializeAws_json1_1CreateProtectionCommandError = async (
       };
       break;
     case "InvalidResourceException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidResourceException":
+    case "com.amazonaws.shield#InvalidResourceException":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceExceptionResponse(
           parsedOutput,
@@ -737,7 +737,7 @@ const deserializeAws_json1_1CreateProtectionCommandError = async (
       };
       break;
     case "LimitsExceededException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#LimitsExceededException":
+    case "com.amazonaws.shield#LimitsExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitsExceededExceptionResponse(
           parsedOutput,
@@ -748,7 +748,7 @@ const deserializeAws_json1_1CreateProtectionCommandError = async (
       };
       break;
     case "OptimisticLockException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#OptimisticLockException":
+    case "com.amazonaws.shield#OptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1OptimisticLockExceptionResponse(
           parsedOutput,
@@ -759,7 +759,7 @@ const deserializeAws_json1_1CreateProtectionCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceAlreadyExistsException":
+    case "com.amazonaws.shield#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -770,7 +770,7 @@ const deserializeAws_json1_1CreateProtectionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -833,7 +833,7 @@ const deserializeAws_json1_1CreateSubscriptionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -844,7 +844,7 @@ const deserializeAws_json1_1CreateSubscriptionCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceAlreadyExistsException":
+    case "com.amazonaws.shield#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -904,7 +904,7 @@ const deserializeAws_json1_1DeleteProtectionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -915,7 +915,7 @@ const deserializeAws_json1_1DeleteProtectionCommandError = async (
       };
       break;
     case "OptimisticLockException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#OptimisticLockException":
+    case "com.amazonaws.shield#OptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1OptimisticLockExceptionResponse(
           parsedOutput,
@@ -926,7 +926,7 @@ const deserializeAws_json1_1DeleteProtectionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -989,7 +989,7 @@ const deserializeAws_json1_1DeleteSubscriptionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1000,7 +1000,7 @@ const deserializeAws_json1_1DeleteSubscriptionCommandError = async (
       };
       break;
     case "LockedSubscriptionException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#LockedSubscriptionException":
+    case "com.amazonaws.shield#LockedSubscriptionException":
       response = {
         ...(await deserializeAws_json1_1LockedSubscriptionExceptionResponse(
           parsedOutput,
@@ -1011,7 +1011,7 @@ const deserializeAws_json1_1DeleteSubscriptionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1071,7 +1071,7 @@ const deserializeAws_json1_1DescribeAttackCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#AccessDeniedException":
+    case "com.amazonaws.shield#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1082,7 +1082,7 @@ const deserializeAws_json1_1DescribeAttackCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1142,7 +1142,7 @@ const deserializeAws_json1_1DescribeDRTAccessCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1153,7 +1153,7 @@ const deserializeAws_json1_1DescribeDRTAccessCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1219,7 +1219,7 @@ const deserializeAws_json1_1DescribeEmergencyContactSettingsCommandError = async
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1230,7 +1230,7 @@ const deserializeAws_json1_1DescribeEmergencyContactSettingsCommandError = async
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1293,7 +1293,7 @@ const deserializeAws_json1_1DescribeProtectionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1304,7 +1304,7 @@ const deserializeAws_json1_1DescribeProtectionCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidParameterException":
+    case "com.amazonaws.shield#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1315,7 +1315,7 @@ const deserializeAws_json1_1DescribeProtectionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1378,7 +1378,7 @@ const deserializeAws_json1_1DescribeSubscriptionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1389,7 +1389,7 @@ const deserializeAws_json1_1DescribeSubscriptionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1455,7 +1455,7 @@ const deserializeAws_json1_1DisassociateDRTLogBucketCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedForDependencyException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#AccessDeniedForDependencyException":
+    case "com.amazonaws.shield#AccessDeniedForDependencyException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedForDependencyExceptionResponse(
           parsedOutput,
@@ -1466,7 +1466,7 @@ const deserializeAws_json1_1DisassociateDRTLogBucketCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1477,7 +1477,7 @@ const deserializeAws_json1_1DisassociateDRTLogBucketCommandError = async (
       };
       break;
     case "InvalidOperationException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidOperationException":
+    case "com.amazonaws.shield#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -1488,7 +1488,7 @@ const deserializeAws_json1_1DisassociateDRTLogBucketCommandError = async (
       };
       break;
     case "NoAssociatedRoleException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#NoAssociatedRoleException":
+    case "com.amazonaws.shield#NoAssociatedRoleException":
       response = {
         ...(await deserializeAws_json1_1NoAssociatedRoleExceptionResponse(
           parsedOutput,
@@ -1499,7 +1499,7 @@ const deserializeAws_json1_1DisassociateDRTLogBucketCommandError = async (
       };
       break;
     case "OptimisticLockException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#OptimisticLockException":
+    case "com.amazonaws.shield#OptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1OptimisticLockExceptionResponse(
           parsedOutput,
@@ -1510,7 +1510,7 @@ const deserializeAws_json1_1DisassociateDRTLogBucketCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1573,7 +1573,7 @@ const deserializeAws_json1_1DisassociateDRTRoleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1584,7 +1584,7 @@ const deserializeAws_json1_1DisassociateDRTRoleCommandError = async (
       };
       break;
     case "InvalidOperationException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidOperationException":
+    case "com.amazonaws.shield#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -1595,7 +1595,7 @@ const deserializeAws_json1_1DisassociateDRTRoleCommandError = async (
       };
       break;
     case "OptimisticLockException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#OptimisticLockException":
+    case "com.amazonaws.shield#OptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1OptimisticLockExceptionResponse(
           parsedOutput,
@@ -1606,7 +1606,7 @@ const deserializeAws_json1_1DisassociateDRTRoleCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1669,7 +1669,7 @@ const deserializeAws_json1_1GetSubscriptionStateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1729,7 +1729,7 @@ const deserializeAws_json1_1ListAttacksCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1740,7 +1740,7 @@ const deserializeAws_json1_1ListAttacksCommandError = async (
       };
       break;
     case "InvalidOperationException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidOperationException":
+    case "com.amazonaws.shield#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -1751,7 +1751,7 @@ const deserializeAws_json1_1ListAttacksCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidParameterException":
+    case "com.amazonaws.shield#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1811,7 +1811,7 @@ const deserializeAws_json1_1ListProtectionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1822,7 +1822,7 @@ const deserializeAws_json1_1ListProtectionsCommandError = async (
       };
       break;
     case "InvalidPaginationTokenException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidPaginationTokenException":
+    case "com.amazonaws.shield#InvalidPaginationTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(
           parsedOutput,
@@ -1833,7 +1833,7 @@ const deserializeAws_json1_1ListProtectionsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1899,7 +1899,7 @@ const deserializeAws_json1_1UpdateEmergencyContactSettingsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1910,7 +1910,7 @@ const deserializeAws_json1_1UpdateEmergencyContactSettingsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidParameterException":
+    case "com.amazonaws.shield#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1921,7 +1921,7 @@ const deserializeAws_json1_1UpdateEmergencyContactSettingsCommandError = async (
       };
       break;
     case "OptimisticLockException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#OptimisticLockException":
+    case "com.amazonaws.shield#OptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1OptimisticLockExceptionResponse(
           parsedOutput,
@@ -1932,7 +1932,7 @@ const deserializeAws_json1_1UpdateEmergencyContactSettingsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1995,7 +1995,7 @@ const deserializeAws_json1_1UpdateSubscriptionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -2006,7 +2006,7 @@ const deserializeAws_json1_1UpdateSubscriptionCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidParameterException":
+    case "com.amazonaws.shield#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2017,7 +2017,7 @@ const deserializeAws_json1_1UpdateSubscriptionCommandError = async (
       };
       break;
     case "LockedSubscriptionException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#LockedSubscriptionException":
+    case "com.amazonaws.shield#LockedSubscriptionException":
       response = {
         ...(await deserializeAws_json1_1LockedSubscriptionExceptionResponse(
           parsedOutput,
@@ -2028,7 +2028,7 @@ const deserializeAws_json1_1UpdateSubscriptionCommandError = async (
       };
       break;
     case "OptimisticLockException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#OptimisticLockException":
+    case "com.amazonaws.shield#OptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1OptimisticLockExceptionResponse(
           parsedOutput,
@@ -2039,7 +2039,7 @@ const deserializeAws_json1_1UpdateSubscriptionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,

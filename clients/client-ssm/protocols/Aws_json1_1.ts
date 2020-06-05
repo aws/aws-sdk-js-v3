@@ -1392,6 +1392,21 @@ export const serializeAws_json1_1DescribeAssociationCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeAssociationExecutionsCommand = async (
+  input: DescribeAssociationExecutionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeAssociationExecutions"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAssociationExecutionsRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeAssociationExecutionTargetsCommand = async (
   input: DescribeAssociationExecutionTargetsCommandInput,
   context: __SerdeContext
@@ -1406,21 +1421,6 @@ export const serializeAws_json1_1DescribeAssociationExecutionTargetsCommand = as
       input,
       context
     )
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1DescribeAssociationExecutionsCommand = async (
-  input: DescribeAssociationExecutionsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonSSM.DescribeAssociationExecutions"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeAssociationExecutionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1569,6 +1569,21 @@ export const serializeAws_json1_1DescribeInstanceInformationCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeInstancePatchesCommand = async (
+  input: DescribeInstancePatchesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeInstancePatches"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeInstancePatchesRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeInstancePatchStatesCommand = async (
   input: DescribeInstancePatchStatesCommandInput,
   context: __SerdeContext
@@ -1602,21 +1617,6 @@ export const serializeAws_json1_1DescribeInstancePatchStatesForPatchGroupCommand
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeInstancePatchesCommand = async (
-  input: DescribeInstancePatchesCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonSSM.DescribeInstancePatches"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeInstancePatchesRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1DescribeInventoryDeletionsCommand = async (
   input: DescribeInventoryDeletionsCommandInput,
   context: __SerdeContext
@@ -1628,6 +1628,24 @@ export const serializeAws_json1_1DescribeInventoryDeletionsCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeInventoryDeletionsRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeMaintenanceWindowExecutionsCommand = async (
+  input: DescribeMaintenanceWindowExecutionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeMaintenanceWindowExecutions"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeMaintenanceWindowExecutionsRequest(
+      input,
+      context
+    )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1669,20 +1687,17 @@ export const serializeAws_json1_1DescribeMaintenanceWindowExecutionTasksCommand 
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeMaintenanceWindowExecutionsCommand = async (
-  input: DescribeMaintenanceWindowExecutionsCommandInput,
+export const serializeAws_json1_1DescribeMaintenanceWindowsCommand = async (
+  input: DescribeMaintenanceWindowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonSSM.DescribeMaintenanceWindowExecutions"
+    "X-Amz-Target": "AmazonSSM.DescribeMaintenanceWindows"
   };
   let body: any;
   body = JSON.stringify(
-    serializeAws_json1_1DescribeMaintenanceWindowExecutionsRequest(
-      input,
-      context
-    )
+    serializeAws_json1_1DescribeMaintenanceWindowsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1698,6 +1713,24 @@ export const serializeAws_json1_1DescribeMaintenanceWindowScheduleCommand = asyn
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeMaintenanceWindowScheduleRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand = async (
+  input: DescribeMaintenanceWindowsForTargetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeMaintenanceWindowsForTarget"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeMaintenanceWindowsForTargetRequest(
+      input,
+      context
+    )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1728,39 +1761,6 @@ export const serializeAws_json1_1DescribeMaintenanceWindowTasksCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeMaintenanceWindowTasksRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1DescribeMaintenanceWindowsCommand = async (
-  input: DescribeMaintenanceWindowsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonSSM.DescribeMaintenanceWindows"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeMaintenanceWindowsRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand = async (
-  input: DescribeMaintenanceWindowsForTargetCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonSSM.DescribeMaintenanceWindowsForTarget"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeMaintenanceWindowsForTargetRequest(
-      input,
-      context
-    )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1810,21 +1810,6 @@ export const serializeAws_json1_1DescribePatchBaselinesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribePatchGroupStateCommand = async (
-  input: DescribePatchGroupStateCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonSSM.DescribePatchGroupState"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribePatchGroupStateRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1DescribePatchGroupsCommand = async (
   input: DescribePatchGroupsCommandInput,
   context: __SerdeContext
@@ -1836,6 +1821,21 @@ export const serializeAws_json1_1DescribePatchGroupsCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribePatchGroupsRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribePatchGroupStateCommand = async (
+  input: DescribePatchGroupStateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribePatchGroupState"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1DescribePatchGroupStateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2232,21 +2232,6 @@ export const serializeAws_json1_1LabelParameterVersionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListAssociationVersionsCommand = async (
-  input: ListAssociationVersionsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonSSM.ListAssociationVersions"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListAssociationVersionsRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1ListAssociationsCommand = async (
   input: ListAssociationsCommandInput,
   context: __SerdeContext
@@ -2258,6 +2243,21 @@ export const serializeAws_json1_1ListAssociationsCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAssociationsRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListAssociationVersionsCommand = async (
+  input: ListAssociationVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.ListAssociationVersions"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1ListAssociationVersionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2322,21 +2322,6 @@ export const serializeAws_json1_1ListComplianceSummariesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDocumentVersionsCommand = async (
-  input: ListDocumentVersionsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonSSM.ListDocumentVersions"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListDocumentVersionsRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1ListDocumentsCommand = async (
   input: ListDocumentsCommandInput,
   context: __SerdeContext
@@ -2348,6 +2333,21 @@ export const serializeAws_json1_1ListDocumentsCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDocumentsRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListDocumentVersionsCommand = async (
+  input: ListDocumentVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.ListDocumentVersions"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1ListDocumentVersionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2899,7 +2899,7 @@ const deserializeAws_json1_1AddTagsToResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -2910,7 +2910,7 @@ const deserializeAws_json1_1AddTagsToResourceCommandError = async (
       };
       break;
     case "InvalidResourceId":
-    case "com.amazonaws.services.ssm#InvalidResourceId":
+    case "com.amazonaws.ssm#InvalidResourceId":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceIdResponse(
           parsedOutput,
@@ -2921,7 +2921,7 @@ const deserializeAws_json1_1AddTagsToResourceCommandError = async (
       };
       break;
     case "InvalidResourceType":
-    case "com.amazonaws.services.ssm#InvalidResourceType":
+    case "com.amazonaws.ssm#InvalidResourceType":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceTypeResponse(
           parsedOutput,
@@ -2932,7 +2932,7 @@ const deserializeAws_json1_1AddTagsToResourceCommandError = async (
       };
       break;
     case "TooManyTagsError":
-    case "com.amazonaws.services.ssm#TooManyTagsError":
+    case "com.amazonaws.ssm#TooManyTagsError":
       response = {
         ...(await deserializeAws_json1_1TooManyTagsErrorResponse(
           parsedOutput,
@@ -2943,7 +2943,7 @@ const deserializeAws_json1_1AddTagsToResourceCommandError = async (
       };
       break;
     case "TooManyUpdates":
-    case "com.amazonaws.services.ssm#TooManyUpdates":
+    case "com.amazonaws.ssm#TooManyUpdates":
       response = {
         ...(await deserializeAws_json1_1TooManyUpdatesResponse(
           parsedOutput,
@@ -3003,7 +3003,7 @@ const deserializeAws_json1_1CancelCommandCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateInstanceId":
-    case "com.amazonaws.services.ssm#DuplicateInstanceId":
+    case "com.amazonaws.ssm#DuplicateInstanceId":
       response = {
         ...(await deserializeAws_json1_1DuplicateInstanceIdResponse(
           parsedOutput,
@@ -3014,7 +3014,7 @@ const deserializeAws_json1_1CancelCommandCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -3025,7 +3025,7 @@ const deserializeAws_json1_1CancelCommandCommandError = async (
       };
       break;
     case "InvalidCommandId":
-    case "com.amazonaws.services.ssm#InvalidCommandId":
+    case "com.amazonaws.ssm#InvalidCommandId":
       response = {
         ...(await deserializeAws_json1_1InvalidCommandIdResponse(
           parsedOutput,
@@ -3036,7 +3036,7 @@ const deserializeAws_json1_1CancelCommandCommandError = async (
       };
       break;
     case "InvalidInstanceId":
-    case "com.amazonaws.services.ssm#InvalidInstanceId":
+    case "com.amazonaws.ssm#InvalidInstanceId":
       response = {
         ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
           parsedOutput,
@@ -3102,7 +3102,7 @@ const deserializeAws_json1_1CancelMaintenanceWindowExecutionCommandError = async
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -3113,7 +3113,7 @@ const deserializeAws_json1_1CancelMaintenanceWindowExecutionCommandError = async
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -3173,7 +3173,7 @@ const deserializeAws_json1_1CreateActivationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -3233,7 +3233,7 @@ const deserializeAws_json1_1CreateAssociationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AssociationAlreadyExists":
-    case "com.amazonaws.services.ssm#AssociationAlreadyExists":
+    case "com.amazonaws.ssm#AssociationAlreadyExists":
       response = {
         ...(await deserializeAws_json1_1AssociationAlreadyExistsResponse(
           parsedOutput,
@@ -3244,7 +3244,7 @@ const deserializeAws_json1_1CreateAssociationCommandError = async (
       };
       break;
     case "AssociationLimitExceeded":
-    case "com.amazonaws.services.ssm#AssociationLimitExceeded":
+    case "com.amazonaws.ssm#AssociationLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1AssociationLimitExceededResponse(
           parsedOutput,
@@ -3255,7 +3255,7 @@ const deserializeAws_json1_1CreateAssociationCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -3266,7 +3266,7 @@ const deserializeAws_json1_1CreateAssociationCommandError = async (
       };
       break;
     case "InvalidDocument":
-    case "com.amazonaws.services.ssm#InvalidDocument":
+    case "com.amazonaws.ssm#InvalidDocument":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentResponse(
           parsedOutput,
@@ -3277,7 +3277,7 @@ const deserializeAws_json1_1CreateAssociationCommandError = async (
       };
       break;
     case "InvalidDocumentVersion":
-    case "com.amazonaws.services.ssm#InvalidDocumentVersion":
+    case "com.amazonaws.ssm#InvalidDocumentVersion":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentVersionResponse(
           parsedOutput,
@@ -3288,7 +3288,7 @@ const deserializeAws_json1_1CreateAssociationCommandError = async (
       };
       break;
     case "InvalidInstanceId":
-    case "com.amazonaws.services.ssm#InvalidInstanceId":
+    case "com.amazonaws.ssm#InvalidInstanceId":
       response = {
         ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
           parsedOutput,
@@ -3299,7 +3299,7 @@ const deserializeAws_json1_1CreateAssociationCommandError = async (
       };
       break;
     case "InvalidOutputLocation":
-    case "com.amazonaws.services.ssm#InvalidOutputLocation":
+    case "com.amazonaws.ssm#InvalidOutputLocation":
       response = {
         ...(await deserializeAws_json1_1InvalidOutputLocationResponse(
           parsedOutput,
@@ -3310,7 +3310,7 @@ const deserializeAws_json1_1CreateAssociationCommandError = async (
       };
       break;
     case "InvalidParameters":
-    case "com.amazonaws.services.ssm#InvalidParameters":
+    case "com.amazonaws.ssm#InvalidParameters":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersResponse(
           parsedOutput,
@@ -3321,7 +3321,7 @@ const deserializeAws_json1_1CreateAssociationCommandError = async (
       };
       break;
     case "InvalidSchedule":
-    case "com.amazonaws.services.ssm#InvalidSchedule":
+    case "com.amazonaws.ssm#InvalidSchedule":
       response = {
         ...(await deserializeAws_json1_1InvalidScheduleResponse(
           parsedOutput,
@@ -3332,7 +3332,7 @@ const deserializeAws_json1_1CreateAssociationCommandError = async (
       };
       break;
     case "InvalidTarget":
-    case "com.amazonaws.services.ssm#InvalidTarget":
+    case "com.amazonaws.ssm#InvalidTarget":
       response = {
         ...(await deserializeAws_json1_1InvalidTargetResponse(
           parsedOutput,
@@ -3343,7 +3343,7 @@ const deserializeAws_json1_1CreateAssociationCommandError = async (
       };
       break;
     case "UnsupportedPlatformType":
-    case "com.amazonaws.services.ssm#UnsupportedPlatformType":
+    case "com.amazonaws.ssm#UnsupportedPlatformType":
       response = {
         ...(await deserializeAws_json1_1UnsupportedPlatformTypeResponse(
           parsedOutput,
@@ -3406,7 +3406,7 @@ const deserializeAws_json1_1CreateAssociationBatchCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AssociationLimitExceeded":
-    case "com.amazonaws.services.ssm#AssociationLimitExceeded":
+    case "com.amazonaws.ssm#AssociationLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1AssociationLimitExceededResponse(
           parsedOutput,
@@ -3417,7 +3417,7 @@ const deserializeAws_json1_1CreateAssociationBatchCommandError = async (
       };
       break;
     case "DuplicateInstanceId":
-    case "com.amazonaws.services.ssm#DuplicateInstanceId":
+    case "com.amazonaws.ssm#DuplicateInstanceId":
       response = {
         ...(await deserializeAws_json1_1DuplicateInstanceIdResponse(
           parsedOutput,
@@ -3428,7 +3428,7 @@ const deserializeAws_json1_1CreateAssociationBatchCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -3439,7 +3439,7 @@ const deserializeAws_json1_1CreateAssociationBatchCommandError = async (
       };
       break;
     case "InvalidDocument":
-    case "com.amazonaws.services.ssm#InvalidDocument":
+    case "com.amazonaws.ssm#InvalidDocument":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentResponse(
           parsedOutput,
@@ -3450,7 +3450,7 @@ const deserializeAws_json1_1CreateAssociationBatchCommandError = async (
       };
       break;
     case "InvalidDocumentVersion":
-    case "com.amazonaws.services.ssm#InvalidDocumentVersion":
+    case "com.amazonaws.ssm#InvalidDocumentVersion":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentVersionResponse(
           parsedOutput,
@@ -3461,7 +3461,7 @@ const deserializeAws_json1_1CreateAssociationBatchCommandError = async (
       };
       break;
     case "InvalidInstanceId":
-    case "com.amazonaws.services.ssm#InvalidInstanceId":
+    case "com.amazonaws.ssm#InvalidInstanceId":
       response = {
         ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
           parsedOutput,
@@ -3472,7 +3472,7 @@ const deserializeAws_json1_1CreateAssociationBatchCommandError = async (
       };
       break;
     case "InvalidOutputLocation":
-    case "com.amazonaws.services.ssm#InvalidOutputLocation":
+    case "com.amazonaws.ssm#InvalidOutputLocation":
       response = {
         ...(await deserializeAws_json1_1InvalidOutputLocationResponse(
           parsedOutput,
@@ -3483,7 +3483,7 @@ const deserializeAws_json1_1CreateAssociationBatchCommandError = async (
       };
       break;
     case "InvalidParameters":
-    case "com.amazonaws.services.ssm#InvalidParameters":
+    case "com.amazonaws.ssm#InvalidParameters":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersResponse(
           parsedOutput,
@@ -3494,7 +3494,7 @@ const deserializeAws_json1_1CreateAssociationBatchCommandError = async (
       };
       break;
     case "InvalidSchedule":
-    case "com.amazonaws.services.ssm#InvalidSchedule":
+    case "com.amazonaws.ssm#InvalidSchedule":
       response = {
         ...(await deserializeAws_json1_1InvalidScheduleResponse(
           parsedOutput,
@@ -3505,7 +3505,7 @@ const deserializeAws_json1_1CreateAssociationBatchCommandError = async (
       };
       break;
     case "InvalidTarget":
-    case "com.amazonaws.services.ssm#InvalidTarget":
+    case "com.amazonaws.ssm#InvalidTarget":
       response = {
         ...(await deserializeAws_json1_1InvalidTargetResponse(
           parsedOutput,
@@ -3516,7 +3516,7 @@ const deserializeAws_json1_1CreateAssociationBatchCommandError = async (
       };
       break;
     case "UnsupportedPlatformType":
-    case "com.amazonaws.services.ssm#UnsupportedPlatformType":
+    case "com.amazonaws.ssm#UnsupportedPlatformType":
       response = {
         ...(await deserializeAws_json1_1UnsupportedPlatformTypeResponse(
           parsedOutput,
@@ -3576,7 +3576,7 @@ const deserializeAws_json1_1CreateDocumentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DocumentAlreadyExists":
-    case "com.amazonaws.services.ssm#DocumentAlreadyExists":
+    case "com.amazonaws.ssm#DocumentAlreadyExists":
       response = {
         ...(await deserializeAws_json1_1DocumentAlreadyExistsResponse(
           parsedOutput,
@@ -3587,7 +3587,7 @@ const deserializeAws_json1_1CreateDocumentCommandError = async (
       };
       break;
     case "DocumentLimitExceeded":
-    case "com.amazonaws.services.ssm#DocumentLimitExceeded":
+    case "com.amazonaws.ssm#DocumentLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1DocumentLimitExceededResponse(
           parsedOutput,
@@ -3598,7 +3598,7 @@ const deserializeAws_json1_1CreateDocumentCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -3609,7 +3609,7 @@ const deserializeAws_json1_1CreateDocumentCommandError = async (
       };
       break;
     case "InvalidDocumentContent":
-    case "com.amazonaws.services.ssm#InvalidDocumentContent":
+    case "com.amazonaws.ssm#InvalidDocumentContent":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentContentResponse(
           parsedOutput,
@@ -3620,7 +3620,7 @@ const deserializeAws_json1_1CreateDocumentCommandError = async (
       };
       break;
     case "InvalidDocumentSchemaVersion":
-    case "com.amazonaws.services.ssm#InvalidDocumentSchemaVersion":
+    case "com.amazonaws.ssm#InvalidDocumentSchemaVersion":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentSchemaVersionResponse(
           parsedOutput,
@@ -3631,7 +3631,7 @@ const deserializeAws_json1_1CreateDocumentCommandError = async (
       };
       break;
     case "MaxDocumentSizeExceeded":
-    case "com.amazonaws.services.ssm#MaxDocumentSizeExceeded":
+    case "com.amazonaws.ssm#MaxDocumentSizeExceeded":
       response = {
         ...(await deserializeAws_json1_1MaxDocumentSizeExceededResponse(
           parsedOutput,
@@ -3694,7 +3694,7 @@ const deserializeAws_json1_1CreateMaintenanceWindowCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IdempotentParameterMismatch":
-    case "com.amazonaws.services.ssm#IdempotentParameterMismatch":
+    case "com.amazonaws.ssm#IdempotentParameterMismatch":
       response = {
         ...(await deserializeAws_json1_1IdempotentParameterMismatchResponse(
           parsedOutput,
@@ -3705,7 +3705,7 @@ const deserializeAws_json1_1CreateMaintenanceWindowCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -3716,7 +3716,7 @@ const deserializeAws_json1_1CreateMaintenanceWindowCommandError = async (
       };
       break;
     case "ResourceLimitExceededException":
-    case "com.amazonaws.services.ssm#ResourceLimitExceededException":
+    case "com.amazonaws.ssm#ResourceLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
           parsedOutput,
@@ -3776,7 +3776,7 @@ const deserializeAws_json1_1CreateOpsItemCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -3787,7 +3787,7 @@ const deserializeAws_json1_1CreateOpsItemCommandError = async (
       };
       break;
     case "OpsItemAlreadyExistsException":
-    case "com.amazonaws.services.ssm#OpsItemAlreadyExistsException":
+    case "com.amazonaws.ssm#OpsItemAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1OpsItemAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -3798,7 +3798,7 @@ const deserializeAws_json1_1CreateOpsItemCommandError = async (
       };
       break;
     case "OpsItemInvalidParameterException":
-    case "com.amazonaws.services.ssm#OpsItemInvalidParameterException":
+    case "com.amazonaws.ssm#OpsItemInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1OpsItemInvalidParameterExceptionResponse(
           parsedOutput,
@@ -3809,7 +3809,7 @@ const deserializeAws_json1_1CreateOpsItemCommandError = async (
       };
       break;
     case "OpsItemLimitExceededException":
-    case "com.amazonaws.services.ssm#OpsItemLimitExceededException":
+    case "com.amazonaws.ssm#OpsItemLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1OpsItemLimitExceededExceptionResponse(
           parsedOutput,
@@ -3872,7 +3872,7 @@ const deserializeAws_json1_1CreatePatchBaselineCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IdempotentParameterMismatch":
-    case "com.amazonaws.services.ssm#IdempotentParameterMismatch":
+    case "com.amazonaws.ssm#IdempotentParameterMismatch":
       response = {
         ...(await deserializeAws_json1_1IdempotentParameterMismatchResponse(
           parsedOutput,
@@ -3883,7 +3883,7 @@ const deserializeAws_json1_1CreatePatchBaselineCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -3894,7 +3894,7 @@ const deserializeAws_json1_1CreatePatchBaselineCommandError = async (
       };
       break;
     case "ResourceLimitExceededException":
-    case "com.amazonaws.services.ssm#ResourceLimitExceededException":
+    case "com.amazonaws.ssm#ResourceLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
           parsedOutput,
@@ -3957,7 +3957,7 @@ const deserializeAws_json1_1CreateResourceDataSyncCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -3968,7 +3968,7 @@ const deserializeAws_json1_1CreateResourceDataSyncCommandError = async (
       };
       break;
     case "ResourceDataSyncAlreadyExistsException":
-    case "com.amazonaws.services.ssm#ResourceDataSyncAlreadyExistsException":
+    case "com.amazonaws.ssm#ResourceDataSyncAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceDataSyncAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -3979,7 +3979,7 @@ const deserializeAws_json1_1CreateResourceDataSyncCommandError = async (
       };
       break;
     case "ResourceDataSyncCountExceededException":
-    case "com.amazonaws.services.ssm#ResourceDataSyncCountExceededException":
+    case "com.amazonaws.ssm#ResourceDataSyncCountExceededException":
       response = {
         ...(await deserializeAws_json1_1ResourceDataSyncCountExceededExceptionResponse(
           parsedOutput,
@@ -3990,7 +3990,7 @@ const deserializeAws_json1_1CreateResourceDataSyncCommandError = async (
       };
       break;
     case "ResourceDataSyncInvalidConfigurationException":
-    case "com.amazonaws.services.ssm#ResourceDataSyncInvalidConfigurationException":
+    case "com.amazonaws.ssm#ResourceDataSyncInvalidConfigurationException":
       response = {
         ...(await deserializeAws_json1_1ResourceDataSyncInvalidConfigurationExceptionResponse(
           parsedOutput,
@@ -4050,7 +4050,7 @@ const deserializeAws_json1_1DeleteActivationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -4061,7 +4061,7 @@ const deserializeAws_json1_1DeleteActivationCommandError = async (
       };
       break;
     case "InvalidActivation":
-    case "com.amazonaws.services.ssm#InvalidActivation":
+    case "com.amazonaws.ssm#InvalidActivation":
       response = {
         ...(await deserializeAws_json1_1InvalidActivationResponse(
           parsedOutput,
@@ -4072,7 +4072,7 @@ const deserializeAws_json1_1DeleteActivationCommandError = async (
       };
       break;
     case "InvalidActivationId":
-    case "com.amazonaws.services.ssm#InvalidActivationId":
+    case "com.amazonaws.ssm#InvalidActivationId":
       response = {
         ...(await deserializeAws_json1_1InvalidActivationIdResponse(
           parsedOutput,
@@ -4083,7 +4083,7 @@ const deserializeAws_json1_1DeleteActivationCommandError = async (
       };
       break;
     case "TooManyUpdates":
-    case "com.amazonaws.services.ssm#TooManyUpdates":
+    case "com.amazonaws.ssm#TooManyUpdates":
       response = {
         ...(await deserializeAws_json1_1TooManyUpdatesResponse(
           parsedOutput,
@@ -4143,7 +4143,7 @@ const deserializeAws_json1_1DeleteAssociationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AssociationDoesNotExist":
-    case "com.amazonaws.services.ssm#AssociationDoesNotExist":
+    case "com.amazonaws.ssm#AssociationDoesNotExist":
       response = {
         ...(await deserializeAws_json1_1AssociationDoesNotExistResponse(
           parsedOutput,
@@ -4154,7 +4154,7 @@ const deserializeAws_json1_1DeleteAssociationCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -4165,7 +4165,7 @@ const deserializeAws_json1_1DeleteAssociationCommandError = async (
       };
       break;
     case "InvalidDocument":
-    case "com.amazonaws.services.ssm#InvalidDocument":
+    case "com.amazonaws.ssm#InvalidDocument":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentResponse(
           parsedOutput,
@@ -4176,7 +4176,7 @@ const deserializeAws_json1_1DeleteAssociationCommandError = async (
       };
       break;
     case "InvalidInstanceId":
-    case "com.amazonaws.services.ssm#InvalidInstanceId":
+    case "com.amazonaws.ssm#InvalidInstanceId":
       response = {
         ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
           parsedOutput,
@@ -4187,7 +4187,7 @@ const deserializeAws_json1_1DeleteAssociationCommandError = async (
       };
       break;
     case "TooManyUpdates":
-    case "com.amazonaws.services.ssm#TooManyUpdates":
+    case "com.amazonaws.ssm#TooManyUpdates":
       response = {
         ...(await deserializeAws_json1_1TooManyUpdatesResponse(
           parsedOutput,
@@ -4247,7 +4247,7 @@ const deserializeAws_json1_1DeleteDocumentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AssociatedInstances":
-    case "com.amazonaws.services.ssm#AssociatedInstances":
+    case "com.amazonaws.ssm#AssociatedInstances":
       response = {
         ...(await deserializeAws_json1_1AssociatedInstancesResponse(
           parsedOutput,
@@ -4258,7 +4258,7 @@ const deserializeAws_json1_1DeleteDocumentCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -4269,7 +4269,7 @@ const deserializeAws_json1_1DeleteDocumentCommandError = async (
       };
       break;
     case "InvalidDocument":
-    case "com.amazonaws.services.ssm#InvalidDocument":
+    case "com.amazonaws.ssm#InvalidDocument":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentResponse(
           parsedOutput,
@@ -4280,7 +4280,7 @@ const deserializeAws_json1_1DeleteDocumentCommandError = async (
       };
       break;
     case "InvalidDocumentOperation":
-    case "com.amazonaws.services.ssm#InvalidDocumentOperation":
+    case "com.amazonaws.ssm#InvalidDocumentOperation":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentOperationResponse(
           parsedOutput,
@@ -4340,7 +4340,7 @@ const deserializeAws_json1_1DeleteInventoryCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -4351,7 +4351,7 @@ const deserializeAws_json1_1DeleteInventoryCommandError = async (
       };
       break;
     case "InvalidDeleteInventoryParametersException":
-    case "com.amazonaws.services.ssm#InvalidDeleteInventoryParametersException":
+    case "com.amazonaws.ssm#InvalidDeleteInventoryParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidDeleteInventoryParametersExceptionResponse(
           parsedOutput,
@@ -4362,7 +4362,7 @@ const deserializeAws_json1_1DeleteInventoryCommandError = async (
       };
       break;
     case "InvalidInventoryRequestException":
-    case "com.amazonaws.services.ssm#InvalidInventoryRequestException":
+    case "com.amazonaws.ssm#InvalidInventoryRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidInventoryRequestExceptionResponse(
           parsedOutput,
@@ -4373,7 +4373,7 @@ const deserializeAws_json1_1DeleteInventoryCommandError = async (
       };
       break;
     case "InvalidOptionException":
-    case "com.amazonaws.services.ssm#InvalidOptionException":
+    case "com.amazonaws.ssm#InvalidOptionException":
       response = {
         ...(await deserializeAws_json1_1InvalidOptionExceptionResponse(
           parsedOutput,
@@ -4384,7 +4384,7 @@ const deserializeAws_json1_1DeleteInventoryCommandError = async (
       };
       break;
     case "InvalidTypeNameException":
-    case "com.amazonaws.services.ssm#InvalidTypeNameException":
+    case "com.amazonaws.ssm#InvalidTypeNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTypeNameExceptionResponse(
           parsedOutput,
@@ -4447,7 +4447,7 @@ const deserializeAws_json1_1DeleteMaintenanceWindowCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -4507,7 +4507,7 @@ const deserializeAws_json1_1DeleteParameterCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -4518,7 +4518,7 @@ const deserializeAws_json1_1DeleteParameterCommandError = async (
       };
       break;
     case "ParameterNotFound":
-    case "com.amazonaws.services.ssm#ParameterNotFound":
+    case "com.amazonaws.ssm#ParameterNotFound":
       response = {
         ...(await deserializeAws_json1_1ParameterNotFoundResponse(
           parsedOutput,
@@ -4578,7 +4578,7 @@ const deserializeAws_json1_1DeleteParametersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -4641,7 +4641,7 @@ const deserializeAws_json1_1DeletePatchBaselineCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -4652,7 +4652,7 @@ const deserializeAws_json1_1DeletePatchBaselineCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.ssm#ResourceInUseException":
+    case "com.amazonaws.ssm#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -4715,7 +4715,7 @@ const deserializeAws_json1_1DeleteResourceDataSyncCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -4726,7 +4726,7 @@ const deserializeAws_json1_1DeleteResourceDataSyncCommandError = async (
       };
       break;
     case "ResourceDataSyncInvalidConfigurationException":
-    case "com.amazonaws.services.ssm#ResourceDataSyncInvalidConfigurationException":
+    case "com.amazonaws.ssm#ResourceDataSyncInvalidConfigurationException":
       response = {
         ...(await deserializeAws_json1_1ResourceDataSyncInvalidConfigurationExceptionResponse(
           parsedOutput,
@@ -4737,7 +4737,7 @@ const deserializeAws_json1_1DeleteResourceDataSyncCommandError = async (
       };
       break;
     case "ResourceDataSyncNotFoundException":
-    case "com.amazonaws.services.ssm#ResourceDataSyncNotFoundException":
+    case "com.amazonaws.ssm#ResourceDataSyncNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceDataSyncNotFoundExceptionResponse(
           parsedOutput,
@@ -4803,7 +4803,7 @@ const deserializeAws_json1_1DeregisterManagedInstanceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -4814,7 +4814,7 @@ const deserializeAws_json1_1DeregisterManagedInstanceCommandError = async (
       };
       break;
     case "InvalidInstanceId":
-    case "com.amazonaws.services.ssm#InvalidInstanceId":
+    case "com.amazonaws.ssm#InvalidInstanceId":
       response = {
         ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
           parsedOutput,
@@ -4880,7 +4880,7 @@ const deserializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommandError = a
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -4891,7 +4891,7 @@ const deserializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommandError = a
       };
       break;
     case "InvalidResourceId":
-    case "com.amazonaws.services.ssm#InvalidResourceId":
+    case "com.amazonaws.ssm#InvalidResourceId":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceIdResponse(
           parsedOutput,
@@ -4957,7 +4957,7 @@ const deserializeAws_json1_1DeregisterTargetFromMaintenanceWindowCommandError = 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -4968,7 +4968,7 @@ const deserializeAws_json1_1DeregisterTargetFromMaintenanceWindowCommandError = 
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -4979,7 +4979,7 @@ const deserializeAws_json1_1DeregisterTargetFromMaintenanceWindowCommandError = 
       };
       break;
     case "TargetInUseException":
-    case "com.amazonaws.services.ssm#TargetInUseException":
+    case "com.amazonaws.ssm#TargetInUseException":
       response = {
         ...(await deserializeAws_json1_1TargetInUseExceptionResponse(
           parsedOutput,
@@ -5045,7 +5045,7 @@ const deserializeAws_json1_1DeregisterTaskFromMaintenanceWindowCommandError = as
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -5056,7 +5056,7 @@ const deserializeAws_json1_1DeregisterTaskFromMaintenanceWindowCommandError = as
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -5119,7 +5119,7 @@ const deserializeAws_json1_1DescribeActivationsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -5130,7 +5130,7 @@ const deserializeAws_json1_1DescribeActivationsCommandError = async (
       };
       break;
     case "InvalidFilter":
-    case "com.amazonaws.services.ssm#InvalidFilter":
+    case "com.amazonaws.ssm#InvalidFilter":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterResponse(
           parsedOutput,
@@ -5141,7 +5141,7 @@ const deserializeAws_json1_1DescribeActivationsCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -5204,7 +5204,7 @@ const deserializeAws_json1_1DescribeAssociationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AssociationDoesNotExist":
-    case "com.amazonaws.services.ssm#AssociationDoesNotExist":
+    case "com.amazonaws.ssm#AssociationDoesNotExist":
       response = {
         ...(await deserializeAws_json1_1AssociationDoesNotExistResponse(
           parsedOutput,
@@ -5215,7 +5215,7 @@ const deserializeAws_json1_1DescribeAssociationCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -5226,7 +5226,7 @@ const deserializeAws_json1_1DescribeAssociationCommandError = async (
       };
       break;
     case "InvalidAssociationVersion":
-    case "com.amazonaws.services.ssm#InvalidAssociationVersion":
+    case "com.amazonaws.ssm#InvalidAssociationVersion":
       response = {
         ...(await deserializeAws_json1_1InvalidAssociationVersionResponse(
           parsedOutput,
@@ -5237,7 +5237,7 @@ const deserializeAws_json1_1DescribeAssociationCommandError = async (
       };
       break;
     case "InvalidDocument":
-    case "com.amazonaws.services.ssm#InvalidDocument":
+    case "com.amazonaws.ssm#InvalidDocument":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentResponse(
           parsedOutput,
@@ -5248,108 +5248,9 @@ const deserializeAws_json1_1DescribeAssociationCommandError = async (
       };
       break;
     case "InvalidInstanceId":
-    case "com.amazonaws.services.ssm#InvalidInstanceId":
+    case "com.amazonaws.ssm#InvalidInstanceId":
       response = {
         ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1DescribeAssociationExecutionTargetsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAssociationExecutionTargetsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeAssociationExecutionTargetsCommandError(
-      output,
-      context
-    );
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAssociationExecutionTargetsResult(
-    data,
-    context
-  );
-  const response: DescribeAssociationExecutionTargetsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DescribeAssociationExecutionTargetsResult",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DescribeAssociationExecutionTargetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAssociationExecutionTargetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "AssociationDoesNotExist":
-    case "com.amazonaws.services.ssm#AssociationDoesNotExist":
-      response = {
-        ...(await deserializeAws_json1_1AssociationDoesNotExistResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "AssociationExecutionDoesNotExist":
-    case "com.amazonaws.services.ssm#AssociationExecutionDoesNotExist":
-      response = {
-        ...(await deserializeAws_json1_1AssociationExecutionDoesNotExistResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
           context
         )),
@@ -5413,7 +5314,7 @@ const deserializeAws_json1_1DescribeAssociationExecutionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AssociationDoesNotExist":
-    case "com.amazonaws.services.ssm#AssociationDoesNotExist":
+    case "com.amazonaws.ssm#AssociationDoesNotExist":
       response = {
         ...(await deserializeAws_json1_1AssociationDoesNotExistResponse(
           parsedOutput,
@@ -5424,7 +5325,7 @@ const deserializeAws_json1_1DescribeAssociationExecutionsCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -5435,7 +5336,106 @@ const deserializeAws_json1_1DescribeAssociationExecutionsCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeAssociationExecutionTargetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAssociationExecutionTargetsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeAssociationExecutionTargetsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeAssociationExecutionTargetsResult(
+    data,
+    context
+  );
+  const response: DescribeAssociationExecutionTargetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeAssociationExecutionTargetsResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeAssociationExecutionTargetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAssociationExecutionTargetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AssociationDoesNotExist":
+    case "com.amazonaws.ssm#AssociationDoesNotExist":
+      response = {
+        ...(await deserializeAws_json1_1AssociationDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "AssociationExecutionDoesNotExist":
+    case "com.amazonaws.ssm#AssociationExecutionDoesNotExist":
+      response = {
+        ...(await deserializeAws_json1_1AssociationExecutionDoesNotExistResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -5501,7 +5501,7 @@ const deserializeAws_json1_1DescribeAutomationExecutionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -5512,7 +5512,7 @@ const deserializeAws_json1_1DescribeAutomationExecutionsCommandError = async (
       };
       break;
     case "InvalidFilterKey":
-    case "com.amazonaws.services.ssm#InvalidFilterKey":
+    case "com.amazonaws.ssm#InvalidFilterKey":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterKeyResponse(
           parsedOutput,
@@ -5523,7 +5523,7 @@ const deserializeAws_json1_1DescribeAutomationExecutionsCommandError = async (
       };
       break;
     case "InvalidFilterValue":
-    case "com.amazonaws.services.ssm#InvalidFilterValue":
+    case "com.amazonaws.ssm#InvalidFilterValue":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterValueResponse(
           parsedOutput,
@@ -5534,7 +5534,7 @@ const deserializeAws_json1_1DescribeAutomationExecutionsCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -5600,7 +5600,7 @@ const deserializeAws_json1_1DescribeAutomationStepExecutionsCommandError = async
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AutomationExecutionNotFoundException":
-    case "com.amazonaws.services.ssm#AutomationExecutionNotFoundException":
+    case "com.amazonaws.ssm#AutomationExecutionNotFoundException":
       response = {
         ...(await deserializeAws_json1_1AutomationExecutionNotFoundExceptionResponse(
           parsedOutput,
@@ -5611,7 +5611,7 @@ const deserializeAws_json1_1DescribeAutomationStepExecutionsCommandError = async
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -5622,7 +5622,7 @@ const deserializeAws_json1_1DescribeAutomationStepExecutionsCommandError = async
       };
       break;
     case "InvalidFilterKey":
-    case "com.amazonaws.services.ssm#InvalidFilterKey":
+    case "com.amazonaws.ssm#InvalidFilterKey":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterKeyResponse(
           parsedOutput,
@@ -5633,7 +5633,7 @@ const deserializeAws_json1_1DescribeAutomationStepExecutionsCommandError = async
       };
       break;
     case "InvalidFilterValue":
-    case "com.amazonaws.services.ssm#InvalidFilterValue":
+    case "com.amazonaws.ssm#InvalidFilterValue":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterValueResponse(
           parsedOutput,
@@ -5644,7 +5644,7 @@ const deserializeAws_json1_1DescribeAutomationStepExecutionsCommandError = async
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -5710,7 +5710,7 @@ const deserializeAws_json1_1DescribeAvailablePatchesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -5770,7 +5770,7 @@ const deserializeAws_json1_1DescribeDocumentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -5781,7 +5781,7 @@ const deserializeAws_json1_1DescribeDocumentCommandError = async (
       };
       break;
     case "InvalidDocument":
-    case "com.amazonaws.services.ssm#InvalidDocument":
+    case "com.amazonaws.ssm#InvalidDocument":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentResponse(
           parsedOutput,
@@ -5792,7 +5792,7 @@ const deserializeAws_json1_1DescribeDocumentCommandError = async (
       };
       break;
     case "InvalidDocumentVersion":
-    case "com.amazonaws.services.ssm#InvalidDocumentVersion":
+    case "com.amazonaws.ssm#InvalidDocumentVersion":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentVersionResponse(
           parsedOutput,
@@ -5858,7 +5858,7 @@ const deserializeAws_json1_1DescribeDocumentPermissionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -5869,7 +5869,7 @@ const deserializeAws_json1_1DescribeDocumentPermissionCommandError = async (
       };
       break;
     case "InvalidDocument":
-    case "com.amazonaws.services.ssm#InvalidDocument":
+    case "com.amazonaws.ssm#InvalidDocument":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentResponse(
           parsedOutput,
@@ -5880,7 +5880,7 @@ const deserializeAws_json1_1DescribeDocumentPermissionCommandError = async (
       };
       break;
     case "InvalidPermissionType":
-    case "com.amazonaws.services.ssm#InvalidPermissionType":
+    case "com.amazonaws.ssm#InvalidPermissionType":
       response = {
         ...(await deserializeAws_json1_1InvalidPermissionTypeResponse(
           parsedOutput,
@@ -5946,7 +5946,7 @@ const deserializeAws_json1_1DescribeEffectiveInstanceAssociationsCommandError = 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -5957,7 +5957,7 @@ const deserializeAws_json1_1DescribeEffectiveInstanceAssociationsCommandError = 
       };
       break;
     case "InvalidInstanceId":
-    case "com.amazonaws.services.ssm#InvalidInstanceId":
+    case "com.amazonaws.ssm#InvalidInstanceId":
       response = {
         ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
           parsedOutput,
@@ -5968,7 +5968,7 @@ const deserializeAws_json1_1DescribeEffectiveInstanceAssociationsCommandError = 
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -6034,7 +6034,7 @@ const deserializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommandError
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -6045,7 +6045,7 @@ const deserializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommandError
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -6056,7 +6056,7 @@ const deserializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommandError
       };
       break;
     case "InvalidResourceId":
-    case "com.amazonaws.services.ssm#InvalidResourceId":
+    case "com.amazonaws.ssm#InvalidResourceId":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceIdResponse(
           parsedOutput,
@@ -6067,7 +6067,7 @@ const deserializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommandError
       };
       break;
     case "UnsupportedOperatingSystem":
-    case "com.amazonaws.services.ssm#UnsupportedOperatingSystem":
+    case "com.amazonaws.ssm#UnsupportedOperatingSystem":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperatingSystemResponse(
           parsedOutput,
@@ -6133,7 +6133,7 @@ const deserializeAws_json1_1DescribeInstanceAssociationsStatusCommandError = asy
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -6144,7 +6144,7 @@ const deserializeAws_json1_1DescribeInstanceAssociationsStatusCommandError = asy
       };
       break;
     case "InvalidInstanceId":
-    case "com.amazonaws.services.ssm#InvalidInstanceId":
+    case "com.amazonaws.ssm#InvalidInstanceId":
       response = {
         ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
           parsedOutput,
@@ -6155,7 +6155,7 @@ const deserializeAws_json1_1DescribeInstanceAssociationsStatusCommandError = asy
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -6221,7 +6221,7 @@ const deserializeAws_json1_1DescribeInstanceInformationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -6232,7 +6232,7 @@ const deserializeAws_json1_1DescribeInstanceInformationCommandError = async (
       };
       break;
     case "InvalidFilterKey":
-    case "com.amazonaws.services.ssm#InvalidFilterKey":
+    case "com.amazonaws.ssm#InvalidFilterKey":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterKeyResponse(
           parsedOutput,
@@ -6243,7 +6243,7 @@ const deserializeAws_json1_1DescribeInstanceInformationCommandError = async (
       };
       break;
     case "InvalidInstanceId":
-    case "com.amazonaws.services.ssm#InvalidInstanceId":
+    case "com.amazonaws.ssm#InvalidInstanceId":
       response = {
         ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
           parsedOutput,
@@ -6254,7 +6254,7 @@ const deserializeAws_json1_1DescribeInstanceInformationCommandError = async (
       };
       break;
     case "InvalidInstanceInformationFilterValue":
-    case "com.amazonaws.services.ssm#InvalidInstanceInformationFilterValue":
+    case "com.amazonaws.ssm#InvalidInstanceInformationFilterValue":
       response = {
         ...(await deserializeAws_json1_1InvalidInstanceInformationFilterValueResponse(
           parsedOutput,
@@ -6265,7 +6265,103 @@ const deserializeAws_json1_1DescribeInstanceInformationCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeInstancePatchesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInstancePatchesCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeInstancePatchesCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeInstancePatchesResult(data, context);
+  const response: DescribeInstancePatchesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeInstancePatchesResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeInstancePatchesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInstancePatchesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidFilter":
+    case "com.amazonaws.ssm#InvalidFilter":
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidInstanceId":
+    case "com.amazonaws.ssm#InvalidInstanceId":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -6331,7 +6427,7 @@ const deserializeAws_json1_1DescribeInstancePatchStatesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -6342,7 +6438,7 @@ const deserializeAws_json1_1DescribeInstancePatchStatesCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -6408,7 +6504,7 @@ const deserializeAws_json1_1DescribeInstancePatchStatesForPatchGroupCommandError
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -6419,7 +6515,7 @@ const deserializeAws_json1_1DescribeInstancePatchStatesForPatchGroupCommandError
       };
       break;
     case "InvalidFilter":
-    case "com.amazonaws.services.ssm#InvalidFilter":
+    case "com.amazonaws.ssm#InvalidFilter":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterResponse(
           parsedOutput,
@@ -6430,103 +6526,7 @@ const deserializeAws_json1_1DescribeInstancePatchStatesForPatchGroupCommandError
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1DescribeInstancePatchesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstancePatchesCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeInstancePatchesCommandError(
-      output,
-      context
-    );
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DescribeInstancePatchesResult(data, context);
-  const response: DescribeInstancePatchesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DescribeInstancePatchesResult",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DescribeInstancePatchesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstancePatchesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidFilter":
-    case "com.amazonaws.services.ssm#InvalidFilter":
-      response = {
-        ...(await deserializeAws_json1_1InvalidFilterResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidInstanceId":
-    case "com.amazonaws.services.ssm#InvalidInstanceId":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -6592,7 +6592,7 @@ const deserializeAws_json1_1DescribeInventoryDeletionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -6603,7 +6603,7 @@ const deserializeAws_json1_1DescribeInventoryDeletionsCommandError = async (
       };
       break;
     case "InvalidDeletionIdException":
-    case "com.amazonaws.services.ssm#InvalidDeletionIdException":
+    case "com.amazonaws.ssm#InvalidDeletionIdException":
       response = {
         ...(await deserializeAws_json1_1InvalidDeletionIdExceptionResponse(
           parsedOutput,
@@ -6614,9 +6614,75 @@ const deserializeAws_json1_1DescribeInventoryDeletionsCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeMaintenanceWindowExecutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMaintenanceWindowExecutionsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeMaintenanceWindowExecutionsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeMaintenanceWindowExecutionsResult(
+    data,
+    context
+  );
+  const response: DescribeMaintenanceWindowExecutionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeMaintenanceWindowExecutionsResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeMaintenanceWindowExecutionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMaintenanceWindowExecutionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
           context
         )),
@@ -6680,7 +6746,7 @@ const deserializeAws_json1_1DescribeMaintenanceWindowExecutionTaskInvocationsCom
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -6691,7 +6757,7 @@ const deserializeAws_json1_1DescribeMaintenanceWindowExecutionTaskInvocationsCom
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -6757,7 +6823,7 @@ const deserializeAws_json1_1DescribeMaintenanceWindowExecutionTasksCommandError 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -6768,304 +6834,7 @@ const deserializeAws_json1_1DescribeMaintenanceWindowExecutionTasksCommandError 
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1DescribeMaintenanceWindowExecutionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowExecutionsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeMaintenanceWindowExecutionsCommandError(
-      output,
-      context
-    );
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DescribeMaintenanceWindowExecutionsResult(
-    data,
-    context
-  );
-  const response: DescribeMaintenanceWindowExecutionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DescribeMaintenanceWindowExecutionsResult",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DescribeMaintenanceWindowExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1DescribeMaintenanceWindowScheduleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowScheduleCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeMaintenanceWindowScheduleCommandError(
-      output,
-      context
-    );
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DescribeMaintenanceWindowScheduleResult(
-    data,
-    context
-  );
-  const response: DescribeMaintenanceWindowScheduleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DescribeMaintenanceWindowScheduleResult",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DescribeMaintenanceWindowScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = {
-        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1DescribeMaintenanceWindowTargetsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowTargetsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeMaintenanceWindowTargetsCommandError(
-      output,
-      context
-    );
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DescribeMaintenanceWindowTargetsResult(
-    data,
-    context
-  );
-  const response: DescribeMaintenanceWindowTargetsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DescribeMaintenanceWindowTargetsResult",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DescribeMaintenanceWindowTargetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowTargetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = {
-        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1DescribeMaintenanceWindowTasksCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowTasksCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeMaintenanceWindowTasksCommandError(
-      output,
-      context
-    );
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DescribeMaintenanceWindowTasksResult(
-    data,
-    context
-  );
-  const response: DescribeMaintenanceWindowTasksCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DescribeMaintenanceWindowTasksResult",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DescribeMaintenanceWindowTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
-      response = {
-        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -7131,7 +6900,84 @@ const deserializeAws_json1_1DescribeMaintenanceWindowsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeMaintenanceWindowScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMaintenanceWindowScheduleCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeMaintenanceWindowScheduleCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeMaintenanceWindowScheduleResult(
+    data,
+    context
+  );
+  const response: DescribeMaintenanceWindowScheduleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeMaintenanceWindowScheduleResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeMaintenanceWindowScheduleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMaintenanceWindowScheduleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -7197,7 +7043,161 @@ const deserializeAws_json1_1DescribeMaintenanceWindowsForTargetCommandError = as
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeMaintenanceWindowTargetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMaintenanceWindowTargetsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeMaintenanceWindowTargetsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeMaintenanceWindowTargetsResult(
+    data,
+    context
+  );
+  const response: DescribeMaintenanceWindowTargetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeMaintenanceWindowTargetsResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeMaintenanceWindowTargetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMaintenanceWindowTargetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeMaintenanceWindowTasksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMaintenanceWindowTasksCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeMaintenanceWindowTasksCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeMaintenanceWindowTasksResult(
+    data,
+    context
+  );
+  const response: DescribeMaintenanceWindowTasksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeMaintenanceWindowTasksResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeMaintenanceWindowTasksCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMaintenanceWindowTasksCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
+      response = {
+        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -7257,7 +7257,7 @@ const deserializeAws_json1_1DescribeOpsItemsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -7320,7 +7320,7 @@ const deserializeAws_json1_1DescribeParametersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -7331,7 +7331,7 @@ const deserializeAws_json1_1DescribeParametersCommandError = async (
       };
       break;
     case "InvalidFilterKey":
-    case "com.amazonaws.services.ssm#InvalidFilterKey":
+    case "com.amazonaws.ssm#InvalidFilterKey":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterKeyResponse(
           parsedOutput,
@@ -7342,7 +7342,7 @@ const deserializeAws_json1_1DescribeParametersCommandError = async (
       };
       break;
     case "InvalidFilterOption":
-    case "com.amazonaws.services.ssm#InvalidFilterOption":
+    case "com.amazonaws.ssm#InvalidFilterOption":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterOptionResponse(
           parsedOutput,
@@ -7353,7 +7353,7 @@ const deserializeAws_json1_1DescribeParametersCommandError = async (
       };
       break;
     case "InvalidFilterValue":
-    case "com.amazonaws.services.ssm#InvalidFilterValue":
+    case "com.amazonaws.ssm#InvalidFilterValue":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterValueResponse(
           parsedOutput,
@@ -7364,7 +7364,7 @@ const deserializeAws_json1_1DescribeParametersCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -7427,7 +7427,70 @@ const deserializeAws_json1_1DescribePatchBaselinesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribePatchGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePatchGroupsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribePatchGroupsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribePatchGroupsResult(data, context);
+  const response: DescribePatchGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribePatchGroupsResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribePatchGroupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePatchGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -7490,7 +7553,7 @@ const deserializeAws_json1_1DescribePatchGroupStateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -7501,72 +7564,9 @@ const deserializeAws_json1_1DescribePatchGroupStateCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1DescribePatchGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePatchGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribePatchGroupsCommandError(
-      output,
-      context
-    );
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DescribePatchGroupsResult(data, context);
-  const response: DescribePatchGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DescribePatchGroupsResult",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DescribePatchGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePatchGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
           context
         )),
@@ -7627,7 +7627,7 @@ const deserializeAws_json1_1DescribePatchPropertiesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -7687,7 +7687,7 @@ const deserializeAws_json1_1DescribeSessionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -7698,7 +7698,7 @@ const deserializeAws_json1_1DescribeSessionsCommandError = async (
       };
       break;
     case "InvalidFilterKey":
-    case "com.amazonaws.services.ssm#InvalidFilterKey":
+    case "com.amazonaws.ssm#InvalidFilterKey":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterKeyResponse(
           parsedOutput,
@@ -7709,7 +7709,7 @@ const deserializeAws_json1_1DescribeSessionsCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -7772,7 +7772,7 @@ const deserializeAws_json1_1GetAutomationExecutionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AutomationExecutionNotFoundException":
-    case "com.amazonaws.services.ssm#AutomationExecutionNotFoundException":
+    case "com.amazonaws.ssm#AutomationExecutionNotFoundException":
       response = {
         ...(await deserializeAws_json1_1AutomationExecutionNotFoundExceptionResponse(
           parsedOutput,
@@ -7783,7 +7783,7 @@ const deserializeAws_json1_1GetAutomationExecutionCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -7843,7 +7843,7 @@ const deserializeAws_json1_1GetCalendarStateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -7854,7 +7854,7 @@ const deserializeAws_json1_1GetCalendarStateCommandError = async (
       };
       break;
     case "InvalidDocument":
-    case "com.amazonaws.services.ssm#InvalidDocument":
+    case "com.amazonaws.ssm#InvalidDocument":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentResponse(
           parsedOutput,
@@ -7865,7 +7865,7 @@ const deserializeAws_json1_1GetCalendarStateCommandError = async (
       };
       break;
     case "InvalidDocumentType":
-    case "com.amazonaws.services.ssm#InvalidDocumentType":
+    case "com.amazonaws.ssm#InvalidDocumentType":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentTypeResponse(
           parsedOutput,
@@ -7876,7 +7876,7 @@ const deserializeAws_json1_1GetCalendarStateCommandError = async (
       };
       break;
     case "UnsupportedCalendarException":
-    case "com.amazonaws.services.ssm#UnsupportedCalendarException":
+    case "com.amazonaws.ssm#UnsupportedCalendarException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedCalendarExceptionResponse(
           parsedOutput,
@@ -7939,7 +7939,7 @@ const deserializeAws_json1_1GetCommandInvocationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -7950,7 +7950,7 @@ const deserializeAws_json1_1GetCommandInvocationCommandError = async (
       };
       break;
     case "InvalidCommandId":
-    case "com.amazonaws.services.ssm#InvalidCommandId":
+    case "com.amazonaws.ssm#InvalidCommandId":
       response = {
         ...(await deserializeAws_json1_1InvalidCommandIdResponse(
           parsedOutput,
@@ -7961,7 +7961,7 @@ const deserializeAws_json1_1GetCommandInvocationCommandError = async (
       };
       break;
     case "InvalidInstanceId":
-    case "com.amazonaws.services.ssm#InvalidInstanceId":
+    case "com.amazonaws.ssm#InvalidInstanceId":
       response = {
         ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
           parsedOutput,
@@ -7972,7 +7972,7 @@ const deserializeAws_json1_1GetCommandInvocationCommandError = async (
       };
       break;
     case "InvalidPluginName":
-    case "com.amazonaws.services.ssm#InvalidPluginName":
+    case "com.amazonaws.ssm#InvalidPluginName":
       response = {
         ...(await deserializeAws_json1_1InvalidPluginNameResponse(
           parsedOutput,
@@ -7983,7 +7983,7 @@ const deserializeAws_json1_1GetCommandInvocationCommandError = async (
       };
       break;
     case "InvocationDoesNotExist":
-    case "com.amazonaws.services.ssm#InvocationDoesNotExist":
+    case "com.amazonaws.ssm#InvocationDoesNotExist":
       response = {
         ...(await deserializeAws_json1_1InvocationDoesNotExistResponse(
           parsedOutput,
@@ -8046,7 +8046,7 @@ const deserializeAws_json1_1GetConnectionStatusCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -8109,7 +8109,7 @@ const deserializeAws_json1_1GetDefaultPatchBaselineCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -8175,7 +8175,7 @@ const deserializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommandError = 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -8186,7 +8186,7 @@ const deserializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommandError = 
       };
       break;
     case "UnsupportedFeatureRequiredException":
-    case "com.amazonaws.services.ssm#UnsupportedFeatureRequiredException":
+    case "com.amazonaws.ssm#UnsupportedFeatureRequiredException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedFeatureRequiredExceptionResponse(
           parsedOutput,
@@ -8197,7 +8197,7 @@ const deserializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommandError = 
       };
       break;
     case "UnsupportedOperatingSystem":
-    case "com.amazonaws.services.ssm#UnsupportedOperatingSystem":
+    case "com.amazonaws.ssm#UnsupportedOperatingSystem":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperatingSystemResponse(
           parsedOutput,
@@ -8257,7 +8257,7 @@ const deserializeAws_json1_1GetDocumentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -8268,7 +8268,7 @@ const deserializeAws_json1_1GetDocumentCommandError = async (
       };
       break;
     case "InvalidDocument":
-    case "com.amazonaws.services.ssm#InvalidDocument":
+    case "com.amazonaws.ssm#InvalidDocument":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentResponse(
           parsedOutput,
@@ -8279,7 +8279,7 @@ const deserializeAws_json1_1GetDocumentCommandError = async (
       };
       break;
     case "InvalidDocumentVersion":
-    case "com.amazonaws.services.ssm#InvalidDocumentVersion":
+    case "com.amazonaws.ssm#InvalidDocumentVersion":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentVersionResponse(
           parsedOutput,
@@ -8339,7 +8339,7 @@ const deserializeAws_json1_1GetInventoryCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -8350,7 +8350,7 @@ const deserializeAws_json1_1GetInventoryCommandError = async (
       };
       break;
     case "InvalidAggregatorException":
-    case "com.amazonaws.services.ssm#InvalidAggregatorException":
+    case "com.amazonaws.ssm#InvalidAggregatorException":
       response = {
         ...(await deserializeAws_json1_1InvalidAggregatorExceptionResponse(
           parsedOutput,
@@ -8361,7 +8361,7 @@ const deserializeAws_json1_1GetInventoryCommandError = async (
       };
       break;
     case "InvalidFilter":
-    case "com.amazonaws.services.ssm#InvalidFilter":
+    case "com.amazonaws.ssm#InvalidFilter":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterResponse(
           parsedOutput,
@@ -8372,7 +8372,7 @@ const deserializeAws_json1_1GetInventoryCommandError = async (
       };
       break;
     case "InvalidInventoryGroupException":
-    case "com.amazonaws.services.ssm#InvalidInventoryGroupException":
+    case "com.amazonaws.ssm#InvalidInventoryGroupException":
       response = {
         ...(await deserializeAws_json1_1InvalidInventoryGroupExceptionResponse(
           parsedOutput,
@@ -8383,7 +8383,7 @@ const deserializeAws_json1_1GetInventoryCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -8394,7 +8394,7 @@ const deserializeAws_json1_1GetInventoryCommandError = async (
       };
       break;
     case "InvalidResultAttributeException":
-    case "com.amazonaws.services.ssm#InvalidResultAttributeException":
+    case "com.amazonaws.ssm#InvalidResultAttributeException":
       response = {
         ...(await deserializeAws_json1_1InvalidResultAttributeExceptionResponse(
           parsedOutput,
@@ -8405,7 +8405,7 @@ const deserializeAws_json1_1GetInventoryCommandError = async (
       };
       break;
     case "InvalidTypeNameException":
-    case "com.amazonaws.services.ssm#InvalidTypeNameException":
+    case "com.amazonaws.ssm#InvalidTypeNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTypeNameExceptionResponse(
           parsedOutput,
@@ -8468,7 +8468,7 @@ const deserializeAws_json1_1GetInventorySchemaCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -8479,7 +8479,7 @@ const deserializeAws_json1_1GetInventorySchemaCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -8490,7 +8490,7 @@ const deserializeAws_json1_1GetInventorySchemaCommandError = async (
       };
       break;
     case "InvalidTypeNameException":
-    case "com.amazonaws.services.ssm#InvalidTypeNameException":
+    case "com.amazonaws.ssm#InvalidTypeNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTypeNameExceptionResponse(
           parsedOutput,
@@ -8553,7 +8553,7 @@ const deserializeAws_json1_1GetMaintenanceWindowCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -8564,7 +8564,7 @@ const deserializeAws_json1_1GetMaintenanceWindowCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -8630,7 +8630,7 @@ const deserializeAws_json1_1GetMaintenanceWindowExecutionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -8641,7 +8641,7 @@ const deserializeAws_json1_1GetMaintenanceWindowExecutionCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -8707,7 +8707,7 @@ const deserializeAws_json1_1GetMaintenanceWindowExecutionTaskCommandError = asyn
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -8718,7 +8718,7 @@ const deserializeAws_json1_1GetMaintenanceWindowExecutionTaskCommandError = asyn
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -8784,7 +8784,7 @@ const deserializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationCommandEr
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -8795,7 +8795,7 @@ const deserializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationCommandEr
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -8861,7 +8861,7 @@ const deserializeAws_json1_1GetMaintenanceWindowTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -8872,7 +8872,7 @@ const deserializeAws_json1_1GetMaintenanceWindowTaskCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -8932,7 +8932,7 @@ const deserializeAws_json1_1GetOpsItemCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -8943,7 +8943,7 @@ const deserializeAws_json1_1GetOpsItemCommandError = async (
       };
       break;
     case "OpsItemNotFoundException":
-    case "com.amazonaws.services.ssm#OpsItemNotFoundException":
+    case "com.amazonaws.ssm#OpsItemNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OpsItemNotFoundExceptionResponse(
           parsedOutput,
@@ -9003,7 +9003,7 @@ const deserializeAws_json1_1GetOpsSummaryCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -9014,7 +9014,7 @@ const deserializeAws_json1_1GetOpsSummaryCommandError = async (
       };
       break;
     case "InvalidAggregatorException":
-    case "com.amazonaws.services.ssm#InvalidAggregatorException":
+    case "com.amazonaws.ssm#InvalidAggregatorException":
       response = {
         ...(await deserializeAws_json1_1InvalidAggregatorExceptionResponse(
           parsedOutput,
@@ -9025,7 +9025,7 @@ const deserializeAws_json1_1GetOpsSummaryCommandError = async (
       };
       break;
     case "InvalidFilter":
-    case "com.amazonaws.services.ssm#InvalidFilter":
+    case "com.amazonaws.ssm#InvalidFilter":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterResponse(
           parsedOutput,
@@ -9036,7 +9036,7 @@ const deserializeAws_json1_1GetOpsSummaryCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -9047,7 +9047,7 @@ const deserializeAws_json1_1GetOpsSummaryCommandError = async (
       };
       break;
     case "InvalidTypeNameException":
-    case "com.amazonaws.services.ssm#InvalidTypeNameException":
+    case "com.amazonaws.ssm#InvalidTypeNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTypeNameExceptionResponse(
           parsedOutput,
@@ -9058,7 +9058,7 @@ const deserializeAws_json1_1GetOpsSummaryCommandError = async (
       };
       break;
     case "ResourceDataSyncNotFoundException":
-    case "com.amazonaws.services.ssm#ResourceDataSyncNotFoundException":
+    case "com.amazonaws.ssm#ResourceDataSyncNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceDataSyncNotFoundExceptionResponse(
           parsedOutput,
@@ -9118,7 +9118,7 @@ const deserializeAws_json1_1GetParameterCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -9129,7 +9129,7 @@ const deserializeAws_json1_1GetParameterCommandError = async (
       };
       break;
     case "InvalidKeyId":
-    case "com.amazonaws.services.ssm#InvalidKeyId":
+    case "com.amazonaws.ssm#InvalidKeyId":
       response = {
         ...(await deserializeAws_json1_1InvalidKeyIdResponse(
           parsedOutput,
@@ -9140,7 +9140,7 @@ const deserializeAws_json1_1GetParameterCommandError = async (
       };
       break;
     case "ParameterNotFound":
-    case "com.amazonaws.services.ssm#ParameterNotFound":
+    case "com.amazonaws.ssm#ParameterNotFound":
       response = {
         ...(await deserializeAws_json1_1ParameterNotFoundResponse(
           parsedOutput,
@@ -9151,7 +9151,7 @@ const deserializeAws_json1_1GetParameterCommandError = async (
       };
       break;
     case "ParameterVersionNotFound":
-    case "com.amazonaws.services.ssm#ParameterVersionNotFound":
+    case "com.amazonaws.ssm#ParameterVersionNotFound":
       response = {
         ...(await deserializeAws_json1_1ParameterVersionNotFoundResponse(
           parsedOutput,
@@ -9214,7 +9214,7 @@ const deserializeAws_json1_1GetParameterHistoryCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -9225,7 +9225,7 @@ const deserializeAws_json1_1GetParameterHistoryCommandError = async (
       };
       break;
     case "InvalidKeyId":
-    case "com.amazonaws.services.ssm#InvalidKeyId":
+    case "com.amazonaws.ssm#InvalidKeyId":
       response = {
         ...(await deserializeAws_json1_1InvalidKeyIdResponse(
           parsedOutput,
@@ -9236,7 +9236,7 @@ const deserializeAws_json1_1GetParameterHistoryCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -9247,7 +9247,7 @@ const deserializeAws_json1_1GetParameterHistoryCommandError = async (
       };
       break;
     case "ParameterNotFound":
-    case "com.amazonaws.services.ssm#ParameterNotFound":
+    case "com.amazonaws.ssm#ParameterNotFound":
       response = {
         ...(await deserializeAws_json1_1ParameterNotFoundResponse(
           parsedOutput,
@@ -9307,7 +9307,7 @@ const deserializeAws_json1_1GetParametersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -9318,7 +9318,7 @@ const deserializeAws_json1_1GetParametersCommandError = async (
       };
       break;
     case "InvalidKeyId":
-    case "com.amazonaws.services.ssm#InvalidKeyId":
+    case "com.amazonaws.ssm#InvalidKeyId":
       response = {
         ...(await deserializeAws_json1_1InvalidKeyIdResponse(
           parsedOutput,
@@ -9381,7 +9381,7 @@ const deserializeAws_json1_1GetParametersByPathCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -9392,7 +9392,7 @@ const deserializeAws_json1_1GetParametersByPathCommandError = async (
       };
       break;
     case "InvalidFilterKey":
-    case "com.amazonaws.services.ssm#InvalidFilterKey":
+    case "com.amazonaws.ssm#InvalidFilterKey":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterKeyResponse(
           parsedOutput,
@@ -9403,7 +9403,7 @@ const deserializeAws_json1_1GetParametersByPathCommandError = async (
       };
       break;
     case "InvalidFilterOption":
-    case "com.amazonaws.services.ssm#InvalidFilterOption":
+    case "com.amazonaws.ssm#InvalidFilterOption":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterOptionResponse(
           parsedOutput,
@@ -9414,7 +9414,7 @@ const deserializeAws_json1_1GetParametersByPathCommandError = async (
       };
       break;
     case "InvalidFilterValue":
-    case "com.amazonaws.services.ssm#InvalidFilterValue":
+    case "com.amazonaws.ssm#InvalidFilterValue":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterValueResponse(
           parsedOutput,
@@ -9425,7 +9425,7 @@ const deserializeAws_json1_1GetParametersByPathCommandError = async (
       };
       break;
     case "InvalidKeyId":
-    case "com.amazonaws.services.ssm#InvalidKeyId":
+    case "com.amazonaws.ssm#InvalidKeyId":
       response = {
         ...(await deserializeAws_json1_1InvalidKeyIdResponse(
           parsedOutput,
@@ -9436,7 +9436,7 @@ const deserializeAws_json1_1GetParametersByPathCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -9496,7 +9496,7 @@ const deserializeAws_json1_1GetPatchBaselineCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -9507,7 +9507,7 @@ const deserializeAws_json1_1GetPatchBaselineCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -9518,7 +9518,7 @@ const deserializeAws_json1_1GetPatchBaselineCommandError = async (
       };
       break;
     case "InvalidResourceId":
-    case "com.amazonaws.services.ssm#InvalidResourceId":
+    case "com.amazonaws.ssm#InvalidResourceId":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceIdResponse(
           parsedOutput,
@@ -9584,7 +9584,7 @@ const deserializeAws_json1_1GetPatchBaselineForPatchGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -9644,7 +9644,7 @@ const deserializeAws_json1_1GetServiceSettingCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -9655,7 +9655,7 @@ const deserializeAws_json1_1GetServiceSettingCommandError = async (
       };
       break;
     case "ServiceSettingNotFound":
-    case "com.amazonaws.services.ssm#ServiceSettingNotFound":
+    case "com.amazonaws.ssm#ServiceSettingNotFound":
       response = {
         ...(await deserializeAws_json1_1ServiceSettingNotFoundResponse(
           parsedOutput,
@@ -9718,7 +9718,7 @@ const deserializeAws_json1_1LabelParameterVersionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -9729,7 +9729,7 @@ const deserializeAws_json1_1LabelParameterVersionCommandError = async (
       };
       break;
     case "ParameterNotFound":
-    case "com.amazonaws.services.ssm#ParameterNotFound":
+    case "com.amazonaws.ssm#ParameterNotFound":
       response = {
         ...(await deserializeAws_json1_1ParameterNotFoundResponse(
           parsedOutput,
@@ -9740,7 +9740,7 @@ const deserializeAws_json1_1LabelParameterVersionCommandError = async (
       };
       break;
     case "ParameterVersionLabelLimitExceeded":
-    case "com.amazonaws.services.ssm#ParameterVersionLabelLimitExceeded":
+    case "com.amazonaws.ssm#ParameterVersionLabelLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ParameterVersionLabelLimitExceededResponse(
           parsedOutput,
@@ -9751,7 +9751,7 @@ const deserializeAws_json1_1LabelParameterVersionCommandError = async (
       };
       break;
     case "ParameterVersionNotFound":
-    case "com.amazonaws.services.ssm#ParameterVersionNotFound":
+    case "com.amazonaws.ssm#ParameterVersionNotFound":
       response = {
         ...(await deserializeAws_json1_1ParameterVersionNotFoundResponse(
           parsedOutput,
@@ -9762,9 +9762,80 @@ const deserializeAws_json1_1LabelParameterVersionCommandError = async (
       };
       break;
     case "TooManyUpdates":
-    case "com.amazonaws.services.ssm#TooManyUpdates":
+    case "com.amazonaws.ssm#TooManyUpdates":
       response = {
         ...(await deserializeAws_json1_1TooManyUpdatesResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssociationsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListAssociationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListAssociationsResult(data, context);
+  const response: ListAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListAssociationsResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
           context
         )),
@@ -9825,7 +9896,7 @@ const deserializeAws_json1_1ListAssociationVersionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AssociationDoesNotExist":
-    case "com.amazonaws.services.ssm#AssociationDoesNotExist":
+    case "com.amazonaws.ssm#AssociationDoesNotExist":
       response = {
         ...(await deserializeAws_json1_1AssociationDoesNotExistResponse(
           parsedOutput,
@@ -9836,7 +9907,7 @@ const deserializeAws_json1_1ListAssociationVersionsCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -9847,78 +9918,7 @@ const deserializeAws_json1_1ListAssociationVersionsCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1ListAssociationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssociationsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListAssociationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1ListAssociationsResult(data, context);
-  const response: ListAssociationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "ListAssociationsResult",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1ListAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -9981,7 +9981,7 @@ const deserializeAws_json1_1ListCommandInvocationsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -9992,7 +9992,7 @@ const deserializeAws_json1_1ListCommandInvocationsCommandError = async (
       };
       break;
     case "InvalidCommandId":
-    case "com.amazonaws.services.ssm#InvalidCommandId":
+    case "com.amazonaws.ssm#InvalidCommandId":
       response = {
         ...(await deserializeAws_json1_1InvalidCommandIdResponse(
           parsedOutput,
@@ -10003,7 +10003,7 @@ const deserializeAws_json1_1ListCommandInvocationsCommandError = async (
       };
       break;
     case "InvalidFilterKey":
-    case "com.amazonaws.services.ssm#InvalidFilterKey":
+    case "com.amazonaws.ssm#InvalidFilterKey":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterKeyResponse(
           parsedOutput,
@@ -10014,7 +10014,7 @@ const deserializeAws_json1_1ListCommandInvocationsCommandError = async (
       };
       break;
     case "InvalidInstanceId":
-    case "com.amazonaws.services.ssm#InvalidInstanceId":
+    case "com.amazonaws.ssm#InvalidInstanceId":
       response = {
         ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
           parsedOutput,
@@ -10025,7 +10025,7 @@ const deserializeAws_json1_1ListCommandInvocationsCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -10085,7 +10085,7 @@ const deserializeAws_json1_1ListCommandsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -10096,7 +10096,7 @@ const deserializeAws_json1_1ListCommandsCommandError = async (
       };
       break;
     case "InvalidCommandId":
-    case "com.amazonaws.services.ssm#InvalidCommandId":
+    case "com.amazonaws.ssm#InvalidCommandId":
       response = {
         ...(await deserializeAws_json1_1InvalidCommandIdResponse(
           parsedOutput,
@@ -10107,7 +10107,7 @@ const deserializeAws_json1_1ListCommandsCommandError = async (
       };
       break;
     case "InvalidFilterKey":
-    case "com.amazonaws.services.ssm#InvalidFilterKey":
+    case "com.amazonaws.ssm#InvalidFilterKey":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterKeyResponse(
           parsedOutput,
@@ -10118,7 +10118,7 @@ const deserializeAws_json1_1ListCommandsCommandError = async (
       };
       break;
     case "InvalidInstanceId":
-    case "com.amazonaws.services.ssm#InvalidInstanceId":
+    case "com.amazonaws.ssm#InvalidInstanceId":
       response = {
         ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
           parsedOutput,
@@ -10129,7 +10129,7 @@ const deserializeAws_json1_1ListCommandsCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -10192,7 +10192,7 @@ const deserializeAws_json1_1ListComplianceItemsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -10203,7 +10203,7 @@ const deserializeAws_json1_1ListComplianceItemsCommandError = async (
       };
       break;
     case "InvalidFilter":
-    case "com.amazonaws.services.ssm#InvalidFilter":
+    case "com.amazonaws.ssm#InvalidFilter":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterResponse(
           parsedOutput,
@@ -10214,7 +10214,7 @@ const deserializeAws_json1_1ListComplianceItemsCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -10225,7 +10225,7 @@ const deserializeAws_json1_1ListComplianceItemsCommandError = async (
       };
       break;
     case "InvalidResourceId":
-    case "com.amazonaws.services.ssm#InvalidResourceId":
+    case "com.amazonaws.ssm#InvalidResourceId":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceIdResponse(
           parsedOutput,
@@ -10236,7 +10236,7 @@ const deserializeAws_json1_1ListComplianceItemsCommandError = async (
       };
       break;
     case "InvalidResourceType":
-    case "com.amazonaws.services.ssm#InvalidResourceType":
+    case "com.amazonaws.ssm#InvalidResourceType":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceTypeResponse(
           parsedOutput,
@@ -10299,7 +10299,7 @@ const deserializeAws_json1_1ListComplianceSummariesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -10310,7 +10310,7 @@ const deserializeAws_json1_1ListComplianceSummariesCommandError = async (
       };
       break;
     case "InvalidFilter":
-    case "com.amazonaws.services.ssm#InvalidFilter":
+    case "com.amazonaws.ssm#InvalidFilter":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterResponse(
           parsedOutput,
@@ -10321,7 +10321,89 @@ const deserializeAws_json1_1ListComplianceSummariesCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListDocumentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDocumentsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListDocumentsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListDocumentsResult(data, context);
+  const response: ListDocumentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListDocumentsResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListDocumentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDocumentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidFilterKey":
+    case "com.amazonaws.ssm#InvalidFilterKey":
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterKeyResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -10384,7 +10466,7 @@ const deserializeAws_json1_1ListDocumentVersionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -10395,7 +10477,7 @@ const deserializeAws_json1_1ListDocumentVersionsCommandError = async (
       };
       break;
     case "InvalidDocument":
-    case "com.amazonaws.services.ssm#InvalidDocument":
+    case "com.amazonaws.ssm#InvalidDocument":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentResponse(
           parsedOutput,
@@ -10406,89 +10488,7 @@ const deserializeAws_json1_1ListDocumentVersionsCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1ListDocumentsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDocumentsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListDocumentsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1ListDocumentsResult(data, context);
-  const response: ListDocumentsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "ListDocumentsResult",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1ListDocumentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDocumentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidFilterKey":
-    case "com.amazonaws.services.ssm#InvalidFilterKey":
-      response = {
-        ...(await deserializeAws_json1_1InvalidFilterKeyResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -10551,7 +10551,7 @@ const deserializeAws_json1_1ListInventoryEntriesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -10562,7 +10562,7 @@ const deserializeAws_json1_1ListInventoryEntriesCommandError = async (
       };
       break;
     case "InvalidFilter":
-    case "com.amazonaws.services.ssm#InvalidFilter":
+    case "com.amazonaws.ssm#InvalidFilter":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterResponse(
           parsedOutput,
@@ -10573,7 +10573,7 @@ const deserializeAws_json1_1ListInventoryEntriesCommandError = async (
       };
       break;
     case "InvalidInstanceId":
-    case "com.amazonaws.services.ssm#InvalidInstanceId":
+    case "com.amazonaws.ssm#InvalidInstanceId":
       response = {
         ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
           parsedOutput,
@@ -10584,7 +10584,7 @@ const deserializeAws_json1_1ListInventoryEntriesCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -10595,7 +10595,7 @@ const deserializeAws_json1_1ListInventoryEntriesCommandError = async (
       };
       break;
     case "InvalidTypeNameException":
-    case "com.amazonaws.services.ssm#InvalidTypeNameException":
+    case "com.amazonaws.ssm#InvalidTypeNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTypeNameExceptionResponse(
           parsedOutput,
@@ -10661,7 +10661,7 @@ const deserializeAws_json1_1ListResourceComplianceSummariesCommandError = async 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -10672,7 +10672,7 @@ const deserializeAws_json1_1ListResourceComplianceSummariesCommandError = async 
       };
       break;
     case "InvalidFilter":
-    case "com.amazonaws.services.ssm#InvalidFilter":
+    case "com.amazonaws.ssm#InvalidFilter":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterResponse(
           parsedOutput,
@@ -10683,7 +10683,7 @@ const deserializeAws_json1_1ListResourceComplianceSummariesCommandError = async 
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -10746,7 +10746,7 @@ const deserializeAws_json1_1ListResourceDataSyncCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -10757,7 +10757,7 @@ const deserializeAws_json1_1ListResourceDataSyncCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.services.ssm#InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenResponse(
           parsedOutput,
@@ -10768,7 +10768,7 @@ const deserializeAws_json1_1ListResourceDataSyncCommandError = async (
       };
       break;
     case "ResourceDataSyncInvalidConfigurationException":
-    case "com.amazonaws.services.ssm#ResourceDataSyncInvalidConfigurationException":
+    case "com.amazonaws.ssm#ResourceDataSyncInvalidConfigurationException":
       response = {
         ...(await deserializeAws_json1_1ResourceDataSyncInvalidConfigurationExceptionResponse(
           parsedOutput,
@@ -10831,7 +10831,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -10842,7 +10842,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "InvalidResourceId":
-    case "com.amazonaws.services.ssm#InvalidResourceId":
+    case "com.amazonaws.ssm#InvalidResourceId":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceIdResponse(
           parsedOutput,
@@ -10853,7 +10853,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "InvalidResourceType":
-    case "com.amazonaws.services.ssm#InvalidResourceType":
+    case "com.amazonaws.ssm#InvalidResourceType":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceTypeResponse(
           parsedOutput,
@@ -10919,7 +10919,7 @@ const deserializeAws_json1_1ModifyDocumentPermissionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DocumentLimitExceeded":
-    case "com.amazonaws.services.ssm#DocumentLimitExceeded":
+    case "com.amazonaws.ssm#DocumentLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1DocumentLimitExceededResponse(
           parsedOutput,
@@ -10930,7 +10930,7 @@ const deserializeAws_json1_1ModifyDocumentPermissionCommandError = async (
       };
       break;
     case "DocumentPermissionLimit":
-    case "com.amazonaws.services.ssm#DocumentPermissionLimit":
+    case "com.amazonaws.ssm#DocumentPermissionLimit":
       response = {
         ...(await deserializeAws_json1_1DocumentPermissionLimitResponse(
           parsedOutput,
@@ -10941,7 +10941,7 @@ const deserializeAws_json1_1ModifyDocumentPermissionCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -10952,7 +10952,7 @@ const deserializeAws_json1_1ModifyDocumentPermissionCommandError = async (
       };
       break;
     case "InvalidDocument":
-    case "com.amazonaws.services.ssm#InvalidDocument":
+    case "com.amazonaws.ssm#InvalidDocument":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentResponse(
           parsedOutput,
@@ -10963,7 +10963,7 @@ const deserializeAws_json1_1ModifyDocumentPermissionCommandError = async (
       };
       break;
     case "InvalidPermissionType":
-    case "com.amazonaws.services.ssm#InvalidPermissionType":
+    case "com.amazonaws.ssm#InvalidPermissionType":
       response = {
         ...(await deserializeAws_json1_1InvalidPermissionTypeResponse(
           parsedOutput,
@@ -11026,7 +11026,7 @@ const deserializeAws_json1_1PutComplianceItemsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ComplianceTypeCountLimitExceededException":
-    case "com.amazonaws.services.ssm#ComplianceTypeCountLimitExceededException":
+    case "com.amazonaws.ssm#ComplianceTypeCountLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1ComplianceTypeCountLimitExceededExceptionResponse(
           parsedOutput,
@@ -11037,7 +11037,7 @@ const deserializeAws_json1_1PutComplianceItemsCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -11048,7 +11048,7 @@ const deserializeAws_json1_1PutComplianceItemsCommandError = async (
       };
       break;
     case "InvalidItemContentException":
-    case "com.amazonaws.services.ssm#InvalidItemContentException":
+    case "com.amazonaws.ssm#InvalidItemContentException":
       response = {
         ...(await deserializeAws_json1_1InvalidItemContentExceptionResponse(
           parsedOutput,
@@ -11059,7 +11059,7 @@ const deserializeAws_json1_1PutComplianceItemsCommandError = async (
       };
       break;
     case "InvalidResourceId":
-    case "com.amazonaws.services.ssm#InvalidResourceId":
+    case "com.amazonaws.ssm#InvalidResourceId":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceIdResponse(
           parsedOutput,
@@ -11070,7 +11070,7 @@ const deserializeAws_json1_1PutComplianceItemsCommandError = async (
       };
       break;
     case "InvalidResourceType":
-    case "com.amazonaws.services.ssm#InvalidResourceType":
+    case "com.amazonaws.ssm#InvalidResourceType":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceTypeResponse(
           parsedOutput,
@@ -11081,7 +11081,7 @@ const deserializeAws_json1_1PutComplianceItemsCommandError = async (
       };
       break;
     case "ItemSizeLimitExceededException":
-    case "com.amazonaws.services.ssm#ItemSizeLimitExceededException":
+    case "com.amazonaws.ssm#ItemSizeLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1ItemSizeLimitExceededExceptionResponse(
           parsedOutput,
@@ -11092,7 +11092,7 @@ const deserializeAws_json1_1PutComplianceItemsCommandError = async (
       };
       break;
     case "TotalSizeLimitExceededException":
-    case "com.amazonaws.services.ssm#TotalSizeLimitExceededException":
+    case "com.amazonaws.ssm#TotalSizeLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1TotalSizeLimitExceededExceptionResponse(
           parsedOutput,
@@ -11152,7 +11152,7 @@ const deserializeAws_json1_1PutInventoryCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CustomSchemaCountLimitExceededException":
-    case "com.amazonaws.services.ssm#CustomSchemaCountLimitExceededException":
+    case "com.amazonaws.ssm#CustomSchemaCountLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1CustomSchemaCountLimitExceededExceptionResponse(
           parsedOutput,
@@ -11163,7 +11163,7 @@ const deserializeAws_json1_1PutInventoryCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -11174,7 +11174,7 @@ const deserializeAws_json1_1PutInventoryCommandError = async (
       };
       break;
     case "InvalidInstanceId":
-    case "com.amazonaws.services.ssm#InvalidInstanceId":
+    case "com.amazonaws.ssm#InvalidInstanceId":
       response = {
         ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
           parsedOutput,
@@ -11185,7 +11185,7 @@ const deserializeAws_json1_1PutInventoryCommandError = async (
       };
       break;
     case "InvalidInventoryItemContextException":
-    case "com.amazonaws.services.ssm#InvalidInventoryItemContextException":
+    case "com.amazonaws.ssm#InvalidInventoryItemContextException":
       response = {
         ...(await deserializeAws_json1_1InvalidInventoryItemContextExceptionResponse(
           parsedOutput,
@@ -11196,7 +11196,7 @@ const deserializeAws_json1_1PutInventoryCommandError = async (
       };
       break;
     case "InvalidItemContentException":
-    case "com.amazonaws.services.ssm#InvalidItemContentException":
+    case "com.amazonaws.ssm#InvalidItemContentException":
       response = {
         ...(await deserializeAws_json1_1InvalidItemContentExceptionResponse(
           parsedOutput,
@@ -11207,7 +11207,7 @@ const deserializeAws_json1_1PutInventoryCommandError = async (
       };
       break;
     case "InvalidTypeNameException":
-    case "com.amazonaws.services.ssm#InvalidTypeNameException":
+    case "com.amazonaws.ssm#InvalidTypeNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTypeNameExceptionResponse(
           parsedOutput,
@@ -11218,7 +11218,7 @@ const deserializeAws_json1_1PutInventoryCommandError = async (
       };
       break;
     case "ItemContentMismatchException":
-    case "com.amazonaws.services.ssm#ItemContentMismatchException":
+    case "com.amazonaws.ssm#ItemContentMismatchException":
       response = {
         ...(await deserializeAws_json1_1ItemContentMismatchExceptionResponse(
           parsedOutput,
@@ -11229,7 +11229,7 @@ const deserializeAws_json1_1PutInventoryCommandError = async (
       };
       break;
     case "ItemSizeLimitExceededException":
-    case "com.amazonaws.services.ssm#ItemSizeLimitExceededException":
+    case "com.amazonaws.ssm#ItemSizeLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1ItemSizeLimitExceededExceptionResponse(
           parsedOutput,
@@ -11240,7 +11240,7 @@ const deserializeAws_json1_1PutInventoryCommandError = async (
       };
       break;
     case "SubTypeCountLimitExceededException":
-    case "com.amazonaws.services.ssm#SubTypeCountLimitExceededException":
+    case "com.amazonaws.ssm#SubTypeCountLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1SubTypeCountLimitExceededExceptionResponse(
           parsedOutput,
@@ -11251,7 +11251,7 @@ const deserializeAws_json1_1PutInventoryCommandError = async (
       };
       break;
     case "TotalSizeLimitExceededException":
-    case "com.amazonaws.services.ssm#TotalSizeLimitExceededException":
+    case "com.amazonaws.ssm#TotalSizeLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1TotalSizeLimitExceededExceptionResponse(
           parsedOutput,
@@ -11262,7 +11262,7 @@ const deserializeAws_json1_1PutInventoryCommandError = async (
       };
       break;
     case "UnsupportedInventoryItemContextException":
-    case "com.amazonaws.services.ssm#UnsupportedInventoryItemContextException":
+    case "com.amazonaws.ssm#UnsupportedInventoryItemContextException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedInventoryItemContextExceptionResponse(
           parsedOutput,
@@ -11273,7 +11273,7 @@ const deserializeAws_json1_1PutInventoryCommandError = async (
       };
       break;
     case "UnsupportedInventorySchemaVersionException":
-    case "com.amazonaws.services.ssm#UnsupportedInventorySchemaVersionException":
+    case "com.amazonaws.ssm#UnsupportedInventorySchemaVersionException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedInventorySchemaVersionExceptionResponse(
           parsedOutput,
@@ -11333,7 +11333,7 @@ const deserializeAws_json1_1PutParameterCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "HierarchyLevelLimitExceededException":
-    case "com.amazonaws.services.ssm#HierarchyLevelLimitExceededException":
+    case "com.amazonaws.ssm#HierarchyLevelLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1HierarchyLevelLimitExceededExceptionResponse(
           parsedOutput,
@@ -11344,7 +11344,7 @@ const deserializeAws_json1_1PutParameterCommandError = async (
       };
       break;
     case "HierarchyTypeMismatchException":
-    case "com.amazonaws.services.ssm#HierarchyTypeMismatchException":
+    case "com.amazonaws.ssm#HierarchyTypeMismatchException":
       response = {
         ...(await deserializeAws_json1_1HierarchyTypeMismatchExceptionResponse(
           parsedOutput,
@@ -11355,7 +11355,7 @@ const deserializeAws_json1_1PutParameterCommandError = async (
       };
       break;
     case "IncompatiblePolicyException":
-    case "com.amazonaws.services.ssm#IncompatiblePolicyException":
+    case "com.amazonaws.ssm#IncompatiblePolicyException":
       response = {
         ...(await deserializeAws_json1_1IncompatiblePolicyExceptionResponse(
           parsedOutput,
@@ -11366,7 +11366,7 @@ const deserializeAws_json1_1PutParameterCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -11377,7 +11377,7 @@ const deserializeAws_json1_1PutParameterCommandError = async (
       };
       break;
     case "InvalidAllowedPatternException":
-    case "com.amazonaws.services.ssm#InvalidAllowedPatternException":
+    case "com.amazonaws.ssm#InvalidAllowedPatternException":
       response = {
         ...(await deserializeAws_json1_1InvalidAllowedPatternExceptionResponse(
           parsedOutput,
@@ -11388,7 +11388,7 @@ const deserializeAws_json1_1PutParameterCommandError = async (
       };
       break;
     case "InvalidKeyId":
-    case "com.amazonaws.services.ssm#InvalidKeyId":
+    case "com.amazonaws.ssm#InvalidKeyId":
       response = {
         ...(await deserializeAws_json1_1InvalidKeyIdResponse(
           parsedOutput,
@@ -11399,7 +11399,7 @@ const deserializeAws_json1_1PutParameterCommandError = async (
       };
       break;
     case "InvalidPolicyAttributeException":
-    case "com.amazonaws.services.ssm#InvalidPolicyAttributeException":
+    case "com.amazonaws.ssm#InvalidPolicyAttributeException":
       response = {
         ...(await deserializeAws_json1_1InvalidPolicyAttributeExceptionResponse(
           parsedOutput,
@@ -11410,7 +11410,7 @@ const deserializeAws_json1_1PutParameterCommandError = async (
       };
       break;
     case "InvalidPolicyTypeException":
-    case "com.amazonaws.services.ssm#InvalidPolicyTypeException":
+    case "com.amazonaws.ssm#InvalidPolicyTypeException":
       response = {
         ...(await deserializeAws_json1_1InvalidPolicyTypeExceptionResponse(
           parsedOutput,
@@ -11421,7 +11421,7 @@ const deserializeAws_json1_1PutParameterCommandError = async (
       };
       break;
     case "ParameterAlreadyExists":
-    case "com.amazonaws.services.ssm#ParameterAlreadyExists":
+    case "com.amazonaws.ssm#ParameterAlreadyExists":
       response = {
         ...(await deserializeAws_json1_1ParameterAlreadyExistsResponse(
           parsedOutput,
@@ -11432,7 +11432,7 @@ const deserializeAws_json1_1PutParameterCommandError = async (
       };
       break;
     case "ParameterLimitExceeded":
-    case "com.amazonaws.services.ssm#ParameterLimitExceeded":
+    case "com.amazonaws.ssm#ParameterLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ParameterLimitExceededResponse(
           parsedOutput,
@@ -11443,7 +11443,7 @@ const deserializeAws_json1_1PutParameterCommandError = async (
       };
       break;
     case "ParameterMaxVersionLimitExceeded":
-    case "com.amazonaws.services.ssm#ParameterMaxVersionLimitExceeded":
+    case "com.amazonaws.ssm#ParameterMaxVersionLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ParameterMaxVersionLimitExceededResponse(
           parsedOutput,
@@ -11454,7 +11454,7 @@ const deserializeAws_json1_1PutParameterCommandError = async (
       };
       break;
     case "ParameterPatternMismatchException":
-    case "com.amazonaws.services.ssm#ParameterPatternMismatchException":
+    case "com.amazonaws.ssm#ParameterPatternMismatchException":
       response = {
         ...(await deserializeAws_json1_1ParameterPatternMismatchExceptionResponse(
           parsedOutput,
@@ -11465,7 +11465,7 @@ const deserializeAws_json1_1PutParameterCommandError = async (
       };
       break;
     case "PoliciesLimitExceededException":
-    case "com.amazonaws.services.ssm#PoliciesLimitExceededException":
+    case "com.amazonaws.ssm#PoliciesLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1PoliciesLimitExceededExceptionResponse(
           parsedOutput,
@@ -11476,7 +11476,7 @@ const deserializeAws_json1_1PutParameterCommandError = async (
       };
       break;
     case "TooManyUpdates":
-    case "com.amazonaws.services.ssm#TooManyUpdates":
+    case "com.amazonaws.ssm#TooManyUpdates":
       response = {
         ...(await deserializeAws_json1_1TooManyUpdatesResponse(
           parsedOutput,
@@ -11487,7 +11487,7 @@ const deserializeAws_json1_1PutParameterCommandError = async (
       };
       break;
     case "UnsupportedParameterType":
-    case "com.amazonaws.services.ssm#UnsupportedParameterType":
+    case "com.amazonaws.ssm#UnsupportedParameterType":
       response = {
         ...(await deserializeAws_json1_1UnsupportedParameterTypeResponse(
           parsedOutput,
@@ -11553,7 +11553,7 @@ const deserializeAws_json1_1RegisterDefaultPatchBaselineCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -11564,7 +11564,7 @@ const deserializeAws_json1_1RegisterDefaultPatchBaselineCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -11575,7 +11575,7 @@ const deserializeAws_json1_1RegisterDefaultPatchBaselineCommandError = async (
       };
       break;
     case "InvalidResourceId":
-    case "com.amazonaws.services.ssm#InvalidResourceId":
+    case "com.amazonaws.ssm#InvalidResourceId":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceIdResponse(
           parsedOutput,
@@ -11641,7 +11641,7 @@ const deserializeAws_json1_1RegisterPatchBaselineForPatchGroupCommandError = asy
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
-    case "com.amazonaws.services.ssm#AlreadyExistsException":
+    case "com.amazonaws.ssm#AlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
           parsedOutput,
@@ -11652,7 +11652,7 @@ const deserializeAws_json1_1RegisterPatchBaselineForPatchGroupCommandError = asy
       };
       break;
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -11663,7 +11663,7 @@ const deserializeAws_json1_1RegisterPatchBaselineForPatchGroupCommandError = asy
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -11674,7 +11674,7 @@ const deserializeAws_json1_1RegisterPatchBaselineForPatchGroupCommandError = asy
       };
       break;
     case "InvalidResourceId":
-    case "com.amazonaws.services.ssm#InvalidResourceId":
+    case "com.amazonaws.ssm#InvalidResourceId":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceIdResponse(
           parsedOutput,
@@ -11685,7 +11685,7 @@ const deserializeAws_json1_1RegisterPatchBaselineForPatchGroupCommandError = asy
       };
       break;
     case "ResourceLimitExceededException":
-    case "com.amazonaws.services.ssm#ResourceLimitExceededException":
+    case "com.amazonaws.ssm#ResourceLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
           parsedOutput,
@@ -11751,7 +11751,7 @@ const deserializeAws_json1_1RegisterTargetWithMaintenanceWindowCommandError = as
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -11762,7 +11762,7 @@ const deserializeAws_json1_1RegisterTargetWithMaintenanceWindowCommandError = as
       };
       break;
     case "IdempotentParameterMismatch":
-    case "com.amazonaws.services.ssm#IdempotentParameterMismatch":
+    case "com.amazonaws.ssm#IdempotentParameterMismatch":
       response = {
         ...(await deserializeAws_json1_1IdempotentParameterMismatchResponse(
           parsedOutput,
@@ -11773,7 +11773,7 @@ const deserializeAws_json1_1RegisterTargetWithMaintenanceWindowCommandError = as
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -11784,7 +11784,7 @@ const deserializeAws_json1_1RegisterTargetWithMaintenanceWindowCommandError = as
       };
       break;
     case "ResourceLimitExceededException":
-    case "com.amazonaws.services.ssm#ResourceLimitExceededException":
+    case "com.amazonaws.ssm#ResourceLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
           parsedOutput,
@@ -11850,7 +11850,7 @@ const deserializeAws_json1_1RegisterTaskWithMaintenanceWindowCommandError = asyn
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -11861,7 +11861,7 @@ const deserializeAws_json1_1RegisterTaskWithMaintenanceWindowCommandError = asyn
       };
       break;
     case "FeatureNotAvailableException":
-    case "com.amazonaws.services.ssm#FeatureNotAvailableException":
+    case "com.amazonaws.ssm#FeatureNotAvailableException":
       response = {
         ...(await deserializeAws_json1_1FeatureNotAvailableExceptionResponse(
           parsedOutput,
@@ -11872,7 +11872,7 @@ const deserializeAws_json1_1RegisterTaskWithMaintenanceWindowCommandError = asyn
       };
       break;
     case "IdempotentParameterMismatch":
-    case "com.amazonaws.services.ssm#IdempotentParameterMismatch":
+    case "com.amazonaws.ssm#IdempotentParameterMismatch":
       response = {
         ...(await deserializeAws_json1_1IdempotentParameterMismatchResponse(
           parsedOutput,
@@ -11883,7 +11883,7 @@ const deserializeAws_json1_1RegisterTaskWithMaintenanceWindowCommandError = asyn
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -11894,7 +11894,7 @@ const deserializeAws_json1_1RegisterTaskWithMaintenanceWindowCommandError = asyn
       };
       break;
     case "ResourceLimitExceededException":
-    case "com.amazonaws.services.ssm#ResourceLimitExceededException":
+    case "com.amazonaws.ssm#ResourceLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
           parsedOutput,
@@ -11957,7 +11957,7 @@ const deserializeAws_json1_1RemoveTagsFromResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -11968,7 +11968,7 @@ const deserializeAws_json1_1RemoveTagsFromResourceCommandError = async (
       };
       break;
     case "InvalidResourceId":
-    case "com.amazonaws.services.ssm#InvalidResourceId":
+    case "com.amazonaws.ssm#InvalidResourceId":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceIdResponse(
           parsedOutput,
@@ -11979,7 +11979,7 @@ const deserializeAws_json1_1RemoveTagsFromResourceCommandError = async (
       };
       break;
     case "InvalidResourceType":
-    case "com.amazonaws.services.ssm#InvalidResourceType":
+    case "com.amazonaws.ssm#InvalidResourceType":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceTypeResponse(
           parsedOutput,
@@ -11990,7 +11990,7 @@ const deserializeAws_json1_1RemoveTagsFromResourceCommandError = async (
       };
       break;
     case "TooManyUpdates":
-    case "com.amazonaws.services.ssm#TooManyUpdates":
+    case "com.amazonaws.ssm#TooManyUpdates":
       response = {
         ...(await deserializeAws_json1_1TooManyUpdatesResponse(
           parsedOutput,
@@ -12053,7 +12053,7 @@ const deserializeAws_json1_1ResetServiceSettingCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -12064,7 +12064,7 @@ const deserializeAws_json1_1ResetServiceSettingCommandError = async (
       };
       break;
     case "ServiceSettingNotFound":
-    case "com.amazonaws.services.ssm#ServiceSettingNotFound":
+    case "com.amazonaws.ssm#ServiceSettingNotFound":
       response = {
         ...(await deserializeAws_json1_1ServiceSettingNotFoundResponse(
           parsedOutput,
@@ -12075,7 +12075,7 @@ const deserializeAws_json1_1ResetServiceSettingCommandError = async (
       };
       break;
     case "TooManyUpdates":
-    case "com.amazonaws.services.ssm#TooManyUpdates":
+    case "com.amazonaws.ssm#TooManyUpdates":
       response = {
         ...(await deserializeAws_json1_1TooManyUpdatesResponse(
           parsedOutput,
@@ -12135,7 +12135,7 @@ const deserializeAws_json1_1ResumeSessionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -12146,7 +12146,7 @@ const deserializeAws_json1_1ResumeSessionCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -12209,7 +12209,7 @@ const deserializeAws_json1_1SendAutomationSignalCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AutomationExecutionNotFoundException":
-    case "com.amazonaws.services.ssm#AutomationExecutionNotFoundException":
+    case "com.amazonaws.ssm#AutomationExecutionNotFoundException":
       response = {
         ...(await deserializeAws_json1_1AutomationExecutionNotFoundExceptionResponse(
           parsedOutput,
@@ -12220,7 +12220,7 @@ const deserializeAws_json1_1SendAutomationSignalCommandError = async (
       };
       break;
     case "AutomationStepNotFoundException":
-    case "com.amazonaws.services.ssm#AutomationStepNotFoundException":
+    case "com.amazonaws.ssm#AutomationStepNotFoundException":
       response = {
         ...(await deserializeAws_json1_1AutomationStepNotFoundExceptionResponse(
           parsedOutput,
@@ -12231,7 +12231,7 @@ const deserializeAws_json1_1SendAutomationSignalCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -12242,7 +12242,7 @@ const deserializeAws_json1_1SendAutomationSignalCommandError = async (
       };
       break;
     case "InvalidAutomationSignalException":
-    case "com.amazonaws.services.ssm#InvalidAutomationSignalException":
+    case "com.amazonaws.ssm#InvalidAutomationSignalException":
       response = {
         ...(await deserializeAws_json1_1InvalidAutomationSignalExceptionResponse(
           parsedOutput,
@@ -12302,7 +12302,7 @@ const deserializeAws_json1_1SendCommandCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateInstanceId":
-    case "com.amazonaws.services.ssm#DuplicateInstanceId":
+    case "com.amazonaws.ssm#DuplicateInstanceId":
       response = {
         ...(await deserializeAws_json1_1DuplicateInstanceIdResponse(
           parsedOutput,
@@ -12313,7 +12313,7 @@ const deserializeAws_json1_1SendCommandCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -12324,7 +12324,7 @@ const deserializeAws_json1_1SendCommandCommandError = async (
       };
       break;
     case "InvalidDocument":
-    case "com.amazonaws.services.ssm#InvalidDocument":
+    case "com.amazonaws.ssm#InvalidDocument":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentResponse(
           parsedOutput,
@@ -12335,7 +12335,7 @@ const deserializeAws_json1_1SendCommandCommandError = async (
       };
       break;
     case "InvalidDocumentVersion":
-    case "com.amazonaws.services.ssm#InvalidDocumentVersion":
+    case "com.amazonaws.ssm#InvalidDocumentVersion":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentVersionResponse(
           parsedOutput,
@@ -12346,7 +12346,7 @@ const deserializeAws_json1_1SendCommandCommandError = async (
       };
       break;
     case "InvalidInstanceId":
-    case "com.amazonaws.services.ssm#InvalidInstanceId":
+    case "com.amazonaws.ssm#InvalidInstanceId":
       response = {
         ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
           parsedOutput,
@@ -12357,7 +12357,7 @@ const deserializeAws_json1_1SendCommandCommandError = async (
       };
       break;
     case "InvalidNotificationConfig":
-    case "com.amazonaws.services.ssm#InvalidNotificationConfig":
+    case "com.amazonaws.ssm#InvalidNotificationConfig":
       response = {
         ...(await deserializeAws_json1_1InvalidNotificationConfigResponse(
           parsedOutput,
@@ -12368,7 +12368,7 @@ const deserializeAws_json1_1SendCommandCommandError = async (
       };
       break;
     case "InvalidOutputFolder":
-    case "com.amazonaws.services.ssm#InvalidOutputFolder":
+    case "com.amazonaws.ssm#InvalidOutputFolder":
       response = {
         ...(await deserializeAws_json1_1InvalidOutputFolderResponse(
           parsedOutput,
@@ -12379,7 +12379,7 @@ const deserializeAws_json1_1SendCommandCommandError = async (
       };
       break;
     case "InvalidParameters":
-    case "com.amazonaws.services.ssm#InvalidParameters":
+    case "com.amazonaws.ssm#InvalidParameters":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersResponse(
           parsedOutput,
@@ -12390,7 +12390,7 @@ const deserializeAws_json1_1SendCommandCommandError = async (
       };
       break;
     case "InvalidRole":
-    case "com.amazonaws.services.ssm#InvalidRole":
+    case "com.amazonaws.ssm#InvalidRole":
       response = {
         ...(await deserializeAws_json1_1InvalidRoleResponse(
           parsedOutput,
@@ -12401,7 +12401,7 @@ const deserializeAws_json1_1SendCommandCommandError = async (
       };
       break;
     case "MaxDocumentSizeExceeded":
-    case "com.amazonaws.services.ssm#MaxDocumentSizeExceeded":
+    case "com.amazonaws.ssm#MaxDocumentSizeExceeded":
       response = {
         ...(await deserializeAws_json1_1MaxDocumentSizeExceededResponse(
           parsedOutput,
@@ -12412,7 +12412,7 @@ const deserializeAws_json1_1SendCommandCommandError = async (
       };
       break;
     case "UnsupportedPlatformType":
-    case "com.amazonaws.services.ssm#UnsupportedPlatformType":
+    case "com.amazonaws.ssm#UnsupportedPlatformType":
       response = {
         ...(await deserializeAws_json1_1UnsupportedPlatformTypeResponse(
           parsedOutput,
@@ -12475,7 +12475,7 @@ const deserializeAws_json1_1StartAssociationsOnceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AssociationDoesNotExist":
-    case "com.amazonaws.services.ssm#AssociationDoesNotExist":
+    case "com.amazonaws.ssm#AssociationDoesNotExist":
       response = {
         ...(await deserializeAws_json1_1AssociationDoesNotExistResponse(
           parsedOutput,
@@ -12486,7 +12486,7 @@ const deserializeAws_json1_1StartAssociationsOnceCommandError = async (
       };
       break;
     case "InvalidAssociation":
-    case "com.amazonaws.services.ssm#InvalidAssociation":
+    case "com.amazonaws.ssm#InvalidAssociation":
       response = {
         ...(await deserializeAws_json1_1InvalidAssociationResponse(
           parsedOutput,
@@ -12552,7 +12552,7 @@ const deserializeAws_json1_1StartAutomationExecutionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AutomationDefinitionNotFoundException":
-    case "com.amazonaws.services.ssm#AutomationDefinitionNotFoundException":
+    case "com.amazonaws.ssm#AutomationDefinitionNotFoundException":
       response = {
         ...(await deserializeAws_json1_1AutomationDefinitionNotFoundExceptionResponse(
           parsedOutput,
@@ -12563,7 +12563,7 @@ const deserializeAws_json1_1StartAutomationExecutionCommandError = async (
       };
       break;
     case "AutomationDefinitionVersionNotFoundException":
-    case "com.amazonaws.services.ssm#AutomationDefinitionVersionNotFoundException":
+    case "com.amazonaws.ssm#AutomationDefinitionVersionNotFoundException":
       response = {
         ...(await deserializeAws_json1_1AutomationDefinitionVersionNotFoundExceptionResponse(
           parsedOutput,
@@ -12574,7 +12574,7 @@ const deserializeAws_json1_1StartAutomationExecutionCommandError = async (
       };
       break;
     case "AutomationExecutionLimitExceededException":
-    case "com.amazonaws.services.ssm#AutomationExecutionLimitExceededException":
+    case "com.amazonaws.ssm#AutomationExecutionLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1AutomationExecutionLimitExceededExceptionResponse(
           parsedOutput,
@@ -12585,7 +12585,7 @@ const deserializeAws_json1_1StartAutomationExecutionCommandError = async (
       };
       break;
     case "IdempotentParameterMismatch":
-    case "com.amazonaws.services.ssm#IdempotentParameterMismatch":
+    case "com.amazonaws.ssm#IdempotentParameterMismatch":
       response = {
         ...(await deserializeAws_json1_1IdempotentParameterMismatchResponse(
           parsedOutput,
@@ -12596,7 +12596,7 @@ const deserializeAws_json1_1StartAutomationExecutionCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -12607,7 +12607,7 @@ const deserializeAws_json1_1StartAutomationExecutionCommandError = async (
       };
       break;
     case "InvalidAutomationExecutionParametersException":
-    case "com.amazonaws.services.ssm#InvalidAutomationExecutionParametersException":
+    case "com.amazonaws.ssm#InvalidAutomationExecutionParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidAutomationExecutionParametersExceptionResponse(
           parsedOutput,
@@ -12618,7 +12618,7 @@ const deserializeAws_json1_1StartAutomationExecutionCommandError = async (
       };
       break;
     case "InvalidTarget":
-    case "com.amazonaws.services.ssm#InvalidTarget":
+    case "com.amazonaws.ssm#InvalidTarget":
       response = {
         ...(await deserializeAws_json1_1InvalidTargetResponse(
           parsedOutput,
@@ -12678,7 +12678,7 @@ const deserializeAws_json1_1StartSessionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -12689,7 +12689,7 @@ const deserializeAws_json1_1StartSessionCommandError = async (
       };
       break;
     case "InvalidDocument":
-    case "com.amazonaws.services.ssm#InvalidDocument":
+    case "com.amazonaws.ssm#InvalidDocument":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentResponse(
           parsedOutput,
@@ -12700,7 +12700,7 @@ const deserializeAws_json1_1StartSessionCommandError = async (
       };
       break;
     case "TargetNotConnected":
-    case "com.amazonaws.services.ssm#TargetNotConnected":
+    case "com.amazonaws.ssm#TargetNotConnected":
       response = {
         ...(await deserializeAws_json1_1TargetNotConnectedResponse(
           parsedOutput,
@@ -12763,7 +12763,7 @@ const deserializeAws_json1_1StopAutomationExecutionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AutomationExecutionNotFoundException":
-    case "com.amazonaws.services.ssm#AutomationExecutionNotFoundException":
+    case "com.amazonaws.ssm#AutomationExecutionNotFoundException":
       response = {
         ...(await deserializeAws_json1_1AutomationExecutionNotFoundExceptionResponse(
           parsedOutput,
@@ -12774,7 +12774,7 @@ const deserializeAws_json1_1StopAutomationExecutionCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -12785,7 +12785,7 @@ const deserializeAws_json1_1StopAutomationExecutionCommandError = async (
       };
       break;
     case "InvalidAutomationStatusUpdateException":
-    case "com.amazonaws.services.ssm#InvalidAutomationStatusUpdateException":
+    case "com.amazonaws.ssm#InvalidAutomationStatusUpdateException":
       response = {
         ...(await deserializeAws_json1_1InvalidAutomationStatusUpdateExceptionResponse(
           parsedOutput,
@@ -12845,7 +12845,7 @@ const deserializeAws_json1_1TerminateSessionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -12856,7 +12856,7 @@ const deserializeAws_json1_1TerminateSessionCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -12916,7 +12916,7 @@ const deserializeAws_json1_1UpdateAssociationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AssociationDoesNotExist":
-    case "com.amazonaws.services.ssm#AssociationDoesNotExist":
+    case "com.amazonaws.ssm#AssociationDoesNotExist":
       response = {
         ...(await deserializeAws_json1_1AssociationDoesNotExistResponse(
           parsedOutput,
@@ -12927,7 +12927,7 @@ const deserializeAws_json1_1UpdateAssociationCommandError = async (
       };
       break;
     case "AssociationVersionLimitExceeded":
-    case "com.amazonaws.services.ssm#AssociationVersionLimitExceeded":
+    case "com.amazonaws.ssm#AssociationVersionLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1AssociationVersionLimitExceededResponse(
           parsedOutput,
@@ -12938,7 +12938,7 @@ const deserializeAws_json1_1UpdateAssociationCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -12949,7 +12949,7 @@ const deserializeAws_json1_1UpdateAssociationCommandError = async (
       };
       break;
     case "InvalidAssociationVersion":
-    case "com.amazonaws.services.ssm#InvalidAssociationVersion":
+    case "com.amazonaws.ssm#InvalidAssociationVersion":
       response = {
         ...(await deserializeAws_json1_1InvalidAssociationVersionResponse(
           parsedOutput,
@@ -12960,7 +12960,7 @@ const deserializeAws_json1_1UpdateAssociationCommandError = async (
       };
       break;
     case "InvalidDocument":
-    case "com.amazonaws.services.ssm#InvalidDocument":
+    case "com.amazonaws.ssm#InvalidDocument":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentResponse(
           parsedOutput,
@@ -12971,7 +12971,7 @@ const deserializeAws_json1_1UpdateAssociationCommandError = async (
       };
       break;
     case "InvalidDocumentVersion":
-    case "com.amazonaws.services.ssm#InvalidDocumentVersion":
+    case "com.amazonaws.ssm#InvalidDocumentVersion":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentVersionResponse(
           parsedOutput,
@@ -12982,7 +12982,7 @@ const deserializeAws_json1_1UpdateAssociationCommandError = async (
       };
       break;
     case "InvalidOutputLocation":
-    case "com.amazonaws.services.ssm#InvalidOutputLocation":
+    case "com.amazonaws.ssm#InvalidOutputLocation":
       response = {
         ...(await deserializeAws_json1_1InvalidOutputLocationResponse(
           parsedOutput,
@@ -12993,7 +12993,7 @@ const deserializeAws_json1_1UpdateAssociationCommandError = async (
       };
       break;
     case "InvalidParameters":
-    case "com.amazonaws.services.ssm#InvalidParameters":
+    case "com.amazonaws.ssm#InvalidParameters":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersResponse(
           parsedOutput,
@@ -13004,7 +13004,7 @@ const deserializeAws_json1_1UpdateAssociationCommandError = async (
       };
       break;
     case "InvalidSchedule":
-    case "com.amazonaws.services.ssm#InvalidSchedule":
+    case "com.amazonaws.ssm#InvalidSchedule":
       response = {
         ...(await deserializeAws_json1_1InvalidScheduleResponse(
           parsedOutput,
@@ -13015,7 +13015,7 @@ const deserializeAws_json1_1UpdateAssociationCommandError = async (
       };
       break;
     case "InvalidTarget":
-    case "com.amazonaws.services.ssm#InvalidTarget":
+    case "com.amazonaws.ssm#InvalidTarget":
       response = {
         ...(await deserializeAws_json1_1InvalidTargetResponse(
           parsedOutput,
@@ -13026,7 +13026,7 @@ const deserializeAws_json1_1UpdateAssociationCommandError = async (
       };
       break;
     case "InvalidUpdate":
-    case "com.amazonaws.services.ssm#InvalidUpdate":
+    case "com.amazonaws.ssm#InvalidUpdate":
       response = {
         ...(await deserializeAws_json1_1InvalidUpdateResponse(
           parsedOutput,
@@ -13037,7 +13037,7 @@ const deserializeAws_json1_1UpdateAssociationCommandError = async (
       };
       break;
     case "TooManyUpdates":
-    case "com.amazonaws.services.ssm#TooManyUpdates":
+    case "com.amazonaws.ssm#TooManyUpdates":
       response = {
         ...(await deserializeAws_json1_1TooManyUpdatesResponse(
           parsedOutput,
@@ -13100,7 +13100,7 @@ const deserializeAws_json1_1UpdateAssociationStatusCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AssociationDoesNotExist":
-    case "com.amazonaws.services.ssm#AssociationDoesNotExist":
+    case "com.amazonaws.ssm#AssociationDoesNotExist":
       response = {
         ...(await deserializeAws_json1_1AssociationDoesNotExistResponse(
           parsedOutput,
@@ -13111,7 +13111,7 @@ const deserializeAws_json1_1UpdateAssociationStatusCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -13122,7 +13122,7 @@ const deserializeAws_json1_1UpdateAssociationStatusCommandError = async (
       };
       break;
     case "InvalidDocument":
-    case "com.amazonaws.services.ssm#InvalidDocument":
+    case "com.amazonaws.ssm#InvalidDocument":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentResponse(
           parsedOutput,
@@ -13133,7 +13133,7 @@ const deserializeAws_json1_1UpdateAssociationStatusCommandError = async (
       };
       break;
     case "InvalidInstanceId":
-    case "com.amazonaws.services.ssm#InvalidInstanceId":
+    case "com.amazonaws.ssm#InvalidInstanceId":
       response = {
         ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
           parsedOutput,
@@ -13144,7 +13144,7 @@ const deserializeAws_json1_1UpdateAssociationStatusCommandError = async (
       };
       break;
     case "StatusUnchanged":
-    case "com.amazonaws.services.ssm#StatusUnchanged":
+    case "com.amazonaws.ssm#StatusUnchanged":
       response = {
         ...(await deserializeAws_json1_1StatusUnchangedResponse(
           parsedOutput,
@@ -13155,7 +13155,7 @@ const deserializeAws_json1_1UpdateAssociationStatusCommandError = async (
       };
       break;
     case "TooManyUpdates":
-    case "com.amazonaws.services.ssm#TooManyUpdates":
+    case "com.amazonaws.ssm#TooManyUpdates":
       response = {
         ...(await deserializeAws_json1_1TooManyUpdatesResponse(
           parsedOutput,
@@ -13215,7 +13215,7 @@ const deserializeAws_json1_1UpdateDocumentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DocumentVersionLimitExceeded":
-    case "com.amazonaws.services.ssm#DocumentVersionLimitExceeded":
+    case "com.amazonaws.ssm#DocumentVersionLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1DocumentVersionLimitExceededResponse(
           parsedOutput,
@@ -13226,7 +13226,7 @@ const deserializeAws_json1_1UpdateDocumentCommandError = async (
       };
       break;
     case "DuplicateDocumentContent":
-    case "com.amazonaws.services.ssm#DuplicateDocumentContent":
+    case "com.amazonaws.ssm#DuplicateDocumentContent":
       response = {
         ...(await deserializeAws_json1_1DuplicateDocumentContentResponse(
           parsedOutput,
@@ -13237,7 +13237,7 @@ const deserializeAws_json1_1UpdateDocumentCommandError = async (
       };
       break;
     case "DuplicateDocumentVersionName":
-    case "com.amazonaws.services.ssm#DuplicateDocumentVersionName":
+    case "com.amazonaws.ssm#DuplicateDocumentVersionName":
       response = {
         ...(await deserializeAws_json1_1DuplicateDocumentVersionNameResponse(
           parsedOutput,
@@ -13248,7 +13248,7 @@ const deserializeAws_json1_1UpdateDocumentCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -13259,7 +13259,7 @@ const deserializeAws_json1_1UpdateDocumentCommandError = async (
       };
       break;
     case "InvalidDocument":
-    case "com.amazonaws.services.ssm#InvalidDocument":
+    case "com.amazonaws.ssm#InvalidDocument":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentResponse(
           parsedOutput,
@@ -13270,7 +13270,7 @@ const deserializeAws_json1_1UpdateDocumentCommandError = async (
       };
       break;
     case "InvalidDocumentContent":
-    case "com.amazonaws.services.ssm#InvalidDocumentContent":
+    case "com.amazonaws.ssm#InvalidDocumentContent":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentContentResponse(
           parsedOutput,
@@ -13281,7 +13281,7 @@ const deserializeAws_json1_1UpdateDocumentCommandError = async (
       };
       break;
     case "InvalidDocumentOperation":
-    case "com.amazonaws.services.ssm#InvalidDocumentOperation":
+    case "com.amazonaws.ssm#InvalidDocumentOperation":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentOperationResponse(
           parsedOutput,
@@ -13292,7 +13292,7 @@ const deserializeAws_json1_1UpdateDocumentCommandError = async (
       };
       break;
     case "InvalidDocumentSchemaVersion":
-    case "com.amazonaws.services.ssm#InvalidDocumentSchemaVersion":
+    case "com.amazonaws.ssm#InvalidDocumentSchemaVersion":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentSchemaVersionResponse(
           parsedOutput,
@@ -13303,7 +13303,7 @@ const deserializeAws_json1_1UpdateDocumentCommandError = async (
       };
       break;
     case "InvalidDocumentVersion":
-    case "com.amazonaws.services.ssm#InvalidDocumentVersion":
+    case "com.amazonaws.ssm#InvalidDocumentVersion":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentVersionResponse(
           parsedOutput,
@@ -13314,7 +13314,7 @@ const deserializeAws_json1_1UpdateDocumentCommandError = async (
       };
       break;
     case "MaxDocumentSizeExceeded":
-    case "com.amazonaws.services.ssm#MaxDocumentSizeExceeded":
+    case "com.amazonaws.ssm#MaxDocumentSizeExceeded":
       response = {
         ...(await deserializeAws_json1_1MaxDocumentSizeExceededResponse(
           parsedOutput,
@@ -13380,7 +13380,7 @@ const deserializeAws_json1_1UpdateDocumentDefaultVersionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -13391,7 +13391,7 @@ const deserializeAws_json1_1UpdateDocumentDefaultVersionCommandError = async (
       };
       break;
     case "InvalidDocument":
-    case "com.amazonaws.services.ssm#InvalidDocument":
+    case "com.amazonaws.ssm#InvalidDocument":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentResponse(
           parsedOutput,
@@ -13402,7 +13402,7 @@ const deserializeAws_json1_1UpdateDocumentDefaultVersionCommandError = async (
       };
       break;
     case "InvalidDocumentSchemaVersion":
-    case "com.amazonaws.services.ssm#InvalidDocumentSchemaVersion":
+    case "com.amazonaws.ssm#InvalidDocumentSchemaVersion":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentSchemaVersionResponse(
           parsedOutput,
@@ -13413,7 +13413,7 @@ const deserializeAws_json1_1UpdateDocumentDefaultVersionCommandError = async (
       };
       break;
     case "InvalidDocumentVersion":
-    case "com.amazonaws.services.ssm#InvalidDocumentVersion":
+    case "com.amazonaws.ssm#InvalidDocumentVersion":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentVersionResponse(
           parsedOutput,
@@ -13476,7 +13476,7 @@ const deserializeAws_json1_1UpdateMaintenanceWindowCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -13487,7 +13487,7 @@ const deserializeAws_json1_1UpdateMaintenanceWindowCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -13553,7 +13553,7 @@ const deserializeAws_json1_1UpdateMaintenanceWindowTargetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -13564,7 +13564,7 @@ const deserializeAws_json1_1UpdateMaintenanceWindowTargetCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -13630,7 +13630,7 @@ const deserializeAws_json1_1UpdateMaintenanceWindowTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -13641,7 +13641,7 @@ const deserializeAws_json1_1UpdateMaintenanceWindowTaskCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -13707,7 +13707,7 @@ const deserializeAws_json1_1UpdateManagedInstanceRoleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -13718,7 +13718,7 @@ const deserializeAws_json1_1UpdateManagedInstanceRoleCommandError = async (
       };
       break;
     case "InvalidInstanceId":
-    case "com.amazonaws.services.ssm#InvalidInstanceId":
+    case "com.amazonaws.ssm#InvalidInstanceId":
       response = {
         ...(await deserializeAws_json1_1InvalidInstanceIdResponse(
           parsedOutput,
@@ -13778,7 +13778,7 @@ const deserializeAws_json1_1UpdateOpsItemCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -13789,7 +13789,7 @@ const deserializeAws_json1_1UpdateOpsItemCommandError = async (
       };
       break;
     case "OpsItemAlreadyExistsException":
-    case "com.amazonaws.services.ssm#OpsItemAlreadyExistsException":
+    case "com.amazonaws.ssm#OpsItemAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1OpsItemAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -13800,7 +13800,7 @@ const deserializeAws_json1_1UpdateOpsItemCommandError = async (
       };
       break;
     case "OpsItemInvalidParameterException":
-    case "com.amazonaws.services.ssm#OpsItemInvalidParameterException":
+    case "com.amazonaws.ssm#OpsItemInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1OpsItemInvalidParameterExceptionResponse(
           parsedOutput,
@@ -13811,7 +13811,7 @@ const deserializeAws_json1_1UpdateOpsItemCommandError = async (
       };
       break;
     case "OpsItemLimitExceededException":
-    case "com.amazonaws.services.ssm#OpsItemLimitExceededException":
+    case "com.amazonaws.ssm#OpsItemLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1OpsItemLimitExceededExceptionResponse(
           parsedOutput,
@@ -13822,7 +13822,7 @@ const deserializeAws_json1_1UpdateOpsItemCommandError = async (
       };
       break;
     case "OpsItemNotFoundException":
-    case "com.amazonaws.services.ssm#OpsItemNotFoundException":
+    case "com.amazonaws.ssm#OpsItemNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OpsItemNotFoundExceptionResponse(
           parsedOutput,
@@ -13885,7 +13885,7 @@ const deserializeAws_json1_1UpdatePatchBaselineCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DoesNotExistException":
-    case "com.amazonaws.services.ssm#DoesNotExistException":
+    case "com.amazonaws.ssm#DoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(
           parsedOutput,
@@ -13896,7 +13896,7 @@ const deserializeAws_json1_1UpdatePatchBaselineCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -13959,7 +13959,7 @@ const deserializeAws_json1_1UpdateResourceDataSyncCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -13970,7 +13970,7 @@ const deserializeAws_json1_1UpdateResourceDataSyncCommandError = async (
       };
       break;
     case "ResourceDataSyncConflictException":
-    case "com.amazonaws.services.ssm#ResourceDataSyncConflictException":
+    case "com.amazonaws.ssm#ResourceDataSyncConflictException":
       response = {
         ...(await deserializeAws_json1_1ResourceDataSyncConflictExceptionResponse(
           parsedOutput,
@@ -13981,7 +13981,7 @@ const deserializeAws_json1_1UpdateResourceDataSyncCommandError = async (
       };
       break;
     case "ResourceDataSyncInvalidConfigurationException":
-    case "com.amazonaws.services.ssm#ResourceDataSyncInvalidConfigurationException":
+    case "com.amazonaws.ssm#ResourceDataSyncInvalidConfigurationException":
       response = {
         ...(await deserializeAws_json1_1ResourceDataSyncInvalidConfigurationExceptionResponse(
           parsedOutput,
@@ -13992,7 +13992,7 @@ const deserializeAws_json1_1UpdateResourceDataSyncCommandError = async (
       };
       break;
     case "ResourceDataSyncNotFoundException":
-    case "com.amazonaws.services.ssm#ResourceDataSyncNotFoundException":
+    case "com.amazonaws.ssm#ResourceDataSyncNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceDataSyncNotFoundExceptionResponse(
           parsedOutput,
@@ -14055,7 +14055,7 @@ const deserializeAws_json1_1UpdateServiceSettingCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.services.ssm#InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -14066,7 +14066,7 @@ const deserializeAws_json1_1UpdateServiceSettingCommandError = async (
       };
       break;
     case "ServiceSettingNotFound":
-    case "com.amazonaws.services.ssm#ServiceSettingNotFound":
+    case "com.amazonaws.ssm#ServiceSettingNotFound":
       response = {
         ...(await deserializeAws_json1_1ServiceSettingNotFoundResponse(
           parsedOutput,
@@ -14077,7 +14077,7 @@ const deserializeAws_json1_1UpdateServiceSettingCommandError = async (
       };
       break;
     case "TooManyUpdates":
-    case "com.amazonaws.services.ssm#TooManyUpdates":
+    case "com.amazonaws.ssm#TooManyUpdates":
       response = {
         ...(await deserializeAws_json1_1TooManyUpdatesResponse(
           parsedOutput,
@@ -16948,6 +16948,25 @@ const serializeAws_json1_1DescribeActivationsRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeAssociationExecutionsRequest = (
+  input: DescribeAssociationExecutionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AssociationId !== undefined && {
+      AssociationId: input.AssociationId
+    }),
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_json1_1AssociationExecutionFilterList(
+        input.Filters,
+        context
+      )
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
+};
+
 const serializeAws_json1_1DescribeAssociationExecutionTargetsRequest = (
   input: DescribeAssociationExecutionTargetsRequest,
   context: __SerdeContext
@@ -16959,25 +16978,6 @@ const serializeAws_json1_1DescribeAssociationExecutionTargetsRequest = (
     ...(input.ExecutionId !== undefined && { ExecutionId: input.ExecutionId }),
     ...(input.Filters !== undefined && {
       Filters: serializeAws_json1_1AssociationExecutionTargetsFilterList(
-        input.Filters,
-        context
-      )
-    }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
-  };
-};
-
-const serializeAws_json1_1DescribeAssociationExecutionsRequest = (
-  input: DescribeAssociationExecutionsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AssociationId !== undefined && {
-      AssociationId: input.AssociationId
-    }),
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1AssociationExecutionFilterList(
         input.Filters,
         context
       )
@@ -17137,6 +17137,23 @@ const serializeAws_json1_1DescribeInstanceInformationRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeInstancePatchesRequest = (
+  input: DescribeInstancePatchesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_json1_1PatchOrchestratorFilterList(
+        input.Filters,
+        context
+      )
+    }),
+    ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
+};
+
 const serializeAws_json1_1DescribeInstancePatchStatesForPatchGroupRequest = (
   input: DescribeInstancePatchStatesForPatchGroupRequest,
   context: __SerdeContext
@@ -17170,23 +17187,6 @@ const serializeAws_json1_1DescribeInstancePatchStatesRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeInstancePatchesRequest = (
-  input: DescribeInstancePatchesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1PatchOrchestratorFilterList(
-        input.Filters,
-        context
-      )
-    }),
-    ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
-  };
-};
-
 const serializeAws_json1_1DescribeInventoryDeletionsRequest = (
   input: DescribeInventoryDeletionsRequest,
   context: __SerdeContext
@@ -17195,6 +17195,23 @@ const serializeAws_json1_1DescribeInventoryDeletionsRequest = (
     ...(input.DeletionId !== undefined && { DeletionId: input.DeletionId }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
+};
+
+const serializeAws_json1_1DescribeMaintenanceWindowExecutionsRequest = (
+  input: DescribeMaintenanceWindowExecutionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_json1_1MaintenanceWindowFilterList(
+        input.Filters,
+        context
+      )
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.WindowId !== undefined && { WindowId: input.WindowId })
   };
 };
 
@@ -17237,23 +17254,6 @@ const serializeAws_json1_1DescribeMaintenanceWindowExecutionTasksRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeMaintenanceWindowExecutionsRequest = (
-  input: DescribeMaintenanceWindowExecutionsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1MaintenanceWindowFilterList(
-        input.Filters,
-        context
-      )
-    }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.WindowId !== undefined && { WindowId: input.WindowId })
-  };
-};
-
 const serializeAws_json1_1DescribeMaintenanceWindowScheduleRequest = (
   input: DescribeMaintenanceWindowScheduleRequest,
   context: __SerdeContext
@@ -17274,6 +17274,38 @@ const serializeAws_json1_1DescribeMaintenanceWindowScheduleRequest = (
       Targets: serializeAws_json1_1Targets(input.Targets, context)
     }),
     ...(input.WindowId !== undefined && { WindowId: input.WindowId })
+  };
+};
+
+const serializeAws_json1_1DescribeMaintenanceWindowsForTargetRequest = (
+  input: DescribeMaintenanceWindowsForTargetRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ResourceType !== undefined && {
+      ResourceType: input.ResourceType
+    }),
+    ...(input.Targets !== undefined && {
+      Targets: serializeAws_json1_1Targets(input.Targets, context)
+    })
+  };
+};
+
+const serializeAws_json1_1DescribeMaintenanceWindowsRequest = (
+  input: DescribeMaintenanceWindowsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_json1_1MaintenanceWindowFilterList(
+        input.Filters,
+        context
+      )
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
   };
 };
 
@@ -17308,38 +17340,6 @@ const serializeAws_json1_1DescribeMaintenanceWindowTasksRequest = (
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.WindowId !== undefined && { WindowId: input.WindowId })
-  };
-};
-
-const serializeAws_json1_1DescribeMaintenanceWindowsForTargetRequest = (
-  input: DescribeMaintenanceWindowsForTargetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType
-    }),
-    ...(input.Targets !== undefined && {
-      Targets: serializeAws_json1_1Targets(input.Targets, context)
-    })
-  };
-};
-
-const serializeAws_json1_1DescribeMaintenanceWindowsRequest = (
-  input: DescribeMaintenanceWindowsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1MaintenanceWindowFilterList(
-        input.Filters,
-        context
-      )
-    }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
   };
 };
 
@@ -17394,15 +17394,6 @@ const serializeAws_json1_1DescribePatchBaselinesRequest = (
   };
 };
 
-const serializeAws_json1_1DescribePatchGroupStateRequest = (
-  input: DescribePatchGroupStateRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.PatchGroup !== undefined && { PatchGroup: input.PatchGroup })
-  };
-};
-
 const serializeAws_json1_1DescribePatchGroupsRequest = (
   input: DescribePatchGroupsRequest,
   context: __SerdeContext
@@ -17416,6 +17407,15 @@ const serializeAws_json1_1DescribePatchGroupsRequest = (
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
+};
+
+const serializeAws_json1_1DescribePatchGroupStateRequest = (
+  input: DescribePatchGroupStateRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PatchGroup !== undefined && { PatchGroup: input.PatchGroup })
   };
 };
 
@@ -18097,19 +18097,6 @@ const serializeAws_json1_1LabelParameterVersionRequest = (
   };
 };
 
-const serializeAws_json1_1ListAssociationVersionsRequest = (
-  input: ListAssociationVersionsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AssociationId !== undefined && {
-      AssociationId: input.AssociationId
-    }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
-  };
-};
-
 const serializeAws_json1_1ListAssociationsRequest = (
   input: ListAssociationsRequest,
   context: __SerdeContext
@@ -18120,6 +18107,19 @@ const serializeAws_json1_1ListAssociationsRequest = (
         input.AssociationFilterList,
         context
       )
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
+};
+
+const serializeAws_json1_1ListAssociationVersionsRequest = (
+  input: ListAssociationVersionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AssociationId !== undefined && {
+      AssociationId: input.AssociationId
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken })
@@ -18201,17 +18201,6 @@ const serializeAws_json1_1ListComplianceSummariesRequest = (
   };
 };
 
-const serializeAws_json1_1ListDocumentVersionsRequest = (
-  input: ListDocumentVersionsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
-  };
-};
-
 const serializeAws_json1_1ListDocumentsRequest = (
   input: ListDocumentsRequest,
   context: __SerdeContext
@@ -18230,6 +18219,17 @@ const serializeAws_json1_1ListDocumentsRequest = (
       )
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
+};
+
+const serializeAws_json1_1ListDocumentVersionsRequest = (
+  input: ListDocumentVersionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken })
   };
 };
@@ -18451,6 +18451,25 @@ const serializeAws_json1_1MaintenanceWindowTaskInvocationParameters = (
   };
 };
 
+const serializeAws_json1_1MaintenanceWindowTaskParameters = (
+  input: { [key: string]: MaintenanceWindowTaskParameterValueExpression },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce(
+    (
+      acc: { [key: string]: MaintenanceWindowTaskParameterValueExpression },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: serializeAws_json1_1MaintenanceWindowTaskParameterValueExpression(
+        value,
+        context
+      )
+    }),
+    {}
+  );
+};
+
 const serializeAws_json1_1MaintenanceWindowTaskParameterValueExpression = (
   input: MaintenanceWindowTaskParameterValueExpression,
   context: __SerdeContext
@@ -18470,25 +18489,6 @@ const serializeAws_json1_1MaintenanceWindowTaskParameterValueList = (
   context: __SerdeContext
 ): any => {
   return input.map(entry => entry);
-};
-
-const serializeAws_json1_1MaintenanceWindowTaskParameters = (
-  input: { [key: string]: MaintenanceWindowTaskParameterValueExpression },
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce(
-    (
-      acc: { [key: string]: MaintenanceWindowTaskParameterValueExpression },
-      [key, value]: [string, any]
-    ) => ({
-      ...acc,
-      [key]: serializeAws_json1_1MaintenanceWindowTaskParameterValueExpression(
-        value,
-        context
-      )
-    }),
-    {}
-  );
 };
 
 const serializeAws_json1_1ModifyDocumentPermissionRequest = (
@@ -18642,18 +18642,18 @@ const serializeAws_json1_1OpsItemFilter = (
   };
 };
 
-const serializeAws_json1_1OpsItemFilterValues = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
 const serializeAws_json1_1OpsItemFilters = (
   input: OpsItemFilter[],
   context: __SerdeContext
 ): any => {
   return input.map(entry => serializeAws_json1_1OpsItemFilter(entry, context));
+};
+
+const serializeAws_json1_1OpsItemFilterValues = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1OpsItemNotification = (
@@ -18729,45 +18729,6 @@ const serializeAws_json1_1ParameterNameList = (
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1ParameterStringFilter = (
-  input: ParameterStringFilter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Option !== undefined && { Option: input.Option }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_json1_1ParameterStringFilterValueList(
-        input.Values,
-        context
-      )
-    })
-  };
-};
-
-const serializeAws_json1_1ParameterStringFilterList = (
-  input: ParameterStringFilter[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_1ParameterStringFilter(entry, context)
-  );
-};
-
-const serializeAws_json1_1ParameterStringFilterValueList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
-const serializeAws_json1_1ParameterValueList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
 const serializeAws_json1_1Parameters = (
   input: { [key: string]: string[] },
   context: __SerdeContext
@@ -18806,6 +18767,45 @@ const serializeAws_json1_1ParametersFilterList = (
 };
 
 const serializeAws_json1_1ParametersFilterValueList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
+};
+
+const serializeAws_json1_1ParameterStringFilter = (
+  input: ParameterStringFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Option !== undefined && { Option: input.Option }),
+    ...(input.Values !== undefined && {
+      Values: serializeAws_json1_1ParameterStringFilterValueList(
+        input.Values,
+        context
+      )
+    })
+  };
+};
+
+const serializeAws_json1_1ParameterStringFilterList = (
+  input: ParameterStringFilter[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry =>
+    serializeAws_json1_1ParameterStringFilter(entry, context)
+  );
+};
+
+const serializeAws_json1_1ParameterStringFilterValueList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
+};
+
+const serializeAws_json1_1ParameterValueList = (
   input: string[],
   context: __SerdeContext
 ): any => {
@@ -19377,13 +19377,6 @@ const serializeAws_json1_1SessionFilterList = (
   return input.map(entry => serializeAws_json1_1SessionFilter(entry, context));
 };
 
-const serializeAws_json1_1SessionManagerParameterValueList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
 const serializeAws_json1_1SessionManagerParameters = (
   input: { [key: string]: string[] },
   context: __SerdeContext
@@ -19398,6 +19391,13 @@ const serializeAws_json1_1SessionManagerParameters = (
     }),
     {}
   );
+};
+
+const serializeAws_json1_1SessionManagerParameterValueList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1StartAssociationsOnceRequest = (
@@ -19595,13 +19595,6 @@ const serializeAws_json1_1TargetMap = (
   );
 };
 
-const serializeAws_json1_1TargetMapValueList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
 const serializeAws_json1_1TargetMaps = (
   input: { [key: string]: string[] }[],
   context: __SerdeContext
@@ -19609,7 +19602,7 @@ const serializeAws_json1_1TargetMaps = (
   return input.map(entry => serializeAws_json1_1TargetMap(entry, context));
 };
 
-const serializeAws_json1_1TargetValues = (
+const serializeAws_json1_1TargetMapValueList = (
   input: string[],
   context: __SerdeContext
 ): any => {
@@ -19621,6 +19614,13 @@ const serializeAws_json1_1Targets = (
   context: __SerdeContext
 ): any => {
   return input.map(entry => serializeAws_json1_1Target(entry, context));
+};
+
+const serializeAws_json1_1TargetValues = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TerminateSessionRequest = (
@@ -19949,6 +19949,13 @@ const deserializeAws_json1_1AccountIdList = (
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_json1_1Accounts = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_1AccountSharingInfo = (
   output: any,
   context: __SerdeContext
@@ -19974,13 +19981,6 @@ const deserializeAws_json1_1AccountSharingInfoList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AccountSharingInfo(entry, context)
   );
-};
-
-const deserializeAws_json1_1Accounts = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1Activation = (
@@ -20314,6 +20314,15 @@ const deserializeAws_json1_1AssociationExecutionDoesNotExist = (
   } as any;
 };
 
+const deserializeAws_json1_1AssociationExecutionsList = (
+  output: any,
+  context: __SerdeContext
+): AssociationExecution[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1AssociationExecution(entry, context)
+  );
+};
+
 const deserializeAws_json1_1AssociationExecutionTarget = (
   output: any,
   context: __SerdeContext
@@ -20367,15 +20376,6 @@ const deserializeAws_json1_1AssociationExecutionTargetsList = (
 ): AssociationExecutionTarget[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AssociationExecutionTarget(entry, context)
-  );
-};
-
-const deserializeAws_json1_1AssociationExecutionsList = (
-  output: any,
-  context: __SerdeContext
-): AssociationExecution[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1AssociationExecution(entry, context)
   );
 };
 
@@ -21807,27 +21807,6 @@ const deserializeAws_json1_1DescribeActivationsResult = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeAssociationExecutionTargetsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeAssociationExecutionTargetsResult => {
-  return {
-    __type: "DescribeAssociationExecutionTargetsResult",
-    AssociationExecutionTargets:
-      output.AssociationExecutionTargets !== undefined &&
-      output.AssociationExecutionTargets !== null
-        ? deserializeAws_json1_1AssociationExecutionTargetsList(
-            output.AssociationExecutionTargets,
-            context
-          )
-        : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1DescribeAssociationExecutionsResult = (
   output: any,
   context: __SerdeContext
@@ -21839,6 +21818,27 @@ const deserializeAws_json1_1DescribeAssociationExecutionsResult = (
       output.AssociationExecutions !== null
         ? deserializeAws_json1_1AssociationExecutionsList(
             output.AssociationExecutions,
+            context
+          )
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeAssociationExecutionTargetsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeAssociationExecutionTargetsResult => {
+  return {
+    __type: "DescribeAssociationExecutionTargetsResult",
+    AssociationExecutionTargets:
+      output.AssociationExecutionTargets !== undefined &&
+      output.AssociationExecutionTargets !== null
+        ? deserializeAws_json1_1AssociationExecutionTargetsList(
+            output.AssociationExecutionTargets,
             context
           )
         : undefined,
@@ -22040,6 +22040,23 @@ const deserializeAws_json1_1DescribeInstanceInformationResult = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeInstancePatchesResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeInstancePatchesResult => {
+  return {
+    __type: "DescribeInstancePatchesResult",
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Patches:
+      output.Patches !== undefined && output.Patches !== null
+        ? deserializeAws_json1_1PatchComplianceDataList(output.Patches, context)
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeInstancePatchStatesForPatchGroupResult = (
   output: any,
   context: __SerdeContext
@@ -22082,23 +22099,6 @@ const deserializeAws_json1_1DescribeInstancePatchStatesResult = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeInstancePatchesResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeInstancePatchesResult => {
-  return {
-    __type: "DescribeInstancePatchesResult",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
-    Patches:
-      output.Patches !== undefined && output.Patches !== null
-        ? deserializeAws_json1_1PatchComplianceDataList(output.Patches, context)
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1DescribeInventoryDeletionsResult = (
   output: any,
   context: __SerdeContext
@@ -22116,6 +22116,26 @@ const deserializeAws_json1_1DescribeInventoryDeletionsResult = (
     NextToken:
       output.NextToken !== undefined && output.NextToken !== null
         ? output.NextToken
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeMaintenanceWindowExecutionsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeMaintenanceWindowExecutionsResult => {
+  return {
+    __type: "DescribeMaintenanceWindowExecutionsResult",
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    WindowExecutions:
+      output.WindowExecutions !== undefined && output.WindowExecutions !== null
+        ? deserializeAws_json1_1MaintenanceWindowExecutionList(
+            output.WindowExecutions,
+            context
+          )
         : undefined
   } as any;
 };
@@ -22162,26 +22182,6 @@ const deserializeAws_json1_1DescribeMaintenanceWindowExecutionTasksResult = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeMaintenanceWindowExecutionsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeMaintenanceWindowExecutionsResult => {
-  return {
-    __type: "DescribeMaintenanceWindowExecutionsResult",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
-    WindowExecutions:
-      output.WindowExecutions !== undefined && output.WindowExecutions !== null
-        ? deserializeAws_json1_1MaintenanceWindowExecutionList(
-            output.WindowExecutions,
-            context
-          )
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1DescribeMaintenanceWindowScheduleResult = (
   output: any,
   context: __SerdeContext
@@ -22199,43 +22199,6 @@ const deserializeAws_json1_1DescribeMaintenanceWindowScheduleResult = (
             output.ScheduledWindowExecutions,
             context
           )
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeMaintenanceWindowTargetsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeMaintenanceWindowTargetsResult => {
-  return {
-    __type: "DescribeMaintenanceWindowTargetsResult",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
-    Targets:
-      output.Targets !== undefined && output.Targets !== null
-        ? deserializeAws_json1_1MaintenanceWindowTargetList(
-            output.Targets,
-            context
-          )
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeMaintenanceWindowTasksResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeMaintenanceWindowTasksResult => {
-  return {
-    __type: "DescribeMaintenanceWindowTasksResult",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
-    Tasks:
-      output.Tasks !== undefined && output.Tasks !== null
-        ? deserializeAws_json1_1MaintenanceWindowTaskList(output.Tasks, context)
         : undefined
   } as any;
 };
@@ -22276,6 +22239,43 @@ const deserializeAws_json1_1DescribeMaintenanceWindowsResult = (
             output.WindowIdentities,
             context
           )
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeMaintenanceWindowTargetsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeMaintenanceWindowTargetsResult => {
+  return {
+    __type: "DescribeMaintenanceWindowTargetsResult",
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Targets:
+      output.Targets !== undefined && output.Targets !== null
+        ? deserializeAws_json1_1MaintenanceWindowTargetList(
+            output.Targets,
+            context
+          )
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeMaintenanceWindowTasksResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeMaintenanceWindowTasksResult => {
+  return {
+    __type: "DescribeMaintenanceWindowTasksResult",
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Tasks:
+      output.Tasks !== undefined && output.Tasks !== null
+        ? deserializeAws_json1_1MaintenanceWindowTaskList(output.Tasks, context)
         : undefined
   } as any;
 };
@@ -22341,6 +22341,26 @@ const deserializeAws_json1_1DescribePatchBaselinesResult = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribePatchGroupsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribePatchGroupsResult => {
+  return {
+    __type: "DescribePatchGroupsResult",
+    Mappings:
+      output.Mappings !== undefined && output.Mappings !== null
+        ? deserializeAws_json1_1PatchGroupPatchBaselineMappingList(
+            output.Mappings,
+            context
+          )
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1DescribePatchGroupStateResult = (
   output: any,
   context: __SerdeContext
@@ -22390,26 +22410,6 @@ const deserializeAws_json1_1DescribePatchGroupStateResult = (
       output.InstancesWithUnreportedNotApplicablePatches !== undefined &&
       output.InstancesWithUnreportedNotApplicablePatches !== null
         ? output.InstancesWithUnreportedNotApplicablePatches
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1DescribePatchGroupsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribePatchGroupsResult => {
-  return {
-    __type: "DescribePatchGroupsResult",
-    Mappings:
-      output.Mappings !== undefined && output.Mappings !== null
-        ? deserializeAws_json1_1PatchGroupPatchBaselineMappingList(
-            output.Mappings,
-            context
-          )
-        : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
         : undefined
   } as any;
 };
@@ -24762,6 +24762,15 @@ const deserializeAws_json1_1InvalidUpdate = (
   } as any;
 };
 
+const deserializeAws_json1_1InventoryDeletionsList = (
+  output: any,
+  context: __SerdeContext
+): InventoryDeletionStatusItem[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1InventoryDeletionStatusItem(entry, context)
+  );
+};
+
 const deserializeAws_json1_1InventoryDeletionStatusItem = (
   output: any,
   context: __SerdeContext
@@ -24856,15 +24865,6 @@ const deserializeAws_json1_1InventoryDeletionSummaryItems = (
 ): InventoryDeletionSummaryItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1InventoryDeletionSummaryItem(entry, context)
-  );
-};
-
-const deserializeAws_json1_1InventoryDeletionsList = (
-  output: any,
-  context: __SerdeContext
-): InventoryDeletionStatusItem[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1InventoryDeletionStatusItem(entry, context)
   );
 };
 
@@ -25084,6 +25084,23 @@ const deserializeAws_json1_1LabelParameterVersionResult = (
   } as any;
 };
 
+const deserializeAws_json1_1ListAssociationsResult = (
+  output: any,
+  context: __SerdeContext
+): ListAssociationsResult => {
+  return {
+    __type: "ListAssociationsResult",
+    Associations:
+      output.Associations !== undefined && output.Associations !== null
+        ? deserializeAws_json1_1AssociationList(output.Associations, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1ListAssociationVersionsResult = (
   output: any,
   context: __SerdeContext
@@ -25097,23 +25114,6 @@ const deserializeAws_json1_1ListAssociationVersionsResult = (
             output.AssociationVersions,
             context
           )
-        : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ListAssociationsResult = (
-  output: any,
-  context: __SerdeContext
-): ListAssociationsResult => {
-  return {
-    __type: "ListAssociationsResult",
-    Associations:
-      output.Associations !== undefined && output.Associations !== null
-        ? deserializeAws_json1_1AssociationList(output.Associations, context)
         : undefined,
     NextToken:
       output.NextToken !== undefined && output.NextToken !== null
@@ -25201,26 +25201,6 @@ const deserializeAws_json1_1ListComplianceSummariesResult = (
   } as any;
 };
 
-const deserializeAws_json1_1ListDocumentVersionsResult = (
-  output: any,
-  context: __SerdeContext
-): ListDocumentVersionsResult => {
-  return {
-    __type: "ListDocumentVersionsResult",
-    DocumentVersions:
-      output.DocumentVersions !== undefined && output.DocumentVersions !== null
-        ? deserializeAws_json1_1DocumentVersionList(
-            output.DocumentVersions,
-            context
-          )
-        : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1ListDocumentsResult = (
   output: any,
   context: __SerdeContext
@@ -25232,6 +25212,26 @@ const deserializeAws_json1_1ListDocumentsResult = (
       output.DocumentIdentifiers !== null
         ? deserializeAws_json1_1DocumentIdentifierList(
             output.DocumentIdentifiers,
+            context
+          )
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ListDocumentVersionsResult = (
+  output: any,
+  context: __SerdeContext
+): ListDocumentVersionsResult => {
+  return {
+    __type: "ListDocumentVersionsResult",
+    DocumentVersions:
+      output.DocumentVersions !== undefined && output.DocumentVersions !== null
+        ? deserializeAws_json1_1DocumentVersionList(
+            output.DocumentVersions,
             context
           )
         : undefined,
@@ -25414,13 +25414,6 @@ const deserializeAws_json1_1MaintenanceWindowExecutionList = (
   );
 };
 
-const deserializeAws_json1_1MaintenanceWindowExecutionTaskIdList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
 const deserializeAws_json1_1MaintenanceWindowExecutionTaskIdentity = (
   output: any,
   context: __SerdeContext
@@ -25470,6 +25463,13 @@ const deserializeAws_json1_1MaintenanceWindowExecutionTaskIdentityList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MaintenanceWindowExecutionTaskIdentity(entry, context)
   );
+};
+
+const deserializeAws_json1_1MaintenanceWindowExecutionTaskIdList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1MaintenanceWindowExecutionTaskInvocationIdentity = (
@@ -25706,6 +25706,15 @@ const deserializeAws_json1_1MaintenanceWindowRunCommandParameters = (
   } as any;
 };
 
+const deserializeAws_json1_1MaintenanceWindowsForTargetList = (
+  output: any,
+  context: __SerdeContext
+): MaintenanceWindowIdentityForTarget[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1MaintenanceWindowIdentityForTarget(entry, context)
+  );
+};
+
 const deserializeAws_json1_1MaintenanceWindowStepFunctionsParameters = (
   output: any,
   context: __SerdeContext
@@ -25879,29 +25888,6 @@ const deserializeAws_json1_1MaintenanceWindowTaskList = (
   );
 };
 
-const deserializeAws_json1_1MaintenanceWindowTaskParameterValueExpression = (
-  output: any,
-  context: __SerdeContext
-): MaintenanceWindowTaskParameterValueExpression => {
-  return {
-    __type: "MaintenanceWindowTaskParameterValueExpression",
-    Values:
-      output.Values !== undefined && output.Values !== null
-        ? deserializeAws_json1_1MaintenanceWindowTaskParameterValueList(
-            output.Values,
-            context
-          )
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1MaintenanceWindowTaskParameterValueList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
 const deserializeAws_json1_1MaintenanceWindowTaskParameters = (
   output: any,
   context: __SerdeContext
@@ -25930,13 +25916,27 @@ const deserializeAws_json1_1MaintenanceWindowTaskParametersList = (
   );
 };
 
-const deserializeAws_json1_1MaintenanceWindowsForTargetList = (
+const deserializeAws_json1_1MaintenanceWindowTaskParameterValueExpression = (
   output: any,
   context: __SerdeContext
-): MaintenanceWindowIdentityForTarget[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1MaintenanceWindowIdentityForTarget(entry, context)
-  );
+): MaintenanceWindowTaskParameterValueExpression => {
+  return {
+    __type: "MaintenanceWindowTaskParameterValueExpression",
+    Values:
+      output.Values !== undefined && output.Values !== null
+        ? deserializeAws_json1_1MaintenanceWindowTaskParameterValueList(
+            output.Values,
+            context
+          )
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1MaintenanceWindowTaskParameterValueList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1MaxDocumentSizeExceeded = (
@@ -26683,6 +26683,19 @@ const deserializeAws_json1_1ParameterPolicyList = (
   );
 };
 
+const deserializeAws_json1_1Parameters = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string[] } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1ParameterValueList(value, context)
+    }),
+    {}
+  );
+};
+
 const deserializeAws_json1_1ParameterValueList = (
   output: any,
   context: __SerdeContext
@@ -26714,19 +26727,6 @@ const deserializeAws_json1_1ParameterVersionNotFound = (
         ? output.message
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1Parameters = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string[] } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
-      ...acc,
-      [key]: deserializeAws_json1_1ParameterValueList(value, context)
-    }),
-    {}
-  );
 };
 
 const deserializeAws_json1_1Patch = (
@@ -28211,13 +28211,6 @@ const deserializeAws_json1_1TargetMap = (
   );
 };
 
-const deserializeAws_json1_1TargetMapValueList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
 const deserializeAws_json1_1TargetMaps = (
   output: any,
   context: __SerdeContext
@@ -28225,6 +28218,13 @@ const deserializeAws_json1_1TargetMaps = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TargetMap(entry, context)
   );
+};
+
+const deserializeAws_json1_1TargetMapValueList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1TargetNotConnected = (
@@ -28247,13 +28247,6 @@ const deserializeAws_json1_1TargetParameterList = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1TargetValues = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
 const deserializeAws_json1_1Targets = (
   output: any,
   context: __SerdeContext
@@ -28261,6 +28254,13 @@ const deserializeAws_json1_1Targets = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Target(entry, context)
   );
+};
+
+const deserializeAws_json1_1TargetValues = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1TerminateSessionResponse = (

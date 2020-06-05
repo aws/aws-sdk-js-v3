@@ -74,7 +74,7 @@ const deserializeAws_json1_1QueryForecastCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.seer.queryservice#InvalidInputException":
+    case "com.amazonaws.forecastquery#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -85,7 +85,7 @@ const deserializeAws_json1_1QueryForecastCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.seer.queryservice#InvalidNextTokenException":
+    case "com.amazonaws.forecastquery#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -96,7 +96,7 @@ const deserializeAws_json1_1QueryForecastCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.seer.queryservice#LimitExceededException":
+    case "com.amazonaws.forecastquery#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -107,7 +107,7 @@ const deserializeAws_json1_1QueryForecastCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.seer.queryservice#ResourceInUseException":
+    case "com.amazonaws.forecastquery#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -118,7 +118,7 @@ const deserializeAws_json1_1QueryForecastCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.seer.queryservice#ResourceNotFoundException":
+    case "com.amazonaws.forecastquery#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,

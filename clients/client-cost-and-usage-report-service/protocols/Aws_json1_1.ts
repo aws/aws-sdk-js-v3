@@ -143,7 +143,7 @@ const deserializeAws_json1_1DeleteReportDefinitionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.awsorigamiservicegateway#InternalErrorException":
+    case "com.amazonaws.costandusagereportservice#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -154,7 +154,7 @@ const deserializeAws_json1_1DeleteReportDefinitionCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.awsorigamiservicegateway#ValidationException":
+    case "com.amazonaws.costandusagereportservice#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -220,7 +220,7 @@ const deserializeAws_json1_1DescribeReportDefinitionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.awsorigamiservicegateway#InternalErrorException":
+    case "com.amazonaws.costandusagereportservice#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -286,7 +286,7 @@ const deserializeAws_json1_1ModifyReportDefinitionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.awsorigamiservicegateway#InternalErrorException":
+    case "com.amazonaws.costandusagereportservice#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -297,7 +297,7 @@ const deserializeAws_json1_1ModifyReportDefinitionCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.awsorigamiservicegateway#ValidationException":
+    case "com.amazonaws.costandusagereportservice#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -360,7 +360,7 @@ const deserializeAws_json1_1PutReportDefinitionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateReportNameException":
-    case "com.amazonaws.awsorigamiservicegateway#DuplicateReportNameException":
+    case "com.amazonaws.costandusagereportservice#DuplicateReportNameException":
       response = {
         ...(await deserializeAws_json1_1DuplicateReportNameExceptionResponse(
           parsedOutput,
@@ -371,7 +371,7 @@ const deserializeAws_json1_1PutReportDefinitionCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.awsorigamiservicegateway#InternalErrorException":
+    case "com.amazonaws.costandusagereportservice#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -382,7 +382,7 @@ const deserializeAws_json1_1PutReportDefinitionCommandError = async (
       };
       break;
     case "ReportLimitReachedException":
-    case "com.amazonaws.awsorigamiservicegateway#ReportLimitReachedException":
+    case "com.amazonaws.costandusagereportservice#ReportLimitReachedException":
       response = {
         ...(await deserializeAws_json1_1ReportLimitReachedExceptionResponse(
           parsedOutput,
@@ -393,7 +393,7 @@ const deserializeAws_json1_1PutReportDefinitionCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.awsorigamiservicegateway#ValidationException":
+    case "com.amazonaws.costandusagereportservice#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,

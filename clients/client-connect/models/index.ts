@@ -33,602 +33,8 @@ export namespace ChatMessage {
   export const isa = (o: any): o is ChatMessage => __isa(o, "ChatMessage");
 }
 
-export enum ContactFlowType {
-  AGENT_HOLD = "AGENT_HOLD",
-  AGENT_TRANSFER = "AGENT_TRANSFER",
-  AGENT_WHISPER = "AGENT_WHISPER",
-  CONTACT_FLOW = "CONTACT_FLOW",
-  CUSTOMER_HOLD = "CUSTOMER_HOLD",
-  CUSTOMER_QUEUE = "CUSTOMER_QUEUE",
-  CUSTOMER_WHISPER = "CUSTOMER_WHISPER",
-  OUTBOUND_WHISPER = "OUTBOUND_WHISPER",
-  QUEUE_TRANSFER = "QUEUE_TRANSFER"
-}
-
-/**
- * <p>The customer's details.</p>
- */
-export interface ParticipantDetails {
-  __type?: "ParticipantDetails";
-  /**
-   * <p>Display name of the participant.</p>
-   */
-  DisplayName: string | undefined;
-}
-
-export namespace ParticipantDetails {
-  export const filterSensitiveLog = (obj: ParticipantDetails): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ParticipantDetails =>
-    __isa(o, "ParticipantDetails");
-}
-
-export enum PhoneNumberCountryCode {
-  AD = "AD",
-  AE = "AE",
-  AF = "AF",
-  AG = "AG",
-  AI = "AI",
-  AL = "AL",
-  AM = "AM",
-  AN = "AN",
-  AO = "AO",
-  AQ = "AQ",
-  AR = "AR",
-  AS = "AS",
-  AT = "AT",
-  AU = "AU",
-  AW = "AW",
-  AZ = "AZ",
-  BA = "BA",
-  BB = "BB",
-  BD = "BD",
-  BE = "BE",
-  BF = "BF",
-  BG = "BG",
-  BH = "BH",
-  BI = "BI",
-  BJ = "BJ",
-  BL = "BL",
-  BM = "BM",
-  BN = "BN",
-  BO = "BO",
-  BR = "BR",
-  BS = "BS",
-  BT = "BT",
-  BW = "BW",
-  BY = "BY",
-  BZ = "BZ",
-  CA = "CA",
-  CC = "CC",
-  CD = "CD",
-  CF = "CF",
-  CG = "CG",
-  CH = "CH",
-  CI = "CI",
-  CK = "CK",
-  CL = "CL",
-  CM = "CM",
-  CN = "CN",
-  CO = "CO",
-  CR = "CR",
-  CU = "CU",
-  CV = "CV",
-  CW = "CW",
-  CX = "CX",
-  CY = "CY",
-  CZ = "CZ",
-  DE = "DE",
-  DJ = "DJ",
-  DK = "DK",
-  DM = "DM",
-  DO = "DO",
-  DZ = "DZ",
-  EC = "EC",
-  EE = "EE",
-  EG = "EG",
-  EH = "EH",
-  ER = "ER",
-  ES = "ES",
-  ET = "ET",
-  FI = "FI",
-  FJ = "FJ",
-  FK = "FK",
-  FM = "FM",
-  FO = "FO",
-  FR = "FR",
-  GA = "GA",
-  GB = "GB",
-  GD = "GD",
-  GE = "GE",
-  GG = "GG",
-  GH = "GH",
-  GI = "GI",
-  GL = "GL",
-  GM = "GM",
-  GN = "GN",
-  GQ = "GQ",
-  GR = "GR",
-  GT = "GT",
-  GU = "GU",
-  GW = "GW",
-  GY = "GY",
-  HK = "HK",
-  HN = "HN",
-  HR = "HR",
-  HT = "HT",
-  HU = "HU",
-  ID = "ID",
-  IE = "IE",
-  IL = "IL",
-  IM = "IM",
-  IN = "IN",
-  IO = "IO",
-  IQ = "IQ",
-  IR = "IR",
-  IS = "IS",
-  IT = "IT",
-  JE = "JE",
-  JM = "JM",
-  JO = "JO",
-  JP = "JP",
-  KE = "KE",
-  KG = "KG",
-  KH = "KH",
-  KI = "KI",
-  KM = "KM",
-  KN = "KN",
-  KP = "KP",
-  KR = "KR",
-  KW = "KW",
-  KY = "KY",
-  KZ = "KZ",
-  LA = "LA",
-  LB = "LB",
-  LC = "LC",
-  LI = "LI",
-  LK = "LK",
-  LR = "LR",
-  LS = "LS",
-  LT = "LT",
-  LU = "LU",
-  LV = "LV",
-  LY = "LY",
-  MA = "MA",
-  MC = "MC",
-  MD = "MD",
-  ME = "ME",
-  MF = "MF",
-  MG = "MG",
-  MH = "MH",
-  MK = "MK",
-  ML = "ML",
-  MM = "MM",
-  MN = "MN",
-  MO = "MO",
-  MP = "MP",
-  MR = "MR",
-  MS = "MS",
-  MT = "MT",
-  MU = "MU",
-  MV = "MV",
-  MW = "MW",
-  MX = "MX",
-  MY = "MY",
-  MZ = "MZ",
-  NA = "NA",
-  NC = "NC",
-  NE = "NE",
-  NG = "NG",
-  NI = "NI",
-  NL = "NL",
-  NO = "NO",
-  NP = "NP",
-  NR = "NR",
-  NU = "NU",
-  NZ = "NZ",
-  OM = "OM",
-  PA = "PA",
-  PE = "PE",
-  PF = "PF",
-  PG = "PG",
-  PH = "PH",
-  PK = "PK",
-  PL = "PL",
-  PM = "PM",
-  PN = "PN",
-  PR = "PR",
-  PT = "PT",
-  PW = "PW",
-  PY = "PY",
-  QA = "QA",
-  RE = "RE",
-  RO = "RO",
-  RS = "RS",
-  RU = "RU",
-  RW = "RW",
-  SA = "SA",
-  SB = "SB",
-  SC = "SC",
-  SD = "SD",
-  SE = "SE",
-  SG = "SG",
-  SH = "SH",
-  SI = "SI",
-  SJ = "SJ",
-  SK = "SK",
-  SL = "SL",
-  SM = "SM",
-  SN = "SN",
-  SO = "SO",
-  SR = "SR",
-  ST = "ST",
-  SV = "SV",
-  SX = "SX",
-  SY = "SY",
-  SZ = "SZ",
-  TC = "TC",
-  TD = "TD",
-  TG = "TG",
-  TH = "TH",
-  TJ = "TJ",
-  TK = "TK",
-  TL = "TL",
-  TM = "TM",
-  TN = "TN",
-  TO = "TO",
-  TR = "TR",
-  TT = "TT",
-  TV = "TV",
-  TW = "TW",
-  TZ = "TZ",
-  UA = "UA",
-  UG = "UG",
-  US = "US",
-  UY = "UY",
-  UZ = "UZ",
-  VA = "VA",
-  VC = "VC",
-  VE = "VE",
-  VG = "VG",
-  VI = "VI",
-  VN = "VN",
-  VU = "VU",
-  WF = "WF",
-  WS = "WS",
-  YE = "YE",
-  YT = "YT",
-  ZA = "ZA",
-  ZM = "ZM",
-  ZW = "ZW"
-}
-
-export enum PhoneNumberType {
-  DID = "DID",
-  TOLL_FREE = "TOLL_FREE"
-}
-
-export enum PhoneType {
-  DESK_PHONE = "DESK_PHONE",
-  SOFT_PHONE = "SOFT_PHONE"
-}
-
-export enum QueueType {
-  AGENT = "AGENT",
-  STANDARD = "STANDARD"
-}
-
 export enum Comparison {
   LT = "LT"
-}
-
-/**
- * <p>Contains information about a real-time metric.</p>
- */
-export interface CurrentMetric {
-  __type?: "CurrentMetric";
-  /**
-   * <p>The name of the metric.</p>
-   */
-  Name?: CurrentMetricName | string;
-
-  /**
-   * <p>The unit for the metric.</p>
-   */
-  Unit?: Unit | string;
-}
-
-export namespace CurrentMetric {
-  export const filterSensitiveLog = (obj: CurrentMetric): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CurrentMetric => __isa(o, "CurrentMetric");
-}
-
-/**
- * <p>Contains the data for a real-time metric.</p>
- */
-export interface CurrentMetricData {
-  __type?: "CurrentMetricData";
-  /**
-   * <p>Information about the metric.</p>
-   */
-  Metric?: CurrentMetric;
-
-  /**
-   * <p>The value of the metric.</p>
-   */
-  Value?: number;
-}
-
-export namespace CurrentMetricData {
-  export const filterSensitiveLog = (obj: CurrentMetricData): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CurrentMetricData =>
-    __isa(o, "CurrentMetricData");
-}
-
-export enum CurrentMetricName {
-  AGENTS_AFTER_CONTACT_WORK = "AGENTS_AFTER_CONTACT_WORK",
-  AGENTS_AVAILABLE = "AGENTS_AVAILABLE",
-  AGENTS_ERROR = "AGENTS_ERROR",
-  AGENTS_NON_PRODUCTIVE = "AGENTS_NON_PRODUCTIVE",
-  AGENTS_ONLINE = "AGENTS_ONLINE",
-  AGENTS_ON_CALL = "AGENTS_ON_CALL",
-  AGENTS_ON_CONTACT = "AGENTS_ON_CONTACT",
-  AGENTS_STAFFED = "AGENTS_STAFFED",
-  CONTACTS_IN_QUEUE = "CONTACTS_IN_QUEUE",
-  CONTACTS_SCHEDULED = "CONTACTS_SCHEDULED",
-  OLDEST_CONTACT_AGE = "OLDEST_CONTACT_AGE",
-  SLOTS_ACTIVE = "SLOTS_ACTIVE",
-  SLOTS_AVAILABLE = "SLOTS_AVAILABLE"
-}
-
-/**
- * <p>Contains information about a set of real-time metrics.</p>
- */
-export interface CurrentMetricResult {
-  __type?: "CurrentMetricResult";
-  /**
-   * <p>The set of metrics.</p>
-   */
-  Collections?: CurrentMetricData[];
-
-  /**
-   * <p>The dimensions for the metrics.</p>
-   */
-  Dimensions?: Dimensions;
-}
-
-export namespace CurrentMetricResult {
-  export const filterSensitiveLog = (obj: CurrentMetricResult): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CurrentMetricResult =>
-    __isa(o, "CurrentMetricResult");
-}
-
-/**
- * <p>Contains information about the dimensions for a set of metrics.</p>
- */
-export interface Dimensions {
-  __type?: "Dimensions";
-  /**
-   * <p>The channel used for grouping and filters.</p>
-   */
-  Channel?: Channel | string;
-
-  /**
-   * <p>Information about the queue for which metrics are returned.</p>
-   */
-  Queue?: QueueReference;
-}
-
-export namespace Dimensions {
-  export const filterSensitiveLog = (obj: Dimensions): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Dimensions => __isa(o, "Dimensions");
-}
-
-/**
- * <p>Contains the filter to apply when retrieving metrics.</p>
- */
-export interface Filters {
-  __type?: "Filters";
-  /**
-   * <p>The channel to use to filter the metrics.</p>
-   */
-  Channels?: (Channel | string)[];
-
-  /**
-   * <p>The queues to use to filter the metrics. You can specify up to 100 queues per
-   *    request.</p>
-   */
-  Queues?: string[];
-}
-
-export namespace Filters {
-  export const filterSensitiveLog = (obj: Filters): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Filters => __isa(o, "Filters");
-}
-
-export enum Grouping {
-  CHANNEL = "CHANNEL",
-  QUEUE = "QUEUE"
-}
-
-/**
- * <p>Contains information about a historical metric.</p>
- */
-export interface HistoricalMetric {
-  __type?: "HistoricalMetric";
-  /**
-   * <p>The name of the metric.</p>
-   */
-  Name?: HistoricalMetricName | string;
-
-  /**
-   * <p>The statistic for the metric.</p>
-   */
-  Statistic?: Statistic | string;
-
-  /**
-   * <p>The threshold for the metric, used with service level metrics.</p>
-   */
-  Threshold?: Threshold;
-
-  /**
-   * <p>The unit for the metric.</p>
-   */
-  Unit?: Unit | string;
-}
-
-export namespace HistoricalMetric {
-  export const filterSensitiveLog = (obj: HistoricalMetric): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is HistoricalMetric =>
-    __isa(o, "HistoricalMetric");
-}
-
-/**
- * <p>Contains the data for a historical metric.</p>
- */
-export interface HistoricalMetricData {
-  __type?: "HistoricalMetricData";
-  /**
-   * <p>Information about the metric.</p>
-   */
-  Metric?: HistoricalMetric;
-
-  /**
-   * <p>The value of the metric.</p>
-   */
-  Value?: number;
-}
-
-export namespace HistoricalMetricData {
-  export const filterSensitiveLog = (obj: HistoricalMetricData): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is HistoricalMetricData =>
-    __isa(o, "HistoricalMetricData");
-}
-
-export enum HistoricalMetricName {
-  ABANDON_TIME = "ABANDON_TIME",
-  AFTER_CONTACT_WORK_TIME = "AFTER_CONTACT_WORK_TIME",
-  API_CONTACTS_HANDLED = "API_CONTACTS_HANDLED",
-  CALLBACK_CONTACTS_HANDLED = "CALLBACK_CONTACTS_HANDLED",
-  CONTACTS_ABANDONED = "CONTACTS_ABANDONED",
-  CONTACTS_AGENT_HUNG_UP_FIRST = "CONTACTS_AGENT_HUNG_UP_FIRST",
-  CONTACTS_CONSULTED = "CONTACTS_CONSULTED",
-  CONTACTS_HANDLED = "CONTACTS_HANDLED",
-  CONTACTS_HANDLED_INCOMING = "CONTACTS_HANDLED_INCOMING",
-  CONTACTS_HANDLED_OUTBOUND = "CONTACTS_HANDLED_OUTBOUND",
-  CONTACTS_HOLD_ABANDONS = "CONTACTS_HOLD_ABANDONS",
-  CONTACTS_MISSED = "CONTACTS_MISSED",
-  CONTACTS_QUEUED = "CONTACTS_QUEUED",
-  CONTACTS_TRANSFERRED_IN = "CONTACTS_TRANSFERRED_IN",
-  CONTACTS_TRANSFERRED_IN_FROM_QUEUE = "CONTACTS_TRANSFERRED_IN_FROM_QUEUE",
-  CONTACTS_TRANSFERRED_OUT = "CONTACTS_TRANSFERRED_OUT",
-  CONTACTS_TRANSFERRED_OUT_FROM_QUEUE = "CONTACTS_TRANSFERRED_OUT_FROM_QUEUE",
-  HANDLE_TIME = "HANDLE_TIME",
-  HOLD_TIME = "HOLD_TIME",
-  INTERACTION_AND_HOLD_TIME = "INTERACTION_AND_HOLD_TIME",
-  INTERACTION_TIME = "INTERACTION_TIME",
-  OCCUPANCY = "OCCUPANCY",
-  QUEUED_TIME = "QUEUED_TIME",
-  QUEUE_ANSWER_TIME = "QUEUE_ANSWER_TIME",
-  SERVICE_LEVEL = "SERVICE_LEVEL"
-}
-
-/**
- * <p>Contains information about the historical metrics retrieved.</p>
- */
-export interface HistoricalMetricResult {
-  __type?: "HistoricalMetricResult";
-  /**
-   * <p>The set of metrics.</p>
-   */
-  Collections?: HistoricalMetricData[];
-
-  /**
-   * <p>The dimension for the metrics.</p>
-   */
-  Dimensions?: Dimensions;
-}
-
-export namespace HistoricalMetricResult {
-  export const filterSensitiveLog = (obj: HistoricalMetricResult): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is HistoricalMetricResult =>
-    __isa(o, "HistoricalMetricResult");
-}
-
-/**
- * <p>Contains information about a queue resource for which metrics are returned.</p>
- */
-export interface QueueReference {
-  __type?: "QueueReference";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the queue.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The identifier of the queue.</p>
-   */
-  Id?: string;
-}
-
-export namespace QueueReference {
-  export const filterSensitiveLog = (obj: QueueReference): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is QueueReference =>
-    __isa(o, "QueueReference");
-}
-
-export enum Statistic {
-  AVG = "AVG",
-  MAX = "MAX",
-  SUM = "SUM"
-}
-
-/**
- * <p>Contains information about the threshold for service level metrics.</p>
- */
-export interface Threshold {
-  __type?: "Threshold";
-  /**
-   * <p>The type of comparison. Only "less than" (LT) comparisons are supported.</p>
-   */
-  Comparison?: Comparison | string;
-
-  /**
-   * <p>The threshold value to compare.</p>
-   */
-  ThresholdValue?: number;
-}
-
-export namespace Threshold {
-  export const filterSensitiveLog = (obj: Threshold): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Threshold => __isa(o, "Threshold");
-}
-
-export enum Unit {
-  COUNT = "COUNT",
-  PERCENT = "PERCENT",
-  SECONDS = "SECONDS"
 }
 
 /**
@@ -663,6 +69,18 @@ export namespace ContactFlowSummary {
   });
   export const isa = (o: any): o is ContactFlowSummary =>
     __isa(o, "ContactFlowSummary");
+}
+
+export enum ContactFlowType {
+  AGENT_HOLD = "AGENT_HOLD",
+  AGENT_TRANSFER = "AGENT_TRANSFER",
+  AGENT_WHISPER = "AGENT_WHISPER",
+  CONTACT_FLOW = "CONTACT_FLOW",
+  CUSTOMER_HOLD = "CUSTOMER_HOLD",
+  CUSTOMER_QUEUE = "CUSTOMER_QUEUE",
+  CUSTOMER_WHISPER = "CUSTOMER_WHISPER",
+  OUTBOUND_WHISPER = "OUTBOUND_WHISPER",
+  QUEUE_TRANSFER = "QUEUE_TRANSFER"
 }
 
 /**
@@ -812,6 +230,93 @@ export namespace Credentials {
     ...(obj.RefreshToken && { RefreshToken: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is Credentials => __isa(o, "Credentials");
+}
+
+/**
+ * <p>Contains information about a real-time metric.</p>
+ */
+export interface CurrentMetric {
+  __type?: "CurrentMetric";
+  /**
+   * <p>The name of the metric.</p>
+   */
+  Name?: CurrentMetricName | string;
+
+  /**
+   * <p>The unit for the metric.</p>
+   */
+  Unit?: Unit | string;
+}
+
+export namespace CurrentMetric {
+  export const filterSensitiveLog = (obj: CurrentMetric): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CurrentMetric => __isa(o, "CurrentMetric");
+}
+
+/**
+ * <p>Contains the data for a real-time metric.</p>
+ */
+export interface CurrentMetricData {
+  __type?: "CurrentMetricData";
+  /**
+   * <p>Information about the metric.</p>
+   */
+  Metric?: CurrentMetric;
+
+  /**
+   * <p>The value of the metric.</p>
+   */
+  Value?: number;
+}
+
+export namespace CurrentMetricData {
+  export const filterSensitiveLog = (obj: CurrentMetricData): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CurrentMetricData =>
+    __isa(o, "CurrentMetricData");
+}
+
+export enum CurrentMetricName {
+  AGENTS_AFTER_CONTACT_WORK = "AGENTS_AFTER_CONTACT_WORK",
+  AGENTS_AVAILABLE = "AGENTS_AVAILABLE",
+  AGENTS_ERROR = "AGENTS_ERROR",
+  AGENTS_NON_PRODUCTIVE = "AGENTS_NON_PRODUCTIVE",
+  AGENTS_ONLINE = "AGENTS_ONLINE",
+  AGENTS_ON_CALL = "AGENTS_ON_CALL",
+  AGENTS_ON_CONTACT = "AGENTS_ON_CONTACT",
+  AGENTS_STAFFED = "AGENTS_STAFFED",
+  CONTACTS_IN_QUEUE = "CONTACTS_IN_QUEUE",
+  CONTACTS_SCHEDULED = "CONTACTS_SCHEDULED",
+  OLDEST_CONTACT_AGE = "OLDEST_CONTACT_AGE",
+  SLOTS_ACTIVE = "SLOTS_ACTIVE",
+  SLOTS_AVAILABLE = "SLOTS_AVAILABLE"
+}
+
+/**
+ * <p>Contains information about a set of real-time metrics.</p>
+ */
+export interface CurrentMetricResult {
+  __type?: "CurrentMetricResult";
+  /**
+   * <p>The set of metrics.</p>
+   */
+  Collections?: CurrentMetricData[];
+
+  /**
+   * <p>The dimensions for the metrics.</p>
+   */
+  Dimensions?: Dimensions;
+}
+
+export namespace CurrentMetricResult {
+  export const filterSensitiveLog = (obj: CurrentMetricResult): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CurrentMetricResult =>
+    __isa(o, "CurrentMetricResult");
 }
 
 export interface DeleteUserRequest {
@@ -974,6 +479,29 @@ export namespace DestinationNotAllowedException {
 }
 
 /**
+ * <p>Contains information about the dimensions for a set of metrics.</p>
+ */
+export interface Dimensions {
+  __type?: "Dimensions";
+  /**
+   * <p>The channel used for grouping and filters.</p>
+   */
+  Channel?: Channel | string;
+
+  /**
+   * <p>Information about the queue for which metrics are returned.</p>
+   */
+  Queue?: QueueReference;
+}
+
+export namespace Dimensions {
+  export const filterSensitiveLog = (obj: Dimensions): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Dimensions => __isa(o, "Dimensions");
+}
+
+/**
  * <p>A resource with the specified name already exists.</p>
  */
 export interface DuplicateResourceException
@@ -990,6 +518,30 @@ export namespace DuplicateResourceException {
   });
   export const isa = (o: any): o is DuplicateResourceException =>
     __isa(o, "DuplicateResourceException");
+}
+
+/**
+ * <p>Contains the filter to apply when retrieving metrics.</p>
+ */
+export interface Filters {
+  __type?: "Filters";
+  /**
+   * <p>The channel to use to filter the metrics.</p>
+   */
+  Channels?: (Channel | string)[];
+
+  /**
+   * <p>The queues to use to filter the metrics. You can specify up to 100 queues per
+   *    request.</p>
+   */
+  Queues?: string[];
+}
+
+export namespace Filters {
+  export const filterSensitiveLog = (obj: Filters): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Filters => __isa(o, "Filters");
 }
 
 export interface GetContactAttributesRequest {
@@ -1427,6 +979,11 @@ export namespace GetMetricDataResponse {
     __isa(o, "GetMetricDataResponse");
 }
 
+export enum Grouping {
+  CHANNEL = "CHANNEL",
+  QUEUE = "QUEUE"
+}
+
 /**
  * <p>Contains information about a hierarchy group.</p>
  */
@@ -1599,6 +1156,116 @@ export namespace HierarchyStructure {
   });
   export const isa = (o: any): o is HierarchyStructure =>
     __isa(o, "HierarchyStructure");
+}
+
+/**
+ * <p>Contains information about a historical metric.</p>
+ */
+export interface HistoricalMetric {
+  __type?: "HistoricalMetric";
+  /**
+   * <p>The name of the metric.</p>
+   */
+  Name?: HistoricalMetricName | string;
+
+  /**
+   * <p>The statistic for the metric.</p>
+   */
+  Statistic?: Statistic | string;
+
+  /**
+   * <p>The threshold for the metric, used with service level metrics.</p>
+   */
+  Threshold?: Threshold;
+
+  /**
+   * <p>The unit for the metric.</p>
+   */
+  Unit?: Unit | string;
+}
+
+export namespace HistoricalMetric {
+  export const filterSensitiveLog = (obj: HistoricalMetric): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is HistoricalMetric =>
+    __isa(o, "HistoricalMetric");
+}
+
+/**
+ * <p>Contains the data for a historical metric.</p>
+ */
+export interface HistoricalMetricData {
+  __type?: "HistoricalMetricData";
+  /**
+   * <p>Information about the metric.</p>
+   */
+  Metric?: HistoricalMetric;
+
+  /**
+   * <p>The value of the metric.</p>
+   */
+  Value?: number;
+}
+
+export namespace HistoricalMetricData {
+  export const filterSensitiveLog = (obj: HistoricalMetricData): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is HistoricalMetricData =>
+    __isa(o, "HistoricalMetricData");
+}
+
+export enum HistoricalMetricName {
+  ABANDON_TIME = "ABANDON_TIME",
+  AFTER_CONTACT_WORK_TIME = "AFTER_CONTACT_WORK_TIME",
+  API_CONTACTS_HANDLED = "API_CONTACTS_HANDLED",
+  CALLBACK_CONTACTS_HANDLED = "CALLBACK_CONTACTS_HANDLED",
+  CONTACTS_ABANDONED = "CONTACTS_ABANDONED",
+  CONTACTS_AGENT_HUNG_UP_FIRST = "CONTACTS_AGENT_HUNG_UP_FIRST",
+  CONTACTS_CONSULTED = "CONTACTS_CONSULTED",
+  CONTACTS_HANDLED = "CONTACTS_HANDLED",
+  CONTACTS_HANDLED_INCOMING = "CONTACTS_HANDLED_INCOMING",
+  CONTACTS_HANDLED_OUTBOUND = "CONTACTS_HANDLED_OUTBOUND",
+  CONTACTS_HOLD_ABANDONS = "CONTACTS_HOLD_ABANDONS",
+  CONTACTS_MISSED = "CONTACTS_MISSED",
+  CONTACTS_QUEUED = "CONTACTS_QUEUED",
+  CONTACTS_TRANSFERRED_IN = "CONTACTS_TRANSFERRED_IN",
+  CONTACTS_TRANSFERRED_IN_FROM_QUEUE = "CONTACTS_TRANSFERRED_IN_FROM_QUEUE",
+  CONTACTS_TRANSFERRED_OUT = "CONTACTS_TRANSFERRED_OUT",
+  CONTACTS_TRANSFERRED_OUT_FROM_QUEUE = "CONTACTS_TRANSFERRED_OUT_FROM_QUEUE",
+  HANDLE_TIME = "HANDLE_TIME",
+  HOLD_TIME = "HOLD_TIME",
+  INTERACTION_AND_HOLD_TIME = "INTERACTION_AND_HOLD_TIME",
+  INTERACTION_TIME = "INTERACTION_TIME",
+  OCCUPANCY = "OCCUPANCY",
+  QUEUED_TIME = "QUEUED_TIME",
+  QUEUE_ANSWER_TIME = "QUEUE_ANSWER_TIME",
+  SERVICE_LEVEL = "SERVICE_LEVEL"
+}
+
+/**
+ * <p>Contains information about the historical metrics retrieved.</p>
+ */
+export interface HistoricalMetricResult {
+  __type?: "HistoricalMetricResult";
+  /**
+   * <p>The set of metrics.</p>
+   */
+  Collections?: HistoricalMetricData[];
+
+  /**
+   * <p>The dimension for the metrics.</p>
+   */
+  Dimensions?: Dimensions;
+}
+
+export namespace HistoricalMetricResult {
+  export const filterSensitiveLog = (obj: HistoricalMetricResult): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is HistoricalMetricResult =>
+    __isa(o, "HistoricalMetricResult");
 }
 
 /**
@@ -2195,6 +1862,265 @@ export namespace OutboundContactNotPermittedException {
 }
 
 /**
+ * <p>The customer's details.</p>
+ */
+export interface ParticipantDetails {
+  __type?: "ParticipantDetails";
+  /**
+   * <p>Display name of the participant.</p>
+   */
+  DisplayName: string | undefined;
+}
+
+export namespace ParticipantDetails {
+  export const filterSensitiveLog = (obj: ParticipantDetails): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ParticipantDetails =>
+    __isa(o, "ParticipantDetails");
+}
+
+export enum PhoneNumberCountryCode {
+  AD = "AD",
+  AE = "AE",
+  AF = "AF",
+  AG = "AG",
+  AI = "AI",
+  AL = "AL",
+  AM = "AM",
+  AN = "AN",
+  AO = "AO",
+  AQ = "AQ",
+  AR = "AR",
+  AS = "AS",
+  AT = "AT",
+  AU = "AU",
+  AW = "AW",
+  AZ = "AZ",
+  BA = "BA",
+  BB = "BB",
+  BD = "BD",
+  BE = "BE",
+  BF = "BF",
+  BG = "BG",
+  BH = "BH",
+  BI = "BI",
+  BJ = "BJ",
+  BL = "BL",
+  BM = "BM",
+  BN = "BN",
+  BO = "BO",
+  BR = "BR",
+  BS = "BS",
+  BT = "BT",
+  BW = "BW",
+  BY = "BY",
+  BZ = "BZ",
+  CA = "CA",
+  CC = "CC",
+  CD = "CD",
+  CF = "CF",
+  CG = "CG",
+  CH = "CH",
+  CI = "CI",
+  CK = "CK",
+  CL = "CL",
+  CM = "CM",
+  CN = "CN",
+  CO = "CO",
+  CR = "CR",
+  CU = "CU",
+  CV = "CV",
+  CW = "CW",
+  CX = "CX",
+  CY = "CY",
+  CZ = "CZ",
+  DE = "DE",
+  DJ = "DJ",
+  DK = "DK",
+  DM = "DM",
+  DO = "DO",
+  DZ = "DZ",
+  EC = "EC",
+  EE = "EE",
+  EG = "EG",
+  EH = "EH",
+  ER = "ER",
+  ES = "ES",
+  ET = "ET",
+  FI = "FI",
+  FJ = "FJ",
+  FK = "FK",
+  FM = "FM",
+  FO = "FO",
+  FR = "FR",
+  GA = "GA",
+  GB = "GB",
+  GD = "GD",
+  GE = "GE",
+  GG = "GG",
+  GH = "GH",
+  GI = "GI",
+  GL = "GL",
+  GM = "GM",
+  GN = "GN",
+  GQ = "GQ",
+  GR = "GR",
+  GT = "GT",
+  GU = "GU",
+  GW = "GW",
+  GY = "GY",
+  HK = "HK",
+  HN = "HN",
+  HR = "HR",
+  HT = "HT",
+  HU = "HU",
+  ID = "ID",
+  IE = "IE",
+  IL = "IL",
+  IM = "IM",
+  IN = "IN",
+  IO = "IO",
+  IQ = "IQ",
+  IR = "IR",
+  IS = "IS",
+  IT = "IT",
+  JE = "JE",
+  JM = "JM",
+  JO = "JO",
+  JP = "JP",
+  KE = "KE",
+  KG = "KG",
+  KH = "KH",
+  KI = "KI",
+  KM = "KM",
+  KN = "KN",
+  KP = "KP",
+  KR = "KR",
+  KW = "KW",
+  KY = "KY",
+  KZ = "KZ",
+  LA = "LA",
+  LB = "LB",
+  LC = "LC",
+  LI = "LI",
+  LK = "LK",
+  LR = "LR",
+  LS = "LS",
+  LT = "LT",
+  LU = "LU",
+  LV = "LV",
+  LY = "LY",
+  MA = "MA",
+  MC = "MC",
+  MD = "MD",
+  ME = "ME",
+  MF = "MF",
+  MG = "MG",
+  MH = "MH",
+  MK = "MK",
+  ML = "ML",
+  MM = "MM",
+  MN = "MN",
+  MO = "MO",
+  MP = "MP",
+  MR = "MR",
+  MS = "MS",
+  MT = "MT",
+  MU = "MU",
+  MV = "MV",
+  MW = "MW",
+  MX = "MX",
+  MY = "MY",
+  MZ = "MZ",
+  NA = "NA",
+  NC = "NC",
+  NE = "NE",
+  NG = "NG",
+  NI = "NI",
+  NL = "NL",
+  NO = "NO",
+  NP = "NP",
+  NR = "NR",
+  NU = "NU",
+  NZ = "NZ",
+  OM = "OM",
+  PA = "PA",
+  PE = "PE",
+  PF = "PF",
+  PG = "PG",
+  PH = "PH",
+  PK = "PK",
+  PL = "PL",
+  PM = "PM",
+  PN = "PN",
+  PR = "PR",
+  PT = "PT",
+  PW = "PW",
+  PY = "PY",
+  QA = "QA",
+  RE = "RE",
+  RO = "RO",
+  RS = "RS",
+  RU = "RU",
+  RW = "RW",
+  SA = "SA",
+  SB = "SB",
+  SC = "SC",
+  SD = "SD",
+  SE = "SE",
+  SG = "SG",
+  SH = "SH",
+  SI = "SI",
+  SJ = "SJ",
+  SK = "SK",
+  SL = "SL",
+  SM = "SM",
+  SN = "SN",
+  SO = "SO",
+  SR = "SR",
+  ST = "ST",
+  SV = "SV",
+  SX = "SX",
+  SY = "SY",
+  SZ = "SZ",
+  TC = "TC",
+  TD = "TD",
+  TG = "TG",
+  TH = "TH",
+  TJ = "TJ",
+  TK = "TK",
+  TL = "TL",
+  TM = "TM",
+  TN = "TN",
+  TO = "TO",
+  TR = "TR",
+  TT = "TT",
+  TV = "TV",
+  TW = "TW",
+  TZ = "TZ",
+  UA = "UA",
+  UG = "UG",
+  US = "US",
+  UY = "UY",
+  UZ = "UZ",
+  VA = "VA",
+  VC = "VC",
+  VE = "VE",
+  VG = "VG",
+  VI = "VI",
+  VN = "VN",
+  VU = "VU",
+  WF = "WF",
+  WS = "WS",
+  YE = "YE",
+  YT = "YT",
+  ZA = "ZA",
+  ZM = "ZM",
+  ZW = "ZW"
+}
+
+/**
  * <p>Contains summary information about a phone number for a contact center.</p>
  */
 export interface PhoneNumberSummary {
@@ -2233,6 +2159,40 @@ export namespace PhoneNumberSummary {
     __isa(o, "PhoneNumberSummary");
 }
 
+export enum PhoneNumberType {
+  DID = "DID",
+  TOLL_FREE = "TOLL_FREE"
+}
+
+export enum PhoneType {
+  DESK_PHONE = "DESK_PHONE",
+  SOFT_PHONE = "SOFT_PHONE"
+}
+
+/**
+ * <p>Contains information about a queue resource for which metrics are returned.</p>
+ */
+export interface QueueReference {
+  __type?: "QueueReference";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the queue.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The identifier of the queue.</p>
+   */
+  Id?: string;
+}
+
+export namespace QueueReference {
+  export const filterSensitiveLog = (obj: QueueReference): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is QueueReference =>
+    __isa(o, "QueueReference");
+}
+
 /**
  * <p>Contains summary information about a queue.</p>
  */
@@ -2264,6 +2224,11 @@ export namespace QueueSummary {
     ...obj
   });
   export const isa = (o: any): o is QueueSummary => __isa(o, "QueueSummary");
+}
+
+export enum QueueType {
+  AGENT = "AGENT",
+  STANDARD = "STANDARD"
 }
 
 /**
@@ -2494,6 +2459,12 @@ export namespace StartOutboundVoiceContactResponse {
     __isa(o, "StartOutboundVoiceContactResponse");
 }
 
+export enum Statistic {
+  AVG = "AVG",
+  MAX = "MAX",
+  SUM = "SUM"
+}
+
 export interface StopContactRequest {
   __type?: "StopContactRequest";
   /**
@@ -2549,6 +2520,29 @@ export namespace TagResourceRequest {
 }
 
 /**
+ * <p>Contains information about the threshold for service level metrics.</p>
+ */
+export interface Threshold {
+  __type?: "Threshold";
+  /**
+   * <p>The type of comparison. Only "less than" (LT) comparisons are supported.</p>
+   */
+  Comparison?: Comparison | string;
+
+  /**
+   * <p>The threshold value to compare.</p>
+   */
+  ThresholdValue?: number;
+}
+
+export namespace Threshold {
+  export const filterSensitiveLog = (obj: Threshold): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Threshold => __isa(o, "Threshold");
+}
+
+/**
  * <p>The throttling limit has been exceeded.</p>
  */
 export interface ThrottlingException
@@ -2565,6 +2559,12 @@ export namespace ThrottlingException {
   });
   export const isa = (o: any): o is ThrottlingException =>
     __isa(o, "ThrottlingException");
+}
+
+export enum Unit {
+  COUNT = "COUNT",
+  PERCENT = "PERCENT",
+  SECONDS = "SECONDS"
 }
 
 export interface UntagResourceRequest {

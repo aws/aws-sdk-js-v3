@@ -8,9 +8,9 @@ import {
   PutDedicatedIpWarmupAttributesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommand,
-  serializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommand,
+  serializeAws_restJson1PutDedicatedIpWarmupAttributesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
     input: PutDedicatedIpWarmupAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommand(
+    return serializeAws_restJson1PutDedicatedIpWarmupAttributesCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutDedicatedIpWarmupAttributesCommandOutput> {
-    return deserializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommand(
+    return deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommand(
       output,
       context
     );

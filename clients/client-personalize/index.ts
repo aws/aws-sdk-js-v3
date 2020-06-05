@@ -36,7 +36,7 @@ export * from "./commands/ListDatasetsCommand";
 export * from "./commands/ListEventTrackersCommand";
 export * from "./commands/ListRecipesCommand";
 export * from "./commands/ListSchemasCommand";
-export * from "./commands/ListSolutionVersionsCommand";
 export * from "./commands/ListSolutionsCommand";
+export * from "./commands/ListSolutionVersionsCommand";
 export * from "./commands/UpdateCampaignCommand";
 export * from "./models/index";

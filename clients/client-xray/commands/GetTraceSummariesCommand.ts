@@ -8,9 +8,9 @@ import {
   GetTraceSummariesResult
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetTraceSummariesCommand,
-  serializeAws_restJson1_1GetTraceSummariesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetTraceSummariesCommand,
+  serializeAws_restJson1GetTraceSummariesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetTraceSummariesCommand extends $Command<
     input: GetTraceSummariesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetTraceSummariesCommand(input, context);
+    return serializeAws_restJson1GetTraceSummariesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTraceSummariesCommandOutput> {
-    return deserializeAws_restJson1_1GetTraceSummariesCommand(output, context);
+    return deserializeAws_restJson1GetTraceSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

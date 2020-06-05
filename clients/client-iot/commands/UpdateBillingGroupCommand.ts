@@ -8,9 +8,9 @@ import {
   UpdateBillingGroupResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateBillingGroupCommand,
-  serializeAws_restJson1_1UpdateBillingGroupCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateBillingGroupCommand,
+  serializeAws_restJson1UpdateBillingGroupCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class UpdateBillingGroupCommand extends $Command<
     input: UpdateBillingGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateBillingGroupCommand(input, context);
+    return serializeAws_restJson1UpdateBillingGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateBillingGroupCommandOutput> {
-    return deserializeAws_restJson1_1UpdateBillingGroupCommand(output, context);
+    return deserializeAws_restJson1UpdateBillingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

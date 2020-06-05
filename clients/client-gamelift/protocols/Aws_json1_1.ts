@@ -1656,7 +1656,7 @@ const deserializeAws_json1_1AcceptMatchCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -1667,7 +1667,7 @@ const deserializeAws_json1_1AcceptMatchCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1678,7 +1678,7 @@ const deserializeAws_json1_1AcceptMatchCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -1689,7 +1689,7 @@ const deserializeAws_json1_1AcceptMatchCommandError = async (
       };
       break;
     case "UnsupportedRegionException":
-    case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
           parsedOutput,
@@ -1749,7 +1749,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConflictException":
-    case "com.amazonaws.gameliftapi.v20151001#ConflictException":
+    case "com.amazonaws.gamelift#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -1760,7 +1760,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -1771,7 +1771,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1782,7 +1782,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.gameliftapi.v20151001#LimitExceededException":
+    case "com.amazonaws.gamelift#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1793,7 +1793,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
       };
       break;
     case "TaggingFailedException":
-    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+    case "com.amazonaws.gamelift#TaggingFailedException":
       response = {
         ...(await deserializeAws_json1_1TaggingFailedExceptionResponse(
           parsedOutput,
@@ -1804,7 +1804,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -1864,7 +1864,7 @@ const deserializeAws_json1_1CreateBuildCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConflictException":
-    case "com.amazonaws.gameliftapi.v20151001#ConflictException":
+    case "com.amazonaws.gamelift#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -1875,7 +1875,7 @@ const deserializeAws_json1_1CreateBuildCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -1886,7 +1886,7 @@ const deserializeAws_json1_1CreateBuildCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1897,7 +1897,7 @@ const deserializeAws_json1_1CreateBuildCommandError = async (
       };
       break;
     case "TaggingFailedException":
-    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+    case "com.amazonaws.gamelift#TaggingFailedException":
       response = {
         ...(await deserializeAws_json1_1TaggingFailedExceptionResponse(
           parsedOutput,
@@ -1908,7 +1908,7 @@ const deserializeAws_json1_1CreateBuildCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -1968,7 +1968,7 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConflictException":
-    case "com.amazonaws.gameliftapi.v20151001#ConflictException":
+    case "com.amazonaws.gamelift#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -1979,7 +1979,7 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -1990,7 +1990,7 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2001,7 +2001,7 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.gameliftapi.v20151001#LimitExceededException":
+    case "com.amazonaws.gamelift#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2012,7 +2012,7 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2023,7 +2023,7 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
       };
       break;
     case "TaggingFailedException":
-    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+    case "com.amazonaws.gamelift#TaggingFailedException":
       response = {
         ...(await deserializeAws_json1_1TaggingFailedExceptionResponse(
           parsedOutput,
@@ -2034,7 +2034,7 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -2094,7 +2094,7 @@ const deserializeAws_json1_1CreateGameSessionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConflictException":
-    case "com.amazonaws.gameliftapi.v20151001#ConflictException":
+    case "com.amazonaws.gamelift#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -2105,7 +2105,7 @@ const deserializeAws_json1_1CreateGameSessionCommandError = async (
       };
       break;
     case "FleetCapacityExceededException":
-    case "com.amazonaws.gameliftapi.v20151001#FleetCapacityExceededException":
+    case "com.amazonaws.gamelift#FleetCapacityExceededException":
       response = {
         ...(await deserializeAws_json1_1FleetCapacityExceededExceptionResponse(
           parsedOutput,
@@ -2116,7 +2116,7 @@ const deserializeAws_json1_1CreateGameSessionCommandError = async (
       };
       break;
     case "IdempotentParameterMismatchException":
-    case "com.amazonaws.gameliftapi.v20151001#IdempotentParameterMismatchException":
+    case "com.amazonaws.gamelift#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
           parsedOutput,
@@ -2127,7 +2127,7 @@ const deserializeAws_json1_1CreateGameSessionCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -2138,7 +2138,7 @@ const deserializeAws_json1_1CreateGameSessionCommandError = async (
       };
       break;
     case "InvalidFleetStatusException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidFleetStatusException":
+    case "com.amazonaws.gamelift#InvalidFleetStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidFleetStatusExceptionResponse(
           parsedOutput,
@@ -2149,7 +2149,7 @@ const deserializeAws_json1_1CreateGameSessionCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2160,7 +2160,7 @@ const deserializeAws_json1_1CreateGameSessionCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.gameliftapi.v20151001#LimitExceededException":
+    case "com.amazonaws.gamelift#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2171,7 +2171,7 @@ const deserializeAws_json1_1CreateGameSessionCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2182,7 +2182,7 @@ const deserializeAws_json1_1CreateGameSessionCommandError = async (
       };
       break;
     case "TerminalRoutingStrategyException":
-    case "com.amazonaws.gameliftapi.v20151001#TerminalRoutingStrategyException":
+    case "com.amazonaws.gamelift#TerminalRoutingStrategyException":
       response = {
         ...(await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(
           parsedOutput,
@@ -2193,7 +2193,7 @@ const deserializeAws_json1_1CreateGameSessionCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -2256,7 +2256,7 @@ const deserializeAws_json1_1CreateGameSessionQueueCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -2267,7 +2267,7 @@ const deserializeAws_json1_1CreateGameSessionQueueCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2278,7 +2278,7 @@ const deserializeAws_json1_1CreateGameSessionQueueCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.gameliftapi.v20151001#LimitExceededException":
+    case "com.amazonaws.gamelift#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2289,7 +2289,7 @@ const deserializeAws_json1_1CreateGameSessionQueueCommandError = async (
       };
       break;
     case "TaggingFailedException":
-    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+    case "com.amazonaws.gamelift#TaggingFailedException":
       response = {
         ...(await deserializeAws_json1_1TaggingFailedExceptionResponse(
           parsedOutput,
@@ -2300,7 +2300,7 @@ const deserializeAws_json1_1CreateGameSessionQueueCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -2366,7 +2366,7 @@ const deserializeAws_json1_1CreateMatchmakingConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -2377,7 +2377,7 @@ const deserializeAws_json1_1CreateMatchmakingConfigurationCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2388,7 +2388,7 @@ const deserializeAws_json1_1CreateMatchmakingConfigurationCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.gameliftapi.v20151001#LimitExceededException":
+    case "com.amazonaws.gamelift#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2399,7 +2399,7 @@ const deserializeAws_json1_1CreateMatchmakingConfigurationCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2410,7 +2410,7 @@ const deserializeAws_json1_1CreateMatchmakingConfigurationCommandError = async (
       };
       break;
     case "TaggingFailedException":
-    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+    case "com.amazonaws.gamelift#TaggingFailedException":
       response = {
         ...(await deserializeAws_json1_1TaggingFailedExceptionResponse(
           parsedOutput,
@@ -2421,7 +2421,7 @@ const deserializeAws_json1_1CreateMatchmakingConfigurationCommandError = async (
       };
       break;
     case "UnsupportedRegionException":
-    case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
           parsedOutput,
@@ -2487,7 +2487,7 @@ const deserializeAws_json1_1CreateMatchmakingRuleSetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -2498,7 +2498,7 @@ const deserializeAws_json1_1CreateMatchmakingRuleSetCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2509,7 +2509,7 @@ const deserializeAws_json1_1CreateMatchmakingRuleSetCommandError = async (
       };
       break;
     case "TaggingFailedException":
-    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+    case "com.amazonaws.gamelift#TaggingFailedException":
       response = {
         ...(await deserializeAws_json1_1TaggingFailedExceptionResponse(
           parsedOutput,
@@ -2520,7 +2520,7 @@ const deserializeAws_json1_1CreateMatchmakingRuleSetCommandError = async (
       };
       break;
     case "UnsupportedRegionException":
-    case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
           parsedOutput,
@@ -2583,7 +2583,7 @@ const deserializeAws_json1_1CreatePlayerSessionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "GameSessionFullException":
-    case "com.amazonaws.gameliftapi.v20151001#GameSessionFullException":
+    case "com.amazonaws.gamelift#GameSessionFullException":
       response = {
         ...(await deserializeAws_json1_1GameSessionFullExceptionResponse(
           parsedOutput,
@@ -2594,7 +2594,7 @@ const deserializeAws_json1_1CreatePlayerSessionCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -2605,7 +2605,7 @@ const deserializeAws_json1_1CreatePlayerSessionCommandError = async (
       };
       break;
     case "InvalidGameSessionStatusException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidGameSessionStatusException":
+    case "com.amazonaws.gamelift#InvalidGameSessionStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidGameSessionStatusExceptionResponse(
           parsedOutput,
@@ -2616,7 +2616,7 @@ const deserializeAws_json1_1CreatePlayerSessionCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2627,7 +2627,7 @@ const deserializeAws_json1_1CreatePlayerSessionCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2638,7 +2638,7 @@ const deserializeAws_json1_1CreatePlayerSessionCommandError = async (
       };
       break;
     case "TerminalRoutingStrategyException":
-    case "com.amazonaws.gameliftapi.v20151001#TerminalRoutingStrategyException":
+    case "com.amazonaws.gamelift#TerminalRoutingStrategyException":
       response = {
         ...(await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(
           parsedOutput,
@@ -2649,7 +2649,7 @@ const deserializeAws_json1_1CreatePlayerSessionCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -2712,7 +2712,7 @@ const deserializeAws_json1_1CreatePlayerSessionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "GameSessionFullException":
-    case "com.amazonaws.gameliftapi.v20151001#GameSessionFullException":
+    case "com.amazonaws.gamelift#GameSessionFullException":
       response = {
         ...(await deserializeAws_json1_1GameSessionFullExceptionResponse(
           parsedOutput,
@@ -2723,7 +2723,7 @@ const deserializeAws_json1_1CreatePlayerSessionsCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -2734,7 +2734,7 @@ const deserializeAws_json1_1CreatePlayerSessionsCommandError = async (
       };
       break;
     case "InvalidGameSessionStatusException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidGameSessionStatusException":
+    case "com.amazonaws.gamelift#InvalidGameSessionStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidGameSessionStatusExceptionResponse(
           parsedOutput,
@@ -2745,7 +2745,7 @@ const deserializeAws_json1_1CreatePlayerSessionsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2756,7 +2756,7 @@ const deserializeAws_json1_1CreatePlayerSessionsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2767,7 +2767,7 @@ const deserializeAws_json1_1CreatePlayerSessionsCommandError = async (
       };
       break;
     case "TerminalRoutingStrategyException":
-    case "com.amazonaws.gameliftapi.v20151001#TerminalRoutingStrategyException":
+    case "com.amazonaws.gamelift#TerminalRoutingStrategyException":
       response = {
         ...(await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(
           parsedOutput,
@@ -2778,7 +2778,7 @@ const deserializeAws_json1_1CreatePlayerSessionsCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -2838,7 +2838,7 @@ const deserializeAws_json1_1CreateScriptCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConflictException":
-    case "com.amazonaws.gameliftapi.v20151001#ConflictException":
+    case "com.amazonaws.gamelift#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -2849,7 +2849,7 @@ const deserializeAws_json1_1CreateScriptCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -2860,7 +2860,7 @@ const deserializeAws_json1_1CreateScriptCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2871,7 +2871,7 @@ const deserializeAws_json1_1CreateScriptCommandError = async (
       };
       break;
     case "TaggingFailedException":
-    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+    case "com.amazonaws.gamelift#TaggingFailedException":
       response = {
         ...(await deserializeAws_json1_1TaggingFailedExceptionResponse(
           parsedOutput,
@@ -2882,7 +2882,7 @@ const deserializeAws_json1_1CreateScriptCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -2948,7 +2948,7 @@ const deserializeAws_json1_1CreateVpcPeeringAuthorizationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -2959,7 +2959,7 @@ const deserializeAws_json1_1CreateVpcPeeringAuthorizationCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2970,7 +2970,7 @@ const deserializeAws_json1_1CreateVpcPeeringAuthorizationCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2981,7 +2981,7 @@ const deserializeAws_json1_1CreateVpcPeeringAuthorizationCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -3047,7 +3047,7 @@ const deserializeAws_json1_1CreateVpcPeeringConnectionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -3058,7 +3058,7 @@ const deserializeAws_json1_1CreateVpcPeeringConnectionCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3069,7 +3069,7 @@ const deserializeAws_json1_1CreateVpcPeeringConnectionCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3080,7 +3080,7 @@ const deserializeAws_json1_1CreateVpcPeeringConnectionCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -3136,7 +3136,7 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -3147,7 +3147,7 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3158,7 +3158,7 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3169,7 +3169,7 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
       };
       break;
     case "TaggingFailedException":
-    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+    case "com.amazonaws.gamelift#TaggingFailedException":
       response = {
         ...(await deserializeAws_json1_1TaggingFailedExceptionResponse(
           parsedOutput,
@@ -3180,7 +3180,7 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -3236,7 +3236,7 @@ const deserializeAws_json1_1DeleteBuildCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -3247,7 +3247,7 @@ const deserializeAws_json1_1DeleteBuildCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3258,7 +3258,7 @@ const deserializeAws_json1_1DeleteBuildCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3269,7 +3269,7 @@ const deserializeAws_json1_1DeleteBuildCommandError = async (
       };
       break;
     case "TaggingFailedException":
-    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+    case "com.amazonaws.gamelift#TaggingFailedException":
       response = {
         ...(await deserializeAws_json1_1TaggingFailedExceptionResponse(
           parsedOutput,
@@ -3280,7 +3280,7 @@ const deserializeAws_json1_1DeleteBuildCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -3336,7 +3336,7 @@ const deserializeAws_json1_1DeleteFleetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -3347,7 +3347,7 @@ const deserializeAws_json1_1DeleteFleetCommandError = async (
       };
       break;
     case "InvalidFleetStatusException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidFleetStatusException":
+    case "com.amazonaws.gamelift#InvalidFleetStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidFleetStatusExceptionResponse(
           parsedOutput,
@@ -3358,7 +3358,7 @@ const deserializeAws_json1_1DeleteFleetCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3369,7 +3369,7 @@ const deserializeAws_json1_1DeleteFleetCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3380,7 +3380,7 @@ const deserializeAws_json1_1DeleteFleetCommandError = async (
       };
       break;
     case "TaggingFailedException":
-    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+    case "com.amazonaws.gamelift#TaggingFailedException":
       response = {
         ...(await deserializeAws_json1_1TaggingFailedExceptionResponse(
           parsedOutput,
@@ -3391,7 +3391,7 @@ const deserializeAws_json1_1DeleteFleetCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -3454,7 +3454,7 @@ const deserializeAws_json1_1DeleteGameSessionQueueCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -3465,7 +3465,7 @@ const deserializeAws_json1_1DeleteGameSessionQueueCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3476,7 +3476,7 @@ const deserializeAws_json1_1DeleteGameSessionQueueCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3487,7 +3487,7 @@ const deserializeAws_json1_1DeleteGameSessionQueueCommandError = async (
       };
       break;
     case "TaggingFailedException":
-    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+    case "com.amazonaws.gamelift#TaggingFailedException":
       response = {
         ...(await deserializeAws_json1_1TaggingFailedExceptionResponse(
           parsedOutput,
@@ -3498,7 +3498,7 @@ const deserializeAws_json1_1DeleteGameSessionQueueCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -3564,7 +3564,7 @@ const deserializeAws_json1_1DeleteMatchmakingConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -3575,7 +3575,7 @@ const deserializeAws_json1_1DeleteMatchmakingConfigurationCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3586,7 +3586,7 @@ const deserializeAws_json1_1DeleteMatchmakingConfigurationCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3597,7 +3597,7 @@ const deserializeAws_json1_1DeleteMatchmakingConfigurationCommandError = async (
       };
       break;
     case "TaggingFailedException":
-    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+    case "com.amazonaws.gamelift#TaggingFailedException":
       response = {
         ...(await deserializeAws_json1_1TaggingFailedExceptionResponse(
           parsedOutput,
@@ -3608,7 +3608,7 @@ const deserializeAws_json1_1DeleteMatchmakingConfigurationCommandError = async (
       };
       break;
     case "UnsupportedRegionException":
-    case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
           parsedOutput,
@@ -3674,7 +3674,7 @@ const deserializeAws_json1_1DeleteMatchmakingRuleSetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -3685,7 +3685,7 @@ const deserializeAws_json1_1DeleteMatchmakingRuleSetCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3696,7 +3696,7 @@ const deserializeAws_json1_1DeleteMatchmakingRuleSetCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3707,7 +3707,7 @@ const deserializeAws_json1_1DeleteMatchmakingRuleSetCommandError = async (
       };
       break;
     case "TaggingFailedException":
-    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+    case "com.amazonaws.gamelift#TaggingFailedException":
       response = {
         ...(await deserializeAws_json1_1TaggingFailedExceptionResponse(
           parsedOutput,
@@ -3718,7 +3718,7 @@ const deserializeAws_json1_1DeleteMatchmakingRuleSetCommandError = async (
       };
       break;
     case "UnsupportedRegionException":
-    case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
           parsedOutput,
@@ -3777,7 +3777,7 @@ const deserializeAws_json1_1DeleteScalingPolicyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -3788,7 +3788,7 @@ const deserializeAws_json1_1DeleteScalingPolicyCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3799,7 +3799,7 @@ const deserializeAws_json1_1DeleteScalingPolicyCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3810,7 +3810,7 @@ const deserializeAws_json1_1DeleteScalingPolicyCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -3866,7 +3866,7 @@ const deserializeAws_json1_1DeleteScriptCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -3877,7 +3877,7 @@ const deserializeAws_json1_1DeleteScriptCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3888,7 +3888,7 @@ const deserializeAws_json1_1DeleteScriptCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3899,7 +3899,7 @@ const deserializeAws_json1_1DeleteScriptCommandError = async (
       };
       break;
     case "TaggingFailedException":
-    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+    case "com.amazonaws.gamelift#TaggingFailedException":
       response = {
         ...(await deserializeAws_json1_1TaggingFailedExceptionResponse(
           parsedOutput,
@@ -3910,7 +3910,7 @@ const deserializeAws_json1_1DeleteScriptCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -3976,7 +3976,7 @@ const deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -3987,7 +3987,7 @@ const deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3998,7 +3998,7 @@ const deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4009,7 +4009,7 @@ const deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -4075,7 +4075,7 @@ const deserializeAws_json1_1DeleteVpcPeeringConnectionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -4086,7 +4086,7 @@ const deserializeAws_json1_1DeleteVpcPeeringConnectionCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -4097,7 +4097,7 @@ const deserializeAws_json1_1DeleteVpcPeeringConnectionCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4108,7 +4108,7 @@ const deserializeAws_json1_1DeleteVpcPeeringConnectionCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -4168,7 +4168,7 @@ const deserializeAws_json1_1DescribeAliasCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -4179,7 +4179,7 @@ const deserializeAws_json1_1DescribeAliasCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -4190,7 +4190,7 @@ const deserializeAws_json1_1DescribeAliasCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4201,7 +4201,7 @@ const deserializeAws_json1_1DescribeAliasCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -4261,7 +4261,7 @@ const deserializeAws_json1_1DescribeBuildCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -4272,7 +4272,7 @@ const deserializeAws_json1_1DescribeBuildCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -4283,7 +4283,7 @@ const deserializeAws_json1_1DescribeBuildCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4294,7 +4294,7 @@ const deserializeAws_json1_1DescribeBuildCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -4360,7 +4360,7 @@ const deserializeAws_json1_1DescribeEC2InstanceLimitsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -4371,7 +4371,7 @@ const deserializeAws_json1_1DescribeEC2InstanceLimitsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -4382,7 +4382,7 @@ const deserializeAws_json1_1DescribeEC2InstanceLimitsCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -4445,7 +4445,7 @@ const deserializeAws_json1_1DescribeFleetAttributesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -4456,7 +4456,7 @@ const deserializeAws_json1_1DescribeFleetAttributesCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -4467,7 +4467,7 @@ const deserializeAws_json1_1DescribeFleetAttributesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4478,7 +4478,7 @@ const deserializeAws_json1_1DescribeFleetAttributesCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -4541,7 +4541,7 @@ const deserializeAws_json1_1DescribeFleetCapacityCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -4552,7 +4552,7 @@ const deserializeAws_json1_1DescribeFleetCapacityCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -4563,7 +4563,7 @@ const deserializeAws_json1_1DescribeFleetCapacityCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4574,7 +4574,7 @@ const deserializeAws_json1_1DescribeFleetCapacityCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -4637,7 +4637,7 @@ const deserializeAws_json1_1DescribeFleetEventsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -4648,7 +4648,7 @@ const deserializeAws_json1_1DescribeFleetEventsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -4659,7 +4659,7 @@ const deserializeAws_json1_1DescribeFleetEventsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4670,7 +4670,7 @@ const deserializeAws_json1_1DescribeFleetEventsCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -4736,7 +4736,7 @@ const deserializeAws_json1_1DescribeFleetPortSettingsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -4747,7 +4747,7 @@ const deserializeAws_json1_1DescribeFleetPortSettingsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -4758,7 +4758,7 @@ const deserializeAws_json1_1DescribeFleetPortSettingsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4769,7 +4769,7 @@ const deserializeAws_json1_1DescribeFleetPortSettingsCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -4835,7 +4835,7 @@ const deserializeAws_json1_1DescribeFleetUtilizationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -4846,7 +4846,7 @@ const deserializeAws_json1_1DescribeFleetUtilizationCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -4857,7 +4857,7 @@ const deserializeAws_json1_1DescribeFleetUtilizationCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4868,7 +4868,7 @@ const deserializeAws_json1_1DescribeFleetUtilizationCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -4934,7 +4934,7 @@ const deserializeAws_json1_1DescribeGameSessionDetailsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -4945,7 +4945,7 @@ const deserializeAws_json1_1DescribeGameSessionDetailsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -4956,7 +4956,7 @@ const deserializeAws_json1_1DescribeGameSessionDetailsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4967,7 +4967,7 @@ const deserializeAws_json1_1DescribeGameSessionDetailsCommandError = async (
       };
       break;
     case "TerminalRoutingStrategyException":
-    case "com.amazonaws.gameliftapi.v20151001#TerminalRoutingStrategyException":
+    case "com.amazonaws.gamelift#TerminalRoutingStrategyException":
       response = {
         ...(await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(
           parsedOutput,
@@ -4978,7 +4978,7 @@ const deserializeAws_json1_1DescribeGameSessionDetailsCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -5044,7 +5044,7 @@ const deserializeAws_json1_1DescribeGameSessionPlacementCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -5055,7 +5055,7 @@ const deserializeAws_json1_1DescribeGameSessionPlacementCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -5066,7 +5066,7 @@ const deserializeAws_json1_1DescribeGameSessionPlacementCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5077,7 +5077,7 @@ const deserializeAws_json1_1DescribeGameSessionPlacementCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -5143,7 +5143,7 @@ const deserializeAws_json1_1DescribeGameSessionQueuesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -5154,7 +5154,7 @@ const deserializeAws_json1_1DescribeGameSessionQueuesCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -5165,7 +5165,7 @@ const deserializeAws_json1_1DescribeGameSessionQueuesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5176,7 +5176,7 @@ const deserializeAws_json1_1DescribeGameSessionQueuesCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -5239,7 +5239,7 @@ const deserializeAws_json1_1DescribeGameSessionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -5250,7 +5250,7 @@ const deserializeAws_json1_1DescribeGameSessionsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -5261,7 +5261,7 @@ const deserializeAws_json1_1DescribeGameSessionsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5272,7 +5272,7 @@ const deserializeAws_json1_1DescribeGameSessionsCommandError = async (
       };
       break;
     case "TerminalRoutingStrategyException":
-    case "com.amazonaws.gameliftapi.v20151001#TerminalRoutingStrategyException":
+    case "com.amazonaws.gamelift#TerminalRoutingStrategyException":
       response = {
         ...(await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(
           parsedOutput,
@@ -5283,7 +5283,7 @@ const deserializeAws_json1_1DescribeGameSessionsCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -5343,7 +5343,7 @@ const deserializeAws_json1_1DescribeInstancesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -5354,7 +5354,7 @@ const deserializeAws_json1_1DescribeInstancesCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -5365,7 +5365,7 @@ const deserializeAws_json1_1DescribeInstancesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5376,7 +5376,7 @@ const deserializeAws_json1_1DescribeInstancesCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -5439,7 +5439,7 @@ const deserializeAws_json1_1DescribeMatchmakingCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -5450,7 +5450,7 @@ const deserializeAws_json1_1DescribeMatchmakingCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -5461,7 +5461,7 @@ const deserializeAws_json1_1DescribeMatchmakingCommandError = async (
       };
       break;
     case "UnsupportedRegionException":
-    case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
           parsedOutput,
@@ -5527,7 +5527,7 @@ const deserializeAws_json1_1DescribeMatchmakingConfigurationsCommandError = asyn
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -5538,7 +5538,7 @@ const deserializeAws_json1_1DescribeMatchmakingConfigurationsCommandError = asyn
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -5549,7 +5549,7 @@ const deserializeAws_json1_1DescribeMatchmakingConfigurationsCommandError = asyn
       };
       break;
     case "UnsupportedRegionException":
-    case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
           parsedOutput,
@@ -5615,7 +5615,7 @@ const deserializeAws_json1_1DescribeMatchmakingRuleSetsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -5626,7 +5626,7 @@ const deserializeAws_json1_1DescribeMatchmakingRuleSetsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -5637,7 +5637,7 @@ const deserializeAws_json1_1DescribeMatchmakingRuleSetsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5648,7 +5648,7 @@ const deserializeAws_json1_1DescribeMatchmakingRuleSetsCommandError = async (
       };
       break;
     case "UnsupportedRegionException":
-    case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
           parsedOutput,
@@ -5711,7 +5711,7 @@ const deserializeAws_json1_1DescribePlayerSessionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -5722,7 +5722,7 @@ const deserializeAws_json1_1DescribePlayerSessionsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -5733,7 +5733,7 @@ const deserializeAws_json1_1DescribePlayerSessionsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5744,7 +5744,7 @@ const deserializeAws_json1_1DescribePlayerSessionsCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -5810,7 +5810,7 @@ const deserializeAws_json1_1DescribeRuntimeConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -5821,7 +5821,7 @@ const deserializeAws_json1_1DescribeRuntimeConfigurationCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -5832,7 +5832,7 @@ const deserializeAws_json1_1DescribeRuntimeConfigurationCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5843,7 +5843,7 @@ const deserializeAws_json1_1DescribeRuntimeConfigurationCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -5906,7 +5906,7 @@ const deserializeAws_json1_1DescribeScalingPoliciesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -5917,7 +5917,7 @@ const deserializeAws_json1_1DescribeScalingPoliciesCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -5928,7 +5928,7 @@ const deserializeAws_json1_1DescribeScalingPoliciesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5939,7 +5939,7 @@ const deserializeAws_json1_1DescribeScalingPoliciesCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -5999,7 +5999,7 @@ const deserializeAws_json1_1DescribeScriptCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -6010,7 +6010,7 @@ const deserializeAws_json1_1DescribeScriptCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -6021,7 +6021,7 @@ const deserializeAws_json1_1DescribeScriptCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6032,7 +6032,7 @@ const deserializeAws_json1_1DescribeScriptCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -6098,7 +6098,7 @@ const deserializeAws_json1_1DescribeVpcPeeringAuthorizationsCommandError = async
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -6109,7 +6109,7 @@ const deserializeAws_json1_1DescribeVpcPeeringAuthorizationsCommandError = async
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -6120,7 +6120,7 @@ const deserializeAws_json1_1DescribeVpcPeeringAuthorizationsCommandError = async
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -6186,7 +6186,7 @@ const deserializeAws_json1_1DescribeVpcPeeringConnectionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -6197,7 +6197,7 @@ const deserializeAws_json1_1DescribeVpcPeeringConnectionsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -6208,7 +6208,7 @@ const deserializeAws_json1_1DescribeVpcPeeringConnectionsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6219,7 +6219,7 @@ const deserializeAws_json1_1DescribeVpcPeeringConnectionsCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -6282,7 +6282,7 @@ const deserializeAws_json1_1GetGameSessionLogUrlCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -6293,7 +6293,7 @@ const deserializeAws_json1_1GetGameSessionLogUrlCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -6304,7 +6304,7 @@ const deserializeAws_json1_1GetGameSessionLogUrlCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6315,7 +6315,7 @@ const deserializeAws_json1_1GetGameSessionLogUrlCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -6375,7 +6375,7 @@ const deserializeAws_json1_1GetInstanceAccessCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -6386,7 +6386,7 @@ const deserializeAws_json1_1GetInstanceAccessCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -6397,7 +6397,7 @@ const deserializeAws_json1_1GetInstanceAccessCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6408,7 +6408,7 @@ const deserializeAws_json1_1GetInstanceAccessCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -6468,7 +6468,7 @@ const deserializeAws_json1_1ListAliasesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -6479,7 +6479,7 @@ const deserializeAws_json1_1ListAliasesCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -6490,7 +6490,7 @@ const deserializeAws_json1_1ListAliasesCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -6550,7 +6550,7 @@ const deserializeAws_json1_1ListBuildsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -6561,7 +6561,7 @@ const deserializeAws_json1_1ListBuildsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -6572,7 +6572,7 @@ const deserializeAws_json1_1ListBuildsCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -6632,7 +6632,7 @@ const deserializeAws_json1_1ListFleetsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -6643,7 +6643,7 @@ const deserializeAws_json1_1ListFleetsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -6654,7 +6654,7 @@ const deserializeAws_json1_1ListFleetsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6665,7 +6665,7 @@ const deserializeAws_json1_1ListFleetsCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -6725,7 +6725,7 @@ const deserializeAws_json1_1ListScriptsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -6736,7 +6736,7 @@ const deserializeAws_json1_1ListScriptsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -6747,7 +6747,7 @@ const deserializeAws_json1_1ListScriptsCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -6810,7 +6810,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -6821,7 +6821,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -6832,7 +6832,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6843,7 +6843,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "TaggingFailedException":
-    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+    case "com.amazonaws.gamelift#TaggingFailedException":
       response = {
         ...(await deserializeAws_json1_1TaggingFailedExceptionResponse(
           parsedOutput,
@@ -6903,7 +6903,7 @@ const deserializeAws_json1_1PutScalingPolicyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -6914,7 +6914,7 @@ const deserializeAws_json1_1PutScalingPolicyCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -6925,7 +6925,7 @@ const deserializeAws_json1_1PutScalingPolicyCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6936,7 +6936,7 @@ const deserializeAws_json1_1PutScalingPolicyCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -7002,7 +7002,7 @@ const deserializeAws_json1_1RequestUploadCredentialsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -7013,7 +7013,7 @@ const deserializeAws_json1_1RequestUploadCredentialsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -7024,7 +7024,7 @@ const deserializeAws_json1_1RequestUploadCredentialsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7035,7 +7035,7 @@ const deserializeAws_json1_1RequestUploadCredentialsCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -7095,7 +7095,7 @@ const deserializeAws_json1_1ResolveAliasCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -7106,7 +7106,7 @@ const deserializeAws_json1_1ResolveAliasCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -7117,7 +7117,7 @@ const deserializeAws_json1_1ResolveAliasCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7128,7 +7128,7 @@ const deserializeAws_json1_1ResolveAliasCommandError = async (
       };
       break;
     case "TerminalRoutingStrategyException":
-    case "com.amazonaws.gameliftapi.v20151001#TerminalRoutingStrategyException":
+    case "com.amazonaws.gamelift#TerminalRoutingStrategyException":
       response = {
         ...(await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(
           parsedOutput,
@@ -7139,7 +7139,7 @@ const deserializeAws_json1_1ResolveAliasCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -7202,7 +7202,7 @@ const deserializeAws_json1_1SearchGameSessionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -7213,7 +7213,7 @@ const deserializeAws_json1_1SearchGameSessionsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -7224,7 +7224,7 @@ const deserializeAws_json1_1SearchGameSessionsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7235,7 +7235,7 @@ const deserializeAws_json1_1SearchGameSessionsCommandError = async (
       };
       break;
     case "TerminalRoutingStrategyException":
-    case "com.amazonaws.gameliftapi.v20151001#TerminalRoutingStrategyException":
+    case "com.amazonaws.gamelift#TerminalRoutingStrategyException":
       response = {
         ...(await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(
           parsedOutput,
@@ -7246,7 +7246,7 @@ const deserializeAws_json1_1SearchGameSessionsCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -7306,7 +7306,7 @@ const deserializeAws_json1_1StartFleetActionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -7317,7 +7317,7 @@ const deserializeAws_json1_1StartFleetActionsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -7328,7 +7328,7 @@ const deserializeAws_json1_1StartFleetActionsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7339,7 +7339,7 @@ const deserializeAws_json1_1StartFleetActionsCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -7405,7 +7405,7 @@ const deserializeAws_json1_1StartGameSessionPlacementCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -7416,7 +7416,7 @@ const deserializeAws_json1_1StartGameSessionPlacementCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -7427,7 +7427,7 @@ const deserializeAws_json1_1StartGameSessionPlacementCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7438,7 +7438,7 @@ const deserializeAws_json1_1StartGameSessionPlacementCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -7501,7 +7501,7 @@ const deserializeAws_json1_1StartMatchBackfillCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -7512,7 +7512,7 @@ const deserializeAws_json1_1StartMatchBackfillCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -7523,7 +7523,7 @@ const deserializeAws_json1_1StartMatchBackfillCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7534,7 +7534,7 @@ const deserializeAws_json1_1StartMatchBackfillCommandError = async (
       };
       break;
     case "UnsupportedRegionException":
-    case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
           parsedOutput,
@@ -7594,7 +7594,7 @@ const deserializeAws_json1_1StartMatchmakingCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -7605,7 +7605,7 @@ const deserializeAws_json1_1StartMatchmakingCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -7616,7 +7616,7 @@ const deserializeAws_json1_1StartMatchmakingCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7627,7 +7627,7 @@ const deserializeAws_json1_1StartMatchmakingCommandError = async (
       };
       break;
     case "UnsupportedRegionException":
-    case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
           parsedOutput,
@@ -7687,7 +7687,7 @@ const deserializeAws_json1_1StopFleetActionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -7698,7 +7698,7 @@ const deserializeAws_json1_1StopFleetActionsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -7709,7 +7709,7 @@ const deserializeAws_json1_1StopFleetActionsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7720,7 +7720,7 @@ const deserializeAws_json1_1StopFleetActionsCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -7786,7 +7786,7 @@ const deserializeAws_json1_1StopGameSessionPlacementCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -7797,7 +7797,7 @@ const deserializeAws_json1_1StopGameSessionPlacementCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -7808,7 +7808,7 @@ const deserializeAws_json1_1StopGameSessionPlacementCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7819,7 +7819,7 @@ const deserializeAws_json1_1StopGameSessionPlacementCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -7879,7 +7879,7 @@ const deserializeAws_json1_1StopMatchmakingCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -7890,7 +7890,7 @@ const deserializeAws_json1_1StopMatchmakingCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -7901,7 +7901,7 @@ const deserializeAws_json1_1StopMatchmakingCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7912,7 +7912,7 @@ const deserializeAws_json1_1StopMatchmakingCommandError = async (
       };
       break;
     case "UnsupportedRegionException":
-    case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
           parsedOutput,
@@ -7972,7 +7972,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -7983,7 +7983,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -7994,7 +7994,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8005,7 +8005,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "TaggingFailedException":
-    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+    case "com.amazonaws.gamelift#TaggingFailedException":
       response = {
         ...(await deserializeAws_json1_1TaggingFailedExceptionResponse(
           parsedOutput,
@@ -8065,7 +8065,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -8076,7 +8076,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -8087,7 +8087,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8098,7 +8098,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "TaggingFailedException":
-    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+    case "com.amazonaws.gamelift#TaggingFailedException":
       response = {
         ...(await deserializeAws_json1_1TaggingFailedExceptionResponse(
           parsedOutput,
@@ -8158,7 +8158,7 @@ const deserializeAws_json1_1UpdateAliasCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -8169,7 +8169,7 @@ const deserializeAws_json1_1UpdateAliasCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -8180,7 +8180,7 @@ const deserializeAws_json1_1UpdateAliasCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8191,7 +8191,7 @@ const deserializeAws_json1_1UpdateAliasCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -8251,7 +8251,7 @@ const deserializeAws_json1_1UpdateBuildCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -8262,7 +8262,7 @@ const deserializeAws_json1_1UpdateBuildCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -8273,7 +8273,7 @@ const deserializeAws_json1_1UpdateBuildCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8284,7 +8284,7 @@ const deserializeAws_json1_1UpdateBuildCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -8347,7 +8347,7 @@ const deserializeAws_json1_1UpdateFleetAttributesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConflictException":
-    case "com.amazonaws.gameliftapi.v20151001#ConflictException":
+    case "com.amazonaws.gamelift#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -8358,7 +8358,7 @@ const deserializeAws_json1_1UpdateFleetAttributesCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -8369,7 +8369,7 @@ const deserializeAws_json1_1UpdateFleetAttributesCommandError = async (
       };
       break;
     case "InvalidFleetStatusException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidFleetStatusException":
+    case "com.amazonaws.gamelift#InvalidFleetStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidFleetStatusExceptionResponse(
           parsedOutput,
@@ -8380,7 +8380,7 @@ const deserializeAws_json1_1UpdateFleetAttributesCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -8391,7 +8391,7 @@ const deserializeAws_json1_1UpdateFleetAttributesCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.gameliftapi.v20151001#LimitExceededException":
+    case "com.amazonaws.gamelift#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -8402,7 +8402,7 @@ const deserializeAws_json1_1UpdateFleetAttributesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8413,7 +8413,7 @@ const deserializeAws_json1_1UpdateFleetAttributesCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -8476,7 +8476,7 @@ const deserializeAws_json1_1UpdateFleetCapacityCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConflictException":
-    case "com.amazonaws.gameliftapi.v20151001#ConflictException":
+    case "com.amazonaws.gamelift#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -8487,7 +8487,7 @@ const deserializeAws_json1_1UpdateFleetCapacityCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -8498,7 +8498,7 @@ const deserializeAws_json1_1UpdateFleetCapacityCommandError = async (
       };
       break;
     case "InvalidFleetStatusException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidFleetStatusException":
+    case "com.amazonaws.gamelift#InvalidFleetStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidFleetStatusExceptionResponse(
           parsedOutput,
@@ -8509,7 +8509,7 @@ const deserializeAws_json1_1UpdateFleetCapacityCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -8520,7 +8520,7 @@ const deserializeAws_json1_1UpdateFleetCapacityCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.gameliftapi.v20151001#LimitExceededException":
+    case "com.amazonaws.gamelift#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -8531,7 +8531,7 @@ const deserializeAws_json1_1UpdateFleetCapacityCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8542,7 +8542,7 @@ const deserializeAws_json1_1UpdateFleetCapacityCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -8605,7 +8605,7 @@ const deserializeAws_json1_1UpdateFleetPortSettingsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConflictException":
-    case "com.amazonaws.gameliftapi.v20151001#ConflictException":
+    case "com.amazonaws.gamelift#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -8616,7 +8616,7 @@ const deserializeAws_json1_1UpdateFleetPortSettingsCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -8627,7 +8627,7 @@ const deserializeAws_json1_1UpdateFleetPortSettingsCommandError = async (
       };
       break;
     case "InvalidFleetStatusException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidFleetStatusException":
+    case "com.amazonaws.gamelift#InvalidFleetStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidFleetStatusExceptionResponse(
           parsedOutput,
@@ -8638,7 +8638,7 @@ const deserializeAws_json1_1UpdateFleetPortSettingsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -8649,7 +8649,7 @@ const deserializeAws_json1_1UpdateFleetPortSettingsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.gameliftapi.v20151001#LimitExceededException":
+    case "com.amazonaws.gamelift#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -8660,7 +8660,7 @@ const deserializeAws_json1_1UpdateFleetPortSettingsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8671,7 +8671,7 @@ const deserializeAws_json1_1UpdateFleetPortSettingsCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -8731,7 +8731,7 @@ const deserializeAws_json1_1UpdateGameSessionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConflictException":
-    case "com.amazonaws.gameliftapi.v20151001#ConflictException":
+    case "com.amazonaws.gamelift#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -8742,7 +8742,7 @@ const deserializeAws_json1_1UpdateGameSessionCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -8753,7 +8753,7 @@ const deserializeAws_json1_1UpdateGameSessionCommandError = async (
       };
       break;
     case "InvalidGameSessionStatusException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidGameSessionStatusException":
+    case "com.amazonaws.gamelift#InvalidGameSessionStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidGameSessionStatusExceptionResponse(
           parsedOutput,
@@ -8764,7 +8764,7 @@ const deserializeAws_json1_1UpdateGameSessionCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -8775,7 +8775,7 @@ const deserializeAws_json1_1UpdateGameSessionCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8786,7 +8786,7 @@ const deserializeAws_json1_1UpdateGameSessionCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -8849,7 +8849,7 @@ const deserializeAws_json1_1UpdateGameSessionQueueCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -8860,7 +8860,7 @@ const deserializeAws_json1_1UpdateGameSessionQueueCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -8871,7 +8871,7 @@ const deserializeAws_json1_1UpdateGameSessionQueueCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8882,7 +8882,7 @@ const deserializeAws_json1_1UpdateGameSessionQueueCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -8948,7 +8948,7 @@ const deserializeAws_json1_1UpdateMatchmakingConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -8959,7 +8959,7 @@ const deserializeAws_json1_1UpdateMatchmakingConfigurationCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -8970,7 +8970,7 @@ const deserializeAws_json1_1UpdateMatchmakingConfigurationCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8981,7 +8981,7 @@ const deserializeAws_json1_1UpdateMatchmakingConfigurationCommandError = async (
       };
       break;
     case "UnsupportedRegionException":
-    case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
           parsedOutput,
@@ -9047,7 +9047,7 @@ const deserializeAws_json1_1UpdateRuntimeConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -9058,7 +9058,7 @@ const deserializeAws_json1_1UpdateRuntimeConfigurationCommandError = async (
       };
       break;
     case "InvalidFleetStatusException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidFleetStatusException":
+    case "com.amazonaws.gamelift#InvalidFleetStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidFleetStatusExceptionResponse(
           parsedOutput,
@@ -9069,7 +9069,7 @@ const deserializeAws_json1_1UpdateRuntimeConfigurationCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -9080,7 +9080,7 @@ const deserializeAws_json1_1UpdateRuntimeConfigurationCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -9091,7 +9091,7 @@ const deserializeAws_json1_1UpdateRuntimeConfigurationCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -9151,7 +9151,7 @@ const deserializeAws_json1_1UpdateScriptCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -9162,7 +9162,7 @@ const deserializeAws_json1_1UpdateScriptCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -9173,7 +9173,7 @@ const deserializeAws_json1_1UpdateScriptCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -9184,7 +9184,7 @@ const deserializeAws_json1_1UpdateScriptCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -9250,7 +9250,7 @@ const deserializeAws_json1_1ValidateMatchmakingRuleSetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -9261,7 +9261,7 @@ const deserializeAws_json1_1ValidateMatchmakingRuleSetCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -9272,7 +9272,7 @@ const deserializeAws_json1_1ValidateMatchmakingRuleSetCommandError = async (
       };
       break;
     case "UnsupportedRegionException":
-    case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
           parsedOutput,
@@ -13827,6 +13827,19 @@ const deserializeAws_json1_1Tag = (
   } as any;
 };
 
+const deserializeAws_json1_1TaggingFailedException = (
+  output: any,
+  context: __SerdeContext
+): TaggingFailedException => {
+  return {
+    __type: "TaggingFailedException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
@@ -13842,19 +13855,6 @@ const deserializeAws_json1_1TagResourceResponse = (
 ): TagResourceResponse => {
   return {
     __type: "TagResourceResponse"
-  } as any;
-};
-
-const deserializeAws_json1_1TaggingFailedException = (
-  output: any,
-  context: __SerdeContext
-): TaggingFailedException => {
-  return {
-    __type: "TaggingFailedException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
   } as any;
 };
 

@@ -8,9 +8,9 @@ import {
   RemoveAttributesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1RemoveAttributesCommand,
-  serializeAws_restJson1_1RemoveAttributesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1RemoveAttributesCommand,
+  serializeAws_restJson1RemoveAttributesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class RemoveAttributesCommand extends $Command<
     input: RemoveAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RemoveAttributesCommand(input, context);
+    return serializeAws_restJson1RemoveAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveAttributesCommandOutput> {
-    return deserializeAws_restJson1_1RemoveAttributesCommand(output, context);
+    return deserializeAws_restJson1RemoveAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -8,9 +8,9 @@ import {
   ListAuthorizersResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListAuthorizersCommand,
-  serializeAws_restJson1_1ListAuthorizersCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListAuthorizersCommand,
+  serializeAws_restJson1ListAuthorizersCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ListAuthorizersCommand extends $Command<
     input: ListAuthorizersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListAuthorizersCommand(input, context);
+    return serializeAws_restJson1ListAuthorizersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAuthorizersCommandOutput> {
-    return deserializeAws_restJson1_1ListAuthorizersCommand(output, context);
+    return deserializeAws_restJson1ListAuthorizersCommand(output, context);
   }
 
   // Start section: command_body_extra

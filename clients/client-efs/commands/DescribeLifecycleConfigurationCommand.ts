@@ -8,9 +8,9 @@ import {
   LifecycleConfigurationDescription
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeLifecycleConfigurationCommand,
-  serializeAws_restJson1_1DescribeLifecycleConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeLifecycleConfigurationCommand,
+  serializeAws_restJson1DescribeLifecycleConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeLifecycleConfigurationCommand extends $Command<
     input: DescribeLifecycleConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeLifecycleConfigurationCommand(
+    return serializeAws_restJson1DescribeLifecycleConfigurationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeLifecycleConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLifecycleConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DescribeLifecycleConfigurationCommand(
+    return deserializeAws_restJson1DescribeLifecycleConfigurationCommand(
       output,
       context
     );

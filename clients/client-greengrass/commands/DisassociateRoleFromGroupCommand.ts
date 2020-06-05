@@ -8,9 +8,9 @@ import {
   DisassociateRoleFromGroupResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DisassociateRoleFromGroupCommand,
-  serializeAws_restJson1_1DisassociateRoleFromGroupCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DisassociateRoleFromGroupCommand,
+  serializeAws_restJson1DisassociateRoleFromGroupCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DisassociateRoleFromGroupCommand extends $Command<
     input: DisassociateRoleFromGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociateRoleFromGroupCommand(
+    return serializeAws_restJson1DisassociateRoleFromGroupCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DisassociateRoleFromGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateRoleFromGroupCommandOutput> {
-    return deserializeAws_restJson1_1DisassociateRoleFromGroupCommand(
+    return deserializeAws_restJson1DisassociateRoleFromGroupCommand(
       output,
       context
     );

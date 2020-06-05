@@ -8,9 +8,9 @@ import {
   DescribePlacementResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribePlacementCommand,
-  serializeAws_restJson1_1DescribePlacementCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribePlacementCommand,
+  serializeAws_restJson1DescribePlacementCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DescribePlacementCommand extends $Command<
     input: DescribePlacementCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribePlacementCommand(input, context);
+    return serializeAws_restJson1DescribePlacementCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePlacementCommandOutput> {
-    return deserializeAws_restJson1_1DescribePlacementCommand(output, context);
+    return deserializeAws_restJson1DescribePlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

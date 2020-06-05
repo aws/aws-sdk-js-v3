@@ -8,9 +8,9 @@ import {
   ListFargateProfilesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListFargateProfilesCommand,
-  serializeAws_restJson1_1ListFargateProfilesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListFargateProfilesCommand,
+  serializeAws_restJson1ListFargateProfilesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListFargateProfilesCommand extends $Command<
     input: ListFargateProfilesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListFargateProfilesCommand(input, context);
+    return serializeAws_restJson1ListFargateProfilesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFargateProfilesCommandOutput> {
-    return deserializeAws_restJson1_1ListFargateProfilesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListFargateProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -8,9 +8,9 @@ import {
   DeleteAccountAuditConfigurationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteAccountAuditConfigurationCommand,
-  serializeAws_restJson1_1DeleteAccountAuditConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteAccountAuditConfigurationCommand,
+  serializeAws_restJson1DeleteAccountAuditConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DeleteAccountAuditConfigurationCommand extends $Command<
     input: DeleteAccountAuditConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteAccountAuditConfigurationCommand(
+    return serializeAws_restJson1DeleteAccountAuditConfigurationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DeleteAccountAuditConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAccountAuditConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteAccountAuditConfigurationCommand(
+    return deserializeAws_restJson1DeleteAccountAuditConfigurationCommand(
       output,
       context
     );

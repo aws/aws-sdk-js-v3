@@ -5,9 +5,9 @@ import {
 } from "../CodeGuruProfilerClient";
 import { GetProfileRequest, GetProfileResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetProfileCommand,
-  serializeAws_restJson1_1GetProfileCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetProfileCommand,
+  serializeAws_restJson1GetProfileCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetProfileCommand extends $Command<
     input: GetProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetProfileCommand(input, context);
+    return serializeAws_restJson1GetProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetProfileCommandOutput> {
-    return deserializeAws_restJson1_1GetProfileCommand(output, context);
+    return deserializeAws_restJson1GetProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

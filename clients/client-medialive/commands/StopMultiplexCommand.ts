@@ -5,9 +5,9 @@ import {
 } from "../MediaLiveClient";
 import { StopMultiplexRequest, StopMultiplexResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1StopMultiplexCommand,
-  serializeAws_restJson1_1StopMultiplexCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1StopMultiplexCommand,
+  serializeAws_restJson1StopMultiplexCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class StopMultiplexCommand extends $Command<
     input: StopMultiplexCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StopMultiplexCommand(input, context);
+    return serializeAws_restJson1StopMultiplexCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopMultiplexCommandOutput> {
-    return deserializeAws_restJson1_1StopMultiplexCommand(output, context);
+    return deserializeAws_restJson1StopMultiplexCommand(output, context);
   }
 
   // Start section: command_body_extra

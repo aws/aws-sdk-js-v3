@@ -8,9 +8,9 @@ import {
   DeleteMitigationActionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteMitigationActionCommand,
-  serializeAws_restJson1_1DeleteMitigationActionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteMitigationActionCommand,
+  serializeAws_restJson1DeleteMitigationActionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteMitigationActionCommand extends $Command<
     input: DeleteMitigationActionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteMitigationActionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DeleteMitigationActionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMitigationActionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteMitigationActionCommand(
+    return deserializeAws_restJson1DeleteMitigationActionCommand(
       output,
       context
     );

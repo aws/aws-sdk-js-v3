@@ -8,9 +8,9 @@ import {
   DetachSecurityProfileResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DetachSecurityProfileCommand,
-  serializeAws_restJson1_1DetachSecurityProfileCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DetachSecurityProfileCommand,
+  serializeAws_restJson1DetachSecurityProfileCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class DetachSecurityProfileCommand extends $Command<
     input: DetachSecurityProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DetachSecurityProfileCommand(input, context);
+    return serializeAws_restJson1DetachSecurityProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DetachSecurityProfileCommandOutput> {
-    return deserializeAws_restJson1_1DetachSecurityProfileCommand(
+    return deserializeAws_restJson1DetachSecurityProfileCommand(
       output,
       context
     );

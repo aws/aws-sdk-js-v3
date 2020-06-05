@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { ListPoliciesRequest, ListPoliciesResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListPoliciesCommand,
-  serializeAws_restJson1_1ListPoliciesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListPoliciesCommand,
+  serializeAws_restJson1ListPoliciesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListPoliciesCommand extends $Command<
     input: ListPoliciesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListPoliciesCommand(input, context);
+    return serializeAws_restJson1ListPoliciesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPoliciesCommandOutput> {
-    return deserializeAws_restJson1_1ListPoliciesCommand(output, context);
+    return deserializeAws_restJson1ListPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

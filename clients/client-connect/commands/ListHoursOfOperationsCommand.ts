@@ -8,9 +8,9 @@ import {
   ListHoursOfOperationsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListHoursOfOperationsCommand,
-  serializeAws_restJson1_1ListHoursOfOperationsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListHoursOfOperationsCommand,
+  serializeAws_restJson1ListHoursOfOperationsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class ListHoursOfOperationsCommand extends $Command<
     input: ListHoursOfOperationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListHoursOfOperationsCommand(input, context);
+    return serializeAws_restJson1ListHoursOfOperationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListHoursOfOperationsCommandOutput> {
-    return deserializeAws_restJson1_1ListHoursOfOperationsCommand(
+    return deserializeAws_restJson1ListHoursOfOperationsCommand(
       output,
       context
     );

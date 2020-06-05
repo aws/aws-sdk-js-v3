@@ -8,9 +8,9 @@ import {
   ListBulkDeploymentDetailedReportsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListBulkDeploymentDetailedReportsCommand,
-  serializeAws_restJson1_1ListBulkDeploymentDetailedReportsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommand,
+  serializeAws_restJson1ListBulkDeploymentDetailedReportsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListBulkDeploymentDetailedReportsCommand extends $Command<
     input: ListBulkDeploymentDetailedReportsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListBulkDeploymentDetailedReportsCommand(
+    return serializeAws_restJson1ListBulkDeploymentDetailedReportsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListBulkDeploymentDetailedReportsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBulkDeploymentDetailedReportsCommandOutput> {
-    return deserializeAws_restJson1_1ListBulkDeploymentDetailedReportsCommand(
+    return deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommand(
       output,
       context
     );

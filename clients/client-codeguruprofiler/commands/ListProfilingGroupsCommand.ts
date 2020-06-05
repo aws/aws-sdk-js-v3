@@ -8,9 +8,9 @@ import {
   ListProfilingGroupsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListProfilingGroupsCommand,
-  serializeAws_restJson1_1ListProfilingGroupsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListProfilingGroupsCommand,
+  serializeAws_restJson1ListProfilingGroupsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListProfilingGroupsCommand extends $Command<
     input: ListProfilingGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListProfilingGroupsCommand(input, context);
+    return serializeAws_restJson1ListProfilingGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProfilingGroupsCommandOutput> {
-    return deserializeAws_restJson1_1ListProfilingGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListProfilingGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

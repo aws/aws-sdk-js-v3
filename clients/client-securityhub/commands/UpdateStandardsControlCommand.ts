@@ -8,9 +8,9 @@ import {
   UpdateStandardsControlResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateStandardsControlCommand,
-  serializeAws_restJson1_1UpdateStandardsControlCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateStandardsControlCommand,
+  serializeAws_restJson1UpdateStandardsControlCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class UpdateStandardsControlCommand extends $Command<
     input: UpdateStandardsControlCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateStandardsControlCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1UpdateStandardsControlCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateStandardsControlCommandOutput> {
-    return deserializeAws_restJson1_1UpdateStandardsControlCommand(
+    return deserializeAws_restJson1UpdateStandardsControlCommand(
       output,
       context
     );

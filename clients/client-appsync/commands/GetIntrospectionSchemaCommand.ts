@@ -8,9 +8,9 @@ import {
   GetIntrospectionSchemaResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetIntrospectionSchemaCommand,
-  serializeAws_restJson1_1GetIntrospectionSchemaCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetIntrospectionSchemaCommand,
+  serializeAws_restJson1GetIntrospectionSchemaCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetIntrospectionSchemaCommand extends $Command<
     input: GetIntrospectionSchemaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetIntrospectionSchemaCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1GetIntrospectionSchemaCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIntrospectionSchemaCommandOutput> {
-    return deserializeAws_restJson1_1GetIntrospectionSchemaCommand(
+    return deserializeAws_restJson1GetIntrospectionSchemaCommand(
       output,
       context
     );

@@ -8,9 +8,9 @@ import {
   UpdateThingShadowResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateThingShadowCommand,
-  serializeAws_restJson1_1UpdateThingShadowCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateThingShadowCommand,
+  serializeAws_restJson1UpdateThingShadowCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class UpdateThingShadowCommand extends $Command<
     input: UpdateThingShadowCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateThingShadowCommand(input, context);
+    return serializeAws_restJson1UpdateThingShadowCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateThingShadowCommandOutput> {
-    return deserializeAws_restJson1_1UpdateThingShadowCommand(output, context);
+    return deserializeAws_restJson1UpdateThingShadowCommand(output, context);
   }
 
   // Start section: command_body_extra

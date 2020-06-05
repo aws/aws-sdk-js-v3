@@ -8,9 +8,9 @@ import {
   DeleteDomainAssociationResult
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteDomainAssociationCommand,
-  serializeAws_restJson1_1DeleteDomainAssociationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteDomainAssociationCommand,
+  serializeAws_restJson1DeleteDomainAssociationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteDomainAssociationCommand extends $Command<
     input: DeleteDomainAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDomainAssociationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DeleteDomainAssociationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDomainAssociationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDomainAssociationCommand(
+    return deserializeAws_restJson1DeleteDomainAssociationCommand(
       output,
       context
     );

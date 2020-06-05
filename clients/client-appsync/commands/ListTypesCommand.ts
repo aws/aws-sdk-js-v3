@@ -5,9 +5,9 @@ import {
 } from "../AppSyncClient";
 import { ListTypesRequest, ListTypesResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListTypesCommand,
-  serializeAws_restJson1_1ListTypesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListTypesCommand,
+  serializeAws_restJson1ListTypesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListTypesCommand extends $Command<
     input: ListTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListTypesCommand(input, context);
+    return serializeAws_restJson1ListTypesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTypesCommandOutput> {
-    return deserializeAws_restJson1_1ListTypesCommand(output, context);
+    return deserializeAws_restJson1ListTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

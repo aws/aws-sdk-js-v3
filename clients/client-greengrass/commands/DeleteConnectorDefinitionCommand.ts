@@ -8,9 +8,9 @@ import {
   DeleteConnectorDefinitionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteConnectorDefinitionCommand,
-  serializeAws_restJson1_1DeleteConnectorDefinitionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteConnectorDefinitionCommand,
+  serializeAws_restJson1DeleteConnectorDefinitionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DeleteConnectorDefinitionCommand extends $Command<
     input: DeleteConnectorDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteConnectorDefinitionCommand(
+    return serializeAws_restJson1DeleteConnectorDefinitionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DeleteConnectorDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConnectorDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteConnectorDefinitionCommand(
+    return deserializeAws_restJson1DeleteConnectorDefinitionCommand(
       output,
       context
     );

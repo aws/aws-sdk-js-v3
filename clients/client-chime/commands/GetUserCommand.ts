@@ -5,9 +5,9 @@ import {
 } from "../ChimeClient";
 import { GetUserRequest, GetUserResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetUserCommand,
-  serializeAws_restJson1_1GetUserCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetUserCommand,
+  serializeAws_restJson1GetUserCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetUserCommand extends $Command<
     input: GetUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetUserCommand(input, context);
+    return serializeAws_restJson1GetUserCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetUserCommandOutput> {
-    return deserializeAws_restJson1_1GetUserCommand(output, context);
+    return deserializeAws_restJson1GetUserCommand(output, context);
   }
 
   // Start section: command_body_extra

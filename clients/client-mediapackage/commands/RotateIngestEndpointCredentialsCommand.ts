@@ -8,9 +8,9 @@ import {
   RotateIngestEndpointCredentialsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1RotateIngestEndpointCredentialsCommand,
-  serializeAws_restJson1_1RotateIngestEndpointCredentialsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1RotateIngestEndpointCredentialsCommand,
+  serializeAws_restJson1RotateIngestEndpointCredentialsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class RotateIngestEndpointCredentialsCommand extends $Command<
     input: RotateIngestEndpointCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RotateIngestEndpointCredentialsCommand(
+    return serializeAws_restJson1RotateIngestEndpointCredentialsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class RotateIngestEndpointCredentialsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RotateIngestEndpointCredentialsCommandOutput> {
-    return deserializeAws_restJson1_1RotateIngestEndpointCredentialsCommand(
+    return deserializeAws_restJson1RotateIngestEndpointCredentialsCommand(
       output,
       context
     );

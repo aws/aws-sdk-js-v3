@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { GetPercentilesRequest, GetPercentilesResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetPercentilesCommand,
-  serializeAws_restJson1_1GetPercentilesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetPercentilesCommand,
+  serializeAws_restJson1GetPercentilesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetPercentilesCommand extends $Command<
     input: GetPercentilesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetPercentilesCommand(input, context);
+    return serializeAws_restJson1GetPercentilesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPercentilesCommandOutput> {
-    return deserializeAws_restJson1_1GetPercentilesCommand(output, context);
+    return deserializeAws_restJson1GetPercentilesCommand(output, context);
   }
 
   // Start section: command_body_extra

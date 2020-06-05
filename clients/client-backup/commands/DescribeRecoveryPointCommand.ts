@@ -8,9 +8,9 @@ import {
   DescribeRecoveryPointOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeRecoveryPointCommand,
-  serializeAws_restJson1_1DescribeRecoveryPointCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeRecoveryPointCommand,
+  serializeAws_restJson1DescribeRecoveryPointCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class DescribeRecoveryPointCommand extends $Command<
     input: DescribeRecoveryPointCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeRecoveryPointCommand(input, context);
+    return serializeAws_restJson1DescribeRecoveryPointCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRecoveryPointCommandOutput> {
-    return deserializeAws_restJson1_1DescribeRecoveryPointCommand(
+    return deserializeAws_restJson1DescribeRecoveryPointCommand(
       output,
       context
     );

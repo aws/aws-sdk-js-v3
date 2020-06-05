@@ -5,9 +5,9 @@ import {
 } from "../ApiGatewayManagementApiClient";
 import { DeleteConnectionRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteConnectionCommand,
-  serializeAws_restJson1_1DeleteConnectionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteConnectionCommand,
+  serializeAws_restJson1DeleteConnectionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteConnectionCommand extends $Command<
     input: DeleteConnectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteConnectionCommand(input, context);
+    return serializeAws_restJson1DeleteConnectionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConnectionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteConnectionCommand(output, context);
+    return deserializeAws_restJson1DeleteConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,9 +3,9 @@ import {
   CreateSavingsPlanResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateSavingsPlanCommand,
-  serializeAws_restJson1_1CreateSavingsPlanCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateSavingsPlanCommand,
+  serializeAws_restJson1CreateSavingsPlanCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -71,14 +71,14 @@ export class CreateSavingsPlanCommand extends $Command<
     input: CreateSavingsPlanCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateSavingsPlanCommand(input, context);
+    return serializeAws_restJson1CreateSavingsPlanCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSavingsPlanCommandOutput> {
-    return deserializeAws_restJson1_1CreateSavingsPlanCommand(output, context);
+    return deserializeAws_restJson1CreateSavingsPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

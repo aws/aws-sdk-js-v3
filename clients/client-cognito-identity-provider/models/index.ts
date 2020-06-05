@@ -25,6 +25,35 @@ export namespace AccountRecoverySettingType {
 }
 
 /**
+ * <p>Account takeover actions type.</p>
+ */
+export interface AccountTakeoverActionsType {
+  __type?: "AccountTakeoverActionsType";
+  /**
+   * <p>Action to take for a high risk.</p>
+   */
+  HighAction?: AccountTakeoverActionType;
+
+  /**
+   * <p>Action to take for a low risk.</p>
+   */
+  LowAction?: AccountTakeoverActionType;
+
+  /**
+   * <p>Action to take for a medium risk.</p>
+   */
+  MediumAction?: AccountTakeoverActionType;
+}
+
+export namespace AccountTakeoverActionsType {
+  export const filterSensitiveLog = (obj: AccountTakeoverActionsType): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AccountTakeoverActionsType =>
+    __isa(o, "AccountTakeoverActionsType");
+}
+
+/**
  * <p>Account takeover action type.</p>
  */
 export interface AccountTakeoverActionType {
@@ -66,35 +95,6 @@ export namespace AccountTakeoverActionType {
   });
   export const isa = (o: any): o is AccountTakeoverActionType =>
     __isa(o, "AccountTakeoverActionType");
-}
-
-/**
- * <p>Account takeover actions type.</p>
- */
-export interface AccountTakeoverActionsType {
-  __type?: "AccountTakeoverActionsType";
-  /**
-   * <p>Action to take for a high risk.</p>
-   */
-  HighAction?: AccountTakeoverActionType;
-
-  /**
-   * <p>Action to take for a low risk.</p>
-   */
-  LowAction?: AccountTakeoverActionType;
-
-  /**
-   * <p>Action to take for a medium risk.</p>
-   */
-  MediumAction?: AccountTakeoverActionType;
-}
-
-export namespace AccountTakeoverActionsType {
-  export const filterSensitiveLog = (obj: AccountTakeoverActionsType): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AccountTakeoverActionsType =>
-    __isa(o, "AccountTakeoverActionsType");
 }
 
 export enum AccountTakeoverEventActionType {
@@ -2324,6 +2324,53 @@ export namespace AttributeType {
 }
 
 /**
+ * <p>The authentication result.</p>
+ */
+export interface AuthenticationResultType {
+  __type?: "AuthenticationResultType";
+  /**
+   * <p>The access token.</p>
+   */
+  AccessToken?: string;
+
+  /**
+   * <p>The expiration period of the authentication result in seconds.</p>
+   */
+  ExpiresIn?: number;
+
+  /**
+   * <p>The ID token.</p>
+   */
+  IdToken?: string;
+
+  /**
+   * <p>The new device metadata from an authentication result.</p>
+   */
+  NewDeviceMetadata?: NewDeviceMetadataType;
+
+  /**
+   * <p>The refresh token.</p>
+   */
+  RefreshToken?: string;
+
+  /**
+   * <p>The token type.</p>
+   */
+  TokenType?: string;
+}
+
+export namespace AuthenticationResultType {
+  export const filterSensitiveLog = (obj: AuthenticationResultType): any => ({
+    ...obj,
+    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+    ...(obj.IdToken && { IdToken: SENSITIVE_STRING }),
+    ...(obj.RefreshToken && { RefreshToken: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is AuthenticationResultType =>
+    __isa(o, "AuthenticationResultType");
+}
+
+/**
  * <p>The authentication event type.</p>
  */
 export interface AuthEventType {
@@ -2386,53 +2433,6 @@ export enum AuthFlowType {
   REFRESH_TOKEN_AUTH = "REFRESH_TOKEN_AUTH",
   USER_PASSWORD_AUTH = "USER_PASSWORD_AUTH",
   USER_SRP_AUTH = "USER_SRP_AUTH"
-}
-
-/**
- * <p>The authentication result.</p>
- */
-export interface AuthenticationResultType {
-  __type?: "AuthenticationResultType";
-  /**
-   * <p>The access token.</p>
-   */
-  AccessToken?: string;
-
-  /**
-   * <p>The expiration period of the authentication result in seconds.</p>
-   */
-  ExpiresIn?: number;
-
-  /**
-   * <p>The ID token.</p>
-   */
-  IdToken?: string;
-
-  /**
-   * <p>The new device metadata from an authentication result.</p>
-   */
-  NewDeviceMetadata?: NewDeviceMetadataType;
-
-  /**
-   * <p>The refresh token.</p>
-   */
-  RefreshToken?: string;
-
-  /**
-   * <p>The token type.</p>
-   */
-  TokenType?: string;
-}
-
-export namespace AuthenticationResultType {
-  export const filterSensitiveLog = (obj: AuthenticationResultType): any => ({
-    ...obj,
-    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-    ...(obj.IdToken && { IdToken: SENSITIVE_STRING }),
-    ...(obj.RefreshToken && { RefreshToken: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is AuthenticationResultType =>
-    __isa(o, "AuthenticationResultType");
 }
 
 export enum ChallengeName {
@@ -6710,6 +6710,40 @@ export namespace ListUsersResponse {
     __isa(o, "ListUsersResponse");
 }
 
+export enum MessageActionType {
+  RESEND = "RESEND",
+  SUPPRESS = "SUPPRESS"
+}
+
+/**
+ * <p>The message template structure.</p>
+ */
+export interface MessageTemplateType {
+  __type?: "MessageTemplateType";
+  /**
+   * <p>The message template for email messages.</p>
+   */
+  EmailMessage?: string;
+
+  /**
+   * <p>The subject line for email messages.</p>
+   */
+  EmailSubject?: string;
+
+  /**
+   * <p>The message template for SMS messages.</p>
+   */
+  SMSMessage?: string;
+}
+
+export namespace MessageTemplateType {
+  export const filterSensitiveLog = (obj: MessageTemplateType): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is MessageTemplateType =>
+    __isa(o, "MessageTemplateType");
+}
+
 /**
  * <p>This exception is thrown when Amazon Cognito cannot find a multi-factor authentication
  *             (MFA) method.</p>
@@ -6762,40 +6796,6 @@ export namespace MFAOptionType {
     ...obj
   });
   export const isa = (o: any): o is MFAOptionType => __isa(o, "MFAOptionType");
-}
-
-export enum MessageActionType {
-  RESEND = "RESEND",
-  SUPPRESS = "SUPPRESS"
-}
-
-/**
- * <p>The message template structure.</p>
- */
-export interface MessageTemplateType {
-  __type?: "MessageTemplateType";
-  /**
-   * <p>The message template for email messages.</p>
-   */
-  EmailMessage?: string;
-
-  /**
-   * <p>The subject line for email messages.</p>
-   */
-  EmailSubject?: string;
-
-  /**
-   * <p>The message template for SMS messages.</p>
-   */
-  SMSMessage?: string;
-}
-
-export namespace MessageTemplateType {
-  export const filterSensitiveLog = (obj: MessageTemplateType): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is MessageTemplateType =>
-    __isa(o, "MessageTemplateType");
 }
 
 /**
@@ -7616,30 +7616,6 @@ export enum RiskLevelType {
 }
 
 /**
- * <p>The type used for enabling SMS MFA at the user level.</p>
- */
-export interface SMSMfaSettingsType {
-  __type?: "SMSMfaSettingsType";
-  /**
-   * <p>Specifies whether SMS text message MFA is enabled.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>Specifies whether SMS is the preferred MFA method.</p>
-   */
-  PreferredMfa?: boolean;
-}
-
-export namespace SMSMfaSettingsType {
-  export const filterSensitiveLog = (obj: SMSMfaSettingsType): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SMSMfaSettingsType =>
-    __isa(o, "SMSMfaSettingsType");
-}
-
-/**
  * <p>Contains information about the schema attribute.</p>
  */
 export interface SchemaAttributeType {
@@ -8198,25 +8174,27 @@ export namespace SmsMfaConfigType {
 }
 
 /**
- * <p>This exception is thrown when the software token TOTP multi-factor authentication
- *             (MFA) is not enabled for the user pool.</p>
+ * <p>The type used for enabling SMS MFA at the user level.</p>
  */
-export interface SoftwareTokenMFANotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "SoftwareTokenMFANotFoundException";
-  $fault: "client";
-  message?: string;
+export interface SMSMfaSettingsType {
+  __type?: "SMSMfaSettingsType";
+  /**
+   * <p>Specifies whether SMS text message MFA is enabled.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>Specifies whether SMS is the preferred MFA method.</p>
+   */
+  PreferredMfa?: boolean;
 }
 
-export namespace SoftwareTokenMFANotFoundException {
-  export const filterSensitiveLog = (
-    obj: SoftwareTokenMFANotFoundException
-  ): any => ({
+export namespace SMSMfaSettingsType {
+  export const filterSensitiveLog = (obj: SMSMfaSettingsType): any => ({
     ...obj
   });
-  export const isa = (o: any): o is SoftwareTokenMFANotFoundException =>
-    __isa(o, "SoftwareTokenMFANotFoundException");
+  export const isa = (o: any): o is SMSMfaSettingsType =>
+    __isa(o, "SMSMfaSettingsType");
 }
 
 /**
@@ -8236,6 +8214,28 @@ export namespace SoftwareTokenMfaConfigType {
   });
   export const isa = (o: any): o is SoftwareTokenMfaConfigType =>
     __isa(o, "SoftwareTokenMfaConfigType");
+}
+
+/**
+ * <p>This exception is thrown when the software token TOTP multi-factor authentication
+ *             (MFA) is not enabled for the user pool.</p>
+ */
+export interface SoftwareTokenMFANotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "SoftwareTokenMFANotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SoftwareTokenMFANotFoundException {
+  export const filterSensitiveLog = (
+    obj: SoftwareTokenMFANotFoundException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SoftwareTokenMFANotFoundException =>
+    __isa(o, "SoftwareTokenMFANotFoundException");
 }
 
 /**
@@ -9622,6 +9622,34 @@ export namespace UserLambdaValidationException {
     __isa(o, "UserLambdaValidationException");
 }
 
+export enum UsernameAttributeType {
+  EMAIL = "email",
+  PHONE_NUMBER = "phone_number"
+}
+
+/**
+ * <p>This exception is thrown when Amazon Cognito encounters a user name that already
+ *             exists in the user pool.</p>
+ */
+export interface UsernameExistsException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "UsernameExistsException";
+  $fault: "client";
+  /**
+   * <p>The message returned when Amazon Cognito throws a user name exists exception.</p>
+   */
+  message?: string;
+}
+
+export namespace UsernameExistsException {
+  export const filterSensitiveLog = (obj: UsernameExistsException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UsernameExistsException =>
+    __isa(o, "UsernameExistsException");
+}
+
 /**
  * <p>This exception is thrown when a user is not confirmed successfully.</p>
  */
@@ -10334,34 +10362,6 @@ export namespace UserType {
     ...(obj.Username && { Username: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is UserType => __isa(o, "UserType");
-}
-
-export enum UsernameAttributeType {
-  EMAIL = "email",
-  PHONE_NUMBER = "phone_number"
-}
-
-/**
- * <p>This exception is thrown when Amazon Cognito encounters a user name that already
- *             exists in the user pool.</p>
- */
-export interface UsernameExistsException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "UsernameExistsException";
-  $fault: "client";
-  /**
-   * <p>The message returned when Amazon Cognito throws a user name exists exception.</p>
-   */
-  message?: string;
-}
-
-export namespace UsernameExistsException {
-  export const filterSensitiveLog = (obj: UsernameExistsException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UsernameExistsException =>
-    __isa(o, "UsernameExistsException");
 }
 
 /**

@@ -16194,6 +16194,52 @@ export enum RecordWrapper {
   RECORDIO = "RecordIO"
 }
 
+/**
+ * <p>Contains input values for a task.</p>
+ */
+export interface RenderableTask {
+  __type?: "RenderableTask";
+  /**
+   * <p>A JSON object that contains values for the variables defined in the template. It is
+   *             made available to the template under the substitution variable <code>task.input</code>.
+   *             For example, if you define a variable <code>task.input.text</code> in your template, you
+   *             can supply the variable in the JSON object as <code>"text": "sample text"</code>.</p>
+   */
+  Input: string | undefined;
+}
+
+export namespace RenderableTask {
+  export const filterSensitiveLog = (obj: RenderableTask): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RenderableTask =>
+    __isa(o, "RenderableTask");
+}
+
+/**
+ * <p>A description of an error that occurred while rendering the template.</p>
+ */
+export interface RenderingError {
+  __type?: "RenderingError";
+  /**
+   * <p>A unique identifier for a specific class of errors.</p>
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>A human-readable message describing the error.</p>
+   */
+  Message: string | undefined;
+}
+
+export namespace RenderingError {
+  export const filterSensitiveLog = (obj: RenderingError): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RenderingError =>
+    __isa(o, "RenderingError");
+}
+
 export interface RenderUiTemplateRequest {
   __type?: "RenderUiTemplateRequest";
   /**
@@ -16242,52 +16288,6 @@ export namespace RenderUiTemplateResponse {
   });
   export const isa = (o: any): o is RenderUiTemplateResponse =>
     __isa(o, "RenderUiTemplateResponse");
-}
-
-/**
- * <p>Contains input values for a task.</p>
- */
-export interface RenderableTask {
-  __type?: "RenderableTask";
-  /**
-   * <p>A JSON object that contains values for the variables defined in the template. It is
-   *             made available to the template under the substitution variable <code>task.input</code>.
-   *             For example, if you define a variable <code>task.input.text</code> in your template, you
-   *             can supply the variable in the JSON object as <code>"text": "sample text"</code>.</p>
-   */
-  Input: string | undefined;
-}
-
-export namespace RenderableTask {
-  export const filterSensitiveLog = (obj: RenderableTask): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RenderableTask =>
-    __isa(o, "RenderableTask");
-}
-
-/**
- * <p>A description of an error that occurred while rendering the template.</p>
- */
-export interface RenderingError {
-  __type?: "RenderingError";
-  /**
-   * <p>A unique identifier for a specific class of errors.</p>
-   */
-  Code: string | undefined;
-
-  /**
-   * <p>A human-readable message describing the error.</p>
-   */
-  Message: string | undefined;
-}
-
-export namespace RenderingError {
-  export const filterSensitiveLog = (obj: RenderingError): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RenderingError =>
-    __isa(o, "RenderingError");
 }
 
 /**
@@ -17448,6 +17448,52 @@ export namespace StopNotebookInstanceInput {
     __isa(o, "StopNotebookInstanceInput");
 }
 
+/**
+ * <p>Specifies a limit to how long a model training or compilation job can run. It also
+ *             specifies how long you are willing to wait for a managed spot training job to complete.
+ *             When the job reaches the time limit, Amazon SageMaker ends the training or compilation job. Use this
+ *             API to cap model training costs.</p>
+ *         <p>To stop a job, Amazon SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
+ *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
+ *             model artifacts, so the results of training are not lost. </p>
+ *         <p>The training algorithms provided by Amazon SageMaker automatically save the intermediate results
+ *             of a model training job when possible. This attempt to save artifacts is only a best
+ *             effort case as model might not be in a state from which it can be saved. For example, if
+ *             training has just started, the model might not be ready to save. When saved, this
+ *             intermediate data is a valid model artifact. You can use it to create a model with
+ *                 <code>CreateModel</code>.</p>
+ *         <note>
+ *             <p>The Neural Topic Model (NTM) currently does not support saving intermediate model
+ *                 artifacts. When training NTMs, make sure that the maximum runtime is sufficient for
+ *                 the training job to complete.</p>
+ *         </note>
+ */
+export interface StoppingCondition {
+  __type?: "StoppingCondition";
+  /**
+   * <p>The maximum length of time, in seconds, that the training or compilation job can run.
+   *             If job does not complete during this time, Amazon SageMaker ends the job. If value is not specified,
+   *             default value is 1 day. The maximum value is 28 days.</p>
+   */
+  MaxRuntimeInSeconds?: number;
+
+  /**
+   * <p>The maximum length of time, in seconds, how long you are willing to wait for a managed
+   *             spot training job to complete. It is the amount of time spent waiting for Spot capacity
+   *             plus the amount of time the training job runs. It must be equal to or greater than
+   *                 <code>MaxRuntimeInSeconds</code>. </p>
+   */
+  MaxWaitTimeInSeconds?: number;
+}
+
+export namespace StoppingCondition {
+  export const filterSensitiveLog = (obj: StoppingCondition): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StoppingCondition =>
+    __isa(o, "StoppingCondition");
+}
+
 export interface StopProcessingJobRequest {
   __type?: "StopProcessingJobRequest";
   /**
@@ -17494,52 +17540,6 @@ export namespace StopTransformJobRequest {
   });
   export const isa = (o: any): o is StopTransformJobRequest =>
     __isa(o, "StopTransformJobRequest");
-}
-
-/**
- * <p>Specifies a limit to how long a model training or compilation job can run. It also
- *             specifies how long you are willing to wait for a managed spot training job to complete.
- *             When the job reaches the time limit, Amazon SageMaker ends the training or compilation job. Use this
- *             API to cap model training costs.</p>
- *         <p>To stop a job, Amazon SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
- *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
- *             model artifacts, so the results of training are not lost. </p>
- *         <p>The training algorithms provided by Amazon SageMaker automatically save the intermediate results
- *             of a model training job when possible. This attempt to save artifacts is only a best
- *             effort case as model might not be in a state from which it can be saved. For example, if
- *             training has just started, the model might not be ready to save. When saved, this
- *             intermediate data is a valid model artifact. You can use it to create a model with
- *                 <code>CreateModel</code>.</p>
- *         <note>
- *             <p>The Neural Topic Model (NTM) currently does not support saving intermediate model
- *                 artifacts. When training NTMs, make sure that the maximum runtime is sufficient for
- *                 the training job to complete.</p>
- *         </note>
- */
-export interface StoppingCondition {
-  __type?: "StoppingCondition";
-  /**
-   * <p>The maximum length of time, in seconds, that the training or compilation job can run.
-   *             If job does not complete during this time, Amazon SageMaker ends the job. If value is not specified,
-   *             default value is 1 day. The maximum value is 28 days.</p>
-   */
-  MaxRuntimeInSeconds?: number;
-
-  /**
-   * <p>The maximum length of time, in seconds, how long you are willing to wait for a managed
-   *             spot training job to complete. It is the amount of time spent waiting for Spot capacity
-   *             plus the amount of time the training job runs. It must be equal to or greater than
-   *                 <code>MaxRuntimeInSeconds</code>. </p>
-   */
-  MaxWaitTimeInSeconds?: number;
-}
-
-export namespace StoppingCondition {
-  export const filterSensitiveLog = (obj: StoppingCondition): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StoppingCondition =>
-    __isa(o, "StoppingCondition");
 }
 
 /**
@@ -19377,34 +19377,6 @@ export namespace TuningJobCompletionCriteria {
 }
 
 /**
- * <p>Represents an amount of money in United States dollars/</p>
- */
-export interface USD {
-  __type?: "USD";
-  /**
-   * <p>The fractional portion, in cents, of the amount. </p>
-   */
-  Cents?: number;
-
-  /**
-   * <p>The whole number of dollars in the amount.</p>
-   */
-  Dollars?: number;
-
-  /**
-   * <p>Fractions of a cent, in tenths.</p>
-   */
-  TenthFractionsOfACent?: number;
-}
-
-export namespace USD {
-  export const filterSensitiveLog = (obj: USD): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is USD => __isa(o, "USD");
-}
-
-/**
  * <p>Provided configuration information for the worker UI for a labeling job. </p>
  */
 export interface UiConfig {
@@ -20154,6 +20126,34 @@ export namespace UpdateWorkteamResponse {
   });
   export const isa = (o: any): o is UpdateWorkteamResponse =>
     __isa(o, "UpdateWorkteamResponse");
+}
+
+/**
+ * <p>Represents an amount of money in United States dollars/</p>
+ */
+export interface USD {
+  __type?: "USD";
+  /**
+   * <p>The fractional portion, in cents, of the amount. </p>
+   */
+  Cents?: number;
+
+  /**
+   * <p>The whole number of dollars in the amount.</p>
+   */
+  Dollars?: number;
+
+  /**
+   * <p>Fractions of a cent, in tenths.</p>
+   */
+  TenthFractionsOfACent?: number;
+}
+
+export namespace USD {
+  export const filterSensitiveLog = (obj: USD): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is USD => __isa(o, "USD");
 }
 
 /**

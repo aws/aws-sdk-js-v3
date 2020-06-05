@@ -5,9 +5,9 @@ import {
 } from "../GlacierClient";
 import { AbortMultipartUploadInput } from "../models/index";
 import {
-  deserializeAws_restJson1_1AbortMultipartUploadCommand,
-  serializeAws_restJson1_1AbortMultipartUploadCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AbortMultipartUploadCommand,
+  serializeAws_restJson1AbortMultipartUploadCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,17 +70,14 @@ export class AbortMultipartUploadCommand extends $Command<
     input: AbortMultipartUploadCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AbortMultipartUploadCommand(input, context);
+    return serializeAws_restJson1AbortMultipartUploadCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AbortMultipartUploadCommandOutput> {
-    return deserializeAws_restJson1_1AbortMultipartUploadCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1AbortMultipartUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

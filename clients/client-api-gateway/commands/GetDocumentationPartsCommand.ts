@@ -8,9 +8,9 @@ import {
   GetDocumentationPartsRequest
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetDocumentationPartsCommand,
-  serializeAws_restJson1_1GetDocumentationPartsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetDocumentationPartsCommand,
+  serializeAws_restJson1GetDocumentationPartsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class GetDocumentationPartsCommand extends $Command<
     input: GetDocumentationPartsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDocumentationPartsCommand(input, context);
+    return serializeAws_restJson1GetDocumentationPartsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDocumentationPartsCommandOutput> {
-    return deserializeAws_restJson1_1GetDocumentationPartsCommand(
+    return deserializeAws_restJson1GetDocumentationPartsCommand(
       output,
       context
     );

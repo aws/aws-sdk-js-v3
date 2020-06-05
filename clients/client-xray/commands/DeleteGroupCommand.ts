@@ -5,9 +5,9 @@ import {
 } from "../XRayClient";
 import { DeleteGroupRequest, DeleteGroupResult } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteGroupCommand,
-  serializeAws_restJson1_1DeleteGroupCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteGroupCommand,
+  serializeAws_restJson1DeleteGroupCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteGroupCommand extends $Command<
     input: DeleteGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteGroupCommand(input, context);
+    return serializeAws_restJson1DeleteGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteGroupCommandOutput> {
-    return deserializeAws_restJson1_1DeleteGroupCommand(output, context);
+    return deserializeAws_restJson1DeleteGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

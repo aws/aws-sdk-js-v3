@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { DeleteVpcLinkRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteVpcLinkCommand,
-  serializeAws_restJson1_1DeleteVpcLinkCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteVpcLinkCommand,
+  serializeAws_restJson1DeleteVpcLinkCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteVpcLinkCommand extends $Command<
     input: DeleteVpcLinkCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteVpcLinkCommand(input, context);
+    return serializeAws_restJson1DeleteVpcLinkCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVpcLinkCommandOutput> {
-    return deserializeAws_restJson1_1DeleteVpcLinkCommand(output, context);
+    return deserializeAws_restJson1DeleteVpcLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

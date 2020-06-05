@@ -8,9 +8,9 @@ import {
   GetDocumentPathResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetDocumentPathCommand,
-  serializeAws_restJson1_1GetDocumentPathCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetDocumentPathCommand,
+  serializeAws_restJson1GetDocumentPathCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetDocumentPathCommand extends $Command<
     input: GetDocumentPathCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDocumentPathCommand(input, context);
+    return serializeAws_restJson1GetDocumentPathCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDocumentPathCommandOutput> {
-    return deserializeAws_restJson1_1GetDocumentPathCommand(output, context);
+    return deserializeAws_restJson1GetDocumentPathCommand(output, context);
   }
 
   // Start section: command_body_extra

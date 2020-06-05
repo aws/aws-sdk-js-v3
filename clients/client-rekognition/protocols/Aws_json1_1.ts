@@ -480,21 +480,6 @@ export const serializeAws_json1_1DescribeCollectionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeProjectVersionsCommand = async (
-  input: DescribeProjectVersionsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "RekognitionService.DescribeProjectVersions"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeProjectVersionsRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1DescribeProjectsCommand = async (
   input: DescribeProjectsCommandInput,
   context: __SerdeContext
@@ -506,6 +491,21 @@ export const serializeAws_json1_1DescribeProjectsCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeProjectsRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeProjectVersionsCommand = async (
+  input: DescribeProjectVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "RekognitionService.DescribeProjectVersions"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeProjectVersionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -983,7 +983,7 @@ const deserializeAws_json1_1CompareFacesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -994,7 +994,7 @@ const deserializeAws_json1_1CompareFacesCommandError = async (
       };
       break;
     case "ImageTooLargeException":
-    case "com.amazonaws.rekognitionservice#ImageTooLargeException":
+    case "com.amazonaws.rekognition#ImageTooLargeException":
       response = {
         ...(await deserializeAws_json1_1ImageTooLargeExceptionResponse(
           parsedOutput,
@@ -1005,7 +1005,7 @@ const deserializeAws_json1_1CompareFacesCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -1016,7 +1016,7 @@ const deserializeAws_json1_1CompareFacesCommandError = async (
       };
       break;
     case "InvalidImageFormatException":
-    case "com.amazonaws.rekognitionservice#InvalidImageFormatException":
+    case "com.amazonaws.rekognition#InvalidImageFormatException":
       response = {
         ...(await deserializeAws_json1_1InvalidImageFormatExceptionResponse(
           parsedOutput,
@@ -1027,7 +1027,7 @@ const deserializeAws_json1_1CompareFacesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1038,7 +1038,7 @@ const deserializeAws_json1_1CompareFacesCommandError = async (
       };
       break;
     case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognitionservice#InvalidS3ObjectException":
+    case "com.amazonaws.rekognition#InvalidS3ObjectException":
       response = {
         ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
           parsedOutput,
@@ -1049,7 +1049,7 @@ const deserializeAws_json1_1CompareFacesCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -1060,7 +1060,7 @@ const deserializeAws_json1_1CompareFacesCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1120,7 +1120,7 @@ const deserializeAws_json1_1CreateCollectionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1131,7 +1131,7 @@ const deserializeAws_json1_1CreateCollectionCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -1142,7 +1142,7 @@ const deserializeAws_json1_1CreateCollectionCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1153,7 +1153,7 @@ const deserializeAws_json1_1CreateCollectionCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -1164,7 +1164,7 @@ const deserializeAws_json1_1CreateCollectionCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.rekognitionservice#ResourceAlreadyExistsException":
+    case "com.amazonaws.rekognition#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1175,7 +1175,7 @@ const deserializeAws_json1_1CreateCollectionCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1235,7 +1235,7 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1246,7 +1246,7 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -1257,7 +1257,7 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1268,7 +1268,7 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.rekognitionservice#LimitExceededException":
+    case "com.amazonaws.rekognition#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1279,7 +1279,7 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -1290,7 +1290,7 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.rekognitionservice#ResourceInUseException":
+    case "com.amazonaws.rekognition#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1301,7 +1301,7 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1364,7 +1364,7 @@ const deserializeAws_json1_1CreateProjectVersionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1375,7 +1375,7 @@ const deserializeAws_json1_1CreateProjectVersionCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -1386,7 +1386,7 @@ const deserializeAws_json1_1CreateProjectVersionCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1397,7 +1397,7 @@ const deserializeAws_json1_1CreateProjectVersionCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.rekognitionservice#LimitExceededException":
+    case "com.amazonaws.rekognition#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1408,7 +1408,7 @@ const deserializeAws_json1_1CreateProjectVersionCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -1419,7 +1419,7 @@ const deserializeAws_json1_1CreateProjectVersionCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.rekognitionservice#ResourceInUseException":
+    case "com.amazonaws.rekognition#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1430,7 +1430,7 @@ const deserializeAws_json1_1CreateProjectVersionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1441,7 +1441,7 @@ const deserializeAws_json1_1CreateProjectVersionCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1504,7 +1504,7 @@ const deserializeAws_json1_1CreateStreamProcessorCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1515,7 +1515,7 @@ const deserializeAws_json1_1CreateStreamProcessorCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -1526,7 +1526,7 @@ const deserializeAws_json1_1CreateStreamProcessorCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1537,7 +1537,7 @@ const deserializeAws_json1_1CreateStreamProcessorCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.rekognitionservice#LimitExceededException":
+    case "com.amazonaws.rekognition#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1548,7 +1548,7 @@ const deserializeAws_json1_1CreateStreamProcessorCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -1559,7 +1559,7 @@ const deserializeAws_json1_1CreateStreamProcessorCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.rekognitionservice#ResourceInUseException":
+    case "com.amazonaws.rekognition#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1570,7 +1570,7 @@ const deserializeAws_json1_1CreateStreamProcessorCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1630,7 +1630,7 @@ const deserializeAws_json1_1DeleteCollectionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1641,7 +1641,7 @@ const deserializeAws_json1_1DeleteCollectionCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -1652,7 +1652,7 @@ const deserializeAws_json1_1DeleteCollectionCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1663,7 +1663,7 @@ const deserializeAws_json1_1DeleteCollectionCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -1674,7 +1674,7 @@ const deserializeAws_json1_1DeleteCollectionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1685,7 +1685,7 @@ const deserializeAws_json1_1DeleteCollectionCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1745,7 +1745,7 @@ const deserializeAws_json1_1DeleteFacesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1756,7 +1756,7 @@ const deserializeAws_json1_1DeleteFacesCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -1767,7 +1767,7 @@ const deserializeAws_json1_1DeleteFacesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1778,7 +1778,7 @@ const deserializeAws_json1_1DeleteFacesCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -1789,7 +1789,7 @@ const deserializeAws_json1_1DeleteFacesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1800,7 +1800,7 @@ const deserializeAws_json1_1DeleteFacesCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1863,7 +1863,7 @@ const deserializeAws_json1_1DeleteStreamProcessorCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1874,7 +1874,7 @@ const deserializeAws_json1_1DeleteStreamProcessorCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -1885,7 +1885,7 @@ const deserializeAws_json1_1DeleteStreamProcessorCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1896,7 +1896,7 @@ const deserializeAws_json1_1DeleteStreamProcessorCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -1907,7 +1907,7 @@ const deserializeAws_json1_1DeleteStreamProcessorCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.rekognitionservice#ResourceInUseException":
+    case "com.amazonaws.rekognition#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1918,7 +1918,7 @@ const deserializeAws_json1_1DeleteStreamProcessorCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1929,7 +1929,7 @@ const deserializeAws_json1_1DeleteStreamProcessorCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1992,7 +1992,7 @@ const deserializeAws_json1_1DescribeCollectionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -2003,7 +2003,7 @@ const deserializeAws_json1_1DescribeCollectionCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -2014,7 +2014,7 @@ const deserializeAws_json1_1DescribeCollectionCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2025,7 +2025,7 @@ const deserializeAws_json1_1DescribeCollectionCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -2036,7 +2036,7 @@ const deserializeAws_json1_1DescribeCollectionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2047,7 +2047,122 @@ const deserializeAws_json1_1DescribeCollectionCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeProjectsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeProjectsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeProjectsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeProjectsResponse(data, context);
+  const response: DescribeProjectsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeProjectsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeProjectsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeProjectsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2113,7 +2228,7 @@ const deserializeAws_json1_1DescribeProjectVersionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -2124,7 +2239,7 @@ const deserializeAws_json1_1DescribeProjectVersionsCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -2135,7 +2250,7 @@ const deserializeAws_json1_1DescribeProjectVersionsCommandError = async (
       };
       break;
     case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognitionservice#InvalidPaginationTokenException":
+    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(
           parsedOutput,
@@ -2146,7 +2261,7 @@ const deserializeAws_json1_1DescribeProjectVersionsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2157,7 +2272,7 @@ const deserializeAws_json1_1DescribeProjectVersionsCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -2168,7 +2283,7 @@ const deserializeAws_json1_1DescribeProjectVersionsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2179,122 +2294,7 @@ const deserializeAws_json1_1DescribeProjectVersionsCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
-      response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1DescribeProjectsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProjectsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeProjectsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DescribeProjectsResponse(data, context);
-  const response: DescribeProjectsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DescribeProjectsResponse",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DescribeProjectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProjectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognitionservice#InvalidPaginationTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
-      response = {
-        ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2360,7 +2360,7 @@ const deserializeAws_json1_1DescribeStreamProcessorCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -2371,7 +2371,7 @@ const deserializeAws_json1_1DescribeStreamProcessorCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -2382,7 +2382,7 @@ const deserializeAws_json1_1DescribeStreamProcessorCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2393,7 +2393,7 @@ const deserializeAws_json1_1DescribeStreamProcessorCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -2404,7 +2404,7 @@ const deserializeAws_json1_1DescribeStreamProcessorCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2415,7 +2415,7 @@ const deserializeAws_json1_1DescribeStreamProcessorCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2478,7 +2478,7 @@ const deserializeAws_json1_1DetectCustomLabelsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -2489,7 +2489,7 @@ const deserializeAws_json1_1DetectCustomLabelsCommandError = async (
       };
       break;
     case "ImageTooLargeException":
-    case "com.amazonaws.rekognitionservice#ImageTooLargeException":
+    case "com.amazonaws.rekognition#ImageTooLargeException":
       response = {
         ...(await deserializeAws_json1_1ImageTooLargeExceptionResponse(
           parsedOutput,
@@ -2500,7 +2500,7 @@ const deserializeAws_json1_1DetectCustomLabelsCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -2511,7 +2511,7 @@ const deserializeAws_json1_1DetectCustomLabelsCommandError = async (
       };
       break;
     case "InvalidImageFormatException":
-    case "com.amazonaws.rekognitionservice#InvalidImageFormatException":
+    case "com.amazonaws.rekognition#InvalidImageFormatException":
       response = {
         ...(await deserializeAws_json1_1InvalidImageFormatExceptionResponse(
           parsedOutput,
@@ -2522,7 +2522,7 @@ const deserializeAws_json1_1DetectCustomLabelsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2533,7 +2533,7 @@ const deserializeAws_json1_1DetectCustomLabelsCommandError = async (
       };
       break;
     case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognitionservice#InvalidS3ObjectException":
+    case "com.amazonaws.rekognition#InvalidS3ObjectException":
       response = {
         ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
           parsedOutput,
@@ -2544,7 +2544,7 @@ const deserializeAws_json1_1DetectCustomLabelsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.rekognitionservice#LimitExceededException":
+    case "com.amazonaws.rekognition#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2555,7 +2555,7 @@ const deserializeAws_json1_1DetectCustomLabelsCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -2566,7 +2566,7 @@ const deserializeAws_json1_1DetectCustomLabelsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2577,7 +2577,7 @@ const deserializeAws_json1_1DetectCustomLabelsCommandError = async (
       };
       break;
     case "ResourceNotReadyException":
-    case "com.amazonaws.rekognitionservice#ResourceNotReadyException":
+    case "com.amazonaws.rekognition#ResourceNotReadyException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotReadyExceptionResponse(
           parsedOutput,
@@ -2588,7 +2588,7 @@ const deserializeAws_json1_1DetectCustomLabelsCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2648,7 +2648,7 @@ const deserializeAws_json1_1DetectFacesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -2659,7 +2659,7 @@ const deserializeAws_json1_1DetectFacesCommandError = async (
       };
       break;
     case "ImageTooLargeException":
-    case "com.amazonaws.rekognitionservice#ImageTooLargeException":
+    case "com.amazonaws.rekognition#ImageTooLargeException":
       response = {
         ...(await deserializeAws_json1_1ImageTooLargeExceptionResponse(
           parsedOutput,
@@ -2670,7 +2670,7 @@ const deserializeAws_json1_1DetectFacesCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -2681,7 +2681,7 @@ const deserializeAws_json1_1DetectFacesCommandError = async (
       };
       break;
     case "InvalidImageFormatException":
-    case "com.amazonaws.rekognitionservice#InvalidImageFormatException":
+    case "com.amazonaws.rekognition#InvalidImageFormatException":
       response = {
         ...(await deserializeAws_json1_1InvalidImageFormatExceptionResponse(
           parsedOutput,
@@ -2692,7 +2692,7 @@ const deserializeAws_json1_1DetectFacesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2703,7 +2703,7 @@ const deserializeAws_json1_1DetectFacesCommandError = async (
       };
       break;
     case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognitionservice#InvalidS3ObjectException":
+    case "com.amazonaws.rekognition#InvalidS3ObjectException":
       response = {
         ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
           parsedOutput,
@@ -2714,7 +2714,7 @@ const deserializeAws_json1_1DetectFacesCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -2725,7 +2725,7 @@ const deserializeAws_json1_1DetectFacesCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2785,7 +2785,7 @@ const deserializeAws_json1_1DetectLabelsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -2796,7 +2796,7 @@ const deserializeAws_json1_1DetectLabelsCommandError = async (
       };
       break;
     case "ImageTooLargeException":
-    case "com.amazonaws.rekognitionservice#ImageTooLargeException":
+    case "com.amazonaws.rekognition#ImageTooLargeException":
       response = {
         ...(await deserializeAws_json1_1ImageTooLargeExceptionResponse(
           parsedOutput,
@@ -2807,7 +2807,7 @@ const deserializeAws_json1_1DetectLabelsCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -2818,7 +2818,7 @@ const deserializeAws_json1_1DetectLabelsCommandError = async (
       };
       break;
     case "InvalidImageFormatException":
-    case "com.amazonaws.rekognitionservice#InvalidImageFormatException":
+    case "com.amazonaws.rekognition#InvalidImageFormatException":
       response = {
         ...(await deserializeAws_json1_1InvalidImageFormatExceptionResponse(
           parsedOutput,
@@ -2829,7 +2829,7 @@ const deserializeAws_json1_1DetectLabelsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2840,7 +2840,7 @@ const deserializeAws_json1_1DetectLabelsCommandError = async (
       };
       break;
     case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognitionservice#InvalidS3ObjectException":
+    case "com.amazonaws.rekognition#InvalidS3ObjectException":
       response = {
         ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
           parsedOutput,
@@ -2851,7 +2851,7 @@ const deserializeAws_json1_1DetectLabelsCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -2862,7 +2862,7 @@ const deserializeAws_json1_1DetectLabelsCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2928,7 +2928,7 @@ const deserializeAws_json1_1DetectModerationLabelsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -2939,7 +2939,7 @@ const deserializeAws_json1_1DetectModerationLabelsCommandError = async (
       };
       break;
     case "HumanLoopQuotaExceededException":
-    case "com.amazonaws.rekognitionservice#HumanLoopQuotaExceededException":
+    case "com.amazonaws.rekognition#HumanLoopQuotaExceededException":
       response = {
         ...(await deserializeAws_json1_1HumanLoopQuotaExceededExceptionResponse(
           parsedOutput,
@@ -2950,7 +2950,7 @@ const deserializeAws_json1_1DetectModerationLabelsCommandError = async (
       };
       break;
     case "ImageTooLargeException":
-    case "com.amazonaws.rekognitionservice#ImageTooLargeException":
+    case "com.amazonaws.rekognition#ImageTooLargeException":
       response = {
         ...(await deserializeAws_json1_1ImageTooLargeExceptionResponse(
           parsedOutput,
@@ -2961,7 +2961,7 @@ const deserializeAws_json1_1DetectModerationLabelsCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -2972,7 +2972,7 @@ const deserializeAws_json1_1DetectModerationLabelsCommandError = async (
       };
       break;
     case "InvalidImageFormatException":
-    case "com.amazonaws.rekognitionservice#InvalidImageFormatException":
+    case "com.amazonaws.rekognition#InvalidImageFormatException":
       response = {
         ...(await deserializeAws_json1_1InvalidImageFormatExceptionResponse(
           parsedOutput,
@@ -2983,7 +2983,7 @@ const deserializeAws_json1_1DetectModerationLabelsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2994,7 +2994,7 @@ const deserializeAws_json1_1DetectModerationLabelsCommandError = async (
       };
       break;
     case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognitionservice#InvalidS3ObjectException":
+    case "com.amazonaws.rekognition#InvalidS3ObjectException":
       response = {
         ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
           parsedOutput,
@@ -3005,7 +3005,7 @@ const deserializeAws_json1_1DetectModerationLabelsCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -3016,7 +3016,7 @@ const deserializeAws_json1_1DetectModerationLabelsCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3076,7 +3076,7 @@ const deserializeAws_json1_1DetectTextCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -3087,7 +3087,7 @@ const deserializeAws_json1_1DetectTextCommandError = async (
       };
       break;
     case "ImageTooLargeException":
-    case "com.amazonaws.rekognitionservice#ImageTooLargeException":
+    case "com.amazonaws.rekognition#ImageTooLargeException":
       response = {
         ...(await deserializeAws_json1_1ImageTooLargeExceptionResponse(
           parsedOutput,
@@ -3098,7 +3098,7 @@ const deserializeAws_json1_1DetectTextCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -3109,7 +3109,7 @@ const deserializeAws_json1_1DetectTextCommandError = async (
       };
       break;
     case "InvalidImageFormatException":
-    case "com.amazonaws.rekognitionservice#InvalidImageFormatException":
+    case "com.amazonaws.rekognition#InvalidImageFormatException":
       response = {
         ...(await deserializeAws_json1_1InvalidImageFormatExceptionResponse(
           parsedOutput,
@@ -3120,7 +3120,7 @@ const deserializeAws_json1_1DetectTextCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3131,7 +3131,7 @@ const deserializeAws_json1_1DetectTextCommandError = async (
       };
       break;
     case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognitionservice#InvalidS3ObjectException":
+    case "com.amazonaws.rekognition#InvalidS3ObjectException":
       response = {
         ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
           parsedOutput,
@@ -3142,7 +3142,7 @@ const deserializeAws_json1_1DetectTextCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -3153,7 +3153,7 @@ const deserializeAws_json1_1DetectTextCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3213,7 +3213,7 @@ const deserializeAws_json1_1GetCelebrityInfoCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -3224,7 +3224,7 @@ const deserializeAws_json1_1GetCelebrityInfoCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -3235,7 +3235,7 @@ const deserializeAws_json1_1GetCelebrityInfoCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3246,7 +3246,7 @@ const deserializeAws_json1_1GetCelebrityInfoCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -3257,7 +3257,7 @@ const deserializeAws_json1_1GetCelebrityInfoCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3268,7 +3268,7 @@ const deserializeAws_json1_1GetCelebrityInfoCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3334,7 +3334,7 @@ const deserializeAws_json1_1GetCelebrityRecognitionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -3345,7 +3345,7 @@ const deserializeAws_json1_1GetCelebrityRecognitionCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -3356,7 +3356,7 @@ const deserializeAws_json1_1GetCelebrityRecognitionCommandError = async (
       };
       break;
     case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognitionservice#InvalidPaginationTokenException":
+    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(
           parsedOutput,
@@ -3367,7 +3367,7 @@ const deserializeAws_json1_1GetCelebrityRecognitionCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3378,7 +3378,7 @@ const deserializeAws_json1_1GetCelebrityRecognitionCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -3389,7 +3389,7 @@ const deserializeAws_json1_1GetCelebrityRecognitionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3400,7 +3400,7 @@ const deserializeAws_json1_1GetCelebrityRecognitionCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3463,7 +3463,7 @@ const deserializeAws_json1_1GetContentModerationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -3474,7 +3474,7 @@ const deserializeAws_json1_1GetContentModerationCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -3485,7 +3485,7 @@ const deserializeAws_json1_1GetContentModerationCommandError = async (
       };
       break;
     case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognitionservice#InvalidPaginationTokenException":
+    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(
           parsedOutput,
@@ -3496,7 +3496,7 @@ const deserializeAws_json1_1GetContentModerationCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3507,7 +3507,7 @@ const deserializeAws_json1_1GetContentModerationCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -3518,7 +3518,7 @@ const deserializeAws_json1_1GetContentModerationCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3529,7 +3529,7 @@ const deserializeAws_json1_1GetContentModerationCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3589,7 +3589,7 @@ const deserializeAws_json1_1GetFaceDetectionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -3600,7 +3600,7 @@ const deserializeAws_json1_1GetFaceDetectionCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -3611,7 +3611,7 @@ const deserializeAws_json1_1GetFaceDetectionCommandError = async (
       };
       break;
     case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognitionservice#InvalidPaginationTokenException":
+    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(
           parsedOutput,
@@ -3622,7 +3622,7 @@ const deserializeAws_json1_1GetFaceDetectionCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3633,7 +3633,7 @@ const deserializeAws_json1_1GetFaceDetectionCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -3644,7 +3644,7 @@ const deserializeAws_json1_1GetFaceDetectionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3655,7 +3655,7 @@ const deserializeAws_json1_1GetFaceDetectionCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3715,7 +3715,7 @@ const deserializeAws_json1_1GetFaceSearchCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -3726,7 +3726,7 @@ const deserializeAws_json1_1GetFaceSearchCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -3737,7 +3737,7 @@ const deserializeAws_json1_1GetFaceSearchCommandError = async (
       };
       break;
     case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognitionservice#InvalidPaginationTokenException":
+    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(
           parsedOutput,
@@ -3748,7 +3748,7 @@ const deserializeAws_json1_1GetFaceSearchCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3759,7 +3759,7 @@ const deserializeAws_json1_1GetFaceSearchCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -3770,7 +3770,7 @@ const deserializeAws_json1_1GetFaceSearchCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3781,7 +3781,7 @@ const deserializeAws_json1_1GetFaceSearchCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3841,7 +3841,7 @@ const deserializeAws_json1_1GetLabelDetectionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -3852,7 +3852,7 @@ const deserializeAws_json1_1GetLabelDetectionCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -3863,7 +3863,7 @@ const deserializeAws_json1_1GetLabelDetectionCommandError = async (
       };
       break;
     case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognitionservice#InvalidPaginationTokenException":
+    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(
           parsedOutput,
@@ -3874,7 +3874,7 @@ const deserializeAws_json1_1GetLabelDetectionCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3885,7 +3885,7 @@ const deserializeAws_json1_1GetLabelDetectionCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -3896,7 +3896,7 @@ const deserializeAws_json1_1GetLabelDetectionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3907,7 +3907,7 @@ const deserializeAws_json1_1GetLabelDetectionCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3967,7 +3967,7 @@ const deserializeAws_json1_1GetPersonTrackingCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -3978,7 +3978,7 @@ const deserializeAws_json1_1GetPersonTrackingCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -3989,7 +3989,7 @@ const deserializeAws_json1_1GetPersonTrackingCommandError = async (
       };
       break;
     case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognitionservice#InvalidPaginationTokenException":
+    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(
           parsedOutput,
@@ -4000,7 +4000,7 @@ const deserializeAws_json1_1GetPersonTrackingCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -4011,7 +4011,7 @@ const deserializeAws_json1_1GetPersonTrackingCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -4022,7 +4022,7 @@ const deserializeAws_json1_1GetPersonTrackingCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4033,7 +4033,7 @@ const deserializeAws_json1_1GetPersonTrackingCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -4093,7 +4093,7 @@ const deserializeAws_json1_1IndexFacesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -4104,7 +4104,7 @@ const deserializeAws_json1_1IndexFacesCommandError = async (
       };
       break;
     case "ImageTooLargeException":
-    case "com.amazonaws.rekognitionservice#ImageTooLargeException":
+    case "com.amazonaws.rekognition#ImageTooLargeException":
       response = {
         ...(await deserializeAws_json1_1ImageTooLargeExceptionResponse(
           parsedOutput,
@@ -4115,7 +4115,7 @@ const deserializeAws_json1_1IndexFacesCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -4126,7 +4126,7 @@ const deserializeAws_json1_1IndexFacesCommandError = async (
       };
       break;
     case "InvalidImageFormatException":
-    case "com.amazonaws.rekognitionservice#InvalidImageFormatException":
+    case "com.amazonaws.rekognition#InvalidImageFormatException":
       response = {
         ...(await deserializeAws_json1_1InvalidImageFormatExceptionResponse(
           parsedOutput,
@@ -4137,7 +4137,7 @@ const deserializeAws_json1_1IndexFacesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -4148,7 +4148,7 @@ const deserializeAws_json1_1IndexFacesCommandError = async (
       };
       break;
     case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognitionservice#InvalidS3ObjectException":
+    case "com.amazonaws.rekognition#InvalidS3ObjectException":
       response = {
         ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
           parsedOutput,
@@ -4159,7 +4159,7 @@ const deserializeAws_json1_1IndexFacesCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -4170,7 +4170,7 @@ const deserializeAws_json1_1IndexFacesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4181,7 +4181,7 @@ const deserializeAws_json1_1IndexFacesCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -4241,7 +4241,7 @@ const deserializeAws_json1_1ListCollectionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -4252,7 +4252,7 @@ const deserializeAws_json1_1ListCollectionsCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -4263,7 +4263,7 @@ const deserializeAws_json1_1ListCollectionsCommandError = async (
       };
       break;
     case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognitionservice#InvalidPaginationTokenException":
+    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(
           parsedOutput,
@@ -4274,7 +4274,7 @@ const deserializeAws_json1_1ListCollectionsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -4285,7 +4285,7 @@ const deserializeAws_json1_1ListCollectionsCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -4296,7 +4296,7 @@ const deserializeAws_json1_1ListCollectionsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4307,7 +4307,7 @@ const deserializeAws_json1_1ListCollectionsCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -4367,7 +4367,7 @@ const deserializeAws_json1_1ListFacesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -4378,7 +4378,7 @@ const deserializeAws_json1_1ListFacesCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -4389,7 +4389,7 @@ const deserializeAws_json1_1ListFacesCommandError = async (
       };
       break;
     case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognitionservice#InvalidPaginationTokenException":
+    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(
           parsedOutput,
@@ -4400,7 +4400,7 @@ const deserializeAws_json1_1ListFacesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -4411,7 +4411,7 @@ const deserializeAws_json1_1ListFacesCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -4422,7 +4422,7 @@ const deserializeAws_json1_1ListFacesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4433,7 +4433,7 @@ const deserializeAws_json1_1ListFacesCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -4496,7 +4496,7 @@ const deserializeAws_json1_1ListStreamProcessorsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -4507,7 +4507,7 @@ const deserializeAws_json1_1ListStreamProcessorsCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -4518,7 +4518,7 @@ const deserializeAws_json1_1ListStreamProcessorsCommandError = async (
       };
       break;
     case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognitionservice#InvalidPaginationTokenException":
+    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(
           parsedOutput,
@@ -4529,7 +4529,7 @@ const deserializeAws_json1_1ListStreamProcessorsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -4540,7 +4540,7 @@ const deserializeAws_json1_1ListStreamProcessorsCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -4551,7 +4551,7 @@ const deserializeAws_json1_1ListStreamProcessorsCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -4614,7 +4614,7 @@ const deserializeAws_json1_1RecognizeCelebritiesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -4625,7 +4625,7 @@ const deserializeAws_json1_1RecognizeCelebritiesCommandError = async (
       };
       break;
     case "ImageTooLargeException":
-    case "com.amazonaws.rekognitionservice#ImageTooLargeException":
+    case "com.amazonaws.rekognition#ImageTooLargeException":
       response = {
         ...(await deserializeAws_json1_1ImageTooLargeExceptionResponse(
           parsedOutput,
@@ -4636,7 +4636,7 @@ const deserializeAws_json1_1RecognizeCelebritiesCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -4647,7 +4647,7 @@ const deserializeAws_json1_1RecognizeCelebritiesCommandError = async (
       };
       break;
     case "InvalidImageFormatException":
-    case "com.amazonaws.rekognitionservice#InvalidImageFormatException":
+    case "com.amazonaws.rekognition#InvalidImageFormatException":
       response = {
         ...(await deserializeAws_json1_1InvalidImageFormatExceptionResponse(
           parsedOutput,
@@ -4658,7 +4658,7 @@ const deserializeAws_json1_1RecognizeCelebritiesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -4669,7 +4669,7 @@ const deserializeAws_json1_1RecognizeCelebritiesCommandError = async (
       };
       break;
     case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognitionservice#InvalidS3ObjectException":
+    case "com.amazonaws.rekognition#InvalidS3ObjectException":
       response = {
         ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
           parsedOutput,
@@ -4680,7 +4680,7 @@ const deserializeAws_json1_1RecognizeCelebritiesCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -4691,7 +4691,7 @@ const deserializeAws_json1_1RecognizeCelebritiesCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -4751,7 +4751,7 @@ const deserializeAws_json1_1SearchFacesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -4762,7 +4762,7 @@ const deserializeAws_json1_1SearchFacesCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -4773,7 +4773,7 @@ const deserializeAws_json1_1SearchFacesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -4784,7 +4784,7 @@ const deserializeAws_json1_1SearchFacesCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -4795,7 +4795,7 @@ const deserializeAws_json1_1SearchFacesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4806,7 +4806,7 @@ const deserializeAws_json1_1SearchFacesCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -4869,7 +4869,7 @@ const deserializeAws_json1_1SearchFacesByImageCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -4880,7 +4880,7 @@ const deserializeAws_json1_1SearchFacesByImageCommandError = async (
       };
       break;
     case "ImageTooLargeException":
-    case "com.amazonaws.rekognitionservice#ImageTooLargeException":
+    case "com.amazonaws.rekognition#ImageTooLargeException":
       response = {
         ...(await deserializeAws_json1_1ImageTooLargeExceptionResponse(
           parsedOutput,
@@ -4891,7 +4891,7 @@ const deserializeAws_json1_1SearchFacesByImageCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -4902,7 +4902,7 @@ const deserializeAws_json1_1SearchFacesByImageCommandError = async (
       };
       break;
     case "InvalidImageFormatException":
-    case "com.amazonaws.rekognitionservice#InvalidImageFormatException":
+    case "com.amazonaws.rekognition#InvalidImageFormatException":
       response = {
         ...(await deserializeAws_json1_1InvalidImageFormatExceptionResponse(
           parsedOutput,
@@ -4913,7 +4913,7 @@ const deserializeAws_json1_1SearchFacesByImageCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -4924,7 +4924,7 @@ const deserializeAws_json1_1SearchFacesByImageCommandError = async (
       };
       break;
     case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognitionservice#InvalidS3ObjectException":
+    case "com.amazonaws.rekognition#InvalidS3ObjectException":
       response = {
         ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
           parsedOutput,
@@ -4935,7 +4935,7 @@ const deserializeAws_json1_1SearchFacesByImageCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -4946,7 +4946,7 @@ const deserializeAws_json1_1SearchFacesByImageCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4957,7 +4957,7 @@ const deserializeAws_json1_1SearchFacesByImageCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -5023,7 +5023,7 @@ const deserializeAws_json1_1StartCelebrityRecognitionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -5034,7 +5034,7 @@ const deserializeAws_json1_1StartCelebrityRecognitionCommandError = async (
       };
       break;
     case "IdempotentParameterMismatchException":
-    case "com.amazonaws.rekognitionservice#IdempotentParameterMismatchException":
+    case "com.amazonaws.rekognition#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
           parsedOutput,
@@ -5045,7 +5045,7 @@ const deserializeAws_json1_1StartCelebrityRecognitionCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -5056,7 +5056,7 @@ const deserializeAws_json1_1StartCelebrityRecognitionCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -5067,7 +5067,7 @@ const deserializeAws_json1_1StartCelebrityRecognitionCommandError = async (
       };
       break;
     case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognitionservice#InvalidS3ObjectException":
+    case "com.amazonaws.rekognition#InvalidS3ObjectException":
       response = {
         ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
           parsedOutput,
@@ -5078,7 +5078,7 @@ const deserializeAws_json1_1StartCelebrityRecognitionCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.rekognitionservice#LimitExceededException":
+    case "com.amazonaws.rekognition#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -5089,7 +5089,7 @@ const deserializeAws_json1_1StartCelebrityRecognitionCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -5100,7 +5100,7 @@ const deserializeAws_json1_1StartCelebrityRecognitionCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -5111,7 +5111,7 @@ const deserializeAws_json1_1StartCelebrityRecognitionCommandError = async (
       };
       break;
     case "VideoTooLargeException":
-    case "com.amazonaws.rekognitionservice#VideoTooLargeException":
+    case "com.amazonaws.rekognition#VideoTooLargeException":
       response = {
         ...(await deserializeAws_json1_1VideoTooLargeExceptionResponse(
           parsedOutput,
@@ -5177,7 +5177,7 @@ const deserializeAws_json1_1StartContentModerationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -5188,7 +5188,7 @@ const deserializeAws_json1_1StartContentModerationCommandError = async (
       };
       break;
     case "IdempotentParameterMismatchException":
-    case "com.amazonaws.rekognitionservice#IdempotentParameterMismatchException":
+    case "com.amazonaws.rekognition#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
           parsedOutput,
@@ -5199,7 +5199,7 @@ const deserializeAws_json1_1StartContentModerationCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -5210,7 +5210,7 @@ const deserializeAws_json1_1StartContentModerationCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -5221,7 +5221,7 @@ const deserializeAws_json1_1StartContentModerationCommandError = async (
       };
       break;
     case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognitionservice#InvalidS3ObjectException":
+    case "com.amazonaws.rekognition#InvalidS3ObjectException":
       response = {
         ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
           parsedOutput,
@@ -5232,7 +5232,7 @@ const deserializeAws_json1_1StartContentModerationCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.rekognitionservice#LimitExceededException":
+    case "com.amazonaws.rekognition#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -5243,7 +5243,7 @@ const deserializeAws_json1_1StartContentModerationCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -5254,7 +5254,7 @@ const deserializeAws_json1_1StartContentModerationCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -5265,7 +5265,7 @@ const deserializeAws_json1_1StartContentModerationCommandError = async (
       };
       break;
     case "VideoTooLargeException":
-    case "com.amazonaws.rekognitionservice#VideoTooLargeException":
+    case "com.amazonaws.rekognition#VideoTooLargeException":
       response = {
         ...(await deserializeAws_json1_1VideoTooLargeExceptionResponse(
           parsedOutput,
@@ -5328,7 +5328,7 @@ const deserializeAws_json1_1StartFaceDetectionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -5339,7 +5339,7 @@ const deserializeAws_json1_1StartFaceDetectionCommandError = async (
       };
       break;
     case "IdempotentParameterMismatchException":
-    case "com.amazonaws.rekognitionservice#IdempotentParameterMismatchException":
+    case "com.amazonaws.rekognition#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
           parsedOutput,
@@ -5350,7 +5350,7 @@ const deserializeAws_json1_1StartFaceDetectionCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -5361,7 +5361,7 @@ const deserializeAws_json1_1StartFaceDetectionCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -5372,7 +5372,7 @@ const deserializeAws_json1_1StartFaceDetectionCommandError = async (
       };
       break;
     case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognitionservice#InvalidS3ObjectException":
+    case "com.amazonaws.rekognition#InvalidS3ObjectException":
       response = {
         ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
           parsedOutput,
@@ -5383,7 +5383,7 @@ const deserializeAws_json1_1StartFaceDetectionCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.rekognitionservice#LimitExceededException":
+    case "com.amazonaws.rekognition#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -5394,7 +5394,7 @@ const deserializeAws_json1_1StartFaceDetectionCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -5405,7 +5405,7 @@ const deserializeAws_json1_1StartFaceDetectionCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -5416,7 +5416,7 @@ const deserializeAws_json1_1StartFaceDetectionCommandError = async (
       };
       break;
     case "VideoTooLargeException":
-    case "com.amazonaws.rekognitionservice#VideoTooLargeException":
+    case "com.amazonaws.rekognition#VideoTooLargeException":
       response = {
         ...(await deserializeAws_json1_1VideoTooLargeExceptionResponse(
           parsedOutput,
@@ -5476,7 +5476,7 @@ const deserializeAws_json1_1StartFaceSearchCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -5487,7 +5487,7 @@ const deserializeAws_json1_1StartFaceSearchCommandError = async (
       };
       break;
     case "IdempotentParameterMismatchException":
-    case "com.amazonaws.rekognitionservice#IdempotentParameterMismatchException":
+    case "com.amazonaws.rekognition#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
           parsedOutput,
@@ -5498,7 +5498,7 @@ const deserializeAws_json1_1StartFaceSearchCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -5509,7 +5509,7 @@ const deserializeAws_json1_1StartFaceSearchCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -5520,7 +5520,7 @@ const deserializeAws_json1_1StartFaceSearchCommandError = async (
       };
       break;
     case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognitionservice#InvalidS3ObjectException":
+    case "com.amazonaws.rekognition#InvalidS3ObjectException":
       response = {
         ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
           parsedOutput,
@@ -5531,7 +5531,7 @@ const deserializeAws_json1_1StartFaceSearchCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.rekognitionservice#LimitExceededException":
+    case "com.amazonaws.rekognition#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -5542,7 +5542,7 @@ const deserializeAws_json1_1StartFaceSearchCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -5553,7 +5553,7 @@ const deserializeAws_json1_1StartFaceSearchCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -5564,7 +5564,7 @@ const deserializeAws_json1_1StartFaceSearchCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -5575,7 +5575,7 @@ const deserializeAws_json1_1StartFaceSearchCommandError = async (
       };
       break;
     case "VideoTooLargeException":
-    case "com.amazonaws.rekognitionservice#VideoTooLargeException":
+    case "com.amazonaws.rekognition#VideoTooLargeException":
       response = {
         ...(await deserializeAws_json1_1VideoTooLargeExceptionResponse(
           parsedOutput,
@@ -5638,7 +5638,7 @@ const deserializeAws_json1_1StartLabelDetectionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -5649,7 +5649,7 @@ const deserializeAws_json1_1StartLabelDetectionCommandError = async (
       };
       break;
     case "IdempotentParameterMismatchException":
-    case "com.amazonaws.rekognitionservice#IdempotentParameterMismatchException":
+    case "com.amazonaws.rekognition#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
           parsedOutput,
@@ -5660,7 +5660,7 @@ const deserializeAws_json1_1StartLabelDetectionCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -5671,7 +5671,7 @@ const deserializeAws_json1_1StartLabelDetectionCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -5682,7 +5682,7 @@ const deserializeAws_json1_1StartLabelDetectionCommandError = async (
       };
       break;
     case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognitionservice#InvalidS3ObjectException":
+    case "com.amazonaws.rekognition#InvalidS3ObjectException":
       response = {
         ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
           parsedOutput,
@@ -5693,7 +5693,7 @@ const deserializeAws_json1_1StartLabelDetectionCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.rekognitionservice#LimitExceededException":
+    case "com.amazonaws.rekognition#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -5704,7 +5704,7 @@ const deserializeAws_json1_1StartLabelDetectionCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -5715,7 +5715,7 @@ const deserializeAws_json1_1StartLabelDetectionCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -5726,7 +5726,7 @@ const deserializeAws_json1_1StartLabelDetectionCommandError = async (
       };
       break;
     case "VideoTooLargeException":
-    case "com.amazonaws.rekognitionservice#VideoTooLargeException":
+    case "com.amazonaws.rekognition#VideoTooLargeException":
       response = {
         ...(await deserializeAws_json1_1VideoTooLargeExceptionResponse(
           parsedOutput,
@@ -5789,7 +5789,7 @@ const deserializeAws_json1_1StartPersonTrackingCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -5800,7 +5800,7 @@ const deserializeAws_json1_1StartPersonTrackingCommandError = async (
       };
       break;
     case "IdempotentParameterMismatchException":
-    case "com.amazonaws.rekognitionservice#IdempotentParameterMismatchException":
+    case "com.amazonaws.rekognition#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
           parsedOutput,
@@ -5811,7 +5811,7 @@ const deserializeAws_json1_1StartPersonTrackingCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -5822,7 +5822,7 @@ const deserializeAws_json1_1StartPersonTrackingCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -5833,7 +5833,7 @@ const deserializeAws_json1_1StartPersonTrackingCommandError = async (
       };
       break;
     case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognitionservice#InvalidS3ObjectException":
+    case "com.amazonaws.rekognition#InvalidS3ObjectException":
       response = {
         ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
           parsedOutput,
@@ -5844,7 +5844,7 @@ const deserializeAws_json1_1StartPersonTrackingCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.rekognitionservice#LimitExceededException":
+    case "com.amazonaws.rekognition#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -5855,7 +5855,7 @@ const deserializeAws_json1_1StartPersonTrackingCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -5866,7 +5866,7 @@ const deserializeAws_json1_1StartPersonTrackingCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -5877,7 +5877,7 @@ const deserializeAws_json1_1StartPersonTrackingCommandError = async (
       };
       break;
     case "VideoTooLargeException":
-    case "com.amazonaws.rekognitionservice#VideoTooLargeException":
+    case "com.amazonaws.rekognition#VideoTooLargeException":
       response = {
         ...(await deserializeAws_json1_1VideoTooLargeExceptionResponse(
           parsedOutput,
@@ -5940,7 +5940,7 @@ const deserializeAws_json1_1StartProjectVersionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -5951,7 +5951,7 @@ const deserializeAws_json1_1StartProjectVersionCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -5962,7 +5962,7 @@ const deserializeAws_json1_1StartProjectVersionCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -5973,7 +5973,7 @@ const deserializeAws_json1_1StartProjectVersionCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.rekognitionservice#LimitExceededException":
+    case "com.amazonaws.rekognition#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -5984,7 +5984,7 @@ const deserializeAws_json1_1StartProjectVersionCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -5995,7 +5995,7 @@ const deserializeAws_json1_1StartProjectVersionCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.rekognitionservice#ResourceInUseException":
+    case "com.amazonaws.rekognition#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -6006,7 +6006,7 @@ const deserializeAws_json1_1StartProjectVersionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -6017,7 +6017,7 @@ const deserializeAws_json1_1StartProjectVersionCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -6080,7 +6080,7 @@ const deserializeAws_json1_1StartStreamProcessorCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -6091,7 +6091,7 @@ const deserializeAws_json1_1StartStreamProcessorCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -6102,7 +6102,7 @@ const deserializeAws_json1_1StartStreamProcessorCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -6113,7 +6113,7 @@ const deserializeAws_json1_1StartStreamProcessorCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -6124,7 +6124,7 @@ const deserializeAws_json1_1StartStreamProcessorCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.rekognitionservice#ResourceInUseException":
+    case "com.amazonaws.rekognition#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -6135,7 +6135,7 @@ const deserializeAws_json1_1StartStreamProcessorCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -6146,7 +6146,7 @@ const deserializeAws_json1_1StartStreamProcessorCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -6209,7 +6209,7 @@ const deserializeAws_json1_1StopProjectVersionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -6220,7 +6220,7 @@ const deserializeAws_json1_1StopProjectVersionCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -6231,7 +6231,7 @@ const deserializeAws_json1_1StopProjectVersionCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -6242,7 +6242,7 @@ const deserializeAws_json1_1StopProjectVersionCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -6253,7 +6253,7 @@ const deserializeAws_json1_1StopProjectVersionCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.rekognitionservice#ResourceInUseException":
+    case "com.amazonaws.rekognition#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -6264,7 +6264,7 @@ const deserializeAws_json1_1StopProjectVersionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -6275,7 +6275,7 @@ const deserializeAws_json1_1StopProjectVersionCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -6338,7 +6338,7 @@ const deserializeAws_json1_1StopStreamProcessorCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.rekognitionservice#AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -6349,7 +6349,7 @@ const deserializeAws_json1_1StopStreamProcessorCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.rekognitionservice#InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -6360,7 +6360,7 @@ const deserializeAws_json1_1StopStreamProcessorCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.rekognitionservice#InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -6371,7 +6371,7 @@ const deserializeAws_json1_1StopStreamProcessorCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognitionservice#ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -6382,7 +6382,7 @@ const deserializeAws_json1_1StopStreamProcessorCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.rekognitionservice#ResourceInUseException":
+    case "com.amazonaws.rekognition#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -6393,7 +6393,7 @@ const deserializeAws_json1_1StopStreamProcessorCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.rekognitionservice#ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -6404,7 +6404,7 @@ const deserializeAws_json1_1StopStreamProcessorCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.rekognitionservice#ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -6904,6 +6904,16 @@ const serializeAws_json1_1DescribeCollectionRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeProjectsRequest = (
+  input: DescribeProjectsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
+};
+
 const serializeAws_json1_1DescribeProjectVersionsRequest = (
   input: DescribeProjectVersionsRequest,
   context: __SerdeContext
@@ -6918,16 +6928,6 @@ const serializeAws_json1_1DescribeProjectVersionsRequest = (
         context
       )
     })
-  };
-};
-
-const serializeAws_json1_1DescribeProjectsRequest = (
-  input: DescribeProjectsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
   };
 };
 
@@ -7802,6 +7802,61 @@ const deserializeAws_json1_1CollectionIdList = (
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_json1_1ComparedFace = (
+  output: any,
+  context: __SerdeContext
+): ComparedFace => {
+  return {
+    __type: "ComparedFace",
+    BoundingBox:
+      output.BoundingBox !== undefined && output.BoundingBox !== null
+        ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
+        : undefined,
+    Confidence:
+      output.Confidence !== undefined && output.Confidence !== null
+        ? output.Confidence
+        : undefined,
+    Landmarks:
+      output.Landmarks !== undefined && output.Landmarks !== null
+        ? deserializeAws_json1_1Landmarks(output.Landmarks, context)
+        : undefined,
+    Pose:
+      output.Pose !== undefined && output.Pose !== null
+        ? deserializeAws_json1_1Pose(output.Pose, context)
+        : undefined,
+    Quality:
+      output.Quality !== undefined && output.Quality !== null
+        ? deserializeAws_json1_1ImageQuality(output.Quality, context)
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ComparedFaceList = (
+  output: any,
+  context: __SerdeContext
+): ComparedFace[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ComparedFace(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ComparedSourceImageFace = (
+  output: any,
+  context: __SerdeContext
+): ComparedSourceImageFace => {
+  return {
+    __type: "ComparedSourceImageFace",
+    BoundingBox:
+      output.BoundingBox !== undefined && output.BoundingBox !== null
+        ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
+        : undefined,
+    Confidence:
+      output.Confidence !== undefined && output.Confidence !== null
+        ? output.Confidence
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1CompareFacesMatch = (
   output: any,
   context: __SerdeContext
@@ -7875,61 +7930,6 @@ const deserializeAws_json1_1CompareFacesUnmatchList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ComparedFace(entry, context)
   );
-};
-
-const deserializeAws_json1_1ComparedFace = (
-  output: any,
-  context: __SerdeContext
-): ComparedFace => {
-  return {
-    __type: "ComparedFace",
-    BoundingBox:
-      output.BoundingBox !== undefined && output.BoundingBox !== null
-        ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
-        : undefined,
-    Confidence:
-      output.Confidence !== undefined && output.Confidence !== null
-        ? output.Confidence
-        : undefined,
-    Landmarks:
-      output.Landmarks !== undefined && output.Landmarks !== null
-        ? deserializeAws_json1_1Landmarks(output.Landmarks, context)
-        : undefined,
-    Pose:
-      output.Pose !== undefined && output.Pose !== null
-        ? deserializeAws_json1_1Pose(output.Pose, context)
-        : undefined,
-    Quality:
-      output.Quality !== undefined && output.Quality !== null
-        ? deserializeAws_json1_1ImageQuality(output.Quality, context)
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ComparedFaceList = (
-  output: any,
-  context: __SerdeContext
-): ComparedFace[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ComparedFace(entry, context)
-  );
-};
-
-const deserializeAws_json1_1ComparedSourceImageFace = (
-  output: any,
-  context: __SerdeContext
-): ComparedSourceImageFace => {
-  return {
-    __type: "ComparedSourceImageFace",
-    BoundingBox:
-      output.BoundingBox !== undefined && output.BoundingBox !== null
-        ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
-        : undefined,
-    Confidence:
-      output.Confidence !== undefined && output.Confidence !== null
-        ? output.Confidence
-        : undefined
-  } as any;
 };
 
 const deserializeAws_json1_1ContentModerationDetection = (
@@ -8111,27 +8111,6 @@ const deserializeAws_json1_1DescribeCollectionResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeProjectVersionsResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeProjectVersionsResponse => {
-  return {
-    __type: "DescribeProjectVersionsResponse",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
-    ProjectVersionDescriptions:
-      output.ProjectVersionDescriptions !== undefined &&
-      output.ProjectVersionDescriptions !== null
-        ? deserializeAws_json1_1ProjectVersionDescriptions(
-            output.ProjectVersionDescriptions,
-            context
-          )
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1DescribeProjectsResponse = (
   output: any,
   context: __SerdeContext
@@ -8147,6 +8126,27 @@ const deserializeAws_json1_1DescribeProjectsResponse = (
       output.ProjectDescriptions !== null
         ? deserializeAws_json1_1ProjectDescriptions(
             output.ProjectDescriptions,
+            context
+          )
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeProjectVersionsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeProjectVersionsResponse => {
+  return {
+    __type: "DescribeProjectVersionsResponse",
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    ProjectVersionDescriptions:
+      output.ProjectVersionDescriptions !== undefined &&
+      output.ProjectVersionDescriptions !== null
+        ? deserializeAws_json1_1ProjectVersionDescriptions(
+            output.ProjectVersionDescriptions,
             context
           )
         : undefined
@@ -8350,12 +8350,12 @@ const deserializeAws_json1_1EvaluationResult = (
   } as any;
 };
 
-const deserializeAws_json1_1EyeOpen = (
+const deserializeAws_json1_1Eyeglasses = (
   output: any,
   context: __SerdeContext
-): EyeOpen => {
+): Eyeglasses => {
   return {
-    __type: "EyeOpen",
+    __type: "Eyeglasses",
     Confidence:
       output.Confidence !== undefined && output.Confidence !== null
         ? output.Confidence
@@ -8367,12 +8367,12 @@ const deserializeAws_json1_1EyeOpen = (
   } as any;
 };
 
-const deserializeAws_json1_1Eyeglasses = (
+const deserializeAws_json1_1EyeOpen = (
   output: any,
   context: __SerdeContext
-): Eyeglasses => {
+): EyeOpen => {
   return {
-    __type: "Eyeglasses",
+    __type: "EyeOpen",
     Confidence:
       output.Confidence !== undefined && output.Confidence !== null
         ? output.Confidence

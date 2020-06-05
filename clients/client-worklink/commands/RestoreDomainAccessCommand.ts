@@ -8,9 +8,9 @@ import {
   RestoreDomainAccessResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1RestoreDomainAccessCommand,
-  serializeAws_restJson1_1RestoreDomainAccessCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1RestoreDomainAccessCommand,
+  serializeAws_restJson1RestoreDomainAccessCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class RestoreDomainAccessCommand extends $Command<
     input: RestoreDomainAccessCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RestoreDomainAccessCommand(input, context);
+    return serializeAws_restJson1RestoreDomainAccessCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreDomainAccessCommandOutput> {
-    return deserializeAws_restJson1_1RestoreDomainAccessCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1RestoreDomainAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

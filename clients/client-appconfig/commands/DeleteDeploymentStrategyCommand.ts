@@ -5,9 +5,9 @@ import {
 } from "../AppConfigClient";
 import { DeleteDeploymentStrategyRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteDeploymentStrategyCommand,
-  serializeAws_restJson1_1DeleteDeploymentStrategyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteDeploymentStrategyCommand,
+  serializeAws_restJson1DeleteDeploymentStrategyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class DeleteDeploymentStrategyCommand extends $Command<
     input: DeleteDeploymentStrategyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDeploymentStrategyCommand(
+    return serializeAws_restJson1DeleteDeploymentStrategyCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class DeleteDeploymentStrategyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDeploymentStrategyCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDeploymentStrategyCommand(
+    return deserializeAws_restJson1DeleteDeploymentStrategyCommand(
       output,
       context
     );

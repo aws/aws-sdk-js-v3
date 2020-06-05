@@ -8,9 +8,9 @@ import {
   RegisterJobDefinitionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1RegisterJobDefinitionCommand,
-  serializeAws_restJson1_1RegisterJobDefinitionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1RegisterJobDefinitionCommand,
+  serializeAws_restJson1RegisterJobDefinitionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class RegisterJobDefinitionCommand extends $Command<
     input: RegisterJobDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RegisterJobDefinitionCommand(input, context);
+    return serializeAws_restJson1RegisterJobDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterJobDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1RegisterJobDefinitionCommand(
+    return deserializeAws_restJson1RegisterJobDefinitionCommand(
       output,
       context
     );

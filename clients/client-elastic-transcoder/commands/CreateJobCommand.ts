@@ -5,9 +5,9 @@ import {
 } from "../ElasticTranscoderClient";
 import { CreateJobRequest, CreateJobResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateJobCommand,
-  serializeAws_restJson1_1CreateJobCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateJobCommand,
+  serializeAws_restJson1CreateJobCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateJobCommand extends $Command<
     input: CreateJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateJobCommand(input, context);
+    return serializeAws_restJson1CreateJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateJobCommandOutput> {
-    return deserializeAws_restJson1_1CreateJobCommand(output, context);
+    return deserializeAws_restJson1CreateJobCommand(output, context);
   }
 
   // Start section: command_body_extra

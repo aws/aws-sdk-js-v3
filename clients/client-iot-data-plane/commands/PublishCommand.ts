@@ -5,9 +5,9 @@ import {
 } from "../IoTDataPlaneClient";
 import { PublishRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1PublishCommand,
-  serializeAws_restJson1_1PublishCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PublishCommand,
+  serializeAws_restJson1PublishCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class PublishCommand extends $Command<
     input: PublishCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PublishCommand(input, context);
+    return serializeAws_restJson1PublishCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PublishCommandOutput> {
-    return deserializeAws_restJson1_1PublishCommand(output, context);
+    return deserializeAws_restJson1PublishCommand(output, context);
   }
 
   // Start section: command_body_extra

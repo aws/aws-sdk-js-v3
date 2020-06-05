@@ -6,6 +6,28 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
+/**
+ * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ *             allowed client calls. Try making the call later.</p>
+ */
+export interface ClientLimitExceededException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ClientLimitExceededException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ClientLimitExceededException {
+  export const filterSensitiveLog = (
+    obj: ClientLimitExceededException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ClientLimitExceededException =>
+    __isa(o, "ClientLimitExceededException");
+}
+
 export enum ContainerFormat {
   FRAGMENTED_MP4 = "FRAGMENTED_MP4",
   MPEG_TS = "MPEG_TS"
@@ -829,6 +851,48 @@ export namespace HLSTimestampRange {
     __isa(o, "HLSTimestampRange");
 }
 
+/**
+ * <p>A specified parameter exceeds its restrictions, is not supported, or can't be
+ *             used.</p>
+ */
+export interface InvalidArgumentException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidArgumentException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidArgumentException {
+  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidArgumentException =>
+    __isa(o, "InvalidArgumentException");
+}
+
+/**
+ * <p>The codec private data in at least one of the tracks of the video stream is not valid
+ *             for this operation.</p>
+ */
+export interface InvalidCodecPrivateDataException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidCodecPrivateDataException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidCodecPrivateDataException {
+  export const filterSensitiveLog = (
+    obj: InvalidCodecPrivateDataException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidCodecPrivateDataException =>
+    __isa(o, "InvalidCodecPrivateDataException");
+}
+
 export interface ListFragmentsInput {
   __type?: "ListFragmentsInput";
   /**
@@ -886,95 +950,6 @@ export namespace ListFragmentsOutput {
   });
   export const isa = (o: any): o is ListFragmentsOutput =>
     __isa(o, "ListFragmentsOutput");
-}
-
-/**
- * <p>The range of timestamps for which to return fragments.</p>
- */
-export interface TimestampRange {
-  __type?: "TimestampRange";
-  /**
-   * <p>The ending timestamp in the range of timestamps for which to return fragments.</p>
-   */
-  EndTimestamp: Date | undefined;
-
-  /**
-   * <p>The starting timestamp in the range of timestamps for which to return
-   *             fragments.</p>
-   */
-  StartTimestamp: Date | undefined;
-}
-
-export namespace TimestampRange {
-  export const filterSensitiveLog = (obj: TimestampRange): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TimestampRange =>
-    __isa(o, "TimestampRange");
-}
-
-/**
- * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
- *             allowed client calls. Try making the call later.</p>
- */
-export interface ClientLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ClientLimitExceededException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ClientLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: ClientLimitExceededException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ClientLimitExceededException =>
-    __isa(o, "ClientLimitExceededException");
-}
-
-/**
- * <p>A specified parameter exceeds its restrictions, is not supported, or can't be
- *             used.</p>
- */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidArgumentException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidArgumentException {
-  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidArgumentException =>
-    __isa(o, "InvalidArgumentException");
-}
-
-/**
- * <p>The codec private data in at least one of the tracks of the video stream is not valid
- *             for this operation.</p>
- */
-export interface InvalidCodecPrivateDataException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidCodecPrivateDataException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidCodecPrivateDataException {
-  export const filterSensitiveLog = (
-    obj: InvalidCodecPrivateDataException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidCodecPrivateDataException =>
-    __isa(o, "InvalidCodecPrivateDataException");
 }
 
 /**
@@ -1064,6 +1039,31 @@ export namespace ResourceNotFoundException {
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
+}
+
+/**
+ * <p>The range of timestamps for which to return fragments.</p>
+ */
+export interface TimestampRange {
+  __type?: "TimestampRange";
+  /**
+   * <p>The ending timestamp in the range of timestamps for which to return fragments.</p>
+   */
+  EndTimestamp: Date | undefined;
+
+  /**
+   * <p>The starting timestamp in the range of timestamps for which to return
+   *             fragments.</p>
+   */
+  StartTimestamp: Date | undefined;
+}
+
+export namespace TimestampRange {
+  export const filterSensitiveLog = (obj: TimestampRange): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TimestampRange =>
+    __isa(o, "TimestampRange");
 }
 
 /**

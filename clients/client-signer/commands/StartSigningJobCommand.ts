@@ -3,9 +3,9 @@ import {
   StartSigningJobResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1StartSigningJobCommand,
-  serializeAws_restJson1_1StartSigningJobCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1StartSigningJobCommand,
+  serializeAws_restJson1StartSigningJobCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -71,14 +71,14 @@ export class StartSigningJobCommand extends $Command<
     input: StartSigningJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StartSigningJobCommand(input, context);
+    return serializeAws_restJson1StartSigningJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartSigningJobCommandOutput> {
-    return deserializeAws_restJson1_1StartSigningJobCommand(output, context);
+    return deserializeAws_restJson1StartSigningJobCommand(output, context);
   }
 
   // Start section: command_body_extra

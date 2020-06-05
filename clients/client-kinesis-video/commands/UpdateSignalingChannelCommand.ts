@@ -8,9 +8,9 @@ import {
   UpdateSignalingChannelOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateSignalingChannelCommand,
-  serializeAws_restJson1_1UpdateSignalingChannelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateSignalingChannelCommand,
+  serializeAws_restJson1UpdateSignalingChannelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class UpdateSignalingChannelCommand extends $Command<
     input: UpdateSignalingChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateSignalingChannelCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1UpdateSignalingChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSignalingChannelCommandOutput> {
-    return deserializeAws_restJson1_1UpdateSignalingChannelCommand(
+    return deserializeAws_restJson1UpdateSignalingChannelCommand(
       output,
       context
     );

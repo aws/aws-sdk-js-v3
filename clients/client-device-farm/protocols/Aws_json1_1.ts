@@ -1192,21 +1192,6 @@ export const serializeAws_json1_1ListOfferingPromotionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListOfferingTransactionsCommand = async (
-  input: ListOfferingTransactionsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "DeviceFarm_20150623.ListOfferingTransactions"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListOfferingTransactionsRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1ListOfferingsCommand = async (
   input: ListOfferingsCommandInput,
   context: __SerdeContext
@@ -1218,6 +1203,21 @@ export const serializeAws_json1_1ListOfferingsCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListOfferingsRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListOfferingTransactionsCommand = async (
+  input: ListOfferingTransactionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListOfferingTransactions"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1ListOfferingTransactionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1687,7 +1687,7 @@ const deserializeAws_json1_1CreateDevicePoolCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -1698,7 +1698,7 @@ const deserializeAws_json1_1CreateDevicePoolCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1709,7 +1709,7 @@ const deserializeAws_json1_1CreateDevicePoolCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -1720,7 +1720,7 @@ const deserializeAws_json1_1CreateDevicePoolCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -1783,7 +1783,7 @@ const deserializeAws_json1_1CreateInstanceProfileCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -1794,7 +1794,7 @@ const deserializeAws_json1_1CreateInstanceProfileCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1805,7 +1805,7 @@ const deserializeAws_json1_1CreateInstanceProfileCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -1816,7 +1816,7 @@ const deserializeAws_json1_1CreateInstanceProfileCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -1879,7 +1879,7 @@ const deserializeAws_json1_1CreateNetworkProfileCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -1890,7 +1890,7 @@ const deserializeAws_json1_1CreateNetworkProfileCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1901,7 +1901,7 @@ const deserializeAws_json1_1CreateNetworkProfileCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -1912,7 +1912,7 @@ const deserializeAws_json1_1CreateNetworkProfileCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -1972,7 +1972,7 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -1983,7 +1983,7 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1994,7 +1994,7 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2005,7 +2005,7 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -2016,7 +2016,7 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
       };
       break;
     case "TagOperationException":
-    case "com.amazon.devicefarm.model#TagOperationException":
+    case "com.amazonaws.devicefarm#TagOperationException":
       response = {
         ...(await deserializeAws_json1_1TagOperationExceptionResponse(
           parsedOutput,
@@ -2082,7 +2082,7 @@ const deserializeAws_json1_1CreateRemoteAccessSessionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -2093,7 +2093,7 @@ const deserializeAws_json1_1CreateRemoteAccessSessionCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2104,7 +2104,7 @@ const deserializeAws_json1_1CreateRemoteAccessSessionCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2115,7 +2115,7 @@ const deserializeAws_json1_1CreateRemoteAccessSessionCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -2178,7 +2178,7 @@ const deserializeAws_json1_1CreateTestGridProjectCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazon.devicefarm.model#InternalServiceException":
+    case "com.amazonaws.devicefarm#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -2238,7 +2238,7 @@ const deserializeAws_json1_1CreateTestGridUrlCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -2249,7 +2249,7 @@ const deserializeAws_json1_1CreateTestGridUrlCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazon.devicefarm.model#InternalServiceException":
+    case "com.amazonaws.devicefarm#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -2260,7 +2260,7 @@ const deserializeAws_json1_1CreateTestGridUrlCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2320,7 +2320,7 @@ const deserializeAws_json1_1CreateUploadCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -2331,7 +2331,7 @@ const deserializeAws_json1_1CreateUploadCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2342,7 +2342,7 @@ const deserializeAws_json1_1CreateUploadCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2353,7 +2353,7 @@ const deserializeAws_json1_1CreateUploadCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -2416,7 +2416,7 @@ const deserializeAws_json1_1CreateVPCEConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -2427,7 +2427,7 @@ const deserializeAws_json1_1CreateVPCEConfigurationCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2438,7 +2438,7 @@ const deserializeAws_json1_1CreateVPCEConfigurationCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -2498,7 +2498,7 @@ const deserializeAws_json1_1DeleteDevicePoolCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -2509,7 +2509,7 @@ const deserializeAws_json1_1DeleteDevicePoolCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2520,7 +2520,7 @@ const deserializeAws_json1_1DeleteDevicePoolCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2531,7 +2531,7 @@ const deserializeAws_json1_1DeleteDevicePoolCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -2594,7 +2594,7 @@ const deserializeAws_json1_1DeleteInstanceProfileCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -2605,7 +2605,7 @@ const deserializeAws_json1_1DeleteInstanceProfileCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2616,7 +2616,7 @@ const deserializeAws_json1_1DeleteInstanceProfileCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2627,7 +2627,7 @@ const deserializeAws_json1_1DeleteInstanceProfileCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -2690,7 +2690,7 @@ const deserializeAws_json1_1DeleteNetworkProfileCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -2701,7 +2701,7 @@ const deserializeAws_json1_1DeleteNetworkProfileCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2712,7 +2712,7 @@ const deserializeAws_json1_1DeleteNetworkProfileCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2723,7 +2723,7 @@ const deserializeAws_json1_1DeleteNetworkProfileCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -2783,7 +2783,7 @@ const deserializeAws_json1_1DeleteProjectCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -2794,7 +2794,7 @@ const deserializeAws_json1_1DeleteProjectCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2805,7 +2805,7 @@ const deserializeAws_json1_1DeleteProjectCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2816,7 +2816,7 @@ const deserializeAws_json1_1DeleteProjectCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -2882,7 +2882,7 @@ const deserializeAws_json1_1DeleteRemoteAccessSessionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -2893,7 +2893,7 @@ const deserializeAws_json1_1DeleteRemoteAccessSessionCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2904,7 +2904,7 @@ const deserializeAws_json1_1DeleteRemoteAccessSessionCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2915,7 +2915,7 @@ const deserializeAws_json1_1DeleteRemoteAccessSessionCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -2975,7 +2975,7 @@ const deserializeAws_json1_1DeleteRunCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -2986,7 +2986,7 @@ const deserializeAws_json1_1DeleteRunCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2997,7 +2997,7 @@ const deserializeAws_json1_1DeleteRunCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3008,7 +3008,7 @@ const deserializeAws_json1_1DeleteRunCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -3071,7 +3071,7 @@ const deserializeAws_json1_1DeleteTestGridProjectCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -3082,7 +3082,7 @@ const deserializeAws_json1_1DeleteTestGridProjectCommandError = async (
       };
       break;
     case "CannotDeleteException":
-    case "com.amazon.devicefarm.model#CannotDeleteException":
+    case "com.amazonaws.devicefarm#CannotDeleteException":
       response = {
         ...(await deserializeAws_json1_1CannotDeleteExceptionResponse(
           parsedOutput,
@@ -3093,7 +3093,7 @@ const deserializeAws_json1_1DeleteTestGridProjectCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazon.devicefarm.model#InternalServiceException":
+    case "com.amazonaws.devicefarm#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -3104,7 +3104,7 @@ const deserializeAws_json1_1DeleteTestGridProjectCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3164,7 +3164,7 @@ const deserializeAws_json1_1DeleteUploadCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -3175,7 +3175,7 @@ const deserializeAws_json1_1DeleteUploadCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3186,7 +3186,7 @@ const deserializeAws_json1_1DeleteUploadCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3197,7 +3197,7 @@ const deserializeAws_json1_1DeleteUploadCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -3260,7 +3260,7 @@ const deserializeAws_json1_1DeleteVPCEConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -3271,7 +3271,7 @@ const deserializeAws_json1_1DeleteVPCEConfigurationCommandError = async (
       };
       break;
     case "InvalidOperationException":
-    case "com.amazon.devicefarm.model#InvalidOperationException":
+    case "com.amazonaws.devicefarm#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -3282,7 +3282,7 @@ const deserializeAws_json1_1DeleteVPCEConfigurationCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3293,7 +3293,7 @@ const deserializeAws_json1_1DeleteVPCEConfigurationCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -3356,7 +3356,7 @@ const deserializeAws_json1_1GetAccountSettingsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -3367,7 +3367,7 @@ const deserializeAws_json1_1GetAccountSettingsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3378,7 +3378,7 @@ const deserializeAws_json1_1GetAccountSettingsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3389,7 +3389,7 @@ const deserializeAws_json1_1GetAccountSettingsCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -3449,7 +3449,7 @@ const deserializeAws_json1_1GetDeviceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -3460,7 +3460,7 @@ const deserializeAws_json1_1GetDeviceCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3471,7 +3471,7 @@ const deserializeAws_json1_1GetDeviceCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3482,7 +3482,7 @@ const deserializeAws_json1_1GetDeviceCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -3542,7 +3542,7 @@ const deserializeAws_json1_1GetDeviceInstanceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -3553,7 +3553,7 @@ const deserializeAws_json1_1GetDeviceInstanceCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3564,7 +3564,7 @@ const deserializeAws_json1_1GetDeviceInstanceCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3575,7 +3575,7 @@ const deserializeAws_json1_1GetDeviceInstanceCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -3635,7 +3635,7 @@ const deserializeAws_json1_1GetDevicePoolCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -3646,7 +3646,7 @@ const deserializeAws_json1_1GetDevicePoolCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3657,7 +3657,7 @@ const deserializeAws_json1_1GetDevicePoolCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3668,7 +3668,7 @@ const deserializeAws_json1_1GetDevicePoolCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -3734,7 +3734,7 @@ const deserializeAws_json1_1GetDevicePoolCompatibilityCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -3745,7 +3745,7 @@ const deserializeAws_json1_1GetDevicePoolCompatibilityCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3756,7 +3756,7 @@ const deserializeAws_json1_1GetDevicePoolCompatibilityCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3767,7 +3767,7 @@ const deserializeAws_json1_1GetDevicePoolCompatibilityCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -3830,7 +3830,7 @@ const deserializeAws_json1_1GetInstanceProfileCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -3841,7 +3841,7 @@ const deserializeAws_json1_1GetInstanceProfileCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3852,7 +3852,7 @@ const deserializeAws_json1_1GetInstanceProfileCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3863,7 +3863,7 @@ const deserializeAws_json1_1GetInstanceProfileCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -3923,7 +3923,7 @@ const deserializeAws_json1_1GetJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -3934,7 +3934,7 @@ const deserializeAws_json1_1GetJobCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3945,7 +3945,7 @@ const deserializeAws_json1_1GetJobCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3956,7 +3956,7 @@ const deserializeAws_json1_1GetJobCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -4016,7 +4016,7 @@ const deserializeAws_json1_1GetNetworkProfileCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -4027,7 +4027,7 @@ const deserializeAws_json1_1GetNetworkProfileCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -4038,7 +4038,7 @@ const deserializeAws_json1_1GetNetworkProfileCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4049,7 +4049,7 @@ const deserializeAws_json1_1GetNetworkProfileCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -4109,7 +4109,7 @@ const deserializeAws_json1_1GetOfferingStatusCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -4120,7 +4120,7 @@ const deserializeAws_json1_1GetOfferingStatusCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -4131,7 +4131,7 @@ const deserializeAws_json1_1GetOfferingStatusCommandError = async (
       };
       break;
     case "NotEligibleException":
-    case "com.amazon.devicefarm.model#NotEligibleException":
+    case "com.amazonaws.devicefarm#NotEligibleException":
       response = {
         ...(await deserializeAws_json1_1NotEligibleExceptionResponse(
           parsedOutput,
@@ -4142,7 +4142,7 @@ const deserializeAws_json1_1GetOfferingStatusCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4153,7 +4153,7 @@ const deserializeAws_json1_1GetOfferingStatusCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -4213,7 +4213,7 @@ const deserializeAws_json1_1GetProjectCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -4224,7 +4224,7 @@ const deserializeAws_json1_1GetProjectCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -4235,7 +4235,7 @@ const deserializeAws_json1_1GetProjectCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4246,7 +4246,7 @@ const deserializeAws_json1_1GetProjectCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -4309,7 +4309,7 @@ const deserializeAws_json1_1GetRemoteAccessSessionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -4320,7 +4320,7 @@ const deserializeAws_json1_1GetRemoteAccessSessionCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -4331,7 +4331,7 @@ const deserializeAws_json1_1GetRemoteAccessSessionCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4342,7 +4342,7 @@ const deserializeAws_json1_1GetRemoteAccessSessionCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -4402,7 +4402,7 @@ const deserializeAws_json1_1GetRunCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -4413,7 +4413,7 @@ const deserializeAws_json1_1GetRunCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -4424,7 +4424,7 @@ const deserializeAws_json1_1GetRunCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4435,7 +4435,7 @@ const deserializeAws_json1_1GetRunCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -4495,7 +4495,7 @@ const deserializeAws_json1_1GetSuiteCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -4506,7 +4506,7 @@ const deserializeAws_json1_1GetSuiteCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -4517,7 +4517,7 @@ const deserializeAws_json1_1GetSuiteCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4528,7 +4528,7 @@ const deserializeAws_json1_1GetSuiteCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -4588,7 +4588,7 @@ const deserializeAws_json1_1GetTestCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -4599,7 +4599,7 @@ const deserializeAws_json1_1GetTestCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -4610,7 +4610,7 @@ const deserializeAws_json1_1GetTestCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4621,7 +4621,7 @@ const deserializeAws_json1_1GetTestCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -4684,7 +4684,7 @@ const deserializeAws_json1_1GetTestGridProjectCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -4695,7 +4695,7 @@ const deserializeAws_json1_1GetTestGridProjectCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazon.devicefarm.model#InternalServiceException":
+    case "com.amazonaws.devicefarm#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -4706,7 +4706,7 @@ const deserializeAws_json1_1GetTestGridProjectCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4769,7 +4769,7 @@ const deserializeAws_json1_1GetTestGridSessionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -4780,7 +4780,7 @@ const deserializeAws_json1_1GetTestGridSessionCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazon.devicefarm.model#InternalServiceException":
+    case "com.amazonaws.devicefarm#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -4791,7 +4791,7 @@ const deserializeAws_json1_1GetTestGridSessionCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4851,7 +4851,7 @@ const deserializeAws_json1_1GetUploadCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -4862,7 +4862,7 @@ const deserializeAws_json1_1GetUploadCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -4873,7 +4873,7 @@ const deserializeAws_json1_1GetUploadCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4884,7 +4884,7 @@ const deserializeAws_json1_1GetUploadCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -4947,7 +4947,7 @@ const deserializeAws_json1_1GetVPCEConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -4958,7 +4958,7 @@ const deserializeAws_json1_1GetVPCEConfigurationCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4969,7 +4969,7 @@ const deserializeAws_json1_1GetVPCEConfigurationCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -5035,7 +5035,7 @@ const deserializeAws_json1_1InstallToRemoteAccessSessionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -5046,7 +5046,7 @@ const deserializeAws_json1_1InstallToRemoteAccessSessionCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -5057,7 +5057,7 @@ const deserializeAws_json1_1InstallToRemoteAccessSessionCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5068,7 +5068,7 @@ const deserializeAws_json1_1InstallToRemoteAccessSessionCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -5128,7 +5128,7 @@ const deserializeAws_json1_1ListArtifactsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -5139,7 +5139,7 @@ const deserializeAws_json1_1ListArtifactsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -5150,7 +5150,7 @@ const deserializeAws_json1_1ListArtifactsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5161,7 +5161,7 @@ const deserializeAws_json1_1ListArtifactsCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -5224,7 +5224,7 @@ const deserializeAws_json1_1ListDeviceInstancesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -5235,7 +5235,7 @@ const deserializeAws_json1_1ListDeviceInstancesCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -5246,7 +5246,7 @@ const deserializeAws_json1_1ListDeviceInstancesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5257,7 +5257,7 @@ const deserializeAws_json1_1ListDeviceInstancesCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -5317,7 +5317,7 @@ const deserializeAws_json1_1ListDevicePoolsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -5328,7 +5328,7 @@ const deserializeAws_json1_1ListDevicePoolsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -5339,7 +5339,7 @@ const deserializeAws_json1_1ListDevicePoolsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5350,7 +5350,7 @@ const deserializeAws_json1_1ListDevicePoolsCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -5410,7 +5410,7 @@ const deserializeAws_json1_1ListDevicesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -5421,7 +5421,7 @@ const deserializeAws_json1_1ListDevicesCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -5432,7 +5432,7 @@ const deserializeAws_json1_1ListDevicesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5443,7 +5443,7 @@ const deserializeAws_json1_1ListDevicesCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -5506,7 +5506,7 @@ const deserializeAws_json1_1ListInstanceProfilesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -5517,7 +5517,7 @@ const deserializeAws_json1_1ListInstanceProfilesCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -5528,7 +5528,7 @@ const deserializeAws_json1_1ListInstanceProfilesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5539,7 +5539,7 @@ const deserializeAws_json1_1ListInstanceProfilesCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -5599,7 +5599,7 @@ const deserializeAws_json1_1ListJobsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -5610,7 +5610,7 @@ const deserializeAws_json1_1ListJobsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -5621,7 +5621,7 @@ const deserializeAws_json1_1ListJobsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5632,7 +5632,7 @@ const deserializeAws_json1_1ListJobsCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -5695,7 +5695,7 @@ const deserializeAws_json1_1ListNetworkProfilesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -5706,7 +5706,7 @@ const deserializeAws_json1_1ListNetworkProfilesCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -5717,7 +5717,7 @@ const deserializeAws_json1_1ListNetworkProfilesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5728,7 +5728,7 @@ const deserializeAws_json1_1ListNetworkProfilesCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -5791,7 +5791,7 @@ const deserializeAws_json1_1ListOfferingPromotionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -5802,7 +5802,7 @@ const deserializeAws_json1_1ListOfferingPromotionsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -5813,7 +5813,7 @@ const deserializeAws_json1_1ListOfferingPromotionsCommandError = async (
       };
       break;
     case "NotEligibleException":
-    case "com.amazon.devicefarm.model#NotEligibleException":
+    case "com.amazonaws.devicefarm#NotEligibleException":
       response = {
         ...(await deserializeAws_json1_1NotEligibleExceptionResponse(
           parsedOutput,
@@ -5824,7 +5824,7 @@ const deserializeAws_json1_1ListOfferingPromotionsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5835,7 +5835,111 @@ const deserializeAws_json1_1ListOfferingPromotionsCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListOfferingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOfferingsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListOfferingsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListOfferingsResult(data, context);
+  const response: ListOfferingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListOfferingsResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListOfferingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOfferingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "NotEligibleException":
+    case "com.amazonaws.devicefarm#NotEligibleException":
+      response = {
+        ...(await deserializeAws_json1_1NotEligibleExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -5901,7 +6005,7 @@ const deserializeAws_json1_1ListOfferingTransactionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -5912,7 +6016,7 @@ const deserializeAws_json1_1ListOfferingTransactionsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -5923,7 +6027,7 @@ const deserializeAws_json1_1ListOfferingTransactionsCommandError = async (
       };
       break;
     case "NotEligibleException":
-    case "com.amazon.devicefarm.model#NotEligibleException":
+    case "com.amazonaws.devicefarm#NotEligibleException":
       response = {
         ...(await deserializeAws_json1_1NotEligibleExceptionResponse(
           parsedOutput,
@@ -5934,7 +6038,7 @@ const deserializeAws_json1_1ListOfferingTransactionsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5945,111 +6049,7 @@ const deserializeAws_json1_1ListOfferingTransactionsCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1ListOfferingsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOfferingsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListOfferingsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1ListOfferingsResult(data, context);
-  const response: ListOfferingsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "ListOfferingsResult",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1ListOfferingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOfferingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
-      response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "NotEligibleException":
-    case "com.amazon.devicefarm.model#NotEligibleException":
-      response = {
-        ...(await deserializeAws_json1_1NotEligibleExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -6109,7 +6109,7 @@ const deserializeAws_json1_1ListProjectsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -6120,7 +6120,7 @@ const deserializeAws_json1_1ListProjectsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -6131,7 +6131,7 @@ const deserializeAws_json1_1ListProjectsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6142,7 +6142,7 @@ const deserializeAws_json1_1ListProjectsCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -6208,7 +6208,7 @@ const deserializeAws_json1_1ListRemoteAccessSessionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -6219,7 +6219,7 @@ const deserializeAws_json1_1ListRemoteAccessSessionsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -6230,7 +6230,7 @@ const deserializeAws_json1_1ListRemoteAccessSessionsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6241,7 +6241,7 @@ const deserializeAws_json1_1ListRemoteAccessSessionsCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -6301,7 +6301,7 @@ const deserializeAws_json1_1ListRunsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -6312,7 +6312,7 @@ const deserializeAws_json1_1ListRunsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -6323,7 +6323,7 @@ const deserializeAws_json1_1ListRunsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6334,7 +6334,7 @@ const deserializeAws_json1_1ListRunsCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -6394,7 +6394,7 @@ const deserializeAws_json1_1ListSamplesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -6405,7 +6405,7 @@ const deserializeAws_json1_1ListSamplesCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -6416,7 +6416,7 @@ const deserializeAws_json1_1ListSamplesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6427,7 +6427,7 @@ const deserializeAws_json1_1ListSamplesCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -6487,7 +6487,7 @@ const deserializeAws_json1_1ListSuitesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -6498,7 +6498,7 @@ const deserializeAws_json1_1ListSuitesCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -6509,7 +6509,7 @@ const deserializeAws_json1_1ListSuitesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6520,7 +6520,7 @@ const deserializeAws_json1_1ListSuitesCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -6583,7 +6583,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -6594,7 +6594,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6605,7 +6605,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "TagOperationException":
-    case "com.amazon.devicefarm.model#TagOperationException":
+    case "com.amazonaws.devicefarm#TagOperationException":
       response = {
         ...(await deserializeAws_json1_1TagOperationExceptionResponse(
           parsedOutput,
@@ -6668,7 +6668,7 @@ const deserializeAws_json1_1ListTestGridProjectsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -6679,7 +6679,7 @@ const deserializeAws_json1_1ListTestGridProjectsCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazon.devicefarm.model#InternalServiceException":
+    case "com.amazonaws.devicefarm#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -6745,7 +6745,7 @@ const deserializeAws_json1_1ListTestGridSessionActionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -6756,7 +6756,7 @@ const deserializeAws_json1_1ListTestGridSessionActionsCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazon.devicefarm.model#InternalServiceException":
+    case "com.amazonaws.devicefarm#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -6767,7 +6767,7 @@ const deserializeAws_json1_1ListTestGridSessionActionsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6833,7 +6833,7 @@ const deserializeAws_json1_1ListTestGridSessionArtifactsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -6844,7 +6844,7 @@ const deserializeAws_json1_1ListTestGridSessionArtifactsCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazon.devicefarm.model#InternalServiceException":
+    case "com.amazonaws.devicefarm#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -6855,7 +6855,7 @@ const deserializeAws_json1_1ListTestGridSessionArtifactsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6918,7 +6918,7 @@ const deserializeAws_json1_1ListTestGridSessionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -6929,7 +6929,7 @@ const deserializeAws_json1_1ListTestGridSessionsCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazon.devicefarm.model#InternalServiceException":
+    case "com.amazonaws.devicefarm#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -6940,7 +6940,7 @@ const deserializeAws_json1_1ListTestGridSessionsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7000,7 +7000,7 @@ const deserializeAws_json1_1ListTestsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -7011,7 +7011,7 @@ const deserializeAws_json1_1ListTestsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -7022,7 +7022,7 @@ const deserializeAws_json1_1ListTestsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7033,7 +7033,7 @@ const deserializeAws_json1_1ListTestsCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -7096,7 +7096,7 @@ const deserializeAws_json1_1ListUniqueProblemsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -7107,7 +7107,7 @@ const deserializeAws_json1_1ListUniqueProblemsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -7118,7 +7118,7 @@ const deserializeAws_json1_1ListUniqueProblemsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7129,7 +7129,7 @@ const deserializeAws_json1_1ListUniqueProblemsCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -7189,7 +7189,7 @@ const deserializeAws_json1_1ListUploadsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -7200,7 +7200,7 @@ const deserializeAws_json1_1ListUploadsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -7211,7 +7211,7 @@ const deserializeAws_json1_1ListUploadsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7222,7 +7222,7 @@ const deserializeAws_json1_1ListUploadsCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -7285,7 +7285,7 @@ const deserializeAws_json1_1ListVPCEConfigurationsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -7296,7 +7296,7 @@ const deserializeAws_json1_1ListVPCEConfigurationsCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -7356,7 +7356,7 @@ const deserializeAws_json1_1PurchaseOfferingCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -7367,7 +7367,7 @@ const deserializeAws_json1_1PurchaseOfferingCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -7378,7 +7378,7 @@ const deserializeAws_json1_1PurchaseOfferingCommandError = async (
       };
       break;
     case "NotEligibleException":
-    case "com.amazon.devicefarm.model#NotEligibleException":
+    case "com.amazonaws.devicefarm#NotEligibleException":
       response = {
         ...(await deserializeAws_json1_1NotEligibleExceptionResponse(
           parsedOutput,
@@ -7389,7 +7389,7 @@ const deserializeAws_json1_1PurchaseOfferingCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7400,7 +7400,7 @@ const deserializeAws_json1_1PurchaseOfferingCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -7460,7 +7460,7 @@ const deserializeAws_json1_1RenewOfferingCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -7471,7 +7471,7 @@ const deserializeAws_json1_1RenewOfferingCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -7482,7 +7482,7 @@ const deserializeAws_json1_1RenewOfferingCommandError = async (
       };
       break;
     case "NotEligibleException":
-    case "com.amazon.devicefarm.model#NotEligibleException":
+    case "com.amazonaws.devicefarm#NotEligibleException":
       response = {
         ...(await deserializeAws_json1_1NotEligibleExceptionResponse(
           parsedOutput,
@@ -7493,7 +7493,7 @@ const deserializeAws_json1_1RenewOfferingCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7504,7 +7504,7 @@ const deserializeAws_json1_1RenewOfferingCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -7564,7 +7564,7 @@ const deserializeAws_json1_1ScheduleRunCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -7575,7 +7575,7 @@ const deserializeAws_json1_1ScheduleRunCommandError = async (
       };
       break;
     case "IdempotencyException":
-    case "com.amazon.devicefarm.model#IdempotencyException":
+    case "com.amazonaws.devicefarm#IdempotencyException":
       response = {
         ...(await deserializeAws_json1_1IdempotencyExceptionResponse(
           parsedOutput,
@@ -7586,7 +7586,7 @@ const deserializeAws_json1_1ScheduleRunCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -7597,7 +7597,7 @@ const deserializeAws_json1_1ScheduleRunCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7608,7 +7608,7 @@ const deserializeAws_json1_1ScheduleRunCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -7668,7 +7668,7 @@ const deserializeAws_json1_1StopJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -7679,7 +7679,7 @@ const deserializeAws_json1_1StopJobCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -7690,7 +7690,7 @@ const deserializeAws_json1_1StopJobCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7701,7 +7701,7 @@ const deserializeAws_json1_1StopJobCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -7764,7 +7764,7 @@ const deserializeAws_json1_1StopRemoteAccessSessionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -7775,7 +7775,7 @@ const deserializeAws_json1_1StopRemoteAccessSessionCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -7786,7 +7786,7 @@ const deserializeAws_json1_1StopRemoteAccessSessionCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7797,7 +7797,7 @@ const deserializeAws_json1_1StopRemoteAccessSessionCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -7857,7 +7857,7 @@ const deserializeAws_json1_1StopRunCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -7868,7 +7868,7 @@ const deserializeAws_json1_1StopRunCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -7879,7 +7879,7 @@ const deserializeAws_json1_1StopRunCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7890,7 +7890,7 @@ const deserializeAws_json1_1StopRunCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -7950,7 +7950,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -7961,7 +7961,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7972,7 +7972,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "TagOperationException":
-    case "com.amazon.devicefarm.model#TagOperationException":
+    case "com.amazonaws.devicefarm#TagOperationException":
       response = {
         ...(await deserializeAws_json1_1TagOperationExceptionResponse(
           parsedOutput,
@@ -7983,7 +7983,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "TagPolicyException":
-    case "com.amazon.devicefarm.model#TagPolicyException":
+    case "com.amazonaws.devicefarm#TagPolicyException":
       response = {
         ...(await deserializeAws_json1_1TagPolicyExceptionResponse(
           parsedOutput,
@@ -7994,7 +7994,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "TooManyTagsException":
-    case "com.amazon.devicefarm.model#TooManyTagsException":
+    case "com.amazonaws.devicefarm#TooManyTagsException":
       response = {
         ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
           parsedOutput,
@@ -8054,7 +8054,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -8065,7 +8065,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8076,7 +8076,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "TagOperationException":
-    case "com.amazon.devicefarm.model#TagOperationException":
+    case "com.amazonaws.devicefarm#TagOperationException":
       response = {
         ...(await deserializeAws_json1_1TagOperationExceptionResponse(
           parsedOutput,
@@ -8139,7 +8139,7 @@ const deserializeAws_json1_1UpdateDeviceInstanceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -8150,7 +8150,7 @@ const deserializeAws_json1_1UpdateDeviceInstanceCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -8161,7 +8161,7 @@ const deserializeAws_json1_1UpdateDeviceInstanceCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8172,7 +8172,7 @@ const deserializeAws_json1_1UpdateDeviceInstanceCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -8232,7 +8232,7 @@ const deserializeAws_json1_1UpdateDevicePoolCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -8243,7 +8243,7 @@ const deserializeAws_json1_1UpdateDevicePoolCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -8254,7 +8254,7 @@ const deserializeAws_json1_1UpdateDevicePoolCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8265,7 +8265,7 @@ const deserializeAws_json1_1UpdateDevicePoolCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -8328,7 +8328,7 @@ const deserializeAws_json1_1UpdateInstanceProfileCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -8339,7 +8339,7 @@ const deserializeAws_json1_1UpdateInstanceProfileCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -8350,7 +8350,7 @@ const deserializeAws_json1_1UpdateInstanceProfileCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8361,7 +8361,7 @@ const deserializeAws_json1_1UpdateInstanceProfileCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -8424,7 +8424,7 @@ const deserializeAws_json1_1UpdateNetworkProfileCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -8435,7 +8435,7 @@ const deserializeAws_json1_1UpdateNetworkProfileCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -8446,7 +8446,7 @@ const deserializeAws_json1_1UpdateNetworkProfileCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8457,7 +8457,7 @@ const deserializeAws_json1_1UpdateNetworkProfileCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -8517,7 +8517,7 @@ const deserializeAws_json1_1UpdateProjectCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -8528,7 +8528,7 @@ const deserializeAws_json1_1UpdateProjectCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -8539,7 +8539,7 @@ const deserializeAws_json1_1UpdateProjectCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8550,7 +8550,7 @@ const deserializeAws_json1_1UpdateProjectCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -8613,7 +8613,7 @@ const deserializeAws_json1_1UpdateTestGridProjectCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -8624,7 +8624,7 @@ const deserializeAws_json1_1UpdateTestGridProjectCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazon.devicefarm.model#InternalServiceException":
+    case "com.amazonaws.devicefarm#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -8635,7 +8635,7 @@ const deserializeAws_json1_1UpdateTestGridProjectCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8695,7 +8695,7 @@ const deserializeAws_json1_1UpdateUploadCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -8706,7 +8706,7 @@ const deserializeAws_json1_1UpdateUploadCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.devicefarm.model#LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -8717,7 +8717,7 @@ const deserializeAws_json1_1UpdateUploadCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8728,7 +8728,7 @@ const deserializeAws_json1_1UpdateUploadCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -8791,7 +8791,7 @@ const deserializeAws_json1_1UpdateVPCEConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
-    case "com.amazon.devicefarm.model#ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
       response = {
         ...(await deserializeAws_json1_1ArgumentExceptionResponse(
           parsedOutput,
@@ -8802,7 +8802,7 @@ const deserializeAws_json1_1UpdateVPCEConfigurationCommandError = async (
       };
       break;
     case "InvalidOperationException":
-    case "com.amazon.devicefarm.model#InvalidOperationException":
+    case "com.amazonaws.devicefarm#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -8813,7 +8813,7 @@ const deserializeAws_json1_1UpdateVPCEConfigurationCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.devicefarm.model#NotFoundException":
+    case "com.amazonaws.devicefarm#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8824,7 +8824,7 @@ const deserializeAws_json1_1UpdateVPCEConfigurationCommandError = async (
       };
       break;
     case "ServiceAccountException":
-    case "com.amazon.devicefarm.model#ServiceAccountException":
+    case "com.amazonaws.devicefarm#ServiceAccountException":
       response = {
         ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
           parsedOutput,
@@ -9391,18 +9391,18 @@ const serializeAws_json1_1DeviceFilter = (
   };
 };
 
-const serializeAws_json1_1DeviceFilterValues = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
 const serializeAws_json1_1DeviceFilters = (
   input: DeviceFilter[],
   context: __SerdeContext
 ): any => {
   return input.map(entry => serializeAws_json1_1DeviceFilter(entry, context));
+};
+
+const serializeAws_json1_1DeviceFilterValues = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1DeviceHostPaths = (
@@ -9733,8 +9733,8 @@ const serializeAws_json1_1ListOfferingPromotionsRequest = (
   };
 };
 
-const serializeAws_json1_1ListOfferingTransactionsRequest = (
-  input: ListOfferingTransactionsRequest,
+const serializeAws_json1_1ListOfferingsRequest = (
+  input: ListOfferingsRequest,
   context: __SerdeContext
 ): any => {
   return {
@@ -9742,8 +9742,8 @@ const serializeAws_json1_1ListOfferingTransactionsRequest = (
   };
 };
 
-const serializeAws_json1_1ListOfferingsRequest = (
-  input: ListOfferingsRequest,
+const serializeAws_json1_1ListOfferingTransactionsRequest = (
+  input: ListOfferingTransactionsRequest,
   context: __SerdeContext
 ): any => {
   return {
@@ -10408,27 +10408,6 @@ const deserializeAws_json1_1Artifacts = (
   );
 };
 
-const deserializeAws_json1_1CPU = (
-  output: any,
-  context: __SerdeContext
-): CPU => {
-  return {
-    __type: "CPU",
-    architecture:
-      output.architecture !== undefined && output.architecture !== null
-        ? output.architecture
-        : undefined,
-    clock:
-      output.clock !== undefined && output.clock !== null
-        ? output.clock
-        : undefined,
-    frequency:
-      output.frequency !== undefined && output.frequency !== null
-        ? output.frequency
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1CannotDeleteException = (
   output: any,
   context: __SerdeContext
@@ -10475,6 +10454,27 @@ const deserializeAws_json1_1Counters = (
     warned:
       output.warned !== undefined && output.warned !== null
         ? output.warned
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1CPU = (
+  output: any,
+  context: __SerdeContext
+): CPU => {
+  return {
+    __type: "CPU",
+    architecture:
+      output.architecture !== undefined && output.architecture !== null
+        ? output.architecture
+        : undefined,
+    clock:
+      output.clock !== undefined && output.clock !== null
+        ? output.clock
+        : undefined,
+    frequency:
+      output.frequency !== undefined && output.frequency !== null
+        ? output.frequency
         : undefined
   } as any;
 };
@@ -10819,13 +10819,6 @@ const deserializeAws_json1_1DeviceFilter = (
   } as any;
 };
 
-const deserializeAws_json1_1DeviceFilterValues = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
 const deserializeAws_json1_1DeviceFilters = (
   output: any,
   context: __SerdeContext
@@ -10833,6 +10826,13 @@ const deserializeAws_json1_1DeviceFilters = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DeviceFilter(entry, context)
   );
+};
+
+const deserializeAws_json1_1DeviceFilterValues = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1DeviceHostPaths = (
@@ -10977,6 +10977,15 @@ const deserializeAws_json1_1DevicePools = (
   );
 };
 
+const deserializeAws_json1_1Devices = (
+  output: any,
+  context: __SerdeContext
+): Device[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Device(entry, context)
+  );
+};
+
 const deserializeAws_json1_1DeviceSelectionResult = (
   output: any,
   context: __SerdeContext
@@ -10997,15 +11006,6 @@ const deserializeAws_json1_1DeviceSelectionResult = (
         ? output.maxDevices
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1Devices = (
-  output: any,
-  context: __SerdeContext
-): Device[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Device(entry, context)
-  );
 };
 
 const deserializeAws_json1_1GetAccountSettingsResult = (
@@ -11638,6 +11638,23 @@ const deserializeAws_json1_1ListOfferingPromotionsResult = (
   } as any;
 };
 
+const deserializeAws_json1_1ListOfferingsResult = (
+  output: any,
+  context: __SerdeContext
+): ListOfferingsResult => {
+  return {
+    __type: "ListOfferingsResult",
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    offerings:
+      output.offerings !== undefined && output.offerings !== null
+        ? deserializeAws_json1_1Offerings(output.offerings, context)
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1ListOfferingTransactionsResult = (
   output: any,
   context: __SerdeContext
@@ -11655,23 +11672,6 @@ const deserializeAws_json1_1ListOfferingTransactionsResult = (
             output.offeringTransactions,
             context
           )
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ListOfferingsResult = (
-  output: any,
-  context: __SerdeContext
-): ListOfferingsResult => {
-  return {
-    __type: "ListOfferingsResult",
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
-    offerings:
-      output.offerings !== undefined && output.offerings !== null
-        ? deserializeAws_json1_1Offerings(output.offerings, context)
         : undefined
   } as any;
 };
@@ -12123,6 +12123,15 @@ const deserializeAws_json1_1OfferingPromotions = (
   );
 };
 
+const deserializeAws_json1_1Offerings = (
+  output: any,
+  context: __SerdeContext
+): Offering[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Offering(entry, context)
+  );
+};
+
 const deserializeAws_json1_1OfferingStatus = (
   output: any,
   context: __SerdeContext
@@ -12197,15 +12206,6 @@ const deserializeAws_json1_1OfferingTransactions = (
 ): OfferingTransaction[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1OfferingTransaction(entry, context)
-  );
-};
-
-const deserializeAws_json1_1Offerings = (
-  output: any,
-  context: __SerdeContext
-): Offering[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Offering(entry, context)
   );
 };
 
@@ -12310,6 +12310,22 @@ const deserializeAws_json1_1Projects = (
   );
 };
 
+const deserializeAws_json1_1PurchasedDevicesMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: number } => {
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: number },
+      [key, value]: [DevicePlatform | string, any]
+    ) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
+};
+
 const deserializeAws_json1_1PurchaseOfferingResult = (
   output: any,
   context: __SerdeContext
@@ -12325,22 +12341,6 @@ const deserializeAws_json1_1PurchaseOfferingResult = (
           )
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1PurchasedDevicesMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: number } => {
-  return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: number },
-      [key, value]: [DevicePlatform | string, any]
-    ) => ({
-      ...acc,
-      [key]: value
-    }),
-    {}
-  );
 };
 
 const deserializeAws_json1_1Radios = (

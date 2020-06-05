@@ -6,6 +6,127 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
+ * <p></p>
+ */
+export interface AddAttachmentsToSetRequest {
+  __type?: "AddAttachmentsToSetRequest";
+  /**
+   * <p>The ID of the attachment set. If an <code>attachmentSetId</code> is not specified,
+   *             a new attachment set is created, and the ID of the set is returned in the response. If
+   *             an <code>attachmentSetId</code> is specified, the attachments are added to the specified
+   *             set, if it exists.</p>
+   */
+  attachmentSetId?: string;
+
+  /**
+   * <p>One or more attachments to add to the set. The limit is 3 attachments per set, and
+   *             the size limit is 5 MB per attachment.</p>
+   */
+  attachments: Attachment[] | undefined;
+}
+
+export namespace AddAttachmentsToSetRequest {
+  export const filterSensitiveLog = (obj: AddAttachmentsToSetRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AddAttachmentsToSetRequest =>
+    __isa(o, "AddAttachmentsToSetRequest");
+}
+
+/**
+ * <p>The ID and expiry time of the attachment set returned by the <a>AddAttachmentsToSet</a> operation.</p>
+ */
+export interface AddAttachmentsToSetResponse {
+  __type?: "AddAttachmentsToSetResponse";
+  /**
+   * <p>The ID of the attachment set. If an <code>attachmentSetId</code> was not specified,
+   *             a new attachment set is created, and the ID of the set is returned in the response. If
+   *             an <code>attachmentSetId</code> was specified, the attachments are added to the
+   *             specified set, if it exists.</p>
+   */
+  attachmentSetId?: string;
+
+  /**
+   * <p>The time and date when the attachment set expires.</p>
+   */
+  expiryTime?: string;
+}
+
+export namespace AddAttachmentsToSetResponse {
+  export const filterSensitiveLog = (
+    obj: AddAttachmentsToSetResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AddAttachmentsToSetResponse =>
+    __isa(o, "AddAttachmentsToSetResponse");
+}
+
+/**
+ * <p>To be written.</p>
+ */
+export interface AddCommunicationToCaseRequest {
+  __type?: "AddCommunicationToCaseRequest";
+  /**
+   * <p>The ID of a set of one or more attachments for the communication to add to the
+   *             case. Create the set by calling <a>AddAttachmentsToSet</a>
+   *          </p>
+   */
+  attachmentSetId?: string;
+
+  /**
+   * <p>The AWS Support case ID requested or returned in the call. The case ID is an
+   *             alphanumeric string formatted as shown in this example:
+   *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
+   *          </p>
+   */
+  caseId?: string;
+
+  /**
+   * <p>The email addresses in the CC line of an email to be added to the support
+   *             case.</p>
+   */
+  ccEmailAddresses?: string[];
+
+  /**
+   * <p>The body of an email communication to add to the support case.</p>
+   */
+  communicationBody: string | undefined;
+}
+
+export namespace AddCommunicationToCaseRequest {
+  export const filterSensitiveLog = (
+    obj: AddCommunicationToCaseRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AddCommunicationToCaseRequest =>
+    __isa(o, "AddCommunicationToCaseRequest");
+}
+
+/**
+ * <p>The result of the <a>AddCommunicationToCase</a> operation.</p>
+ */
+export interface AddCommunicationToCaseResponse {
+  __type?: "AddCommunicationToCaseResponse";
+  /**
+   * <p>True if <a>AddCommunicationToCase</a> succeeds. Otherwise, returns an
+   *             error.</p>
+   */
+  result?: boolean;
+}
+
+export namespace AddCommunicationToCaseResponse {
+  export const filterSensitiveLog = (
+    obj: AddCommunicationToCaseResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AddCommunicationToCaseResponse =>
+    __isa(o, "AddCommunicationToCaseResponse");
+}
+
+/**
  * <p>An attachment to a case communication. The attachment consists of the file name and
  *             the content of the file.</p>
  */
@@ -53,6 +174,147 @@ export namespace AttachmentDetails {
   });
   export const isa = (o: any): o is AttachmentDetails =>
     __isa(o, "AttachmentDetails");
+}
+
+/**
+ * <p>An attachment with the specified ID could not be found.</p>
+ */
+export interface AttachmentIdNotFound
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "AttachmentIdNotFound";
+  $fault: "client";
+  /**
+   * <p>An attachment with the specified ID could not be found.</p>
+   */
+  message?: string;
+}
+
+export namespace AttachmentIdNotFound {
+  export const filterSensitiveLog = (obj: AttachmentIdNotFound): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AttachmentIdNotFound =>
+    __isa(o, "AttachmentIdNotFound");
+}
+
+/**
+ * <p>The limit for the number of attachment sets created in a short period of time has
+ *             been exceeded.</p>
+ */
+export interface AttachmentLimitExceeded
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "AttachmentLimitExceeded";
+  $fault: "client";
+  /**
+   * <p>The limit for the number of attachment sets created in a short period of time has
+   *             been exceeded.</p>
+   */
+  message?: string;
+}
+
+export namespace AttachmentLimitExceeded {
+  export const filterSensitiveLog = (obj: AttachmentLimitExceeded): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AttachmentLimitExceeded =>
+    __isa(o, "AttachmentLimitExceeded");
+}
+
+/**
+ * <p>The expiration time of the attachment set has passed. The set expires 1 hour after
+ *             it is created.</p>
+ */
+export interface AttachmentSetExpired
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "AttachmentSetExpired";
+  $fault: "client";
+  /**
+   * <p>The expiration time of the attachment set has passed. The set expires 1 hour after
+   *             it is created.</p>
+   */
+  message?: string;
+}
+
+export namespace AttachmentSetExpired {
+  export const filterSensitiveLog = (obj: AttachmentSetExpired): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AttachmentSetExpired =>
+    __isa(o, "AttachmentSetExpired");
+}
+
+/**
+ * <p>An attachment set with the specified ID could not be found.</p>
+ */
+export interface AttachmentSetIdNotFound
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "AttachmentSetIdNotFound";
+  $fault: "client";
+  /**
+   * <p>An attachment set with the specified ID could not be found.</p>
+   */
+  message?: string;
+}
+
+export namespace AttachmentSetIdNotFound {
+  export const filterSensitiveLog = (obj: AttachmentSetIdNotFound): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AttachmentSetIdNotFound =>
+    __isa(o, "AttachmentSetIdNotFound");
+}
+
+/**
+ * <p>A limit for the size of an attachment set has been exceeded. The limits are 3
+ *             attachments and 5 MB per attachment.</p>
+ */
+export interface AttachmentSetSizeLimitExceeded
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "AttachmentSetSizeLimitExceeded";
+  $fault: "client";
+  /**
+   * <p>A limit for the size of an attachment set has been exceeded. The limits are 3
+   *             attachments and 5 MB per attachment.</p>
+   */
+  message?: string;
+}
+
+export namespace AttachmentSetSizeLimitExceeded {
+  export const filterSensitiveLog = (
+    obj: AttachmentSetSizeLimitExceeded
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AttachmentSetSizeLimitExceeded =>
+    __isa(o, "AttachmentSetSizeLimitExceeded");
+}
+
+/**
+ * <p>The case creation limit for the account has been exceeded.</p>
+ */
+export interface CaseCreationLimitExceeded
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CaseCreationLimitExceeded";
+  $fault: "client";
+  /**
+   * <p>An error message that indicates that you have exceeded the number of cases you can
+   *             have open.</p>
+   */
+  message?: string;
+}
+
+export namespace CaseCreationLimitExceeded {
+  export const filterSensitiveLog = (obj: CaseCreationLimitExceeded): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CaseCreationLimitExceeded =>
+    __isa(o, "CaseCreationLimitExceeded");
 }
 
 /**
@@ -213,6 +475,26 @@ export namespace CaseDetails {
 }
 
 /**
+ * <p>The requested <code>caseId</code> could not be located.</p>
+ */
+export interface CaseIdNotFound extends __SmithyException, $MetadataBearer {
+  name: "CaseIdNotFound";
+  $fault: "client";
+  /**
+   * <p>The requested <code>CaseId</code> could not be located.</p>
+   */
+  message?: string;
+}
+
+export namespace CaseIdNotFound {
+  export const filterSensitiveLog = (obj: CaseIdNotFound): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CaseIdNotFound =>
+    __isa(o, "CaseIdNotFound");
+}
+
+/**
  * <p>A JSON-formatted name/value pair that represents the category name and category
  *             code of the problem, selected from the <a>DescribeServices</a> response for
  *             each AWS service.</p>
@@ -282,394 +564,6 @@ export namespace Communication {
     ...obj
   });
   export const isa = (o: any): o is Communication => __isa(o, "Communication");
-}
-
-/**
- * <p>The five most recent communications associated with the case.</p>
- */
-export interface RecentCaseCommunications {
-  __type?: "RecentCaseCommunications";
-  /**
-   * <p>The five most recent communications associated with the case.</p>
-   */
-  communications?: Communication[];
-
-  /**
-   * <p>A resumption point for pagination.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace RecentCaseCommunications {
-  export const filterSensitiveLog = (obj: RecentCaseCommunications): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RecentCaseCommunications =>
-    __isa(o, "RecentCaseCommunications");
-}
-
-/**
- * <p>Information about an AWS service returned by the <a>DescribeServices</a>
- *             operation.</p>
- */
-export interface Service {
-  __type?: "Service";
-  /**
-   * <p>A list of categories that describe the type of support issue a case describes.
-   *             Categories consist of a category name and a category code. Category names and codes are
-   *             passed to AWS Support when you call <a>CreateCase</a>.</p>
-   */
-  categories?: Category[];
-
-  /**
-   * <p>The code for an AWS service returned by the <a>DescribeServices</a>
-   *             response. The <code>name</code> element contains the corresponding friendly
-   *             name.</p>
-   */
-  code?: string;
-
-  /**
-   * <p>The friendly name for an AWS service. The <code>code</code> element contains the
-   *             corresponding code.</p>
-   */
-  name?: string;
-}
-
-export namespace Service {
-  export const filterSensitiveLog = (obj: Service): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Service => __isa(o, "Service");
-}
-
-/**
- * <p>An attachment with the specified ID could not be found.</p>
- */
-export interface AttachmentIdNotFound
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "AttachmentIdNotFound";
-  $fault: "client";
-  /**
-   * <p>An attachment with the specified ID could not be found.</p>
-   */
-  message?: string;
-}
-
-export namespace AttachmentIdNotFound {
-  export const filterSensitiveLog = (obj: AttachmentIdNotFound): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AttachmentIdNotFound =>
-    __isa(o, "AttachmentIdNotFound");
-}
-
-/**
- * <p>The limit for the number of attachment sets created in a short period of time has
- *             been exceeded.</p>
- */
-export interface AttachmentLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "AttachmentLimitExceeded";
-  $fault: "client";
-  /**
-   * <p>The limit for the number of attachment sets created in a short period of time has
-   *             been exceeded.</p>
-   */
-  message?: string;
-}
-
-export namespace AttachmentLimitExceeded {
-  export const filterSensitiveLog = (obj: AttachmentLimitExceeded): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AttachmentLimitExceeded =>
-    __isa(o, "AttachmentLimitExceeded");
-}
-
-/**
- * <p>The expiration time of the attachment set has passed. The set expires 1 hour after
- *             it is created.</p>
- */
-export interface AttachmentSetExpired
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "AttachmentSetExpired";
-  $fault: "client";
-  /**
-   * <p>The expiration time of the attachment set has passed. The set expires 1 hour after
-   *             it is created.</p>
-   */
-  message?: string;
-}
-
-export namespace AttachmentSetExpired {
-  export const filterSensitiveLog = (obj: AttachmentSetExpired): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AttachmentSetExpired =>
-    __isa(o, "AttachmentSetExpired");
-}
-
-/**
- * <p>An attachment set with the specified ID could not be found.</p>
- */
-export interface AttachmentSetIdNotFound
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "AttachmentSetIdNotFound";
-  $fault: "client";
-  /**
-   * <p>An attachment set with the specified ID could not be found.</p>
-   */
-  message?: string;
-}
-
-export namespace AttachmentSetIdNotFound {
-  export const filterSensitiveLog = (obj: AttachmentSetIdNotFound): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AttachmentSetIdNotFound =>
-    __isa(o, "AttachmentSetIdNotFound");
-}
-
-/**
- * <p>A limit for the size of an attachment set has been exceeded. The limits are 3
- *             attachments and 5 MB per attachment.</p>
- */
-export interface AttachmentSetSizeLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "AttachmentSetSizeLimitExceeded";
-  $fault: "client";
-  /**
-   * <p>A limit for the size of an attachment set has been exceeded. The limits are 3
-   *             attachments and 5 MB per attachment.</p>
-   */
-  message?: string;
-}
-
-export namespace AttachmentSetSizeLimitExceeded {
-  export const filterSensitiveLog = (
-    obj: AttachmentSetSizeLimitExceeded
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AttachmentSetSizeLimitExceeded =>
-    __isa(o, "AttachmentSetSizeLimitExceeded");
-}
-
-/**
- * <p>The case creation limit for the account has been exceeded.</p>
- */
-export interface CaseCreationLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CaseCreationLimitExceeded";
-  $fault: "client";
-  /**
-   * <p>An error message that indicates that you have exceeded the number of cases you can
-   *             have open.</p>
-   */
-  message?: string;
-}
-
-export namespace CaseCreationLimitExceeded {
-  export const filterSensitiveLog = (obj: CaseCreationLimitExceeded): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CaseCreationLimitExceeded =>
-    __isa(o, "CaseCreationLimitExceeded");
-}
-
-/**
- * <p>The requested <code>caseId</code> could not be located.</p>
- */
-export interface CaseIdNotFound extends __SmithyException, $MetadataBearer {
-  name: "CaseIdNotFound";
-  $fault: "client";
-  /**
-   * <p>The requested <code>CaseId</code> could not be located.</p>
-   */
-  message?: string;
-}
-
-export namespace CaseIdNotFound {
-  export const filterSensitiveLog = (obj: CaseIdNotFound): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CaseIdNotFound =>
-    __isa(o, "CaseIdNotFound");
-}
-
-/**
- * <p>The limit for the number of <a>DescribeAttachment</a> requests in a
- *             short period of time has been exceeded.</p>
- */
-export interface DescribeAttachmentLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DescribeAttachmentLimitExceeded";
-  $fault: "client";
-  /**
-   * <p>The limit for the number of <a>DescribeAttachment</a> requests in a
-   *             short period of time has been exceeded.</p>
-   */
-  message?: string;
-}
-
-export namespace DescribeAttachmentLimitExceeded {
-  export const filterSensitiveLog = (
-    obj: DescribeAttachmentLimitExceeded
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeAttachmentLimitExceeded =>
-    __isa(o, "DescribeAttachmentLimitExceeded");
-}
-
-/**
- * <p>An internal server error occurred.</p>
- */
-export interface InternalServerError
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InternalServerError";
-  $fault: "server";
-  /**
-   * <p>An internal server error occurred.</p>
-   */
-  message?: string;
-}
-
-export namespace InternalServerError {
-  export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InternalServerError =>
-    __isa(o, "InternalServerError");
-}
-
-/**
- * <p></p>
- */
-export interface AddAttachmentsToSetRequest {
-  __type?: "AddAttachmentsToSetRequest";
-  /**
-   * <p>The ID of the attachment set. If an <code>attachmentSetId</code> is not specified,
-   *             a new attachment set is created, and the ID of the set is returned in the response. If
-   *             an <code>attachmentSetId</code> is specified, the attachments are added to the specified
-   *             set, if it exists.</p>
-   */
-  attachmentSetId?: string;
-
-  /**
-   * <p>One or more attachments to add to the set. The limit is 3 attachments per set, and
-   *             the size limit is 5 MB per attachment.</p>
-   */
-  attachments: Attachment[] | undefined;
-}
-
-export namespace AddAttachmentsToSetRequest {
-  export const filterSensitiveLog = (obj: AddAttachmentsToSetRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AddAttachmentsToSetRequest =>
-    __isa(o, "AddAttachmentsToSetRequest");
-}
-
-/**
- * <p>The ID and expiry time of the attachment set returned by the <a>AddAttachmentsToSet</a> operation.</p>
- */
-export interface AddAttachmentsToSetResponse {
-  __type?: "AddAttachmentsToSetResponse";
-  /**
-   * <p>The ID of the attachment set. If an <code>attachmentSetId</code> was not specified,
-   *             a new attachment set is created, and the ID of the set is returned in the response. If
-   *             an <code>attachmentSetId</code> was specified, the attachments are added to the
-   *             specified set, if it exists.</p>
-   */
-  attachmentSetId?: string;
-
-  /**
-   * <p>The time and date when the attachment set expires.</p>
-   */
-  expiryTime?: string;
-}
-
-export namespace AddAttachmentsToSetResponse {
-  export const filterSensitiveLog = (
-    obj: AddAttachmentsToSetResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AddAttachmentsToSetResponse =>
-    __isa(o, "AddAttachmentsToSetResponse");
-}
-
-/**
- * <p>To be written.</p>
- */
-export interface AddCommunicationToCaseRequest {
-  __type?: "AddCommunicationToCaseRequest";
-  /**
-   * <p>The ID of a set of one or more attachments for the communication to add to the
-   *             case. Create the set by calling <a>AddAttachmentsToSet</a>
-   *          </p>
-   */
-  attachmentSetId?: string;
-
-  /**
-   * <p>The AWS Support case ID requested or returned in the call. The case ID is an
-   *             alphanumeric string formatted as shown in this example:
-   *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
-   *          </p>
-   */
-  caseId?: string;
-
-  /**
-   * <p>The email addresses in the CC line of an email to be added to the support
-   *             case.</p>
-   */
-  ccEmailAddresses?: string[];
-
-  /**
-   * <p>The body of an email communication to add to the support case.</p>
-   */
-  communicationBody: string | undefined;
-}
-
-export namespace AddCommunicationToCaseRequest {
-  export const filterSensitiveLog = (
-    obj: AddCommunicationToCaseRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AddCommunicationToCaseRequest =>
-    __isa(o, "AddCommunicationToCaseRequest");
-}
-
-/**
- * <p>The result of the <a>AddCommunicationToCase</a> operation.</p>
- */
-export interface AddCommunicationToCaseResponse {
-  __type?: "AddCommunicationToCaseResponse";
-  /**
-   * <p>True if <a>AddCommunicationToCase</a> succeeds. Otherwise, returns an
-   *             error.</p>
-   */
-  result?: boolean;
-}
-
-export namespace AddCommunicationToCaseResponse {
-  export const filterSensitiveLog = (
-    obj: AddCommunicationToCaseResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AddCommunicationToCaseResponse =>
-    __isa(o, "AddCommunicationToCaseResponse");
 }
 
 export interface CreateCaseRequest {
@@ -761,6 +655,32 @@ export namespace CreateCaseResponse {
   });
   export const isa = (o: any): o is CreateCaseResponse =>
     __isa(o, "CreateCaseResponse");
+}
+
+/**
+ * <p>The limit for the number of <a>DescribeAttachment</a> requests in a
+ *             short period of time has been exceeded.</p>
+ */
+export interface DescribeAttachmentLimitExceeded
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DescribeAttachmentLimitExceeded";
+  $fault: "client";
+  /**
+   * <p>The limit for the number of <a>DescribeAttachment</a> requests in a
+   *             short period of time has been exceeded.</p>
+   */
+  message?: string;
+}
+
+export namespace DescribeAttachmentLimitExceeded {
+  export const filterSensitiveLog = (
+    obj: DescribeAttachmentLimitExceeded
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeAttachmentLimitExceeded =>
+    __isa(o, "DescribeAttachmentLimitExceeded");
 }
 
 export interface DescribeAttachmentRequest {
@@ -1042,113 +962,6 @@ export namespace DescribeSeverityLevelsResponse {
     __isa(o, "DescribeSeverityLevelsResponse");
 }
 
-export interface ResolveCaseRequest {
-  __type?: "ResolveCaseRequest";
-  /**
-   * <p>The AWS Support case ID requested or returned in the call. The case ID is an
-   *             alphanumeric string formatted as shown in this example:
-   *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
-   *          </p>
-   */
-  caseId?: string;
-}
-
-export namespace ResolveCaseRequest {
-  export const filterSensitiveLog = (obj: ResolveCaseRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResolveCaseRequest =>
-    __isa(o, "ResolveCaseRequest");
-}
-
-/**
- * <p>The status of the case returned by the <a>ResolveCase</a>
- *             operation.</p>
- */
-export interface ResolveCaseResponse {
-  __type?: "ResolveCaseResponse";
-  /**
-   * <p>The status of the case after the <a>ResolveCase</a> request was
-   *             processed.</p>
-   */
-  finalCaseStatus?: string;
-
-  /**
-   * <p>The status of the case when the <a>ResolveCase</a> request was
-   *             sent.</p>
-   */
-  initialCaseStatus?: string;
-}
-
-export namespace ResolveCaseResponse {
-  export const filterSensitiveLog = (obj: ResolveCaseResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResolveCaseResponse =>
-    __isa(o, "ResolveCaseResponse");
-}
-
-/**
- * <p>A code and name pair that represents the severity level of a support case. The
- *             available values depend on the support plan for the account. For more information, see
- *                 <a href="https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity">Choosing a
- *                 Severity</a>.</p>
- */
-export interface SeverityLevel {
-  __type?: "SeverityLevel";
-  /**
-   * <p>The code for case severity level.</p>
-   *         <p>Valid values: <code>low</code> | <code>normal</code> | <code>high</code> |
-   *                 <code>urgent</code> | <code>critical</code>
-   *          </p>
-   */
-  code?: string;
-
-  /**
-   * <p>The name of the severity level that corresponds to the severity level
-   *             code.</p>
-   *         <note>
-   *             <p>The values returned by the API differ from the values that are displayed in the
-   *                 AWS Support Center. For example, for the code "low", the API name is "Low", but the
-   *                 name in the Support Center is "General guidance". These are the Support Center
-   *                 code/name mappings:</p>
-   *             <ul>
-   *                <li>
-   *                     <p>
-   *                      <code>low</code>: General guidance</p>
-   *                 </li>
-   *                <li>
-   *                     <p>
-   *                      <code>normal</code>: System impaired</p>
-   *                 </li>
-   *                <li>
-   *                     <p>
-   *                      <code>high</code>: Production system impaired</p>
-   *                 </li>
-   *                <li>
-   *                     <p>
-   *                      <code>urgent</code>: Production system down</p>
-   *                 </li>
-   *                <li>
-   *                     <p>
-   *                      <code>critical</code>: Business-critical system down</p>
-   *                 </li>
-   *             </ul>
-   *         </note>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity">Choosing a
-   *                 Severity</a>
-   *          </p>
-   */
-  name?: string;
-}
-
-export namespace SeverityLevel {
-  export const filterSensitiveLog = (obj: SeverityLevel): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SeverityLevel => __isa(o, "SeverityLevel");
-}
-
 /**
  * <p></p>
  */
@@ -1245,49 +1058,6 @@ export namespace DescribeTrustedAdvisorCheckResultResponse {
     __isa(o, "DescribeTrustedAdvisorCheckResultResponse");
 }
 
-export interface DescribeTrustedAdvisorCheckSummariesRequest {
-  __type?: "DescribeTrustedAdvisorCheckSummariesRequest";
-  /**
-   * <p>The IDs of the Trusted Advisor checks.</p>
-   */
-  checkIds: string[] | undefined;
-}
-
-export namespace DescribeTrustedAdvisorCheckSummariesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeTrustedAdvisorCheckSummariesRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is DescribeTrustedAdvisorCheckSummariesRequest =>
-    __isa(o, "DescribeTrustedAdvisorCheckSummariesRequest");
-}
-
-/**
- * <p>The summaries of the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorCheckSummaries</a> operation.</p>
- */
-export interface DescribeTrustedAdvisorCheckSummariesResponse {
-  __type?: "DescribeTrustedAdvisorCheckSummariesResponse";
-  /**
-   * <p>The summary information for the requested Trusted Advisor checks.</p>
-   */
-  summaries: TrustedAdvisorCheckSummary[] | undefined;
-}
-
-export namespace DescribeTrustedAdvisorCheckSummariesResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeTrustedAdvisorCheckSummariesResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is DescribeTrustedAdvisorCheckSummariesResponse =>
-    __isa(o, "DescribeTrustedAdvisorCheckSummariesResponse");
-}
-
 /**
  * <p></p>
  */
@@ -1332,6 +1102,95 @@ export namespace DescribeTrustedAdvisorChecksResponse {
     __isa(o, "DescribeTrustedAdvisorChecksResponse");
 }
 
+export interface DescribeTrustedAdvisorCheckSummariesRequest {
+  __type?: "DescribeTrustedAdvisorCheckSummariesRequest";
+  /**
+   * <p>The IDs of the Trusted Advisor checks.</p>
+   */
+  checkIds: string[] | undefined;
+}
+
+export namespace DescribeTrustedAdvisorCheckSummariesRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeTrustedAdvisorCheckSummariesRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is DescribeTrustedAdvisorCheckSummariesRequest =>
+    __isa(o, "DescribeTrustedAdvisorCheckSummariesRequest");
+}
+
+/**
+ * <p>The summaries of the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorCheckSummaries</a> operation.</p>
+ */
+export interface DescribeTrustedAdvisorCheckSummariesResponse {
+  __type?: "DescribeTrustedAdvisorCheckSummariesResponse";
+  /**
+   * <p>The summary information for the requested Trusted Advisor checks.</p>
+   */
+  summaries: TrustedAdvisorCheckSummary[] | undefined;
+}
+
+export namespace DescribeTrustedAdvisorCheckSummariesResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeTrustedAdvisorCheckSummariesResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is DescribeTrustedAdvisorCheckSummariesResponse =>
+    __isa(o, "DescribeTrustedAdvisorCheckSummariesResponse");
+}
+
+/**
+ * <p>An internal server error occurred.</p>
+ */
+export interface InternalServerError
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InternalServerError";
+  $fault: "server";
+  /**
+   * <p>An internal server error occurred.</p>
+   */
+  message?: string;
+}
+
+export namespace InternalServerError {
+  export const filterSensitiveLog = (obj: InternalServerError): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InternalServerError =>
+    __isa(o, "InternalServerError");
+}
+
+/**
+ * <p>The five most recent communications associated with the case.</p>
+ */
+export interface RecentCaseCommunications {
+  __type?: "RecentCaseCommunications";
+  /**
+   * <p>The five most recent communications associated with the case.</p>
+   */
+  communications?: Communication[];
+
+  /**
+   * <p>A resumption point for pagination.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace RecentCaseCommunications {
+  export const filterSensitiveLog = (obj: RecentCaseCommunications): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RecentCaseCommunications =>
+    __isa(o, "RecentCaseCommunications");
+}
+
 /**
  * <p></p>
  */
@@ -1374,6 +1233,147 @@ export namespace RefreshTrustedAdvisorCheckResponse {
   });
   export const isa = (o: any): o is RefreshTrustedAdvisorCheckResponse =>
     __isa(o, "RefreshTrustedAdvisorCheckResponse");
+}
+
+export interface ResolveCaseRequest {
+  __type?: "ResolveCaseRequest";
+  /**
+   * <p>The AWS Support case ID requested or returned in the call. The case ID is an
+   *             alphanumeric string formatted as shown in this example:
+   *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
+   *          </p>
+   */
+  caseId?: string;
+}
+
+export namespace ResolveCaseRequest {
+  export const filterSensitiveLog = (obj: ResolveCaseRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResolveCaseRequest =>
+    __isa(o, "ResolveCaseRequest");
+}
+
+/**
+ * <p>The status of the case returned by the <a>ResolveCase</a>
+ *             operation.</p>
+ */
+export interface ResolveCaseResponse {
+  __type?: "ResolveCaseResponse";
+  /**
+   * <p>The status of the case after the <a>ResolveCase</a> request was
+   *             processed.</p>
+   */
+  finalCaseStatus?: string;
+
+  /**
+   * <p>The status of the case when the <a>ResolveCase</a> request was
+   *             sent.</p>
+   */
+  initialCaseStatus?: string;
+}
+
+export namespace ResolveCaseResponse {
+  export const filterSensitiveLog = (obj: ResolveCaseResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResolveCaseResponse =>
+    __isa(o, "ResolveCaseResponse");
+}
+
+/**
+ * <p>Information about an AWS service returned by the <a>DescribeServices</a>
+ *             operation.</p>
+ */
+export interface Service {
+  __type?: "Service";
+  /**
+   * <p>A list of categories that describe the type of support issue a case describes.
+   *             Categories consist of a category name and a category code. Category names and codes are
+   *             passed to AWS Support when you call <a>CreateCase</a>.</p>
+   */
+  categories?: Category[];
+
+  /**
+   * <p>The code for an AWS service returned by the <a>DescribeServices</a>
+   *             response. The <code>name</code> element contains the corresponding friendly
+   *             name.</p>
+   */
+  code?: string;
+
+  /**
+   * <p>The friendly name for an AWS service. The <code>code</code> element contains the
+   *             corresponding code.</p>
+   */
+  name?: string;
+}
+
+export namespace Service {
+  export const filterSensitiveLog = (obj: Service): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Service => __isa(o, "Service");
+}
+
+/**
+ * <p>A code and name pair that represents the severity level of a support case. The
+ *             available values depend on the support plan for the account. For more information, see
+ *                 <a href="https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity">Choosing a
+ *                 Severity</a>.</p>
+ */
+export interface SeverityLevel {
+  __type?: "SeverityLevel";
+  /**
+   * <p>The code for case severity level.</p>
+   *         <p>Valid values: <code>low</code> | <code>normal</code> | <code>high</code> |
+   *                 <code>urgent</code> | <code>critical</code>
+   *          </p>
+   */
+  code?: string;
+
+  /**
+   * <p>The name of the severity level that corresponds to the severity level
+   *             code.</p>
+   *         <note>
+   *             <p>The values returned by the API differ from the values that are displayed in the
+   *                 AWS Support Center. For example, for the code "low", the API name is "Low", but the
+   *                 name in the Support Center is "General guidance". These are the Support Center
+   *                 code/name mappings:</p>
+   *             <ul>
+   *                <li>
+   *                     <p>
+   *                      <code>low</code>: General guidance</p>
+   *                 </li>
+   *                <li>
+   *                     <p>
+   *                      <code>normal</code>: System impaired</p>
+   *                 </li>
+   *                <li>
+   *                     <p>
+   *                      <code>high</code>: Production system impaired</p>
+   *                 </li>
+   *                <li>
+   *                     <p>
+   *                      <code>urgent</code>: Production system down</p>
+   *                 </li>
+   *                <li>
+   *                     <p>
+   *                      <code>critical</code>: Business-critical system down</p>
+   *                 </li>
+   *             </ul>
+   *         </note>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity">Choosing a
+   *                 Severity</a>
+   *          </p>
+   */
+  name?: string;
+}
+
+export namespace SeverityLevel {
+  export const filterSensitiveLog = (obj: SeverityLevel): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SeverityLevel => __isa(o, "SeverityLevel");
 }
 
 /**

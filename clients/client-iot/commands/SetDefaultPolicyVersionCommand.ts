@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { SetDefaultPolicyVersionRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1SetDefaultPolicyVersionCommand,
-  serializeAws_restJson1_1SetDefaultPolicyVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1SetDefaultPolicyVersionCommand,
+  serializeAws_restJson1SetDefaultPolicyVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,17 +70,14 @@ export class SetDefaultPolicyVersionCommand extends $Command<
     input: SetDefaultPolicyVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1SetDefaultPolicyVersionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1SetDefaultPolicyVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetDefaultPolicyVersionCommandOutput> {
-    return deserializeAws_restJson1_1SetDefaultPolicyVersionCommand(
+    return deserializeAws_restJson1SetDefaultPolicyVersionCommand(
       output,
       context
     );

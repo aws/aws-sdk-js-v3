@@ -5,9 +5,9 @@ import {
 } from "../GlacierClient";
 import { CreateVaultInput, CreateVaultOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateVaultCommand,
-  serializeAws_restJson1_1CreateVaultCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateVaultCommand,
+  serializeAws_restJson1CreateVaultCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateVaultCommand extends $Command<
     input: CreateVaultCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateVaultCommand(input, context);
+    return serializeAws_restJson1CreateVaultCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVaultCommandOutput> {
-    return deserializeAws_restJson1_1CreateVaultCommand(output, context);
+    return deserializeAws_restJson1CreateVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

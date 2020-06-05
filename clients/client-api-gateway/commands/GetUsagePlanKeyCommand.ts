@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { GetUsagePlanKeyRequest, UsagePlanKey } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetUsagePlanKeyCommand,
-  serializeAws_restJson1_1GetUsagePlanKeyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetUsagePlanKeyCommand,
+  serializeAws_restJson1GetUsagePlanKeyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetUsagePlanKeyCommand extends $Command<
     input: GetUsagePlanKeyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetUsagePlanKeyCommand(input, context);
+    return serializeAws_restJson1GetUsagePlanKeyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetUsagePlanKeyCommandOutput> {
-    return deserializeAws_restJson1_1GetUsagePlanKeyCommand(output, context);
+    return deserializeAws_restJson1GetUsagePlanKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

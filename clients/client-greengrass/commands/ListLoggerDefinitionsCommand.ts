@@ -8,9 +8,9 @@ import {
   ListLoggerDefinitionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListLoggerDefinitionsCommand,
-  serializeAws_restJson1_1ListLoggerDefinitionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListLoggerDefinitionsCommand,
+  serializeAws_restJson1ListLoggerDefinitionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class ListLoggerDefinitionsCommand extends $Command<
     input: ListLoggerDefinitionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListLoggerDefinitionsCommand(input, context);
+    return serializeAws_restJson1ListLoggerDefinitionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLoggerDefinitionsCommandOutput> {
-    return deserializeAws_restJson1_1ListLoggerDefinitionsCommand(
+    return deserializeAws_restJson1ListLoggerDefinitionsCommand(
       output,
       context
     );

@@ -8,9 +8,9 @@ import {
   ListRoutingProfilesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListRoutingProfilesCommand,
-  serializeAws_restJson1_1ListRoutingProfilesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListRoutingProfilesCommand,
+  serializeAws_restJson1ListRoutingProfilesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListRoutingProfilesCommand extends $Command<
     input: ListRoutingProfilesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListRoutingProfilesCommand(input, context);
+    return serializeAws_restJson1ListRoutingProfilesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRoutingProfilesCommandOutput> {
-    return deserializeAws_restJson1_1ListRoutingProfilesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListRoutingProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

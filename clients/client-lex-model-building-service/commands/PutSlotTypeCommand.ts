@@ -5,9 +5,9 @@ import {
 } from "../LexModelBuildingServiceClient";
 import { PutSlotTypeRequest, PutSlotTypeResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutSlotTypeCommand,
-  serializeAws_restJson1_1PutSlotTypeCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutSlotTypeCommand,
+  serializeAws_restJson1PutSlotTypeCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class PutSlotTypeCommand extends $Command<
     input: PutSlotTypeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutSlotTypeCommand(input, context);
+    return serializeAws_restJson1PutSlotTypeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutSlotTypeCommandOutput> {
-    return deserializeAws_restJson1_1PutSlotTypeCommand(output, context);
+    return deserializeAws_restJson1PutSlotTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

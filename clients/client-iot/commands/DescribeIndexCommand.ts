@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { DescribeIndexRequest, DescribeIndexResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeIndexCommand,
-  serializeAws_restJson1_1DescribeIndexCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeIndexCommand,
+  serializeAws_restJson1DescribeIndexCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class DescribeIndexCommand extends $Command<
     input: DescribeIndexCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeIndexCommand(input, context);
+    return serializeAws_restJson1DescribeIndexCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeIndexCommandOutput> {
-    return deserializeAws_restJson1_1DescribeIndexCommand(output, context);
+    return deserializeAws_restJson1DescribeIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

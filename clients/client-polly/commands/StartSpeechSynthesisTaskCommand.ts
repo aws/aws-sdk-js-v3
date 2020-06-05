@@ -8,9 +8,9 @@ import {
   StartSpeechSynthesisTaskOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1StartSpeechSynthesisTaskCommand,
-  serializeAws_restJson1_1StartSpeechSynthesisTaskCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1StartSpeechSynthesisTaskCommand,
+  serializeAws_restJson1StartSpeechSynthesisTaskCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class StartSpeechSynthesisTaskCommand extends $Command<
     input: StartSpeechSynthesisTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StartSpeechSynthesisTaskCommand(
+    return serializeAws_restJson1StartSpeechSynthesisTaskCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class StartSpeechSynthesisTaskCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartSpeechSynthesisTaskCommandOutput> {
-    return deserializeAws_restJson1_1StartSpeechSynthesisTaskCommand(
+    return deserializeAws_restJson1StartSpeechSynthesisTaskCommand(
       output,
       context
     );

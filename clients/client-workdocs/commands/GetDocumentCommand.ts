@@ -5,9 +5,9 @@ import {
 } from "../WorkDocsClient";
 import { GetDocumentRequest, GetDocumentResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetDocumentCommand,
-  serializeAws_restJson1_1GetDocumentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetDocumentCommand,
+  serializeAws_restJson1GetDocumentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetDocumentCommand extends $Command<
     input: GetDocumentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDocumentCommand(input, context);
+    return serializeAws_restJson1GetDocumentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDocumentCommandOutput> {
-    return deserializeAws_restJson1_1GetDocumentCommand(output, context);
+    return deserializeAws_restJson1GetDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

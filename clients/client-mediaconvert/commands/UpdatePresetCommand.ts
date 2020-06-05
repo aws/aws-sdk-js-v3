@@ -5,9 +5,9 @@ import {
 } from "../MediaConvertClient";
 import { UpdatePresetRequest, UpdatePresetResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdatePresetCommand,
-  serializeAws_restJson1_1UpdatePresetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdatePresetCommand,
+  serializeAws_restJson1UpdatePresetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class UpdatePresetCommand extends $Command<
     input: UpdatePresetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdatePresetCommand(input, context);
+    return serializeAws_restJson1UpdatePresetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePresetCommandOutput> {
-    return deserializeAws_restJson1_1UpdatePresetCommand(output, context);
+    return deserializeAws_restJson1UpdatePresetCommand(output, context);
   }
 
   // Start section: command_body_extra

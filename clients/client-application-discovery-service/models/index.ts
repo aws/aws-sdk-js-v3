@@ -1818,6 +1818,11 @@ export namespace OrderByElement {
     __isa(o, "OrderByElement");
 }
 
+export enum OrderString {
+  ASC = "ASC",
+  DESC = "DESC"
+}
+
 /**
  * <p>This issue occurs when the same <code>clientRequestToken</code> is used with the
  *         <code>StartImportTask</code> action, but with different parameters. For example, you use the
@@ -2267,9 +2272,4 @@ export namespace UpdateApplicationResponse {
   });
   export const isa = (o: any): o is UpdateApplicationResponse =>
     __isa(o, "UpdateApplicationResponse");
-}
-
-export enum OrderString {
-  ASC = "ASC",
-  DESC = "DESC"
 }

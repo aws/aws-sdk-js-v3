@@ -5,9 +5,9 @@ import {
 } from "../LambdaClient";
 import { Concurrency, PutFunctionConcurrencyRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutFunctionConcurrencyCommand,
-  serializeAws_restJson1_1PutFunctionConcurrencyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutFunctionConcurrencyCommand,
+  serializeAws_restJson1PutFunctionConcurrencyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,17 +71,14 @@ export class PutFunctionConcurrencyCommand extends $Command<
     input: PutFunctionConcurrencyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutFunctionConcurrencyCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1PutFunctionConcurrencyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutFunctionConcurrencyCommandOutput> {
-    return deserializeAws_restJson1_1PutFunctionConcurrencyCommand(
+    return deserializeAws_restJson1PutFunctionConcurrencyCommand(
       output,
       context
     );

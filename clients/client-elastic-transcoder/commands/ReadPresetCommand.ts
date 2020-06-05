@@ -5,9 +5,9 @@ import {
 } from "../ElasticTranscoderClient";
 import { ReadPresetRequest, ReadPresetResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ReadPresetCommand,
-  serializeAws_restJson1_1ReadPresetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ReadPresetCommand,
+  serializeAws_restJson1ReadPresetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ReadPresetCommand extends $Command<
     input: ReadPresetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ReadPresetCommand(input, context);
+    return serializeAws_restJson1ReadPresetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ReadPresetCommandOutput> {
-    return deserializeAws_restJson1_1ReadPresetCommand(output, context);
+    return deserializeAws_restJson1ReadPresetCommand(output, context);
   }
 
   // Start section: command_body_extra

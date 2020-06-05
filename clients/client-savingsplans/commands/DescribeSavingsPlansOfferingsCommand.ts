@@ -3,9 +3,9 @@ import {
   DescribeSavingsPlansOfferingsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeSavingsPlansOfferingsCommand,
-  serializeAws_restJson1_1DescribeSavingsPlansOfferingsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeSavingsPlansOfferingsCommand,
+  serializeAws_restJson1DescribeSavingsPlansOfferingsCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -74,7 +74,7 @@ export class DescribeSavingsPlansOfferingsCommand extends $Command<
     input: DescribeSavingsPlansOfferingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeSavingsPlansOfferingsCommand(
+    return serializeAws_restJson1DescribeSavingsPlansOfferingsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeSavingsPlansOfferingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSavingsPlansOfferingsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeSavingsPlansOfferingsCommand(
+    return deserializeAws_restJson1DescribeSavingsPlansOfferingsCommand(
       output,
       context
     );

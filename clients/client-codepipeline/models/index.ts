@@ -105,6 +105,34 @@ export namespace AcknowledgeThirdPartyJobOutput {
     __isa(o, "AcknowledgeThirdPartyJobOutput");
 }
 
+export enum ActionCategory {
+  Approval = "Approval",
+  Build = "Build",
+  Deploy = "Deploy",
+  Invoke = "Invoke",
+  Source = "Source",
+  Test = "Test"
+}
+
+/**
+ * <p>Represents information about an action configuration.</p>
+ */
+export interface ActionConfiguration {
+  __type?: "ActionConfiguration";
+  /**
+   * <p>The configuration data for the action.</p>
+   */
+  configuration?: { [key: string]: string };
+}
+
+export namespace ActionConfiguration {
+  export const filterSensitiveLog = (obj: ActionConfiguration): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ActionConfiguration =>
+    __isa(o, "ActionConfiguration");
+}
+
 /**
  * <p>Represents information about an action configuration property.</p>
  */
@@ -171,6 +199,30 @@ export enum ActionConfigurationPropertyType {
   Boolean = "Boolean",
   Number = "Number",
   String = "String"
+}
+
+/**
+ * <p>Represents the context of an action in the stage of a pipeline to a job
+ *             worker.</p>
+ */
+export interface ActionContext {
+  __type?: "ActionContext";
+  /**
+   * <p>The system-generated unique ID that corresponds to an action's execution.</p>
+   */
+  actionExecutionId?: string;
+
+  /**
+   * <p>The name of the action in the context of a job.</p>
+   */
+  name?: string;
+}
+
+export namespace ActionContext {
+  export const filterSensitiveLog = (obj: ActionContext): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ActionContext => __isa(o, "ActionContext");
 }
 
 /**
@@ -544,6 +596,12 @@ export namespace ActionNotFoundException {
     __isa(o, "ActionNotFoundException");
 }
 
+export enum ActionOwner {
+  AWS = "AWS",
+  Custom = "Custom",
+  ThirdParty = "ThirdParty"
+}
+
 /**
  * <p>Represents information about the version (or revision) of an action.</p>
  */
@@ -655,6 +713,68 @@ export namespace ActionType {
 }
 
 /**
+ * <p>Represents information about an action type.</p>
+ */
+export interface ActionTypeId {
+  __type?: "ActionTypeId";
+  /**
+   * <p>A category defines what kind of action can be taken in the stage, and constrains
+   *             the provider type for the action. Valid categories are limited to one of the following
+   *             values. </p>
+   */
+  category: ActionCategory | string | undefined;
+
+  /**
+   * <p>The creator of the action being called.</p>
+   */
+  owner: ActionOwner | string | undefined;
+
+  /**
+   * <p>The provider of the service being called by the action. Valid providers are
+   *             determined by the action category. For example, an action in the Deploy category type
+   *             might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. For
+   *             more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers">Valid Action Types and Providers in CodePipeline</a>.</p>
+   */
+  provider: string | undefined;
+
+  /**
+   * <p>A string that describes the action version.</p>
+   */
+  version: string | undefined;
+}
+
+export namespace ActionTypeId {
+  export const filterSensitiveLog = (obj: ActionTypeId): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ActionTypeId => __isa(o, "ActionTypeId");
+}
+
+/**
+ * <p>The specified action type cannot be found.</p>
+ */
+export interface ActionTypeNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ActionTypeNotFoundException";
+  $fault: "client";
+  /**
+   * <p>The message provided to the user in the event of an exception.</p>
+   */
+  message?: string;
+}
+
+export namespace ActionTypeNotFoundException {
+  export const filterSensitiveLog = (
+    obj: ActionTypeNotFoundException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ActionTypeNotFoundException =>
+    __isa(o, "ActionTypeNotFoundException");
+}
+
+/**
  * <p>Returns information about the settings for an action type.</p>
  */
 export interface ActionTypeSettings {
@@ -751,6 +871,36 @@ export enum ApprovalStatus {
 }
 
 /**
+ * <p>Represents information about an artifact that is worked on by actions in the
+ *             pipeline.</p>
+ */
+export interface Artifact {
+  __type?: "Artifact";
+  /**
+   * <p>The location of an artifact.</p>
+   */
+  location?: ArtifactLocation;
+
+  /**
+   * <p>The artifact's name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The artifact's revision ID. Depending on the type of object, this could be a commit
+   *             ID (GitHub) or a revision ID (Amazon S3).</p>
+   */
+  revision?: string;
+}
+
+export namespace Artifact {
+  export const filterSensitiveLog = (obj: Artifact): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Artifact => __isa(o, "Artifact");
+}
+
+/**
  * <p>Artifact details for the action execution, such as the artifact location.</p>
  */
 export interface ArtifactDetail {
@@ -796,6 +946,34 @@ export namespace ArtifactDetails {
   });
   export const isa = (o: any): o is ArtifactDetails =>
     __isa(o, "ArtifactDetails");
+}
+
+/**
+ * <p>Represents information about the location of an artifact.</p>
+ */
+export interface ArtifactLocation {
+  __type?: "ArtifactLocation";
+  /**
+   * <p>The S3 bucket that contains the artifact.</p>
+   */
+  s3Location?: S3ArtifactLocation;
+
+  /**
+   * <p>The type of artifact in the location.</p>
+   */
+  type?: ArtifactLocationType | string;
+}
+
+export namespace ArtifactLocation {
+  export const filterSensitiveLog = (obj: ArtifactLocation): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ArtifactLocation =>
+    __isa(o, "ArtifactLocation");
+}
+
+export enum ArtifactLocationType {
+  S3 = "S3"
 }
 
 /**
@@ -891,6 +1069,38 @@ export namespace ArtifactStore {
 
 export enum ArtifactStoreType {
   S3 = "S3"
+}
+
+/**
+ * <p>Represents an AWS session credentials object. These credentials are temporary
+ *             credentials that are issued by AWS Secure Token Service (STS). They can be used to
+ *             access input and output artifacts in the S3 bucket used to store artifact for the
+ *             pipeline in AWS CodePipeline.</p>
+ */
+export interface AWSSessionCredentials {
+  __type?: "AWSSessionCredentials";
+  /**
+   * <p>The access key for the session.</p>
+   */
+  accessKeyId: string | undefined;
+
+  /**
+   * <p>The secret access key for the session.</p>
+   */
+  secretAccessKey: string | undefined;
+
+  /**
+   * <p>The token for the session.</p>
+   */
+  sessionToken: string | undefined;
+}
+
+export namespace AWSSessionCredentials {
+  export const filterSensitiveLog = (obj: AWSSessionCredentials): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AWSSessionCredentials =>
+    __isa(o, "AWSSessionCredentials");
 }
 
 /**
@@ -1086,6 +1296,41 @@ export namespace CreatePipelineOutput {
   });
   export const isa = (o: any): o is CreatePipelineOutput =>
     __isa(o, "CreatePipelineOutput");
+}
+
+/**
+ * <p>Represents information about a current revision.</p>
+ */
+export interface CurrentRevision {
+  __type?: "CurrentRevision";
+  /**
+   * <p>The change identifier for the current revision.</p>
+   */
+  changeIdentifier: string | undefined;
+
+  /**
+   * <p>The date and time when the most recent revision of the artifact was created, in
+   *             timestamp format.</p>
+   */
+  created?: Date;
+
+  /**
+   * <p>The revision ID of the current version of an artifact.</p>
+   */
+  revision: string | undefined;
+
+  /**
+   * <p>The summary of the most recent revision of the artifact.</p>
+   */
+  revisionSummary?: string;
+}
+
+export namespace CurrentRevision {
+  export const filterSensitiveLog = (obj: CurrentRevision): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CurrentRevision =>
+    __isa(o, "CurrentRevision");
 }
 
 /**
@@ -1303,6 +1548,41 @@ export namespace EnableStageTransitionInput {
 }
 
 /**
+ * <p>Represents information about the key used to encrypt data in the artifact store,
+ *             such as an AWS Key Management Service (AWS KMS) key.</p>
+ */
+export interface EncryptionKey {
+  __type?: "EncryptionKey";
+  /**
+   * <p>The ID used to identify the key. For an AWS KMS key, you can use the key ID, the
+   *             key ARN, or the alias ARN.</p>
+   *         <note>
+   *             <p>Aliases are recognized only in the account that created the customer master key
+   *                 (CMK). For cross-account actions, you can only use the key ID or key ARN to identify
+   *                 the key.</p>
+   *         </note>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The type of encryption key, such as an AWS Key Management Service (AWS KMS) key.
+   *             When creating or updating a pipeline, the value must be set to 'KMS'.</p>
+   */
+  type: EncryptionKeyType | string | undefined;
+}
+
+export namespace EncryptionKey {
+  export const filterSensitiveLog = (obj: EncryptionKey): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is EncryptionKey => __isa(o, "EncryptionKey");
+}
+
+export enum EncryptionKeyType {
+  KMS = "KMS"
+}
+
+/**
  * <p>Represents information about an error in AWS CodePipeline.</p>
  */
 export interface ErrorDetails {
@@ -1323,6 +1603,38 @@ export namespace ErrorDetails {
     ...obj
   });
   export const isa = (o: any): o is ErrorDetails => __isa(o, "ErrorDetails");
+}
+
+/**
+ * <p>The details of the actions taken and results produced on an artifact as it passes
+ *             through stages in the pipeline.</p>
+ */
+export interface ExecutionDetails {
+  __type?: "ExecutionDetails";
+  /**
+   * <p>The system-generated unique ID of this action used to identify this job worker in
+   *             any external systems, such as AWS CodeDeploy.</p>
+   */
+  externalExecutionId?: string;
+
+  /**
+   * <p>The percentage of work completed on the action, represented on a scale of 0 to 100
+   *             percent.</p>
+   */
+  percentComplete?: number;
+
+  /**
+   * <p>The summary of the current status of the actions.</p>
+   */
+  summary?: string;
+}
+
+export namespace ExecutionDetails {
+  export const filterSensitiveLog = (obj: ExecutionDetails): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ExecutionDetails =>
+    __isa(o, "ExecutionDetails");
 }
 
 /**
@@ -1350,6 +1662,44 @@ export namespace ExecutionTrigger {
   });
   export const isa = (o: any): o is ExecutionTrigger =>
     __isa(o, "ExecutionTrigger");
+}
+
+/**
+ * <p>Represents information about failure details.</p>
+ */
+export interface FailureDetails {
+  __type?: "FailureDetails";
+  /**
+   * <p>The external ID of the run of the action that failed.</p>
+   */
+  externalExecutionId?: string;
+
+  /**
+   * <p>The message about the failure.</p>
+   */
+  message: string | undefined;
+
+  /**
+   * <p>The type of the failure.</p>
+   */
+  type: FailureType | string | undefined;
+}
+
+export namespace FailureDetails {
+  export const filterSensitiveLog = (obj: FailureDetails): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is FailureDetails =>
+    __isa(o, "FailureDetails");
+}
+
+export enum FailureType {
+  ConfigurationError = "ConfigurationError",
+  JobFailed = "JobFailed",
+  PermissionError = "PermissionError",
+  RevisionOutOfSync = "RevisionOutOfSync",
+  RevisionUnavailable = "RevisionUnavailable",
+  SystemUnavailable = "SystemUnavailable"
 }
 
 /**
@@ -1770,6 +2120,28 @@ export namespace InvalidJobException {
 }
 
 /**
+ * <p>The job state was specified in an invalid format.</p>
+ */
+export interface InvalidJobStateException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidJobStateException";
+  $fault: "client";
+  /**
+   * <p>The message provided to the user in the event of an exception.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidJobStateException {
+  export const filterSensitiveLog = (obj: InvalidJobStateException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidJobStateException =>
+    __isa(o, "InvalidJobStateException");
+}
+
+/**
  * <p>The next token was specified in an invalid format. Make sure that the next token
  *             you provide is the token returned by a previous call.</p>
  */
@@ -1790,6 +2162,28 @@ export namespace InvalidNextTokenException {
   });
   export const isa = (o: any): o is InvalidNextTokenException =>
     __isa(o, "InvalidNextTokenException");
+}
+
+/**
+ * <p>The nonce was specified in an invalid format.</p>
+ */
+export interface InvalidNonceException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidNonceException";
+  $fault: "client";
+  /**
+   * <p>The message provided to the user in the event of an exception.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidNonceException {
+  export const filterSensitiveLog = (obj: InvalidNonceException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidNonceException =>
+    __isa(o, "InvalidNonceException");
 }
 
 /**
@@ -2034,6 +2428,38 @@ export namespace JobDetails {
     ...(obj.data && { data: JobData.filterSensitiveLog(obj.data) })
   });
   export const isa = (o: any): o is JobDetails => __isa(o, "JobDetails");
+}
+
+/**
+ * <p>The job was specified in an invalid format or cannot be found.</p>
+ */
+export interface JobNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "JobNotFoundException";
+  $fault: "client";
+  /**
+   * <p>The message provided to the user in the event of an exception.</p>
+   */
+  message?: string;
+}
+
+export namespace JobNotFoundException {
+  export const filterSensitiveLog = (obj: JobNotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is JobNotFoundException =>
+    __isa(o, "JobNotFoundException");
+}
+
+export enum JobStatus {
+  Created = "Created",
+  Dispatched = "Dispatched",
+  Failed = "Failed",
+  InProgress = "InProgress",
+  Queued = "Queued",
+  Succeeded = "Succeeded",
+  TimedOut = "TimedOut"
 }
 
 /**
@@ -2485,6 +2911,73 @@ export namespace OutputArtifact {
   });
   export const isa = (o: any): o is OutputArtifact =>
     __isa(o, "OutputArtifact");
+}
+
+/**
+ * <p>Exceeded the total size limit for all variables in the pipeline.</p>
+ */
+export interface OutputVariablesSizeExceededException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "OutputVariablesSizeExceededException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace OutputVariablesSizeExceededException {
+  export const filterSensitiveLog = (
+    obj: OutputVariablesSizeExceededException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is OutputVariablesSizeExceededException =>
+    __isa(o, "OutputVariablesSizeExceededException");
+}
+
+/**
+ * <p>Represents information about a pipeline to a job worker.</p>
+ *         <note>
+ *             <p>PipelineContext contains <code>pipelineArn</code> and
+ *                     <code>pipelineExecutionId</code> for custom action jobs. The
+ *                     <code>pipelineArn</code> and <code>pipelineExecutionId</code> fields are not
+ *                 populated for ThirdParty action jobs.</p>
+ *         </note>
+ */
+export interface PipelineContext {
+  __type?: "PipelineContext";
+  /**
+   * <p>The context of an action to a job worker in the stage of a pipeline.</p>
+   */
+  action?: ActionContext;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
+   */
+  pipelineArn?: string;
+
+  /**
+   * <p>The execution ID of the pipeline.</p>
+   */
+  pipelineExecutionId?: string;
+
+  /**
+   * <p>The name of the pipeline. This is a user-specified value. Pipeline names must be
+   *             unique across all pipeline names under an Amazon Web Services account.</p>
+   */
+  pipelineName?: string;
+
+  /**
+   * <p>The stage of the pipeline.</p>
+   */
+  stage?: StageContext;
+}
+
+export namespace PipelineContext {
+  export const filterSensitiveLog = (obj: PipelineContext): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is PipelineContext =>
+    __isa(o, "PipelineContext");
 }
 
 /**
@@ -3331,6 +3824,28 @@ export namespace RegisterWebhookWithThirdPartyOutput {
 }
 
 /**
+ * <p>The resource was specified in an invalid format.</p>
+ */
+export interface ResourceNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  /**
+   * <p>The message provided to the user in the event of an exception.</p>
+   */
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
+}
+
+/**
  * <p>Represents the input of a <code>RetryStageExecution</code> action.</p>
  */
 export interface RetryStageExecutionInput {
@@ -3383,6 +3898,31 @@ export namespace RetryStageExecutionOutput {
   });
   export const isa = (o: any): o is RetryStageExecutionOutput =>
     __isa(o, "RetryStageExecutionOutput");
+}
+
+/**
+ * <p>The location of the S3 bucket that contains a revision.</p>
+ */
+export interface S3ArtifactLocation {
+  __type?: "S3ArtifactLocation";
+  /**
+   * <p>The name of the S3 bucket.</p>
+   */
+  bucketName: string | undefined;
+
+  /**
+   * <p>The key of the object in the S3 bucket, which uniquely identifies the object in the
+   *             bucket.</p>
+   */
+  objectKey: string | undefined;
+}
+
+export namespace S3ArtifactLocation {
+  export const filterSensitiveLog = (obj: S3ArtifactLocation): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is S3ArtifactLocation =>
+    __isa(o, "S3ArtifactLocation");
 }
 
 /**
@@ -3447,6 +3987,24 @@ export namespace SourceRevision {
   });
   export const isa = (o: any): o is SourceRevision =>
     __isa(o, "SourceRevision");
+}
+
+/**
+ * <p>Represents information about a stage to a job worker.</p>
+ */
+export interface StageContext {
+  __type?: "StageContext";
+  /**
+   * <p>The name of the stage.</p>
+   */
+  name?: string;
+}
+
+export namespace StageContext {
+  export const filterSensitiveLog = (obj: StageContext): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StageContext => __isa(o, "StageContext");
 }
 
 /**
@@ -4044,6 +4602,28 @@ export namespace UpdatePipelineOutput {
 }
 
 /**
+ * <p>The validation was specified in an invalid format.</p>
+ */
+export interface ValidationException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ValidationException";
+  $fault: "client";
+  /**
+   * <p>The message provided to the user in the event of an exception.</p>
+   */
+  message?: string;
+}
+
+export namespace ValidationException {
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ValidationException =>
+    __isa(o, "ValidationException");
+}
+
+/**
  * <p>The authentication applied to incoming webhook trigger requests.</p>
  */
 export interface WebhookAuthConfiguration {
@@ -4196,584 +4776,4 @@ export namespace WebhookNotFoundException {
   });
   export const isa = (o: any): o is WebhookNotFoundException =>
     __isa(o, "WebhookNotFoundException");
-}
-
-/**
- * <p>Represents an AWS session credentials object. These credentials are temporary
- *             credentials that are issued by AWS Secure Token Service (STS). They can be used to
- *             access input and output artifacts in the S3 bucket used to store artifact for the
- *             pipeline in AWS CodePipeline.</p>
- */
-export interface AWSSessionCredentials {
-  __type?: "AWSSessionCredentials";
-  /**
-   * <p>The access key for the session.</p>
-   */
-  accessKeyId: string | undefined;
-
-  /**
-   * <p>The secret access key for the session.</p>
-   */
-  secretAccessKey: string | undefined;
-
-  /**
-   * <p>The token for the session.</p>
-   */
-  sessionToken: string | undefined;
-}
-
-export namespace AWSSessionCredentials {
-  export const filterSensitiveLog = (obj: AWSSessionCredentials): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AWSSessionCredentials =>
-    __isa(o, "AWSSessionCredentials");
-}
-
-export enum ActionCategory {
-  Approval = "Approval",
-  Build = "Build",
-  Deploy = "Deploy",
-  Invoke = "Invoke",
-  Source = "Source",
-  Test = "Test"
-}
-
-/**
- * <p>Represents information about an action configuration.</p>
- */
-export interface ActionConfiguration {
-  __type?: "ActionConfiguration";
-  /**
-   * <p>The configuration data for the action.</p>
-   */
-  configuration?: { [key: string]: string };
-}
-
-export namespace ActionConfiguration {
-  export const filterSensitiveLog = (obj: ActionConfiguration): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ActionConfiguration =>
-    __isa(o, "ActionConfiguration");
-}
-
-/**
- * <p>Represents the context of an action in the stage of a pipeline to a job
- *             worker.</p>
- */
-export interface ActionContext {
-  __type?: "ActionContext";
-  /**
-   * <p>The system-generated unique ID that corresponds to an action's execution.</p>
-   */
-  actionExecutionId?: string;
-
-  /**
-   * <p>The name of the action in the context of a job.</p>
-   */
-  name?: string;
-}
-
-export namespace ActionContext {
-  export const filterSensitiveLog = (obj: ActionContext): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ActionContext => __isa(o, "ActionContext");
-}
-
-export enum ActionOwner {
-  AWS = "AWS",
-  Custom = "Custom",
-  ThirdParty = "ThirdParty"
-}
-
-/**
- * <p>Represents information about an action type.</p>
- */
-export interface ActionTypeId {
-  __type?: "ActionTypeId";
-  /**
-   * <p>A category defines what kind of action can be taken in the stage, and constrains
-   *             the provider type for the action. Valid categories are limited to one of the following
-   *             values. </p>
-   */
-  category: ActionCategory | string | undefined;
-
-  /**
-   * <p>The creator of the action being called.</p>
-   */
-  owner: ActionOwner | string | undefined;
-
-  /**
-   * <p>The provider of the service being called by the action. Valid providers are
-   *             determined by the action category. For example, an action in the Deploy category type
-   *             might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. For
-   *             more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers">Valid Action Types and Providers in CodePipeline</a>.</p>
-   */
-  provider: string | undefined;
-
-  /**
-   * <p>A string that describes the action version.</p>
-   */
-  version: string | undefined;
-}
-
-export namespace ActionTypeId {
-  export const filterSensitiveLog = (obj: ActionTypeId): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ActionTypeId => __isa(o, "ActionTypeId");
-}
-
-/**
- * <p>The specified action type cannot be found.</p>
- */
-export interface ActionTypeNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ActionTypeNotFoundException";
-  $fault: "client";
-  /**
-   * <p>The message provided to the user in the event of an exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ActionTypeNotFoundException {
-  export const filterSensitiveLog = (
-    obj: ActionTypeNotFoundException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ActionTypeNotFoundException =>
-    __isa(o, "ActionTypeNotFoundException");
-}
-
-/**
- * <p>Represents information about an artifact that is worked on by actions in the
- *             pipeline.</p>
- */
-export interface Artifact {
-  __type?: "Artifact";
-  /**
-   * <p>The location of an artifact.</p>
-   */
-  location?: ArtifactLocation;
-
-  /**
-   * <p>The artifact's name.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The artifact's revision ID. Depending on the type of object, this could be a commit
-   *             ID (GitHub) or a revision ID (Amazon S3).</p>
-   */
-  revision?: string;
-}
-
-export namespace Artifact {
-  export const filterSensitiveLog = (obj: Artifact): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Artifact => __isa(o, "Artifact");
-}
-
-/**
- * <p>Represents information about the location of an artifact.</p>
- */
-export interface ArtifactLocation {
-  __type?: "ArtifactLocation";
-  /**
-   * <p>The S3 bucket that contains the artifact.</p>
-   */
-  s3Location?: S3ArtifactLocation;
-
-  /**
-   * <p>The type of artifact in the location.</p>
-   */
-  type?: ArtifactLocationType | string;
-}
-
-export namespace ArtifactLocation {
-  export const filterSensitiveLog = (obj: ArtifactLocation): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ArtifactLocation =>
-    __isa(o, "ArtifactLocation");
-}
-
-export enum ArtifactLocationType {
-  S3 = "S3"
-}
-
-/**
- * <p>Represents information about a current revision.</p>
- */
-export interface CurrentRevision {
-  __type?: "CurrentRevision";
-  /**
-   * <p>The change identifier for the current revision.</p>
-   */
-  changeIdentifier: string | undefined;
-
-  /**
-   * <p>The date and time when the most recent revision of the artifact was created, in
-   *             timestamp format.</p>
-   */
-  created?: Date;
-
-  /**
-   * <p>The revision ID of the current version of an artifact.</p>
-   */
-  revision: string | undefined;
-
-  /**
-   * <p>The summary of the most recent revision of the artifact.</p>
-   */
-  revisionSummary?: string;
-}
-
-export namespace CurrentRevision {
-  export const filterSensitiveLog = (obj: CurrentRevision): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CurrentRevision =>
-    __isa(o, "CurrentRevision");
-}
-
-/**
- * <p>Represents information about the key used to encrypt data in the artifact store,
- *             such as an AWS Key Management Service (AWS KMS) key.</p>
- */
-export interface EncryptionKey {
-  __type?: "EncryptionKey";
-  /**
-   * <p>The ID used to identify the key. For an AWS KMS key, you can use the key ID, the
-   *             key ARN, or the alias ARN.</p>
-   *         <note>
-   *             <p>Aliases are recognized only in the account that created the customer master key
-   *                 (CMK). For cross-account actions, you can only use the key ID or key ARN to identify
-   *                 the key.</p>
-   *         </note>
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The type of encryption key, such as an AWS Key Management Service (AWS KMS) key.
-   *             When creating or updating a pipeline, the value must be set to 'KMS'.</p>
-   */
-  type: EncryptionKeyType | string | undefined;
-}
-
-export namespace EncryptionKey {
-  export const filterSensitiveLog = (obj: EncryptionKey): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is EncryptionKey => __isa(o, "EncryptionKey");
-}
-
-export enum EncryptionKeyType {
-  KMS = "KMS"
-}
-
-/**
- * <p>The details of the actions taken and results produced on an artifact as it passes
- *             through stages in the pipeline.</p>
- */
-export interface ExecutionDetails {
-  __type?: "ExecutionDetails";
-  /**
-   * <p>The system-generated unique ID of this action used to identify this job worker in
-   *             any external systems, such as AWS CodeDeploy.</p>
-   */
-  externalExecutionId?: string;
-
-  /**
-   * <p>The percentage of work completed on the action, represented on a scale of 0 to 100
-   *             percent.</p>
-   */
-  percentComplete?: number;
-
-  /**
-   * <p>The summary of the current status of the actions.</p>
-   */
-  summary?: string;
-}
-
-export namespace ExecutionDetails {
-  export const filterSensitiveLog = (obj: ExecutionDetails): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ExecutionDetails =>
-    __isa(o, "ExecutionDetails");
-}
-
-/**
- * <p>Represents information about failure details.</p>
- */
-export interface FailureDetails {
-  __type?: "FailureDetails";
-  /**
-   * <p>The external ID of the run of the action that failed.</p>
-   */
-  externalExecutionId?: string;
-
-  /**
-   * <p>The message about the failure.</p>
-   */
-  message: string | undefined;
-
-  /**
-   * <p>The type of the failure.</p>
-   */
-  type: FailureType | string | undefined;
-}
-
-export namespace FailureDetails {
-  export const filterSensitiveLog = (obj: FailureDetails): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is FailureDetails =>
-    __isa(o, "FailureDetails");
-}
-
-export enum FailureType {
-  ConfigurationError = "ConfigurationError",
-  JobFailed = "JobFailed",
-  PermissionError = "PermissionError",
-  RevisionOutOfSync = "RevisionOutOfSync",
-  RevisionUnavailable = "RevisionUnavailable",
-  SystemUnavailable = "SystemUnavailable"
-}
-
-/**
- * <p>The job state was specified in an invalid format.</p>
- */
-export interface InvalidJobStateException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidJobStateException";
-  $fault: "client";
-  /**
-   * <p>The message provided to the user in the event of an exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidJobStateException {
-  export const filterSensitiveLog = (obj: InvalidJobStateException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidJobStateException =>
-    __isa(o, "InvalidJobStateException");
-}
-
-/**
- * <p>The nonce was specified in an invalid format.</p>
- */
-export interface InvalidNonceException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidNonceException";
-  $fault: "client";
-  /**
-   * <p>The message provided to the user in the event of an exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidNonceException {
-  export const filterSensitiveLog = (obj: InvalidNonceException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidNonceException =>
-    __isa(o, "InvalidNonceException");
-}
-
-/**
- * <p>The job was specified in an invalid format or cannot be found.</p>
- */
-export interface JobNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "JobNotFoundException";
-  $fault: "client";
-  /**
-   * <p>The message provided to the user in the event of an exception.</p>
-   */
-  message?: string;
-}
-
-export namespace JobNotFoundException {
-  export const filterSensitiveLog = (obj: JobNotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is JobNotFoundException =>
-    __isa(o, "JobNotFoundException");
-}
-
-export enum JobStatus {
-  Created = "Created",
-  Dispatched = "Dispatched",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Queued = "Queued",
-  Succeeded = "Succeeded",
-  TimedOut = "TimedOut"
-}
-
-/**
- * <p>Exceeded the total size limit for all variables in the pipeline.</p>
- */
-export interface OutputVariablesSizeExceededException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "OutputVariablesSizeExceededException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace OutputVariablesSizeExceededException {
-  export const filterSensitiveLog = (
-    obj: OutputVariablesSizeExceededException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is OutputVariablesSizeExceededException =>
-    __isa(o, "OutputVariablesSizeExceededException");
-}
-
-/**
- * <p>Represents information about a pipeline to a job worker.</p>
- *         <note>
- *             <p>PipelineContext contains <code>pipelineArn</code> and
- *                     <code>pipelineExecutionId</code> for custom action jobs. The
- *                     <code>pipelineArn</code> and <code>pipelineExecutionId</code> fields are not
- *                 populated for ThirdParty action jobs.</p>
- *         </note>
- */
-export interface PipelineContext {
-  __type?: "PipelineContext";
-  /**
-   * <p>The context of an action to a job worker in the stage of a pipeline.</p>
-   */
-  action?: ActionContext;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
-   */
-  pipelineArn?: string;
-
-  /**
-   * <p>The execution ID of the pipeline.</p>
-   */
-  pipelineExecutionId?: string;
-
-  /**
-   * <p>The name of the pipeline. This is a user-specified value. Pipeline names must be
-   *             unique across all pipeline names under an Amazon Web Services account.</p>
-   */
-  pipelineName?: string;
-
-  /**
-   * <p>The stage of the pipeline.</p>
-   */
-  stage?: StageContext;
-}
-
-export namespace PipelineContext {
-  export const filterSensitiveLog = (obj: PipelineContext): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is PipelineContext =>
-    __isa(o, "PipelineContext");
-}
-
-/**
- * <p>The resource was specified in an invalid format.</p>
- */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  /**
-   * <p>The message provided to the user in the event of an exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
-}
-
-/**
- * <p>The location of the S3 bucket that contains a revision.</p>
- */
-export interface S3ArtifactLocation {
-  __type?: "S3ArtifactLocation";
-  /**
-   * <p>The name of the S3 bucket.</p>
-   */
-  bucketName: string | undefined;
-
-  /**
-   * <p>The key of the object in the S3 bucket, which uniquely identifies the object in the
-   *             bucket.</p>
-   */
-  objectKey: string | undefined;
-}
-
-export namespace S3ArtifactLocation {
-  export const filterSensitiveLog = (obj: S3ArtifactLocation): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is S3ArtifactLocation =>
-    __isa(o, "S3ArtifactLocation");
-}
-
-/**
- * <p>Represents information about a stage to a job worker.</p>
- */
-export interface StageContext {
-  __type?: "StageContext";
-  /**
-   * <p>The name of the stage.</p>
-   */
-  name?: string;
-}
-
-export namespace StageContext {
-  export const filterSensitiveLog = (obj: StageContext): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StageContext => __isa(o, "StageContext");
-}
-
-/**
- * <p>The validation was specified in an invalid format.</p>
- */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  /**
-   * <p>The message provided to the user in the event of an exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ValidationException {
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
 }

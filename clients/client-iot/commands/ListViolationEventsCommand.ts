@@ -8,9 +8,9 @@ import {
   ListViolationEventsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListViolationEventsCommand,
-  serializeAws_restJson1_1ListViolationEventsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListViolationEventsCommand,
+  serializeAws_restJson1ListViolationEventsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListViolationEventsCommand extends $Command<
     input: ListViolationEventsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListViolationEventsCommand(input, context);
+    return serializeAws_restJson1ListViolationEventsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListViolationEventsCommandOutput> {
-    return deserializeAws_restJson1_1ListViolationEventsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListViolationEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

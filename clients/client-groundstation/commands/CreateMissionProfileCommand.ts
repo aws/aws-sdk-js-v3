@@ -8,9 +8,9 @@ import {
   MissionProfileIdResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateMissionProfileCommand,
-  serializeAws_restJson1_1CreateMissionProfileCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateMissionProfileCommand,
+  serializeAws_restJson1CreateMissionProfileCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class CreateMissionProfileCommand extends $Command<
     input: CreateMissionProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateMissionProfileCommand(input, context);
+    return serializeAws_restJson1CreateMissionProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMissionProfileCommandOutput> {
-    return deserializeAws_restJson1_1CreateMissionProfileCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateMissionProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

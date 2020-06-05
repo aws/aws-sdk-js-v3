@@ -8,9 +8,9 @@ import {
   ListThingRegistrationTaskReportsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListThingRegistrationTaskReportsCommand,
-  serializeAws_restJson1_1ListThingRegistrationTaskReportsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListThingRegistrationTaskReportsCommand,
+  serializeAws_restJson1ListThingRegistrationTaskReportsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListThingRegistrationTaskReportsCommand extends $Command<
     input: ListThingRegistrationTaskReportsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListThingRegistrationTaskReportsCommand(
+    return serializeAws_restJson1ListThingRegistrationTaskReportsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListThingRegistrationTaskReportsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListThingRegistrationTaskReportsCommandOutput> {
-    return deserializeAws_restJson1_1ListThingRegistrationTaskReportsCommand(
+    return deserializeAws_restJson1ListThingRegistrationTaskReportsCommand(
       output,
       context
     );

@@ -5,9 +5,9 @@ import {
 } from "../ApiGatewayV2Client";
 import { GetStageRequest, GetStageResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetStageCommand,
-  serializeAws_restJson1_1GetStageCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetStageCommand,
+  serializeAws_restJson1GetStageCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetStageCommand extends $Command<
     input: GetStageCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetStageCommand(input, context);
+    return serializeAws_restJson1GetStageCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetStageCommandOutput> {
-    return deserializeAws_restJson1_1GetStageCommand(output, context);
+    return deserializeAws_restJson1GetStageCommand(output, context);
   }
 
   // Start section: command_body_extra

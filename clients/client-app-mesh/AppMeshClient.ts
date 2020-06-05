@@ -23,6 +23,10 @@ import {
   DeleteMeshCommandOutput
 } from "./commands/DeleteMeshCommand";
 import {
+  DeleteMeshPolicyCommandInput,
+  DeleteMeshPolicyCommandOutput
+} from "./commands/DeleteMeshPolicyCommand";
+import {
   DeleteRouteCommandInput,
   DeleteRouteCommandOutput
 } from "./commands/DeleteRouteCommand";
@@ -59,6 +63,10 @@ import {
   DescribeVirtualServiceCommandOutput
 } from "./commands/DescribeVirtualServiceCommand";
 import {
+  GetMeshPolicyCommandInput,
+  GetMeshPolicyCommandOutput
+} from "./commands/GetMeshPolicyCommand";
+import {
   ListMeshesCommandInput,
   ListMeshesCommandOutput
 } from "./commands/ListMeshesCommand";
@@ -82,6 +90,10 @@ import {
   ListVirtualServicesCommandInput,
   ListVirtualServicesCommandOutput
 } from "./commands/ListVirtualServicesCommand";
+import {
+  PutMeshPolicyCommandInput,
+  PutMeshPolicyCommandOutput
+} from "./commands/PutMeshPolicyCommand";
 import {
   TagResourceCommandInput,
   TagResourceCommandOutput
@@ -169,6 +181,7 @@ export type ServiceInputTypes =
   | CreateVirtualRouterCommandInput
   | CreateVirtualServiceCommandInput
   | DeleteMeshCommandInput
+  | DeleteMeshPolicyCommandInput
   | DeleteRouteCommandInput
   | DeleteVirtualNodeCommandInput
   | DeleteVirtualRouterCommandInput
@@ -178,12 +191,14 @@ export type ServiceInputTypes =
   | DescribeVirtualNodeCommandInput
   | DescribeVirtualRouterCommandInput
   | DescribeVirtualServiceCommandInput
+  | GetMeshPolicyCommandInput
   | ListMeshesCommandInput
   | ListRoutesCommandInput
   | ListTagsForResourceCommandInput
   | ListVirtualNodesCommandInput
   | ListVirtualRoutersCommandInput
   | ListVirtualServicesCommandInput
+  | PutMeshPolicyCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateMeshCommandInput
@@ -199,6 +214,7 @@ export type ServiceOutputTypes =
   | CreateVirtualRouterCommandOutput
   | CreateVirtualServiceCommandOutput
   | DeleteMeshCommandOutput
+  | DeleteMeshPolicyCommandOutput
   | DeleteRouteCommandOutput
   | DeleteVirtualNodeCommandOutput
   | DeleteVirtualRouterCommandOutput
@@ -208,12 +224,14 @@ export type ServiceOutputTypes =
   | DescribeVirtualNodeCommandOutput
   | DescribeVirtualRouterCommandOutput
   | DescribeVirtualServiceCommandOutput
+  | GetMeshPolicyCommandOutput
   | ListMeshesCommandOutput
   | ListRoutesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListVirtualNodesCommandOutput
   | ListVirtualRoutersCommandOutput
   | ListVirtualServicesCommandOutput
+  | PutMeshPolicyCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateMeshCommandOutput
@@ -338,9 +356,9 @@ export type AppMeshClientResolvedConfig = __SmithyResolvedConfiguration<
  *          Kubernetes on AWS, and Amazon EC2.</p>
  *          <note>
  *             <p>App Mesh supports microservice applications that use service discovery naming for their
- *             components. For more information about service discovery on Amazon ECS, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service Discovery</a> in the
- *                <i>Amazon Elastic Container Service Developer Guide</i>. Kubernetes <code>kube-dns</code> and
- *                <code>coredns</code> are supported. For more information, see <a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/">DNS
+ *             components. For more information about service discovery on Amazon ECS, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service Discovery</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. Kubernetes
+ *                <code>kube-dns</code> and <code>coredns</code> are supported. For more information,
+ *             see <a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/">DNS
  *                for Services and Pods</a> in the Kubernetes documentation.</p>
  *          </note>
  */

@@ -8,9 +8,9 @@ import {
   ListTemplateAliasesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListTemplateAliasesCommand,
-  serializeAws_restJson1_1ListTemplateAliasesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListTemplateAliasesCommand,
+  serializeAws_restJson1ListTemplateAliasesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListTemplateAliasesCommand extends $Command<
     input: ListTemplateAliasesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListTemplateAliasesCommand(input, context);
+    return serializeAws_restJson1ListTemplateAliasesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTemplateAliasesCommandOutput> {
-    return deserializeAws_restJson1_1ListTemplateAliasesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListTemplateAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

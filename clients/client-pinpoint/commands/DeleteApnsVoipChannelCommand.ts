@@ -8,9 +8,9 @@ import {
   DeleteApnsVoipChannelResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteApnsVoipChannelCommand,
-  serializeAws_restJson1_1DeleteApnsVoipChannelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteApnsVoipChannelCommand,
+  serializeAws_restJson1DeleteApnsVoipChannelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class DeleteApnsVoipChannelCommand extends $Command<
     input: DeleteApnsVoipChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteApnsVoipChannelCommand(input, context);
+    return serializeAws_restJson1DeleteApnsVoipChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApnsVoipChannelCommandOutput> {
-    return deserializeAws_restJson1_1DeleteApnsVoipChannelCommand(
+    return deserializeAws_restJson1DeleteApnsVoipChannelCommand(
       output,
       context
     );

@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { ListOTAUpdatesRequest, ListOTAUpdatesResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListOTAUpdatesCommand,
-  serializeAws_restJson1_1ListOTAUpdatesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListOTAUpdatesCommand,
+  serializeAws_restJson1ListOTAUpdatesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class ListOTAUpdatesCommand extends $Command<
     input: ListOTAUpdatesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListOTAUpdatesCommand(input, context);
+    return serializeAws_restJson1ListOTAUpdatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListOTAUpdatesCommandOutput> {
-    return deserializeAws_restJson1_1ListOTAUpdatesCommand(output, context);
+    return deserializeAws_restJson1ListOTAUpdatesCommand(output, context);
   }
 
   // Start section: command_body_extra

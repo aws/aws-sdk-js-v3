@@ -1841,25 +1841,6 @@ export namespace GetTypeResponse {
 }
 
 /**
- * <p>The GraphQL schema is not valid.</p>
- */
-export interface GraphQLSchemaException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "GraphQLSchemaException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace GraphQLSchemaException {
-  export const filterSensitiveLog = (obj: GraphQLSchemaException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GraphQLSchemaException =>
-    __isa(o, "GraphQLSchemaException");
-}
-
-/**
  * <p>Describes a GraphQL API.</p>
  */
 export interface GraphqlApi {
@@ -1920,6 +1901,25 @@ export namespace GraphqlApi {
     ...obj
   });
   export const isa = (o: any): o is GraphqlApi => __isa(o, "GraphqlApi");
+}
+
+/**
+ * <p>The GraphQL schema is not valid.</p>
+ */
+export interface GraphQLSchemaException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "GraphQLSchemaException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace GraphQLSchemaException {
+  export const filterSensitiveLog = (obj: GraphQLSchemaException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GraphQLSchemaException =>
+    __isa(o, "GraphQLSchemaException");
 }
 
 /**

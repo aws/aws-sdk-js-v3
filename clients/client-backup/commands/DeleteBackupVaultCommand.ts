@@ -5,9 +5,9 @@ import {
 } from "../BackupClient";
 import { DeleteBackupVaultInput } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteBackupVaultCommand,
-  serializeAws_restJson1_1DeleteBackupVaultCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteBackupVaultCommand,
+  serializeAws_restJson1DeleteBackupVaultCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteBackupVaultCommand extends $Command<
     input: DeleteBackupVaultCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteBackupVaultCommand(input, context);
+    return serializeAws_restJson1DeleteBackupVaultCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBackupVaultCommandOutput> {
-    return deserializeAws_restJson1_1DeleteBackupVaultCommand(output, context);
+    return deserializeAws_restJson1DeleteBackupVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

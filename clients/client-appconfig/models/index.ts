@@ -143,6 +143,28 @@ export namespace ConfigurationProfile {
     __isa(o, "ConfigurationProfile");
 }
 
+export interface ConfigurationProfiles {
+  __type?: "ConfigurationProfiles";
+  /**
+   * <p>The elements from this collection.</p>
+   */
+  Items?: ConfigurationProfileSummary[];
+
+  /**
+   * <p>The token for the next set of items to return. Use this token to get the next set of
+   *          results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ConfigurationProfiles {
+  export const filterSensitiveLog = (obj: ConfigurationProfiles): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ConfigurationProfiles =>
+    __isa(o, "ConfigurationProfiles");
+}
+
 /**
  * <p>A summary of a configuration profile.</p>
  */
@@ -182,28 +204,6 @@ export namespace ConfigurationProfileSummary {
   });
   export const isa = (o: any): o is ConfigurationProfileSummary =>
     __isa(o, "ConfigurationProfileSummary");
-}
-
-export interface ConfigurationProfiles {
-  __type?: "ConfigurationProfiles";
-  /**
-   * <p>The elements from this collection.</p>
-   */
-  Items?: ConfigurationProfileSummary[];
-
-  /**
-   * <p>The token for the next set of items to return. Use this token to get the next set of
-   *          results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ConfigurationProfiles {
-  export const filterSensitiveLog = (obj: ConfigurationProfiles): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ConfigurationProfiles =>
-    __isa(o, "ConfigurationProfiles");
 }
 
 /**
@@ -573,6 +573,27 @@ export namespace Deployment {
   export const isa = (o: any): o is Deployment => __isa(o, "Deployment");
 }
 
+export interface Deployments {
+  __type?: "Deployments";
+  /**
+   * <p>The elements from this collection.</p>
+   */
+  Items?: DeploymentSummary[];
+
+  /**
+   * <p>The token for the next set of items to return. Use this token to get the next set of
+   *          results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace Deployments {
+  export const filterSensitiveLog = (obj: Deployments): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Deployments => __isa(o, "Deployments");
+}
+
 export enum DeploymentState {
   BAKING = "BAKING",
   COMPLETE = "COMPLETE",
@@ -728,27 +749,6 @@ export namespace DeploymentSummary {
     __isa(o, "DeploymentSummary");
 }
 
-export interface Deployments {
-  __type?: "Deployments";
-  /**
-   * <p>The elements from this collection.</p>
-   */
-  Items?: DeploymentSummary[];
-
-  /**
-   * <p>The token for the next set of items to return. Use this token to get the next set of
-   *          results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace Deployments {
-  export const filterSensitiveLog = (obj: Deployments): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Deployments => __isa(o, "Deployments");
-}
-
 export interface Environment {
   __type?: "Environment";
   /**
@@ -792,13 +792,6 @@ export namespace Environment {
   export const isa = (o: any): o is Environment => __isa(o, "Environment");
 }
 
-export enum EnvironmentState {
-  DEPLOYING = "DEPLOYING",
-  READY_FOR_DEPLOYMENT = "READY_FOR_DEPLOYMENT",
-  ROLLED_BACK = "ROLLED_BACK",
-  ROLLING_BACK = "ROLLING_BACK"
-}
-
 export interface Environments {
   __type?: "Environments";
   /**
@@ -818,6 +811,13 @@ export namespace Environments {
     ...obj
   });
   export const isa = (o: any): o is Environments => __isa(o, "Environments");
+}
+
+export enum EnvironmentState {
+  DEPLOYING = "DEPLOYING",
+  READY_FOR_DEPLOYMENT = "READY_FOR_DEPLOYMENT",
+  ROLLED_BACK = "ROLLED_BACK",
+  ROLLING_BACK = "ROLLING_BACK"
 }
 
 export interface GetApplicationRequest {
@@ -1036,30 +1036,6 @@ export namespace ListConfigurationProfilesRequest {
     __isa(o, "ListConfigurationProfilesRequest");
 }
 
-export interface ListDeploymentStrategiesRequest {
-  __type?: "ListDeploymentStrategiesRequest";
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that
-   *          you can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A token to start the list. Use this token to get the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListDeploymentStrategiesRequest {
-  export const filterSensitiveLog = (
-    obj: ListDeploymentStrategiesRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListDeploymentStrategiesRequest =>
-    __isa(o, "ListDeploymentStrategiesRequest");
-}
-
 export interface ListDeploymentsRequest {
   __type?: "ListDeploymentsRequest";
   /**
@@ -1090,6 +1066,30 @@ export namespace ListDeploymentsRequest {
   });
   export const isa = (o: any): o is ListDeploymentsRequest =>
     __isa(o, "ListDeploymentsRequest");
+}
+
+export interface ListDeploymentStrategiesRequest {
+  __type?: "ListDeploymentStrategiesRequest";
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that
+   *          you can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token to start the list. Use this token to get the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListDeploymentStrategiesRequest {
+  export const filterSensitiveLog = (
+    obj: ListDeploymentStrategiesRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListDeploymentStrategiesRequest =>
+    __isa(o, "ListDeploymentStrategiesRequest");
 }
 
 export interface ListEnvironmentsRequest {

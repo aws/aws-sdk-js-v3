@@ -8,9 +8,9 @@ import {
   PublishLayerVersionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PublishLayerVersionCommand,
-  serializeAws_restJson1_1PublishLayerVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PublishLayerVersionCommand,
+  serializeAws_restJson1PublishLayerVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class PublishLayerVersionCommand extends $Command<
     input: PublishLayerVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PublishLayerVersionCommand(input, context);
+    return serializeAws_restJson1PublishLayerVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PublishLayerVersionCommandOutput> {
-    return deserializeAws_restJson1_1PublishLayerVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1PublishLayerVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

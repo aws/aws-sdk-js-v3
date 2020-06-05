@@ -8,9 +8,9 @@ import {
   DescribeFileSystemsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeFileSystemsCommand,
-  serializeAws_restJson1_1DescribeFileSystemsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeFileSystemsCommand,
+  serializeAws_restJson1DescribeFileSystemsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DescribeFileSystemsCommand extends $Command<
     input: DescribeFileSystemsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeFileSystemsCommand(input, context);
+    return serializeAws_restJson1DescribeFileSystemsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFileSystemsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeFileSystemsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DescribeFileSystemsCommand(output, context);
   }
 
   // Start section: command_body_extra

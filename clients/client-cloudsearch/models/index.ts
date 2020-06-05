@@ -1714,6 +1714,32 @@ export namespace IntArrayOptions {
 }
 
 /**
+ * <p>An internal error occurred while processing the request. If this problem persists,
+ *       report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.</p>
+ */
+export interface InternalException extends __SmithyException, $MetadataBearer {
+  name: "InternalException";
+  $fault: "server";
+  /**
+   * <p>A machine-parsable string error or warning code.</p>
+   */
+  Code?: string;
+
+  /**
+   * <p>A human-readable string error or warning message.</p>
+   */
+  Message?: string;
+}
+
+export namespace InternalException {
+  export const filterSensitiveLog = (obj: InternalException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InternalException =>
+    __isa(o, "InternalException");
+}
+
+/**
  * <p>Options for a 64-bit signed integer field.  Present if <code>IndexFieldType</code> specifies the field is of type <code>int</code>. All options are enabled by default.</p>
  */
 export interface IntOptions {
@@ -1754,32 +1780,6 @@ export namespace IntOptions {
     ...obj
   });
   export const isa = (o: any): o is IntOptions => __isa(o, "IntOptions");
-}
-
-/**
- * <p>An internal error occurred while processing the request. If this problem persists,
- *       report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.</p>
- */
-export interface InternalException extends __SmithyException, $MetadataBearer {
-  name: "InternalException";
-  $fault: "server";
-  /**
-   * <p>A machine-parsable string error or warning code.</p>
-   */
-  Code?: string;
-
-  /**
-   * <p>A human-readable string error or warning message.</p>
-   */
-  Message?: string;
-}
-
-export namespace InternalException {
-  export const filterSensitiveLog = (obj: InternalException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InternalException =>
-    __isa(o, "InternalException");
 }
 
 /**
@@ -2229,11 +2229,6 @@ export namespace SuggesterStatus {
     __isa(o, "SuggesterStatus");
 }
 
-export enum TLSSecurityPolicy {
-  POLICY_MIN_TLS_1_0_2019_07 = "Policy-Min-TLS-1-0-2019-07",
-  POLICY_MIN_TLS_1_2_2019_07 = "Policy-Min-TLS-1-2-2019-07"
-}
-
 /**
  * <p>Options for a field that contains an array of text strings.  Present if <code>IndexFieldType</code> specifies the field is of type <code>text-array</code>. A <code>text-array</code> field is always searchable. All options are enabled by default.</p>
  */
@@ -2327,6 +2322,11 @@ export namespace TextOptions {
     ...obj
   });
   export const isa = (o: any): o is TextOptions => __isa(o, "TextOptions");
+}
+
+export enum TLSSecurityPolicy {
+  POLICY_MIN_TLS_1_0_2019_07 = "Policy-Min-TLS-1-0-2019-07",
+  POLICY_MIN_TLS_1_2_2019_07 = "Policy-Min-TLS-1-2-2019-07"
 }
 
 /**

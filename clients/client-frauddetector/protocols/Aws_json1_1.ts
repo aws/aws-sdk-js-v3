@@ -364,21 +364,6 @@ export const serializeAws_json1_1DescribeModelVersionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetDetectorVersionCommand = async (
-  input: GetDetectorVersionCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.GetDetectorVersion"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetDetectorVersionRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1GetDetectorsCommand = async (
   input: GetDetectorsCommandInput,
   context: __SerdeContext
@@ -390,6 +375,21 @@ export const serializeAws_json1_1GetDetectorsCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDetectorsRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetDetectorVersionCommand = async (
+  input: GetDetectorVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSHawksNestServiceFacade.GetDetectorVersion"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1GetDetectorVersionRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -409,6 +409,19 @@ export const serializeAws_json1_1GetExternalModelsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetModelsCommand = async (
+  input: GetModelsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSHawksNestServiceFacade.GetModels"
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetModelsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetModelVersionCommand = async (
   input: GetModelVersionCommandInput,
   context: __SerdeContext
@@ -421,19 +434,6 @@ export const serializeAws_json1_1GetModelVersionCommand = async (
   body = JSON.stringify(
     serializeAws_json1_1GetModelVersionRequest(input, context)
   );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1GetModelsCommand = async (
-  input: GetModelsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.GetModels"
-  };
-  let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetModelsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -688,7 +688,7 @@ const deserializeAws_json1_1BatchCreateVariableCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -699,7 +699,7 @@ const deserializeAws_json1_1BatchCreateVariableCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -710,7 +710,7 @@ const deserializeAws_json1_1BatchCreateVariableCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -770,7 +770,7 @@ const deserializeAws_json1_1BatchGetVariableCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -781,7 +781,7 @@ const deserializeAws_json1_1BatchGetVariableCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -792,7 +792,7 @@ const deserializeAws_json1_1BatchGetVariableCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -855,7 +855,7 @@ const deserializeAws_json1_1CreateDetectorVersionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -866,7 +866,7 @@ const deserializeAws_json1_1CreateDetectorVersionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -877,7 +877,7 @@ const deserializeAws_json1_1CreateDetectorVersionCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -888,7 +888,7 @@ const deserializeAws_json1_1CreateDetectorVersionCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -951,7 +951,7 @@ const deserializeAws_json1_1CreateModelVersionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -962,7 +962,7 @@ const deserializeAws_json1_1CreateModelVersionCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -973,7 +973,7 @@ const deserializeAws_json1_1CreateModelVersionCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1033,7 +1033,7 @@ const deserializeAws_json1_1CreateRuleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1044,7 +1044,7 @@ const deserializeAws_json1_1CreateRuleCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1055,7 +1055,7 @@ const deserializeAws_json1_1CreateRuleCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1115,7 +1115,7 @@ const deserializeAws_json1_1CreateVariableCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1126,7 +1126,7 @@ const deserializeAws_json1_1CreateVariableCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1137,7 +1137,7 @@ const deserializeAws_json1_1CreateVariableCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1200,7 +1200,7 @@ const deserializeAws_json1_1DeleteDetectorVersionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1211,7 +1211,7 @@ const deserializeAws_json1_1DeleteDetectorVersionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1222,7 +1222,7 @@ const deserializeAws_json1_1DeleteDetectorVersionCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1233,7 +1233,7 @@ const deserializeAws_json1_1DeleteDetectorVersionCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1293,7 +1293,7 @@ const deserializeAws_json1_1DeleteEventCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1304,7 +1304,7 @@ const deserializeAws_json1_1DeleteEventCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1364,7 +1364,7 @@ const deserializeAws_json1_1DescribeDetectorCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1375,7 +1375,7 @@ const deserializeAws_json1_1DescribeDetectorCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1386,7 +1386,7 @@ const deserializeAws_json1_1DescribeDetectorCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1397,7 +1397,7 @@ const deserializeAws_json1_1DescribeDetectorCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1460,7 +1460,7 @@ const deserializeAws_json1_1DescribeModelVersionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1471,7 +1471,7 @@ const deserializeAws_json1_1DescribeModelVersionsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1482,7 +1482,7 @@ const deserializeAws_json1_1DescribeModelVersionsCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1493,7 +1493,100 @@ const deserializeAws_json1_1DescribeModelVersionsCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetDetectorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDetectorsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetDetectorsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetDetectorsResult(data, context);
+  const response: GetDetectorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetDetectorsResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetDetectorsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDetectorsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1556,7 +1649,7 @@ const deserializeAws_json1_1GetDetectorVersionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1567,7 +1660,7 @@ const deserializeAws_json1_1GetDetectorVersionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1578,7 +1671,7 @@ const deserializeAws_json1_1GetDetectorVersionCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1589,100 +1682,7 @@ const deserializeAws_json1_1GetDetectorVersionCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1GetDetectorsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDetectorsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetDetectorsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1GetDetectorsResult(data, context);
-  const response: GetDetectorsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "GetDetectorsResult",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1GetDetectorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDetectorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ResourceNotFoundException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
-      response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1742,7 +1742,7 @@ const deserializeAws_json1_1GetExternalModelsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1753,7 +1753,7 @@ const deserializeAws_json1_1GetExternalModelsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1764,7 +1764,7 @@ const deserializeAws_json1_1GetExternalModelsCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1775,100 +1775,7 @@ const deserializeAws_json1_1GetExternalModelsCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1GetModelVersionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetModelVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetModelVersionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1GetModelVersionResult(data, context);
-  const response: GetModelVersionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "GetModelVersionResult",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1GetModelVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetModelVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ResourceNotFoundException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
-      response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1928,7 +1835,7 @@ const deserializeAws_json1_1GetModelsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1939,7 +1846,7 @@ const deserializeAws_json1_1GetModelsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1950,7 +1857,7 @@ const deserializeAws_json1_1GetModelsCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1961,7 +1868,100 @@ const deserializeAws_json1_1GetModelsCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetModelVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetModelVersionCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetModelVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetModelVersionResult(data, context);
+  const response: GetModelVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetModelVersionResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetModelVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetModelVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2021,7 +2021,7 @@ const deserializeAws_json1_1GetOutcomesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2032,7 +2032,7 @@ const deserializeAws_json1_1GetOutcomesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2043,7 +2043,7 @@ const deserializeAws_json1_1GetOutcomesCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2054,7 +2054,7 @@ const deserializeAws_json1_1GetOutcomesCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2114,7 +2114,7 @@ const deserializeAws_json1_1GetPredictionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2125,7 +2125,7 @@ const deserializeAws_json1_1GetPredictionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2136,7 +2136,7 @@ const deserializeAws_json1_1GetPredictionCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2147,7 +2147,7 @@ const deserializeAws_json1_1GetPredictionCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2207,7 +2207,7 @@ const deserializeAws_json1_1GetRulesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2218,7 +2218,7 @@ const deserializeAws_json1_1GetRulesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2229,7 +2229,7 @@ const deserializeAws_json1_1GetRulesCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2240,7 +2240,7 @@ const deserializeAws_json1_1GetRulesCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2300,7 +2300,7 @@ const deserializeAws_json1_1GetVariablesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2311,7 +2311,7 @@ const deserializeAws_json1_1GetVariablesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2322,7 +2322,7 @@ const deserializeAws_json1_1GetVariablesCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2333,7 +2333,7 @@ const deserializeAws_json1_1GetVariablesCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2393,7 +2393,7 @@ const deserializeAws_json1_1PutDetectorCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2404,7 +2404,7 @@ const deserializeAws_json1_1PutDetectorCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2415,7 +2415,7 @@ const deserializeAws_json1_1PutDetectorCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2475,7 +2475,7 @@ const deserializeAws_json1_1PutExternalModelCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2486,7 +2486,7 @@ const deserializeAws_json1_1PutExternalModelCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2497,7 +2497,7 @@ const deserializeAws_json1_1PutExternalModelCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2557,7 +2557,7 @@ const deserializeAws_json1_1PutModelCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2568,7 +2568,7 @@ const deserializeAws_json1_1PutModelCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2579,7 +2579,7 @@ const deserializeAws_json1_1PutModelCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2639,7 +2639,7 @@ const deserializeAws_json1_1PutOutcomeCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2650,7 +2650,7 @@ const deserializeAws_json1_1PutOutcomeCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2661,7 +2661,7 @@ const deserializeAws_json1_1PutOutcomeCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2724,7 +2724,7 @@ const deserializeAws_json1_1UpdateDetectorVersionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2735,7 +2735,7 @@ const deserializeAws_json1_1UpdateDetectorVersionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2746,7 +2746,7 @@ const deserializeAws_json1_1UpdateDetectorVersionCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2757,7 +2757,7 @@ const deserializeAws_json1_1UpdateDetectorVersionCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2823,7 +2823,7 @@ const deserializeAws_json1_1UpdateDetectorVersionMetadataCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2834,7 +2834,7 @@ const deserializeAws_json1_1UpdateDetectorVersionMetadataCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2845,7 +2845,7 @@ const deserializeAws_json1_1UpdateDetectorVersionMetadataCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2911,7 +2911,7 @@ const deserializeAws_json1_1UpdateDetectorVersionStatusCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2922,7 +2922,7 @@ const deserializeAws_json1_1UpdateDetectorVersionStatusCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2933,7 +2933,7 @@ const deserializeAws_json1_1UpdateDetectorVersionStatusCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2944,7 +2944,7 @@ const deserializeAws_json1_1UpdateDetectorVersionStatusCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -3007,7 +3007,7 @@ const deserializeAws_json1_1UpdateModelVersionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -3018,7 +3018,7 @@ const deserializeAws_json1_1UpdateModelVersionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3029,7 +3029,7 @@ const deserializeAws_json1_1UpdateModelVersionCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3040,7 +3040,7 @@ const deserializeAws_json1_1UpdateModelVersionCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -3103,7 +3103,7 @@ const deserializeAws_json1_1UpdateRuleMetadataCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -3114,7 +3114,7 @@ const deserializeAws_json1_1UpdateRuleMetadataCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3125,7 +3125,7 @@ const deserializeAws_json1_1UpdateRuleMetadataCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3136,7 +3136,7 @@ const deserializeAws_json1_1UpdateRuleMetadataCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -3196,7 +3196,7 @@ const deserializeAws_json1_1UpdateRuleVersionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -3207,7 +3207,7 @@ const deserializeAws_json1_1UpdateRuleVersionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3218,7 +3218,7 @@ const deserializeAws_json1_1UpdateRuleVersionCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3229,7 +3229,7 @@ const deserializeAws_json1_1UpdateRuleVersionCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -3289,7 +3289,7 @@ const deserializeAws_json1_1UpdateVariableCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -3300,7 +3300,7 @@ const deserializeAws_json1_1UpdateVariableCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3311,7 +3311,7 @@ const deserializeAws_json1_1UpdateVariableCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3322,7 +3322,7 @@ const deserializeAws_json1_1UpdateVariableCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -3608,6 +3608,17 @@ const serializeAws_json1_1ExternalModelEndpointDataBlobMap = (
   );
 };
 
+const serializeAws_json1_1GetDetectorsRequest = (
+  input: GetDetectorsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
+};
+
 const serializeAws_json1_1GetDetectorVersionRequest = (
   input: GetDetectorVersionRequest,
   context: __SerdeContext
@@ -3617,17 +3628,6 @@ const serializeAws_json1_1GetDetectorVersionRequest = (
     ...(input.detectorVersionId !== undefined && {
       detectorVersionId: input.detectorVersionId
     })
-  };
-};
-
-const serializeAws_json1_1GetDetectorsRequest = (
-  input: GetDetectorsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
   };
 };
 
@@ -3644,6 +3644,18 @@ const serializeAws_json1_1GetExternalModelsRequest = (
   };
 };
 
+const serializeAws_json1_1GetModelsRequest = (
+  input: GetModelsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.modelId !== undefined && { modelId: input.modelId }),
+    ...(input.modelType !== undefined && { modelType: input.modelType }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
+};
+
 const serializeAws_json1_1GetModelVersionRequest = (
   input: GetModelVersionRequest,
   context: __SerdeContext
@@ -3654,18 +3666,6 @@ const serializeAws_json1_1GetModelVersionRequest = (
     ...(input.modelVersionNumber !== undefined && {
       modelVersionNumber: input.modelVersionNumber
     })
-  };
-};
-
-const serializeAws_json1_1GetModelsRequest = (
-  input: GetModelsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.modelId !== undefined && { modelId: input.modelId }),
-    ...(input.modelType !== undefined && { modelType: input.modelType }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
   };
 };
 
@@ -4505,6 +4505,23 @@ const deserializeAws_json1_1ExternalModelList = (
   );
 };
 
+const deserializeAws_json1_1GetDetectorsResult = (
+  output: any,
+  context: __SerdeContext
+): GetDetectorsResult => {
+  return {
+    __type: "GetDetectorsResult",
+    detectors:
+      output.detectors !== undefined && output.detectors !== null
+        ? deserializeAws_json1_1DetectorList(output.detectors, context)
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1GetDetectorVersionResult = (
   output: any,
   context: __SerdeContext
@@ -4558,23 +4575,6 @@ const deserializeAws_json1_1GetDetectorVersionResult = (
   } as any;
 };
 
-const deserializeAws_json1_1GetDetectorsResult = (
-  output: any,
-  context: __SerdeContext
-): GetDetectorsResult => {
-  return {
-    __type: "GetDetectorsResult",
-    detectors:
-      output.detectors !== undefined && output.detectors !== null
-        ? deserializeAws_json1_1DetectorList(output.detectors, context)
-        : undefined,
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1GetExternalModelsResult = (
   output: any,
   context: __SerdeContext
@@ -4587,6 +4587,23 @@ const deserializeAws_json1_1GetExternalModelsResult = (
             output.externalModels,
             context
           )
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1GetModelsResult = (
+  output: any,
+  context: __SerdeContext
+): GetModelsResult => {
+  return {
+    __type: "GetModelsResult",
+    models:
+      output.models !== undefined && output.models !== null
+        ? deserializeAws_json1_1ModelList(output.models, context)
         : undefined,
     nextToken:
       output.nextToken !== undefined && output.nextToken !== null
@@ -4621,23 +4638,6 @@ const deserializeAws_json1_1GetModelVersionResult = (
     status:
       output.status !== undefined && output.status !== null
         ? output.status
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1GetModelsResult = (
-  output: any,
-  context: __SerdeContext
-): GetModelsResult => {
-  return {
-    __type: "GetModelsResult",
-    models:
-      output.models !== undefined && output.models !== null
-        ? deserializeAws_json1_1ModelList(output.models, context)
-        : undefined,
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
         : undefined
   } as any;
 };
@@ -4706,6 +4706,19 @@ const deserializeAws_json1_1GetVariablesResult = (
     variables:
       output.variables !== undefined && output.variables !== null
         ? deserializeAws_json1_1VariableList(output.variables, context)
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1InternalServerException = (
+  output: any,
+  context: __SerdeContext
+): InternalServerException => {
+  return {
+    __type: "InternalServerException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
         : undefined
   } as any;
 };
@@ -5133,6 +5146,19 @@ const deserializeAws_json1_1PutOutcomeResult = (
   } as any;
 };
 
+const deserializeAws_json1_1ResourceNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): ResourceNotFoundException => {
+  return {
+    __type: "ResourceNotFoundException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1Role = (
   output: any,
   context: __SerdeContext
@@ -5232,6 +5258,19 @@ const deserializeAws_json1_1RuleList = (
   );
 };
 
+const deserializeAws_json1_1ThrottlingException = (
+  output: any,
+  context: __SerdeContext
+): ThrottlingException => {
+  return {
+    __type: "ThrottlingException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1TrainingDataSource = (
   output: any,
   context: __SerdeContext
@@ -5317,6 +5356,19 @@ const deserializeAws_json1_1UpdateVariableResult = (
   } as any;
 };
 
+const deserializeAws_json1_1ValidationException = (
+  output: any,
+  context: __SerdeContext
+): ValidationException => {
+  return {
+    __type: "ValidationException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1Variable = (
   output: any,
   context: __SerdeContext
@@ -5365,58 +5417,6 @@ const deserializeAws_json1_1VariableList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Variable(entry, context)
   );
-};
-
-const deserializeAws_json1_1InternalServerException = (
-  output: any,
-  context: __SerdeContext
-): InternalServerException => {
-  return {
-    __type: "InternalServerException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    __type: "ResourceNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ThrottlingException = (
-  output: any,
-  context: __SerdeContext
-): ThrottlingException => {
-  return {
-    __type: "ThrottlingException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ValidationException = (
-  output: any,
-  context: __SerdeContext
-): ValidationException => {
-  return {
-    __type: "ValidationException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -779,41 +779,6 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   * <p>Lists the log pattern sets in the specific application.</p>
-   */
-  public listLogPatternSets(
-    args: ListLogPatternSetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListLogPatternSetsCommandOutput>;
-  public listLogPatternSets(
-    args: ListLogPatternSetsCommandInput,
-    cb: (err: any, data?: ListLogPatternSetsCommandOutput) => void
-  ): void;
-  public listLogPatternSets(
-    args: ListLogPatternSetsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListLogPatternSetsCommandOutput) => void
-  ): void;
-  public listLogPatternSets(
-    args: ListLogPatternSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLogPatternSetsCommandOutput) => void),
-    cb?: (err: any, data?: ListLogPatternSetsCommandOutput) => void
-  ): Promise<ListLogPatternSetsCommandOutput> | void {
-    const command = new ListLogPatternSetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Lists the log patterns in the specific log <code>LogPatternSet</code>.</p>
    */
   public listLogPatterns(
@@ -837,6 +802,41 @@ export class ApplicationInsights extends ApplicationInsightsClient {
     cb?: (err: any, data?: ListLogPatternsCommandOutput) => void
   ): Promise<ListLogPatternsCommandOutput> | void {
     const command = new ListLogPatternsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the log pattern sets in the specific application.</p>
+   */
+  public listLogPatternSets(
+    args: ListLogPatternSetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLogPatternSetsCommandOutput>;
+  public listLogPatternSets(
+    args: ListLogPatternSetsCommandInput,
+    cb: (err: any, data?: ListLogPatternSetsCommandOutput) => void
+  ): void;
+  public listLogPatternSets(
+    args: ListLogPatternSetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLogPatternSetsCommandOutput) => void
+  ): void;
+  public listLogPatternSets(
+    args: ListLogPatternSetsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListLogPatternSetsCommandOutput) => void),
+    cb?: (err: any, data?: ListLogPatternSetsCommandOutput) => void
+  ): Promise<ListLogPatternSetsCommandOutput> | void {
+    const command = new ListLogPatternSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

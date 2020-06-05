@@ -8,9 +8,9 @@ import {
   PutDedicatedIpInPoolResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutDedicatedIpInPoolCommand,
-  serializeAws_restJson1_1PutDedicatedIpInPoolCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutDedicatedIpInPoolCommand,
+  serializeAws_restJson1PutDedicatedIpInPoolCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class PutDedicatedIpInPoolCommand extends $Command<
     input: PutDedicatedIpInPoolCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutDedicatedIpInPoolCommand(input, context);
+    return serializeAws_restJson1PutDedicatedIpInPoolCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutDedicatedIpInPoolCommandOutput> {
-    return deserializeAws_restJson1_1PutDedicatedIpInPoolCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1PutDedicatedIpInPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

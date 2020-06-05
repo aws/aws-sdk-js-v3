@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { FlushStageAuthorizersCacheRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1FlushStageAuthorizersCacheCommand,
-  serializeAws_restJson1_1FlushStageAuthorizersCacheCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1FlushStageAuthorizersCacheCommand,
+  serializeAws_restJson1FlushStageAuthorizersCacheCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class FlushStageAuthorizersCacheCommand extends $Command<
     input: FlushStageAuthorizersCacheCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1FlushStageAuthorizersCacheCommand(
+    return serializeAws_restJson1FlushStageAuthorizersCacheCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class FlushStageAuthorizersCacheCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<FlushStageAuthorizersCacheCommandOutput> {
-    return deserializeAws_restJson1_1FlushStageAuthorizersCacheCommand(
+    return deserializeAws_restJson1FlushStageAuthorizersCacheCommand(
       output,
       context
     );

@@ -5,9 +5,9 @@ import {
 } from "../WorkDocsClient";
 import { ActivateUserRequest, ActivateUserResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ActivateUserCommand,
-  serializeAws_restJson1_1ActivateUserCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ActivateUserCommand,
+  serializeAws_restJson1ActivateUserCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ActivateUserCommand extends $Command<
     input: ActivateUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ActivateUserCommand(input, context);
+    return serializeAws_restJson1ActivateUserCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ActivateUserCommandOutput> {
-    return deserializeAws_restJson1_1ActivateUserCommand(output, context);
+    return deserializeAws_restJson1ActivateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

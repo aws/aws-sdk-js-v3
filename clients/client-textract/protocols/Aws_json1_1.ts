@@ -1890,13 +1890,6 @@ const deserializeAws_json1_1HumanLoopQuotaExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1IdList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
 const deserializeAws_json1_1IdempotentParameterMismatchException = (
   output: any,
   context: __SerdeContext
@@ -1912,6 +1905,13 @@ const deserializeAws_json1_1IdempotentParameterMismatchException = (
         ? output.Message
         : undefined
   } as any;
+};
+
+const deserializeAws_json1_1IdList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1InternalServerError = (

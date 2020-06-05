@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { GetMethodRequest, Method } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetMethodCommand,
-  serializeAws_restJson1_1GetMethodCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetMethodCommand,
+  serializeAws_restJson1GetMethodCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetMethodCommand extends $Command<
     input: GetMethodCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetMethodCommand(input, context);
+    return serializeAws_restJson1GetMethodCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMethodCommandOutput> {
-    return deserializeAws_restJson1_1GetMethodCommand(output, context);
+    return deserializeAws_restJson1GetMethodCommand(output, context);
   }
 
   // Start section: command_body_extra

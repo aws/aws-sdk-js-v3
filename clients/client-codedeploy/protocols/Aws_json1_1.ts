@@ -520,21 +520,6 @@ export const serializeAws_json1_1BatchGetDeploymentInstancesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchGetDeploymentTargetsCommand = async (
-  input: BatchGetDeploymentTargetsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeDeploy_20141006.BatchGetDeploymentTargets"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1BatchGetDeploymentTargetsInput(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1BatchGetDeploymentsCommand = async (
   input: BatchGetDeploymentsCommandInput,
   context: __SerdeContext
@@ -546,6 +531,21 @@ export const serializeAws_json1_1BatchGetDeploymentsCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetDeploymentsInput(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1BatchGetDeploymentTargetsCommand = async (
+  input: BatchGetDeploymentTargetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.BatchGetDeploymentTargets"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetDeploymentTargetsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -908,21 +908,6 @@ export const serializeAws_json1_1ListDeploymentInstancesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDeploymentTargetsCommand = async (
-  input: ListDeploymentTargetsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeDeploy_20141006.ListDeploymentTargets"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListDeploymentTargetsInput(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1ListDeploymentsCommand = async (
   input: ListDeploymentsCommandInput,
   context: __SerdeContext
@@ -934,6 +919,21 @@ export const serializeAws_json1_1ListDeploymentsCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDeploymentsInput(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListDeploymentTargetsCommand = async (
+  input: ListDeploymentTargetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.ListDeploymentTargets"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1ListDeploymentTargetsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1738,6 +1738,91 @@ const deserializeAws_json1_1BatchGetDeploymentInstancesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1BatchGetDeploymentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetDeploymentsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1BatchGetDeploymentsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1BatchGetDeploymentsOutput(data, context);
+  const response: BatchGetDeploymentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "BatchGetDeploymentsOutput",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1BatchGetDeploymentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetDeploymentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "BatchLimitExceededException":
+    case "com.amazonaws.codedeploy#BatchLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1BatchLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "DeploymentIdRequiredException":
+    case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
+      response = {
+        ...(await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidDeploymentIdException":
+    case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1BatchGetDeploymentTargetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1857,91 +1942,6 @@ const deserializeAws_json1_1BatchGetDeploymentTargetsCommandError = async (
     case "com.amazonaws.codedeploy#InvalidDeploymentTargetIdException":
       response = {
         ...(await deserializeAws_json1_1InvalidDeploymentTargetIdExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1BatchGetDeploymentsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetDeploymentsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1BatchGetDeploymentsCommandError(
-      output,
-      context
-    );
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetDeploymentsOutput(data, context);
-  const response: BatchGetDeploymentsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "BatchGetDeploymentsOutput",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1BatchGetDeploymentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetDeploymentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "BatchLimitExceededException":
-    case "com.amazonaws.codedeploy#BatchLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1BatchLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "DeploymentIdRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      response = {
-        ...(await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidDeploymentIdException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
           parsedOutput,
           context
         )),
@@ -5004,146 +5004,6 @@ const deserializeAws_json1_1ListDeploymentInstancesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListDeploymentTargetsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeploymentTargetsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListDeploymentTargetsCommandError(
-      output,
-      context
-    );
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1ListDeploymentTargetsOutput(data, context);
-  const response: ListDeploymentTargetsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "ListDeploymentTargetsOutput",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1ListDeploymentTargetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeploymentTargetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "DeploymentDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      response = {
-        ...(await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "DeploymentIdRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      response = {
-        ...(await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "DeploymentNotStartedException":
-    case "com.amazonaws.codedeploy#DeploymentNotStartedException":
-      response = {
-        ...(await deserializeAws_json1_1DeploymentNotStartedExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidDeploymentIdException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidDeploymentInstanceTypeException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentInstanceTypeException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidDeploymentInstanceTypeExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidInstanceStatusException":
-    case "com.amazonaws.codedeploy#InvalidInstanceStatusException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInstanceStatusExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidInstanceTypeException":
-    case "com.amazonaws.codedeploy#InvalidInstanceTypeException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInstanceTypeExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidNextTokenException":
-    case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
 export const deserializeAws_json1_1ListDeploymentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5268,6 +5128,146 @@ const deserializeAws_json1_1ListDeploymentsCommandError = async (
     case "com.amazonaws.codedeploy#InvalidTimeRangeException":
       response = {
         ...(await deserializeAws_json1_1InvalidTimeRangeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListDeploymentTargetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDeploymentTargetsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListDeploymentTargetsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListDeploymentTargetsOutput(data, context);
+  const response: ListDeploymentTargetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListDeploymentTargetsOutput",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListDeploymentTargetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDeploymentTargetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "DeploymentDoesNotExistException":
+    case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
+      response = {
+        ...(await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "DeploymentIdRequiredException":
+    case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
+      response = {
+        ...(await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "DeploymentNotStartedException":
+    case "com.amazonaws.codedeploy#DeploymentNotStartedException":
+      response = {
+        ...(await deserializeAws_json1_1DeploymentNotStartedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidDeploymentIdException":
+    case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidDeploymentInstanceTypeException":
+    case "com.amazonaws.codedeploy#InvalidDeploymentInstanceTypeException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeploymentInstanceTypeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidInstanceStatusException":
+    case "com.amazonaws.codedeploy#InvalidInstanceStatusException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceStatusExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidInstanceTypeException":
+    case "com.amazonaws.codedeploy#InvalidInstanceTypeException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInstanceTypeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.codedeploy#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
           context
         )),
@@ -9034,6 +9034,13 @@ const serializeAws_json1_1AlarmList = (
   return input.map(entry => serializeAws_json1_1Alarm(entry, context));
 };
 
+const serializeAws_json1_1ApplicationsList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
+};
+
 const serializeAws_json1_1AppSpecContent = (
   input: AppSpecContent,
   context: __SerdeContext
@@ -9042,13 +9049,6 @@ const serializeAws_json1_1AppSpecContent = (
     ...(input.content !== undefined && { content: input.content }),
     ...(input.sha256 !== undefined && { sha256: input.sha256 })
   };
-};
-
-const serializeAws_json1_1ApplicationsList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1AutoRollbackConfiguration = (
@@ -9139,20 +9139,6 @@ const serializeAws_json1_1BatchGetDeploymentInstancesInput = (
   };
 };
 
-const serializeAws_json1_1BatchGetDeploymentTargetsInput = (
-  input: BatchGetDeploymentTargetsInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.deploymentId !== undefined && {
-      deploymentId: input.deploymentId
-    }),
-    ...(input.targetIds !== undefined && {
-      targetIds: serializeAws_json1_1TargetIdList(input.targetIds, context)
-    })
-  };
-};
-
 const serializeAws_json1_1BatchGetDeploymentsInput = (
   input: BatchGetDeploymentsInput,
   context: __SerdeContext
@@ -9163,6 +9149,20 @@ const serializeAws_json1_1BatchGetDeploymentsInput = (
         input.deploymentIds,
         context
       )
+    })
+  };
+};
+
+const serializeAws_json1_1BatchGetDeploymentTargetsInput = (
+  input: BatchGetDeploymentTargetsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.deploymentId !== undefined && {
+      deploymentId: input.deploymentId
+    }),
+    ...(input.targetIds !== undefined && {
+      targetIds: serializeAws_json1_1TargetIdList(input.targetIds, context)
     })
   };
 };
@@ -9476,6 +9476,13 @@ const serializeAws_json1_1DeploymentReadyOption = (
   };
 };
 
+const serializeAws_json1_1DeploymentsList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
+};
+
 const serializeAws_json1_1DeploymentStatusList = (
   input: (DeploymentStatus | string)[],
   context: __SerdeContext
@@ -9495,13 +9502,6 @@ const serializeAws_json1_1DeploymentStyle = (
       deploymentType: input.deploymentType
     })
   };
-};
-
-const serializeAws_json1_1DeploymentsList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1DeregisterOnPremisesInstanceInput = (
@@ -9718,6 +9718,13 @@ const serializeAws_json1_1InstanceNameList = (
   return input.map(entry => entry);
 };
 
+const serializeAws_json1_1InstancesList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
+};
+
 const serializeAws_json1_1InstanceStatusList = (
   input: (InstanceStatus | string)[],
   context: __SerdeContext
@@ -9727,13 +9734,6 @@ const serializeAws_json1_1InstanceStatusList = (
 
 const serializeAws_json1_1InstanceTypeList = (
   input: (_InstanceType | string)[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
-const serializeAws_json1_1InstancesList = (
-  input: string[],
   context: __SerdeContext
 ): any => {
   return input.map(entry => entry);
@@ -9810,24 +9810,6 @@ const serializeAws_json1_1ListDeploymentInstancesInput = (
   };
 };
 
-const serializeAws_json1_1ListDeploymentTargetsInput = (
-  input: ListDeploymentTargetsInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.deploymentId !== undefined && {
-      deploymentId: input.deploymentId
-    }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.targetFilters !== undefined && {
-      targetFilters: serializeAws_json1_1TargetFilters(
-        input.targetFilters,
-        context
-      )
-    })
-  };
-};
-
 const serializeAws_json1_1ListDeploymentsInput = (
   input: ListDeploymentsInput,
   context: __SerdeContext
@@ -9853,6 +9835,31 @@ const serializeAws_json1_1ListDeploymentsInput = (
     }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken })
   };
+};
+
+const serializeAws_json1_1ListDeploymentTargetsInput = (
+  input: ListDeploymentTargetsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.deploymentId !== undefined && {
+      deploymentId: input.deploymentId
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.targetFilters !== undefined && {
+      targetFilters: serializeAws_json1_1TargetFilters(
+        input.targetFilters,
+        context
+      )
+    })
+  };
+};
+
+const serializeAws_json1_1ListenerArnList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ListGitHubAccountTokenNamesInput = (
@@ -9887,13 +9894,6 @@ const serializeAws_json1_1ListTagsForResourceInput = (
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn })
   };
-};
-
-const serializeAws_json1_1ListenerArnList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1LoadBalancerInfo = (
@@ -10532,23 +10532,6 @@ const deserializeAws_json1_1AlarmsLimitExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1AppSpecContent = (
-  output: any,
-  context: __SerdeContext
-): AppSpecContent => {
-  return {
-    __type: "AppSpecContent",
-    content:
-      output.content !== undefined && output.content !== null
-        ? output.content
-        : undefined,
-    sha256:
-      output.sha256 !== undefined && output.sha256 !== null
-        ? output.sha256
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1ApplicationAlreadyExistsException = (
   output: any,
   context: __SerdeContext
@@ -10649,6 +10632,23 @@ const deserializeAws_json1_1ApplicationsList = (
   context: __SerdeContext
 ): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1AppSpecContent = (
+  output: any,
+  context: __SerdeContext
+): AppSpecContent => {
+  return {
+    __type: "AppSpecContent",
+    content:
+      output.content !== undefined && output.content !== null
+        ? output.content
+        : undefined,
+    sha256:
+      output.sha256 !== undefined && output.sha256 !== null
+        ? output.sha256
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ArnNotSupportedException = (
@@ -10799,6 +10799,22 @@ const deserializeAws_json1_1BatchGetDeploymentInstancesOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1BatchGetDeploymentsOutput = (
+  output: any,
+  context: __SerdeContext
+): BatchGetDeploymentsOutput => {
+  return {
+    __type: "BatchGetDeploymentsOutput",
+    deploymentsInfo:
+      output.deploymentsInfo !== undefined && output.deploymentsInfo !== null
+        ? deserializeAws_json1_1DeploymentsInfoList(
+            output.deploymentsInfo,
+            context
+          )
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1BatchGetDeploymentTargetsOutput = (
   output: any,
   context: __SerdeContext
@@ -10810,22 +10826,6 @@ const deserializeAws_json1_1BatchGetDeploymentTargetsOutput = (
       output.deploymentTargets !== null
         ? deserializeAws_json1_1DeploymentTargetList(
             output.deploymentTargets,
-            context
-          )
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1BatchGetDeploymentsOutput = (
-  output: any,
-  context: __SerdeContext
-): BatchGetDeploymentsOutput => {
-  return {
-    __type: "BatchGetDeploymentsOutput",
-    deploymentsInfo:
-      output.deploymentsInfo !== undefined && output.deploymentsInfo !== null
-        ? deserializeAws_json1_1DeploymentsInfoList(
-            output.deploymentsInfo,
             context
           )
         : undefined
@@ -11045,19 +11045,6 @@ const deserializeAws_json1_1DeploymentConfigDoesNotExistException = (
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentConfigInUseException = (
-  output: any,
-  context: __SerdeContext
-): DeploymentConfigInUseException => {
-  return {
-    __type: "DeploymentConfigInUseException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1DeploymentConfigInfo = (
   output: any,
   context: __SerdeContext
@@ -11097,6 +11084,19 @@ const deserializeAws_json1_1DeploymentConfigInfo = (
             output.trafficRoutingConfig,
             context
           )
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1DeploymentConfigInUseException = (
+  output: any,
+  context: __SerdeContext
+): DeploymentConfigInUseException => {
+  return {
+    __type: "DeploymentConfigInUseException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
         : undefined
   } as any;
 };
@@ -11601,6 +11601,22 @@ const deserializeAws_json1_1DeploymentReadyOption = (
   } as any;
 };
 
+const deserializeAws_json1_1DeploymentsInfoList = (
+  output: any,
+  context: __SerdeContext
+): DeploymentInfo[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1DeploymentInfo(entry, context)
+  );
+};
+
+const deserializeAws_json1_1DeploymentsList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_1DeploymentStatusMessageList = (
   output: any,
   context: __SerdeContext
@@ -11697,22 +11713,6 @@ const deserializeAws_json1_1DeploymentTargetListSizeExceededException = (
         ? output.message
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1DeploymentsInfoList = (
-  output: any,
-  context: __SerdeContext
-): DeploymentInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1DeploymentInfo(entry, context)
-  );
-};
-
-const deserializeAws_json1_1DeploymentsList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1DescriptionTooLongException = (
@@ -12375,6 +12375,13 @@ const deserializeAws_json1_1InstanceNotRegisteredException = (
   } as any;
 };
 
+const deserializeAws_json1_1InstancesList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_1InstanceSummary = (
   output: any,
   context: __SerdeContext
@@ -12458,13 +12465,6 @@ const deserializeAws_json1_1InstanceTarget = (
         ? output.targetId
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1InstancesList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1InvalidAlarmConfigException = (
@@ -13416,6 +13416,23 @@ const deserializeAws_json1_1ListDeploymentInstancesOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1ListDeploymentsOutput = (
+  output: any,
+  context: __SerdeContext
+): ListDeploymentsOutput => {
+  return {
+    __type: "ListDeploymentsOutput",
+    deployments:
+      output.deployments !== undefined && output.deployments !== null
+        ? deserializeAws_json1_1DeploymentsList(output.deployments, context)
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1ListDeploymentTargetsOutput = (
   output: any,
   context: __SerdeContext
@@ -13433,21 +13450,11 @@ const deserializeAws_json1_1ListDeploymentTargetsOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1ListDeploymentsOutput = (
+const deserializeAws_json1_1ListenerArnList = (
   output: any,
   context: __SerdeContext
-): ListDeploymentsOutput => {
-  return {
-    __type: "ListDeploymentsOutput",
-    deployments:
-      output.deployments !== undefined && output.deployments !== null
-        ? deserializeAws_json1_1DeploymentsList(output.deployments, context)
-        : undefined,
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
-  } as any;
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1ListGitHubAccountTokenNamesOutput = (
@@ -13502,13 +13509,6 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
         ? deserializeAws_json1_1TagList(output.Tags, context)
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1ListenerArnList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1LoadBalancerInfo = (

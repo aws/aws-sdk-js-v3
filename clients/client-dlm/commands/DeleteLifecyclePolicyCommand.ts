@@ -8,9 +8,9 @@ import {
   DeleteLifecyclePolicyResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteLifecyclePolicyCommand,
-  serializeAws_restJson1_1DeleteLifecyclePolicyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteLifecyclePolicyCommand,
+  serializeAws_restJson1DeleteLifecyclePolicyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class DeleteLifecyclePolicyCommand extends $Command<
     input: DeleteLifecyclePolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteLifecyclePolicyCommand(input, context);
+    return serializeAws_restJson1DeleteLifecyclePolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLifecyclePolicyCommandOutput> {
-    return deserializeAws_restJson1_1DeleteLifecyclePolicyCommand(
+    return deserializeAws_restJson1DeleteLifecyclePolicyCommand(
       output,
       context
     );

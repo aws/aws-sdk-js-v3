@@ -8,9 +8,9 @@ import {
   ListOutgoingTypedLinksResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListOutgoingTypedLinksCommand,
-  serializeAws_restJson1_1ListOutgoingTypedLinksCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListOutgoingTypedLinksCommand,
+  serializeAws_restJson1ListOutgoingTypedLinksCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListOutgoingTypedLinksCommand extends $Command<
     input: ListOutgoingTypedLinksCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListOutgoingTypedLinksCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1ListOutgoingTypedLinksCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListOutgoingTypedLinksCommandOutput> {
-    return deserializeAws_restJson1_1ListOutgoingTypedLinksCommand(
+    return deserializeAws_restJson1ListOutgoingTypedLinksCommand(
       output,
       context
     );

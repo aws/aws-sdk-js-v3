@@ -623,6 +623,68 @@ export namespace Details {
 /**
  * <p>Details of the operation to be performed by the job.</p>
  */
+export interface ExportAssetsToS3RequestDetails {
+  __type?: "ExportAssetsToS3RequestDetails";
+  /**
+   * <p>The destination for the asset.</p>
+   */
+  AssetDestinations: AssetDestinationEntry[] | undefined;
+
+  /**
+   * <p>The unique identifier for the data set associated with this export job.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the revision associated with this export request.</p>
+   */
+  RevisionId: string | undefined;
+}
+
+export namespace ExportAssetsToS3RequestDetails {
+  export const filterSensitiveLog = (
+    obj: ExportAssetsToS3RequestDetails
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ExportAssetsToS3RequestDetails =>
+    __isa(o, "ExportAssetsToS3RequestDetails");
+}
+
+/**
+ * <p>Details about the export to Amazon S3 response.</p>
+ */
+export interface ExportAssetsToS3ResponseDetails {
+  __type?: "ExportAssetsToS3ResponseDetails";
+  /**
+   * <p>The destination in Amazon S3 where the asset is exported.</p>
+   */
+  AssetDestinations: AssetDestinationEntry[] | undefined;
+
+  /**
+   * <p>The unique identifier for the data set associated with this export job.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the revision associated with this export response.</p>
+   */
+  RevisionId: string | undefined;
+}
+
+export namespace ExportAssetsToS3ResponseDetails {
+  export const filterSensitiveLog = (
+    obj: ExportAssetsToS3ResponseDetails
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ExportAssetsToS3ResponseDetails =>
+    __isa(o, "ExportAssetsToS3ResponseDetails");
+}
+
+/**
+ * <p>Details of the operation to be performed by the job.</p>
+ */
 export interface ExportAssetToSignedUrlRequestDetails {
   __type?: "ExportAssetToSignedUrlRequestDetails";
   /**
@@ -690,68 +752,6 @@ export namespace ExportAssetToSignedUrlResponseDetails {
   });
   export const isa = (o: any): o is ExportAssetToSignedUrlResponseDetails =>
     __isa(o, "ExportAssetToSignedUrlResponseDetails");
-}
-
-/**
- * <p>Details of the operation to be performed by the job.</p>
- */
-export interface ExportAssetsToS3RequestDetails {
-  __type?: "ExportAssetsToS3RequestDetails";
-  /**
-   * <p>The destination for the asset.</p>
-   */
-  AssetDestinations: AssetDestinationEntry[] | undefined;
-
-  /**
-   * <p>The unique identifier for the data set associated with this export job.</p>
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the revision associated with this export request.</p>
-   */
-  RevisionId: string | undefined;
-}
-
-export namespace ExportAssetsToS3RequestDetails {
-  export const filterSensitiveLog = (
-    obj: ExportAssetsToS3RequestDetails
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ExportAssetsToS3RequestDetails =>
-    __isa(o, "ExportAssetsToS3RequestDetails");
-}
-
-/**
- * <p>Details about the export to Amazon S3 response.</p>
- */
-export interface ExportAssetsToS3ResponseDetails {
-  __type?: "ExportAssetsToS3ResponseDetails";
-  /**
-   * <p>The destination in Amazon S3 where the asset is exported.</p>
-   */
-  AssetDestinations: AssetDestinationEntry[] | undefined;
-
-  /**
-   * <p>The unique identifier for the data set associated with this export job.</p>
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the revision associated with this export response.</p>
-   */
-  RevisionId: string | undefined;
-}
-
-export namespace ExportAssetsToS3ResponseDetails {
-  export const filterSensitiveLog = (
-    obj: ExportAssetsToS3ResponseDetails
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ExportAssetsToS3ResponseDetails =>
-    __isa(o, "ExportAssetsToS3ResponseDetails");
 }
 
 export interface GetAssetRequest {

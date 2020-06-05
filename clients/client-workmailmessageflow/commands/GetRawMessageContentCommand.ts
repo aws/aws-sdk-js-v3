@@ -8,9 +8,9 @@ import {
   GetRawMessageContentResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetRawMessageContentCommand,
-  serializeAws_restJson1_1GetRawMessageContentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetRawMessageContentCommand,
+  serializeAws_restJson1GetRawMessageContentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetRawMessageContentCommand extends $Command<
     input: GetRawMessageContentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetRawMessageContentCommand(input, context);
+    return serializeAws_restJson1GetRawMessageContentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRawMessageContentCommandOutput> {
-    return deserializeAws_restJson1_1GetRawMessageContentCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetRawMessageContentCommand(output, context);
   }
 
   // Start section: command_body_extra

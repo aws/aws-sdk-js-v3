@@ -5,9 +5,9 @@ import {
 } from "../BatchClient";
 import { DeleteJobQueueRequest, DeleteJobQueueResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteJobQueueCommand,
-  serializeAws_restJson1_1DeleteJobQueueCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteJobQueueCommand,
+  serializeAws_restJson1DeleteJobQueueCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class DeleteJobQueueCommand extends $Command<
     input: DeleteJobQueueCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteJobQueueCommand(input, context);
+    return serializeAws_restJson1DeleteJobQueueCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteJobQueueCommandOutput> {
-    return deserializeAws_restJson1_1DeleteJobQueueCommand(output, context);
+    return deserializeAws_restJson1DeleteJobQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

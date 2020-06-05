@@ -5,9 +5,9 @@ import {
 } from "../AppMeshClient";
 import { ListVirtualNodesInput, ListVirtualNodesOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListVirtualNodesCommand,
-  serializeAws_restJson1_1ListVirtualNodesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListVirtualNodesCommand,
+  serializeAws_restJson1ListVirtualNodesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class ListVirtualNodesCommand extends $Command<
     input: ListVirtualNodesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListVirtualNodesCommand(input, context);
+    return serializeAws_restJson1ListVirtualNodesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListVirtualNodesCommandOutput> {
-    return deserializeAws_restJson1_1ListVirtualNodesCommand(output, context);
+    return deserializeAws_restJson1ListVirtualNodesCommand(output, context);
   }
 
   // Start section: command_body_extra

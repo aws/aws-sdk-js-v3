@@ -5,183 +5,6 @@ import {
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export interface AssociateWebACLRequest {
-  __type?: "AssociateWebACLRequest";
-  /**
-   * <p>The ARN (Amazon Resource Name) of the resource to be protected, either an application load balancer or Amazon API Gateway stage.  </p>
-   *          <p>The ARN should be in one of the following formats:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>A unique identifier (ID) for the web ACL. </p>
-   */
-  WebACLId: string | undefined;
-}
-
-export namespace AssociateWebACLRequest {
-  export const filterSensitiveLog = (obj: AssociateWebACLRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AssociateWebACLRequest =>
-    __isa(o, "AssociateWebACLRequest");
-}
-
-export interface AssociateWebACLResponse {
-  __type?: "AssociateWebACLResponse";
-}
-
-export namespace AssociateWebACLResponse {
-  export const filterSensitiveLog = (obj: AssociateWebACLResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AssociateWebACLResponse =>
-    __isa(o, "AssociateWebACLResponse");
-}
-
-export interface DisassociateWebACLRequest {
-  __type?: "DisassociateWebACLRequest";
-  /**
-   * <p>The ARN (Amazon Resource Name) of the resource from which the web ACL is being removed, either an application load balancer or Amazon API Gateway stage.</p>
-   *          <p>The ARN should be in one of the following formats:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  ResourceArn: string | undefined;
-}
-
-export namespace DisassociateWebACLRequest {
-  export const filterSensitiveLog = (obj: DisassociateWebACLRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DisassociateWebACLRequest =>
-    __isa(o, "DisassociateWebACLRequest");
-}
-
-export interface DisassociateWebACLResponse {
-  __type?: "DisassociateWebACLResponse";
-}
-
-export namespace DisassociateWebACLResponse {
-  export const filterSensitiveLog = (obj: DisassociateWebACLResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DisassociateWebACLResponse =>
-    __isa(o, "DisassociateWebACLResponse");
-}
-
-export interface GetWebACLForResourceRequest {
-  __type?: "GetWebACLForResourceRequest";
-  /**
-   * <p>The ARN (Amazon Resource Name) of the resource for which to get the web ACL, either an application load balancer or Amazon API Gateway stage.</p>
-   *          <p>The ARN should be in one of the following formats:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  ResourceArn: string | undefined;
-}
-
-export namespace GetWebACLForResourceRequest {
-  export const filterSensitiveLog = (
-    obj: GetWebACLForResourceRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetWebACLForResourceRequest =>
-    __isa(o, "GetWebACLForResourceRequest");
-}
-
-export interface GetWebACLForResourceResponse {
-  __type?: "GetWebACLForResourceResponse";
-  /**
-   * <p>Information about the web ACL that you specified in the <code>GetWebACLForResource</code> request. If there is no associated resource, a null WebACLSummary is returned.</p>
-   */
-  WebACLSummary?: WebACLSummary;
-}
-
-export namespace GetWebACLForResourceResponse {
-  export const filterSensitiveLog = (
-    obj: GetWebACLForResourceResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetWebACLForResourceResponse =>
-    __isa(o, "GetWebACLForResourceResponse");
-}
-
-export interface ListResourcesForWebACLRequest {
-  __type?: "ListResourcesForWebACLRequest";
-  /**
-   * <p>The type of resource to list, either an application load balancer or Amazon API Gateway.</p>
-   */
-  ResourceType?: ResourceType | string;
-
-  /**
-   * <p>The unique identifier (ID) of the web ACL for which to list the associated resources.</p>
-   */
-  WebACLId: string | undefined;
-}
-
-export namespace ListResourcesForWebACLRequest {
-  export const filterSensitiveLog = (
-    obj: ListResourcesForWebACLRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListResourcesForWebACLRequest =>
-    __isa(o, "ListResourcesForWebACLRequest");
-}
-
-export interface ListResourcesForWebACLResponse {
-  __type?: "ListResourcesForWebACLResponse";
-  /**
-   * <p>An array of ARNs (Amazon Resource Names) of the resources associated with the specified web ACL. An array with zero elements is returned if there are no resources associated with the web ACL.</p>
-   */
-  ResourceArns?: string[];
-}
-
-export namespace ListResourcesForWebACLResponse {
-  export const filterSensitiveLog = (
-    obj: ListResourcesForWebACLResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListResourcesForWebACLResponse =>
-    __isa(o, "ListResourcesForWebACLResponse");
-}
-
 /**
  * <p>The <code>ActivatedRule</code> object in an <a>UpdateWebACL</a> request specifies a <code>Rule</code> that you want to insert or delete,
  * 			the priority of the <code>Rule</code> in the <code>WebACL</code>, and the action that you want AWS WAF to take when a web request matches the <code>Rule</code>
@@ -299,6 +122,52 @@ export namespace ActivatedRule {
     ...obj
   });
   export const isa = (o: any): o is ActivatedRule => __isa(o, "ActivatedRule");
+}
+
+export interface AssociateWebACLRequest {
+  __type?: "AssociateWebACLRequest";
+  /**
+   * <p>The ARN (Amazon Resource Name) of the resource to be protected, either an application load balancer or Amazon API Gateway stage.  </p>
+   *          <p>The ARN should be in one of the following formats:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>A unique identifier (ID) for the web ACL. </p>
+   */
+  WebACLId: string | undefined;
+}
+
+export namespace AssociateWebACLRequest {
+  export const filterSensitiveLog = (obj: AssociateWebACLRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AssociateWebACLRequest =>
+    __isa(o, "AssociateWebACLRequest");
+}
+
+export interface AssociateWebACLResponse {
+  __type?: "AssociateWebACLResponse";
+}
+
+export namespace AssociateWebACLResponse {
+  export const filterSensitiveLog = (obj: AssociateWebACLResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AssociateWebACLResponse =>
+    __isa(o, "AssociateWebACLResponse");
 }
 
 /**
@@ -1825,6 +1694,47 @@ export namespace DeleteXssMatchSetResponse {
     __isa(o, "DeleteXssMatchSetResponse");
 }
 
+export interface DisassociateWebACLRequest {
+  __type?: "DisassociateWebACLRequest";
+  /**
+   * <p>The ARN (Amazon Resource Name) of the resource from which the web ACL is being removed, either an application load balancer or Amazon API Gateway stage.</p>
+   *          <p>The ARN should be in one of the following formats:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace DisassociateWebACLRequest {
+  export const filterSensitiveLog = (obj: DisassociateWebACLRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DisassociateWebACLRequest =>
+    __isa(o, "DisassociateWebACLRequest");
+}
+
+export interface DisassociateWebACLResponse {
+  __type?: "DisassociateWebACLResponse";
+}
+
+export namespace DisassociateWebACLResponse {
+  export const filterSensitiveLog = (obj: DisassociateWebACLResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DisassociateWebACLResponse =>
+    __isa(o, "DisassociateWebACLResponse");
+}
+
 /**
  * <p>The rule to exclude from a rule group. This is applicable only when the
  *             <code>ActivatedRule</code> refers to a <code>RuleGroup</code>. The rule must belong to
@@ -2960,6 +2870,55 @@ export namespace GetSqlInjectionMatchSetResponse {
     __isa(o, "GetSqlInjectionMatchSetResponse");
 }
 
+export interface GetWebACLForResourceRequest {
+  __type?: "GetWebACLForResourceRequest";
+  /**
+   * <p>The ARN (Amazon Resource Name) of the resource for which to get the web ACL, either an application load balancer or Amazon API Gateway stage.</p>
+   *          <p>The ARN should be in one of the following formats:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace GetWebACLForResourceRequest {
+  export const filterSensitiveLog = (
+    obj: GetWebACLForResourceRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetWebACLForResourceRequest =>
+    __isa(o, "GetWebACLForResourceRequest");
+}
+
+export interface GetWebACLForResourceResponse {
+  __type?: "GetWebACLForResourceResponse";
+  /**
+   * <p>Information about the web ACL that you specified in the <code>GetWebACLForResource</code> request. If there is no associated resource, a null WebACLSummary is returned.</p>
+   */
+  WebACLSummary?: WebACLSummary;
+}
+
+export namespace GetWebACLForResourceResponse {
+  export const filterSensitiveLog = (
+    obj: GetWebACLForResourceResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetWebACLForResourceResponse =>
+    __isa(o, "GetWebACLForResourceResponse");
+}
+
 export interface GetWebACLRequest {
   __type?: "GetWebACLRequest";
   /**
@@ -3704,6 +3663,47 @@ export namespace ListRegexPatternSetsResponse {
   });
   export const isa = (o: any): o is ListRegexPatternSetsResponse =>
     __isa(o, "ListRegexPatternSetsResponse");
+}
+
+export interface ListResourcesForWebACLRequest {
+  __type?: "ListResourcesForWebACLRequest";
+  /**
+   * <p>The type of resource to list, either an application load balancer or Amazon API Gateway.</p>
+   */
+  ResourceType?: ResourceType | string;
+
+  /**
+   * <p>The unique identifier (ID) of the web ACL for which to list the associated resources.</p>
+   */
+  WebACLId: string | undefined;
+}
+
+export namespace ListResourcesForWebACLRequest {
+  export const filterSensitiveLog = (
+    obj: ListResourcesForWebACLRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListResourcesForWebACLRequest =>
+    __isa(o, "ListResourcesForWebACLRequest");
+}
+
+export interface ListResourcesForWebACLResponse {
+  __type?: "ListResourcesForWebACLResponse";
+  /**
+   * <p>An array of ARNs (Amazon Resource Names) of the resources associated with the specified web ACL. An array with zero elements is returned if there are no resources associated with the web ACL.</p>
+   */
+  ResourceArns?: string[];
+}
+
+export namespace ListResourcesForWebACLResponse {
+  export const filterSensitiveLog = (
+    obj: ListResourcesForWebACLResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListResourcesForWebACLResponse =>
+    __isa(o, "ListResourcesForWebACLResponse");
 }
 
 export interface ListRuleGroupsRequest {
@@ -6303,6 +6303,48 @@ export namespace UpdateXssMatchSetResponse {
     __isa(o, "UpdateXssMatchSetResponse");
 }
 
+/**
+ * <p>For the action that is associated with a rule in a <code>WebACL</code>, specifies the action that you want AWS WAF to perform when a
+ * 			web request matches all of the conditions in a rule. For the default action in a <code>WebACL</code>, specifies the action that you want
+ * 			AWS WAF to take when a web request doesn't match all of the conditions in any of the rules in a <code>WebACL</code>. </p>
+ */
+export interface WafAction {
+  __type?: "WafAction";
+  /**
+   * <p>Specifies how you want AWS WAF to respond to requests that match the settings in a <code>Rule</code>. Valid settings include the following:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code>: AWS WAF allows requests</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code>: AWS WAF blocks requests</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COUNT</code>: AWS WAF increments a counter of the requests that match all of the conditions in the rule.
+   * 				AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify <code>COUNT</code>
+   * 				for the default action for a <code>WebACL</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Type: WafActionType | string | undefined;
+}
+
+export namespace WafAction {
+  export const filterSensitiveLog = (obj: WafAction): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is WafAction => __isa(o, "WafAction");
+}
+
+export enum WafActionType {
+  ALLOW = "ALLOW",
+  BLOCK = "BLOCK",
+  COUNT = "COUNT"
+}
+
 export interface WAFBadRequestException
   extends __SmithyException,
     $MetadataBearer {
@@ -6660,6 +6702,31 @@ export namespace WAFNonexistentItemException {
 }
 
 /**
+ * <p>The action to take if any rule within the <code>RuleGroup</code> matches a request. </p>
+ */
+export interface WafOverrideAction {
+  __type?: "WafOverrideAction";
+  /**
+   * <p>
+   *             <code>COUNT</code> overrides the action specified by the individual rule within a <code>RuleGroup</code> . If set to <code>NONE</code>, the rule's action will take place.</p>
+   */
+  Type: WafOverrideActionType | string | undefined;
+}
+
+export namespace WafOverrideAction {
+  export const filterSensitiveLog = (obj: WafOverrideAction): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is WafOverrideAction =>
+    __isa(o, "WafOverrideAction");
+}
+
+export enum WafOverrideActionType {
+  COUNT = "COUNT",
+  NONE = "NONE"
+}
+
+/**
  * <p>The operation failed because you tried to delete an object that is still in use. For example:</p>
  * 		       <ul>
  *             <li>
@@ -6684,6 +6751,12 @@ export namespace WAFReferencedItemException {
   });
   export const isa = (o: any): o is WAFReferencedItemException =>
     __isa(o, "WAFReferencedItemException");
+}
+
+export enum WafRuleType {
+  GROUP = "GROUP",
+  RATE_BASED = "RATE_BASED",
+  REGULAR = "REGULAR"
 }
 
 /**
@@ -6801,79 +6874,6 @@ export namespace WAFUnavailableEntityException {
   });
   export const isa = (o: any): o is WAFUnavailableEntityException =>
     __isa(o, "WAFUnavailableEntityException");
-}
-
-/**
- * <p>For the action that is associated with a rule in a <code>WebACL</code>, specifies the action that you want AWS WAF to perform when a
- * 			web request matches all of the conditions in a rule. For the default action in a <code>WebACL</code>, specifies the action that you want
- * 			AWS WAF to take when a web request doesn't match all of the conditions in any of the rules in a <code>WebACL</code>. </p>
- */
-export interface WafAction {
-  __type?: "WafAction";
-  /**
-   * <p>Specifies how you want AWS WAF to respond to requests that match the settings in a <code>Rule</code>. Valid settings include the following:</p>
-   * 		       <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALLOW</code>: AWS WAF allows requests</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code>: AWS WAF blocks requests</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COUNT</code>: AWS WAF increments a counter of the requests that match all of the conditions in the rule.
-   * 				AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify <code>COUNT</code>
-   * 				for the default action for a <code>WebACL</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  Type: WafActionType | string | undefined;
-}
-
-export namespace WafAction {
-  export const filterSensitiveLog = (obj: WafAction): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is WafAction => __isa(o, "WafAction");
-}
-
-export enum WafActionType {
-  ALLOW = "ALLOW",
-  BLOCK = "BLOCK",
-  COUNT = "COUNT"
-}
-
-/**
- * <p>The action to take if any rule within the <code>RuleGroup</code> matches a request. </p>
- */
-export interface WafOverrideAction {
-  __type?: "WafOverrideAction";
-  /**
-   * <p>
-   *             <code>COUNT</code> overrides the action specified by the individual rule within a <code>RuleGroup</code> . If set to <code>NONE</code>, the rule's action will take place.</p>
-   */
-  Type: WafOverrideActionType | string | undefined;
-}
-
-export namespace WafOverrideAction {
-  export const filterSensitiveLog = (obj: WafOverrideAction): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is WafOverrideAction =>
-    __isa(o, "WafOverrideAction");
-}
-
-export enum WafOverrideActionType {
-  COUNT = "COUNT",
-  NONE = "NONE"
-}
-
-export enum WafRuleType {
-  GROUP = "GROUP",
-  RATE_BASED = "RATE_BASED",
-  REGULAR = "REGULAR"
 }
 
 /**

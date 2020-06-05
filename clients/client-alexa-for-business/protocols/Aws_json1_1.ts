@@ -649,36 +649,6 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export const serializeAws_json1_1SendAnnouncementCommand = async (
-  input: SendAnnouncementCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AlexaForBusiness.SendAnnouncement"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1SendAnnouncementRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1DeleteDeviceUsageDataCommand = async (
-  input: DeleteDeviceUsageDataCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AlexaForBusiness.DeleteDeviceUsageData"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteDeviceUsageDataRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1ApproveSkillCommand = async (
   input: ApproveSkillCommandInput,
   context: __SerdeContext
@@ -1001,6 +971,21 @@ export const serializeAws_json1_1DeleteDeviceCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDeviceRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteDeviceUsageDataCommand = async (
+  input: DeleteDeviceUsageDataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.DeleteDeviceUsageData"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDeviceUsageDataRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1777,6 +1762,21 @@ export const serializeAws_json1_1SearchUsersCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1SendAnnouncementCommand = async (
+  input: SendAnnouncementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.SendAnnouncement"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1SendAnnouncementRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1SendInvitationCommand = async (
   input: SendInvitationCommandInput,
   context: __SerdeContext
@@ -2013,162 +2013,6 @@ export const serializeAws_json1_1UpdateSkillGroupCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1SendAnnouncementCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendAnnouncementCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1SendAnnouncementCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1SendAnnouncementResponse(data, context);
-  const response: SendAnnouncementCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "SendAnnouncementResponse",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1SendAnnouncementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendAnnouncementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.a4b.api#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "LimitExceededException":
-    case "com.amazonaws.a4b.api#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1DeleteDeviceUsageDataCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDeviceUsageDataCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteDeviceUsageDataCommandError(
-      output,
-      context
-    );
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDeviceUsageDataResponse(data, context);
-  const response: DeleteDeviceUsageDataCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DeleteDeviceUsageDataResponse",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DeleteDeviceUsageDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDeviceUsageDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "DeviceNotRegisteredException":
-    case "com.amazonaws.a4b.api#DeviceNotRegisteredException":
-      response = {
-        ...(await deserializeAws_json1_1DeviceNotRegisteredExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "LimitExceededException":
-    case "com.amazonaws.a4b.api#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
 export const deserializeAws_json1_1ApproveSkillCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2202,7 +2046,7 @@ const deserializeAws_json1_1ApproveSkillCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2213,7 +2057,7 @@ const deserializeAws_json1_1ApproveSkillCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.a4b.api#LimitExceededException":
+    case "com.amazonaws.alexaforbusiness#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2224,7 +2068,7 @@ const deserializeAws_json1_1ApproveSkillCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2290,7 +2134,7 @@ const deserializeAws_json1_1AssociateContactWithAddressBookCommandError = async 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
-    case "com.amazonaws.a4b.api#LimitExceededException":
+    case "com.amazonaws.alexaforbusiness#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2356,7 +2200,7 @@ const deserializeAws_json1_1AssociateDeviceWithNetworkProfileCommandError = asyn
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2367,7 +2211,7 @@ const deserializeAws_json1_1AssociateDeviceWithNetworkProfileCommandError = asyn
       };
       break;
     case "DeviceNotRegisteredException":
-    case "com.amazonaws.a4b.api#DeviceNotRegisteredException":
+    case "com.amazonaws.alexaforbusiness#DeviceNotRegisteredException":
       response = {
         ...(await deserializeAws_json1_1DeviceNotRegisteredExceptionResponse(
           parsedOutput,
@@ -2378,7 +2222,7 @@ const deserializeAws_json1_1AssociateDeviceWithNetworkProfileCommandError = asyn
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2444,7 +2288,7 @@ const deserializeAws_json1_1AssociateDeviceWithRoomCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2455,7 +2299,7 @@ const deserializeAws_json1_1AssociateDeviceWithRoomCommandError = async (
       };
       break;
     case "DeviceNotRegisteredException":
-    case "com.amazonaws.a4b.api#DeviceNotRegisteredException":
+    case "com.amazonaws.alexaforbusiness#DeviceNotRegisteredException":
       response = {
         ...(await deserializeAws_json1_1DeviceNotRegisteredExceptionResponse(
           parsedOutput,
@@ -2466,7 +2310,7 @@ const deserializeAws_json1_1AssociateDeviceWithRoomCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.a4b.api#LimitExceededException":
+    case "com.amazonaws.alexaforbusiness#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2532,7 +2376,7 @@ const deserializeAws_json1_1AssociateSkillGroupWithRoomCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2598,7 +2442,7 @@ const deserializeAws_json1_1AssociateSkillWithSkillGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2609,7 +2453,7 @@ const deserializeAws_json1_1AssociateSkillWithSkillGroupCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2620,7 +2464,7 @@ const deserializeAws_json1_1AssociateSkillWithSkillGroupCommandError = async (
       };
       break;
     case "SkillNotLinkedException":
-    case "com.amazonaws.awsmoneypennyresourcemanagement#SkillNotLinkedException":
+    case "com.amazonaws.alexaforbusiness#SkillNotLinkedException":
       response = {
         ...(await deserializeAws_json1_1SkillNotLinkedExceptionResponse(
           parsedOutput,
@@ -2686,7 +2530,7 @@ const deserializeAws_json1_1AssociateSkillWithUsersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2697,7 +2541,7 @@ const deserializeAws_json1_1AssociateSkillWithUsersCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2757,7 +2601,7 @@ const deserializeAws_json1_1CreateAddressBookCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
-    case "com.amazonaws.a4b.api#AlreadyExistsException":
+    case "com.amazonaws.alexaforbusiness#AlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
           parsedOutput,
@@ -2768,7 +2612,7 @@ const deserializeAws_json1_1CreateAddressBookCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.a4b.api#LimitExceededException":
+    case "com.amazonaws.alexaforbusiness#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2834,7 +2678,7 @@ const deserializeAws_json1_1CreateBusinessReportScheduleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
-    case "com.amazonaws.a4b.api#AlreadyExistsException":
+    case "com.amazonaws.alexaforbusiness#AlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
           parsedOutput,
@@ -2900,7 +2744,7 @@ const deserializeAws_json1_1CreateConferenceProviderCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
-    case "com.amazonaws.a4b.api#AlreadyExistsException":
+    case "com.amazonaws.alexaforbusiness#AlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
           parsedOutput,
@@ -2960,7 +2804,7 @@ const deserializeAws_json1_1CreateContactCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
-    case "com.amazonaws.a4b.api#AlreadyExistsException":
+    case "com.amazonaws.alexaforbusiness#AlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
           parsedOutput,
@@ -2971,7 +2815,7 @@ const deserializeAws_json1_1CreateContactCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.a4b.api#LimitExceededException":
+    case "com.amazonaws.alexaforbusiness#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3034,7 +2878,7 @@ const deserializeAws_json1_1CreateGatewayGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
-    case "com.amazonaws.a4b.api#AlreadyExistsException":
+    case "com.amazonaws.alexaforbusiness#AlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
           parsedOutput,
@@ -3045,7 +2889,7 @@ const deserializeAws_json1_1CreateGatewayGroupCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.a4b.api#LimitExceededException":
+    case "com.amazonaws.alexaforbusiness#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3108,7 +2952,7 @@ const deserializeAws_json1_1CreateNetworkProfileCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
-    case "com.amazonaws.a4b.api#AlreadyExistsException":
+    case "com.amazonaws.alexaforbusiness#AlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
           parsedOutput,
@@ -3119,7 +2963,7 @@ const deserializeAws_json1_1CreateNetworkProfileCommandError = async (
       };
       break;
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -3129,19 +2973,8 @@ const deserializeAws_json1_1CreateNetworkProfileCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "LimitExceededException":
-    case "com.amazonaws.a4b.api#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InvalidCertificateAuthorityException":
-    case "com.amazonaws.awsmoneypennyresourcemanagement#InvalidCertificateAuthorityException":
+    case "com.amazonaws.alexaforbusiness#InvalidCertificateAuthorityException":
       response = {
         ...(await deserializeAws_json1_1InvalidCertificateAuthorityExceptionResponse(
           parsedOutput,
@@ -3152,9 +2985,20 @@ const deserializeAws_json1_1CreateNetworkProfileCommandError = async (
       };
       break;
     case "InvalidServiceLinkedRoleStateException":
-    case "com.amazonaws.awsmoneypennyresourcemanagement#InvalidServiceLinkedRoleStateException":
+    case "com.amazonaws.alexaforbusiness#InvalidServiceLinkedRoleStateException":
       response = {
         ...(await deserializeAws_json1_1InvalidServiceLinkedRoleStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.alexaforbusiness#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
           context
         )),
@@ -3212,7 +3056,7 @@ const deserializeAws_json1_1CreateProfileCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
-    case "com.amazonaws.a4b.api#AlreadyExistsException":
+    case "com.amazonaws.alexaforbusiness#AlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
           parsedOutput,
@@ -3223,7 +3067,7 @@ const deserializeAws_json1_1CreateProfileCommandError = async (
       };
       break;
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -3234,7 +3078,7 @@ const deserializeAws_json1_1CreateProfileCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.a4b.api#LimitExceededException":
+    case "com.amazonaws.alexaforbusiness#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3294,7 +3138,7 @@ const deserializeAws_json1_1CreateRoomCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
-    case "com.amazonaws.a4b.api#AlreadyExistsException":
+    case "com.amazonaws.alexaforbusiness#AlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
           parsedOutput,
@@ -3305,7 +3149,7 @@ const deserializeAws_json1_1CreateRoomCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.a4b.api#LimitExceededException":
+    case "com.amazonaws.alexaforbusiness#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3365,7 +3209,7 @@ const deserializeAws_json1_1CreateSkillGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
-    case "com.amazonaws.a4b.api#AlreadyExistsException":
+    case "com.amazonaws.alexaforbusiness#AlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
           parsedOutput,
@@ -3376,7 +3220,7 @@ const deserializeAws_json1_1CreateSkillGroupCommandError = async (
       };
       break;
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -3387,7 +3231,7 @@ const deserializeAws_json1_1CreateSkillGroupCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.a4b.api#LimitExceededException":
+    case "com.amazonaws.alexaforbusiness#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3447,7 +3291,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -3458,7 +3302,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.a4b.api#LimitExceededException":
+    case "com.amazonaws.alexaforbusiness#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3469,7 +3313,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.a4b.api#ResourceInUseException":
+    case "com.amazonaws.alexaforbusiness#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -3529,7 +3373,7 @@ const deserializeAws_json1_1DeleteAddressBookCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -3540,7 +3384,7 @@ const deserializeAws_json1_1DeleteAddressBookCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3606,7 +3450,7 @@ const deserializeAws_json1_1DeleteBusinessReportScheduleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -3617,7 +3461,7 @@ const deserializeAws_json1_1DeleteBusinessReportScheduleCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3683,7 +3527,7 @@ const deserializeAws_json1_1DeleteConferenceProviderCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3743,7 +3587,7 @@ const deserializeAws_json1_1DeleteContactCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -3754,7 +3598,7 @@ const deserializeAws_json1_1DeleteContactCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3814,7 +3658,7 @@ const deserializeAws_json1_1DeleteDeviceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -3824,8 +3668,19 @@ const deserializeAws_json1_1DeleteDeviceCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidCertificateAuthorityException":
+    case "com.amazonaws.alexaforbusiness#InvalidCertificateAuthorityException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidCertificateAuthorityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3835,10 +3690,84 @@ const deserializeAws_json1_1DeleteDeviceCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "InvalidCertificateAuthorityException":
-    case "com.amazonaws.awsmoneypennyresourcemanagement#InvalidCertificateAuthorityException":
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
-        ...(await deserializeAws_json1_1InvalidCertificateAuthorityExceptionResponse(
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteDeviceUsageDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDeviceUsageDataCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteDeviceUsageDataCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteDeviceUsageDataResponse(data, context);
+  const response: DeleteDeviceUsageDataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteDeviceUsageDataResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteDeviceUsageDataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDeviceUsageDataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "DeviceNotRegisteredException":
+    case "com.amazonaws.alexaforbusiness#DeviceNotRegisteredException":
+      response = {
+        ...(await deserializeAws_json1_1DeviceNotRegisteredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.alexaforbusiness#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
           context
         )),
@@ -3899,7 +3828,7 @@ const deserializeAws_json1_1DeleteGatewayGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceAssociatedException":
-    case "com.amazonaws.awsmoneypennyresourcemanagement#ResourceAssociatedException":
+    case "com.amazonaws.alexaforbusiness#ResourceAssociatedException":
       response = {
         ...(await deserializeAws_json1_1ResourceAssociatedExceptionResponse(
           parsedOutput,
@@ -3962,7 +3891,7 @@ const deserializeAws_json1_1DeleteNetworkProfileCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -3973,7 +3902,7 @@ const deserializeAws_json1_1DeleteNetworkProfileCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3984,7 +3913,7 @@ const deserializeAws_json1_1DeleteNetworkProfileCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.a4b.api#ResourceInUseException":
+    case "com.amazonaws.alexaforbusiness#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -4044,7 +3973,7 @@ const deserializeAws_json1_1DeleteProfileCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -4055,7 +3984,7 @@ const deserializeAws_json1_1DeleteProfileCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4115,7 +4044,7 @@ const deserializeAws_json1_1DeleteRoomCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -4126,7 +4055,7 @@ const deserializeAws_json1_1DeleteRoomCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4192,7 +4121,7 @@ const deserializeAws_json1_1DeleteRoomSkillParameterCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -4258,7 +4187,7 @@ const deserializeAws_json1_1DeleteSkillAuthorizationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -4269,7 +4198,7 @@ const deserializeAws_json1_1DeleteSkillAuthorizationCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4329,7 +4258,7 @@ const deserializeAws_json1_1DeleteSkillGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -4340,7 +4269,7 @@ const deserializeAws_json1_1DeleteSkillGroupCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4400,7 +4329,7 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -4411,7 +4340,7 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4532,7 +4461,7 @@ const deserializeAws_json1_1DisassociateDeviceFromRoomCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -4543,7 +4472,7 @@ const deserializeAws_json1_1DisassociateDeviceFromRoomCommandError = async (
       };
       break;
     case "DeviceNotRegisteredException":
-    case "com.amazonaws.a4b.api#DeviceNotRegisteredException":
+    case "com.amazonaws.alexaforbusiness#DeviceNotRegisteredException":
       response = {
         ...(await deserializeAws_json1_1DeviceNotRegisteredExceptionResponse(
           parsedOutput,
@@ -4609,7 +4538,7 @@ const deserializeAws_json1_1DisassociateSkillFromSkillGroupCommandError = async 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -4620,7 +4549,7 @@ const deserializeAws_json1_1DisassociateSkillFromSkillGroupCommandError = async 
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4686,7 +4615,7 @@ const deserializeAws_json1_1DisassociateSkillFromUsersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -4697,7 +4626,7 @@ const deserializeAws_json1_1DisassociateSkillFromUsersCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4763,7 +4692,7 @@ const deserializeAws_json1_1DisassociateSkillGroupFromRoomCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -4829,7 +4758,7 @@ const deserializeAws_json1_1ForgetSmartHomeAppliancesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4889,7 +4818,7 @@ const deserializeAws_json1_1GetAddressBookCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4955,7 +4884,7 @@ const deserializeAws_json1_1GetConferencePreferenceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5018,7 +4947,7 @@ const deserializeAws_json1_1GetConferenceProviderCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5078,7 +5007,7 @@ const deserializeAws_json1_1GetContactCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5138,7 +5067,7 @@ const deserializeAws_json1_1GetDeviceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5198,7 +5127,7 @@ const deserializeAws_json1_1GetGatewayCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5258,7 +5187,7 @@ const deserializeAws_json1_1GetGatewayGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5324,7 +5253,7 @@ const deserializeAws_json1_1GetInvitationConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5383,10 +5312,10 @@ const deserializeAws_json1_1GetNetworkProfileCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "InvalidSecretsManagerResourceException":
+    case "com.amazonaws.alexaforbusiness#InvalidSecretsManagerResourceException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+        ...(await deserializeAws_json1_1InvalidSecretsManagerResourceExceptionResponse(
           parsedOutput,
           context
         )),
@@ -5394,10 +5323,10 @@ const deserializeAws_json1_1GetNetworkProfileCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "InvalidSecretsManagerResourceException":
-    case "com.amazonaws.awsmoneypennyresourcemanagement#InvalidSecretsManagerResourceException":
+    case "NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1InvalidSecretsManagerResourceExceptionResponse(
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
           context
         )),
@@ -5455,7 +5384,7 @@ const deserializeAws_json1_1GetProfileCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5515,7 +5444,7 @@ const deserializeAws_json1_1GetRoomCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5578,7 +5507,7 @@ const deserializeAws_json1_1GetRoomSkillParameterCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5638,7 +5567,7 @@ const deserializeAws_json1_1GetSkillGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5808,7 +5737,7 @@ const deserializeAws_json1_1ListDeviceEventsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6131,7 +6060,7 @@ const deserializeAws_json1_1ListSmartHomeAppliancesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6191,7 +6120,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6257,7 +6186,7 @@ const deserializeAws_json1_1PutConferencePreferenceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6323,7 +6252,7 @@ const deserializeAws_json1_1PutInvitationConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -6334,7 +6263,7 @@ const deserializeAws_json1_1PutInvitationConfigurationCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6397,7 +6326,7 @@ const deserializeAws_json1_1PutRoomSkillParameterCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -6460,7 +6389,7 @@ const deserializeAws_json1_1PutSkillAuthorizationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -6471,7 +6400,7 @@ const deserializeAws_json1_1PutSkillAuthorizationCommandError = async (
       };
       break;
     case "UnauthorizedException":
-    case "com.amazonaws.a4b.api#UnauthorizedException":
+    case "com.amazonaws.alexaforbusiness#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(
           parsedOutput,
@@ -6531,7 +6460,7 @@ const deserializeAws_json1_1RegisterAVSDeviceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -6541,10 +6470,10 @@ const deserializeAws_json1_1RegisterAVSDeviceCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "LimitExceededException":
-    case "com.amazonaws.a4b.api#LimitExceededException":
+    case "InvalidDeviceException":
+    case "com.amazonaws.alexaforbusiness#InvalidDeviceException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+        ...(await deserializeAws_json1_1InvalidDeviceExceptionResponse(
           parsedOutput,
           context
         )),
@@ -6552,10 +6481,10 @@ const deserializeAws_json1_1RegisterAVSDeviceCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "InvalidDeviceException":
-    case "com.amazonaws.awsmoneypennyresourcemanagement#InvalidDeviceException":
+    case "LimitExceededException":
+    case "com.amazonaws.alexaforbusiness#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1InvalidDeviceExceptionResponse(
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
           context
         )),
@@ -6613,7 +6542,7 @@ const deserializeAws_json1_1RejectSkillCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -6624,7 +6553,7 @@ const deserializeAws_json1_1RejectSkillCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6684,7 +6613,7 @@ const deserializeAws_json1_1ResolveRoomCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6744,7 +6673,7 @@ const deserializeAws_json1_1RevokeInvitationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -6755,7 +6684,7 @@ const deserializeAws_json1_1RevokeInvitationCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7180,6 +7109,77 @@ const deserializeAws_json1_1SearchUsersCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1SendAnnouncementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendAnnouncementCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1SendAnnouncementCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1SendAnnouncementResponse(data, context);
+  const response: SendAnnouncementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "SendAnnouncementResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1SendAnnouncementCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendAnnouncementCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AlreadyExistsException":
+    case "com.amazonaws.alexaforbusiness#AlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.alexaforbusiness#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1SendInvitationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7213,7 +7213,7 @@ const deserializeAws_json1_1SendInvitationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -7223,10 +7223,10 @@ const deserializeAws_json1_1SendInvitationCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "InvalidUserStatusException":
+    case "com.amazonaws.alexaforbusiness#InvalidUserStatusException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+        ...(await deserializeAws_json1_1InvalidUserStatusExceptionResponse(
           parsedOutput,
           context
         )),
@@ -7234,10 +7234,10 @@ const deserializeAws_json1_1SendInvitationCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "InvalidUserStatusException":
-    case "com.amazonaws.awsmoneypennyresourcemanagement#InvalidUserStatusException":
+    case "NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1InvalidUserStatusExceptionResponse(
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
           context
         )),
@@ -7295,7 +7295,7 @@ const deserializeAws_json1_1StartDeviceSyncCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DeviceNotRegisteredException":
-    case "com.amazonaws.a4b.api#DeviceNotRegisteredException":
+    case "com.amazonaws.alexaforbusiness#DeviceNotRegisteredException":
       response = {
         ...(await deserializeAws_json1_1DeviceNotRegisteredExceptionResponse(
           parsedOutput,
@@ -7361,7 +7361,7 @@ const deserializeAws_json1_1StartSmartHomeApplianceDiscoveryCommandError = async
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7421,7 +7421,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7481,7 +7481,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7541,7 +7541,7 @@ const deserializeAws_json1_1UpdateAddressBookCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -7552,7 +7552,7 @@ const deserializeAws_json1_1UpdateAddressBookCommandError = async (
       };
       break;
     case "NameInUseException":
-    case "com.amazonaws.a4b.api#NameInUseException":
+    case "com.amazonaws.alexaforbusiness#NameInUseException":
       response = {
         ...(await deserializeAws_json1_1NameInUseExceptionResponse(
           parsedOutput,
@@ -7563,7 +7563,7 @@ const deserializeAws_json1_1UpdateAddressBookCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7629,7 +7629,7 @@ const deserializeAws_json1_1UpdateBusinessReportScheduleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -7640,7 +7640,7 @@ const deserializeAws_json1_1UpdateBusinessReportScheduleCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7706,7 +7706,7 @@ const deserializeAws_json1_1UpdateConferenceProviderCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7766,7 +7766,7 @@ const deserializeAws_json1_1UpdateContactCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -7777,7 +7777,7 @@ const deserializeAws_json1_1UpdateContactCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7837,7 +7837,7 @@ const deserializeAws_json1_1UpdateDeviceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -7848,7 +7848,7 @@ const deserializeAws_json1_1UpdateDeviceCommandError = async (
       };
       break;
     case "DeviceNotRegisteredException":
-    case "com.amazonaws.a4b.api#DeviceNotRegisteredException":
+    case "com.amazonaws.alexaforbusiness#DeviceNotRegisteredException":
       response = {
         ...(await deserializeAws_json1_1DeviceNotRegisteredExceptionResponse(
           parsedOutput,
@@ -7859,7 +7859,7 @@ const deserializeAws_json1_1UpdateDeviceCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7919,7 +7919,7 @@ const deserializeAws_json1_1UpdateGatewayCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NameInUseException":
-    case "com.amazonaws.a4b.api#NameInUseException":
+    case "com.amazonaws.alexaforbusiness#NameInUseException":
       response = {
         ...(await deserializeAws_json1_1NameInUseExceptionResponse(
           parsedOutput,
@@ -7930,7 +7930,7 @@ const deserializeAws_json1_1UpdateGatewayCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -7993,7 +7993,7 @@ const deserializeAws_json1_1UpdateGatewayGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NameInUseException":
-    case "com.amazonaws.a4b.api#NameInUseException":
+    case "com.amazonaws.alexaforbusiness#NameInUseException":
       response = {
         ...(await deserializeAws_json1_1NameInUseExceptionResponse(
           parsedOutput,
@@ -8004,7 +8004,7 @@ const deserializeAws_json1_1UpdateGatewayGroupCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8067,7 +8067,7 @@ const deserializeAws_json1_1UpdateNetworkProfileCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -8077,30 +8077,8 @@ const deserializeAws_json1_1UpdateNetworkProfileCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "NameInUseException":
-    case "com.amazonaws.a4b.api#NameInUseException":
-      response = {
-        ...(await deserializeAws_json1_1NameInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InvalidCertificateAuthorityException":
-    case "com.amazonaws.awsmoneypennyresourcemanagement#InvalidCertificateAuthorityException":
+    case "com.amazonaws.alexaforbusiness#InvalidCertificateAuthorityException":
       response = {
         ...(await deserializeAws_json1_1InvalidCertificateAuthorityExceptionResponse(
           parsedOutput,
@@ -8111,9 +8089,31 @@ const deserializeAws_json1_1UpdateNetworkProfileCommandError = async (
       };
       break;
     case "InvalidSecretsManagerResourceException":
-    case "com.amazonaws.awsmoneypennyresourcemanagement#InvalidSecretsManagerResourceException":
+    case "com.amazonaws.alexaforbusiness#InvalidSecretsManagerResourceException":
       response = {
         ...(await deserializeAws_json1_1InvalidSecretsManagerResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "NameInUseException":
+    case "com.amazonaws.alexaforbusiness#NameInUseException":
+      response = {
+        ...(await deserializeAws_json1_1NameInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
           context
         )),
@@ -8171,7 +8171,7 @@ const deserializeAws_json1_1UpdateProfileCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -8182,7 +8182,7 @@ const deserializeAws_json1_1UpdateProfileCommandError = async (
       };
       break;
     case "NameInUseException":
-    case "com.amazonaws.a4b.api#NameInUseException":
+    case "com.amazonaws.alexaforbusiness#NameInUseException":
       response = {
         ...(await deserializeAws_json1_1NameInUseExceptionResponse(
           parsedOutput,
@@ -8193,7 +8193,7 @@ const deserializeAws_json1_1UpdateProfileCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8253,7 +8253,7 @@ const deserializeAws_json1_1UpdateRoomCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NameInUseException":
-    case "com.amazonaws.a4b.api#NameInUseException":
+    case "com.amazonaws.alexaforbusiness#NameInUseException":
       response = {
         ...(await deserializeAws_json1_1NameInUseExceptionResponse(
           parsedOutput,
@@ -8264,7 +8264,7 @@ const deserializeAws_json1_1UpdateRoomCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8324,7 +8324,7 @@ const deserializeAws_json1_1UpdateSkillGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.a4b.api#ConcurrentModificationException":
+    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -8335,7 +8335,7 @@ const deserializeAws_json1_1UpdateSkillGroupCommandError = async (
       };
       break;
     case "NameInUseException":
-    case "com.amazonaws.a4b.api#NameInUseException":
+    case "com.amazonaws.alexaforbusiness#NameInUseException":
       response = {
         ...(await deserializeAws_json1_1NameInUseExceptionResponse(
           parsedOutput,
@@ -8346,7 +8346,7 @@ const deserializeAws_json1_1UpdateSkillGroupCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.a4b.api#NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -8420,96 +8420,6 @@ const deserializeAws_json1_1DeviceNotRegisteredExceptionResponse = async (
   );
   const contents: DeviceNotRegisteredException = {
     name: "DeviceNotRegisteredException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<LimitExceededException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    body,
-    context
-  );
-  const contents: LimitExceededException = {
-    name: "LimitExceededException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
-const deserializeAws_json1_1NameInUseExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NameInUseException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NameInUseException(
-    body,
-    context
-  );
-  const contents: NameInUseException = {
-    name: "NameInUseException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
-const deserializeAws_json1_1NotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NotFoundException(
-    body,
-    context
-  );
-  const contents: NotFoundException = {
-    name: "NotFoundException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
-const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ResourceInUseException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceInUseException(
-    body,
-    context
-  );
-  const contents: ResourceInUseException = {
-    name: "ResourceInUseException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
-const deserializeAws_json1_1UnauthorizedExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<UnauthorizedException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnauthorizedException(
-    body,
-    context
-  );
-  const contents: UnauthorizedException = {
-    name: "UnauthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8607,6 +8517,60 @@ const deserializeAws_json1_1InvalidUserStatusExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<LimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(
+    body,
+    context
+  );
+  const contents: LimitExceededException = {
+    name: "LimitExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1NameInUseExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<NameInUseException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1NameInUseException(
+    body,
+    context
+  );
+  const contents: NameInUseException = {
+    name: "NameInUseException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1NotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<NotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1NotFoundException(
+    body,
+    context
+  );
+  const contents: NotFoundException = {
+    name: "NotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1ResourceAssociatedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -8618,6 +8582,24 @@ const deserializeAws_json1_1ResourceAssociatedExceptionResponse = async (
   );
   const contents: ResourceAssociatedException = {
     name: "ResourceAssociatedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceInUseException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ResourceInUseException(
+    body,
+    context
+  );
+  const contents: ResourceInUseException = {
+    name: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8643,165 +8625,22 @@ const deserializeAws_json1_1SkillNotLinkedExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_json1_1Filter = (
-  input: Filter,
+const deserializeAws_json1_1UnauthorizedExceptionResponse = async (
+  parsedOutput: any,
   context: __SerdeContext
-): any => {
-  return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_json1_1FilterValueList(input.Values, context)
-    })
+): Promise<UnauthorizedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1UnauthorizedException(
+    body,
+    context
+  );
+  const contents: UnauthorizedException = {
+    name: "UnauthorizedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
   };
-};
-
-const serializeAws_json1_1FilterList = (
-  input: Filter[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_json1_1Filter(entry, context));
-};
-
-const serializeAws_json1_1FilterValueList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
-const serializeAws_json1_1IPDialIn = (
-  input: IPDialIn,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CommsProtocol !== undefined && {
-      CommsProtocol: input.CommsProtocol
-    }),
-    ...(input.Endpoint !== undefined && { Endpoint: input.Endpoint })
-  };
-};
-
-const serializeAws_json1_1MeetingSetting = (
-  input: MeetingSetting,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.RequirePin !== undefined && { RequirePin: input.RequirePin })
-  };
-};
-
-const serializeAws_json1_1PSTNDialIn = (
-  input: PSTNDialIn,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CountryCode !== undefined && { CountryCode: input.CountryCode }),
-    ...(input.OneClickIdDelay !== undefined && {
-      OneClickIdDelay: input.OneClickIdDelay
-    }),
-    ...(input.OneClickPinDelay !== undefined && {
-      OneClickPinDelay: input.OneClickPinDelay
-    }),
-    ...(input.PhoneNumber !== undefined && { PhoneNumber: input.PhoneNumber })
-  };
-};
-
-const serializeAws_json1_1Audio = (
-  input: Audio,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Locale !== undefined && { Locale: input.Locale }),
-    ...(input.Location !== undefined && { Location: input.Location })
-  };
-};
-
-const serializeAws_json1_1AudioList = (
-  input: Audio[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_json1_1Audio(entry, context));
-};
-
-const serializeAws_json1_1Content = (
-  input: Content,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AudioList !== undefined && {
-      AudioList: serializeAws_json1_1AudioList(input.AudioList, context)
-    }),
-    ...(input.SsmlList !== undefined && {
-      SsmlList: serializeAws_json1_1SsmlList(input.SsmlList, context)
-    }),
-    ...(input.TextList !== undefined && {
-      TextList: serializeAws_json1_1TextList(input.TextList, context)
-    })
-  };
-};
-
-const serializeAws_json1_1SendAnnouncementRequest = (
-  input: SendAnnouncementRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Content !== undefined && {
-      Content: serializeAws_json1_1Content(input.Content, context)
-    }),
-    ...(input.RoomFilters !== undefined && {
-      RoomFilters: serializeAws_json1_1FilterList(input.RoomFilters, context)
-    }),
-    ...(input.TimeToLiveInSeconds !== undefined && {
-      TimeToLiveInSeconds: input.TimeToLiveInSeconds
-    })
-  };
-};
-
-const serializeAws_json1_1Ssml = (
-  input: Ssml,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Locale !== undefined && { Locale: input.Locale }),
-    ...(input.Value !== undefined && { Value: input.Value })
-  };
-};
-
-const serializeAws_json1_1SsmlList = (
-  input: Ssml[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_json1_1Ssml(entry, context));
-};
-
-const serializeAws_json1_1Text = (
-  input: Text,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Locale !== undefined && { Locale: input.Locale }),
-    ...(input.Value !== undefined && { Value: input.Value })
-  };
-};
-
-const serializeAws_json1_1TextList = (
-  input: Text[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_json1_1Text(entry, context));
-};
-
-const serializeAws_json1_1DeleteDeviceUsageDataRequest = (
-  input: DeleteDeviceUsageDataRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DeviceArn !== undefined && { DeviceArn: input.DeviceArn }),
-    ...(input.DeviceUsageType !== undefined && {
-      DeviceUsageType: input.DeviceUsageType
-    })
-  };
+  return contents;
 };
 
 const serializeAws_json1_1ApproveSkillRequest = (
@@ -8880,6 +8719,23 @@ const serializeAws_json1_1AssociateSkillWithUsersRequest = (
   };
 };
 
+const serializeAws_json1_1Audio = (
+  input: Audio,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Locale !== undefined && { Locale: input.Locale }),
+    ...(input.Location !== undefined && { Location: input.Location })
+  };
+};
+
+const serializeAws_json1_1AudioList = (
+  input: Audio[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => serializeAws_json1_1Audio(entry, context));
+};
+
 const serializeAws_json1_1AuthorizationResult = (
   input: { [key: string]: string },
   context: __SerdeContext
@@ -8918,6 +8774,23 @@ const serializeAws_json1_1ConferencePreference = (
   return {
     ...(input.DefaultConferenceProviderArn !== undefined && {
       DefaultConferenceProviderArn: input.DefaultConferenceProviderArn
+    })
+  };
+};
+
+const serializeAws_json1_1Content = (
+  input: Content,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AudioList !== undefined && {
+      AudioList: serializeAws_json1_1AudioList(input.AudioList, context)
+    }),
+    ...(input.SsmlList !== undefined && {
+      SsmlList: serializeAws_json1_1SsmlList(input.SsmlList, context)
+    }),
+    ...(input.TextList !== undefined && {
+      TextList: serializeAws_json1_1TextList(input.TextList, context)
     })
   };
 };
@@ -9258,6 +9131,18 @@ const serializeAws_json1_1DeleteDeviceRequest = (
   };
 };
 
+const serializeAws_json1_1DeleteDeviceUsageDataRequest = (
+  input: DeleteDeviceUsageDataRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DeviceArn !== undefined && { DeviceArn: input.DeviceArn }),
+    ...(input.DeviceUsageType !== undefined && {
+      DeviceUsageType: input.DeviceUsageType
+    })
+  };
+};
+
 const serializeAws_json1_1DeleteGatewayGroupRequest = (
   input: DeleteGatewayGroupRequest,
   context: __SerdeContext
@@ -9412,6 +9297,32 @@ const serializeAws_json1_1Features = (
   return input.map(entry => entry);
 };
 
+const serializeAws_json1_1Filter = (
+  input: Filter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Values !== undefined && {
+      Values: serializeAws_json1_1FilterValueList(input.Values, context)
+    })
+  };
+};
+
+const serializeAws_json1_1FilterList = (
+  input: Filter[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => serializeAws_json1_1Filter(entry, context));
+};
+
+const serializeAws_json1_1FilterValueList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
+};
+
 const serializeAws_json1_1ForgetSmartHomeAppliancesRequest = (
   input: ForgetSmartHomeAppliancesRequest,
   context: __SerdeContext
@@ -9548,6 +9459,18 @@ const serializeAws_json1_1GetSkillGroupRequest = (
   };
 };
 
+const serializeAws_json1_1IPDialIn = (
+  input: IPDialIn,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CommsProtocol !== undefined && {
+      CommsProtocol: input.CommsProtocol
+    }),
+    ...(input.Endpoint !== undefined && { Endpoint: input.Endpoint })
+  };
+};
+
 const serializeAws_json1_1ListBusinessReportSchedulesRequest = (
   input: ListBusinessReportSchedulesRequest,
   context: __SerdeContext
@@ -9663,6 +9586,15 @@ const serializeAws_json1_1ListTagsRequest = (
   };
 };
 
+const serializeAws_json1_1MeetingSetting = (
+  input: MeetingSetting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.RequirePin !== undefined && { RequirePin: input.RequirePin })
+  };
+};
+
 const serializeAws_json1_1PhoneNumber = (
   input: PhoneNumber,
   context: __SerdeContext
@@ -9678,6 +9610,22 @@ const serializeAws_json1_1PhoneNumberList = (
   context: __SerdeContext
 ): any => {
   return input.map(entry => serializeAws_json1_1PhoneNumber(entry, context));
+};
+
+const serializeAws_json1_1PSTNDialIn = (
+  input: PSTNDialIn,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CountryCode !== undefined && { CountryCode: input.CountryCode }),
+    ...(input.OneClickIdDelay !== undefined && {
+      OneClickIdDelay: input.OneClickIdDelay
+    }),
+    ...(input.OneClickPinDelay !== undefined && {
+      OneClickPinDelay: input.OneClickPinDelay
+    }),
+    ...(input.PhoneNumber !== undefined && { PhoneNumber: input.PhoneNumber })
+  };
 };
 
 const serializeAws_json1_1PutConferencePreferenceRequest = (
@@ -9934,6 +9882,24 @@ const serializeAws_json1_1SearchUsersRequest = (
   };
 };
 
+const serializeAws_json1_1SendAnnouncementRequest = (
+  input: SendAnnouncementRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.Content !== undefined && {
+      Content: serializeAws_json1_1Content(input.Content, context)
+    }),
+    ...(input.RoomFilters !== undefined && {
+      RoomFilters: serializeAws_json1_1FilterList(input.RoomFilters, context)
+    }),
+    ...(input.TimeToLiveInSeconds !== undefined && {
+      TimeToLiveInSeconds: input.TimeToLiveInSeconds
+    })
+  };
+};
+
 const serializeAws_json1_1SendInvitationRequest = (
   input: SendInvitationRequest,
   context: __SerdeContext
@@ -9982,6 +9948,23 @@ const serializeAws_json1_1SortList = (
   context: __SerdeContext
 ): any => {
   return input.map(entry => serializeAws_json1_1Sort(entry, context));
+};
+
+const serializeAws_json1_1Ssml = (
+  input: Ssml,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Locale !== undefined && { Locale: input.Locale }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
+};
+
+const serializeAws_json1_1SsmlList = (
+  input: Ssml[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => serializeAws_json1_1Ssml(entry, context));
 };
 
 const serializeAws_json1_1StartDeviceSyncRequest = (
@@ -10037,6 +10020,23 @@ const serializeAws_json1_1TagResourceRequest = (
       Tags: serializeAws_json1_1TagList(input.Tags, context)
     })
   };
+};
+
+const serializeAws_json1_1Text = (
+  input: Text,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Locale !== undefined && { Locale: input.Locale }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
+};
+
+const serializeAws_json1_1TextList = (
+  input: Text[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => serializeAws_json1_1Text(entry, context));
 };
 
 const serializeAws_json1_1TrustAnchorList = (
@@ -10347,232 +10347,6 @@ const serializeAws_json1_1UpdateSkillGroupRequest = (
   };
 };
 
-const deserializeAws_json1_1AlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): AlreadyExistsException => {
-  return {
-    __type: "AlreadyExistsException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ConcurrentModificationException = (
-  output: any,
-  context: __SerdeContext
-): ConcurrentModificationException => {
-  return {
-    __type: "ConcurrentModificationException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1DeviceNotRegisteredException = (
-  output: any,
-  context: __SerdeContext
-): DeviceNotRegisteredException => {
-  return {
-    __type: "DeviceNotRegisteredException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1LimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): LimitExceededException => {
-  return {
-    __type: "LimitExceededException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1NameInUseException = (
-  output: any,
-  context: __SerdeContext
-): NameInUseException => {
-  return {
-    __type: "NameInUseException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1NotFoundException = (
-  output: any,
-  context: __SerdeContext
-): NotFoundException => {
-  return {
-    __type: "NotFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceInUseException = (
-  output: any,
-  context: __SerdeContext
-): ResourceInUseException => {
-  return {
-    __type: "ResourceInUseException",
-    ClientRequestToken:
-      output.ClientRequestToken !== undefined &&
-      output.ClientRequestToken !== null
-        ? output.ClientRequestToken
-        : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1UnauthorizedException = (
-  output: any,
-  context: __SerdeContext
-): UnauthorizedException => {
-  return {
-    __type: "UnauthorizedException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ConferenceProvider = (
-  output: any,
-  context: __SerdeContext
-): ConferenceProvider => {
-  return {
-    __type: "ConferenceProvider",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    IPDialIn:
-      output.IPDialIn !== undefined && output.IPDialIn !== null
-        ? deserializeAws_json1_1IPDialIn(output.IPDialIn, context)
-        : undefined,
-    MeetingSetting:
-      output.MeetingSetting !== undefined && output.MeetingSetting !== null
-        ? deserializeAws_json1_1MeetingSetting(output.MeetingSetting, context)
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    PSTNDialIn:
-      output.PSTNDialIn !== undefined && output.PSTNDialIn !== null
-        ? deserializeAws_json1_1PSTNDialIn(output.PSTNDialIn, context)
-        : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ConferenceProvidersList = (
-  output: any,
-  context: __SerdeContext
-): ConferenceProvider[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ConferenceProvider(entry, context)
-  );
-};
-
-const deserializeAws_json1_1IPDialIn = (
-  output: any,
-  context: __SerdeContext
-): IPDialIn => {
-  return {
-    __type: "IPDialIn",
-    CommsProtocol:
-      output.CommsProtocol !== undefined && output.CommsProtocol !== null
-        ? output.CommsProtocol
-        : undefined,
-    Endpoint:
-      output.Endpoint !== undefined && output.Endpoint !== null
-        ? output.Endpoint
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1MeetingSetting = (
-  output: any,
-  context: __SerdeContext
-): MeetingSetting => {
-  return {
-    __type: "MeetingSetting",
-    RequirePin:
-      output.RequirePin !== undefined && output.RequirePin !== null
-        ? output.RequirePin
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1PSTNDialIn = (
-  output: any,
-  context: __SerdeContext
-): PSTNDialIn => {
-  return {
-    __type: "PSTNDialIn",
-    CountryCode:
-      output.CountryCode !== undefined && output.CountryCode !== null
-        ? output.CountryCode
-        : undefined,
-    OneClickIdDelay:
-      output.OneClickIdDelay !== undefined && output.OneClickIdDelay !== null
-        ? output.OneClickIdDelay
-        : undefined,
-    OneClickPinDelay:
-      output.OneClickPinDelay !== undefined && output.OneClickPinDelay !== null
-        ? output.OneClickPinDelay
-        : undefined,
-    PhoneNumber:
-      output.PhoneNumber !== undefined && output.PhoneNumber !== null
-        ? output.PhoneNumber
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1SendAnnouncementResponse = (
-  output: any,
-  context: __SerdeContext
-): SendAnnouncementResponse => {
-  return {
-    __type: "SendAnnouncementResponse",
-    AnnouncementArn:
-      output.AnnouncementArn !== undefined && output.AnnouncementArn !== null
-        ? output.AnnouncementArn
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1DeleteDeviceUsageDataResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteDeviceUsageDataResponse => {
-  return {
-    __type: "DeleteDeviceUsageDataResponse"
-  } as any;
-};
-
 const deserializeAws_json1_1AddressBook = (
   output: any,
   context: __SerdeContext
@@ -10622,6 +10396,19 @@ const deserializeAws_json1_1AddressBookDataList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AddressBookData(entry, context)
   );
+};
+
+const deserializeAws_json1_1AlreadyExistsException = (
+  output: any,
+  context: __SerdeContext
+): AlreadyExistsException => {
+  return {
+    __type: "AlreadyExistsException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ApproveSkillResponse = (
@@ -10855,6 +10642,19 @@ const deserializeAws_json1_1CategoryList = (
   );
 };
 
+const deserializeAws_json1_1ConcurrentModificationException = (
+  output: any,
+  context: __SerdeContext
+): ConcurrentModificationException => {
+  return {
+    __type: "ConcurrentModificationException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1ConferencePreference = (
   output: any,
   context: __SerdeContext
@@ -10867,6 +10667,46 @@ const deserializeAws_json1_1ConferencePreference = (
         ? output.DefaultConferenceProviderArn
         : undefined
   } as any;
+};
+
+const deserializeAws_json1_1ConferenceProvider = (
+  output: any,
+  context: __SerdeContext
+): ConferenceProvider => {
+  return {
+    __type: "ConferenceProvider",
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    IPDialIn:
+      output.IPDialIn !== undefined && output.IPDialIn !== null
+        ? deserializeAws_json1_1IPDialIn(output.IPDialIn, context)
+        : undefined,
+    MeetingSetting:
+      output.MeetingSetting !== undefined && output.MeetingSetting !== null
+        ? deserializeAws_json1_1MeetingSetting(output.MeetingSetting, context)
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    PSTNDialIn:
+      output.PSTNDialIn !== undefined && output.PSTNDialIn !== null
+        ? deserializeAws_json1_1PSTNDialIn(output.PSTNDialIn, context)
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ConferenceProvidersList = (
+  output: any,
+  context: __SerdeContext
+): ConferenceProvider[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ConferenceProvider(entry, context)
+  );
 };
 
 const deserializeAws_json1_1Contact = (
@@ -11126,6 +10966,15 @@ const deserializeAws_json1_1DeleteDeviceResponse = (
 ): DeleteDeviceResponse => {
   return {
     __type: "DeleteDeviceResponse"
+  } as any;
+};
+
+const deserializeAws_json1_1DeleteDeviceUsageDataResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteDeviceUsageDataResponse => {
+  return {
+    __type: "DeleteDeviceUsageDataResponse"
   } as any;
 };
 
@@ -11406,6 +11255,19 @@ const deserializeAws_json1_1DeviceNetworkProfileInfo = (
       output.NetworkProfileArn !== undefined &&
       output.NetworkProfileArn !== null
         ? output.NetworkProfileArn
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1DeviceNotRegisteredException = (
+  output: any,
+  context: __SerdeContext
+): DeviceNotRegisteredException => {
+  return {
+    __type: "DeviceNotRegisteredException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
         : undefined
   } as any;
 };
@@ -11936,6 +11798,36 @@ const deserializeAws_json1_1InvalidUserStatusException = (
   } as any;
 };
 
+const deserializeAws_json1_1IPDialIn = (
+  output: any,
+  context: __SerdeContext
+): IPDialIn => {
+  return {
+    __type: "IPDialIn",
+    CommsProtocol:
+      output.CommsProtocol !== undefined && output.CommsProtocol !== null
+        ? output.CommsProtocol
+        : undefined,
+    Endpoint:
+      output.Endpoint !== undefined && output.Endpoint !== null
+        ? output.Endpoint
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1LimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): LimitExceededException => {
+  return {
+    __type: "LimitExceededException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1ListBusinessReportSchedulesResponse = (
   output: any,
   context: __SerdeContext
@@ -12155,6 +12047,32 @@ const deserializeAws_json1_1MeetingRoomConfiguration = (
   } as any;
 };
 
+const deserializeAws_json1_1MeetingSetting = (
+  output: any,
+  context: __SerdeContext
+): MeetingSetting => {
+  return {
+    __type: "MeetingSetting",
+    RequirePin:
+      output.RequirePin !== undefined && output.RequirePin !== null
+        ? output.RequirePin
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1NameInUseException = (
+  output: any,
+  context: __SerdeContext
+): NameInUseException => {
+  return {
+    __type: "NameInUseException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1NetworkProfile = (
   output: any,
   context: __SerdeContext
@@ -12261,6 +12179,19 @@ const deserializeAws_json1_1NewInThisVersionBulletPoints = (
   context: __SerdeContext
 ): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1NotFoundException = (
+  output: any,
+  context: __SerdeContext
+): NotFoundException => {
+  return {
+    __type: "NotFoundException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PhoneNumber = (
@@ -12413,6 +12344,31 @@ const deserializeAws_json1_1ProfileDataList = (
   );
 };
 
+const deserializeAws_json1_1PSTNDialIn = (
+  output: any,
+  context: __SerdeContext
+): PSTNDialIn => {
+  return {
+    __type: "PSTNDialIn",
+    CountryCode:
+      output.CountryCode !== undefined && output.CountryCode !== null
+        ? output.CountryCode
+        : undefined,
+    OneClickIdDelay:
+      output.OneClickIdDelay !== undefined && output.OneClickIdDelay !== null
+        ? output.OneClickIdDelay
+        : undefined,
+    OneClickPinDelay:
+      output.OneClickPinDelay !== undefined && output.OneClickPinDelay !== null
+        ? output.OneClickPinDelay
+        : undefined,
+    PhoneNumber:
+      output.PhoneNumber !== undefined && output.PhoneNumber !== null
+        ? output.PhoneNumber
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1PutConferencePreferenceResponse = (
   output: any,
   context: __SerdeContext
@@ -12520,6 +12476,24 @@ const deserializeAws_json1_1ResourceAssociatedException = (
 ): ResourceAssociatedException => {
   return {
     __type: "ResourceAssociatedException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ResourceInUseException = (
+  output: any,
+  context: __SerdeContext
+): ResourceInUseException => {
+  return {
+    __type: "ResourceInUseException",
+    ClientRequestToken:
+      output.ClientRequestToken !== undefined &&
+      output.ClientRequestToken !== null
+        ? output.ClientRequestToken
+        : undefined,
     Message:
       output.Message !== undefined && output.Message !== null
         ? output.Message
@@ -12829,6 +12803,19 @@ const deserializeAws_json1_1SearchUsersResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1SendAnnouncementResponse = (
+  output: any,
+  context: __SerdeContext
+): SendAnnouncementResponse => {
+  return {
+    __type: "SendAnnouncementResponse",
+    AnnouncementArn:
+      output.AnnouncementArn !== undefined && output.AnnouncementArn !== null
+        ? output.AnnouncementArn
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1SendInvitationResponse = (
   output: any,
   context: __SerdeContext
@@ -12988,51 +12975,6 @@ const deserializeAws_json1_1SkillNotLinkedException = (
   } as any;
 };
 
-const deserializeAws_json1_1SkillSummary = (
-  output: any,
-  context: __SerdeContext
-): SkillSummary => {
-  return {
-    __type: "SkillSummary",
-    EnablementType:
-      output.EnablementType !== undefined && output.EnablementType !== null
-        ? output.EnablementType
-        : undefined,
-    SkillId:
-      output.SkillId !== undefined && output.SkillId !== null
-        ? output.SkillId
-        : undefined,
-    SkillName:
-      output.SkillName !== undefined && output.SkillName !== null
-        ? output.SkillName
-        : undefined,
-    SkillType:
-      output.SkillType !== undefined && output.SkillType !== null
-        ? output.SkillType
-        : undefined,
-    SupportsLinking:
-      output.SupportsLinking !== undefined && output.SupportsLinking !== null
-        ? output.SupportsLinking
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1SkillSummaryList = (
-  output: any,
-  context: __SerdeContext
-): SkillSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1SkillSummary(entry, context)
-  );
-};
-
-const deserializeAws_json1_1SkillTypes = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
 const deserializeAws_json1_1SkillsStoreSkill = (
   output: any,
   context: __SerdeContext
@@ -13080,6 +13022,51 @@ const deserializeAws_json1_1SkillsStoreSkillList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SkillsStoreSkill(entry, context)
   );
+};
+
+const deserializeAws_json1_1SkillSummary = (
+  output: any,
+  context: __SerdeContext
+): SkillSummary => {
+  return {
+    __type: "SkillSummary",
+    EnablementType:
+      output.EnablementType !== undefined && output.EnablementType !== null
+        ? output.EnablementType
+        : undefined,
+    SkillId:
+      output.SkillId !== undefined && output.SkillId !== null
+        ? output.SkillId
+        : undefined,
+    SkillName:
+      output.SkillName !== undefined && output.SkillName !== null
+        ? output.SkillName
+        : undefined,
+    SkillType:
+      output.SkillType !== undefined && output.SkillType !== null
+        ? output.SkillType
+        : undefined,
+    SupportsLinking:
+      output.SupportsLinking !== undefined && output.SupportsLinking !== null
+        ? output.SupportsLinking
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1SkillSummaryList = (
+  output: any,
+  context: __SerdeContext
+): SkillSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1SkillSummary(entry, context)
+  );
+};
+
+const deserializeAws_json1_1SkillTypes = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1SmartHomeAppliance = (
@@ -13168,6 +13155,19 @@ const deserializeAws_json1_1TrustAnchorList = (
   context: __SerdeContext
 ): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1UnauthorizedException = (
+  output: any,
+  context: __SerdeContext
+): UnauthorizedException => {
+  return {
+    __type: "UnauthorizedException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (

@@ -481,41 +481,6 @@ export class kendra extends kendraClient {
   }
 
   /**
-   * <p>Gets statistics about synchronizing Amazon Kendra with a data source.</p>
-   */
-  public listDataSourceSyncJobs(
-    args: ListDataSourceSyncJobsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDataSourceSyncJobsCommandOutput>;
-  public listDataSourceSyncJobs(
-    args: ListDataSourceSyncJobsCommandInput,
-    cb: (err: any, data?: ListDataSourceSyncJobsCommandOutput) => void
-  ): void;
-  public listDataSourceSyncJobs(
-    args: ListDataSourceSyncJobsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDataSourceSyncJobsCommandOutput) => void
-  ): void;
-  public listDataSourceSyncJobs(
-    args: ListDataSourceSyncJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDataSourceSyncJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListDataSourceSyncJobsCommandOutput) => void
-  ): Promise<ListDataSourceSyncJobsCommandOutput> | void {
-    const command = new ListDataSourceSyncJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Lists the data sources that you have created.</p>
    */
   public listDataSources(
@@ -539,6 +504,41 @@ export class kendra extends kendraClient {
     cb?: (err: any, data?: ListDataSourcesCommandOutput) => void
   ): Promise<ListDataSourcesCommandOutput> | void {
     const command = new ListDataSourcesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets statistics about synchronizing Amazon Kendra with a data source.</p>
+   */
+  public listDataSourceSyncJobs(
+    args: ListDataSourceSyncJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataSourceSyncJobsCommandOutput>;
+  public listDataSourceSyncJobs(
+    args: ListDataSourceSyncJobsCommandInput,
+    cb: (err: any, data?: ListDataSourceSyncJobsCommandOutput) => void
+  ): void;
+  public listDataSourceSyncJobs(
+    args: ListDataSourceSyncJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataSourceSyncJobsCommandOutput) => void
+  ): void;
+  public listDataSourceSyncJobs(
+    args: ListDataSourceSyncJobsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDataSourceSyncJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListDataSourceSyncJobsCommandOutput) => void
+  ): Promise<ListDataSourceSyncJobsCommandOutput> | void {
+    const command = new ListDataSourceSyncJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

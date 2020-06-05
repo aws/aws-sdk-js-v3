@@ -8,9 +8,9 @@ import {
   CreateGlobalNetworkResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateGlobalNetworkCommand,
-  serializeAws_restJson1_1CreateGlobalNetworkCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateGlobalNetworkCommand,
+  serializeAws_restJson1CreateGlobalNetworkCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class CreateGlobalNetworkCommand extends $Command<
     input: CreateGlobalNetworkCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateGlobalNetworkCommand(input, context);
+    return serializeAws_restJson1CreateGlobalNetworkCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateGlobalNetworkCommandOutput> {
-    return deserializeAws_restJson1_1CreateGlobalNetworkCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateGlobalNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

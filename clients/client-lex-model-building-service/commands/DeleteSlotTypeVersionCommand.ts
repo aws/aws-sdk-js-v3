@@ -5,9 +5,9 @@ import {
 } from "../LexModelBuildingServiceClient";
 import { DeleteSlotTypeVersionRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteSlotTypeVersionCommand,
-  serializeAws_restJson1_1DeleteSlotTypeVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteSlotTypeVersionCommand,
+  serializeAws_restJson1DeleteSlotTypeVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,14 +70,14 @@ export class DeleteSlotTypeVersionCommand extends $Command<
     input: DeleteSlotTypeVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteSlotTypeVersionCommand(input, context);
+    return serializeAws_restJson1DeleteSlotTypeVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSlotTypeVersionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteSlotTypeVersionCommand(
+    return deserializeAws_restJson1DeleteSlotTypeVersionCommand(
       output,
       context
     );

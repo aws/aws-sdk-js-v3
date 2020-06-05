@@ -8,9 +8,9 @@ import {
   ListProtectedResourcesOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListProtectedResourcesCommand,
-  serializeAws_restJson1_1ListProtectedResourcesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListProtectedResourcesCommand,
+  serializeAws_restJson1ListProtectedResourcesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListProtectedResourcesCommand extends $Command<
     input: ListProtectedResourcesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListProtectedResourcesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1ListProtectedResourcesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProtectedResourcesCommandOutput> {
-    return deserializeAws_restJson1_1ListProtectedResourcesCommand(
+    return deserializeAws_restJson1ListProtectedResourcesCommand(
       output,
       context
     );

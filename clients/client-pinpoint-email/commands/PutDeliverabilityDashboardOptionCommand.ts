@@ -8,9 +8,9 @@ import {
   PutDeliverabilityDashboardOptionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutDeliverabilityDashboardOptionCommand,
-  serializeAws_restJson1_1PutDeliverabilityDashboardOptionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutDeliverabilityDashboardOptionCommand,
+  serializeAws_restJson1PutDeliverabilityDashboardOptionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class PutDeliverabilityDashboardOptionCommand extends $Command<
     input: PutDeliverabilityDashboardOptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutDeliverabilityDashboardOptionCommand(
+    return serializeAws_restJson1PutDeliverabilityDashboardOptionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class PutDeliverabilityDashboardOptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutDeliverabilityDashboardOptionCommandOutput> {
-    return deserializeAws_restJson1_1PutDeliverabilityDashboardOptionCommand(
+    return deserializeAws_restJson1PutDeliverabilityDashboardOptionCommand(
       output,
       context
     );

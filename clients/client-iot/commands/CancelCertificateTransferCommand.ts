@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { CancelCertificateTransferRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1CancelCertificateTransferCommand,
-  serializeAws_restJson1_1CancelCertificateTransferCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CancelCertificateTransferCommand,
+  serializeAws_restJson1CancelCertificateTransferCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class CancelCertificateTransferCommand extends $Command<
     input: CancelCertificateTransferCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CancelCertificateTransferCommand(
+    return serializeAws_restJson1CancelCertificateTransferCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class CancelCertificateTransferCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelCertificateTransferCommandOutput> {
-    return deserializeAws_restJson1_1CancelCertificateTransferCommand(
+    return deserializeAws_restJson1CancelCertificateTransferCommand(
       output,
       context
     );

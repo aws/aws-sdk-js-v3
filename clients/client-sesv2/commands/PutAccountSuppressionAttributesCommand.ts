@@ -8,9 +8,9 @@ import {
   PutAccountSuppressionAttributesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutAccountSuppressionAttributesCommand,
-  serializeAws_restJson1_1PutAccountSuppressionAttributesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutAccountSuppressionAttributesCommand,
+  serializeAws_restJson1PutAccountSuppressionAttributesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class PutAccountSuppressionAttributesCommand extends $Command<
     input: PutAccountSuppressionAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutAccountSuppressionAttributesCommand(
+    return serializeAws_restJson1PutAccountSuppressionAttributesCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class PutAccountSuppressionAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAccountSuppressionAttributesCommandOutput> {
-    return deserializeAws_restJson1_1PutAccountSuppressionAttributesCommand(
+    return deserializeAws_restJson1PutAccountSuppressionAttributesCommand(
       output,
       context
     );

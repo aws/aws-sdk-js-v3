@@ -8,9 +8,9 @@ import {
   CreatePhoneNumberOrderResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreatePhoneNumberOrderCommand,
-  serializeAws_restJson1_1CreatePhoneNumberOrderCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreatePhoneNumberOrderCommand,
+  serializeAws_restJson1CreatePhoneNumberOrderCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class CreatePhoneNumberOrderCommand extends $Command<
     input: CreatePhoneNumberOrderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreatePhoneNumberOrderCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1CreatePhoneNumberOrderCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePhoneNumberOrderCommandOutput> {
-    return deserializeAws_restJson1_1CreatePhoneNumberOrderCommand(
+    return deserializeAws_restJson1CreatePhoneNumberOrderCommand(
       output,
       context
     );

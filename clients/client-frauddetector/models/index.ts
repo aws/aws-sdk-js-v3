@@ -682,6 +682,53 @@ export namespace ExternalModel {
   export const isa = (o: any): o is ExternalModel => __isa(o, "ExternalModel");
 }
 
+export interface GetDetectorsRequest {
+  __type?: "GetDetectorsRequest";
+  /**
+   * <p>The detector ID.</p>
+   */
+  detectorId?: string;
+
+  /**
+   * <p>The maximum number of objects to return for the request.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The next token for the subsequent request.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetDetectorsRequest {
+  export const filterSensitiveLog = (obj: GetDetectorsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetDetectorsRequest =>
+    __isa(o, "GetDetectorsRequest");
+}
+
+export interface GetDetectorsResult {
+  __type?: "GetDetectorsResult";
+  /**
+   * <p>The detectors.</p>
+   */
+  detectors?: Detector[];
+
+  /**
+   * <p>The next page token.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetDetectorsResult {
+  export const filterSensitiveLog = (obj: GetDetectorsResult): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetDetectorsResult =>
+    __isa(o, "GetDetectorsResult");
+}
+
 export interface GetDetectorVersionRequest {
   __type?: "GetDetectorVersionRequest";
   /**
@@ -760,53 +807,6 @@ export namespace GetDetectorVersionResult {
     __isa(o, "GetDetectorVersionResult");
 }
 
-export interface GetDetectorsRequest {
-  __type?: "GetDetectorsRequest";
-  /**
-   * <p>The detector ID.</p>
-   */
-  detectorId?: string;
-
-  /**
-   * <p>The maximum number of objects to return for the request.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The next token for the subsequent request.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace GetDetectorsRequest {
-  export const filterSensitiveLog = (obj: GetDetectorsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetDetectorsRequest =>
-    __isa(o, "GetDetectorsRequest");
-}
-
-export interface GetDetectorsResult {
-  __type?: "GetDetectorsResult";
-  /**
-   * <p>The detectors.</p>
-   */
-  detectors?: Detector[];
-
-  /**
-   * <p>The next page token.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace GetDetectorsResult {
-  export const filterSensitiveLog = (obj: GetDetectorsResult): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetDetectorsResult =>
-    __isa(o, "GetDetectorsResult");
-}
-
 export interface GetExternalModelsRequest {
   __type?: "GetExternalModelsRequest";
   /**
@@ -852,6 +852,58 @@ export namespace GetExternalModelsResult {
   });
   export const isa = (o: any): o is GetExternalModelsResult =>
     __isa(o, "GetExternalModelsResult");
+}
+
+export interface GetModelsRequest {
+  __type?: "GetModelsRequest";
+  /**
+   * <p>The maximum results to return for the request.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The model ID.</p>
+   */
+  modelId?: string;
+
+  /**
+   * <p>The model type.</p>
+   */
+  modelType?: ModelTypeEnum | string;
+
+  /**
+   * <p>The next token for the request.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetModelsRequest {
+  export const filterSensitiveLog = (obj: GetModelsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetModelsRequest =>
+    __isa(o, "GetModelsRequest");
+}
+
+export interface GetModelsResult {
+  __type?: "GetModelsResult";
+  /**
+   * <p>The returned models. </p>
+   */
+  models?: Model[];
+
+  /**
+   * <p>The next token for subsequent requests. </p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetModelsResult {
+  export const filterSensitiveLog = (obj: GetModelsResult): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetModelsResult =>
+    __isa(o, "GetModelsResult");
 }
 
 export interface GetModelVersionRequest {
@@ -914,58 +966,6 @@ export namespace GetModelVersionResult {
   });
   export const isa = (o: any): o is GetModelVersionResult =>
     __isa(o, "GetModelVersionResult");
-}
-
-export interface GetModelsRequest {
-  __type?: "GetModelsRequest";
-  /**
-   * <p>The maximum results to return for the request.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The model ID.</p>
-   */
-  modelId?: string;
-
-  /**
-   * <p>The model type.</p>
-   */
-  modelType?: ModelTypeEnum | string;
-
-  /**
-   * <p>The next token for the request.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace GetModelsRequest {
-  export const filterSensitiveLog = (obj: GetModelsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetModelsRequest =>
-    __isa(o, "GetModelsRequest");
-}
-
-export interface GetModelsResult {
-  __type?: "GetModelsResult";
-  /**
-   * <p>The returned models. </p>
-   */
-  models?: Model[];
-
-  /**
-   * <p>The next token for subsequent requests. </p>
-   */
-  nextToken?: string;
-}
-
-export namespace GetModelsResult {
-  export const filterSensitiveLog = (obj: GetModelsResult): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetModelsResult =>
-    __isa(o, "GetModelsResult");
 }
 
 export interface GetOutcomesRequest {
@@ -1178,6 +1178,25 @@ export namespace GetVariablesResult {
   });
   export const isa = (o: any): o is GetVariablesResult =>
     __isa(o, "GetVariablesResult");
+}
+
+/**
+ * <p>An exception indicating an internal server error.</p>
+ */
+export interface InternalServerException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InternalServerException";
+  $fault: "server";
+  message: string | undefined;
+}
+
+export namespace InternalServerException {
+  export const filterSensitiveLog = (obj: InternalServerException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InternalServerException =>
+    __isa(o, "InternalServerException");
 }
 
 /**
@@ -1747,6 +1766,25 @@ export namespace PutOutcomeResult {
 }
 
 /**
+ * <p>An exception indicating the specified resource was not found.</p>
+ */
+export interface ResourceNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  message: string | undefined;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
+}
+
+/**
  * <p>The role used to invoke external model endpoints.</p>
  */
 export interface Role {
@@ -1853,6 +1891,25 @@ export namespace RuleDetail {
     ...obj
   });
   export const isa = (o: any): o is RuleDetail => __isa(o, "RuleDetail");
+}
+
+/**
+ * <p>An exception indicating a throttling error.</p>
+ */
+export interface ThrottlingException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ThrottlingException";
+  $fault: "client";
+  message: string | undefined;
+}
+
+export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
 }
 
 /**
@@ -2197,6 +2254,25 @@ export namespace UpdateVariableResult {
 }
 
 /**
+ * <p>An exception indicating a specified value is not allowed.</p>
+ */
+export interface ValidationException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ValidationException";
+  $fault: "client";
+  message: string | undefined;
+}
+
+export namespace ValidationException {
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ValidationException =>
+    __isa(o, "ValidationException");
+}
+
+/**
  * <p>The variable.</p>
  */
 export interface Variable {
@@ -2290,80 +2366,4 @@ export namespace VariableEntry {
     ...obj
   });
   export const isa = (o: any): o is VariableEntry => __isa(o, "VariableEntry");
-}
-
-/**
- * <p>An exception indicating an internal server error.</p>
- */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
-  message: string | undefined;
-}
-
-export namespace InternalServerException {
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
-}
-
-/**
- * <p>An exception indicating the specified resource was not found.</p>
- */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
-}
-
-/**
- * <p>An exception indicating a throttling error.</p>
- */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  message: string | undefined;
-}
-
-export namespace ThrottlingException {
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
-}
-
-/**
- * <p>An exception indicating a specified value is not allowed.</p>
- */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  message: string | undefined;
-}
-
-export namespace ValidationException {
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
 }

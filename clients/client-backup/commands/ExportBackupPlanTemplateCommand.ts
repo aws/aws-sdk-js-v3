@@ -8,9 +8,9 @@ import {
   ExportBackupPlanTemplateOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ExportBackupPlanTemplateCommand,
-  serializeAws_restJson1_1ExportBackupPlanTemplateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ExportBackupPlanTemplateCommand,
+  serializeAws_restJson1ExportBackupPlanTemplateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ExportBackupPlanTemplateCommand extends $Command<
     input: ExportBackupPlanTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ExportBackupPlanTemplateCommand(
+    return serializeAws_restJson1ExportBackupPlanTemplateCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ExportBackupPlanTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ExportBackupPlanTemplateCommandOutput> {
-    return deserializeAws_restJson1_1ExportBackupPlanTemplateCommand(
+    return deserializeAws_restJson1ExportBackupPlanTemplateCommand(
       output,
       context
     );

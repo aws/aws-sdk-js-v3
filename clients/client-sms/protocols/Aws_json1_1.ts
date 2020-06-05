@@ -658,7 +658,7 @@ const deserializeAws_json1_1CreateAppCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
-    case "com.amazonaws.servermigration.V2016_10_24#InternalError":
+    case "com.amazonaws.sms#InternalError":
       response = {
         ...(await deserializeAws_json1_1InternalErrorResponse(
           parsedOutput,
@@ -669,7 +669,7 @@ const deserializeAws_json1_1CreateAppCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -680,7 +680,7 @@ const deserializeAws_json1_1CreateAppCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -691,7 +691,7 @@ const deserializeAws_json1_1CreateAppCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -702,7 +702,7 @@ const deserializeAws_json1_1CreateAppCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -765,7 +765,7 @@ const deserializeAws_json1_1CreateReplicationJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
-    case "com.amazonaws.servermigration.V2016_10_24#InternalError":
+    case "com.amazonaws.sms#InternalError":
       response = {
         ...(await deserializeAws_json1_1InternalErrorResponse(
           parsedOutput,
@@ -776,7 +776,7 @@ const deserializeAws_json1_1CreateReplicationJobCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -787,7 +787,7 @@ const deserializeAws_json1_1CreateReplicationJobCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -798,7 +798,7 @@ const deserializeAws_json1_1CreateReplicationJobCommandError = async (
       };
       break;
     case "NoConnectorsAvailableException":
-    case "com.amazonaws.servermigration.V2016_10_24#NoConnectorsAvailableException":
+    case "com.amazonaws.sms#NoConnectorsAvailableException":
       response = {
         ...(await deserializeAws_json1_1NoConnectorsAvailableExceptionResponse(
           parsedOutput,
@@ -809,7 +809,7 @@ const deserializeAws_json1_1CreateReplicationJobCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -820,7 +820,7 @@ const deserializeAws_json1_1CreateReplicationJobCommandError = async (
       };
       break;
     case "ReplicationJobAlreadyExistsException":
-    case "com.amazonaws.servermigration.V2016_10_24#ReplicationJobAlreadyExistsException":
+    case "com.amazonaws.sms#ReplicationJobAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ReplicationJobAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -831,7 +831,7 @@ const deserializeAws_json1_1CreateReplicationJobCommandError = async (
       };
       break;
     case "ServerCannotBeReplicatedException":
-    case "com.amazonaws.servermigration.V2016_10_24#ServerCannotBeReplicatedException":
+    case "com.amazonaws.sms#ServerCannotBeReplicatedException":
       response = {
         ...(await deserializeAws_json1_1ServerCannotBeReplicatedExceptionResponse(
           parsedOutput,
@@ -842,7 +842,7 @@ const deserializeAws_json1_1CreateReplicationJobCommandError = async (
       };
       break;
     case "TemporarilyUnavailableException":
-    case "com.amazonaws.servermigration.V2016_10_24#TemporarilyUnavailableException":
+    case "com.amazonaws.sms#TemporarilyUnavailableException":
       response = {
         ...(await deserializeAws_json1_1TemporarilyUnavailableExceptionResponse(
           parsedOutput,
@@ -853,7 +853,7 @@ const deserializeAws_json1_1CreateReplicationJobCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -913,7 +913,7 @@ const deserializeAws_json1_1DeleteAppCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
-    case "com.amazonaws.servermigration.V2016_10_24#InternalError":
+    case "com.amazonaws.sms#InternalError":
       response = {
         ...(await deserializeAws_json1_1InternalErrorResponse(
           parsedOutput,
@@ -924,7 +924,7 @@ const deserializeAws_json1_1DeleteAppCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -935,7 +935,7 @@ const deserializeAws_json1_1DeleteAppCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -946,7 +946,7 @@ const deserializeAws_json1_1DeleteAppCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -957,7 +957,7 @@ const deserializeAws_json1_1DeleteAppCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -1023,7 +1023,7 @@ const deserializeAws_json1_1DeleteAppLaunchConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
-    case "com.amazonaws.servermigration.V2016_10_24#InternalError":
+    case "com.amazonaws.sms#InternalError":
       response = {
         ...(await deserializeAws_json1_1InternalErrorResponse(
           parsedOutput,
@@ -1034,7 +1034,7 @@ const deserializeAws_json1_1DeleteAppLaunchConfigurationCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1045,7 +1045,7 @@ const deserializeAws_json1_1DeleteAppLaunchConfigurationCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -1056,7 +1056,7 @@ const deserializeAws_json1_1DeleteAppLaunchConfigurationCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1067,7 +1067,7 @@ const deserializeAws_json1_1DeleteAppLaunchConfigurationCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -1133,7 +1133,7 @@ const deserializeAws_json1_1DeleteAppReplicationConfigurationCommandError = asyn
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
-    case "com.amazonaws.servermigration.V2016_10_24#InternalError":
+    case "com.amazonaws.sms#InternalError":
       response = {
         ...(await deserializeAws_json1_1InternalErrorResponse(
           parsedOutput,
@@ -1144,7 +1144,7 @@ const deserializeAws_json1_1DeleteAppReplicationConfigurationCommandError = asyn
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1155,7 +1155,7 @@ const deserializeAws_json1_1DeleteAppReplicationConfigurationCommandError = asyn
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -1166,7 +1166,7 @@ const deserializeAws_json1_1DeleteAppReplicationConfigurationCommandError = asyn
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1177,7 +1177,7 @@ const deserializeAws_json1_1DeleteAppReplicationConfigurationCommandError = asyn
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -1240,7 +1240,7 @@ const deserializeAws_json1_1DeleteReplicationJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1251,7 +1251,7 @@ const deserializeAws_json1_1DeleteReplicationJobCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -1262,7 +1262,7 @@ const deserializeAws_json1_1DeleteReplicationJobCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1273,7 +1273,7 @@ const deserializeAws_json1_1DeleteReplicationJobCommandError = async (
       };
       break;
     case "ReplicationJobNotFoundException":
-    case "com.amazonaws.servermigration.V2016_10_24#ReplicationJobNotFoundException":
+    case "com.amazonaws.sms#ReplicationJobNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ReplicationJobNotFoundExceptionResponse(
           parsedOutput,
@@ -1284,7 +1284,7 @@ const deserializeAws_json1_1DeleteReplicationJobCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -1347,7 +1347,7 @@ const deserializeAws_json1_1DeleteServerCatalogCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1358,7 +1358,7 @@ const deserializeAws_json1_1DeleteServerCatalogCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -1369,7 +1369,7 @@ const deserializeAws_json1_1DeleteServerCatalogCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1380,7 +1380,7 @@ const deserializeAws_json1_1DeleteServerCatalogCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -1443,7 +1443,7 @@ const deserializeAws_json1_1DisassociateConnectorCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1454,7 +1454,7 @@ const deserializeAws_json1_1DisassociateConnectorCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -1465,7 +1465,7 @@ const deserializeAws_json1_1DisassociateConnectorCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1476,7 +1476,7 @@ const deserializeAws_json1_1DisassociateConnectorCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -1536,7 +1536,7 @@ const deserializeAws_json1_1GenerateChangeSetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
-    case "com.amazonaws.servermigration.V2016_10_24#InternalError":
+    case "com.amazonaws.sms#InternalError":
       response = {
         ...(await deserializeAws_json1_1InternalErrorResponse(
           parsedOutput,
@@ -1547,7 +1547,7 @@ const deserializeAws_json1_1GenerateChangeSetCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1558,7 +1558,7 @@ const deserializeAws_json1_1GenerateChangeSetCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -1569,7 +1569,7 @@ const deserializeAws_json1_1GenerateChangeSetCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1580,7 +1580,7 @@ const deserializeAws_json1_1GenerateChangeSetCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -1640,7 +1640,7 @@ const deserializeAws_json1_1GenerateTemplateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
-    case "com.amazonaws.servermigration.V2016_10_24#InternalError":
+    case "com.amazonaws.sms#InternalError":
       response = {
         ...(await deserializeAws_json1_1InternalErrorResponse(
           parsedOutput,
@@ -1651,7 +1651,7 @@ const deserializeAws_json1_1GenerateTemplateCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1662,7 +1662,7 @@ const deserializeAws_json1_1GenerateTemplateCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -1673,7 +1673,7 @@ const deserializeAws_json1_1GenerateTemplateCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1684,7 +1684,7 @@ const deserializeAws_json1_1GenerateTemplateCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -1744,7 +1744,7 @@ const deserializeAws_json1_1GetAppCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
-    case "com.amazonaws.servermigration.V2016_10_24#InternalError":
+    case "com.amazonaws.sms#InternalError":
       response = {
         ...(await deserializeAws_json1_1InternalErrorResponse(
           parsedOutput,
@@ -1755,7 +1755,7 @@ const deserializeAws_json1_1GetAppCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1766,7 +1766,7 @@ const deserializeAws_json1_1GetAppCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -1777,7 +1777,7 @@ const deserializeAws_json1_1GetAppCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1788,7 +1788,7 @@ const deserializeAws_json1_1GetAppCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -1854,7 +1854,7 @@ const deserializeAws_json1_1GetAppLaunchConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
-    case "com.amazonaws.servermigration.V2016_10_24#InternalError":
+    case "com.amazonaws.sms#InternalError":
       response = {
         ...(await deserializeAws_json1_1InternalErrorResponse(
           parsedOutput,
@@ -1865,7 +1865,7 @@ const deserializeAws_json1_1GetAppLaunchConfigurationCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1876,7 +1876,7 @@ const deserializeAws_json1_1GetAppLaunchConfigurationCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -1887,7 +1887,7 @@ const deserializeAws_json1_1GetAppLaunchConfigurationCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1898,7 +1898,7 @@ const deserializeAws_json1_1GetAppLaunchConfigurationCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -1964,7 +1964,7 @@ const deserializeAws_json1_1GetAppReplicationConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
-    case "com.amazonaws.servermigration.V2016_10_24#InternalError":
+    case "com.amazonaws.sms#InternalError":
       response = {
         ...(await deserializeAws_json1_1InternalErrorResponse(
           parsedOutput,
@@ -1975,7 +1975,7 @@ const deserializeAws_json1_1GetAppReplicationConfigurationCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1986,7 +1986,7 @@ const deserializeAws_json1_1GetAppReplicationConfigurationCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -1997,7 +1997,7 @@ const deserializeAws_json1_1GetAppReplicationConfigurationCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -2008,7 +2008,7 @@ const deserializeAws_json1_1GetAppReplicationConfigurationCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -2068,7 +2068,7 @@ const deserializeAws_json1_1GetConnectorsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -2131,7 +2131,7 @@ const deserializeAws_json1_1GetReplicationJobsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2142,7 +2142,7 @@ const deserializeAws_json1_1GetReplicationJobsCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -2153,7 +2153,7 @@ const deserializeAws_json1_1GetReplicationJobsCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -2216,7 +2216,7 @@ const deserializeAws_json1_1GetReplicationRunsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2227,7 +2227,7 @@ const deserializeAws_json1_1GetReplicationRunsCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -2238,7 +2238,7 @@ const deserializeAws_json1_1GetReplicationRunsCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -2298,7 +2298,7 @@ const deserializeAws_json1_1GetServersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -2361,7 +2361,7 @@ const deserializeAws_json1_1ImportServerCatalogCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2372,7 +2372,7 @@ const deserializeAws_json1_1ImportServerCatalogCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -2383,7 +2383,7 @@ const deserializeAws_json1_1ImportServerCatalogCommandError = async (
       };
       break;
     case "NoConnectorsAvailableException":
-    case "com.amazonaws.servermigration.V2016_10_24#NoConnectorsAvailableException":
+    case "com.amazonaws.sms#NoConnectorsAvailableException":
       response = {
         ...(await deserializeAws_json1_1NoConnectorsAvailableExceptionResponse(
           parsedOutput,
@@ -2394,7 +2394,7 @@ const deserializeAws_json1_1ImportServerCatalogCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -2405,7 +2405,7 @@ const deserializeAws_json1_1ImportServerCatalogCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -2465,7 +2465,7 @@ const deserializeAws_json1_1LaunchAppCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
-    case "com.amazonaws.servermigration.V2016_10_24#InternalError":
+    case "com.amazonaws.sms#InternalError":
       response = {
         ...(await deserializeAws_json1_1InternalErrorResponse(
           parsedOutput,
@@ -2476,7 +2476,7 @@ const deserializeAws_json1_1LaunchAppCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2487,7 +2487,7 @@ const deserializeAws_json1_1LaunchAppCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -2498,7 +2498,7 @@ const deserializeAws_json1_1LaunchAppCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -2509,7 +2509,7 @@ const deserializeAws_json1_1LaunchAppCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -2569,7 +2569,7 @@ const deserializeAws_json1_1ListAppsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
-    case "com.amazonaws.servermigration.V2016_10_24#InternalError":
+    case "com.amazonaws.sms#InternalError":
       response = {
         ...(await deserializeAws_json1_1InternalErrorResponse(
           parsedOutput,
@@ -2580,7 +2580,7 @@ const deserializeAws_json1_1ListAppsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2591,7 +2591,7 @@ const deserializeAws_json1_1ListAppsCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -2602,7 +2602,7 @@ const deserializeAws_json1_1ListAppsCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -2613,7 +2613,7 @@ const deserializeAws_json1_1ListAppsCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -2679,7 +2679,7 @@ const deserializeAws_json1_1PutAppLaunchConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
-    case "com.amazonaws.servermigration.V2016_10_24#InternalError":
+    case "com.amazonaws.sms#InternalError":
       response = {
         ...(await deserializeAws_json1_1InternalErrorResponse(
           parsedOutput,
@@ -2690,7 +2690,7 @@ const deserializeAws_json1_1PutAppLaunchConfigurationCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2701,7 +2701,7 @@ const deserializeAws_json1_1PutAppLaunchConfigurationCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -2712,7 +2712,7 @@ const deserializeAws_json1_1PutAppLaunchConfigurationCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -2723,7 +2723,7 @@ const deserializeAws_json1_1PutAppLaunchConfigurationCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -2789,7 +2789,7 @@ const deserializeAws_json1_1PutAppReplicationConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
-    case "com.amazonaws.servermigration.V2016_10_24#InternalError":
+    case "com.amazonaws.sms#InternalError":
       response = {
         ...(await deserializeAws_json1_1InternalErrorResponse(
           parsedOutput,
@@ -2800,7 +2800,7 @@ const deserializeAws_json1_1PutAppReplicationConfigurationCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2811,7 +2811,7 @@ const deserializeAws_json1_1PutAppReplicationConfigurationCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -2822,7 +2822,7 @@ const deserializeAws_json1_1PutAppReplicationConfigurationCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -2833,7 +2833,7 @@ const deserializeAws_json1_1PutAppReplicationConfigurationCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -2896,7 +2896,7 @@ const deserializeAws_json1_1StartAppReplicationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
-    case "com.amazonaws.servermigration.V2016_10_24#InternalError":
+    case "com.amazonaws.sms#InternalError":
       response = {
         ...(await deserializeAws_json1_1InternalErrorResponse(
           parsedOutput,
@@ -2907,7 +2907,7 @@ const deserializeAws_json1_1StartAppReplicationCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2918,7 +2918,7 @@ const deserializeAws_json1_1StartAppReplicationCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -2929,7 +2929,7 @@ const deserializeAws_json1_1StartAppReplicationCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -2940,7 +2940,7 @@ const deserializeAws_json1_1StartAppReplicationCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -3006,7 +3006,7 @@ const deserializeAws_json1_1StartOnDemandReplicationRunCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3017,7 +3017,7 @@ const deserializeAws_json1_1StartOnDemandReplicationRunCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -3028,7 +3028,7 @@ const deserializeAws_json1_1StartOnDemandReplicationRunCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -3039,7 +3039,7 @@ const deserializeAws_json1_1StartOnDemandReplicationRunCommandError = async (
       };
       break;
     case "ReplicationRunLimitExceededException":
-    case "com.amazonaws.servermigration.V2016_10_24#ReplicationRunLimitExceededException":
+    case "com.amazonaws.sms#ReplicationRunLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1ReplicationRunLimitExceededExceptionResponse(
           parsedOutput,
@@ -3050,7 +3050,7 @@ const deserializeAws_json1_1StartOnDemandReplicationRunCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -3113,7 +3113,7 @@ const deserializeAws_json1_1StopAppReplicationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
-    case "com.amazonaws.servermigration.V2016_10_24#InternalError":
+    case "com.amazonaws.sms#InternalError":
       response = {
         ...(await deserializeAws_json1_1InternalErrorResponse(
           parsedOutput,
@@ -3124,7 +3124,7 @@ const deserializeAws_json1_1StopAppReplicationCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3135,7 +3135,7 @@ const deserializeAws_json1_1StopAppReplicationCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -3146,7 +3146,7 @@ const deserializeAws_json1_1StopAppReplicationCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -3157,7 +3157,7 @@ const deserializeAws_json1_1StopAppReplicationCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -3217,7 +3217,7 @@ const deserializeAws_json1_1TerminateAppCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
-    case "com.amazonaws.servermigration.V2016_10_24#InternalError":
+    case "com.amazonaws.sms#InternalError":
       response = {
         ...(await deserializeAws_json1_1InternalErrorResponse(
           parsedOutput,
@@ -3228,7 +3228,7 @@ const deserializeAws_json1_1TerminateAppCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3239,7 +3239,7 @@ const deserializeAws_json1_1TerminateAppCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -3250,7 +3250,7 @@ const deserializeAws_json1_1TerminateAppCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -3261,7 +3261,7 @@ const deserializeAws_json1_1TerminateAppCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -3321,7 +3321,7 @@ const deserializeAws_json1_1UpdateAppCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
-    case "com.amazonaws.servermigration.V2016_10_24#InternalError":
+    case "com.amazonaws.sms#InternalError":
       response = {
         ...(await deserializeAws_json1_1InternalErrorResponse(
           parsedOutput,
@@ -3332,7 +3332,7 @@ const deserializeAws_json1_1UpdateAppCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3343,7 +3343,7 @@ const deserializeAws_json1_1UpdateAppCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -3354,7 +3354,7 @@ const deserializeAws_json1_1UpdateAppCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -3365,7 +3365,7 @@ const deserializeAws_json1_1UpdateAppCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -3428,7 +3428,7 @@ const deserializeAws_json1_1UpdateReplicationJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
-    case "com.amazonaws.servermigration.V2016_10_24#InternalError":
+    case "com.amazonaws.sms#InternalError":
       response = {
         ...(await deserializeAws_json1_1InternalErrorResponse(
           parsedOutput,
@@ -3439,7 +3439,7 @@ const deserializeAws_json1_1UpdateReplicationJobCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3450,7 +3450,7 @@ const deserializeAws_json1_1UpdateReplicationJobCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -3461,7 +3461,7 @@ const deserializeAws_json1_1UpdateReplicationJobCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -3472,7 +3472,7 @@ const deserializeAws_json1_1UpdateReplicationJobCommandError = async (
       };
       break;
     case "ReplicationJobNotFoundException":
-    case "com.amazonaws.servermigration.V2016_10_24#ReplicationJobNotFoundException":
+    case "com.amazonaws.sms#ReplicationJobNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ReplicationJobNotFoundExceptionResponse(
           parsedOutput,
@@ -3483,7 +3483,7 @@ const deserializeAws_json1_1UpdateReplicationJobCommandError = async (
       };
       break;
     case "ServerCannotBeReplicatedException":
-    case "com.amazonaws.servermigration.V2016_10_24#ServerCannotBeReplicatedException":
+    case "com.amazonaws.sms#ServerCannotBeReplicatedException":
       response = {
         ...(await deserializeAws_json1_1ServerCannotBeReplicatedExceptionResponse(
           parsedOutput,
@@ -3494,7 +3494,7 @@ const deserializeAws_json1_1UpdateReplicationJobCommandError = async (
       };
       break;
     case "TemporarilyUnavailableException":
-    case "com.amazonaws.servermigration.V2016_10_24#TemporarilyUnavailableException":
+    case "com.amazonaws.sms#TemporarilyUnavailableException":
       response = {
         ...(await deserializeAws_json1_1TemporarilyUnavailableExceptionResponse(
           parsedOutput,
@@ -3505,7 +3505,7 @@ const deserializeAws_json1_1UpdateReplicationJobCommandError = async (
       };
       break;
     case "UnauthorizedOperationException":
-    case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(
           parsedOutput,
@@ -4345,6 +4345,15 @@ const serializeAws_json1_1VmServerAddressList = (
   );
 };
 
+const deserializeAws_json1_1Apps = (
+  output: any,
+  context: __SerdeContext
+): AppSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1AppSummary(entry, context)
+  );
+};
+
 const deserializeAws_json1_1AppSummary = (
   output: any,
   context: __SerdeContext
@@ -4421,15 +4430,6 @@ const deserializeAws_json1_1AppSummary = (
         ? output.totalServers
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1Apps = (
-  output: any,
-  context: __SerdeContext
-): AppSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1AppSummary(entry, context)
-  );
 };
 
 const deserializeAws_json1_1Connector = (

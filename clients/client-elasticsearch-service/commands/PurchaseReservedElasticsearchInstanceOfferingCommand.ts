@@ -8,9 +8,9 @@ import {
   PurchaseReservedElasticsearchInstanceOfferingResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferingCommand,
-  serializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferingCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferingCommand,
+  serializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferingCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -76,7 +76,7 @@ export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Comma
     input: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferingCommand(
+    return serializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferingCommand(
       input,
       context
     );
@@ -86,7 +86,7 @@ export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Comma
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseReservedElasticsearchInstanceOfferingCommandOutput> {
-    return deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferingCommand(
+    return deserializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferingCommand(
       output,
       context
     );

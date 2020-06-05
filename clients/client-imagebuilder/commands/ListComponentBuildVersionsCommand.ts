@@ -8,9 +8,9 @@ import {
   ListComponentBuildVersionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListComponentBuildVersionsCommand,
-  serializeAws_restJson1_1ListComponentBuildVersionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListComponentBuildVersionsCommand,
+  serializeAws_restJson1ListComponentBuildVersionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListComponentBuildVersionsCommand extends $Command<
     input: ListComponentBuildVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListComponentBuildVersionsCommand(
+    return serializeAws_restJson1ListComponentBuildVersionsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListComponentBuildVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListComponentBuildVersionsCommandOutput> {
-    return deserializeAws_restJson1_1ListComponentBuildVersionsCommand(
+    return deserializeAws_restJson1ListComponentBuildVersionsCommand(
       output,
       context
     );

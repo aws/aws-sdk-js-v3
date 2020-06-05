@@ -8,9 +8,9 @@ import {
   UpdateTemplateActiveVersionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateTemplateActiveVersionCommand,
-  serializeAws_restJson1_1UpdateTemplateActiveVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateTemplateActiveVersionCommand,
+  serializeAws_restJson1UpdateTemplateActiveVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdateTemplateActiveVersionCommand extends $Command<
     input: UpdateTemplateActiveVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateTemplateActiveVersionCommand(
+    return serializeAws_restJson1UpdateTemplateActiveVersionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdateTemplateActiveVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateTemplateActiveVersionCommandOutput> {
-    return deserializeAws_restJson1_1UpdateTemplateActiveVersionCommand(
+    return deserializeAws_restJson1UpdateTemplateActiveVersionCommand(
       output,
       context
     );

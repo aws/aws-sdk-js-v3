@@ -5,9 +5,9 @@ import {
 } from "../AppMeshClient";
 import { UpdateMeshInput, UpdateMeshOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateMeshCommand,
-  serializeAws_restJson1_1UpdateMeshCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateMeshCommand,
+  serializeAws_restJson1UpdateMeshCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class UpdateMeshCommand extends $Command<
     input: UpdateMeshCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateMeshCommand(input, context);
+    return serializeAws_restJson1UpdateMeshCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateMeshCommandOutput> {
-    return deserializeAws_restJson1_1UpdateMeshCommand(output, context);
+    return deserializeAws_restJson1UpdateMeshCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -8,9 +8,9 @@ import {
   GetFunctionDefinitionVersionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetFunctionDefinitionVersionCommand,
-  serializeAws_restJson1_1GetFunctionDefinitionVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetFunctionDefinitionVersionCommand,
+  serializeAws_restJson1GetFunctionDefinitionVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetFunctionDefinitionVersionCommand extends $Command<
     input: GetFunctionDefinitionVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetFunctionDefinitionVersionCommand(
+    return serializeAws_restJson1GetFunctionDefinitionVersionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetFunctionDefinitionVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFunctionDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1_1GetFunctionDefinitionVersionCommand(
+    return deserializeAws_restJson1GetFunctionDefinitionVersionCommand(
       output,
       context
     );

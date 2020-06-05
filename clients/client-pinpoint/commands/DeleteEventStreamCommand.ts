@@ -8,9 +8,9 @@ import {
   DeleteEventStreamResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteEventStreamCommand,
-  serializeAws_restJson1_1DeleteEventStreamCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteEventStreamCommand,
+  serializeAws_restJson1DeleteEventStreamCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DeleteEventStreamCommand extends $Command<
     input: DeleteEventStreamCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteEventStreamCommand(input, context);
+    return serializeAws_restJson1DeleteEventStreamCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEventStreamCommandOutput> {
-    return deserializeAws_restJson1_1DeleteEventStreamCommand(output, context);
+    return deserializeAws_restJson1DeleteEventStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

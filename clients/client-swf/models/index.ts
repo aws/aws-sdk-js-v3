@@ -49,35 +49,6 @@ export namespace ActivityTask {
 }
 
 /**
- * <p>Provides the details of the <code>ActivityTaskCancelRequested</code> event.</p>
- */
-export interface ActivityTaskCancelRequestedEventAttributes {
-  __type?: "ActivityTaskCancelRequestedEventAttributes";
-  /**
-   * <p>The unique ID of the task.</p>
-   */
-  activityId: string | undefined;
-
-  /**
-   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
-   *       <code>RequestCancelActivityTask</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
-   */
-  decisionTaskCompletedEventId: number | undefined;
-}
-
-export namespace ActivityTaskCancelRequestedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: ActivityTaskCancelRequestedEventAttributes
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is ActivityTaskCancelRequestedEventAttributes =>
-    __isa(o, "ActivityTaskCancelRequestedEventAttributes");
-}
-
-/**
  * <p>Provides the details of the <code>ActivityTaskCanceled</code> event.</p>
  */
 export interface ActivityTaskCanceledEventAttributes {
@@ -113,6 +84,35 @@ export namespace ActivityTaskCanceledEventAttributes {
   });
   export const isa = (o: any): o is ActivityTaskCanceledEventAttributes =>
     __isa(o, "ActivityTaskCanceledEventAttributes");
+}
+
+/**
+ * <p>Provides the details of the <code>ActivityTaskCancelRequested</code> event.</p>
+ */
+export interface ActivityTaskCancelRequestedEventAttributes {
+  __type?: "ActivityTaskCancelRequestedEventAttributes";
+  /**
+   * <p>The unique ID of the task.</p>
+   */
+  activityId: string | undefined;
+
+  /**
+   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
+   *       <code>RequestCancelActivityTask</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
+   */
+  decisionTaskCompletedEventId: number | undefined;
+}
+
+export namespace ActivityTaskCancelRequestedEventAttributes {
+  export const filterSensitiveLog = (
+    obj: ActivityTaskCancelRequestedEventAttributes
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is ActivityTaskCancelRequestedEventAttributes =>
+    __isa(o, "ActivityTaskCancelRequestedEventAttributes");
 }
 
 /**
@@ -1304,6 +1304,196 @@ export namespace ContinueAsNewWorkflowExecutionFailedEventAttributes {
     __isa(o, "ContinueAsNewWorkflowExecutionFailedEventAttributes");
 }
 
+export interface CountClosedWorkflowExecutionsInput {
+  __type?: "CountClosedWorkflowExecutionsInput";
+  /**
+   * <p>If specified, only workflow executions that match this close status are counted. This
+   *       filter has an affect only if <code>executionStatus</code> is specified as
+   *       <code>CLOSED</code>.</p>
+   *          <note>
+   *             <p>
+   *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
+   *           <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a
+   *         request.</p>
+   *          </note>
+   */
+  closeStatusFilter?: CloseStatusFilter;
+
+  /**
+   * <p>If specified, only workflow executions that meet the close time criteria of the filter
+   *       are counted.</p>
+   *          <note>
+   *             <p>
+   *                <code>startTimeFilter</code> and <code>closeTimeFilter</code> are mutually exclusive. You
+   *         must specify one of these in a request but not both.</p>
+   *          </note>
+   */
+  closeTimeFilter?: ExecutionTimeFilter;
+
+  /**
+   * <p>The name of the domain containing the workflow executions to count.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>If specified, only workflow executions matching the <code>WorkflowId</code> in the
+   *       filter are counted.</p>
+   *          <note>
+   *             <p>
+   *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
+   *           <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a
+   *         request.</p>
+   *          </note>
+   */
+  executionFilter?: WorkflowExecutionFilter;
+
+  /**
+   * <p>If specified, only workflow executions that meet the start time criteria of the filter
+   *       are counted.</p>
+   *          <note>
+   *             <p>
+   *                <code>startTimeFilter</code> and <code>closeTimeFilter</code> are mutually exclusive. You
+   *         must specify one of these in a request but not both.</p>
+   *          </note>
+   */
+  startTimeFilter?: ExecutionTimeFilter;
+
+  /**
+   * <p>If specified, only executions that have a tag that matches the filter are
+   *       counted.</p>
+   *          <note>
+   *             <p>
+   *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
+   *           <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a
+   *         request.</p>
+   *          </note>
+   */
+  tagFilter?: TagFilter;
+
+  /**
+   * <p>If specified, indicates the type of the workflow executions to be counted.</p>
+   *          <note>
+   *             <p>
+   *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
+   *           <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a
+   *         request.</p>
+   *          </note>
+   */
+  typeFilter?: WorkflowTypeFilter;
+}
+
+export namespace CountClosedWorkflowExecutionsInput {
+  export const filterSensitiveLog = (
+    obj: CountClosedWorkflowExecutionsInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CountClosedWorkflowExecutionsInput =>
+    __isa(o, "CountClosedWorkflowExecutionsInput");
+}
+
+export interface CountOpenWorkflowExecutionsInput {
+  __type?: "CountOpenWorkflowExecutionsInput";
+  /**
+   * <p>The name of the domain containing the workflow executions to count.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>If specified, only workflow executions matching the <code>WorkflowId</code> in the
+   *       filter are counted.</p>
+   *          <note>
+   *             <p>
+   *                <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are
+   *         mutually exclusive. You can specify at most one of these in a request.</p>
+   *          </note>
+   */
+  executionFilter?: WorkflowExecutionFilter;
+
+  /**
+   * <p>Specifies the start time criteria that workflow executions must meet in order to be
+   *       counted.</p>
+   */
+  startTimeFilter: ExecutionTimeFilter | undefined;
+
+  /**
+   * <p>If specified, only executions that have a tag that matches the filter are
+   *       counted.</p>
+   *          <note>
+   *             <p>
+   *                <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are
+   *         mutually exclusive. You can specify at most one of these in a request.</p>
+   *          </note>
+   */
+  tagFilter?: TagFilter;
+
+  /**
+   * <p>Specifies the type of the workflow executions to be counted.</p>
+   *          <note>
+   *             <p>
+   *                <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are
+   *         mutually exclusive. You can specify at most one of these in a request.</p>
+   *          </note>
+   */
+  typeFilter?: WorkflowTypeFilter;
+}
+
+export namespace CountOpenWorkflowExecutionsInput {
+  export const filterSensitiveLog = (
+    obj: CountOpenWorkflowExecutionsInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CountOpenWorkflowExecutionsInput =>
+    __isa(o, "CountOpenWorkflowExecutionsInput");
+}
+
+export interface CountPendingActivityTasksInput {
+  __type?: "CountPendingActivityTasksInput";
+  /**
+   * <p>The name of the domain that contains the task list.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The name of the task list.</p>
+   */
+  taskList: TaskList | undefined;
+}
+
+export namespace CountPendingActivityTasksInput {
+  export const filterSensitiveLog = (
+    obj: CountPendingActivityTasksInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CountPendingActivityTasksInput =>
+    __isa(o, "CountPendingActivityTasksInput");
+}
+
+export interface CountPendingDecisionTasksInput {
+  __type?: "CountPendingDecisionTasksInput";
+  /**
+   * <p>The name of the domain that contains the task list.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The name of the task list.</p>
+   */
+  taskList: TaskList | undefined;
+}
+
+export namespace CountPendingDecisionTasksInput {
+  export const filterSensitiveLog = (
+    obj: CountPendingDecisionTasksInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CountPendingDecisionTasksInput =>
+    __isa(o, "CountPendingDecisionTasksInput");
+}
+
 /**
  * <p>Specifies a decision made by the decider. A decision can be one of these types:</p>
  *          <ul>
@@ -1893,6 +2083,147 @@ export namespace DefaultUndefinedFault {
     __isa(o, "DefaultUndefinedFault");
 }
 
+export interface DeprecateActivityTypeInput {
+  __type?: "DeprecateActivityTypeInput";
+  /**
+   * <p>The activity type to deprecate.</p>
+   */
+  activityType: ActivityType | undefined;
+
+  /**
+   * <p>The name of the domain in which the activity type is registered.</p>
+   */
+  domain: string | undefined;
+}
+
+export namespace DeprecateActivityTypeInput {
+  export const filterSensitiveLog = (obj: DeprecateActivityTypeInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeprecateActivityTypeInput =>
+    __isa(o, "DeprecateActivityTypeInput");
+}
+
+export interface DeprecateDomainInput {
+  __type?: "DeprecateDomainInput";
+  /**
+   * <p>The name of the domain to deprecate.</p>
+   */
+  name: string | undefined;
+}
+
+export namespace DeprecateDomainInput {
+  export const filterSensitiveLog = (obj: DeprecateDomainInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeprecateDomainInput =>
+    __isa(o, "DeprecateDomainInput");
+}
+
+export interface DeprecateWorkflowTypeInput {
+  __type?: "DeprecateWorkflowTypeInput";
+  /**
+   * <p>The name of the domain in which the workflow type is registered.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The workflow type to deprecate.</p>
+   */
+  workflowType: WorkflowType | undefined;
+}
+
+export namespace DeprecateWorkflowTypeInput {
+  export const filterSensitiveLog = (obj: DeprecateWorkflowTypeInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeprecateWorkflowTypeInput =>
+    __isa(o, "DeprecateWorkflowTypeInput");
+}
+
+export interface DescribeActivityTypeInput {
+  __type?: "DescribeActivityTypeInput";
+  /**
+   * <p>The activity type to get information about. Activity types are identified by the
+   *         <code>name</code> and <code>version</code> that were supplied when the activity was
+   *       registered.</p>
+   */
+  activityType: ActivityType | undefined;
+
+  /**
+   * <p>The name of the domain in which the activity type is registered.</p>
+   */
+  domain: string | undefined;
+}
+
+export namespace DescribeActivityTypeInput {
+  export const filterSensitiveLog = (obj: DescribeActivityTypeInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeActivityTypeInput =>
+    __isa(o, "DescribeActivityTypeInput");
+}
+
+export interface DescribeDomainInput {
+  __type?: "DescribeDomainInput";
+  /**
+   * <p>The name of the domain to describe.</p>
+   */
+  name: string | undefined;
+}
+
+export namespace DescribeDomainInput {
+  export const filterSensitiveLog = (obj: DescribeDomainInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeDomainInput =>
+    __isa(o, "DescribeDomainInput");
+}
+
+export interface DescribeWorkflowExecutionInput {
+  __type?: "DescribeWorkflowExecutionInput";
+  /**
+   * <p>The name of the domain containing the workflow execution.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The workflow execution to describe.</p>
+   */
+  execution: WorkflowExecution | undefined;
+}
+
+export namespace DescribeWorkflowExecutionInput {
+  export const filterSensitiveLog = (
+    obj: DescribeWorkflowExecutionInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeWorkflowExecutionInput =>
+    __isa(o, "DescribeWorkflowExecutionInput");
+}
+
+export interface DescribeWorkflowTypeInput {
+  __type?: "DescribeWorkflowTypeInput";
+  /**
+   * <p>The name of the domain in which this workflow type is registered.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The workflow type to describe.</p>
+   */
+  workflowType: WorkflowType | undefined;
+}
+
+export namespace DescribeWorkflowTypeInput {
+  export const filterSensitiveLog = (obj: DescribeWorkflowTypeInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeWorkflowTypeInput =>
+    __isa(o, "DescribeWorkflowTypeInput");
+}
+
 /**
  * <p>Returned if the domain already exists. You may get this fault if you are registering a domain that is either already registered or deprecated, or if you undeprecate a domain that is currently registered.</p>
  */
@@ -2285,6 +2616,54 @@ export namespace FailWorkflowExecutionFailedEventAttributes {
     o: any
   ): o is FailWorkflowExecutionFailedEventAttributes =>
     __isa(o, "FailWorkflowExecutionFailedEventAttributes");
+}
+
+export interface GetWorkflowExecutionHistoryInput {
+  __type?: "GetWorkflowExecutionHistoryInput";
+  /**
+   * <p>The name of the domain containing the workflow execution.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>Specifies the workflow execution for which to return the history.</p>
+   */
+  execution: WorkflowExecution | undefined;
+
+  /**
+   * <p>The maximum number of results that are returned per call.
+   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
+   */
+  maximumPageSize?: number;
+
+  /**
+   * <p>If <code>NextPageToken</code> is returned there are more results
+   *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
+   *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
+   *       after 60 seconds. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
+   *       exceeded its maximum lifetime</code>". </p>
+   *
+   *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned
+   *       in a single call. </p>
+   */
+  nextPageToken?: string;
+
+  /**
+   * <p>When set to <code>true</code>, returns the events in reverse order. By default the
+   *       results are returned in ascending order of the <code>eventTimeStamp</code> of the
+   *       events.</p>
+   */
+  reverseOrder?: boolean;
+}
+
+export namespace GetWorkflowExecutionHistoryInput {
+  export const filterSensitiveLog = (
+    obj: GetWorkflowExecutionHistoryInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetWorkflowExecutionHistoryInput =>
+    __isa(o, "GetWorkflowExecutionHistoryInput");
 }
 
 /**
@@ -3082,6 +3461,376 @@ export namespace LimitExceededFault {
     __isa(o, "LimitExceededFault");
 }
 
+export interface ListActivityTypesInput {
+  __type?: "ListActivityTypesInput";
+  /**
+   * <p>The name of the domain in which the activity types have been registered.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The maximum number of results that are returned per call.
+   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
+   */
+  maximumPageSize?: number;
+
+  /**
+   * <p>If specified, only lists the activity types that have this name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>If <code>NextPageToken</code> is returned there are more results
+   *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
+   *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
+   *       after 60 seconds. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
+   *       exceeded its maximum lifetime</code>". </p>
+   *
+   *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned
+   *       in a single call. </p>
+   */
+  nextPageToken?: string;
+
+  /**
+   * <p>Specifies the registration status of the activity types to list.</p>
+   */
+  registrationStatus: RegistrationStatus | string | undefined;
+
+  /**
+   * <p>When set to <code>true</code>, returns the results in reverse order. By default, the
+   *       results are returned in ascending alphabetical order by <code>name</code> of the activity
+   *       types.</p>
+   */
+  reverseOrder?: boolean;
+}
+
+export namespace ListActivityTypesInput {
+  export const filterSensitiveLog = (obj: ListActivityTypesInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListActivityTypesInput =>
+    __isa(o, "ListActivityTypesInput");
+}
+
+export interface ListClosedWorkflowExecutionsInput {
+  __type?: "ListClosedWorkflowExecutionsInput";
+  /**
+   * <p>If specified, only workflow executions that match this <i>close
+   *         status</i> are listed. For example, if TERMINATED is specified, then only TERMINATED
+   *       workflow executions are listed.</p>
+   *          <note>
+   *             <p>
+   *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
+   *           <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a
+   *         request.</p>
+   *          </note>
+   */
+  closeStatusFilter?: CloseStatusFilter;
+
+  /**
+   * <p>If specified, the workflow executions are included in the returned results based on
+   *       whether their close times are within the range specified by this filter. Also, if this
+   *       parameter is specified, the returned results are ordered by their close times.</p>
+   *          <note>
+   *             <p>
+   *                <code>startTimeFilter</code> and <code>closeTimeFilter</code> are mutually exclusive. You
+   *         must specify one of these in a request but not both.</p>
+   *          </note>
+   */
+  closeTimeFilter?: ExecutionTimeFilter;
+
+  /**
+   * <p>The name of the domain that contains the workflow executions to list.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>If specified, only workflow executions matching the workflow ID specified in the filter
+   *       are returned.</p>
+   *          <note>
+   *             <p>
+   *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
+   *           <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a
+   *         request.</p>
+   *          </note>
+   */
+  executionFilter?: WorkflowExecutionFilter;
+
+  /**
+   * <p>The maximum number of results that are returned per call.
+   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
+   */
+  maximumPageSize?: number;
+
+  /**
+   * <p>If <code>NextPageToken</code> is returned there are more results
+   *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
+   *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
+   *       after 60 seconds. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
+   *       exceeded its maximum lifetime</code>". </p>
+   *
+   *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned
+   *       in a single call. </p>
+   */
+  nextPageToken?: string;
+
+  /**
+   * <p>When set to <code>true</code>, returns the results in reverse order. By default the
+   *       results are returned in descending order of the start or the close time of the
+   *       executions.</p>
+   */
+  reverseOrder?: boolean;
+
+  /**
+   * <p>If specified, the workflow executions are included in the returned results based on
+   *       whether their start times are within the range specified by this filter. Also, if this
+   *       parameter is specified, the returned results are ordered by their start times.</p>
+   *          <note>
+   *             <p>
+   *                <code>startTimeFilter</code> and <code>closeTimeFilter</code> are mutually exclusive. You
+   *         must specify one of these in a request but not both.</p>
+   *          </note>
+   */
+  startTimeFilter?: ExecutionTimeFilter;
+
+  /**
+   * <p>If specified, only executions that have the matching tag are listed.</p>
+   *          <note>
+   *             <p>
+   *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
+   *           <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a
+   *         request.</p>
+   *          </note>
+   */
+  tagFilter?: TagFilter;
+
+  /**
+   * <p>If specified, only executions of the type specified in the filter are
+   *       returned.</p>
+   *          <note>
+   *             <p>
+   *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
+   *           <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a
+   *         request.</p>
+   *          </note>
+   */
+  typeFilter?: WorkflowTypeFilter;
+}
+
+export namespace ListClosedWorkflowExecutionsInput {
+  export const filterSensitiveLog = (
+    obj: ListClosedWorkflowExecutionsInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListClosedWorkflowExecutionsInput =>
+    __isa(o, "ListClosedWorkflowExecutionsInput");
+}
+
+export interface ListDomainsInput {
+  __type?: "ListDomainsInput";
+  /**
+   * <p>The maximum number of results that are returned per call.
+   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
+   */
+  maximumPageSize?: number;
+
+  /**
+   * <p>If <code>NextPageToken</code> is returned there are more results
+   *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
+   *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
+   *       after 60 seconds. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
+   *       exceeded its maximum lifetime</code>". </p>
+   *
+   *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned
+   *       in a single call. </p>
+   */
+  nextPageToken?: string;
+
+  /**
+   * <p>Specifies the registration status of the domains to list.</p>
+   */
+  registrationStatus: RegistrationStatus | string | undefined;
+
+  /**
+   * <p>When set to <code>true</code>, returns the results in reverse order. By default, the
+   *       results are returned in ascending alphabetical order by <code>name</code> of the
+   *       domains.</p>
+   */
+  reverseOrder?: boolean;
+}
+
+export namespace ListDomainsInput {
+  export const filterSensitiveLog = (obj: ListDomainsInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListDomainsInput =>
+    __isa(o, "ListDomainsInput");
+}
+
+export interface ListOpenWorkflowExecutionsInput {
+  __type?: "ListOpenWorkflowExecutionsInput";
+  /**
+   * <p>The name of the domain that contains the workflow executions to list.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>If specified, only workflow executions matching the workflow ID specified in the filter
+   *       are returned.</p>
+   *          <note>
+   *             <p>
+   *                <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are
+   *         mutually exclusive. You can specify at most one of these in a request.</p>
+   *          </note>
+   */
+  executionFilter?: WorkflowExecutionFilter;
+
+  /**
+   * <p>The maximum number of results that are returned per call.
+   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
+   */
+  maximumPageSize?: number;
+
+  /**
+   * <p>If <code>NextPageToken</code> is returned there are more results
+   *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
+   *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
+   *       after 60 seconds. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
+   *       exceeded its maximum lifetime</code>". </p>
+   *
+   *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned
+   *       in a single call. </p>
+   */
+  nextPageToken?: string;
+
+  /**
+   * <p>When set to <code>true</code>, returns the results in reverse order. By default the
+   *       results are returned in descending order of the start time of the executions.</p>
+   */
+  reverseOrder?: boolean;
+
+  /**
+   * <p>Workflow executions are included in the returned results based on whether their start
+   *       times are within the range specified by this filter.</p>
+   */
+  startTimeFilter: ExecutionTimeFilter | undefined;
+
+  /**
+   * <p>If specified, only executions that have the matching tag are listed.</p>
+   *          <note>
+   *             <p>
+   *                <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are
+   *         mutually exclusive. You can specify at most one of these in a request.</p>
+   *          </note>
+   */
+  tagFilter?: TagFilter;
+
+  /**
+   * <p>If specified, only executions of the type specified in the filter are
+   *       returned.</p>
+   *          <note>
+   *             <p>
+   *                <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are
+   *         mutually exclusive. You can specify at most one of these in a request.</p>
+   *          </note>
+   */
+  typeFilter?: WorkflowTypeFilter;
+}
+
+export namespace ListOpenWorkflowExecutionsInput {
+  export const filterSensitiveLog = (
+    obj: ListOpenWorkflowExecutionsInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListOpenWorkflowExecutionsInput =>
+    __isa(o, "ListOpenWorkflowExecutionsInput");
+}
+
+export interface ListTagsForResourceInput {
+  __type?: "ListTagsForResourceInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) for the Amazon SWF domain.</p>
+   */
+  resourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceInput {
+  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListTagsForResourceInput =>
+    __isa(o, "ListTagsForResourceInput");
+}
+
+export interface ListTagsForResourceOutput {
+  __type?: "ListTagsForResourceOutput";
+  /**
+   * <p>An array of tags associated with the domain.</p>
+   */
+  tags?: ResourceTag[];
+}
+
+export namespace ListTagsForResourceOutput {
+  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListTagsForResourceOutput =>
+    __isa(o, "ListTagsForResourceOutput");
+}
+
+export interface ListWorkflowTypesInput {
+  __type?: "ListWorkflowTypesInput";
+  /**
+   * <p>The name of the domain in which the workflow types have been registered.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The maximum number of results that are returned per call.
+   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
+   */
+  maximumPageSize?: number;
+
+  /**
+   * <p>If specified, lists the workflow type with this name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>If <code>NextPageToken</code> is returned there are more results
+   *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
+   *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
+   *       after 60 seconds. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
+   *       exceeded its maximum lifetime</code>". </p>
+   *
+   *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned
+   *       in a single call. </p>
+   */
+  nextPageToken?: string;
+
+  /**
+   * <p>Specifies the registration status of the workflow types to list.</p>
+   */
+  registrationStatus: RegistrationStatus | string | undefined;
+
+  /**
+   * <p>When set to <code>true</code>, returns the results in reverse order. By default the
+   *       results are returned in ascending alphabetical order of the <code>name</code> of the workflow
+   *       types.</p>
+   */
+  reverseOrder?: boolean;
+}
+
+export namespace ListWorkflowTypesInput {
+  export const filterSensitiveLog = (obj: ListWorkflowTypesInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListWorkflowTypesInput =>
+    __isa(o, "ListWorkflowTypesInput");
+}
+
 /**
  * <p>Provides the details of the <code>MarkerRecorded</code> event.</p>
  */
@@ -3159,6 +3908,134 @@ export namespace PendingTaskCount {
   });
   export const isa = (o: any): o is PendingTaskCount =>
     __isa(o, "PendingTaskCount");
+}
+
+export interface PollForActivityTaskInput {
+  __type?: "PollForActivityTaskInput";
+  /**
+   * <p>The name of the domain that contains the task lists being polled.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>Identity of the worker making the request, recorded in the
+   *         <code>ActivityTaskStarted</code> event in the workflow history. This enables diagnostic
+   *       tracing when problems arise. The form of this identity is user defined.</p>
+   */
+  identity?: string;
+
+  /**
+   * <p>Specifies the task list to poll for activity tasks.</p>
+   *
+   *          <p>The specified string must not start or end with whitespace. It must not contain a
+   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
+   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
+   *       not <i>be</i> the literal string <code>arn</code>.</p>
+   */
+  taskList: TaskList | undefined;
+}
+
+export namespace PollForActivityTaskInput {
+  export const filterSensitiveLog = (obj: PollForActivityTaskInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is PollForActivityTaskInput =>
+    __isa(o, "PollForActivityTaskInput");
+}
+
+export interface PollForDecisionTaskInput {
+  __type?: "PollForDecisionTaskInput";
+  /**
+   * <p>The name of the domain containing the task lists to poll.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>Identity of the decider making the request, which is recorded in the
+   *       DecisionTaskStarted event in the workflow history. This enables diagnostic tracing when
+   *       problems arise. The form of this identity is user defined.</p>
+   */
+  identity?: string;
+
+  /**
+   * <p>The maximum number of results that are returned per call.
+   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
+   *          <p>This
+   *       is an upper limit only; the actual number of results returned per call may be fewer than the
+   *       specified maximum.</p>
+   */
+  maximumPageSize?: number;
+
+  /**
+   * <p>If <code>NextPageToken</code> is returned there are more results
+   *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
+   *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
+   *       after 60 seconds. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
+   *       exceeded its maximum lifetime</code>". </p>
+   *
+   *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned
+   *       in a single call. </p>
+   *          <note>
+   *             <p>The <code>nextPageToken</code> returned by this action cannot be used with <a>GetWorkflowExecutionHistory</a> to get the next page. You must call <a>PollForDecisionTask</a> again (with the <code>nextPageToken</code>) to retrieve
+   *         the next page of history records. Calling <a>PollForDecisionTask</a> with a
+   *           <code>nextPageToken</code> doesn't return a new decision task.</p>
+   *          </note>
+   */
+  nextPageToken?: string;
+
+  /**
+   * <p>When set to <code>true</code>, returns the events in reverse order. By default the
+   *       results are returned in ascending order of the <code>eventTimestamp</code> of the
+   *       events.</p>
+   */
+  reverseOrder?: boolean;
+
+  /**
+   * <p>Specifies the task list to poll for decision tasks.</p>
+   *
+   *          <p>The specified string must not start or end with whitespace. It must not contain a
+   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
+   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
+   *       not <i>be</i> the literal string <code>arn</code>.</p>
+   */
+  taskList: TaskList | undefined;
+}
+
+export namespace PollForDecisionTaskInput {
+  export const filterSensitiveLog = (obj: PollForDecisionTaskInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is PollForDecisionTaskInput =>
+    __isa(o, "PollForDecisionTaskInput");
+}
+
+export interface RecordActivityTaskHeartbeatInput {
+  __type?: "RecordActivityTaskHeartbeatInput";
+  /**
+   * <p>If specified, contains details about the progress of the task.</p>
+   */
+  details?: string;
+
+  /**
+   * <p>The <code>taskToken</code> of the <a>ActivityTask</a>.</p>
+   *          <important>
+   *             <p>
+   *                <code>taskToken</code> is generated by the service and should be treated as an opaque value.
+   *         If the task is passed to another process, its <code>taskToken</code> must also be passed.
+   *         This enables it to provide its progress and respond with results. </p>
+   *          </important>
+   */
+  taskToken: string | undefined;
+}
+
+export namespace RecordActivityTaskHeartbeatInput {
+  export const filterSensitiveLog = (
+    obj: RecordActivityTaskHeartbeatInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RecordActivityTaskHeartbeatInput =>
+    __isa(o, "RecordActivityTaskHeartbeatInput");
 }
 
 /**
@@ -3247,6 +4124,285 @@ export namespace RecordMarkerFailedEventAttributes {
   });
   export const isa = (o: any): o is RecordMarkerFailedEventAttributes =>
     __isa(o, "RecordMarkerFailedEventAttributes");
+}
+
+export interface RegisterActivityTypeInput {
+  __type?: "RegisterActivityTypeInput";
+  /**
+   * <p>If set, specifies the default maximum time before which a worker processing a task of
+   *       this type must report progress by calling <a>RecordActivityTaskHeartbeat</a>. If
+   *       the timeout is exceeded, the activity task is automatically timed out. This default can be
+   *       overridden when scheduling an activity task using the <code>ScheduleActivityTask</code>
+   *             <a>Decision</a>. If the activity worker subsequently attempts to record a heartbeat
+   *       or returns a result, the activity worker receives an <code>UnknownResource</code> fault. In
+   *       this case, Amazon SWF no longer considers the activity task to be valid; the activity worker should
+   *       clean up the activity task.</p>
+   *          <p>The duration is specified in seconds, an integer greater than or equal to
+   *         <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
+   */
+  defaultTaskHeartbeatTimeout?: string;
+
+  /**
+   * <p>If set, specifies the default task list to use for scheduling tasks of this activity
+   *       type. This default task list is used if a task list isn't provided when a task is scheduled
+   *       through the <code>ScheduleActivityTask</code>
+   *             <a>Decision</a>.</p>
+   */
+  defaultTaskList?: TaskList;
+
+  /**
+   * <p>The default task priority to assign to the activity type. If not assigned, then
+   *         <code>0</code> is used. Valid values are integers that range from Java's
+   *         <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647).
+   *       Higher numbers indicate higher priority.</p>
+   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task
+   *         Priority</a> in the <i>in the
+   *       <i>Amazon SWF Developer Guide</i>.</i>.</p>
+   */
+  defaultTaskPriority?: string;
+
+  /**
+   * <p>If set, specifies the default maximum duration for a task of this activity type. This
+   *       default can be overridden when scheduling an activity task using the
+   *         <code>ScheduleActivityTask</code>
+   *             <a>Decision</a>.</p>
+   *          <p>The duration is specified in seconds, an integer greater than or equal to
+   *         <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
+   */
+  defaultTaskScheduleToCloseTimeout?: string;
+
+  /**
+   * <p>If set, specifies the default maximum duration that a task of this activity type can
+   *       wait before being assigned to a worker. This default can be overridden when scheduling an
+   *       activity task using the <code>ScheduleActivityTask</code>
+   *             <a>Decision</a>.</p>
+   *          <p>The duration is specified in seconds, an integer greater than or equal to
+   *         <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
+   */
+  defaultTaskScheduleToStartTimeout?: string;
+
+  /**
+   * <p>If set, specifies the default maximum duration that a worker can take to process tasks
+   *       of this activity type. This default can be overridden when scheduling an activity task using
+   *       the <code>ScheduleActivityTask</code>
+   *             <a>Decision</a>.</p>
+   *          <p>The duration is specified in seconds, an integer greater than or equal to
+   *         <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
+   */
+  defaultTaskStartToCloseTimeout?: string;
+
+  /**
+   * <p>A textual description of the activity type.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The name of the domain in which this activity is to be registered.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The name of the activity type within the domain.</p>
+   *
+   *          <p>The specified string must not start or end with whitespace. It must not contain a
+   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
+   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
+   *       not <i>be</i> the literal string <code>arn</code>.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The version of the activity type.</p>
+   *          <note>
+   *             <p>The activity type consists of the name and version, the combination of which must be
+   *         unique within the domain.</p>
+   *          </note>
+   *
+   *          <p>The specified string must not start or end with whitespace. It must not contain a
+   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
+   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
+   *       not <i>be</i> the literal string <code>arn</code>.</p>
+   */
+  version: string | undefined;
+}
+
+export namespace RegisterActivityTypeInput {
+  export const filterSensitiveLog = (obj: RegisterActivityTypeInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RegisterActivityTypeInput =>
+    __isa(o, "RegisterActivityTypeInput");
+}
+
+export interface RegisterDomainInput {
+  __type?: "RegisterDomainInput";
+  /**
+   * <p>A text description of the domain.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Name of the domain to register. The name must be unique in the region that the domain
+   *       is registered in.</p>
+   *
+   *          <p>The specified string must not start or end with whitespace. It must not contain a
+   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
+   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
+   *       not <i>be</i> the literal string <code>arn</code>.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Tags to be added when registering a domain.</p>
+   *          <p>Tags may only contain unicode letters, digits, whitespace, or these symbols: <code>_ . : / = + - @</code>.</p>
+   */
+  tags?: ResourceTag[];
+
+  /**
+   * <p>The duration (in days) that records and histories of workflow executions on the domain
+   *       should be kept by the service. After the retention period, the workflow execution isn't
+   *       available in the results of visibility calls.</p>
+   *          <p>If you pass the value <code>NONE</code> or <code>0</code> (zero), then the workflow
+   *       execution history isn't retained. As soon as the workflow execution completes, the execution
+   *       record and its history are deleted.</p>
+   *          <p>The maximum workflow execution retention period is 90 days. For more information about
+   *       Amazon SWF service limits, see: <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-limits.html">Amazon SWF Service Limits</a> in the
+   *         <i>Amazon SWF Developer Guide</i>.</p>
+   */
+  workflowExecutionRetentionPeriodInDays: string | undefined;
+}
+
+export namespace RegisterDomainInput {
+  export const filterSensitiveLog = (obj: RegisterDomainInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RegisterDomainInput =>
+    __isa(o, "RegisterDomainInput");
+}
+
+export interface RegisterWorkflowTypeInput {
+  __type?: "RegisterWorkflowTypeInput";
+  /**
+   * <p>If set, specifies the default policy to use for the child workflow executions when a
+   *       workflow execution of this type is terminated, by calling the <a>TerminateWorkflowExecution</a> action explicitly or due to an expired timeout. This
+   *       default can be overridden when starting a workflow execution using the <a>StartWorkflowExecution</a> action or the <code>StartChildWorkflowExecution</code>
+   *             <a>Decision</a>.</p>
+   *          <p>The supported child policies are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TERMINATE</code> – The child executions are terminated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REQUEST_CANCEL</code> – A request to cancel is attempted for each child
+   *           execution by recording a <code>WorkflowExecutionCancelRequested</code> event in its
+   *           history. It is up to the decider to take appropriate actions when it receives an execution
+   *           history with this event.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ABANDON</code> – No action is taken. The child executions continue to
+   *           run.</p>
+   *             </li>
+   *          </ul>
+   */
+  defaultChildPolicy?: ChildPolicy | string;
+
+  /**
+   * <p>If set, specifies the default maximum duration for executions of this workflow type.
+   *       You can override this default when starting an execution through the <a>StartWorkflowExecution</a> Action or <code>StartChildWorkflowExecution</code>
+   *             <a>Decision</a>.</p>
+   *
+   *          <p>The duration is specified in seconds; an integer greater than or equal to 0. Unlike
+   *       some of the other timeout parameters in Amazon SWF, you cannot specify a value of "NONE" for
+   *         <code>defaultExecutionStartToCloseTimeout</code>; there is a one-year max limit on the time
+   *       that a workflow execution can run. Exceeding this limit always causes the workflow execution
+   *       to time out.</p>
+   */
+  defaultExecutionStartToCloseTimeout?: string;
+
+  /**
+   * <p>The default IAM role attached to this workflow type.</p>
+   *          <note>
+   *             <p>Executions of this workflow type need IAM roles to invoke Lambda functions. If you
+   *         don't specify an IAM role when you start this workflow type, the default Lambda role is
+   *         attached to the execution. For more information, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a> in the
+   *           <i>Amazon SWF Developer Guide</i>.</p>
+   *          </note>
+   */
+  defaultLambdaRole?: string;
+
+  /**
+   * <p>If set, specifies the default task list to use for scheduling decision tasks for
+   *       executions of this workflow type. This default is used only if a task list isn't provided when
+   *       starting the execution through the <a>StartWorkflowExecution</a> Action or
+   *         <code>StartChildWorkflowExecution</code>
+   *             <a>Decision</a>.</p>
+   */
+  defaultTaskList?: TaskList;
+
+  /**
+   * <p>The default task priority to assign to the workflow type. If not assigned, then
+   *         <code>0</code> is used. Valid values are integers that range from Java's
+   *         <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647).
+   *       Higher numbers indicate higher priority.</p>
+   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task
+   *         Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
+   */
+  defaultTaskPriority?: string;
+
+  /**
+   * <p>If set, specifies the default maximum duration of decision tasks for this workflow
+   *       type. This default can be overridden when starting a workflow execution using the <a>StartWorkflowExecution</a> action or the <code>StartChildWorkflowExecution</code>
+   *             <a>Decision</a>.</p>
+   *          <p>The duration is specified in seconds, an integer greater than or equal to
+   *         <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
+   */
+  defaultTaskStartToCloseTimeout?: string;
+
+  /**
+   * <p>Textual description of the workflow type.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The name of the domain in which to register the workflow type.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The name of the workflow type.</p>
+   *
+   *          <p>The specified string must not start or end with whitespace. It must not contain a
+   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
+   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
+   *       not <i>be</i> the literal string <code>arn</code>.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The version of the workflow type.</p>
+   *          <note>
+   *             <p>The workflow type consists of the name and version, the combination of which must be
+   *         unique within the domain. To get a list of all currently registered workflow types, use the
+   *           <a>ListWorkflowTypes</a> action.</p>
+   *          </note>
+   *
+   *          <p>The specified string must not start or end with whitespace. It must not contain a
+   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
+   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
+   *       not <i>be</i> the literal string <code>arn</code>.</p>
+   */
+  version: string | undefined;
+}
+
+export namespace RegisterWorkflowTypeInput {
+  export const filterSensitiveLog = (obj: RegisterWorkflowTypeInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RegisterWorkflowTypeInput =>
+    __isa(o, "RegisterWorkflowTypeInput");
 }
 
 export type RegistrationStatus = "DEPRECATED" | "REGISTERED";
@@ -3498,6 +4654,34 @@ export namespace RequestCancelExternalWorkflowExecutionInitiatedEventAttributes 
     __isa(o, "RequestCancelExternalWorkflowExecutionInitiatedEventAttributes");
 }
 
+export interface RequestCancelWorkflowExecutionInput {
+  __type?: "RequestCancelWorkflowExecutionInput";
+  /**
+   * <p>The name of the domain containing the workflow execution to cancel.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The runId of the workflow execution to cancel.</p>
+   */
+  runId?: string;
+
+  /**
+   * <p>The workflowId of the workflow execution to cancel.</p>
+   */
+  workflowId: string | undefined;
+}
+
+export namespace RequestCancelWorkflowExecutionInput {
+  export const filterSensitiveLog = (
+    obj: RequestCancelWorkflowExecutionInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RequestCancelWorkflowExecutionInput =>
+    __isa(o, "RequestCancelWorkflowExecutionInput");
+}
+
 /**
  * <p>Tags are key-value pairs that can be associated with Amazon SWF state machines and
  *       activities.</p>
@@ -3521,6 +4705,158 @@ export namespace ResourceTag {
     ...obj
   });
   export const isa = (o: any): o is ResourceTag => __isa(o, "ResourceTag");
+}
+
+export interface RespondActivityTaskCanceledInput {
+  __type?: "RespondActivityTaskCanceledInput";
+  /**
+   * <p> Information about the cancellation.</p>
+   */
+  details?: string;
+
+  /**
+   * <p>The <code>taskToken</code> of the <a>ActivityTask</a>.</p>
+   *          <important>
+   *             <p>
+   *                <code>taskToken</code> is generated by the service and should be treated as an opaque value.
+   *         If the task is passed to another process, its <code>taskToken</code> must also be passed.
+   *         This enables it to provide its progress and respond with results.</p>
+   *          </important>
+   */
+  taskToken: string | undefined;
+}
+
+export namespace RespondActivityTaskCanceledInput {
+  export const filterSensitiveLog = (
+    obj: RespondActivityTaskCanceledInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RespondActivityTaskCanceledInput =>
+    __isa(o, "RespondActivityTaskCanceledInput");
+}
+
+export interface RespondActivityTaskCompletedInput {
+  __type?: "RespondActivityTaskCompletedInput";
+  /**
+   * <p>The result of the activity task. It is a free form string that is implementation
+   *       specific.</p>
+   */
+  result?: string;
+
+  /**
+   * <p>The <code>taskToken</code> of the <a>ActivityTask</a>.</p>
+   *          <important>
+   *             <p>
+   *                <code>taskToken</code> is generated by the service and should be treated as an opaque value.
+   *         If the task is passed to another process, its <code>taskToken</code> must also be passed.
+   *         This enables it to provide its progress and respond with results.</p>
+   *          </important>
+   */
+  taskToken: string | undefined;
+}
+
+export namespace RespondActivityTaskCompletedInput {
+  export const filterSensitiveLog = (
+    obj: RespondActivityTaskCompletedInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RespondActivityTaskCompletedInput =>
+    __isa(o, "RespondActivityTaskCompletedInput");
+}
+
+export interface RespondActivityTaskFailedInput {
+  __type?: "RespondActivityTaskFailedInput";
+  /**
+   * <p> Detailed information about the failure.</p>
+   */
+  details?: string;
+
+  /**
+   * <p>Description of the error that may assist in diagnostics.</p>
+   */
+  reason?: string;
+
+  /**
+   * <p>The <code>taskToken</code> of the <a>ActivityTask</a>.</p>
+   *
+   *          <important>
+   *             <p>
+   *                <code>taskToken</code> is generated by the service and should be treated as an opaque value.
+   *         If the task is passed to another process, its <code>taskToken</code> must also be passed.
+   *         This enables it to provide its progress and respond with results.</p>
+   *          </important>
+   */
+  taskToken: string | undefined;
+}
+
+export namespace RespondActivityTaskFailedInput {
+  export const filterSensitiveLog = (
+    obj: RespondActivityTaskFailedInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RespondActivityTaskFailedInput =>
+    __isa(o, "RespondActivityTaskFailedInput");
+}
+
+/**
+ * <p>Input data for a TaskCompleted response to a decision task.</p>
+ */
+export interface RespondDecisionTaskCompletedInput {
+  __type?: "RespondDecisionTaskCompletedInput";
+  /**
+   * <p>The list of decisions (possibly empty) made by the decider while processing this
+   *       decision task. See the docs for the <a>Decision</a> structure for
+   *       details.</p>
+   */
+  decisions?: Decision[];
+
+  /**
+   * <p>User defined context to add to workflow execution.</p>
+   */
+  executionContext?: string;
+
+  /**
+   * <p>The <code>taskToken</code> from the <a>DecisionTask</a>.</p>
+   *          <important>
+   *             <p>
+   *                <code>taskToken</code> is generated by the service and should be treated as an opaque value.
+   *         If the task is passed to another process, its <code>taskToken</code> must also be passed.
+   *         This enables it to provide its progress and respond with results.</p>
+   *          </important>
+   */
+  taskToken: string | undefined;
+}
+
+export namespace RespondDecisionTaskCompletedInput {
+  export const filterSensitiveLog = (
+    obj: RespondDecisionTaskCompletedInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RespondDecisionTaskCompletedInput =>
+    __isa(o, "RespondDecisionTaskCompletedInput");
+}
+
+/**
+ * <p>Specifies the <code>runId</code> of a workflow execution.</p>
+ */
+export interface Run {
+  __type?: "Run";
+  /**
+   * <p>The <code>runId</code> of a workflow execution. This ID is generated by the service and
+   *       can be used to uniquely identify the workflow execution within a domain.</p>
+   */
+  runId?: string;
+}
+
+export namespace Run {
+  export const filterSensitiveLog = (obj: Run): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Run => __isa(o, "Run");
 }
 
 /**
@@ -3993,6 +5329,45 @@ export namespace SignalExternalWorkflowExecutionInitiatedEventAttributes {
     o: any
   ): o is SignalExternalWorkflowExecutionInitiatedEventAttributes =>
     __isa(o, "SignalExternalWorkflowExecutionInitiatedEventAttributes");
+}
+
+export interface SignalWorkflowExecutionInput {
+  __type?: "SignalWorkflowExecutionInput";
+  /**
+   * <p>The name of the domain containing the workflow execution to signal.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>Data to attach to the <code>WorkflowExecutionSignaled</code> event in the target
+   *       workflow execution's history.</p>
+   */
+  input?: string;
+
+  /**
+   * <p>The runId of the workflow execution to signal.</p>
+   */
+  runId?: string;
+
+  /**
+   * <p>The name of the signal. This name must be meaningful to the target workflow.</p>
+   */
+  signalName: string | undefined;
+
+  /**
+   * <p>The workflowId of the workflow execution to signal.</p>
+   */
+  workflowId: string | undefined;
+}
+
+export namespace SignalWorkflowExecutionInput {
+  export const filterSensitiveLog = (
+    obj: SignalWorkflowExecutionInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SignalWorkflowExecutionInput =>
+    __isa(o, "SignalWorkflowExecutionInput");
 }
 
 /**
@@ -4478,6 +5853,161 @@ export namespace StartTimerFailedEventAttributes {
     __isa(o, "StartTimerFailedEventAttributes");
 }
 
+export interface StartWorkflowExecutionInput {
+  __type?: "StartWorkflowExecutionInput";
+  /**
+   * <p>If set, specifies the policy to use for the child workflow executions of this workflow
+   *       execution if it is terminated, by calling the <a>TerminateWorkflowExecution</a>
+   *       action explicitly or due to an expired timeout. This policy overrides the default child policy
+   *       specified when registering the workflow type using <a>RegisterWorkflowType</a>.</p>
+   *          <p>The supported child policies are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TERMINATE</code> – The child executions are terminated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REQUEST_CANCEL</code> – A request to cancel is attempted for each child
+   *           execution by recording a <code>WorkflowExecutionCancelRequested</code> event in its
+   *           history. It is up to the decider to take appropriate actions when it receives an execution
+   *           history with this event.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ABANDON</code> – No action is taken. The child executions continue to
+   *           run.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>A child policy for this workflow execution must be specified either as a default for
+   *         the workflow type or through this parameter. If neither this parameter is set nor a default
+   *         child policy was specified at registration time then a fault is returned.</p>
+   *          </note>
+   */
+  childPolicy?: ChildPolicy | string;
+
+  /**
+   * <p>The name of the domain in which the workflow execution is created.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The total duration for this workflow execution. This overrides the
+   *       defaultExecutionStartToCloseTimeout specified when registering the workflow type.</p>
+   *
+   *          <p>The duration is specified in seconds; an integer greater than or equal to
+   *         <code>0</code>. Exceeding this limit causes the workflow execution to time out. Unlike some
+   *       of the other timeout parameters in Amazon SWF, you cannot specify a value of "NONE" for this
+   *       timeout; there is a one-year max limit on the time that a workflow execution can
+   *       run.</p>
+   *
+   *          <note>
+   *             <p>An execution start-to-close timeout must be specified either through this parameter
+   *         or as a default when the workflow type is registered. If neither this parameter nor a
+   *         default execution start-to-close timeout is specified, a fault is returned.</p>
+   *          </note>
+   */
+  executionStartToCloseTimeout?: string;
+
+  /**
+   * <p>The input for the workflow execution. This is a free form string which should be
+   *       meaningful to the workflow you are starting. This <code>input</code> is made available to the
+   *       new workflow execution in the <code>WorkflowExecutionStarted</code> history event.</p>
+   */
+  input?: string;
+
+  /**
+   * <p>The IAM role to attach to this workflow execution.</p>
+   *          <note>
+   *             <p>Executions of this workflow type need IAM roles to invoke Lambda functions. If you
+   *         don't attach an IAM role, any attempt to schedule a Lambda task fails. This results in a
+   *           <code>ScheduleLambdaFunctionFailed</code> history event. For more information, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a> in the
+   *           <i>Amazon SWF Developer Guide</i>.</p>
+   *          </note>
+   */
+  lambdaRole?: string;
+
+  /**
+   * <p>The list of tags to associate with the workflow execution. You can specify a maximum of
+   *       5 tags. You can list workflow executions with a specific tag by calling <a>ListOpenWorkflowExecutions</a> or <a>ListClosedWorkflowExecutions</a> and
+   *       specifying a <a>TagFilter</a>.</p>
+   */
+  tagList?: string[];
+
+  /**
+   * <p>The task list to use for the decision tasks generated for this workflow execution. This
+   *       overrides the <code>defaultTaskList</code> specified when registering the workflow
+   *       type.</p>
+   *          <note>
+   *             <p>A task list for this workflow execution must be specified either as a default for the
+   *         workflow type or through this parameter. If neither this parameter is set nor a default task
+   *         list was specified at registration time then a fault is returned.</p>
+   *          </note>
+   *
+   *          <p>The specified string must not start or end with whitespace. It must not contain a
+   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
+   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
+   *       not <i>be</i> the literal string <code>arn</code>.</p>
+   */
+  taskList?: TaskList;
+
+  /**
+   * <p>The task priority to use for this workflow execution. This overrides any default
+   *       priority that was assigned when the workflow type was registered. If not set, then the default
+   *       task priority for the workflow type is used. Valid values are integers that range from Java's
+   *         <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647).
+   *       Higher numbers indicate higher priority.</p>
+   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task
+   *         Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
+   */
+  taskPriority?: string;
+
+  /**
+   * <p>Specifies the maximum duration of decision tasks for this workflow execution. This
+   *       parameter overrides the <code>defaultTaskStartToCloseTimout</code> specified when registering
+   *       the workflow type using <a>RegisterWorkflowType</a>.</p>
+   *          <p>The duration is specified in seconds, an integer greater than or equal to
+   *         <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
+   *          <note>
+   *             <p>A task start-to-close timeout for this workflow execution must be specified either as
+   *         a default for the workflow type or through this parameter. If neither this parameter is set
+   *         nor a default task start-to-close timeout was specified at registration time then a fault is
+   *         returned.</p>
+   *          </note>
+   */
+  taskStartToCloseTimeout?: string;
+
+  /**
+   * <p>The user defined identifier associated with the workflow execution. You can use this to
+   *       associate a custom identifier with the workflow execution. You may specify the same identifier
+   *       if a workflow execution is logically a <i>restart</i> of a previous execution.
+   *       You cannot have two open workflow executions with the same <code>workflowId</code> at the same
+   *       time within the same domain.</p>
+   *
+   *          <p>The specified string must not start or end with whitespace. It must not contain a
+   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
+   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
+   *       not <i>be</i> the literal string <code>arn</code>.</p>
+   */
+  workflowId: string | undefined;
+
+  /**
+   * <p>The type of the workflow to start.</p>
+   */
+  workflowType: WorkflowType | undefined;
+}
+
+export namespace StartWorkflowExecutionInput {
+  export const filterSensitiveLog = (
+    obj: StartWorkflowExecutionInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StartWorkflowExecutionInput =>
+    __isa(o, "StartWorkflowExecutionInput");
+}
+
 /**
  * <p>Used to filter the workflow executions in visibility APIs based on a tag.</p>
  */
@@ -4499,6 +6029,28 @@ export namespace TagFilter {
   export const isa = (o: any): o is TagFilter => __isa(o, "TagFilter");
 }
 
+export interface TagResourceInput {
+  __type?: "TagResourceInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) for the Amazon SWF domain.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The list of tags to add to a domain. </p>
+   *          <p>Tags may only contain unicode letters, digits, whitespace, or these symbols: <code>_ . : / = + - @</code>.</p>
+   */
+  tags: ResourceTag[] | undefined;
+}
+
+export namespace TagResourceInput {
+  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TagResourceInput =>
+    __isa(o, "TagResourceInput");
+}
+
 /**
  * <p>Represents a task list.</p>
  */
@@ -4515,6 +6067,75 @@ export namespace TaskList {
     ...obj
   });
   export const isa = (o: any): o is TaskList => __isa(o, "TaskList");
+}
+
+export interface TerminateWorkflowExecutionInput {
+  __type?: "TerminateWorkflowExecutionInput";
+  /**
+   * <p>If set, specifies the policy to use for the child workflow executions of the workflow
+   *       execution being terminated. This policy overrides the child policy specified for the workflow
+   *       execution at registration time or when starting the execution.</p>
+   *          <p>The supported child policies are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TERMINATE</code> – The child executions are terminated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REQUEST_CANCEL</code> – A request to cancel is attempted for each child
+   *           execution by recording a <code>WorkflowExecutionCancelRequested</code> event in its
+   *           history. It is up to the decider to take appropriate actions when it receives an execution
+   *           history with this event.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ABANDON</code> – No action is taken. The child executions continue to
+   *           run.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>A child policy for this workflow execution must be specified either as a default for
+   *         the workflow type or through this parameter. If neither this parameter is set nor a default
+   *         child policy was specified at registration time then a fault is returned.</p>
+   *          </note>
+   */
+  childPolicy?: ChildPolicy | string;
+
+  /**
+   * <p> Details for terminating the workflow execution.</p>
+   */
+  details?: string;
+
+  /**
+   * <p>The domain of the workflow execution to terminate.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p> A descriptive reason for terminating the workflow execution.</p>
+   */
+  reason?: string;
+
+  /**
+   * <p>The runId of the workflow execution to terminate.</p>
+   */
+  runId?: string;
+
+  /**
+   * <p>The workflowId of the workflow execution to terminate.</p>
+   */
+  workflowId: string | undefined;
+}
+
+export namespace TerminateWorkflowExecutionInput {
+  export const filterSensitiveLog = (
+    obj: TerminateWorkflowExecutionInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TerminateWorkflowExecutionInput =>
+    __isa(o, "TerminateWorkflowExecutionInput");
 }
 
 /**
@@ -4680,6 +6301,68 @@ export namespace TypeDeprecatedFault {
     __isa(o, "TypeDeprecatedFault");
 }
 
+export interface UndeprecateActivityTypeInput {
+  __type?: "UndeprecateActivityTypeInput";
+  /**
+   * <p>The activity type to undeprecate.</p>
+   */
+  activityType: ActivityType | undefined;
+
+  /**
+   * <p>The name of the domain of the deprecated activity type.</p>
+   */
+  domain: string | undefined;
+}
+
+export namespace UndeprecateActivityTypeInput {
+  export const filterSensitiveLog = (
+    obj: UndeprecateActivityTypeInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UndeprecateActivityTypeInput =>
+    __isa(o, "UndeprecateActivityTypeInput");
+}
+
+export interface UndeprecateDomainInput {
+  __type?: "UndeprecateDomainInput";
+  /**
+   * <p>The name of the domain of the deprecated workflow type.</p>
+   */
+  name: string | undefined;
+}
+
+export namespace UndeprecateDomainInput {
+  export const filterSensitiveLog = (obj: UndeprecateDomainInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UndeprecateDomainInput =>
+    __isa(o, "UndeprecateDomainInput");
+}
+
+export interface UndeprecateWorkflowTypeInput {
+  __type?: "UndeprecateWorkflowTypeInput";
+  /**
+   * <p>The name of the domain of the deprecated workflow type.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The name of the domain of the deprecated workflow type.</p>
+   */
+  workflowType: WorkflowType | undefined;
+}
+
+export namespace UndeprecateWorkflowTypeInput {
+  export const filterSensitiveLog = (
+    obj: UndeprecateWorkflowTypeInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UndeprecateWorkflowTypeInput =>
+    __isa(o, "UndeprecateWorkflowTypeInput");
+}
+
 /**
  * <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  */
@@ -4700,6 +6383,27 @@ export namespace UnknownResourceFault {
   });
   export const isa = (o: any): o is UnknownResourceFault =>
     __isa(o, "UnknownResourceFault");
+}
+
+export interface UntagResourceInput {
+  __type?: "UntagResourceInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) for the Amazon SWF domain.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The list of tags to remove from the Amazon SWF domain.</p>
+   */
+  tagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceInput {
+  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UntagResourceInput =>
+    __isa(o, "UntagResourceInput");
 }
 
 /**
@@ -4751,6 +6455,34 @@ export namespace WorkflowExecutionAlreadyStartedFault {
     __isa(o, "WorkflowExecutionAlreadyStartedFault");
 }
 
+/**
+ * <p>Provides the details of the <code>WorkflowExecutionCanceled</code> event.</p>
+ */
+export interface WorkflowExecutionCanceledEventAttributes {
+  __type?: "WorkflowExecutionCanceledEventAttributes";
+  /**
+   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
+   *       <code>CancelWorkflowExecution</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of
+   *   events leading up to this event.</p>
+   */
+  decisionTaskCompletedEventId: number | undefined;
+
+  /**
+   * <p>The details of the cancellation.</p>
+   */
+  details?: string;
+}
+
+export namespace WorkflowExecutionCanceledEventAttributes {
+  export const filterSensitiveLog = (
+    obj: WorkflowExecutionCanceledEventAttributes
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is WorkflowExecutionCanceledEventAttributes =>
+    __isa(o, "WorkflowExecutionCanceledEventAttributes");
+}
+
 export type WorkflowExecutionCancelRequestedCause = "CHILD_POLICY_APPLIED";
 
 /**
@@ -4787,34 +6519,6 @@ export namespace WorkflowExecutionCancelRequestedEventAttributes {
     o: any
   ): o is WorkflowExecutionCancelRequestedEventAttributes =>
     __isa(o, "WorkflowExecutionCancelRequestedEventAttributes");
-}
-
-/**
- * <p>Provides the details of the <code>WorkflowExecutionCanceled</code> event.</p>
- */
-export interface WorkflowExecutionCanceledEventAttributes {
-  __type?: "WorkflowExecutionCanceledEventAttributes";
-  /**
-   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
-   *       <code>CancelWorkflowExecution</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of
-   *   events leading up to this event.</p>
-   */
-  decisionTaskCompletedEventId: number | undefined;
-
-  /**
-   * <p>The details of the cancellation.</p>
-   */
-  details?: string;
-}
-
-export namespace WorkflowExecutionCanceledEventAttributes {
-  export const filterSensitiveLog = (
-    obj: WorkflowExecutionCanceledEventAttributes
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is WorkflowExecutionCanceledEventAttributes =>
-    __isa(o, "WorkflowExecutionCanceledEventAttributes");
 }
 
 /**
@@ -5782,1708 +7486,4 @@ export namespace WorkflowTypeInfos {
   });
   export const isa = (o: any): o is WorkflowTypeInfos =>
     __isa(o, "WorkflowTypeInfos");
-}
-
-export interface CountClosedWorkflowExecutionsInput {
-  __type?: "CountClosedWorkflowExecutionsInput";
-  /**
-   * <p>If specified, only workflow executions that match this close status are counted. This
-   *       filter has an affect only if <code>executionStatus</code> is specified as
-   *       <code>CLOSED</code>.</p>
-   *          <note>
-   *             <p>
-   *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
-   *           <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a
-   *         request.</p>
-   *          </note>
-   */
-  closeStatusFilter?: CloseStatusFilter;
-
-  /**
-   * <p>If specified, only workflow executions that meet the close time criteria of the filter
-   *       are counted.</p>
-   *          <note>
-   *             <p>
-   *                <code>startTimeFilter</code> and <code>closeTimeFilter</code> are mutually exclusive. You
-   *         must specify one of these in a request but not both.</p>
-   *          </note>
-   */
-  closeTimeFilter?: ExecutionTimeFilter;
-
-  /**
-   * <p>The name of the domain containing the workflow executions to count.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>If specified, only workflow executions matching the <code>WorkflowId</code> in the
-   *       filter are counted.</p>
-   *          <note>
-   *             <p>
-   *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
-   *           <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a
-   *         request.</p>
-   *          </note>
-   */
-  executionFilter?: WorkflowExecutionFilter;
-
-  /**
-   * <p>If specified, only workflow executions that meet the start time criteria of the filter
-   *       are counted.</p>
-   *          <note>
-   *             <p>
-   *                <code>startTimeFilter</code> and <code>closeTimeFilter</code> are mutually exclusive. You
-   *         must specify one of these in a request but not both.</p>
-   *          </note>
-   */
-  startTimeFilter?: ExecutionTimeFilter;
-
-  /**
-   * <p>If specified, only executions that have a tag that matches the filter are
-   *       counted.</p>
-   *          <note>
-   *             <p>
-   *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
-   *           <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a
-   *         request.</p>
-   *          </note>
-   */
-  tagFilter?: TagFilter;
-
-  /**
-   * <p>If specified, indicates the type of the workflow executions to be counted.</p>
-   *          <note>
-   *             <p>
-   *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
-   *           <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a
-   *         request.</p>
-   *          </note>
-   */
-  typeFilter?: WorkflowTypeFilter;
-}
-
-export namespace CountClosedWorkflowExecutionsInput {
-  export const filterSensitiveLog = (
-    obj: CountClosedWorkflowExecutionsInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CountClosedWorkflowExecutionsInput =>
-    __isa(o, "CountClosedWorkflowExecutionsInput");
-}
-
-export interface CountOpenWorkflowExecutionsInput {
-  __type?: "CountOpenWorkflowExecutionsInput";
-  /**
-   * <p>The name of the domain containing the workflow executions to count.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>If specified, only workflow executions matching the <code>WorkflowId</code> in the
-   *       filter are counted.</p>
-   *          <note>
-   *             <p>
-   *                <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are
-   *         mutually exclusive. You can specify at most one of these in a request.</p>
-   *          </note>
-   */
-  executionFilter?: WorkflowExecutionFilter;
-
-  /**
-   * <p>Specifies the start time criteria that workflow executions must meet in order to be
-   *       counted.</p>
-   */
-  startTimeFilter: ExecutionTimeFilter | undefined;
-
-  /**
-   * <p>If specified, only executions that have a tag that matches the filter are
-   *       counted.</p>
-   *          <note>
-   *             <p>
-   *                <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are
-   *         mutually exclusive. You can specify at most one of these in a request.</p>
-   *          </note>
-   */
-  tagFilter?: TagFilter;
-
-  /**
-   * <p>Specifies the type of the workflow executions to be counted.</p>
-   *          <note>
-   *             <p>
-   *                <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are
-   *         mutually exclusive. You can specify at most one of these in a request.</p>
-   *          </note>
-   */
-  typeFilter?: WorkflowTypeFilter;
-}
-
-export namespace CountOpenWorkflowExecutionsInput {
-  export const filterSensitiveLog = (
-    obj: CountOpenWorkflowExecutionsInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CountOpenWorkflowExecutionsInput =>
-    __isa(o, "CountOpenWorkflowExecutionsInput");
-}
-
-export interface CountPendingActivityTasksInput {
-  __type?: "CountPendingActivityTasksInput";
-  /**
-   * <p>The name of the domain that contains the task list.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>The name of the task list.</p>
-   */
-  taskList: TaskList | undefined;
-}
-
-export namespace CountPendingActivityTasksInput {
-  export const filterSensitiveLog = (
-    obj: CountPendingActivityTasksInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CountPendingActivityTasksInput =>
-    __isa(o, "CountPendingActivityTasksInput");
-}
-
-export interface CountPendingDecisionTasksInput {
-  __type?: "CountPendingDecisionTasksInput";
-  /**
-   * <p>The name of the domain that contains the task list.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>The name of the task list.</p>
-   */
-  taskList: TaskList | undefined;
-}
-
-export namespace CountPendingDecisionTasksInput {
-  export const filterSensitiveLog = (
-    obj: CountPendingDecisionTasksInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CountPendingDecisionTasksInput =>
-    __isa(o, "CountPendingDecisionTasksInput");
-}
-
-export interface DeprecateActivityTypeInput {
-  __type?: "DeprecateActivityTypeInput";
-  /**
-   * <p>The activity type to deprecate.</p>
-   */
-  activityType: ActivityType | undefined;
-
-  /**
-   * <p>The name of the domain in which the activity type is registered.</p>
-   */
-  domain: string | undefined;
-}
-
-export namespace DeprecateActivityTypeInput {
-  export const filterSensitiveLog = (obj: DeprecateActivityTypeInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeprecateActivityTypeInput =>
-    __isa(o, "DeprecateActivityTypeInput");
-}
-
-export interface DeprecateDomainInput {
-  __type?: "DeprecateDomainInput";
-  /**
-   * <p>The name of the domain to deprecate.</p>
-   */
-  name: string | undefined;
-}
-
-export namespace DeprecateDomainInput {
-  export const filterSensitiveLog = (obj: DeprecateDomainInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeprecateDomainInput =>
-    __isa(o, "DeprecateDomainInput");
-}
-
-export interface DeprecateWorkflowTypeInput {
-  __type?: "DeprecateWorkflowTypeInput";
-  /**
-   * <p>The name of the domain in which the workflow type is registered.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>The workflow type to deprecate.</p>
-   */
-  workflowType: WorkflowType | undefined;
-}
-
-export namespace DeprecateWorkflowTypeInput {
-  export const filterSensitiveLog = (obj: DeprecateWorkflowTypeInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeprecateWorkflowTypeInput =>
-    __isa(o, "DeprecateWorkflowTypeInput");
-}
-
-export interface DescribeActivityTypeInput {
-  __type?: "DescribeActivityTypeInput";
-  /**
-   * <p>The activity type to get information about. Activity types are identified by the
-   *         <code>name</code> and <code>version</code> that were supplied when the activity was
-   *       registered.</p>
-   */
-  activityType: ActivityType | undefined;
-
-  /**
-   * <p>The name of the domain in which the activity type is registered.</p>
-   */
-  domain: string | undefined;
-}
-
-export namespace DescribeActivityTypeInput {
-  export const filterSensitiveLog = (obj: DescribeActivityTypeInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeActivityTypeInput =>
-    __isa(o, "DescribeActivityTypeInput");
-}
-
-export interface DescribeDomainInput {
-  __type?: "DescribeDomainInput";
-  /**
-   * <p>The name of the domain to describe.</p>
-   */
-  name: string | undefined;
-}
-
-export namespace DescribeDomainInput {
-  export const filterSensitiveLog = (obj: DescribeDomainInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeDomainInput =>
-    __isa(o, "DescribeDomainInput");
-}
-
-export interface DescribeWorkflowExecutionInput {
-  __type?: "DescribeWorkflowExecutionInput";
-  /**
-   * <p>The name of the domain containing the workflow execution.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>The workflow execution to describe.</p>
-   */
-  execution: WorkflowExecution | undefined;
-}
-
-export namespace DescribeWorkflowExecutionInput {
-  export const filterSensitiveLog = (
-    obj: DescribeWorkflowExecutionInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeWorkflowExecutionInput =>
-    __isa(o, "DescribeWorkflowExecutionInput");
-}
-
-export interface DescribeWorkflowTypeInput {
-  __type?: "DescribeWorkflowTypeInput";
-  /**
-   * <p>The name of the domain in which this workflow type is registered.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>The workflow type to describe.</p>
-   */
-  workflowType: WorkflowType | undefined;
-}
-
-export namespace DescribeWorkflowTypeInput {
-  export const filterSensitiveLog = (obj: DescribeWorkflowTypeInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeWorkflowTypeInput =>
-    __isa(o, "DescribeWorkflowTypeInput");
-}
-
-export interface GetWorkflowExecutionHistoryInput {
-  __type?: "GetWorkflowExecutionHistoryInput";
-  /**
-   * <p>The name of the domain containing the workflow execution.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>Specifies the workflow execution for which to return the history.</p>
-   */
-  execution: WorkflowExecution | undefined;
-
-  /**
-   * <p>The maximum number of results that are returned per call.
-   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
-   */
-  maximumPageSize?: number;
-
-  /**
-   * <p>If <code>NextPageToken</code> is returned there are more results
-   *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
-   *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
-   *       after 60 seconds. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
-   *       exceeded its maximum lifetime</code>". </p>
-   *
-   *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned
-   *       in a single call. </p>
-   */
-  nextPageToken?: string;
-
-  /**
-   * <p>When set to <code>true</code>, returns the events in reverse order. By default the
-   *       results are returned in ascending order of the <code>eventTimeStamp</code> of the
-   *       events.</p>
-   */
-  reverseOrder?: boolean;
-}
-
-export namespace GetWorkflowExecutionHistoryInput {
-  export const filterSensitiveLog = (
-    obj: GetWorkflowExecutionHistoryInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetWorkflowExecutionHistoryInput =>
-    __isa(o, "GetWorkflowExecutionHistoryInput");
-}
-
-export interface ListActivityTypesInput {
-  __type?: "ListActivityTypesInput";
-  /**
-   * <p>The name of the domain in which the activity types have been registered.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>The maximum number of results that are returned per call.
-   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
-   */
-  maximumPageSize?: number;
-
-  /**
-   * <p>If specified, only lists the activity types that have this name.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>If <code>NextPageToken</code> is returned there are more results
-   *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
-   *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
-   *       after 60 seconds. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
-   *       exceeded its maximum lifetime</code>". </p>
-   *
-   *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned
-   *       in a single call. </p>
-   */
-  nextPageToken?: string;
-
-  /**
-   * <p>Specifies the registration status of the activity types to list.</p>
-   */
-  registrationStatus: RegistrationStatus | string | undefined;
-
-  /**
-   * <p>When set to <code>true</code>, returns the results in reverse order. By default, the
-   *       results are returned in ascending alphabetical order by <code>name</code> of the activity
-   *       types.</p>
-   */
-  reverseOrder?: boolean;
-}
-
-export namespace ListActivityTypesInput {
-  export const filterSensitiveLog = (obj: ListActivityTypesInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListActivityTypesInput =>
-    __isa(o, "ListActivityTypesInput");
-}
-
-export interface ListClosedWorkflowExecutionsInput {
-  __type?: "ListClosedWorkflowExecutionsInput";
-  /**
-   * <p>If specified, only workflow executions that match this <i>close
-   *         status</i> are listed. For example, if TERMINATED is specified, then only TERMINATED
-   *       workflow executions are listed.</p>
-   *          <note>
-   *             <p>
-   *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
-   *           <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a
-   *         request.</p>
-   *          </note>
-   */
-  closeStatusFilter?: CloseStatusFilter;
-
-  /**
-   * <p>If specified, the workflow executions are included in the returned results based on
-   *       whether their close times are within the range specified by this filter. Also, if this
-   *       parameter is specified, the returned results are ordered by their close times.</p>
-   *          <note>
-   *             <p>
-   *                <code>startTimeFilter</code> and <code>closeTimeFilter</code> are mutually exclusive. You
-   *         must specify one of these in a request but not both.</p>
-   *          </note>
-   */
-  closeTimeFilter?: ExecutionTimeFilter;
-
-  /**
-   * <p>The name of the domain that contains the workflow executions to list.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>If specified, only workflow executions matching the workflow ID specified in the filter
-   *       are returned.</p>
-   *          <note>
-   *             <p>
-   *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
-   *           <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a
-   *         request.</p>
-   *          </note>
-   */
-  executionFilter?: WorkflowExecutionFilter;
-
-  /**
-   * <p>The maximum number of results that are returned per call.
-   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
-   */
-  maximumPageSize?: number;
-
-  /**
-   * <p>If <code>NextPageToken</code> is returned there are more results
-   *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
-   *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
-   *       after 60 seconds. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
-   *       exceeded its maximum lifetime</code>". </p>
-   *
-   *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned
-   *       in a single call. </p>
-   */
-  nextPageToken?: string;
-
-  /**
-   * <p>When set to <code>true</code>, returns the results in reverse order. By default the
-   *       results are returned in descending order of the start or the close time of the
-   *       executions.</p>
-   */
-  reverseOrder?: boolean;
-
-  /**
-   * <p>If specified, the workflow executions are included in the returned results based on
-   *       whether their start times are within the range specified by this filter. Also, if this
-   *       parameter is specified, the returned results are ordered by their start times.</p>
-   *          <note>
-   *             <p>
-   *                <code>startTimeFilter</code> and <code>closeTimeFilter</code> are mutually exclusive. You
-   *         must specify one of these in a request but not both.</p>
-   *          </note>
-   */
-  startTimeFilter?: ExecutionTimeFilter;
-
-  /**
-   * <p>If specified, only executions that have the matching tag are listed.</p>
-   *          <note>
-   *             <p>
-   *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
-   *           <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a
-   *         request.</p>
-   *          </note>
-   */
-  tagFilter?: TagFilter;
-
-  /**
-   * <p>If specified, only executions of the type specified in the filter are
-   *       returned.</p>
-   *          <note>
-   *             <p>
-   *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
-   *           <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a
-   *         request.</p>
-   *          </note>
-   */
-  typeFilter?: WorkflowTypeFilter;
-}
-
-export namespace ListClosedWorkflowExecutionsInput {
-  export const filterSensitiveLog = (
-    obj: ListClosedWorkflowExecutionsInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListClosedWorkflowExecutionsInput =>
-    __isa(o, "ListClosedWorkflowExecutionsInput");
-}
-
-export interface ListDomainsInput {
-  __type?: "ListDomainsInput";
-  /**
-   * <p>The maximum number of results that are returned per call.
-   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
-   */
-  maximumPageSize?: number;
-
-  /**
-   * <p>If <code>NextPageToken</code> is returned there are more results
-   *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
-   *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
-   *       after 60 seconds. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
-   *       exceeded its maximum lifetime</code>". </p>
-   *
-   *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned
-   *       in a single call. </p>
-   */
-  nextPageToken?: string;
-
-  /**
-   * <p>Specifies the registration status of the domains to list.</p>
-   */
-  registrationStatus: RegistrationStatus | string | undefined;
-
-  /**
-   * <p>When set to <code>true</code>, returns the results in reverse order. By default, the
-   *       results are returned in ascending alphabetical order by <code>name</code> of the
-   *       domains.</p>
-   */
-  reverseOrder?: boolean;
-}
-
-export namespace ListDomainsInput {
-  export const filterSensitiveLog = (obj: ListDomainsInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListDomainsInput =>
-    __isa(o, "ListDomainsInput");
-}
-
-export interface ListOpenWorkflowExecutionsInput {
-  __type?: "ListOpenWorkflowExecutionsInput";
-  /**
-   * <p>The name of the domain that contains the workflow executions to list.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>If specified, only workflow executions matching the workflow ID specified in the filter
-   *       are returned.</p>
-   *          <note>
-   *             <p>
-   *                <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are
-   *         mutually exclusive. You can specify at most one of these in a request.</p>
-   *          </note>
-   */
-  executionFilter?: WorkflowExecutionFilter;
-
-  /**
-   * <p>The maximum number of results that are returned per call.
-   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
-   */
-  maximumPageSize?: number;
-
-  /**
-   * <p>If <code>NextPageToken</code> is returned there are more results
-   *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
-   *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
-   *       after 60 seconds. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
-   *       exceeded its maximum lifetime</code>". </p>
-   *
-   *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned
-   *       in a single call. </p>
-   */
-  nextPageToken?: string;
-
-  /**
-   * <p>When set to <code>true</code>, returns the results in reverse order. By default the
-   *       results are returned in descending order of the start time of the executions.</p>
-   */
-  reverseOrder?: boolean;
-
-  /**
-   * <p>Workflow executions are included in the returned results based on whether their start
-   *       times are within the range specified by this filter.</p>
-   */
-  startTimeFilter: ExecutionTimeFilter | undefined;
-
-  /**
-   * <p>If specified, only executions that have the matching tag are listed.</p>
-   *          <note>
-   *             <p>
-   *                <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are
-   *         mutually exclusive. You can specify at most one of these in a request.</p>
-   *          </note>
-   */
-  tagFilter?: TagFilter;
-
-  /**
-   * <p>If specified, only executions of the type specified in the filter are
-   *       returned.</p>
-   *          <note>
-   *             <p>
-   *                <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are
-   *         mutually exclusive. You can specify at most one of these in a request.</p>
-   *          </note>
-   */
-  typeFilter?: WorkflowTypeFilter;
-}
-
-export namespace ListOpenWorkflowExecutionsInput {
-  export const filterSensitiveLog = (
-    obj: ListOpenWorkflowExecutionsInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListOpenWorkflowExecutionsInput =>
-    __isa(o, "ListOpenWorkflowExecutionsInput");
-}
-
-export interface ListTagsForResourceInput {
-  __type?: "ListTagsForResourceInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) for the Amazon SWF domain.</p>
-   */
-  resourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceInput {
-  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListTagsForResourceInput =>
-    __isa(o, "ListTagsForResourceInput");
-}
-
-export interface ListTagsForResourceOutput {
-  __type?: "ListTagsForResourceOutput";
-  /**
-   * <p>An array of tags associated with the domain.</p>
-   */
-  tags?: ResourceTag[];
-}
-
-export namespace ListTagsForResourceOutput {
-  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListTagsForResourceOutput =>
-    __isa(o, "ListTagsForResourceOutput");
-}
-
-export interface ListWorkflowTypesInput {
-  __type?: "ListWorkflowTypesInput";
-  /**
-   * <p>The name of the domain in which the workflow types have been registered.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>The maximum number of results that are returned per call.
-   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
-   */
-  maximumPageSize?: number;
-
-  /**
-   * <p>If specified, lists the workflow type with this name.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>If <code>NextPageToken</code> is returned there are more results
-   *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
-   *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
-   *       after 60 seconds. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
-   *       exceeded its maximum lifetime</code>". </p>
-   *
-   *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned
-   *       in a single call. </p>
-   */
-  nextPageToken?: string;
-
-  /**
-   * <p>Specifies the registration status of the workflow types to list.</p>
-   */
-  registrationStatus: RegistrationStatus | string | undefined;
-
-  /**
-   * <p>When set to <code>true</code>, returns the results in reverse order. By default the
-   *       results are returned in ascending alphabetical order of the <code>name</code> of the workflow
-   *       types.</p>
-   */
-  reverseOrder?: boolean;
-}
-
-export namespace ListWorkflowTypesInput {
-  export const filterSensitiveLog = (obj: ListWorkflowTypesInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListWorkflowTypesInput =>
-    __isa(o, "ListWorkflowTypesInput");
-}
-
-export interface PollForActivityTaskInput {
-  __type?: "PollForActivityTaskInput";
-  /**
-   * <p>The name of the domain that contains the task lists being polled.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>Identity of the worker making the request, recorded in the
-   *         <code>ActivityTaskStarted</code> event in the workflow history. This enables diagnostic
-   *       tracing when problems arise. The form of this identity is user defined.</p>
-   */
-  identity?: string;
-
-  /**
-   * <p>Specifies the task list to poll for activity tasks.</p>
-   *
-   *          <p>The specified string must not start or end with whitespace. It must not contain a
-   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
-   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
-   *       not <i>be</i> the literal string <code>arn</code>.</p>
-   */
-  taskList: TaskList | undefined;
-}
-
-export namespace PollForActivityTaskInput {
-  export const filterSensitiveLog = (obj: PollForActivityTaskInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is PollForActivityTaskInput =>
-    __isa(o, "PollForActivityTaskInput");
-}
-
-export interface PollForDecisionTaskInput {
-  __type?: "PollForDecisionTaskInput";
-  /**
-   * <p>The name of the domain containing the task lists to poll.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>Identity of the decider making the request, which is recorded in the
-   *       DecisionTaskStarted event in the workflow history. This enables diagnostic tracing when
-   *       problems arise. The form of this identity is user defined.</p>
-   */
-  identity?: string;
-
-  /**
-   * <p>The maximum number of results that are returned per call.
-   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
-   *          <p>This
-   *       is an upper limit only; the actual number of results returned per call may be fewer than the
-   *       specified maximum.</p>
-   */
-  maximumPageSize?: number;
-
-  /**
-   * <p>If <code>NextPageToken</code> is returned there are more results
-   *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
-   *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
-   *       after 60 seconds. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
-   *       exceeded its maximum lifetime</code>". </p>
-   *
-   *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned
-   *       in a single call. </p>
-   *          <note>
-   *             <p>The <code>nextPageToken</code> returned by this action cannot be used with <a>GetWorkflowExecutionHistory</a> to get the next page. You must call <a>PollForDecisionTask</a> again (with the <code>nextPageToken</code>) to retrieve
-   *         the next page of history records. Calling <a>PollForDecisionTask</a> with a
-   *           <code>nextPageToken</code> doesn't return a new decision task.</p>
-   *          </note>
-   */
-  nextPageToken?: string;
-
-  /**
-   * <p>When set to <code>true</code>, returns the events in reverse order. By default the
-   *       results are returned in ascending order of the <code>eventTimestamp</code> of the
-   *       events.</p>
-   */
-  reverseOrder?: boolean;
-
-  /**
-   * <p>Specifies the task list to poll for decision tasks.</p>
-   *
-   *          <p>The specified string must not start or end with whitespace. It must not contain a
-   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
-   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
-   *       not <i>be</i> the literal string <code>arn</code>.</p>
-   */
-  taskList: TaskList | undefined;
-}
-
-export namespace PollForDecisionTaskInput {
-  export const filterSensitiveLog = (obj: PollForDecisionTaskInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is PollForDecisionTaskInput =>
-    __isa(o, "PollForDecisionTaskInput");
-}
-
-export interface RecordActivityTaskHeartbeatInput {
-  __type?: "RecordActivityTaskHeartbeatInput";
-  /**
-   * <p>If specified, contains details about the progress of the task.</p>
-   */
-  details?: string;
-
-  /**
-   * <p>The <code>taskToken</code> of the <a>ActivityTask</a>.</p>
-   *          <important>
-   *             <p>
-   *                <code>taskToken</code> is generated by the service and should be treated as an opaque value.
-   *         If the task is passed to another process, its <code>taskToken</code> must also be passed.
-   *         This enables it to provide its progress and respond with results. </p>
-   *          </important>
-   */
-  taskToken: string | undefined;
-}
-
-export namespace RecordActivityTaskHeartbeatInput {
-  export const filterSensitiveLog = (
-    obj: RecordActivityTaskHeartbeatInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RecordActivityTaskHeartbeatInput =>
-    __isa(o, "RecordActivityTaskHeartbeatInput");
-}
-
-export interface RegisterActivityTypeInput {
-  __type?: "RegisterActivityTypeInput";
-  /**
-   * <p>If set, specifies the default maximum time before which a worker processing a task of
-   *       this type must report progress by calling <a>RecordActivityTaskHeartbeat</a>. If
-   *       the timeout is exceeded, the activity task is automatically timed out. This default can be
-   *       overridden when scheduling an activity task using the <code>ScheduleActivityTask</code>
-   *             <a>Decision</a>. If the activity worker subsequently attempts to record a heartbeat
-   *       or returns a result, the activity worker receives an <code>UnknownResource</code> fault. In
-   *       this case, Amazon SWF no longer considers the activity task to be valid; the activity worker should
-   *       clean up the activity task.</p>
-   *          <p>The duration is specified in seconds, an integer greater than or equal to
-   *         <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
-   */
-  defaultTaskHeartbeatTimeout?: string;
-
-  /**
-   * <p>If set, specifies the default task list to use for scheduling tasks of this activity
-   *       type. This default task list is used if a task list isn't provided when a task is scheduled
-   *       through the <code>ScheduleActivityTask</code>
-   *             <a>Decision</a>.</p>
-   */
-  defaultTaskList?: TaskList;
-
-  /**
-   * <p>The default task priority to assign to the activity type. If not assigned, then
-   *         <code>0</code> is used. Valid values are integers that range from Java's
-   *         <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647).
-   *       Higher numbers indicate higher priority.</p>
-   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task
-   *         Priority</a> in the <i>in the
-   *       <i>Amazon SWF Developer Guide</i>.</i>.</p>
-   */
-  defaultTaskPriority?: string;
-
-  /**
-   * <p>If set, specifies the default maximum duration for a task of this activity type. This
-   *       default can be overridden when scheduling an activity task using the
-   *         <code>ScheduleActivityTask</code>
-   *             <a>Decision</a>.</p>
-   *          <p>The duration is specified in seconds, an integer greater than or equal to
-   *         <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
-   */
-  defaultTaskScheduleToCloseTimeout?: string;
-
-  /**
-   * <p>If set, specifies the default maximum duration that a task of this activity type can
-   *       wait before being assigned to a worker. This default can be overridden when scheduling an
-   *       activity task using the <code>ScheduleActivityTask</code>
-   *             <a>Decision</a>.</p>
-   *          <p>The duration is specified in seconds, an integer greater than or equal to
-   *         <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
-   */
-  defaultTaskScheduleToStartTimeout?: string;
-
-  /**
-   * <p>If set, specifies the default maximum duration that a worker can take to process tasks
-   *       of this activity type. This default can be overridden when scheduling an activity task using
-   *       the <code>ScheduleActivityTask</code>
-   *             <a>Decision</a>.</p>
-   *          <p>The duration is specified in seconds, an integer greater than or equal to
-   *         <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
-   */
-  defaultTaskStartToCloseTimeout?: string;
-
-  /**
-   * <p>A textual description of the activity type.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The name of the domain in which this activity is to be registered.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>The name of the activity type within the domain.</p>
-   *
-   *          <p>The specified string must not start or end with whitespace. It must not contain a
-   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
-   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
-   *       not <i>be</i> the literal string <code>arn</code>.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The version of the activity type.</p>
-   *          <note>
-   *             <p>The activity type consists of the name and version, the combination of which must be
-   *         unique within the domain.</p>
-   *          </note>
-   *
-   *          <p>The specified string must not start or end with whitespace. It must not contain a
-   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
-   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
-   *       not <i>be</i> the literal string <code>arn</code>.</p>
-   */
-  version: string | undefined;
-}
-
-export namespace RegisterActivityTypeInput {
-  export const filterSensitiveLog = (obj: RegisterActivityTypeInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RegisterActivityTypeInput =>
-    __isa(o, "RegisterActivityTypeInput");
-}
-
-export interface RegisterDomainInput {
-  __type?: "RegisterDomainInput";
-  /**
-   * <p>A text description of the domain.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>Name of the domain to register. The name must be unique in the region that the domain
-   *       is registered in.</p>
-   *
-   *          <p>The specified string must not start or end with whitespace. It must not contain a
-   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
-   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
-   *       not <i>be</i> the literal string <code>arn</code>.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>Tags to be added when registering a domain.</p>
-   *          <p>Tags may only contain unicode letters, digits, whitespace, or these symbols: <code>_ . : / = + - @</code>.</p>
-   */
-  tags?: ResourceTag[];
-
-  /**
-   * <p>The duration (in days) that records and histories of workflow executions on the domain
-   *       should be kept by the service. After the retention period, the workflow execution isn't
-   *       available in the results of visibility calls.</p>
-   *          <p>If you pass the value <code>NONE</code> or <code>0</code> (zero), then the workflow
-   *       execution history isn't retained. As soon as the workflow execution completes, the execution
-   *       record and its history are deleted.</p>
-   *          <p>The maximum workflow execution retention period is 90 days. For more information about
-   *       Amazon SWF service limits, see: <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-limits.html">Amazon SWF Service Limits</a> in the
-   *         <i>Amazon SWF Developer Guide</i>.</p>
-   */
-  workflowExecutionRetentionPeriodInDays: string | undefined;
-}
-
-export namespace RegisterDomainInput {
-  export const filterSensitiveLog = (obj: RegisterDomainInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RegisterDomainInput =>
-    __isa(o, "RegisterDomainInput");
-}
-
-export interface RegisterWorkflowTypeInput {
-  __type?: "RegisterWorkflowTypeInput";
-  /**
-   * <p>If set, specifies the default policy to use for the child workflow executions when a
-   *       workflow execution of this type is terminated, by calling the <a>TerminateWorkflowExecution</a> action explicitly or due to an expired timeout. This
-   *       default can be overridden when starting a workflow execution using the <a>StartWorkflowExecution</a> action or the <code>StartChildWorkflowExecution</code>
-   *             <a>Decision</a>.</p>
-   *          <p>The supported child policies are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>TERMINATE</code> – The child executions are terminated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REQUEST_CANCEL</code> – A request to cancel is attempted for each child
-   *           execution by recording a <code>WorkflowExecutionCancelRequested</code> event in its
-   *           history. It is up to the decider to take appropriate actions when it receives an execution
-   *           history with this event.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ABANDON</code> – No action is taken. The child executions continue to
-   *           run.</p>
-   *             </li>
-   *          </ul>
-   */
-  defaultChildPolicy?: ChildPolicy | string;
-
-  /**
-   * <p>If set, specifies the default maximum duration for executions of this workflow type.
-   *       You can override this default when starting an execution through the <a>StartWorkflowExecution</a> Action or <code>StartChildWorkflowExecution</code>
-   *             <a>Decision</a>.</p>
-   *
-   *          <p>The duration is specified in seconds; an integer greater than or equal to 0. Unlike
-   *       some of the other timeout parameters in Amazon SWF, you cannot specify a value of "NONE" for
-   *         <code>defaultExecutionStartToCloseTimeout</code>; there is a one-year max limit on the time
-   *       that a workflow execution can run. Exceeding this limit always causes the workflow execution
-   *       to time out.</p>
-   */
-  defaultExecutionStartToCloseTimeout?: string;
-
-  /**
-   * <p>The default IAM role attached to this workflow type.</p>
-   *          <note>
-   *             <p>Executions of this workflow type need IAM roles to invoke Lambda functions. If you
-   *         don't specify an IAM role when you start this workflow type, the default Lambda role is
-   *         attached to the execution. For more information, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a> in the
-   *           <i>Amazon SWF Developer Guide</i>.</p>
-   *          </note>
-   */
-  defaultLambdaRole?: string;
-
-  /**
-   * <p>If set, specifies the default task list to use for scheduling decision tasks for
-   *       executions of this workflow type. This default is used only if a task list isn't provided when
-   *       starting the execution through the <a>StartWorkflowExecution</a> Action or
-   *         <code>StartChildWorkflowExecution</code>
-   *             <a>Decision</a>.</p>
-   */
-  defaultTaskList?: TaskList;
-
-  /**
-   * <p>The default task priority to assign to the workflow type. If not assigned, then
-   *         <code>0</code> is used. Valid values are integers that range from Java's
-   *         <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647).
-   *       Higher numbers indicate higher priority.</p>
-   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task
-   *         Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
-   */
-  defaultTaskPriority?: string;
-
-  /**
-   * <p>If set, specifies the default maximum duration of decision tasks for this workflow
-   *       type. This default can be overridden when starting a workflow execution using the <a>StartWorkflowExecution</a> action or the <code>StartChildWorkflowExecution</code>
-   *             <a>Decision</a>.</p>
-   *          <p>The duration is specified in seconds, an integer greater than or equal to
-   *         <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
-   */
-  defaultTaskStartToCloseTimeout?: string;
-
-  /**
-   * <p>Textual description of the workflow type.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The name of the domain in which to register the workflow type.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>The name of the workflow type.</p>
-   *
-   *          <p>The specified string must not start or end with whitespace. It must not contain a
-   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
-   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
-   *       not <i>be</i> the literal string <code>arn</code>.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The version of the workflow type.</p>
-   *          <note>
-   *             <p>The workflow type consists of the name and version, the combination of which must be
-   *         unique within the domain. To get a list of all currently registered workflow types, use the
-   *           <a>ListWorkflowTypes</a> action.</p>
-   *          </note>
-   *
-   *          <p>The specified string must not start or end with whitespace. It must not contain a
-   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
-   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
-   *       not <i>be</i> the literal string <code>arn</code>.</p>
-   */
-  version: string | undefined;
-}
-
-export namespace RegisterWorkflowTypeInput {
-  export const filterSensitiveLog = (obj: RegisterWorkflowTypeInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RegisterWorkflowTypeInput =>
-    __isa(o, "RegisterWorkflowTypeInput");
-}
-
-export interface RequestCancelWorkflowExecutionInput {
-  __type?: "RequestCancelWorkflowExecutionInput";
-  /**
-   * <p>The name of the domain containing the workflow execution to cancel.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>The runId of the workflow execution to cancel.</p>
-   */
-  runId?: string;
-
-  /**
-   * <p>The workflowId of the workflow execution to cancel.</p>
-   */
-  workflowId: string | undefined;
-}
-
-export namespace RequestCancelWorkflowExecutionInput {
-  export const filterSensitiveLog = (
-    obj: RequestCancelWorkflowExecutionInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RequestCancelWorkflowExecutionInput =>
-    __isa(o, "RequestCancelWorkflowExecutionInput");
-}
-
-export interface RespondActivityTaskCanceledInput {
-  __type?: "RespondActivityTaskCanceledInput";
-  /**
-   * <p> Information about the cancellation.</p>
-   */
-  details?: string;
-
-  /**
-   * <p>The <code>taskToken</code> of the <a>ActivityTask</a>.</p>
-   *          <important>
-   *             <p>
-   *                <code>taskToken</code> is generated by the service and should be treated as an opaque value.
-   *         If the task is passed to another process, its <code>taskToken</code> must also be passed.
-   *         This enables it to provide its progress and respond with results.</p>
-   *          </important>
-   */
-  taskToken: string | undefined;
-}
-
-export namespace RespondActivityTaskCanceledInput {
-  export const filterSensitiveLog = (
-    obj: RespondActivityTaskCanceledInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RespondActivityTaskCanceledInput =>
-    __isa(o, "RespondActivityTaskCanceledInput");
-}
-
-export interface RespondActivityTaskCompletedInput {
-  __type?: "RespondActivityTaskCompletedInput";
-  /**
-   * <p>The result of the activity task. It is a free form string that is implementation
-   *       specific.</p>
-   */
-  result?: string;
-
-  /**
-   * <p>The <code>taskToken</code> of the <a>ActivityTask</a>.</p>
-   *          <important>
-   *             <p>
-   *                <code>taskToken</code> is generated by the service and should be treated as an opaque value.
-   *         If the task is passed to another process, its <code>taskToken</code> must also be passed.
-   *         This enables it to provide its progress and respond with results.</p>
-   *          </important>
-   */
-  taskToken: string | undefined;
-}
-
-export namespace RespondActivityTaskCompletedInput {
-  export const filterSensitiveLog = (
-    obj: RespondActivityTaskCompletedInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RespondActivityTaskCompletedInput =>
-    __isa(o, "RespondActivityTaskCompletedInput");
-}
-
-export interface RespondActivityTaskFailedInput {
-  __type?: "RespondActivityTaskFailedInput";
-  /**
-   * <p> Detailed information about the failure.</p>
-   */
-  details?: string;
-
-  /**
-   * <p>Description of the error that may assist in diagnostics.</p>
-   */
-  reason?: string;
-
-  /**
-   * <p>The <code>taskToken</code> of the <a>ActivityTask</a>.</p>
-   *
-   *          <important>
-   *             <p>
-   *                <code>taskToken</code> is generated by the service and should be treated as an opaque value.
-   *         If the task is passed to another process, its <code>taskToken</code> must also be passed.
-   *         This enables it to provide its progress and respond with results.</p>
-   *          </important>
-   */
-  taskToken: string | undefined;
-}
-
-export namespace RespondActivityTaskFailedInput {
-  export const filterSensitiveLog = (
-    obj: RespondActivityTaskFailedInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RespondActivityTaskFailedInput =>
-    __isa(o, "RespondActivityTaskFailedInput");
-}
-
-/**
- * <p>Input data for a TaskCompleted response to a decision task.</p>
- */
-export interface RespondDecisionTaskCompletedInput {
-  __type?: "RespondDecisionTaskCompletedInput";
-  /**
-   * <p>The list of decisions (possibly empty) made by the decider while processing this
-   *       decision task. See the docs for the <a>Decision</a> structure for
-   *       details.</p>
-   */
-  decisions?: Decision[];
-
-  /**
-   * <p>User defined context to add to workflow execution.</p>
-   */
-  executionContext?: string;
-
-  /**
-   * <p>The <code>taskToken</code> from the <a>DecisionTask</a>.</p>
-   *          <important>
-   *             <p>
-   *                <code>taskToken</code> is generated by the service and should be treated as an opaque value.
-   *         If the task is passed to another process, its <code>taskToken</code> must also be passed.
-   *         This enables it to provide its progress and respond with results.</p>
-   *          </important>
-   */
-  taskToken: string | undefined;
-}
-
-export namespace RespondDecisionTaskCompletedInput {
-  export const filterSensitiveLog = (
-    obj: RespondDecisionTaskCompletedInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RespondDecisionTaskCompletedInput =>
-    __isa(o, "RespondDecisionTaskCompletedInput");
-}
-
-/**
- * <p>Specifies the <code>runId</code> of a workflow execution.</p>
- */
-export interface Run {
-  __type?: "Run";
-  /**
-   * <p>The <code>runId</code> of a workflow execution. This ID is generated by the service and
-   *       can be used to uniquely identify the workflow execution within a domain.</p>
-   */
-  runId?: string;
-}
-
-export namespace Run {
-  export const filterSensitiveLog = (obj: Run): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Run => __isa(o, "Run");
-}
-
-export interface SignalWorkflowExecutionInput {
-  __type?: "SignalWorkflowExecutionInput";
-  /**
-   * <p>The name of the domain containing the workflow execution to signal.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>Data to attach to the <code>WorkflowExecutionSignaled</code> event in the target
-   *       workflow execution's history.</p>
-   */
-  input?: string;
-
-  /**
-   * <p>The runId of the workflow execution to signal.</p>
-   */
-  runId?: string;
-
-  /**
-   * <p>The name of the signal. This name must be meaningful to the target workflow.</p>
-   */
-  signalName: string | undefined;
-
-  /**
-   * <p>The workflowId of the workflow execution to signal.</p>
-   */
-  workflowId: string | undefined;
-}
-
-export namespace SignalWorkflowExecutionInput {
-  export const filterSensitiveLog = (
-    obj: SignalWorkflowExecutionInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SignalWorkflowExecutionInput =>
-    __isa(o, "SignalWorkflowExecutionInput");
-}
-
-export interface StartWorkflowExecutionInput {
-  __type?: "StartWorkflowExecutionInput";
-  /**
-   * <p>If set, specifies the policy to use for the child workflow executions of this workflow
-   *       execution if it is terminated, by calling the <a>TerminateWorkflowExecution</a>
-   *       action explicitly or due to an expired timeout. This policy overrides the default child policy
-   *       specified when registering the workflow type using <a>RegisterWorkflowType</a>.</p>
-   *          <p>The supported child policies are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>TERMINATE</code> – The child executions are terminated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REQUEST_CANCEL</code> – A request to cancel is attempted for each child
-   *           execution by recording a <code>WorkflowExecutionCancelRequested</code> event in its
-   *           history. It is up to the decider to take appropriate actions when it receives an execution
-   *           history with this event.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ABANDON</code> – No action is taken. The child executions continue to
-   *           run.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>A child policy for this workflow execution must be specified either as a default for
-   *         the workflow type or through this parameter. If neither this parameter is set nor a default
-   *         child policy was specified at registration time then a fault is returned.</p>
-   *          </note>
-   */
-  childPolicy?: ChildPolicy | string;
-
-  /**
-   * <p>The name of the domain in which the workflow execution is created.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>The total duration for this workflow execution. This overrides the
-   *       defaultExecutionStartToCloseTimeout specified when registering the workflow type.</p>
-   *
-   *          <p>The duration is specified in seconds; an integer greater than or equal to
-   *         <code>0</code>. Exceeding this limit causes the workflow execution to time out. Unlike some
-   *       of the other timeout parameters in Amazon SWF, you cannot specify a value of "NONE" for this
-   *       timeout; there is a one-year max limit on the time that a workflow execution can
-   *       run.</p>
-   *
-   *          <note>
-   *             <p>An execution start-to-close timeout must be specified either through this parameter
-   *         or as a default when the workflow type is registered. If neither this parameter nor a
-   *         default execution start-to-close timeout is specified, a fault is returned.</p>
-   *          </note>
-   */
-  executionStartToCloseTimeout?: string;
-
-  /**
-   * <p>The input for the workflow execution. This is a free form string which should be
-   *       meaningful to the workflow you are starting. This <code>input</code> is made available to the
-   *       new workflow execution in the <code>WorkflowExecutionStarted</code> history event.</p>
-   */
-  input?: string;
-
-  /**
-   * <p>The IAM role to attach to this workflow execution.</p>
-   *          <note>
-   *             <p>Executions of this workflow type need IAM roles to invoke Lambda functions. If you
-   *         don't attach an IAM role, any attempt to schedule a Lambda task fails. This results in a
-   *           <code>ScheduleLambdaFunctionFailed</code> history event. For more information, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a> in the
-   *           <i>Amazon SWF Developer Guide</i>.</p>
-   *          </note>
-   */
-  lambdaRole?: string;
-
-  /**
-   * <p>The list of tags to associate with the workflow execution. You can specify a maximum of
-   *       5 tags. You can list workflow executions with a specific tag by calling <a>ListOpenWorkflowExecutions</a> or <a>ListClosedWorkflowExecutions</a> and
-   *       specifying a <a>TagFilter</a>.</p>
-   */
-  tagList?: string[];
-
-  /**
-   * <p>The task list to use for the decision tasks generated for this workflow execution. This
-   *       overrides the <code>defaultTaskList</code> specified when registering the workflow
-   *       type.</p>
-   *          <note>
-   *             <p>A task list for this workflow execution must be specified either as a default for the
-   *         workflow type or through this parameter. If neither this parameter is set nor a default task
-   *         list was specified at registration time then a fault is returned.</p>
-   *          </note>
-   *
-   *          <p>The specified string must not start or end with whitespace. It must not contain a
-   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
-   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
-   *       not <i>be</i> the literal string <code>arn</code>.</p>
-   */
-  taskList?: TaskList;
-
-  /**
-   * <p>The task priority to use for this workflow execution. This overrides any default
-   *       priority that was assigned when the workflow type was registered. If not set, then the default
-   *       task priority for the workflow type is used. Valid values are integers that range from Java's
-   *         <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647).
-   *       Higher numbers indicate higher priority.</p>
-   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task
-   *         Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
-   */
-  taskPriority?: string;
-
-  /**
-   * <p>Specifies the maximum duration of decision tasks for this workflow execution. This
-   *       parameter overrides the <code>defaultTaskStartToCloseTimout</code> specified when registering
-   *       the workflow type using <a>RegisterWorkflowType</a>.</p>
-   *          <p>The duration is specified in seconds, an integer greater than or equal to
-   *         <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
-   *          <note>
-   *             <p>A task start-to-close timeout for this workflow execution must be specified either as
-   *         a default for the workflow type or through this parameter. If neither this parameter is set
-   *         nor a default task start-to-close timeout was specified at registration time then a fault is
-   *         returned.</p>
-   *          </note>
-   */
-  taskStartToCloseTimeout?: string;
-
-  /**
-   * <p>The user defined identifier associated with the workflow execution. You can use this to
-   *       associate a custom identifier with the workflow execution. You may specify the same identifier
-   *       if a workflow execution is logically a <i>restart</i> of a previous execution.
-   *       You cannot have two open workflow executions with the same <code>workflowId</code> at the same
-   *       time within the same domain.</p>
-   *
-   *          <p>The specified string must not start or end with whitespace. It must not contain a
-   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
-   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
-   *       not <i>be</i> the literal string <code>arn</code>.</p>
-   */
-  workflowId: string | undefined;
-
-  /**
-   * <p>The type of the workflow to start.</p>
-   */
-  workflowType: WorkflowType | undefined;
-}
-
-export namespace StartWorkflowExecutionInput {
-  export const filterSensitiveLog = (
-    obj: StartWorkflowExecutionInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StartWorkflowExecutionInput =>
-    __isa(o, "StartWorkflowExecutionInput");
-}
-
-export interface TagResourceInput {
-  __type?: "TagResourceInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) for the Amazon SWF domain.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The list of tags to add to a domain. </p>
-   *          <p>Tags may only contain unicode letters, digits, whitespace, or these symbols: <code>_ . : / = + - @</code>.</p>
-   */
-  tags: ResourceTag[] | undefined;
-}
-
-export namespace TagResourceInput {
-  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TagResourceInput =>
-    __isa(o, "TagResourceInput");
-}
-
-export interface TerminateWorkflowExecutionInput {
-  __type?: "TerminateWorkflowExecutionInput";
-  /**
-   * <p>If set, specifies the policy to use for the child workflow executions of the workflow
-   *       execution being terminated. This policy overrides the child policy specified for the workflow
-   *       execution at registration time or when starting the execution.</p>
-   *          <p>The supported child policies are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>TERMINATE</code> – The child executions are terminated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REQUEST_CANCEL</code> – A request to cancel is attempted for each child
-   *           execution by recording a <code>WorkflowExecutionCancelRequested</code> event in its
-   *           history. It is up to the decider to take appropriate actions when it receives an execution
-   *           history with this event.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ABANDON</code> – No action is taken. The child executions continue to
-   *           run.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>A child policy for this workflow execution must be specified either as a default for
-   *         the workflow type or through this parameter. If neither this parameter is set nor a default
-   *         child policy was specified at registration time then a fault is returned.</p>
-   *          </note>
-   */
-  childPolicy?: ChildPolicy | string;
-
-  /**
-   * <p> Details for terminating the workflow execution.</p>
-   */
-  details?: string;
-
-  /**
-   * <p>The domain of the workflow execution to terminate.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p> A descriptive reason for terminating the workflow execution.</p>
-   */
-  reason?: string;
-
-  /**
-   * <p>The runId of the workflow execution to terminate.</p>
-   */
-  runId?: string;
-
-  /**
-   * <p>The workflowId of the workflow execution to terminate.</p>
-   */
-  workflowId: string | undefined;
-}
-
-export namespace TerminateWorkflowExecutionInput {
-  export const filterSensitiveLog = (
-    obj: TerminateWorkflowExecutionInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TerminateWorkflowExecutionInput =>
-    __isa(o, "TerminateWorkflowExecutionInput");
-}
-
-export interface UndeprecateActivityTypeInput {
-  __type?: "UndeprecateActivityTypeInput";
-  /**
-   * <p>The activity type to undeprecate.</p>
-   */
-  activityType: ActivityType | undefined;
-
-  /**
-   * <p>The name of the domain of the deprecated activity type.</p>
-   */
-  domain: string | undefined;
-}
-
-export namespace UndeprecateActivityTypeInput {
-  export const filterSensitiveLog = (
-    obj: UndeprecateActivityTypeInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UndeprecateActivityTypeInput =>
-    __isa(o, "UndeprecateActivityTypeInput");
-}
-
-export interface UndeprecateDomainInput {
-  __type?: "UndeprecateDomainInput";
-  /**
-   * <p>The name of the domain of the deprecated workflow type.</p>
-   */
-  name: string | undefined;
-}
-
-export namespace UndeprecateDomainInput {
-  export const filterSensitiveLog = (obj: UndeprecateDomainInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UndeprecateDomainInput =>
-    __isa(o, "UndeprecateDomainInput");
-}
-
-export interface UndeprecateWorkflowTypeInput {
-  __type?: "UndeprecateWorkflowTypeInput";
-  /**
-   * <p>The name of the domain of the deprecated workflow type.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>The name of the domain of the deprecated workflow type.</p>
-   */
-  workflowType: WorkflowType | undefined;
-}
-
-export namespace UndeprecateWorkflowTypeInput {
-  export const filterSensitiveLog = (
-    obj: UndeprecateWorkflowTypeInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UndeprecateWorkflowTypeInput =>
-    __isa(o, "UndeprecateWorkflowTypeInput");
-}
-
-export interface UntagResourceInput {
-  __type?: "UntagResourceInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) for the Amazon SWF domain.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The list of tags to remove from the Amazon SWF domain.</p>
-   */
-  tagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceInput {
-  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UntagResourceInput =>
-    __isa(o, "UntagResourceInput");
 }

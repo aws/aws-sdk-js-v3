@@ -8,9 +8,9 @@ import {
   GetSegmentVersionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetSegmentVersionsCommand,
-  serializeAws_restJson1_1GetSegmentVersionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetSegmentVersionsCommand,
+  serializeAws_restJson1GetSegmentVersionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetSegmentVersionsCommand extends $Command<
     input: GetSegmentVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetSegmentVersionsCommand(input, context);
+    return serializeAws_restJson1GetSegmentVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSegmentVersionsCommandOutput> {
-    return deserializeAws_restJson1_1GetSegmentVersionsCommand(output, context);
+    return deserializeAws_restJson1GetSegmentVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

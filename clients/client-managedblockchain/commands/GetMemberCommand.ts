@@ -5,9 +5,9 @@ import {
 } from "../ManagedBlockchainClient";
 import { GetMemberInput, GetMemberOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetMemberCommand,
-  serializeAws_restJson1_1GetMemberCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetMemberCommand,
+  serializeAws_restJson1GetMemberCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetMemberCommand extends $Command<
     input: GetMemberCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetMemberCommand(input, context);
+    return serializeAws_restJson1GetMemberCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMemberCommandOutput> {
-    return deserializeAws_restJson1_1GetMemberCommand(output, context);
+    return deserializeAws_restJson1GetMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

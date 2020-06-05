@@ -5,9 +5,9 @@ import {
 } from "../MediaConvertClient";
 import { DeleteQueueRequest, DeleteQueueResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteQueueCommand,
-  serializeAws_restJson1_1DeleteQueueCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteQueueCommand,
+  serializeAws_restJson1DeleteQueueCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteQueueCommand extends $Command<
     input: DeleteQueueCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteQueueCommand(input, context);
+    return serializeAws_restJson1DeleteQueueCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteQueueCommandOutput> {
-    return deserializeAws_restJson1_1DeleteQueueCommand(output, context);
+    return deserializeAws_restJson1DeleteQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

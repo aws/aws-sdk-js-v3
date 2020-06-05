@@ -5,9 +5,9 @@ import {
 } from "../LexModelBuildingServiceClient";
 import { PutIntentRequest, PutIntentResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutIntentCommand,
-  serializeAws_restJson1_1PutIntentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutIntentCommand,
+  serializeAws_restJson1PutIntentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class PutIntentCommand extends $Command<
     input: PutIntentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutIntentCommand(input, context);
+    return serializeAws_restJson1PutIntentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutIntentCommandOutput> {
-    return deserializeAws_restJson1_1PutIntentCommand(output, context);
+    return deserializeAws_restJson1PutIntentCommand(output, context);
   }
 
   // Start section: command_body_extra

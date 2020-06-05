@@ -8,9 +8,9 @@ import {
   ListChangedBlocksResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListChangedBlocksCommand,
-  serializeAws_restJson1_1ListChangedBlocksCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListChangedBlocksCommand,
+  serializeAws_restJson1ListChangedBlocksCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ListChangedBlocksCommand extends $Command<
     input: ListChangedBlocksCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListChangedBlocksCommand(input, context);
+    return serializeAws_restJson1ListChangedBlocksCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListChangedBlocksCommandOutput> {
-    return deserializeAws_restJson1_1ListChangedBlocksCommand(output, context);
+    return deserializeAws_restJson1ListChangedBlocksCommand(output, context);
   }
 
   // Start section: command_body_extra

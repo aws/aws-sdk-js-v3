@@ -563,27 +563,6 @@ export namespace DataDestination {
 }
 
 /**
- * <p>The source of your training data, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast to
- *       access the data and, optionally, an AWS Key Management Service (KMS) key. This object is submitted in the
- *       <a>CreateDatasetImportJob</a> request.</p>
- */
-export interface DataSource {
-  __type?: "DataSource";
-  /**
-   * <p>The path to the training data stored in an Amazon Simple Storage Service (Amazon S3) bucket along with the
-   *       credentials to access the data.</p>
-   */
-  S3Config: S3Config | undefined;
-}
-
-export namespace DataSource {
-  export const filterSensitiveLog = (obj: DataSource): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DataSource => __isa(o, "DataSource");
-}
-
-/**
  * <p>Provides a summary of the dataset group properties used in the <a>ListDatasetGroups</a> operation. To get the complete set of properties, call the
  *         <a>DescribeDatasetGroup</a> operation, and provide the
  *         <code>DatasetGroupArn</code>.</p>
@@ -765,6 +744,27 @@ export enum DatasetType {
   ITEM_METADATA = "ITEM_METADATA",
   RELATED_TIME_SERIES = "RELATED_TIME_SERIES",
   TARGET_TIME_SERIES = "TARGET_TIME_SERIES"
+}
+
+/**
+ * <p>The source of your training data, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast to
+ *       access the data and, optionally, an AWS Key Management Service (KMS) key. This object is submitted in the
+ *       <a>CreateDatasetImportJob</a> request.</p>
+ */
+export interface DataSource {
+  __type?: "DataSource";
+  /**
+   * <p>The path to the training data stored in an Amazon Simple Storage Service (Amazon S3) bucket along with the
+   *       credentials to access the data.</p>
+   */
+  S3Config: S3Config | undefined;
+}
+
+export namespace DataSource {
+  export const filterSensitiveLog = (obj: DataSource): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DataSource => __isa(o, "DataSource");
 }
 
 export interface DeleteDatasetGroupRequest {
@@ -3031,16 +3031,20 @@ export interface Statistics {
    */
   CountDistinct?: number;
 
+  CountDistinctLong?: number;
+  CountLong?: number;
   /**
    * <p>The number of NAN (not a number) values in the field.</p>
    */
   CountNan?: number;
 
+  CountNanLong?: number;
   /**
    * <p>The number of null values in the field.</p>
    */
   CountNull?: number;
 
+  CountNullLong?: number;
   /**
    * <p>For a numeric field, the maximum value in the field.</p>
    */
@@ -3069,6 +3073,73 @@ export namespace Statistics {
  *          <p>The only supported feature is a holiday calendar. If you use the calendar, all data in the
  *       datasets should belong to the same country as the calendar. For the holiday calendar data, see
  *       the <a href="http://jollyday.sourceforge.net/data.html">Jollyday</a> web site.</p>
+ *          <p>India and Korea's holidays are not included in the Jollyday library, but both are
+ *       supported by Amazon Forecast. Their holidays are:</p>
+ *          <p>
+ *             <b>"IN" - INDIA</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>JANUARY 26 - REPUBLIC DAY</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>AUGUST 15 - INDEPENDENCE DAY</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>OCTOBER 2 GANDHI'S BIRTHDAY</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>"KR" - KOREA</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>JANUARY 1 - NEW YEAR</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>MARCH 1 - INDEPENDENCE MOVEMENT DAY</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>MAY 5 - CHILDREN'S DAY</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>JUNE 6 - MEMORIAL DAY</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>AUGUST 15 - LIBERATION DAY</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>OCTOBER 3 - NATIONAL FOUNDATION DAY</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>OCTOBER 9 - HANGEUL DAY</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DECEMBER 25 - CHRISTMAS DAY</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export interface SupplementaryFeature {
   __type?: "SupplementaryFeature";
@@ -3081,19 +3152,100 @@ export interface SupplementaryFeature {
    * <p>One of the following 2 letter country codes:</p>
    *          <ul>
    *             <li>
+   *                <p>"AR" - ARGENTINA</p>
+   *             </li>
+   *             <li>
+   *                <p>"AT" - AUSTRIA</p>
+   *             </li>
+   *             <li>
    *                <p>"AU" - AUSTRALIA</p>
+   *             </li>
+   *             <li>
+   *                <p>"BE" - BELGIUM</p>
+   *             </li>
+   *             <li>
+   *                <p>"BR" - BRAZIL</p>
+   *             </li>
+   *             <li>
+   *                <p>"CA" - CANADA</p>
+   *             </li>
+   *             <li>
+   *                <p>"CN" - CHINA</p>
+   *             </li>
+   *             <li>
+   *                <p>"CZ" - CZECH REPUBLIC</p>
+   *             </li>
+   *             <li>
+   *                <p>"DK" - DENMARK</p>
+   *             </li>
+   *             <li>
+   *                <p>"EC" - ECUADOR</p>
+   *             </li>
+   *             <li>
+   *                <p>"FI" - FINLAND</p>
+   *             </li>
+   *             <li>
+   *                <p>"FR" - FRANCE</p>
    *             </li>
    *             <li>
    *                <p>"DE" - GERMANY</p>
    *             </li>
    *             <li>
+   *                <p>"HU" - HUNGARY</p>
+   *             </li>
+   *             <li>
+   *                <p>"IE" - IRELAND</p>
+   *             </li>
+   *             <li>
+   *                <p>"IN" - INDIA</p>
+   *             </li>
+   *             <li>
+   *                <p>"IT" - ITALY</p>
+   *             </li>
+   *             <li>
    *                <p>"JP" - JAPAN</p>
    *             </li>
    *             <li>
-   *                <p>"US" - UNITED_STATES</p>
+   *                <p>"KR" - KOREA</p>
    *             </li>
    *             <li>
-   *                <p>"UK" - UNITED_KINGDOM</p>
+   *                <p>"LU" - LUXEMBOURG</p>
+   *             </li>
+   *             <li>
+   *                <p>"MX" - MEXICO</p>
+   *             </li>
+   *             <li>
+   *                <p>"NL" - NETHERLANDS</p>
+   *             </li>
+   *             <li>
+   *                <p>"NO" - NORWAY</p>
+   *             </li>
+   *             <li>
+   *                <p>"PL" - POLAND</p>
+   *             </li>
+   *             <li>
+   *                <p>"PT" - PORTUGAL</p>
+   *             </li>
+   *             <li>
+   *                <p>"RU" - RUSSIA</p>
+   *             </li>
+   *             <li>
+   *                <p>"ZA" - SOUTH AFRICA</p>
+   *             </li>
+   *             <li>
+   *                <p>"ES" - SPAIN</p>
+   *             </li>
+   *             <li>
+   *                <p>"SE" - SWEDEN</p>
+   *             </li>
+   *             <li>
+   *                <p>"CH" - SWITZERLAND</p>
+   *             </li>
+   *             <li>
+   *                <p>"US" - UNITED STATES</p>
+   *             </li>
+   *             <li>
+   *                <p>"UK" - UNITED KINGDOM</p>
    *             </li>
    *          </ul>
    */

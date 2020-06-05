@@ -5,9 +5,9 @@ import {
 } from "../GlacierClient";
 import { AddTagsToVaultInput } from "../models/index";
 import {
-  deserializeAws_restJson1_1AddTagsToVaultCommand,
-  serializeAws_restJson1_1AddTagsToVaultCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AddTagsToVaultCommand,
+  serializeAws_restJson1AddTagsToVaultCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class AddTagsToVaultCommand extends $Command<
     input: AddTagsToVaultCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AddTagsToVaultCommand(input, context);
+    return serializeAws_restJson1AddTagsToVaultCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddTagsToVaultCommandOutput> {
-    return deserializeAws_restJson1_1AddTagsToVaultCommand(output, context);
+    return deserializeAws_restJson1AddTagsToVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

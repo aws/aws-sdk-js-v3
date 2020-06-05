@@ -5,9 +5,9 @@ import {
 } from "../AmplifyClient";
 import { GetBranchRequest, GetBranchResult } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetBranchCommand,
-  serializeAws_restJson1_1GetBranchCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetBranchCommand,
+  serializeAws_restJson1GetBranchCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetBranchCommand extends $Command<
     input: GetBranchCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetBranchCommand(input, context);
+    return serializeAws_restJson1GetBranchCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBranchCommandOutput> {
-    return deserializeAws_restJson1_1GetBranchCommand(output, context);
+    return deserializeAws_restJson1GetBranchCommand(output, context);
   }
 
   // Start section: command_body_extra

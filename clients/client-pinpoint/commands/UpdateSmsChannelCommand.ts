@@ -8,9 +8,9 @@ import {
   UpdateSmsChannelResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateSmsChannelCommand,
-  serializeAws_restJson1_1UpdateSmsChannelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateSmsChannelCommand,
+  serializeAws_restJson1UpdateSmsChannelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class UpdateSmsChannelCommand extends $Command<
     input: UpdateSmsChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateSmsChannelCommand(input, context);
+    return serializeAws_restJson1UpdateSmsChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSmsChannelCommandOutput> {
-    return deserializeAws_restJson1_1UpdateSmsChannelCommand(output, context);
+    return deserializeAws_restJson1UpdateSmsChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

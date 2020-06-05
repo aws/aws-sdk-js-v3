@@ -826,6 +826,22 @@ export const serializeAws_queryDescribeDBClusterParametersCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryDescribeDBClustersCommand = async (
+  input: DescribeDBClustersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeDBClustersMessage(input, context),
+    Action: "DescribeDBClusters",
+    Version: "2014-10-31"
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryDescribeDBClusterSnapshotAttributesCommand = async (
   input: DescribeDBClusterSnapshotAttributesCommandInput,
   context: __SerdeContext
@@ -856,22 +872,6 @@ export const serializeAws_queryDescribeDBClusterSnapshotsCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeDBClusterSnapshotsMessage(input, context),
     Action: "DescribeDBClusterSnapshots",
-    Version: "2014-10-31"
-  });
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_queryDescribeDBClustersCommand = async (
-  input: DescribeDBClustersCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
-  };
-  let body: any;
-  body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeDBClustersMessage(input, context),
-    Action: "DescribeDBClusters",
     Version: "2014-10-31"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1008,22 +1008,6 @@ export const serializeAws_queryDescribeEventCategoriesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeEventSubscriptionsCommand = async (
-  input: DescribeEventSubscriptionsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
-  };
-  let body: any;
-  body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeEventSubscriptionsMessage(input, context),
-    Action: "DescribeEventSubscriptions",
-    Version: "2014-10-31"
-  });
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_queryDescribeEventsCommand = async (
   input: DescribeEventsCommandInput,
   context: __SerdeContext
@@ -1035,6 +1019,22 @@ export const serializeAws_queryDescribeEventsCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeEventsMessage(input, context),
     Action: "DescribeEvents",
+    Version: "2014-10-31"
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDescribeEventSubscriptionsCommand = async (
+  input: DescribeEventSubscriptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeEventSubscriptionsMessage(input, context),
+    Action: "DescribeEventSubscriptions",
     Version: "2014-10-31"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1418,7 +1418,7 @@ const deserializeAws_queryAddRoleToDBClusterCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
-    case "rds.admin#DBClusterNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
           parsedOutput,
@@ -1429,7 +1429,7 @@ const deserializeAws_queryAddRoleToDBClusterCommandError = async (
       };
       break;
     case "DBClusterRoleAlreadyExistsFault":
-    case "rds.admin#DBClusterRoleAlreadyExistsFault":
+    case "com.amazonaws.neptune#DBClusterRoleAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBClusterRoleAlreadyExistsFaultResponse(
           parsedOutput,
@@ -1440,7 +1440,7 @@ const deserializeAws_queryAddRoleToDBClusterCommandError = async (
       };
       break;
     case "DBClusterRoleQuotaExceededFault":
-    case "rds.admin#DBClusterRoleQuotaExceededFault":
+    case "com.amazonaws.neptune#DBClusterRoleQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryDBClusterRoleQuotaExceededFaultResponse(
           parsedOutput,
@@ -1451,7 +1451,7 @@ const deserializeAws_queryAddRoleToDBClusterCommandError = async (
       };
       break;
     case "InvalidDBClusterStateFault":
-    case "rds.admin#InvalidDBClusterStateFault":
+    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
           parsedOutput,
@@ -1516,7 +1516,7 @@ const deserializeAws_queryAddSourceIdentifierToSubscriptionCommandError = async 
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "SourceNotFoundFault":
-    case "rds.admin#SourceNotFoundFault":
+    case "com.amazonaws.neptune#SourceNotFoundFault":
       response = {
         ...(await deserializeAws_querySourceNotFoundFaultResponse(
           parsedOutput,
@@ -1527,7 +1527,7 @@ const deserializeAws_queryAddSourceIdentifierToSubscriptionCommandError = async 
       };
       break;
     case "SubscriptionNotFoundFault":
-    case "rds.admin#SubscriptionNotFoundFault":
+    case "com.amazonaws.neptune#SubscriptionNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(
           parsedOutput,
@@ -1582,7 +1582,7 @@ const deserializeAws_queryAddTagsToResourceCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
-    case "rds.admin#DBClusterNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
           parsedOutput,
@@ -1593,7 +1593,7 @@ const deserializeAws_queryAddTagsToResourceCommandError = async (
       };
       break;
     case "DBInstanceNotFoundFault":
-    case "rds.admin#DBInstanceNotFoundFault":
+    case "com.amazonaws.neptune#DBInstanceNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
           parsedOutput,
@@ -1604,7 +1604,7 @@ const deserializeAws_queryAddTagsToResourceCommandError = async (
       };
       break;
     case "DBSnapshotNotFoundFault":
-    case "rds.admin#DBSnapshotNotFoundFault":
+    case "com.amazonaws.neptune#DBSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
           parsedOutput,
@@ -1669,7 +1669,7 @@ const deserializeAws_queryApplyPendingMaintenanceActionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundFault":
-    case "rds.admin#ResourceNotFoundFault":
+    case "com.amazonaws.neptune#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_queryResourceNotFoundFaultResponse(
           parsedOutput,
@@ -1734,7 +1734,7 @@ const deserializeAws_queryCopyDBClusterParameterGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupAlreadyExistsFault":
-    case "rds.admin#DBParameterGroupAlreadyExistsFault":
+    case "com.amazonaws.neptune#DBParameterGroupAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(
           parsedOutput,
@@ -1745,7 +1745,7 @@ const deserializeAws_queryCopyDBClusterParameterGroupCommandError = async (
       };
       break;
     case "DBParameterGroupNotFoundFault":
-    case "rds.admin#DBParameterGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -1756,7 +1756,7 @@ const deserializeAws_queryCopyDBClusterParameterGroupCommandError = async (
       };
       break;
     case "DBParameterGroupQuotaExceededFault":
-    case "rds.admin#DBParameterGroupQuotaExceededFault":
+    case "com.amazonaws.neptune#DBParameterGroupQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(
           parsedOutput,
@@ -1821,7 +1821,7 @@ const deserializeAws_queryCopyDBClusterSnapshotCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterSnapshotAlreadyExistsFault":
-    case "rds.admin#DBClusterSnapshotAlreadyExistsFault":
+    case "com.amazonaws.neptune#DBClusterSnapshotAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBClusterSnapshotAlreadyExistsFaultResponse(
           parsedOutput,
@@ -1832,7 +1832,7 @@ const deserializeAws_queryCopyDBClusterSnapshotCommandError = async (
       };
       break;
     case "DBClusterSnapshotNotFoundFault":
-    case "rds.admin#DBClusterSnapshotNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(
           parsedOutput,
@@ -1843,7 +1843,7 @@ const deserializeAws_queryCopyDBClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidDBClusterSnapshotStateFault":
-    case "rds.admin#InvalidDBClusterSnapshotStateFault":
+    case "com.amazonaws.neptune#InvalidDBClusterSnapshotStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(
           parsedOutput,
@@ -1854,7 +1854,7 @@ const deserializeAws_queryCopyDBClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidDBClusterStateFault":
-    case "rds.admin#InvalidDBClusterStateFault":
+    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
           parsedOutput,
@@ -1865,7 +1865,7 @@ const deserializeAws_queryCopyDBClusterSnapshotCommandError = async (
       };
       break;
     case "KMSKeyNotAccessibleFault":
-    case "rds.admin#KMSKeyNotAccessibleFault":
+    case "com.amazonaws.neptune#KMSKeyNotAccessibleFault":
       response = {
         ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
           parsedOutput,
@@ -1876,7 +1876,7 @@ const deserializeAws_queryCopyDBClusterSnapshotCommandError = async (
       };
       break;
     case "SnapshotQuotaExceededFault":
-    case "rds.admin#SnapshotQuotaExceededFault":
+    case "com.amazonaws.neptune#SnapshotQuotaExceededFault":
       response = {
         ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(
           parsedOutput,
@@ -1941,7 +1941,7 @@ const deserializeAws_queryCopyDBParameterGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupAlreadyExistsFault":
-    case "rds.admin#DBParameterGroupAlreadyExistsFault":
+    case "com.amazonaws.neptune#DBParameterGroupAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(
           parsedOutput,
@@ -1952,7 +1952,7 @@ const deserializeAws_queryCopyDBParameterGroupCommandError = async (
       };
       break;
     case "DBParameterGroupNotFoundFault":
-    case "rds.admin#DBParameterGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -1963,7 +1963,7 @@ const deserializeAws_queryCopyDBParameterGroupCommandError = async (
       };
       break;
     case "DBParameterGroupQuotaExceededFault":
-    case "rds.admin#DBParameterGroupQuotaExceededFault":
+    case "com.amazonaws.neptune#DBParameterGroupQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(
           parsedOutput,
@@ -2025,7 +2025,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
-    case "rds.admin#DBClusterAlreadyExistsFault":
+    case "com.amazonaws.neptune#DBClusterAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(
           parsedOutput,
@@ -2036,7 +2036,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
       };
       break;
     case "DBClusterNotFoundFault":
-    case "rds.admin#DBClusterNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
           parsedOutput,
@@ -2047,7 +2047,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
       };
       break;
     case "DBClusterParameterGroupNotFoundFault":
-    case "rds.admin#DBClusterParameterGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -2058,7 +2058,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
       };
       break;
     case "DBClusterQuotaExceededFault":
-    case "rds.admin#DBClusterQuotaExceededFault":
+    case "com.amazonaws.neptune#DBClusterQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryDBClusterQuotaExceededFaultResponse(
           parsedOutput,
@@ -2069,7 +2069,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
       };
       break;
     case "DBInstanceNotFoundFault":
-    case "rds.admin#DBInstanceNotFoundFault":
+    case "com.amazonaws.neptune#DBInstanceNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
           parsedOutput,
@@ -2080,7 +2080,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
       };
       break;
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
-    case "rds.admin#DBSubnetGroupDoesNotCoverEnoughAZs":
+    case "com.amazonaws.neptune#DBSubnetGroupDoesNotCoverEnoughAZs":
       response = {
         ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
           parsedOutput,
@@ -2091,7 +2091,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
       };
       break;
     case "DBSubnetGroupNotFoundFault":
-    case "rds.admin#DBSubnetGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBSubnetGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
           parsedOutput,
@@ -2102,7 +2102,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
       };
       break;
     case "InsufficientStorageClusterCapacityFault":
-    case "rds.admin#InsufficientStorageClusterCapacityFault":
+    case "com.amazonaws.neptune#InsufficientStorageClusterCapacityFault":
       response = {
         ...(await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(
           parsedOutput,
@@ -2113,7 +2113,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
       };
       break;
     case "InvalidDBClusterStateFault":
-    case "rds.admin#InvalidDBClusterStateFault":
+    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
           parsedOutput,
@@ -2124,7 +2124,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
       };
       break;
     case "InvalidDBInstanceStateFault":
-    case "rds.admin#InvalidDBInstanceStateFault":
+    case "com.amazonaws.neptune#InvalidDBInstanceStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
           parsedOutput,
@@ -2135,7 +2135,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
       };
       break;
     case "InvalidDBSubnetGroupStateFault":
-    case "rds.admin#InvalidDBSubnetGroupStateFault":
+    case "com.amazonaws.neptune#InvalidDBSubnetGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse(
           parsedOutput,
@@ -2146,7 +2146,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
       };
       break;
     case "InvalidSubnet":
-    case "rds.admin#InvalidSubnet":
+    case "com.amazonaws.neptune#InvalidSubnet":
       response = {
         ...(await deserializeAws_queryInvalidSubnetResponse(
           parsedOutput,
@@ -2157,7 +2157,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
       };
       break;
     case "InvalidVPCNetworkStateFault":
-    case "rds.admin#InvalidVPCNetworkStateFault":
+    case "com.amazonaws.neptune#InvalidVPCNetworkStateFault":
       response = {
         ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
           parsedOutput,
@@ -2168,7 +2168,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
       };
       break;
     case "KMSKeyNotAccessibleFault":
-    case "rds.admin#KMSKeyNotAccessibleFault":
+    case "com.amazonaws.neptune#KMSKeyNotAccessibleFault":
       response = {
         ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
           parsedOutput,
@@ -2179,7 +2179,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
       };
       break;
     case "StorageQuotaExceededFault":
-    case "rds.admin#StorageQuotaExceededFault":
+    case "com.amazonaws.neptune#StorageQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(
           parsedOutput,
@@ -2244,7 +2244,7 @@ const deserializeAws_queryCreateDBClusterParameterGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupAlreadyExistsFault":
-    case "rds.admin#DBParameterGroupAlreadyExistsFault":
+    case "com.amazonaws.neptune#DBParameterGroupAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(
           parsedOutput,
@@ -2255,7 +2255,7 @@ const deserializeAws_queryCreateDBClusterParameterGroupCommandError = async (
       };
       break;
     case "DBParameterGroupQuotaExceededFault":
-    case "rds.admin#DBParameterGroupQuotaExceededFault":
+    case "com.amazonaws.neptune#DBParameterGroupQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(
           parsedOutput,
@@ -2320,7 +2320,7 @@ const deserializeAws_queryCreateDBClusterSnapshotCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
-    case "rds.admin#DBClusterNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
           parsedOutput,
@@ -2331,7 +2331,7 @@ const deserializeAws_queryCreateDBClusterSnapshotCommandError = async (
       };
       break;
     case "DBClusterSnapshotAlreadyExistsFault":
-    case "rds.admin#DBClusterSnapshotAlreadyExistsFault":
+    case "com.amazonaws.neptune#DBClusterSnapshotAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBClusterSnapshotAlreadyExistsFaultResponse(
           parsedOutput,
@@ -2342,7 +2342,7 @@ const deserializeAws_queryCreateDBClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidDBClusterSnapshotStateFault":
-    case "rds.admin#InvalidDBClusterSnapshotStateFault":
+    case "com.amazonaws.neptune#InvalidDBClusterSnapshotStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(
           parsedOutput,
@@ -2353,7 +2353,7 @@ const deserializeAws_queryCreateDBClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidDBClusterStateFault":
-    case "rds.admin#InvalidDBClusterStateFault":
+    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
           parsedOutput,
@@ -2364,7 +2364,7 @@ const deserializeAws_queryCreateDBClusterSnapshotCommandError = async (
       };
       break;
     case "SnapshotQuotaExceededFault":
-    case "rds.admin#SnapshotQuotaExceededFault":
+    case "com.amazonaws.neptune#SnapshotQuotaExceededFault":
       response = {
         ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(
           parsedOutput,
@@ -2426,7 +2426,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
-    case "rds.admin#AuthorizationNotFoundFault":
+    case "com.amazonaws.neptune#AuthorizationNotFoundFault":
       response = {
         ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(
           parsedOutput,
@@ -2437,7 +2437,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
       };
       break;
     case "DBClusterNotFoundFault":
-    case "rds.admin#DBClusterNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
           parsedOutput,
@@ -2448,7 +2448,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
       };
       break;
     case "DBInstanceAlreadyExistsFault":
-    case "rds.admin#DBInstanceAlreadyExistsFault":
+    case "com.amazonaws.neptune#DBInstanceAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(
           parsedOutput,
@@ -2459,7 +2459,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
       };
       break;
     case "DBParameterGroupNotFoundFault":
-    case "rds.admin#DBParameterGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -2470,7 +2470,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
       };
       break;
     case "DBSecurityGroupNotFoundFault":
-    case "rds.admin#DBSecurityGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBSecurityGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
           parsedOutput,
@@ -2481,7 +2481,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
       };
       break;
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
-    case "rds.admin#DBSubnetGroupDoesNotCoverEnoughAZs":
+    case "com.amazonaws.neptune#DBSubnetGroupDoesNotCoverEnoughAZs":
       response = {
         ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
           parsedOutput,
@@ -2492,7 +2492,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
       };
       break;
     case "DBSubnetGroupNotFoundFault":
-    case "rds.admin#DBSubnetGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBSubnetGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
           parsedOutput,
@@ -2503,7 +2503,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
       };
       break;
     case "DomainNotFoundFault":
-    case "rds.admin#DomainNotFoundFault":
+    case "com.amazonaws.neptune#DomainNotFoundFault":
       response = {
         ...(await deserializeAws_queryDomainNotFoundFaultResponse(
           parsedOutput,
@@ -2514,7 +2514,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
       };
       break;
     case "InstanceQuotaExceededFault":
-    case "rds.admin#InstanceQuotaExceededFault":
+    case "com.amazonaws.neptune#InstanceQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryInstanceQuotaExceededFaultResponse(
           parsedOutput,
@@ -2525,7 +2525,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
       };
       break;
     case "InsufficientDBInstanceCapacityFault":
-    case "rds.admin#InsufficientDBInstanceCapacityFault":
+    case "com.amazonaws.neptune#InsufficientDBInstanceCapacityFault":
       response = {
         ...(await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(
           parsedOutput,
@@ -2536,7 +2536,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
       };
       break;
     case "InvalidDBClusterStateFault":
-    case "rds.admin#InvalidDBClusterStateFault":
+    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
           parsedOutput,
@@ -2547,7 +2547,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
       };
       break;
     case "InvalidSubnet":
-    case "rds.admin#InvalidSubnet":
+    case "com.amazonaws.neptune#InvalidSubnet":
       response = {
         ...(await deserializeAws_queryInvalidSubnetResponse(
           parsedOutput,
@@ -2558,7 +2558,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
       };
       break;
     case "InvalidVPCNetworkStateFault":
-    case "rds.admin#InvalidVPCNetworkStateFault":
+    case "com.amazonaws.neptune#InvalidVPCNetworkStateFault":
       response = {
         ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
           parsedOutput,
@@ -2569,7 +2569,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
       };
       break;
     case "KMSKeyNotAccessibleFault":
-    case "rds.admin#KMSKeyNotAccessibleFault":
+    case "com.amazonaws.neptune#KMSKeyNotAccessibleFault":
       response = {
         ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
           parsedOutput,
@@ -2580,7 +2580,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
       };
       break;
     case "OptionGroupNotFoundFault":
-    case "rds.admin#OptionGroupNotFoundFault":
+    case "com.amazonaws.neptune#OptionGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(
           parsedOutput,
@@ -2591,7 +2591,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
       };
       break;
     case "ProvisionedIopsNotAvailableInAZFault":
-    case "rds.admin#ProvisionedIopsNotAvailableInAZFault":
+    case "com.amazonaws.neptune#ProvisionedIopsNotAvailableInAZFault":
       response = {
         ...(await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(
           parsedOutput,
@@ -2602,7 +2602,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
       };
       break;
     case "StorageQuotaExceededFault":
-    case "rds.admin#StorageQuotaExceededFault":
+    case "com.amazonaws.neptune#StorageQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(
           parsedOutput,
@@ -2613,7 +2613,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
       };
       break;
     case "StorageTypeNotSupportedFault":
-    case "rds.admin#StorageTypeNotSupportedFault":
+    case "com.amazonaws.neptune#StorageTypeNotSupportedFault":
       response = {
         ...(await deserializeAws_queryStorageTypeNotSupportedFaultResponse(
           parsedOutput,
@@ -2678,7 +2678,7 @@ const deserializeAws_queryCreateDBParameterGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupAlreadyExistsFault":
-    case "rds.admin#DBParameterGroupAlreadyExistsFault":
+    case "com.amazonaws.neptune#DBParameterGroupAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(
           parsedOutput,
@@ -2689,7 +2689,7 @@ const deserializeAws_queryCreateDBParameterGroupCommandError = async (
       };
       break;
     case "DBParameterGroupQuotaExceededFault":
-    case "rds.admin#DBParameterGroupQuotaExceededFault":
+    case "com.amazonaws.neptune#DBParameterGroupQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(
           parsedOutput,
@@ -2751,7 +2751,7 @@ const deserializeAws_queryCreateDBSubnetGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSubnetGroupAlreadyExistsFault":
-    case "rds.admin#DBSubnetGroupAlreadyExistsFault":
+    case "com.amazonaws.neptune#DBSubnetGroupAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBSubnetGroupAlreadyExistsFaultResponse(
           parsedOutput,
@@ -2762,7 +2762,7 @@ const deserializeAws_queryCreateDBSubnetGroupCommandError = async (
       };
       break;
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
-    case "rds.admin#DBSubnetGroupDoesNotCoverEnoughAZs":
+    case "com.amazonaws.neptune#DBSubnetGroupDoesNotCoverEnoughAZs":
       response = {
         ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
           parsedOutput,
@@ -2773,7 +2773,7 @@ const deserializeAws_queryCreateDBSubnetGroupCommandError = async (
       };
       break;
     case "DBSubnetGroupQuotaExceededFault":
-    case "rds.admin#DBSubnetGroupQuotaExceededFault":
+    case "com.amazonaws.neptune#DBSubnetGroupQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryDBSubnetGroupQuotaExceededFaultResponse(
           parsedOutput,
@@ -2784,7 +2784,7 @@ const deserializeAws_queryCreateDBSubnetGroupCommandError = async (
       };
       break;
     case "DBSubnetQuotaExceededFault":
-    case "rds.admin#DBSubnetQuotaExceededFault":
+    case "com.amazonaws.neptune#DBSubnetQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryDBSubnetQuotaExceededFaultResponse(
           parsedOutput,
@@ -2795,7 +2795,7 @@ const deserializeAws_queryCreateDBSubnetGroupCommandError = async (
       };
       break;
     case "InvalidSubnet":
-    case "rds.admin#InvalidSubnet":
+    case "com.amazonaws.neptune#InvalidSubnet":
       response = {
         ...(await deserializeAws_queryInvalidSubnetResponse(
           parsedOutput,
@@ -2860,7 +2860,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EventSubscriptionQuotaExceededFault":
-    case "rds.admin#EventSubscriptionQuotaExceededFault":
+    case "com.amazonaws.neptune#EventSubscriptionQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(
           parsedOutput,
@@ -2871,7 +2871,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
       };
       break;
     case "SNSInvalidTopicFault":
-    case "rds.admin#SNSInvalidTopicFault":
+    case "com.amazonaws.neptune#SNSInvalidTopicFault":
       response = {
         ...(await deserializeAws_querySNSInvalidTopicFaultResponse(
           parsedOutput,
@@ -2882,7 +2882,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
       };
       break;
     case "SNSNoAuthorizationFault":
-    case "rds.admin#SNSNoAuthorizationFault":
+    case "com.amazonaws.neptune#SNSNoAuthorizationFault":
       response = {
         ...(await deserializeAws_querySNSNoAuthorizationFaultResponse(
           parsedOutput,
@@ -2893,7 +2893,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
       };
       break;
     case "SNSTopicArnNotFoundFault":
-    case "rds.admin#SNSTopicArnNotFoundFault":
+    case "com.amazonaws.neptune#SNSTopicArnNotFoundFault":
       response = {
         ...(await deserializeAws_querySNSTopicArnNotFoundFaultResponse(
           parsedOutput,
@@ -2904,7 +2904,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
       };
       break;
     case "SourceNotFoundFault":
-    case "rds.admin#SourceNotFoundFault":
+    case "com.amazonaws.neptune#SourceNotFoundFault":
       response = {
         ...(await deserializeAws_querySourceNotFoundFaultResponse(
           parsedOutput,
@@ -2915,7 +2915,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
       };
       break;
     case "SubscriptionAlreadyExistFault":
-    case "rds.admin#SubscriptionAlreadyExistFault":
+    case "com.amazonaws.neptune#SubscriptionAlreadyExistFault":
       response = {
         ...(await deserializeAws_querySubscriptionAlreadyExistFaultResponse(
           parsedOutput,
@@ -2926,7 +2926,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
       };
       break;
     case "SubscriptionCategoryNotFoundFault":
-    case "rds.admin#SubscriptionCategoryNotFoundFault":
+    case "com.amazonaws.neptune#SubscriptionCategoryNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(
           parsedOutput,
@@ -2988,7 +2988,7 @@ const deserializeAws_queryDeleteDBClusterCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
-    case "rds.admin#DBClusterNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
           parsedOutput,
@@ -2999,7 +2999,7 @@ const deserializeAws_queryDeleteDBClusterCommandError = async (
       };
       break;
     case "DBClusterSnapshotAlreadyExistsFault":
-    case "rds.admin#DBClusterSnapshotAlreadyExistsFault":
+    case "com.amazonaws.neptune#DBClusterSnapshotAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBClusterSnapshotAlreadyExistsFaultResponse(
           parsedOutput,
@@ -3010,7 +3010,7 @@ const deserializeAws_queryDeleteDBClusterCommandError = async (
       };
       break;
     case "InvalidDBClusterSnapshotStateFault":
-    case "rds.admin#InvalidDBClusterSnapshotStateFault":
+    case "com.amazonaws.neptune#InvalidDBClusterSnapshotStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(
           parsedOutput,
@@ -3021,7 +3021,7 @@ const deserializeAws_queryDeleteDBClusterCommandError = async (
       };
       break;
     case "InvalidDBClusterStateFault":
-    case "rds.admin#InvalidDBClusterStateFault":
+    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
           parsedOutput,
@@ -3032,7 +3032,7 @@ const deserializeAws_queryDeleteDBClusterCommandError = async (
       };
       break;
     case "SnapshotQuotaExceededFault":
-    case "rds.admin#SnapshotQuotaExceededFault":
+    case "com.amazonaws.neptune#SnapshotQuotaExceededFault":
       response = {
         ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(
           parsedOutput,
@@ -3090,7 +3090,7 @@ const deserializeAws_queryDeleteDBClusterParameterGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
-    case "rds.admin#DBParameterGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -3101,7 +3101,7 @@ const deserializeAws_queryDeleteDBClusterParameterGroupCommandError = async (
       };
       break;
     case "InvalidDBParameterGroupStateFault":
-    case "rds.admin#InvalidDBParameterGroupStateFault":
+    case "com.amazonaws.neptune#InvalidDBParameterGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(
           parsedOutput,
@@ -3166,7 +3166,7 @@ const deserializeAws_queryDeleteDBClusterSnapshotCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterSnapshotNotFoundFault":
-    case "rds.admin#DBClusterSnapshotNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(
           parsedOutput,
@@ -3177,7 +3177,7 @@ const deserializeAws_queryDeleteDBClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidDBClusterSnapshotStateFault":
-    case "rds.admin#InvalidDBClusterSnapshotStateFault":
+    case "com.amazonaws.neptune#InvalidDBClusterSnapshotStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(
           parsedOutput,
@@ -3239,7 +3239,7 @@ const deserializeAws_queryDeleteDBInstanceCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
-    case "rds.admin#DBInstanceNotFoundFault":
+    case "com.amazonaws.neptune#DBInstanceNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
           parsedOutput,
@@ -3250,7 +3250,7 @@ const deserializeAws_queryDeleteDBInstanceCommandError = async (
       };
       break;
     case "DBSnapshotAlreadyExistsFault":
-    case "rds.admin#DBSnapshotAlreadyExistsFault":
+    case "com.amazonaws.neptune#DBSnapshotAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(
           parsedOutput,
@@ -3261,7 +3261,7 @@ const deserializeAws_queryDeleteDBInstanceCommandError = async (
       };
       break;
     case "InvalidDBClusterStateFault":
-    case "rds.admin#InvalidDBClusterStateFault":
+    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
           parsedOutput,
@@ -3272,7 +3272,7 @@ const deserializeAws_queryDeleteDBInstanceCommandError = async (
       };
       break;
     case "InvalidDBInstanceStateFault":
-    case "rds.admin#InvalidDBInstanceStateFault":
+    case "com.amazonaws.neptune#InvalidDBInstanceStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
           parsedOutput,
@@ -3283,7 +3283,7 @@ const deserializeAws_queryDeleteDBInstanceCommandError = async (
       };
       break;
     case "SnapshotQuotaExceededFault":
-    case "rds.admin#SnapshotQuotaExceededFault":
+    case "com.amazonaws.neptune#SnapshotQuotaExceededFault":
       response = {
         ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(
           parsedOutput,
@@ -3341,7 +3341,7 @@ const deserializeAws_queryDeleteDBParameterGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
-    case "rds.admin#DBParameterGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -3352,7 +3352,7 @@ const deserializeAws_queryDeleteDBParameterGroupCommandError = async (
       };
       break;
     case "InvalidDBParameterGroupStateFault":
-    case "rds.admin#InvalidDBParameterGroupStateFault":
+    case "com.amazonaws.neptune#InvalidDBParameterGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(
           parsedOutput,
@@ -3407,7 +3407,7 @@ const deserializeAws_queryDeleteDBSubnetGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSubnetGroupNotFoundFault":
-    case "rds.admin#DBSubnetGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBSubnetGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
           parsedOutput,
@@ -3418,7 +3418,7 @@ const deserializeAws_queryDeleteDBSubnetGroupCommandError = async (
       };
       break;
     case "InvalidDBSubnetGroupStateFault":
-    case "rds.admin#InvalidDBSubnetGroupStateFault":
+    case "com.amazonaws.neptune#InvalidDBSubnetGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse(
           parsedOutput,
@@ -3429,7 +3429,7 @@ const deserializeAws_queryDeleteDBSubnetGroupCommandError = async (
       };
       break;
     case "InvalidDBSubnetStateFault":
-    case "rds.admin#InvalidDBSubnetStateFault":
+    case "com.amazonaws.neptune#InvalidDBSubnetStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBSubnetStateFaultResponse(
           parsedOutput,
@@ -3494,7 +3494,7 @@ const deserializeAws_queryDeleteEventSubscriptionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidEventSubscriptionStateFault":
-    case "rds.admin#InvalidEventSubscriptionStateFault":
+    case "com.amazonaws.neptune#InvalidEventSubscriptionStateFault":
       response = {
         ...(await deserializeAws_queryInvalidEventSubscriptionStateFaultResponse(
           parsedOutput,
@@ -3505,7 +3505,7 @@ const deserializeAws_queryDeleteEventSubscriptionCommandError = async (
       };
       break;
     case "SubscriptionNotFoundFault":
-    case "rds.admin#SubscriptionNotFoundFault":
+    case "com.amazonaws.neptune#SubscriptionNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(
           parsedOutput,
@@ -3570,7 +3570,7 @@ const deserializeAws_queryDescribeDBClusterParameterGroupsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
-    case "rds.admin#DBParameterGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -3635,9 +3635,71 @@ const deserializeAws_queryDescribeDBClusterParametersCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
-    case "rds.admin#DBParameterGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDescribeDBClustersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBClustersCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_queryDescribeDBClustersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDBClusterMessage(
+    data.DescribeDBClustersResult,
+    context
+  );
+  const response: DescribeDBClustersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DBClusterMessage",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeDBClustersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBClustersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBClusterNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
           parsedOutput,
           context
         )),
@@ -3700,7 +3762,7 @@ const deserializeAws_queryDescribeDBClusterSnapshotAttributesCommandError = asyn
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterSnapshotNotFoundFault":
-    case "rds.admin#DBClusterSnapshotNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(
           parsedOutput,
@@ -3765,71 +3827,9 @@ const deserializeAws_queryDescribeDBClusterSnapshotsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterSnapshotNotFoundFault":
-    case "rds.admin#DBClusterSnapshotNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_queryDescribeDBClustersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClustersCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeDBClustersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_queryDBClusterMessage(
-    data.DescribeDBClustersResult,
-    context
-  );
-  const response: DescribeDBClustersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DBClusterMessage",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_queryDescribeDBClustersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClustersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "rds.admin#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
           parsedOutput,
           context
         )),
@@ -3943,7 +3943,7 @@ const deserializeAws_queryDescribeDBInstancesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
-    case "rds.admin#DBInstanceNotFoundFault":
+    case "com.amazonaws.neptune#DBInstanceNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
           parsedOutput,
@@ -4008,7 +4008,7 @@ const deserializeAws_queryDescribeDBParameterGroupsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
-    case "rds.admin#DBParameterGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -4073,7 +4073,7 @@ const deserializeAws_queryDescribeDBParametersCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
-    case "rds.admin#DBParameterGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -4138,7 +4138,7 @@ const deserializeAws_queryDescribeDBSubnetGroupsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSubnetGroupNotFoundFault":
-    case "rds.admin#DBSubnetGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBSubnetGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
           parsedOutput,
@@ -4328,6 +4328,57 @@ const deserializeAws_queryDescribeEventCategoriesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryDescribeEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_queryDescribeEventsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryEventsMessage(
+    data.DescribeEventsResult,
+    context
+  );
+  const response: DescribeEventsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "EventsMessage",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeEventsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryDescribeEventSubscriptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4365,7 +4416,7 @@ const deserializeAws_queryDescribeEventSubscriptionsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "SubscriptionNotFoundFault":
-    case "rds.admin#SubscriptionNotFoundFault":
+    case "com.amazonaws.neptune#SubscriptionNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(
           parsedOutput,
@@ -4375,57 +4426,6 @@ const deserializeAws_queryDescribeEventSubscriptionsCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_queryDescribeEventsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeEventsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_queryEventsMessage(
-    data.DescribeEventsResult,
-    context
-  );
-  const response: DescribeEventsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "EventsMessage",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_queryDescribeEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -4535,7 +4535,7 @@ const deserializeAws_queryDescribePendingMaintenanceActionsCommandError = async 
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundFault":
-    case "rds.admin#ResourceNotFoundFault":
+    case "com.amazonaws.neptune#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_queryResourceNotFoundFaultResponse(
           parsedOutput,
@@ -4600,7 +4600,7 @@ const deserializeAws_queryDescribeValidDBInstanceModificationsCommandError = asy
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
-    case "rds.admin#DBInstanceNotFoundFault":
+    case "com.amazonaws.neptune#DBInstanceNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
           parsedOutput,
@@ -4611,7 +4611,7 @@ const deserializeAws_queryDescribeValidDBInstanceModificationsCommandError = asy
       };
       break;
     case "InvalidDBInstanceStateFault":
-    case "rds.admin#InvalidDBInstanceStateFault":
+    case "com.amazonaws.neptune#InvalidDBInstanceStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
           parsedOutput,
@@ -4673,7 +4673,7 @@ const deserializeAws_queryFailoverDBClusterCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
-    case "rds.admin#DBClusterNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
           parsedOutput,
@@ -4684,7 +4684,7 @@ const deserializeAws_queryFailoverDBClusterCommandError = async (
       };
       break;
     case "InvalidDBClusterStateFault":
-    case "rds.admin#InvalidDBClusterStateFault":
+    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
           parsedOutput,
@@ -4695,7 +4695,7 @@ const deserializeAws_queryFailoverDBClusterCommandError = async (
       };
       break;
     case "InvalidDBInstanceStateFault":
-    case "rds.admin#InvalidDBInstanceStateFault":
+    case "com.amazonaws.neptune#InvalidDBInstanceStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
           parsedOutput,
@@ -4757,7 +4757,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
-    case "rds.admin#DBClusterNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
           parsedOutput,
@@ -4768,7 +4768,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
       };
       break;
     case "DBInstanceNotFoundFault":
-    case "rds.admin#DBInstanceNotFoundFault":
+    case "com.amazonaws.neptune#DBInstanceNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
           parsedOutput,
@@ -4779,7 +4779,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
       };
       break;
     case "DBSnapshotNotFoundFault":
-    case "rds.admin#DBSnapshotNotFoundFault":
+    case "com.amazonaws.neptune#DBSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
           parsedOutput,
@@ -4841,7 +4841,7 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
-    case "rds.admin#DBClusterAlreadyExistsFault":
+    case "com.amazonaws.neptune#DBClusterAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(
           parsedOutput,
@@ -4852,7 +4852,7 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
       };
       break;
     case "DBClusterNotFoundFault":
-    case "rds.admin#DBClusterNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
           parsedOutput,
@@ -4863,7 +4863,7 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
       };
       break;
     case "DBClusterParameterGroupNotFoundFault":
-    case "rds.admin#DBClusterParameterGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -4874,7 +4874,7 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
       };
       break;
     case "DBSubnetGroupNotFoundFault":
-    case "rds.admin#DBSubnetGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBSubnetGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
           parsedOutput,
@@ -4885,7 +4885,7 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
       };
       break;
     case "InvalidDBClusterStateFault":
-    case "rds.admin#InvalidDBClusterStateFault":
+    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
           parsedOutput,
@@ -4896,7 +4896,7 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
       };
       break;
     case "InvalidDBInstanceStateFault":
-    case "rds.admin#InvalidDBInstanceStateFault":
+    case "com.amazonaws.neptune#InvalidDBInstanceStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
           parsedOutput,
@@ -4907,7 +4907,7 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
       };
       break;
     case "InvalidDBSecurityGroupStateFault":
-    case "rds.admin#InvalidDBSecurityGroupStateFault":
+    case "com.amazonaws.neptune#InvalidDBSecurityGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(
           parsedOutput,
@@ -4918,7 +4918,7 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
       };
       break;
     case "InvalidDBSubnetGroupStateFault":
-    case "rds.admin#InvalidDBSubnetGroupStateFault":
+    case "com.amazonaws.neptune#InvalidDBSubnetGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse(
           parsedOutput,
@@ -4929,7 +4929,7 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
       };
       break;
     case "InvalidSubnet":
-    case "rds.admin#InvalidSubnet":
+    case "com.amazonaws.neptune#InvalidSubnet":
       response = {
         ...(await deserializeAws_queryInvalidSubnetResponse(
           parsedOutput,
@@ -4940,7 +4940,7 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
       };
       break;
     case "InvalidVPCNetworkStateFault":
-    case "rds.admin#InvalidVPCNetworkStateFault":
+    case "com.amazonaws.neptune#InvalidVPCNetworkStateFault":
       response = {
         ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
           parsedOutput,
@@ -4951,7 +4951,7 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
       };
       break;
     case "StorageQuotaExceededFault":
-    case "rds.admin#StorageQuotaExceededFault":
+    case "com.amazonaws.neptune#StorageQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(
           parsedOutput,
@@ -5016,7 +5016,7 @@ const deserializeAws_queryModifyDBClusterParameterGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
-    case "rds.admin#DBParameterGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -5027,7 +5027,7 @@ const deserializeAws_queryModifyDBClusterParameterGroupCommandError = async (
       };
       break;
     case "InvalidDBParameterGroupStateFault":
-    case "rds.admin#InvalidDBParameterGroupStateFault":
+    case "com.amazonaws.neptune#InvalidDBParameterGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(
           parsedOutput,
@@ -5092,7 +5092,7 @@ const deserializeAws_queryModifyDBClusterSnapshotAttributeCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterSnapshotNotFoundFault":
-    case "rds.admin#DBClusterSnapshotNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(
           parsedOutput,
@@ -5103,7 +5103,7 @@ const deserializeAws_queryModifyDBClusterSnapshotAttributeCommandError = async (
       };
       break;
     case "InvalidDBClusterSnapshotStateFault":
-    case "rds.admin#InvalidDBClusterSnapshotStateFault":
+    case "com.amazonaws.neptune#InvalidDBClusterSnapshotStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(
           parsedOutput,
@@ -5114,7 +5114,7 @@ const deserializeAws_queryModifyDBClusterSnapshotAttributeCommandError = async (
       };
       break;
     case "SharedSnapshotQuotaExceededFault":
-    case "rds.admin#SharedSnapshotQuotaExceededFault":
+    case "com.amazonaws.neptune#SharedSnapshotQuotaExceededFault":
       response = {
         ...(await deserializeAws_querySharedSnapshotQuotaExceededFaultResponse(
           parsedOutput,
@@ -5176,7 +5176,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
-    case "rds.admin#AuthorizationNotFoundFault":
+    case "com.amazonaws.neptune#AuthorizationNotFoundFault":
       response = {
         ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(
           parsedOutput,
@@ -5187,7 +5187,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
       };
       break;
     case "CertificateNotFoundFault":
-    case "rds.admin#CertificateNotFoundFault":
+    case "com.amazonaws.neptune#CertificateNotFoundFault":
       response = {
         ...(await deserializeAws_queryCertificateNotFoundFaultResponse(
           parsedOutput,
@@ -5198,7 +5198,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
       };
       break;
     case "DBInstanceAlreadyExistsFault":
-    case "rds.admin#DBInstanceAlreadyExistsFault":
+    case "com.amazonaws.neptune#DBInstanceAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(
           parsedOutput,
@@ -5209,7 +5209,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
       };
       break;
     case "DBInstanceNotFoundFault":
-    case "rds.admin#DBInstanceNotFoundFault":
+    case "com.amazonaws.neptune#DBInstanceNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
           parsedOutput,
@@ -5220,7 +5220,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
       };
       break;
     case "DBParameterGroupNotFoundFault":
-    case "rds.admin#DBParameterGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -5231,7 +5231,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
       };
       break;
     case "DBSecurityGroupNotFoundFault":
-    case "rds.admin#DBSecurityGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBSecurityGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(
           parsedOutput,
@@ -5242,7 +5242,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
       };
       break;
     case "DBUpgradeDependencyFailureFault":
-    case "rds.admin#DBUpgradeDependencyFailureFault":
+    case "com.amazonaws.neptune#DBUpgradeDependencyFailureFault":
       response = {
         ...(await deserializeAws_queryDBUpgradeDependencyFailureFaultResponse(
           parsedOutput,
@@ -5253,7 +5253,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
       };
       break;
     case "DomainNotFoundFault":
-    case "rds.admin#DomainNotFoundFault":
+    case "com.amazonaws.neptune#DomainNotFoundFault":
       response = {
         ...(await deserializeAws_queryDomainNotFoundFaultResponse(
           parsedOutput,
@@ -5264,7 +5264,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
       };
       break;
     case "InsufficientDBInstanceCapacityFault":
-    case "rds.admin#InsufficientDBInstanceCapacityFault":
+    case "com.amazonaws.neptune#InsufficientDBInstanceCapacityFault":
       response = {
         ...(await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(
           parsedOutput,
@@ -5275,7 +5275,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
       };
       break;
     case "InvalidDBInstanceStateFault":
-    case "rds.admin#InvalidDBInstanceStateFault":
+    case "com.amazonaws.neptune#InvalidDBInstanceStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
           parsedOutput,
@@ -5286,7 +5286,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
       };
       break;
     case "InvalidDBSecurityGroupStateFault":
-    case "rds.admin#InvalidDBSecurityGroupStateFault":
+    case "com.amazonaws.neptune#InvalidDBSecurityGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(
           parsedOutput,
@@ -5297,7 +5297,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
       };
       break;
     case "InvalidVPCNetworkStateFault":
-    case "rds.admin#InvalidVPCNetworkStateFault":
+    case "com.amazonaws.neptune#InvalidVPCNetworkStateFault":
       response = {
         ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
           parsedOutput,
@@ -5308,7 +5308,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
       };
       break;
     case "OptionGroupNotFoundFault":
-    case "rds.admin#OptionGroupNotFoundFault":
+    case "com.amazonaws.neptune#OptionGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(
           parsedOutput,
@@ -5319,7 +5319,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
       };
       break;
     case "ProvisionedIopsNotAvailableInAZFault":
-    case "rds.admin#ProvisionedIopsNotAvailableInAZFault":
+    case "com.amazonaws.neptune#ProvisionedIopsNotAvailableInAZFault":
       response = {
         ...(await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(
           parsedOutput,
@@ -5330,7 +5330,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
       };
       break;
     case "StorageQuotaExceededFault":
-    case "rds.admin#StorageQuotaExceededFault":
+    case "com.amazonaws.neptune#StorageQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(
           parsedOutput,
@@ -5341,7 +5341,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
       };
       break;
     case "StorageTypeNotSupportedFault":
-    case "rds.admin#StorageTypeNotSupportedFault":
+    case "com.amazonaws.neptune#StorageTypeNotSupportedFault":
       response = {
         ...(await deserializeAws_queryStorageTypeNotSupportedFaultResponse(
           parsedOutput,
@@ -5406,7 +5406,7 @@ const deserializeAws_queryModifyDBParameterGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
-    case "rds.admin#DBParameterGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -5417,7 +5417,7 @@ const deserializeAws_queryModifyDBParameterGroupCommandError = async (
       };
       break;
     case "InvalidDBParameterGroupStateFault":
-    case "rds.admin#InvalidDBParameterGroupStateFault":
+    case "com.amazonaws.neptune#InvalidDBParameterGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(
           parsedOutput,
@@ -5479,7 +5479,7 @@ const deserializeAws_queryModifyDBSubnetGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
-    case "rds.admin#DBSubnetGroupDoesNotCoverEnoughAZs":
+    case "com.amazonaws.neptune#DBSubnetGroupDoesNotCoverEnoughAZs":
       response = {
         ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(
           parsedOutput,
@@ -5490,7 +5490,7 @@ const deserializeAws_queryModifyDBSubnetGroupCommandError = async (
       };
       break;
     case "DBSubnetGroupNotFoundFault":
-    case "rds.admin#DBSubnetGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBSubnetGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
           parsedOutput,
@@ -5501,7 +5501,7 @@ const deserializeAws_queryModifyDBSubnetGroupCommandError = async (
       };
       break;
     case "DBSubnetQuotaExceededFault":
-    case "rds.admin#DBSubnetQuotaExceededFault":
+    case "com.amazonaws.neptune#DBSubnetQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryDBSubnetQuotaExceededFaultResponse(
           parsedOutput,
@@ -5512,7 +5512,7 @@ const deserializeAws_queryModifyDBSubnetGroupCommandError = async (
       };
       break;
     case "InvalidSubnet":
-    case "rds.admin#InvalidSubnet":
+    case "com.amazonaws.neptune#InvalidSubnet":
       response = {
         ...(await deserializeAws_queryInvalidSubnetResponse(
           parsedOutput,
@@ -5523,7 +5523,7 @@ const deserializeAws_queryModifyDBSubnetGroupCommandError = async (
       };
       break;
     case "SubnetAlreadyInUse":
-    case "rds.admin#SubnetAlreadyInUse":
+    case "com.amazonaws.neptune#SubnetAlreadyInUse":
       response = {
         ...(await deserializeAws_querySubnetAlreadyInUseResponse(
           parsedOutput,
@@ -5588,7 +5588,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EventSubscriptionQuotaExceededFault":
-    case "rds.admin#EventSubscriptionQuotaExceededFault":
+    case "com.amazonaws.neptune#EventSubscriptionQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(
           parsedOutput,
@@ -5599,7 +5599,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
       };
       break;
     case "SNSInvalidTopicFault":
-    case "rds.admin#SNSInvalidTopicFault":
+    case "com.amazonaws.neptune#SNSInvalidTopicFault":
       response = {
         ...(await deserializeAws_querySNSInvalidTopicFaultResponse(
           parsedOutput,
@@ -5610,7 +5610,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
       };
       break;
     case "SNSNoAuthorizationFault":
-    case "rds.admin#SNSNoAuthorizationFault":
+    case "com.amazonaws.neptune#SNSNoAuthorizationFault":
       response = {
         ...(await deserializeAws_querySNSNoAuthorizationFaultResponse(
           parsedOutput,
@@ -5621,7 +5621,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
       };
       break;
     case "SNSTopicArnNotFoundFault":
-    case "rds.admin#SNSTopicArnNotFoundFault":
+    case "com.amazonaws.neptune#SNSTopicArnNotFoundFault":
       response = {
         ...(await deserializeAws_querySNSTopicArnNotFoundFaultResponse(
           parsedOutput,
@@ -5632,7 +5632,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
       };
       break;
     case "SubscriptionCategoryNotFoundFault":
-    case "rds.admin#SubscriptionCategoryNotFoundFault":
+    case "com.amazonaws.neptune#SubscriptionCategoryNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(
           parsedOutput,
@@ -5643,7 +5643,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
       };
       break;
     case "SubscriptionNotFoundFault":
-    case "rds.admin#SubscriptionNotFoundFault":
+    case "com.amazonaws.neptune#SubscriptionNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(
           parsedOutput,
@@ -5708,7 +5708,7 @@ const deserializeAws_queryPromoteReadReplicaDBClusterCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
-    case "rds.admin#DBClusterNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
           parsedOutput,
@@ -5719,7 +5719,7 @@ const deserializeAws_queryPromoteReadReplicaDBClusterCommandError = async (
       };
       break;
     case "InvalidDBClusterStateFault":
-    case "rds.admin#InvalidDBClusterStateFault":
+    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
           parsedOutput,
@@ -5781,7 +5781,7 @@ const deserializeAws_queryRebootDBInstanceCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
-    case "rds.admin#DBInstanceNotFoundFault":
+    case "com.amazonaws.neptune#DBInstanceNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
           parsedOutput,
@@ -5792,7 +5792,7 @@ const deserializeAws_queryRebootDBInstanceCommandError = async (
       };
       break;
     case "InvalidDBInstanceStateFault":
-    case "rds.admin#InvalidDBInstanceStateFault":
+    case "com.amazonaws.neptune#InvalidDBInstanceStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(
           parsedOutput,
@@ -5850,7 +5850,7 @@ const deserializeAws_queryRemoveRoleFromDBClusterCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
-    case "rds.admin#DBClusterNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
           parsedOutput,
@@ -5861,7 +5861,7 @@ const deserializeAws_queryRemoveRoleFromDBClusterCommandError = async (
       };
       break;
     case "DBClusterRoleNotFoundFault":
-    case "rds.admin#DBClusterRoleNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterRoleNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterRoleNotFoundFaultResponse(
           parsedOutput,
@@ -5872,7 +5872,7 @@ const deserializeAws_queryRemoveRoleFromDBClusterCommandError = async (
       };
       break;
     case "InvalidDBClusterStateFault":
-    case "rds.admin#InvalidDBClusterStateFault":
+    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
           parsedOutput,
@@ -5937,7 +5937,7 @@ const deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommandError = a
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "SourceNotFoundFault":
-    case "rds.admin#SourceNotFoundFault":
+    case "com.amazonaws.neptune#SourceNotFoundFault":
       response = {
         ...(await deserializeAws_querySourceNotFoundFaultResponse(
           parsedOutput,
@@ -5948,7 +5948,7 @@ const deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommandError = a
       };
       break;
     case "SubscriptionNotFoundFault":
-    case "rds.admin#SubscriptionNotFoundFault":
+    case "com.amazonaws.neptune#SubscriptionNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(
           parsedOutput,
@@ -6006,7 +6006,7 @@ const deserializeAws_queryRemoveTagsFromResourceCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
-    case "rds.admin#DBClusterNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
           parsedOutput,
@@ -6017,7 +6017,7 @@ const deserializeAws_queryRemoveTagsFromResourceCommandError = async (
       };
       break;
     case "DBInstanceNotFoundFault":
-    case "rds.admin#DBInstanceNotFoundFault":
+    case "com.amazonaws.neptune#DBInstanceNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(
           parsedOutput,
@@ -6028,7 +6028,7 @@ const deserializeAws_queryRemoveTagsFromResourceCommandError = async (
       };
       break;
     case "DBSnapshotNotFoundFault":
-    case "rds.admin#DBSnapshotNotFoundFault":
+    case "com.amazonaws.neptune#DBSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
           parsedOutput,
@@ -6093,7 +6093,7 @@ const deserializeAws_queryResetDBClusterParameterGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
-    case "rds.admin#DBParameterGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -6104,7 +6104,7 @@ const deserializeAws_queryResetDBClusterParameterGroupCommandError = async (
       };
       break;
     case "InvalidDBParameterGroupStateFault":
-    case "rds.admin#InvalidDBParameterGroupStateFault":
+    case "com.amazonaws.neptune#InvalidDBParameterGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(
           parsedOutput,
@@ -6169,7 +6169,7 @@ const deserializeAws_queryResetDBParameterGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
-    case "rds.admin#DBParameterGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -6180,7 +6180,7 @@ const deserializeAws_queryResetDBParameterGroupCommandError = async (
       };
       break;
     case "InvalidDBParameterGroupStateFault":
-    case "rds.admin#InvalidDBParameterGroupStateFault":
+    case "com.amazonaws.neptune#InvalidDBParameterGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(
           parsedOutput,
@@ -6245,7 +6245,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
-    case "rds.admin#DBClusterAlreadyExistsFault":
+    case "com.amazonaws.neptune#DBClusterAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(
           parsedOutput,
@@ -6256,7 +6256,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
       };
       break;
     case "DBClusterParameterGroupNotFoundFault":
-    case "rds.admin#DBClusterParameterGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -6267,7 +6267,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
       };
       break;
     case "DBClusterQuotaExceededFault":
-    case "rds.admin#DBClusterQuotaExceededFault":
+    case "com.amazonaws.neptune#DBClusterQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryDBClusterQuotaExceededFaultResponse(
           parsedOutput,
@@ -6278,7 +6278,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
       };
       break;
     case "DBClusterSnapshotNotFoundFault":
-    case "rds.admin#DBClusterSnapshotNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(
           parsedOutput,
@@ -6289,7 +6289,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
       };
       break;
     case "DBSnapshotNotFoundFault":
-    case "rds.admin#DBSnapshotNotFoundFault":
+    case "com.amazonaws.neptune#DBSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(
           parsedOutput,
@@ -6300,7 +6300,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
       };
       break;
     case "DBSubnetGroupNotFoundFault":
-    case "rds.admin#DBSubnetGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBSubnetGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
           parsedOutput,
@@ -6311,7 +6311,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
       };
       break;
     case "InsufficientDBClusterCapacityFault":
-    case "rds.admin#InsufficientDBClusterCapacityFault":
+    case "com.amazonaws.neptune#InsufficientDBClusterCapacityFault":
       response = {
         ...(await deserializeAws_queryInsufficientDBClusterCapacityFaultResponse(
           parsedOutput,
@@ -6322,7 +6322,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
       };
       break;
     case "InsufficientStorageClusterCapacityFault":
-    case "rds.admin#InsufficientStorageClusterCapacityFault":
+    case "com.amazonaws.neptune#InsufficientStorageClusterCapacityFault":
       response = {
         ...(await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(
           parsedOutput,
@@ -6333,7 +6333,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
       };
       break;
     case "InvalidDBClusterSnapshotStateFault":
-    case "rds.admin#InvalidDBClusterSnapshotStateFault":
+    case "com.amazonaws.neptune#InvalidDBClusterSnapshotStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(
           parsedOutput,
@@ -6344,7 +6344,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
       };
       break;
     case "InvalidDBSnapshotStateFault":
-    case "rds.admin#InvalidDBSnapshotStateFault":
+    case "com.amazonaws.neptune#InvalidDBSnapshotStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(
           parsedOutput,
@@ -6355,7 +6355,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
       };
       break;
     case "InvalidRestoreFault":
-    case "rds.admin#InvalidRestoreFault":
+    case "com.amazonaws.neptune#InvalidRestoreFault":
       response = {
         ...(await deserializeAws_queryInvalidRestoreFaultResponse(
           parsedOutput,
@@ -6366,7 +6366,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
       };
       break;
     case "InvalidSubnet":
-    case "rds.admin#InvalidSubnet":
+    case "com.amazonaws.neptune#InvalidSubnet":
       response = {
         ...(await deserializeAws_queryInvalidSubnetResponse(
           parsedOutput,
@@ -6377,7 +6377,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
       };
       break;
     case "InvalidVPCNetworkStateFault":
-    case "rds.admin#InvalidVPCNetworkStateFault":
+    case "com.amazonaws.neptune#InvalidVPCNetworkStateFault":
       response = {
         ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
           parsedOutput,
@@ -6388,7 +6388,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
       };
       break;
     case "KMSKeyNotAccessibleFault":
-    case "rds.admin#KMSKeyNotAccessibleFault":
+    case "com.amazonaws.neptune#KMSKeyNotAccessibleFault":
       response = {
         ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
           parsedOutput,
@@ -6399,7 +6399,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
       };
       break;
     case "OptionGroupNotFoundFault":
-    case "rds.admin#OptionGroupNotFoundFault":
+    case "com.amazonaws.neptune#OptionGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(
           parsedOutput,
@@ -6410,7 +6410,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
       };
       break;
     case "StorageQuotaExceededFault":
-    case "rds.admin#StorageQuotaExceededFault":
+    case "com.amazonaws.neptune#StorageQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(
           parsedOutput,
@@ -6475,7 +6475,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
-    case "rds.admin#DBClusterAlreadyExistsFault":
+    case "com.amazonaws.neptune#DBClusterAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(
           parsedOutput,
@@ -6486,7 +6486,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
       };
       break;
     case "DBClusterNotFoundFault":
-    case "rds.admin#DBClusterNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(
           parsedOutput,
@@ -6497,7 +6497,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
       };
       break;
     case "DBClusterParameterGroupNotFoundFault":
-    case "rds.admin#DBClusterParameterGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -6508,7 +6508,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
       };
       break;
     case "DBClusterQuotaExceededFault":
-    case "rds.admin#DBClusterQuotaExceededFault":
+    case "com.amazonaws.neptune#DBClusterQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryDBClusterQuotaExceededFaultResponse(
           parsedOutput,
@@ -6519,7 +6519,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
       };
       break;
     case "DBClusterSnapshotNotFoundFault":
-    case "rds.admin#DBClusterSnapshotNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(
           parsedOutput,
@@ -6530,7 +6530,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
       };
       break;
     case "DBSubnetGroupNotFoundFault":
-    case "rds.admin#DBSubnetGroupNotFoundFault":
+    case "com.amazonaws.neptune#DBSubnetGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(
           parsedOutput,
@@ -6541,7 +6541,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
       };
       break;
     case "InsufficientDBClusterCapacityFault":
-    case "rds.admin#InsufficientDBClusterCapacityFault":
+    case "com.amazonaws.neptune#InsufficientDBClusterCapacityFault":
       response = {
         ...(await deserializeAws_queryInsufficientDBClusterCapacityFaultResponse(
           parsedOutput,
@@ -6552,7 +6552,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
       };
       break;
     case "InsufficientStorageClusterCapacityFault":
-    case "rds.admin#InsufficientStorageClusterCapacityFault":
+    case "com.amazonaws.neptune#InsufficientStorageClusterCapacityFault":
       response = {
         ...(await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(
           parsedOutput,
@@ -6563,7 +6563,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
       };
       break;
     case "InvalidDBClusterSnapshotStateFault":
-    case "rds.admin#InvalidDBClusterSnapshotStateFault":
+    case "com.amazonaws.neptune#InvalidDBClusterSnapshotStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(
           parsedOutput,
@@ -6574,7 +6574,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
       };
       break;
     case "InvalidDBClusterStateFault":
-    case "rds.admin#InvalidDBClusterStateFault":
+    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(
           parsedOutput,
@@ -6585,7 +6585,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
       };
       break;
     case "InvalidDBSnapshotStateFault":
-    case "rds.admin#InvalidDBSnapshotStateFault":
+    case "com.amazonaws.neptune#InvalidDBSnapshotStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(
           parsedOutput,
@@ -6596,7 +6596,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
       };
       break;
     case "InvalidRestoreFault":
-    case "rds.admin#InvalidRestoreFault":
+    case "com.amazonaws.neptune#InvalidRestoreFault":
       response = {
         ...(await deserializeAws_queryInvalidRestoreFaultResponse(
           parsedOutput,
@@ -6607,7 +6607,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
       };
       break;
     case "InvalidSubnet":
-    case "rds.admin#InvalidSubnet":
+    case "com.amazonaws.neptune#InvalidSubnet":
       response = {
         ...(await deserializeAws_queryInvalidSubnetResponse(
           parsedOutput,
@@ -6618,7 +6618,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
       };
       break;
     case "InvalidVPCNetworkStateFault":
-    case "rds.admin#InvalidVPCNetworkStateFault":
+    case "com.amazonaws.neptune#InvalidVPCNetworkStateFault":
       response = {
         ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
           parsedOutput,
@@ -6629,7 +6629,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
       };
       break;
     case "KMSKeyNotAccessibleFault":
-    case "rds.admin#KMSKeyNotAccessibleFault":
+    case "com.amazonaws.neptune#KMSKeyNotAccessibleFault":
       response = {
         ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(
           parsedOutput,
@@ -6640,7 +6640,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
       };
       break;
     case "OptionGroupNotFoundFault":
-    case "rds.admin#OptionGroupNotFoundFault":
+    case "com.amazonaws.neptune#OptionGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(
           parsedOutput,
@@ -6651,7 +6651,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
       };
       break;
     case "StorageQuotaExceededFault":
-    case "rds.admin#StorageQuotaExceededFault":
+    case "com.amazonaws.neptune#StorageQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(
           parsedOutput,
@@ -7525,6 +7525,42 @@ const deserializeAws_queryResourceNotFoundFaultResponse = async (
   return contents;
 };
 
+const deserializeAws_querySharedSnapshotQuotaExceededFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SharedSnapshotQuotaExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_querySharedSnapshotQuotaExceededFault(
+    body.Error,
+    context
+  );
+  const contents: SharedSnapshotQuotaExceededFault = {
+    name: "SharedSnapshotQuotaExceededFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_querySnapshotQuotaExceededFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SnapshotQuotaExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_querySnapshotQuotaExceededFault(
+    body.Error,
+    context
+  );
+  const contents: SnapshotQuotaExceededFault = {
+    name: "SnapshotQuotaExceededFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
 const deserializeAws_querySNSInvalidTopicFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -7572,42 +7608,6 @@ const deserializeAws_querySNSTopicArnNotFoundFaultResponse = async (
   );
   const contents: SNSTopicArnNotFoundFault = {
     name: "SNSTopicArnNotFoundFault",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
-const deserializeAws_querySharedSnapshotQuotaExceededFaultResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<SharedSnapshotQuotaExceededFault> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_querySharedSnapshotQuotaExceededFault(
-    body.Error,
-    context
-  );
-  const contents: SharedSnapshotQuotaExceededFault = {
-    name: "SharedSnapshotQuotaExceededFault",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
-const deserializeAws_querySnapshotQuotaExceededFaultResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<SnapshotQuotaExceededFault> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_querySnapshotQuotaExceededFault(
-    body.Error,
-    context
-  );
-  const contents: SnapshotQuotaExceededFault = {
-    name: "SnapshotQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8513,6 +8513,30 @@ const serializeAws_queryDescribeDBClusterParametersMessage = (
   return entries;
 };
 
+const serializeAws_queryDescribeDBClustersMessage = (
+  input: DescribeDBClustersMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DBClusterIdentifier !== undefined) {
+    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  }
+  if (input.Filters !== undefined) {
+    const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filters.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  return entries;
+};
+
 const serializeAws_queryDescribeDBClusterSnapshotAttributesMessage = (
   input: DescribeDBClusterSnapshotAttributesMessage,
   context: __SerdeContext
@@ -8556,30 +8580,6 @@ const serializeAws_queryDescribeDBClusterSnapshotsMessage = (
   }
   if (input.SnapshotType !== undefined) {
     entries["SnapshotType"] = input.SnapshotType;
-  }
-  return entries;
-};
-
-const serializeAws_queryDescribeDBClustersMessage = (
-  input: DescribeDBClustersMessage,
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  if (input.DBClusterIdentifier !== undefined) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
-  }
-  if (input.Filters !== undefined) {
-    const memberEntries = serializeAws_queryFilterList(input.Filters, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Filters.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
-  }
-  if (input.MaxRecords !== undefined) {
-    entries["MaxRecords"] = input.MaxRecords;
   }
   return entries;
 };
@@ -8788,30 +8788,6 @@ const serializeAws_queryDescribeEventCategoriesMessage = (
   return entries;
 };
 
-const serializeAws_queryDescribeEventSubscriptionsMessage = (
-  input: DescribeEventSubscriptionsMessage,
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  if (input.Filters !== undefined) {
-    const memberEntries = serializeAws_queryFilterList(input.Filters, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Filters.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
-  }
-  if (input.MaxRecords !== undefined) {
-    entries["MaxRecords"] = input.MaxRecords;
-  }
-  if (input.SubscriptionName !== undefined) {
-    entries["SubscriptionName"] = input.SubscriptionName;
-  }
-  return entries;
-};
-
 const serializeAws_queryDescribeEventsMessage = (
   input: DescribeEventsMessage,
   context: __SerdeContext
@@ -8854,6 +8830,30 @@ const serializeAws_queryDescribeEventsMessage = (
   }
   if (input.StartTime !== undefined) {
     entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
+  }
+  return entries;
+};
+
+const serializeAws_queryDescribeEventSubscriptionsMessage = (
+  input: DescribeEventSubscriptionsMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Filters !== undefined) {
+    const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filters.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.SubscriptionName !== undefined) {
+    entries["SubscriptionName"] = input.SubscriptionName;
   }
   return entries;
 };
@@ -9783,832 +9783,6 @@ const serializeAws_queryVpcSecurityGroupIdList = (
   return entries;
 };
 
-const deserializeAws_queryAuthorizationNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): AuthorizationNotFoundFault => {
-  let contents: any = {
-    __type: "AuthorizationNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryCertificateNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): CertificateNotFoundFault => {
-  let contents: any = {
-    __type: "CertificateNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBClusterAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): DBClusterAlreadyExistsFault => {
-  let contents: any = {
-    __type: "DBClusterAlreadyExistsFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBClusterNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): DBClusterNotFoundFault => {
-  let contents: any = {
-    __type: "DBClusterNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBClusterParameterGroupNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): DBClusterParameterGroupNotFoundFault => {
-  let contents: any = {
-    __type: "DBClusterParameterGroupNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBClusterQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): DBClusterQuotaExceededFault => {
-  let contents: any = {
-    __type: "DBClusterQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBClusterRoleAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): DBClusterRoleAlreadyExistsFault => {
-  let contents: any = {
-    __type: "DBClusterRoleAlreadyExistsFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBClusterRoleNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): DBClusterRoleNotFoundFault => {
-  let contents: any = {
-    __type: "DBClusterRoleNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBClusterRoleQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): DBClusterRoleQuotaExceededFault => {
-  let contents: any = {
-    __type: "DBClusterRoleQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBClusterSnapshotAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): DBClusterSnapshotAlreadyExistsFault => {
-  let contents: any = {
-    __type: "DBClusterSnapshotAlreadyExistsFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBClusterSnapshotNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): DBClusterSnapshotNotFoundFault => {
-  let contents: any = {
-    __type: "DBClusterSnapshotNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBInstanceAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): DBInstanceAlreadyExistsFault => {
-  let contents: any = {
-    __type: "DBInstanceAlreadyExistsFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBInstanceNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): DBInstanceNotFoundFault => {
-  let contents: any = {
-    __type: "DBInstanceNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBParameterGroupAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): DBParameterGroupAlreadyExistsFault => {
-  let contents: any = {
-    __type: "DBParameterGroupAlreadyExistsFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBParameterGroupNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): DBParameterGroupNotFoundFault => {
-  let contents: any = {
-    __type: "DBParameterGroupNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBParameterGroupQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): DBParameterGroupQuotaExceededFault => {
-  let contents: any = {
-    __type: "DBParameterGroupQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBSecurityGroupNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): DBSecurityGroupNotFoundFault => {
-  let contents: any = {
-    __type: "DBSecurityGroupNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBSnapshotAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): DBSnapshotAlreadyExistsFault => {
-  let contents: any = {
-    __type: "DBSnapshotAlreadyExistsFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBSnapshotNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): DBSnapshotNotFoundFault => {
-  let contents: any = {
-    __type: "DBSnapshotNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBSubnetGroupAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): DBSubnetGroupAlreadyExistsFault => {
-  let contents: any = {
-    __type: "DBSubnetGroupAlreadyExistsFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZs = (
-  output: any,
-  context: __SerdeContext
-): DBSubnetGroupDoesNotCoverEnoughAZs => {
-  let contents: any = {
-    __type: "DBSubnetGroupDoesNotCoverEnoughAZs",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBSubnetGroupNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): DBSubnetGroupNotFoundFault => {
-  let contents: any = {
-    __type: "DBSubnetGroupNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBSubnetGroupQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): DBSubnetGroupQuotaExceededFault => {
-  let contents: any = {
-    __type: "DBSubnetGroupQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBSubnetQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): DBSubnetQuotaExceededFault => {
-  let contents: any = {
-    __type: "DBSubnetQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDBUpgradeDependencyFailureFault = (
-  output: any,
-  context: __SerdeContext
-): DBUpgradeDependencyFailureFault => {
-  let contents: any = {
-    __type: "DBUpgradeDependencyFailureFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDomainNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): DomainNotFoundFault => {
-  let contents: any = {
-    __type: "DomainNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryEventSubscriptionQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): EventSubscriptionQuotaExceededFault => {
-  let contents: any = {
-    __type: "EventSubscriptionQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInstanceQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): InstanceQuotaExceededFault => {
-  let contents: any = {
-    __type: "InstanceQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInsufficientDBClusterCapacityFault = (
-  output: any,
-  context: __SerdeContext
-): InsufficientDBClusterCapacityFault => {
-  let contents: any = {
-    __type: "InsufficientDBClusterCapacityFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInsufficientDBInstanceCapacityFault = (
-  output: any,
-  context: __SerdeContext
-): InsufficientDBInstanceCapacityFault => {
-  let contents: any = {
-    __type: "InsufficientDBInstanceCapacityFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInsufficientStorageClusterCapacityFault = (
-  output: any,
-  context: __SerdeContext
-): InsufficientStorageClusterCapacityFault => {
-  let contents: any = {
-    __type: "InsufficientStorageClusterCapacityFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidDBClusterSnapshotStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidDBClusterSnapshotStateFault => {
-  let contents: any = {
-    __type: "InvalidDBClusterSnapshotStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidDBClusterStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidDBClusterStateFault => {
-  let contents: any = {
-    __type: "InvalidDBClusterStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidDBInstanceStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidDBInstanceStateFault => {
-  let contents: any = {
-    __type: "InvalidDBInstanceStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidDBParameterGroupStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidDBParameterGroupStateFault => {
-  let contents: any = {
-    __type: "InvalidDBParameterGroupStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidDBSecurityGroupStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidDBSecurityGroupStateFault => {
-  let contents: any = {
-    __type: "InvalidDBSecurityGroupStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidDBSnapshotStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidDBSnapshotStateFault => {
-  let contents: any = {
-    __type: "InvalidDBSnapshotStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidDBSubnetGroupStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidDBSubnetGroupStateFault => {
-  let contents: any = {
-    __type: "InvalidDBSubnetGroupStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidDBSubnetStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidDBSubnetStateFault => {
-  let contents: any = {
-    __type: "InvalidDBSubnetStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidEventSubscriptionStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidEventSubscriptionStateFault => {
-  let contents: any = {
-    __type: "InvalidEventSubscriptionStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidRestoreFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidRestoreFault => {
-  let contents: any = {
-    __type: "InvalidRestoreFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidSubnet = (
-  output: any,
-  context: __SerdeContext
-): InvalidSubnet => {
-  let contents: any = {
-    __type: "InvalidSubnet",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidVPCNetworkStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidVPCNetworkStateFault => {
-  let contents: any = {
-    __type: "InvalidVPCNetworkStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryKMSKeyNotAccessibleFault = (
-  output: any,
-  context: __SerdeContext
-): KMSKeyNotAccessibleFault => {
-  let contents: any = {
-    __type: "KMSKeyNotAccessibleFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryOptionGroupNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): OptionGroupNotFoundFault => {
-  let contents: any = {
-    __type: "OptionGroupNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryProvisionedIopsNotAvailableInAZFault = (
-  output: any,
-  context: __SerdeContext
-): ProvisionedIopsNotAvailableInAZFault => {
-  let contents: any = {
-    __type: "ProvisionedIopsNotAvailableInAZFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryResourceNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundFault => {
-  let contents: any = {
-    __type: "ResourceNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySNSInvalidTopicFault = (
-  output: any,
-  context: __SerdeContext
-): SNSInvalidTopicFault => {
-  let contents: any = {
-    __type: "SNSInvalidTopicFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySNSNoAuthorizationFault = (
-  output: any,
-  context: __SerdeContext
-): SNSNoAuthorizationFault => {
-  let contents: any = {
-    __type: "SNSNoAuthorizationFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySNSTopicArnNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): SNSTopicArnNotFoundFault => {
-  let contents: any = {
-    __type: "SNSTopicArnNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySharedSnapshotQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): SharedSnapshotQuotaExceededFault => {
-  let contents: any = {
-    __type: "SharedSnapshotQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySnapshotQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): SnapshotQuotaExceededFault => {
-  let contents: any = {
-    __type: "SnapshotQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySourceNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): SourceNotFoundFault => {
-  let contents: any = {
-    __type: "SourceNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryStorageQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): StorageQuotaExceededFault => {
-  let contents: any = {
-    __type: "StorageQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryStorageTypeNotSupportedFault = (
-  output: any,
-  context: __SerdeContext
-): StorageTypeNotSupportedFault => {
-  let contents: any = {
-    __type: "StorageTypeNotSupportedFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySubnetAlreadyInUse = (
-  output: any,
-  context: __SerdeContext
-): SubnetAlreadyInUse => {
-  let contents: any = {
-    __type: "SubnetAlreadyInUse",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySubscriptionAlreadyExistFault = (
-  output: any,
-  context: __SerdeContext
-): SubscriptionAlreadyExistFault => {
-  let contents: any = {
-    __type: "SubscriptionAlreadyExistFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySubscriptionCategoryNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): SubscriptionCategoryNotFoundFault => {
-  let contents: any = {
-    __type: "SubscriptionCategoryNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySubscriptionNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): SubscriptionNotFoundFault => {
-  let contents: any = {
-    __type: "SubscriptionNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
 const deserializeAws_queryAddSourceIdentifierToSubscriptionResult = (
   output: any,
   context: __SerdeContext
@@ -10650,6 +9824,20 @@ const deserializeAws_queryAttributeValueList = (
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_queryAuthorizationNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): AuthorizationNotFoundFault => {
+  let contents: any = {
+    __type: "AuthorizationNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryAvailabilityZone = (
   output: any,
   context: __SerdeContext
@@ -10678,6 +9866,20 @@ const deserializeAws_queryAvailabilityZones = (
   context: __SerdeContext
 ): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_queryCertificateNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): CertificateNotFoundFault => {
+  let contents: any = {
+    __type: "CertificateNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
 };
 
 const deserializeAws_queryCharacterSet = (
@@ -11100,6 +10302,20 @@ const deserializeAws_queryDBCluster = (
   return contents;
 };
 
+const deserializeAws_queryDBClusterAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): DBClusterAlreadyExistsFault => {
+  let contents: any = {
+    __type: "DBClusterAlreadyExistsFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryDBClusterList = (
   output: any,
   context: __SerdeContext
@@ -11168,6 +10384,20 @@ const deserializeAws_queryDBClusterMessage = (
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryDBClusterNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): DBClusterNotFoundFault => {
+  let contents: any = {
+    __type: "DBClusterNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -11277,6 +10507,20 @@ const deserializeAws_queryDBClusterParameterGroupNameMessage = (
   return contents;
 };
 
+const deserializeAws_queryDBClusterParameterGroupNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): DBClusterParameterGroupNotFoundFault => {
+  let contents: any = {
+    __type: "DBClusterParameterGroupNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryDBClusterParameterGroupsMessage = (
   output: any,
   context: __SerdeContext
@@ -11306,6 +10550,20 @@ const deserializeAws_queryDBClusterParameterGroupsMessage = (
   return contents;
 };
 
+const deserializeAws_queryDBClusterQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): DBClusterQuotaExceededFault => {
+  let contents: any = {
+    __type: "DBClusterQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryDBClusterRole = (
   output: any,
   context: __SerdeContext
@@ -11320,6 +10578,48 @@ const deserializeAws_queryDBClusterRole = (
   }
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryDBClusterRoleAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): DBClusterRoleAlreadyExistsFault => {
+  let contents: any = {
+    __type: "DBClusterRoleAlreadyExistsFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryDBClusterRoleNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): DBClusterRoleNotFoundFault => {
+  let contents: any = {
+    __type: "DBClusterRoleNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryDBClusterRoleQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): DBClusterRoleQuotaExceededFault => {
+  let contents: any = {
+    __type: "DBClusterRoleQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -11434,6 +10734,20 @@ const deserializeAws_queryDBClusterSnapshot = (
   return contents;
 };
 
+const deserializeAws_queryDBClusterSnapshotAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): DBClusterSnapshotAlreadyExistsFault => {
+  let contents: any = {
+    __type: "DBClusterSnapshotAlreadyExistsFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryDBClusterSnapshotAttribute = (
   output: any,
   context: __SerdeContext
@@ -11533,6 +10847,20 @@ const deserializeAws_queryDBClusterSnapshotMessage = (
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryDBClusterSnapshotNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): DBClusterSnapshotNotFoundFault => {
+  let contents: any = {
+    __type: "DBClusterSnapshotNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -12005,6 +11333,20 @@ const deserializeAws_queryDBInstance = (
   return contents;
 };
 
+const deserializeAws_queryDBInstanceAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): DBInstanceAlreadyExistsFault => {
+  let contents: any = {
+    __type: "DBInstanceAlreadyExistsFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryDBInstanceList = (
   output: any,
   context: __SerdeContext
@@ -12037,6 +11379,20 @@ const deserializeAws_queryDBInstanceMessage = (
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryDBInstanceNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): DBInstanceNotFoundFault => {
+  let contents: any = {
+    __type: "DBInstanceNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -12102,6 +11458,20 @@ const deserializeAws_queryDBParameterGroup = (
   return contents;
 };
 
+const deserializeAws_queryDBParameterGroupAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): DBParameterGroupAlreadyExistsFault => {
+  let contents: any = {
+    __type: "DBParameterGroupAlreadyExistsFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryDBParameterGroupDetails = (
   output: any,
   context: __SerdeContext
@@ -12152,31 +11522,32 @@ const deserializeAws_queryDBParameterGroupNameMessage = (
   return contents;
 };
 
-const deserializeAws_queryDBParameterGroupStatus = (
+const deserializeAws_queryDBParameterGroupNotFoundFault = (
   output: any,
   context: __SerdeContext
-): DBParameterGroupStatus => {
+): DBParameterGroupNotFoundFault => {
   let contents: any = {
-    __type: "DBParameterGroupStatus",
-    DBParameterGroupName: undefined,
-    ParameterApplyStatus: undefined
+    __type: "DBParameterGroupNotFoundFault",
+    message: undefined
   };
-  if (output["DBParameterGroupName"] !== undefined) {
-    contents.DBParameterGroupName = output["DBParameterGroupName"];
-  }
-  if (output["ParameterApplyStatus"] !== undefined) {
-    contents.ParameterApplyStatus = output["ParameterApplyStatus"];
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
 
-const deserializeAws_queryDBParameterGroupStatusList = (
+const deserializeAws_queryDBParameterGroupQuotaExceededFault = (
   output: any,
   context: __SerdeContext
-): DBParameterGroupStatus[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBParameterGroupStatus(entry, context)
-  );
+): DBParameterGroupQuotaExceededFault => {
+  let contents: any = {
+    __type: "DBParameterGroupQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
 };
 
 const deserializeAws_queryDBParameterGroupsMessage = (
@@ -12206,6 +11577,33 @@ const deserializeAws_queryDBParameterGroupsMessage = (
   return contents;
 };
 
+const deserializeAws_queryDBParameterGroupStatus = (
+  output: any,
+  context: __SerdeContext
+): DBParameterGroupStatus => {
+  let contents: any = {
+    __type: "DBParameterGroupStatus",
+    DBParameterGroupName: undefined,
+    ParameterApplyStatus: undefined
+  };
+  if (output["DBParameterGroupName"] !== undefined) {
+    contents.DBParameterGroupName = output["DBParameterGroupName"];
+  }
+  if (output["ParameterApplyStatus"] !== undefined) {
+    contents.ParameterApplyStatus = output["ParameterApplyStatus"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryDBParameterGroupStatusList = (
+  output: any,
+  context: __SerdeContext
+): DBParameterGroupStatus[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDBParameterGroupStatus(entry, context)
+  );
+};
+
 const deserializeAws_queryDBSecurityGroupMembership = (
   output: any,
   context: __SerdeContext
@@ -12231,6 +11629,48 @@ const deserializeAws_queryDBSecurityGroupMembershipList = (
   return (output || []).map((entry: any) =>
     deserializeAws_queryDBSecurityGroupMembership(entry, context)
   );
+};
+
+const deserializeAws_queryDBSecurityGroupNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): DBSecurityGroupNotFoundFault => {
+  let contents: any = {
+    __type: "DBSecurityGroupNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryDBSnapshotAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): DBSnapshotAlreadyExistsFault => {
+  let contents: any = {
+    __type: "DBSnapshotAlreadyExistsFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryDBSnapshotNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): DBSnapshotNotFoundFault => {
+  let contents: any = {
+    __type: "DBSnapshotNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
 };
 
 const deserializeAws_queryDBSubnetGroup = (
@@ -12276,6 +11716,34 @@ const deserializeAws_queryDBSubnetGroup = (
   return contents;
 };
 
+const deserializeAws_queryDBSubnetGroupAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): DBSubnetGroupAlreadyExistsFault => {
+  let contents: any = {
+    __type: "DBSubnetGroupAlreadyExistsFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZs = (
+  output: any,
+  context: __SerdeContext
+): DBSubnetGroupDoesNotCoverEnoughAZs => {
+  let contents: any = {
+    __type: "DBSubnetGroupDoesNotCoverEnoughAZs",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryDBSubnetGroupMessage = (
   output: any,
   context: __SerdeContext
@@ -12303,6 +11771,34 @@ const deserializeAws_queryDBSubnetGroupMessage = (
   return contents;
 };
 
+const deserializeAws_queryDBSubnetGroupNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): DBSubnetGroupNotFoundFault => {
+  let contents: any = {
+    __type: "DBSubnetGroupNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryDBSubnetGroupQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): DBSubnetGroupQuotaExceededFault => {
+  let contents: any = {
+    __type: "DBSubnetGroupQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryDBSubnetGroups = (
   output: any,
   context: __SerdeContext
@@ -12310,6 +11806,34 @@ const deserializeAws_queryDBSubnetGroups = (
   return (output || []).map((entry: any) =>
     deserializeAws_queryDBSubnetGroup(entry, context)
   );
+};
+
+const deserializeAws_queryDBSubnetQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): DBSubnetQuotaExceededFault => {
+  let contents: any = {
+    __type: "DBSubnetQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryDBUpgradeDependencyFailureFault = (
+  output: any,
+  context: __SerdeContext
+): DBUpgradeDependencyFailureFault => {
+  let contents: any = {
+    __type: "DBUpgradeDependencyFailureFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
 };
 
 const deserializeAws_queryDeleteDBClusterResult = (
@@ -12481,6 +12005,20 @@ const deserializeAws_queryDomainMembershipList = (
   return (output || []).map((entry: any) =>
     deserializeAws_queryDomainMembership(entry, context)
   );
+};
+
+const deserializeAws_queryDomainNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): DomainNotFoundFault => {
+  let contents: any = {
+    __type: "DomainNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
 };
 
 const deserializeAws_queryDoubleRange = (
@@ -12683,6 +12221,33 @@ const deserializeAws_queryEventList = (
   );
 };
 
+const deserializeAws_queryEventsMessage = (
+  output: any,
+  context: __SerdeContext
+): EventsMessage => {
+  let contents: any = {
+    __type: "EventsMessage",
+    Events: undefined,
+    Marker: undefined
+  };
+  if (output.Events === "") {
+    contents.Events = [];
+  }
+  if (
+    output["Events"] !== undefined &&
+    output["Events"]["Event"] !== undefined
+  ) {
+    contents.Events = deserializeAws_queryEventList(
+      __getArrayIfSingleItem(output["Events"]["Event"]),
+      context
+    );
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryEventSubscription = (
   output: any,
   context: __SerdeContext
@@ -12751,6 +12316,20 @@ const deserializeAws_queryEventSubscription = (
   return contents;
 };
 
+const deserializeAws_queryEventSubscriptionQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): EventSubscriptionQuotaExceededFault => {
+  let contents: any = {
+    __type: "EventSubscriptionQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryEventSubscriptionsList = (
   output: any,
   context: __SerdeContext
@@ -12789,33 +12368,6 @@ const deserializeAws_queryEventSubscriptionsMessage = (
   return contents;
 };
 
-const deserializeAws_queryEventsMessage = (
-  output: any,
-  context: __SerdeContext
-): EventsMessage => {
-  let contents: any = {
-    __type: "EventsMessage",
-    Events: undefined,
-    Marker: undefined
-  };
-  if (output.Events === "") {
-    contents.Events = [];
-  }
-  if (
-    output["Events"] !== undefined &&
-    output["Events"]["Event"] !== undefined
-  ) {
-    contents.Events = deserializeAws_queryEventList(
-      __getArrayIfSingleItem(output["Events"]["Event"]),
-      context
-    );
-  }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
-  }
-  return contents;
-};
-
 const deserializeAws_queryFailoverDBClusterResult = (
   output: any,
   context: __SerdeContext
@@ -12829,6 +12381,244 @@ const deserializeAws_queryFailoverDBClusterResult = (
       output["DBCluster"],
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_queryInstanceQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): InstanceQuotaExceededFault => {
+  let contents: any = {
+    __type: "InstanceQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInsufficientDBClusterCapacityFault = (
+  output: any,
+  context: __SerdeContext
+): InsufficientDBClusterCapacityFault => {
+  let contents: any = {
+    __type: "InsufficientDBClusterCapacityFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInsufficientDBInstanceCapacityFault = (
+  output: any,
+  context: __SerdeContext
+): InsufficientDBInstanceCapacityFault => {
+  let contents: any = {
+    __type: "InsufficientDBInstanceCapacityFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInsufficientStorageClusterCapacityFault = (
+  output: any,
+  context: __SerdeContext
+): InsufficientStorageClusterCapacityFault => {
+  let contents: any = {
+    __type: "InsufficientStorageClusterCapacityFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidDBClusterSnapshotStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidDBClusterSnapshotStateFault => {
+  let contents: any = {
+    __type: "InvalidDBClusterSnapshotStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidDBClusterStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidDBClusterStateFault => {
+  let contents: any = {
+    __type: "InvalidDBClusterStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidDBInstanceStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidDBInstanceStateFault => {
+  let contents: any = {
+    __type: "InvalidDBInstanceStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidDBParameterGroupStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidDBParameterGroupStateFault => {
+  let contents: any = {
+    __type: "InvalidDBParameterGroupStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidDBSecurityGroupStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidDBSecurityGroupStateFault => {
+  let contents: any = {
+    __type: "InvalidDBSecurityGroupStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidDBSnapshotStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidDBSnapshotStateFault => {
+  let contents: any = {
+    __type: "InvalidDBSnapshotStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidDBSubnetGroupStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidDBSubnetGroupStateFault => {
+  let contents: any = {
+    __type: "InvalidDBSubnetGroupStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidDBSubnetStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidDBSubnetStateFault => {
+  let contents: any = {
+    __type: "InvalidDBSubnetStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidEventSubscriptionStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidEventSubscriptionStateFault => {
+  let contents: any = {
+    __type: "InvalidEventSubscriptionStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidRestoreFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidRestoreFault => {
+  let contents: any = {
+    __type: "InvalidRestoreFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidSubnet = (
+  output: any,
+  context: __SerdeContext
+): InvalidSubnet => {
+  let contents: any = {
+    __type: "InvalidSubnet",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidVPCNetworkStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidVPCNetworkStateFault => {
+  let contents: any = {
+    __type: "InvalidVPCNetworkStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryKMSKeyNotAccessibleFault = (
+  output: any,
+  context: __SerdeContext
+): KMSKeyNotAccessibleFault => {
+  let contents: any = {
+    __type: "KMSKeyNotAccessibleFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -12950,6 +12740,20 @@ const deserializeAws_queryOptionGroupMembershipList = (
   return (output || []).map((entry: any) =>
     deserializeAws_queryOptionGroupMembership(entry, context)
   );
+};
+
+const deserializeAws_queryOptionGroupNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): OptionGroupNotFoundFault => {
+  let contents: any = {
+    __type: "OptionGroupNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
 };
 
 const deserializeAws_queryOrderableDBInstanceOption = (
@@ -13357,6 +13161,20 @@ const deserializeAws_queryPromoteReadReplicaDBClusterResult = (
   return contents;
 };
 
+const deserializeAws_queryProvisionedIopsNotAvailableInAZFault = (
+  output: any,
+  context: __SerdeContext
+): ProvisionedIopsNotAvailableInAZFault => {
+  let contents: any = {
+    __type: "ProvisionedIopsNotAvailableInAZFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryRange = (
   output: any,
   context: __SerdeContext
@@ -13443,6 +13261,20 @@ const deserializeAws_queryRemoveSourceIdentifierFromSubscriptionResult = (
   return contents;
 };
 
+const deserializeAws_queryResourceNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): ResourceNotFoundFault => {
+  let contents: any = {
+    __type: "ResourceNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryResourcePendingMaintenanceActions = (
   output: any,
   context: __SerdeContext
@@ -13507,11 +13339,123 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeResult = (
   return contents;
 };
 
+const deserializeAws_querySharedSnapshotQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): SharedSnapshotQuotaExceededFault => {
+  let contents: any = {
+    __type: "SharedSnapshotQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySnapshotQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): SnapshotQuotaExceededFault => {
+  let contents: any = {
+    __type: "SnapshotQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySNSInvalidTopicFault = (
+  output: any,
+  context: __SerdeContext
+): SNSInvalidTopicFault => {
+  let contents: any = {
+    __type: "SNSInvalidTopicFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySNSNoAuthorizationFault = (
+  output: any,
+  context: __SerdeContext
+): SNSNoAuthorizationFault => {
+  let contents: any = {
+    __type: "SNSNoAuthorizationFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySNSTopicArnNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): SNSTopicArnNotFoundFault => {
+  let contents: any = {
+    __type: "SNSTopicArnNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_querySourceIdsList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_querySourceNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): SourceNotFoundFault => {
+  let contents: any = {
+    __type: "SourceNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryStorageQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): StorageQuotaExceededFault => {
+  let contents: any = {
+    __type: "StorageQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryStorageTypeNotSupportedFault = (
+  output: any,
+  context: __SerdeContext
+): StorageTypeNotSupportedFault => {
+  let contents: any = {
+    __type: "StorageTypeNotSupportedFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
 };
 
 const deserializeAws_querySubnet = (
@@ -13539,6 +13483,20 @@ const deserializeAws_querySubnet = (
   return contents;
 };
 
+const deserializeAws_querySubnetAlreadyInUse = (
+  output: any,
+  context: __SerdeContext
+): SubnetAlreadyInUse => {
+  let contents: any = {
+    __type: "SubnetAlreadyInUse",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_querySubnetList = (
   output: any,
   context: __SerdeContext
@@ -13546,6 +13504,48 @@ const deserializeAws_querySubnetList = (
   return (output || []).map((entry: any) =>
     deserializeAws_querySubnet(entry, context)
   );
+};
+
+const deserializeAws_querySubscriptionAlreadyExistFault = (
+  output: any,
+  context: __SerdeContext
+): SubscriptionAlreadyExistFault => {
+  let contents: any = {
+    __type: "SubscriptionAlreadyExistFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySubscriptionCategoryNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): SubscriptionCategoryNotFoundFault => {
+  let contents: any = {
+    __type: "SubscriptionCategoryNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySubscriptionNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): SubscriptionNotFoundFault => {
+  let contents: any = {
+    __type: "SubscriptionNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
 };
 
 const deserializeAws_querySupportedCharacterSetsList = (

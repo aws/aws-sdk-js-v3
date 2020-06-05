@@ -5,9 +5,9 @@ import {
 } from "../ConnectClient";
 import { GetMetricDataRequest, GetMetricDataResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetMetricDataCommand,
-  serializeAws_restJson1_1GetMetricDataCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetMetricDataCommand,
+  serializeAws_restJson1GetMetricDataCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetMetricDataCommand extends $Command<
     input: GetMetricDataCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetMetricDataCommand(input, context);
+    return serializeAws_restJson1GetMetricDataCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMetricDataCommandOutput> {
-    return deserializeAws_restJson1_1GetMetricDataCommand(output, context);
+    return deserializeAws_restJson1GetMetricDataCommand(output, context);
   }
 
   // Start section: command_body_extra

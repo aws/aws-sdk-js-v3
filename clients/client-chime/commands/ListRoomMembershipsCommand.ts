@@ -8,9 +8,9 @@ import {
   ListRoomMembershipsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListRoomMembershipsCommand,
-  serializeAws_restJson1_1ListRoomMembershipsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListRoomMembershipsCommand,
+  serializeAws_restJson1ListRoomMembershipsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListRoomMembershipsCommand extends $Command<
     input: ListRoomMembershipsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListRoomMembershipsCommand(input, context);
+    return serializeAws_restJson1ListRoomMembershipsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRoomMembershipsCommandOutput> {
-    return deserializeAws_restJson1_1ListRoomMembershipsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListRoomMembershipsCommand(output, context);
   }
 
   // Start section: command_body_extra

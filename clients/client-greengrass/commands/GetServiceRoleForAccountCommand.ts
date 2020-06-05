@@ -8,9 +8,9 @@ import {
   GetServiceRoleForAccountResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetServiceRoleForAccountCommand,
-  serializeAws_restJson1_1GetServiceRoleForAccountCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetServiceRoleForAccountCommand,
+  serializeAws_restJson1GetServiceRoleForAccountCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetServiceRoleForAccountCommand extends $Command<
     input: GetServiceRoleForAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetServiceRoleForAccountCommand(
+    return serializeAws_restJson1GetServiceRoleForAccountCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetServiceRoleForAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetServiceRoleForAccountCommandOutput> {
-    return deserializeAws_restJson1_1GetServiceRoleForAccountCommand(
+    return deserializeAws_restJson1GetServiceRoleForAccountCommand(
       output,
       context
     );

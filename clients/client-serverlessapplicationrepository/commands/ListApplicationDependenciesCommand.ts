@@ -8,9 +8,9 @@ import {
   ListApplicationDependenciesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListApplicationDependenciesCommand,
-  serializeAws_restJson1_1ListApplicationDependenciesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListApplicationDependenciesCommand,
+  serializeAws_restJson1ListApplicationDependenciesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListApplicationDependenciesCommand extends $Command<
     input: ListApplicationDependenciesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListApplicationDependenciesCommand(
+    return serializeAws_restJson1ListApplicationDependenciesCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListApplicationDependenciesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListApplicationDependenciesCommandOutput> {
-    return deserializeAws_restJson1_1ListApplicationDependenciesCommand(
+    return deserializeAws_restJson1ListApplicationDependenciesCommand(
       output,
       context
     );

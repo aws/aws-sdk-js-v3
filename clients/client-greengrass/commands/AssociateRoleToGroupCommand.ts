@@ -8,9 +8,9 @@ import {
   AssociateRoleToGroupResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1AssociateRoleToGroupCommand,
-  serializeAws_restJson1_1AssociateRoleToGroupCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AssociateRoleToGroupCommand,
+  serializeAws_restJson1AssociateRoleToGroupCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class AssociateRoleToGroupCommand extends $Command<
     input: AssociateRoleToGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AssociateRoleToGroupCommand(input, context);
+    return serializeAws_restJson1AssociateRoleToGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateRoleToGroupCommandOutput> {
-    return deserializeAws_restJson1_1AssociateRoleToGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1AssociateRoleToGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

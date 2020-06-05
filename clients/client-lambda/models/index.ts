@@ -2487,6 +2487,36 @@ export namespace Layer {
 }
 
 /**
+ * <p>Details about an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+ *         layer</a>.</p>
+ */
+export interface LayersListItem {
+  __type?: "LayersListItem";
+  /**
+   * <p>The newest version of the layer.</p>
+   */
+  LatestMatchingVersion?: LayerVersionsListItem;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the function layer.</p>
+   */
+  LayerArn?: string;
+
+  /**
+   * <p>The name of the layer.</p>
+   */
+  LayerName?: string;
+}
+
+export namespace LayersListItem {
+  export const filterSensitiveLog = (obj: LayersListItem): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is LayersListItem =>
+    __isa(o, "LayersListItem");
+}
+
+/**
  * <p>A ZIP archive that contains the contents of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
  *         layer</a>. You can specify either an Amazon S3 location,
  *       or upload a layer archive directly.</p>
@@ -2597,36 +2627,6 @@ export namespace LayerVersionsListItem {
   });
   export const isa = (o: any): o is LayerVersionsListItem =>
     __isa(o, "LayerVersionsListItem");
-}
-
-/**
- * <p>Details about an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
- *         layer</a>.</p>
- */
-export interface LayersListItem {
-  __type?: "LayersListItem";
-  /**
-   * <p>The newest version of the layer.</p>
-   */
-  LatestMatchingVersion?: LayerVersionsListItem;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the function layer.</p>
-   */
-  LayerArn?: string;
-
-  /**
-   * <p>The name of the layer.</p>
-   */
-  LayerName?: string;
-}
-
-export namespace LayersListItem {
-  export const filterSensitiveLog = (obj: LayersListItem): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is LayersListItem =>
-    __isa(o, "LayersListItem");
 }
 
 export interface ListAliasesRequest {
@@ -2925,6 +2925,53 @@ export namespace ListFunctionsResponse {
     __isa(o, "ListFunctionsResponse");
 }
 
+export interface ListLayersRequest {
+  __type?: "ListLayersRequest";
+  /**
+   * <p>A runtime identifier. For example, <code>go1.x</code>.</p>
+   */
+  CompatibleRuntime?: Runtime | string;
+
+  /**
+   * <p>A pagination token returned by a previous call.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of layers to return.</p>
+   */
+  MaxItems?: number;
+}
+
+export namespace ListLayersRequest {
+  export const filterSensitiveLog = (obj: ListLayersRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListLayersRequest =>
+    __isa(o, "ListLayersRequest");
+}
+
+export interface ListLayersResponse {
+  __type?: "ListLayersResponse";
+  /**
+   * <p>A list of function layers.</p>
+   */
+  Layers?: LayersListItem[];
+
+  /**
+   * <p>A pagination token returned when the response doesn't contain all layers.</p>
+   */
+  NextMarker?: string;
+}
+
+export namespace ListLayersResponse {
+  export const filterSensitiveLog = (obj: ListLayersResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListLayersResponse =>
+    __isa(o, "ListLayersResponse");
+}
+
 export interface ListLayerVersionsRequest {
   __type?: "ListLayerVersionsRequest";
   /**
@@ -2975,53 +3022,6 @@ export namespace ListLayerVersionsResponse {
   });
   export const isa = (o: any): o is ListLayerVersionsResponse =>
     __isa(o, "ListLayerVersionsResponse");
-}
-
-export interface ListLayersRequest {
-  __type?: "ListLayersRequest";
-  /**
-   * <p>A runtime identifier. For example, <code>go1.x</code>.</p>
-   */
-  CompatibleRuntime?: Runtime | string;
-
-  /**
-   * <p>A pagination token returned by a previous call.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The maximum number of layers to return.</p>
-   */
-  MaxItems?: number;
-}
-
-export namespace ListLayersRequest {
-  export const filterSensitiveLog = (obj: ListLayersRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListLayersRequest =>
-    __isa(o, "ListLayersRequest");
-}
-
-export interface ListLayersResponse {
-  __type?: "ListLayersResponse";
-  /**
-   * <p>A list of function layers.</p>
-   */
-  Layers?: LayersListItem[];
-
-  /**
-   * <p>A pagination token returned when the response doesn't contain all layers.</p>
-   */
-  NextMarker?: string;
-}
-
-export namespace ListLayersResponse {
-  export const filterSensitiveLog = (obj: ListLayersResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListLayersResponse =>
-    __isa(o, "ListLayersResponse");
 }
 
 export interface ListProvisionedConcurrencyConfigsRequest {

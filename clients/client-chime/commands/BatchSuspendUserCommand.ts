@@ -8,9 +8,9 @@ import {
   BatchSuspendUserResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1BatchSuspendUserCommand,
-  serializeAws_restJson1_1BatchSuspendUserCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1BatchSuspendUserCommand,
+  serializeAws_restJson1BatchSuspendUserCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class BatchSuspendUserCommand extends $Command<
     input: BatchSuspendUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1BatchSuspendUserCommand(input, context);
+    return serializeAws_restJson1BatchSuspendUserCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchSuspendUserCommandOutput> {
-    return deserializeAws_restJson1_1BatchSuspendUserCommand(output, context);
+    return deserializeAws_restJson1BatchSuspendUserCommand(output, context);
   }
 
   // Start section: command_body_extra

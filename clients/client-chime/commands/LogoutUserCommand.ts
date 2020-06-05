@@ -5,9 +5,9 @@ import {
 } from "../ChimeClient";
 import { LogoutUserRequest, LogoutUserResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1LogoutUserCommand,
-  serializeAws_restJson1_1LogoutUserCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1LogoutUserCommand,
+  serializeAws_restJson1LogoutUserCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class LogoutUserCommand extends $Command<
     input: LogoutUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1LogoutUserCommand(input, context);
+    return serializeAws_restJson1LogoutUserCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<LogoutUserCommandOutput> {
-    return deserializeAws_restJson1_1LogoutUserCommand(output, context);
+    return deserializeAws_restJson1LogoutUserCommand(output, context);
   }
 
   // Start section: command_body_extra

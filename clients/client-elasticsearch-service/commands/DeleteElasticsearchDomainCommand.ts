@@ -8,9 +8,9 @@ import {
   DeleteElasticsearchDomainResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteElasticsearchDomainCommand,
-  serializeAws_restJson1_1DeleteElasticsearchDomainCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteElasticsearchDomainCommand,
+  serializeAws_restJson1DeleteElasticsearchDomainCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DeleteElasticsearchDomainCommand extends $Command<
     input: DeleteElasticsearchDomainCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteElasticsearchDomainCommand(
+    return serializeAws_restJson1DeleteElasticsearchDomainCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DeleteElasticsearchDomainCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteElasticsearchDomainCommandOutput> {
-    return deserializeAws_restJson1_1DeleteElasticsearchDomainCommand(
+    return deserializeAws_restJson1DeleteElasticsearchDomainCommand(
       output,
       context
     );

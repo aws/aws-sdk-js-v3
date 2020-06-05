@@ -8,9 +8,9 @@ import {
   DescribeIdentityProviderConfigurationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeIdentityProviderConfigurationCommand,
-  serializeAws_restJson1_1DescribeIdentityProviderConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeIdentityProviderConfigurationCommand,
+  serializeAws_restJson1DescribeIdentityProviderConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -76,7 +76,7 @@ export class DescribeIdentityProviderConfigurationCommand extends $Command<
     input: DescribeIdentityProviderConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeIdentityProviderConfigurationCommand(
+    return serializeAws_restJson1DescribeIdentityProviderConfigurationCommand(
       input,
       context
     );
@@ -86,7 +86,7 @@ export class DescribeIdentityProviderConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeIdentityProviderConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DescribeIdentityProviderConfigurationCommand(
+    return deserializeAws_restJson1DescribeIdentityProviderConfigurationCommand(
       output,
       context
     );

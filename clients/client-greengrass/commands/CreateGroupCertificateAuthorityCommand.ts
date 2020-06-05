@@ -8,9 +8,9 @@ import {
   CreateGroupCertificateAuthorityResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateGroupCertificateAuthorityCommand,
-  serializeAws_restJson1_1CreateGroupCertificateAuthorityCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateGroupCertificateAuthorityCommand,
+  serializeAws_restJson1CreateGroupCertificateAuthorityCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CreateGroupCertificateAuthorityCommand extends $Command<
     input: CreateGroupCertificateAuthorityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateGroupCertificateAuthorityCommand(
+    return serializeAws_restJson1CreateGroupCertificateAuthorityCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CreateGroupCertificateAuthorityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateGroupCertificateAuthorityCommandOutput> {
-    return deserializeAws_restJson1_1CreateGroupCertificateAuthorityCommand(
+    return deserializeAws_restJson1CreateGroupCertificateAuthorityCommand(
       output,
       context
     );

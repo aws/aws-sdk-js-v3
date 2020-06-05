@@ -106,6 +106,83 @@ export namespace AggregateComplianceCount {
 }
 
 /**
+ * <p>The current sync status between the source and the aggregator
+ * 			account.</p>
+ */
+export interface AggregatedSourceStatus {
+  __type?: "AggregatedSourceStatus";
+  /**
+   * <p>The region authorized to collect aggregated data.</p>
+   */
+  AwsRegion?: string;
+
+  /**
+   * <p>The error code that AWS Config returned when the source account
+   * 			aggregation last failed.</p>
+   */
+  LastErrorCode?: string;
+
+  /**
+   * <p>The message indicating that the source account aggregation
+   * 			failed due to an error.</p>
+   */
+  LastErrorMessage?: string;
+
+  /**
+   * <p>Filters the last updated status type.</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>Valid value FAILED indicates errors while moving
+   * 					data.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Valid value SUCCEEDED indicates the data was
+   * 					successfully moved.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Valid value OUTDATED indicates the data is not the most
+   * 					recent.</p>
+   * 			         </li>
+   *          </ul>
+   */
+  LastUpdateStatus?: AggregatedSourceStatusType | string;
+
+  /**
+   * <p>The time of the last update.</p>
+   */
+  LastUpdateTime?: Date;
+
+  /**
+   * <p>The source account ID or an organization.</p>
+   */
+  SourceId?: string;
+
+  /**
+   * <p>The source account or an organization.</p>
+   */
+  SourceType?: AggregatedSourceType | string;
+}
+
+export namespace AggregatedSourceStatus {
+  export const filterSensitiveLog = (obj: AggregatedSourceStatus): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AggregatedSourceStatus =>
+    __isa(o, "AggregatedSourceStatus");
+}
+
+export enum AggregatedSourceStatusType {
+  FAILED = "FAILED",
+  OUTDATED = "OUTDATED",
+  SUCCEEDED = "SUCCEEDED"
+}
+
+export enum AggregatedSourceType {
+  ACCOUNT = "ACCOUNT",
+  ORGANIZATION = "ORGANIZATION"
+}
+
+/**
  * <p>The details of an AWS Config evaluation for an account ID and
  * 			region in an aggregator. Provides the AWS resource that was
  * 			evaluated, the compliance of the resource, related time stamps, and
@@ -204,83 +281,6 @@ export namespace AggregateResourceIdentifier {
   });
   export const isa = (o: any): o is AggregateResourceIdentifier =>
     __isa(o, "AggregateResourceIdentifier");
-}
-
-/**
- * <p>The current sync status between the source and the aggregator
- * 			account.</p>
- */
-export interface AggregatedSourceStatus {
-  __type?: "AggregatedSourceStatus";
-  /**
-   * <p>The region authorized to collect aggregated data.</p>
-   */
-  AwsRegion?: string;
-
-  /**
-   * <p>The error code that AWS Config returned when the source account
-   * 			aggregation last failed.</p>
-   */
-  LastErrorCode?: string;
-
-  /**
-   * <p>The message indicating that the source account aggregation
-   * 			failed due to an error.</p>
-   */
-  LastErrorMessage?: string;
-
-  /**
-   * <p>Filters the last updated status type.</p>
-   * 		       <ul>
-   *             <li>
-   * 				           <p>Valid value FAILED indicates errors while moving
-   * 					data.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>Valid value SUCCEEDED indicates the data was
-   * 					successfully moved.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>Valid value OUTDATED indicates the data is not the most
-   * 					recent.</p>
-   * 			         </li>
-   *          </ul>
-   */
-  LastUpdateStatus?: AggregatedSourceStatusType | string;
-
-  /**
-   * <p>The time of the last update.</p>
-   */
-  LastUpdateTime?: Date;
-
-  /**
-   * <p>The source account ID or an organization.</p>
-   */
-  SourceId?: string;
-
-  /**
-   * <p>The source account or an organization.</p>
-   */
-  SourceType?: AggregatedSourceType | string;
-}
-
-export namespace AggregatedSourceStatus {
-  export const filterSensitiveLog = (obj: AggregatedSourceStatus): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AggregatedSourceStatus =>
-    __isa(o, "AggregatedSourceStatus");
-}
-
-export enum AggregatedSourceStatusType {
-  FAILED = "FAILED",
-  OUTDATED = "OUTDATED",
-  SUCCEEDED = "SUCCEEDED"
-}
-
-export enum AggregatedSourceType {
-  ACCOUNT = "ACCOUNT",
-  ORGANIZATION = "ORGANIZATION"
 }
 
 /**
@@ -2841,6 +2841,49 @@ export namespace DescribeConfigurationAggregatorsResponse {
 }
 
 /**
+ * <p>The input for the <a>DescribeConfigurationRecorders</a> action.</p>
+ */
+export interface DescribeConfigurationRecordersRequest {
+  __type?: "DescribeConfigurationRecordersRequest";
+  /**
+   * <p>A list of configuration recorder names.</p>
+   */
+  ConfigurationRecorderNames?: string[];
+}
+
+export namespace DescribeConfigurationRecordersRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeConfigurationRecordersRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeConfigurationRecordersRequest =>
+    __isa(o, "DescribeConfigurationRecordersRequest");
+}
+
+/**
+ * <p>The output for the <a>DescribeConfigurationRecorders</a> action.</p>
+ */
+export interface DescribeConfigurationRecordersResponse {
+  __type?: "DescribeConfigurationRecordersResponse";
+  /**
+   * <p>A list that contains the descriptions of the specified
+   * 			configuration recorders.</p>
+   */
+  ConfigurationRecorders?: ConfigurationRecorder[];
+}
+
+export namespace DescribeConfigurationRecordersResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeConfigurationRecordersResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeConfigurationRecordersResponse =>
+    __isa(o, "DescribeConfigurationRecordersResponse");
+}
+
+/**
  * <p>The input for the <a>DescribeConfigurationRecorderStatus</a>
  * 			action.</p>
  */
@@ -2889,49 +2932,6 @@ export namespace DescribeConfigurationRecorderStatusResponse {
     o: any
   ): o is DescribeConfigurationRecorderStatusResponse =>
     __isa(o, "DescribeConfigurationRecorderStatusResponse");
-}
-
-/**
- * <p>The input for the <a>DescribeConfigurationRecorders</a> action.</p>
- */
-export interface DescribeConfigurationRecordersRequest {
-  __type?: "DescribeConfigurationRecordersRequest";
-  /**
-   * <p>A list of configuration recorder names.</p>
-   */
-  ConfigurationRecorderNames?: string[];
-}
-
-export namespace DescribeConfigurationRecordersRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeConfigurationRecordersRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeConfigurationRecordersRequest =>
-    __isa(o, "DescribeConfigurationRecordersRequest");
-}
-
-/**
- * <p>The output for the <a>DescribeConfigurationRecorders</a> action.</p>
- */
-export interface DescribeConfigurationRecordersResponse {
-  __type?: "DescribeConfigurationRecordersResponse";
-  /**
-   * <p>A list that contains the descriptions of the specified
-   * 			configuration recorders.</p>
-   */
-  ConfigurationRecorders?: ConfigurationRecorder[];
-}
-
-export namespace DescribeConfigurationRecordersResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeConfigurationRecordersResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeConfigurationRecordersResponse =>
-    __isa(o, "DescribeConfigurationRecordersResponse");
 }
 
 export interface DescribeConformancePackComplianceRequest {
@@ -2997,57 +2997,6 @@ export namespace DescribeConformancePackComplianceResponse {
     __isa(o, "DescribeConformancePackComplianceResponse");
 }
 
-export interface DescribeConformancePackStatusRequest {
-  __type?: "DescribeConformancePackStatusRequest";
-  /**
-   * <p>Comma-separated list of conformance pack names.</p>
-   */
-  ConformancePackNames?: string[];
-
-  /**
-   * <p>The maximum number of conformance packs status returned on each page.</p>
-   */
-  Limit?: number;
-
-  /**
-   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeConformancePackStatusRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeConformancePackStatusRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeConformancePackStatusRequest =>
-    __isa(o, "DescribeConformancePackStatusRequest");
-}
-
-export interface DescribeConformancePackStatusResponse {
-  __type?: "DescribeConformancePackStatusResponse";
-  /**
-   * <p>A list of <code>ConformancePackStatusDetail</code> objects.</p>
-   */
-  ConformancePackStatusDetails?: ConformancePackStatusDetail[];
-
-  /**
-   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeConformancePackStatusResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeConformancePackStatusResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeConformancePackStatusResponse =>
-    __isa(o, "DescribeConformancePackStatusResponse");
-}
-
 export interface DescribeConformancePacksRequest {
   __type?: "DescribeConformancePacksRequest";
   /**
@@ -3099,48 +3048,55 @@ export namespace DescribeConformancePacksResponse {
     __isa(o, "DescribeConformancePacksResponse");
 }
 
-/**
- * <p>The input for the <a>DeliveryChannelStatus</a>
- * 			action.</p>
- */
-export interface DescribeDeliveryChannelStatusRequest {
-  __type?: "DescribeDeliveryChannelStatusRequest";
+export interface DescribeConformancePackStatusRequest {
+  __type?: "DescribeConformancePackStatusRequest";
   /**
-   * <p>A list of delivery channel names.</p>
+   * <p>Comma-separated list of conformance pack names.</p>
    */
-  DeliveryChannelNames?: string[];
+  ConformancePackNames?: string[];
+
+  /**
+   * <p>The maximum number of conformance packs status returned on each page.</p>
+   */
+  Limit?: number;
+
+  /**
+   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+   */
+  NextToken?: string;
 }
 
-export namespace DescribeDeliveryChannelStatusRequest {
+export namespace DescribeConformancePackStatusRequest {
   export const filterSensitiveLog = (
-    obj: DescribeDeliveryChannelStatusRequest
+    obj: DescribeConformancePackStatusRequest
   ): any => ({
     ...obj
   });
-  export const isa = (o: any): o is DescribeDeliveryChannelStatusRequest =>
-    __isa(o, "DescribeDeliveryChannelStatusRequest");
+  export const isa = (o: any): o is DescribeConformancePackStatusRequest =>
+    __isa(o, "DescribeConformancePackStatusRequest");
 }
 
-/**
- * <p>The output for the <a>DescribeDeliveryChannelStatus</a> action.</p>
- */
-export interface DescribeDeliveryChannelStatusResponse {
-  __type?: "DescribeDeliveryChannelStatusResponse";
+export interface DescribeConformancePackStatusResponse {
+  __type?: "DescribeConformancePackStatusResponse";
   /**
-   * <p>A list that contains the status of a specified delivery
-   * 			channel.</p>
+   * <p>A list of <code>ConformancePackStatusDetail</code> objects.</p>
    */
-  DeliveryChannelsStatus?: DeliveryChannelStatus[];
+  ConformancePackStatusDetails?: ConformancePackStatusDetail[];
+
+  /**
+   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+   */
+  NextToken?: string;
 }
 
-export namespace DescribeDeliveryChannelStatusResponse {
+export namespace DescribeConformancePackStatusResponse {
   export const filterSensitiveLog = (
-    obj: DescribeDeliveryChannelStatusResponse
+    obj: DescribeConformancePackStatusResponse
   ): any => ({
     ...obj
   });
-  export const isa = (o: any): o is DescribeDeliveryChannelStatusResponse =>
-    __isa(o, "DescribeDeliveryChannelStatusResponse");
+  export const isa = (o: any): o is DescribeConformancePackStatusResponse =>
+    __isa(o, "DescribeConformancePackStatusResponse");
 }
 
 /**
@@ -3186,6 +3142,101 @@ export namespace DescribeDeliveryChannelsResponse {
   });
   export const isa = (o: any): o is DescribeDeliveryChannelsResponse =>
     __isa(o, "DescribeDeliveryChannelsResponse");
+}
+
+/**
+ * <p>The input for the <a>DeliveryChannelStatus</a>
+ * 			action.</p>
+ */
+export interface DescribeDeliveryChannelStatusRequest {
+  __type?: "DescribeDeliveryChannelStatusRequest";
+  /**
+   * <p>A list of delivery channel names.</p>
+   */
+  DeliveryChannelNames?: string[];
+}
+
+export namespace DescribeDeliveryChannelStatusRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeDeliveryChannelStatusRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeDeliveryChannelStatusRequest =>
+    __isa(o, "DescribeDeliveryChannelStatusRequest");
+}
+
+/**
+ * <p>The output for the <a>DescribeDeliveryChannelStatus</a> action.</p>
+ */
+export interface DescribeDeliveryChannelStatusResponse {
+  __type?: "DescribeDeliveryChannelStatusResponse";
+  /**
+   * <p>A list that contains the status of a specified delivery
+   * 			channel.</p>
+   */
+  DeliveryChannelsStatus?: DeliveryChannelStatus[];
+}
+
+export namespace DescribeDeliveryChannelStatusResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeDeliveryChannelStatusResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeDeliveryChannelStatusResponse =>
+    __isa(o, "DescribeDeliveryChannelStatusResponse");
+}
+
+export interface DescribeOrganizationConfigRulesRequest {
+  __type?: "DescribeOrganizationConfigRulesRequest";
+  /**
+   * <p>The maximum number of organization config rules returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.</p>
+   */
+  Limit?: number;
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The names of organization config rules for which you want details. If you do not specify any names, AWS Config returns details for all your organization config rules.</p>
+   */
+  OrganizationConfigRuleNames?: string[];
+}
+
+export namespace DescribeOrganizationConfigRulesRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeOrganizationConfigRulesRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeOrganizationConfigRulesRequest =>
+    __isa(o, "DescribeOrganizationConfigRulesRequest");
+}
+
+export interface DescribeOrganizationConfigRulesResponse {
+  __type?: "DescribeOrganizationConfigRulesResponse";
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Returns a list of <code>OrganizationConfigRule</code> objects.</p>
+   */
+  OrganizationConfigRules?: OrganizationConfigRule[];
+}
+
+export namespace DescribeOrganizationConfigRulesResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeOrganizationConfigRulesResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeOrganizationConfigRulesResponse =>
+    __isa(o, "DescribeOrganizationConfigRulesResponse");
 }
 
 export interface DescribeOrganizationConfigRuleStatusesRequest {
@@ -3241,114 +3292,6 @@ export namespace DescribeOrganizationConfigRuleStatusesResponse {
     o: any
   ): o is DescribeOrganizationConfigRuleStatusesResponse =>
     __isa(o, "DescribeOrganizationConfigRuleStatusesResponse");
-}
-
-export interface DescribeOrganizationConfigRulesRequest {
-  __type?: "DescribeOrganizationConfigRulesRequest";
-  /**
-   * <p>The maximum number of organization config rules returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.</p>
-   */
-  Limit?: number;
-
-  /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The names of organization config rules for which you want details. If you do not specify any names, AWS Config returns details for all your organization config rules.</p>
-   */
-  OrganizationConfigRuleNames?: string[];
-}
-
-export namespace DescribeOrganizationConfigRulesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeOrganizationConfigRulesRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeOrganizationConfigRulesRequest =>
-    __isa(o, "DescribeOrganizationConfigRulesRequest");
-}
-
-export interface DescribeOrganizationConfigRulesResponse {
-  __type?: "DescribeOrganizationConfigRulesResponse";
-  /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Returns a list of <code>OrganizationConfigRule</code> objects.</p>
-   */
-  OrganizationConfigRules?: OrganizationConfigRule[];
-}
-
-export namespace DescribeOrganizationConfigRulesResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeOrganizationConfigRulesResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeOrganizationConfigRulesResponse =>
-    __isa(o, "DescribeOrganizationConfigRulesResponse");
-}
-
-export interface DescribeOrganizationConformancePackStatusesRequest {
-  __type?: "DescribeOrganizationConformancePackStatusesRequest";
-  /**
-   * <p>The maximum number of OrganizationConformancePackStatuses returned on each page.
-   * 			If you do no specify a number, AWS Config uses the default. The default is 100. </p>
-   */
-  Limit?: number;
-
-  /**
-   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The names of organization conformance packs for which you want status details.
-   * 			If you do not specify any names, AWS Config returns details for all your organization conformance packs. </p>
-   */
-  OrganizationConformancePackNames?: string[];
-}
-
-export namespace DescribeOrganizationConformancePackStatusesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeOrganizationConformancePackStatusesRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is DescribeOrganizationConformancePackStatusesRequest =>
-    __isa(o, "DescribeOrganizationConformancePackStatusesRequest");
-}
-
-export interface DescribeOrganizationConformancePackStatusesResponse {
-  __type?: "DescribeOrganizationConformancePackStatusesResponse";
-  /**
-   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A list of <code>OrganizationConformancePackStatus</code> objects. </p>
-   */
-  OrganizationConformancePackStatuses?: OrganizationConformancePackStatus[];
-}
-
-export namespace DescribeOrganizationConformancePackStatusesResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeOrganizationConformancePackStatusesResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is DescribeOrganizationConformancePackStatusesResponse =>
-    __isa(o, "DescribeOrganizationConformancePackStatusesResponse");
 }
 
 export interface DescribeOrganizationConformancePacksRequest {
@@ -3407,6 +3350,63 @@ export namespace DescribeOrganizationConformancePacksResponse {
     o: any
   ): o is DescribeOrganizationConformancePacksResponse =>
     __isa(o, "DescribeOrganizationConformancePacksResponse");
+}
+
+export interface DescribeOrganizationConformancePackStatusesRequest {
+  __type?: "DescribeOrganizationConformancePackStatusesRequest";
+  /**
+   * <p>The maximum number of OrganizationConformancePackStatuses returned on each page.
+   * 			If you do no specify a number, AWS Config uses the default. The default is 100. </p>
+   */
+  Limit?: number;
+
+  /**
+   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The names of organization conformance packs for which you want status details.
+   * 			If you do not specify any names, AWS Config returns details for all your organization conformance packs. </p>
+   */
+  OrganizationConformancePackNames?: string[];
+}
+
+export namespace DescribeOrganizationConformancePackStatusesRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeOrganizationConformancePackStatusesRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is DescribeOrganizationConformancePackStatusesRequest =>
+    __isa(o, "DescribeOrganizationConformancePackStatusesRequest");
+}
+
+export interface DescribeOrganizationConformancePackStatusesResponse {
+  __type?: "DescribeOrganizationConformancePackStatusesResponse";
+  /**
+   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of <code>OrganizationConformancePackStatus</code> objects. </p>
+   */
+  OrganizationConformancePackStatuses?: OrganizationConformancePackStatus[];
+}
+
+export namespace DescribeOrganizationConformancePackStatusesResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeOrganizationConformancePackStatusesResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is DescribeOrganizationConformancePackStatusesResponse =>
+    __isa(o, "DescribeOrganizationConformancePackStatusesResponse");
 }
 
 export interface DescribePendingAggregationRequestsRequest {
@@ -5546,6 +5546,14 @@ export namespace MaxActiveResourcesExceededException {
     __isa(o, "MaxActiveResourcesExceededException");
 }
 
+export enum MaximumExecutionFrequency {
+  One_Hour = "One_Hour",
+  Six_Hours = "Six_Hours",
+  Three_Hours = "Three_Hours",
+  Twelve_Hours = "Twelve_Hours",
+  TwentyFour_Hours = "TwentyFour_Hours"
+}
+
 /**
  * <p>Failed to add the AWS Config rule because the account already
  * 			contains the maximum number of 150 rules. Consider deleting any
@@ -5728,14 +5736,6 @@ export namespace MaxNumberOfRetentionConfigurationsExceededException {
     o: any
   ): o is MaxNumberOfRetentionConfigurationsExceededException =>
     __isa(o, "MaxNumberOfRetentionConfigurationsExceededException");
-}
-
-export enum MaximumExecutionFrequency {
-  One_Hour = "One_Hour",
-  Six_Hours = "Six_Hours",
-  Three_Hours = "Three_Hours",
-  Twelve_Hours = "Twelve_Hours",
-  TwentyFour_Hours = "TwentyFour_Hours"
 }
 
 export enum MemberAccountRuleStatus {

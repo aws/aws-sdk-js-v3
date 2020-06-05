@@ -5,6 +5,21 @@ import {
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum __AdTriggersElement {
+  BREAK = "BREAK",
+  DISTRIBUTOR_ADVERTISEMENT = "DISTRIBUTOR_ADVERTISEMENT",
+  DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY = "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY",
+  DISTRIBUTOR_PLACEMENT_OPPORTUNITY = "DISTRIBUTOR_PLACEMENT_OPPORTUNITY",
+  PROVIDER_ADVERTISEMENT = "PROVIDER_ADVERTISEMENT",
+  PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY = "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY",
+  PROVIDER_PLACEMENT_OPPORTUNITY = "PROVIDER_PLACEMENT_OPPORTUNITY",
+  SPLICE_INSERT = "SPLICE_INSERT"
+}
+
+export enum __PeriodTriggersElement {
+  ADS = "ADS"
+}
+
 export enum AdMarkers {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
@@ -1644,6 +1659,11 @@ export namespace NotFoundException {
     __isa(o, "NotFoundException");
 }
 
+export enum Origination {
+  ALLOW = "ALLOW",
+  DENY = "DENY"
+}
+
 /**
  * An OriginEndpoint resource configuration.
  */
@@ -1740,11 +1760,6 @@ export namespace OriginEndpoint {
   });
   export const isa = (o: any): o is OriginEndpoint =>
     __isa(o, "OriginEndpoint");
-}
-
-export enum Origination {
-  ALLOW = "ALLOW",
-  DENY = "DENY"
 }
 
 export enum PlaylistType {
@@ -2319,19 +2334,4 @@ export namespace UpdateOriginEndpointResponse {
   });
   export const isa = (o: any): o is UpdateOriginEndpointResponse =>
     __isa(o, "UpdateOriginEndpointResponse");
-}
-
-export enum __AdTriggersElement {
-  BREAK = "BREAK",
-  DISTRIBUTOR_ADVERTISEMENT = "DISTRIBUTOR_ADVERTISEMENT",
-  DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY = "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY",
-  DISTRIBUTOR_PLACEMENT_OPPORTUNITY = "DISTRIBUTOR_PLACEMENT_OPPORTUNITY",
-  PROVIDER_ADVERTISEMENT = "PROVIDER_ADVERTISEMENT",
-  PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY = "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY",
-  PROVIDER_PLACEMENT_OPPORTUNITY = "PROVIDER_PLACEMENT_OPPORTUNITY",
-  SPLICE_INSERT = "SPLICE_INSERT"
-}
-
-export enum __PeriodTriggersElement {
-  ADS = "ADS"
 }

@@ -8,9 +8,9 @@ import {
   UpdateFlowSourceResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateFlowSourceCommand,
-  serializeAws_restJson1_1UpdateFlowSourceCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateFlowSourceCommand,
+  serializeAws_restJson1UpdateFlowSourceCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class UpdateFlowSourceCommand extends $Command<
     input: UpdateFlowSourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateFlowSourceCommand(input, context);
+    return serializeAws_restJson1UpdateFlowSourceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFlowSourceCommandOutput> {
-    return deserializeAws_restJson1_1UpdateFlowSourceCommand(output, context);
+    return deserializeAws_restJson1UpdateFlowSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

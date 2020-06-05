@@ -5,9 +5,9 @@ import {
 } from "../BatchClient";
 import { CreateJobQueueRequest, CreateJobQueueResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateJobQueueCommand,
-  serializeAws_restJson1_1CreateJobQueueCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateJobQueueCommand,
+  serializeAws_restJson1CreateJobQueueCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class CreateJobQueueCommand extends $Command<
     input: CreateJobQueueCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateJobQueueCommand(input, context);
+    return serializeAws_restJson1CreateJobQueueCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateJobQueueCommandOutput> {
-    return deserializeAws_restJson1_1CreateJobQueueCommand(output, context);
+    return deserializeAws_restJson1CreateJobQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,142 +6,6 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- * <p>An object that contains information about the email address suppression preferences
- *             for your account in the current AWS Region.</p>
- */
-export interface SuppressionAttributes {
-  __type?: "SuppressionAttributes";
-  /**
-   * <p>A list that contains the reasons that email addresses will be automatically added to
-   *             the suppression list for your account. This list can contain any or all of the
-   *             following:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression
-   *                     list for your account when a message sent to that address results in a
-   *                     complaint.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>BOUNCE</code> – Amazon SES adds an email address to the suppression
-   *                     list for your account when a message sent to that address results in a hard
-   *                     bounce.</p>
-   *             </li>
-   *          </ul>
-   */
-  SuppressedReasons?: (SuppressionListReason | string)[];
-}
-
-export namespace SuppressionAttributes {
-  export const filterSensitiveLog = (obj: SuppressionAttributes): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SuppressionAttributes =>
-    __isa(o, "SuppressionAttributes");
-}
-
-export enum SuppressionListReason {
-  BOUNCE = "BOUNCE",
-  COMPLAINT = "COMPLAINT"
-}
-
-/**
- * <p>An object that contains information about the suppression list preferences for your
- *             account.</p>
- */
-export interface SuppressionOptions {
-  __type?: "SuppressionOptions";
-  /**
-   * <p>A list that contains the reasons that email addresses are automatically added to the
-   *             suppression list for your account. This list can contain any or all of the
-   *             following:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression
-   *                     list for your account when a message sent to that address results in a
-   *                     complaint.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>BOUNCE</code> – Amazon SES adds an email address to the suppression
-   *                     list for your account when a message sent to that address results in a hard
-   *                     bounce.</p>
-   *             </li>
-   *          </ul>
-   */
-  SuppressedReasons?: (SuppressionListReason | string)[];
-}
-
-export namespace SuppressionOptions {
-  export const filterSensitiveLog = (obj: SuppressionOptions): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SuppressionOptions =>
-    __isa(o, "SuppressionOptions");
-}
-
-/**
- * <p>An object that defines the tags that are associated with a resource.
- *                 A <i>tag</i> is a label that you optionally define and associate with
- *             a resource. Tags can help you categorize and manage resources in different ways, such as
- *             by purpose, owner, environment, or other criteria. A resource can have as many as 50
- *             tags.</p>
- *         <p>Each tag consists of a required <i>tag key</i> and an
- *                 associated <i>tag value</i>, both of which you define. A tag key is a
- *             general label that acts as a category for a more specific tag value. A tag value acts as
- *             a descriptor within a tag key. A tag key can contain as many as 128 characters. A tag
- *             value can contain as many as 256 characters. The characters can be Unicode letters,
- *             digits, white space, or one of the following symbols: _ . : / = + -. The following
- *             additional restrictions apply to tags:</p>
- *         <ul>
- *             <li>
- *                 <p>Tag keys and values are case sensitive.</p>
- *             </li>
- *             <li>
- *                 <p>For each associated resource, each tag key must be unique and it can have only
- *                     one value.</p>
- *             </li>
- *             <li>
- *                 <p>The <code>aws:</code> prefix is reserved for use by AWS; you can’t use it in
- *                     any tag keys or values that you define. In addition, you can't edit or remove
- *                     tag keys or values that use this prefix. Tags that use this prefix don’t count
- *                     against the limit of 50 tags per resource.</p>
- *             </li>
- *             <li>
- *                 <p>You can associate tags with public or shared resources, but the tags are
- *                     available only for your AWS account, not any other accounts that share the
- *                     resource. In addition, the tags are available only for resources that are
- *                     located in the specified AWS Region for your AWS account.</p>
- *             </li>
- *          </ul>
- */
-export interface Tag {
-  __type?: "Tag";
-  /**
-   * <p>One part of a key-value pair that defines a tag. The maximum length of a tag key is
-   *             128 characters. The minimum length is 1 character.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The optional part of a key-value pair that defines a tag. The maximum length of a tag
-   *             value is 256 characters. The minimum length is 0 characters. If you don't want a
-   *             resource to have a specific tag value, don't specify a value for this parameter. If you
-   *             don't specify a value, Amazon SES sets the value to an empty string.</p>
-   */
-  Value: string | undefined;
-}
-
-export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
-}
-
-/**
  * <p>The message can't be sent because the account's ability to send email has been
  *             permanently restricted.</p>
  */
@@ -4338,40 +4202,6 @@ export namespace SendEmailResponse {
 }
 
 /**
- * <p>An object that contains information about the per-day and per-second sending limits
- *             for your Amazon SES account in the current AWS Region.</p>
- */
-export interface SendQuota {
-  __type?: "SendQuota";
-  /**
-   * <p>The maximum number of emails that you can send in the current AWS Region over a
-   *             24-hour period. This value is also called your <i>sending
-   *             quota</i>.</p>
-   */
-  Max24HourSend?: number;
-
-  /**
-   * <p>The maximum number of emails that you can send per second in the current AWS Region.
-   *             This value is also called your <i>maximum sending rate</i> or your
-   *                 <i>maximum TPS (transactions per second) rate</i>.</p>
-   */
-  MaxSendRate?: number;
-
-  /**
-   * <p>The number of emails sent from your Amazon SES account in the current AWS Region over the
-   *             past 24 hours.</p>
-   */
-  SentLast24Hours?: number;
-}
-
-export namespace SendQuota {
-  export const filterSensitiveLog = (obj: SendQuota): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SendQuota => __isa(o, "SendQuota");
-}
-
-/**
  * <p>Used to enable or disable email sending for messages that use this configuration set
  *             in the current AWS Region.</p>
  */
@@ -4410,6 +4240,40 @@ export namespace SendingPausedException {
   });
   export const isa = (o: any): o is SendingPausedException =>
     __isa(o, "SendingPausedException");
+}
+
+/**
+ * <p>An object that contains information about the per-day and per-second sending limits
+ *             for your Amazon SES account in the current AWS Region.</p>
+ */
+export interface SendQuota {
+  __type?: "SendQuota";
+  /**
+   * <p>The maximum number of emails that you can send in the current AWS Region over a
+   *             24-hour period. This value is also called your <i>sending
+   *             quota</i>.</p>
+   */
+  Max24HourSend?: number;
+
+  /**
+   * <p>The maximum number of emails that you can send per second in the current AWS Region.
+   *             This value is also called your <i>maximum sending rate</i> or your
+   *                 <i>maximum TPS (transactions per second) rate</i>.</p>
+   */
+  MaxSendRate?: number;
+
+  /**
+   * <p>The number of emails sent from your Amazon SES account in the current AWS Region over the
+   *             past 24 hours.</p>
+   */
+  SentLast24Hours?: number;
+}
+
+export namespace SendQuota {
+  export const filterSensitiveLog = (obj: SendQuota): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SendQuota => __isa(o, "SendQuota");
 }
 
 /**
@@ -4530,6 +4394,142 @@ export namespace SuppressedDestinationSummary {
   });
   export const isa = (o: any): o is SuppressedDestinationSummary =>
     __isa(o, "SuppressedDestinationSummary");
+}
+
+/**
+ * <p>An object that contains information about the email address suppression preferences
+ *             for your account in the current AWS Region.</p>
+ */
+export interface SuppressionAttributes {
+  __type?: "SuppressionAttributes";
+  /**
+   * <p>A list that contains the reasons that email addresses will be automatically added to
+   *             the suppression list for your account. This list can contain any or all of the
+   *             following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression
+   *                     list for your account when a message sent to that address results in a
+   *                     complaint.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>BOUNCE</code> – Amazon SES adds an email address to the suppression
+   *                     list for your account when a message sent to that address results in a hard
+   *                     bounce.</p>
+   *             </li>
+   *          </ul>
+   */
+  SuppressedReasons?: (SuppressionListReason | string)[];
+}
+
+export namespace SuppressionAttributes {
+  export const filterSensitiveLog = (obj: SuppressionAttributes): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SuppressionAttributes =>
+    __isa(o, "SuppressionAttributes");
+}
+
+export enum SuppressionListReason {
+  BOUNCE = "BOUNCE",
+  COMPLAINT = "COMPLAINT"
+}
+
+/**
+ * <p>An object that contains information about the suppression list preferences for your
+ *             account.</p>
+ */
+export interface SuppressionOptions {
+  __type?: "SuppressionOptions";
+  /**
+   * <p>A list that contains the reasons that email addresses are automatically added to the
+   *             suppression list for your account. This list can contain any or all of the
+   *             following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression
+   *                     list for your account when a message sent to that address results in a
+   *                     complaint.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>BOUNCE</code> – Amazon SES adds an email address to the suppression
+   *                     list for your account when a message sent to that address results in a hard
+   *                     bounce.</p>
+   *             </li>
+   *          </ul>
+   */
+  SuppressedReasons?: (SuppressionListReason | string)[];
+}
+
+export namespace SuppressionOptions {
+  export const filterSensitiveLog = (obj: SuppressionOptions): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SuppressionOptions =>
+    __isa(o, "SuppressionOptions");
+}
+
+/**
+ * <p>An object that defines the tags that are associated with a resource.
+ *                 A <i>tag</i> is a label that you optionally define and associate with
+ *             a resource. Tags can help you categorize and manage resources in different ways, such as
+ *             by purpose, owner, environment, or other criteria. A resource can have as many as 50
+ *             tags.</p>
+ *         <p>Each tag consists of a required <i>tag key</i> and an
+ *                 associated <i>tag value</i>, both of which you define. A tag key is a
+ *             general label that acts as a category for a more specific tag value. A tag value acts as
+ *             a descriptor within a tag key. A tag key can contain as many as 128 characters. A tag
+ *             value can contain as many as 256 characters. The characters can be Unicode letters,
+ *             digits, white space, or one of the following symbols: _ . : / = + -. The following
+ *             additional restrictions apply to tags:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>Tag keys and values are case sensitive.</p>
+ *             </li>
+ *             <li>
+ *                 <p>For each associated resource, each tag key must be unique and it can have only
+ *                     one value.</p>
+ *             </li>
+ *             <li>
+ *                 <p>The <code>aws:</code> prefix is reserved for use by AWS; you can’t use it in
+ *                     any tag keys or values that you define. In addition, you can't edit or remove
+ *                     tag keys or values that use this prefix. Tags that use this prefix don’t count
+ *                     against the limit of 50 tags per resource.</p>
+ *             </li>
+ *             <li>
+ *                 <p>You can associate tags with public or shared resources, but the tags are
+ *                     available only for your AWS account, not any other accounts that share the
+ *                     resource. In addition, the tags are available only for resources that are
+ *                     located in the specified AWS Region for your AWS account.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface Tag {
+  __type?: "Tag";
+  /**
+   * <p>One part of a key-value pair that defines a tag. The maximum length of a tag key is
+   *             128 characters. The minimum length is 1 character.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The optional part of a key-value pair that defines a tag. The maximum length of a tag
+   *             value is 256 characters. The minimum length is 0 characters. If you don't want a
+   *             resource to have a specific tag value, don't specify a value for this parameter. If you
+   *             don't specify a value, Amazon SES sets the value to an empty string.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {

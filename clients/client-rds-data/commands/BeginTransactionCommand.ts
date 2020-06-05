@@ -8,9 +8,9 @@ import {
   BeginTransactionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1BeginTransactionCommand,
-  serializeAws_restJson1_1BeginTransactionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1BeginTransactionCommand,
+  serializeAws_restJson1BeginTransactionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class BeginTransactionCommand extends $Command<
     input: BeginTransactionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1BeginTransactionCommand(input, context);
+    return serializeAws_restJson1BeginTransactionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BeginTransactionCommandOutput> {
-    return deserializeAws_restJson1_1BeginTransactionCommand(output, context);
+    return deserializeAws_restJson1BeginTransactionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,28 +6,6 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- * <p>The action you attempted is not allowed unless Service Access with Service Quotas is
- *       enabled in your organization. To enable, call <a>AssociateServiceQuotaTemplate</a>.</p>
- */
-export interface AWSServiceAccessNotEnabledException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "AWSServiceAccessNotEnabledException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace AWSServiceAccessNotEnabledException {
-  export const filterSensitiveLog = (
-    obj: AWSServiceAccessNotEnabledException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AWSServiceAccessNotEnabledException =>
-    __isa(o, "AWSServiceAccessNotEnabledException");
-}
-
-/**
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export interface AccessDeniedException
@@ -72,6 +50,28 @@ export namespace AssociateServiceQuotaTemplateResponse {
   });
   export const isa = (o: any): o is AssociateServiceQuotaTemplateResponse =>
     __isa(o, "AssociateServiceQuotaTemplateResponse");
+}
+
+/**
+ * <p>The action you attempted is not allowed unless Service Access with Service Quotas is
+ *       enabled in your organization. To enable, call <a>AssociateServiceQuotaTemplate</a>.</p>
+ */
+export interface AWSServiceAccessNotEnabledException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "AWSServiceAccessNotEnabledException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace AWSServiceAccessNotEnabledException {
+  export const filterSensitiveLog = (
+    obj: AWSServiceAccessNotEnabledException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AWSServiceAccessNotEnabledException =>
+    __isa(o, "AWSServiceAccessNotEnabledException");
 }
 
 export interface DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
@@ -213,6 +213,46 @@ export namespace ErrorReason {
   export const isa = (o: any): o is ErrorReason => __isa(o, "ErrorReason");
 }
 
+export interface GetAssociationForServiceQuotaTemplateRequest {
+  __type?: "GetAssociationForServiceQuotaTemplateRequest";
+}
+
+export namespace GetAssociationForServiceQuotaTemplateRequest {
+  export const filterSensitiveLog = (
+    obj: GetAssociationForServiceQuotaTemplateRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is GetAssociationForServiceQuotaTemplateRequest =>
+    __isa(o, "GetAssociationForServiceQuotaTemplateRequest");
+}
+
+export interface GetAssociationForServiceQuotaTemplateResponse {
+  __type?: "GetAssociationForServiceQuotaTemplateResponse";
+  /**
+   * <p>Specifies whether the template is <code>ASSOCIATED</code> or <code>DISASSOCIATED</code>.
+   *       If the template is <code>ASSOCIATED</code>, then it requests service quota increases for all
+   *       new accounts created in your organization. </p>
+   */
+  ServiceQuotaTemplateAssociationStatus?:
+    | ServiceQuotaTemplateAssociationStatus
+    | string;
+}
+
+export namespace GetAssociationForServiceQuotaTemplateResponse {
+  export const filterSensitiveLog = (
+    obj: GetAssociationForServiceQuotaTemplateResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is GetAssociationForServiceQuotaTemplateResponse =>
+    __isa(o, "GetAssociationForServiceQuotaTemplateResponse");
+}
+
 export interface GetAWSDefaultServiceQuotaRequest {
   __type?: "GetAWSDefaultServiceQuotaRequest";
   /**
@@ -253,46 +293,6 @@ export namespace GetAWSDefaultServiceQuotaResponse {
   });
   export const isa = (o: any): o is GetAWSDefaultServiceQuotaResponse =>
     __isa(o, "GetAWSDefaultServiceQuotaResponse");
-}
-
-export interface GetAssociationForServiceQuotaTemplateRequest {
-  __type?: "GetAssociationForServiceQuotaTemplateRequest";
-}
-
-export namespace GetAssociationForServiceQuotaTemplateRequest {
-  export const filterSensitiveLog = (
-    obj: GetAssociationForServiceQuotaTemplateRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is GetAssociationForServiceQuotaTemplateRequest =>
-    __isa(o, "GetAssociationForServiceQuotaTemplateRequest");
-}
-
-export interface GetAssociationForServiceQuotaTemplateResponse {
-  __type?: "GetAssociationForServiceQuotaTemplateResponse";
-  /**
-   * <p>Specifies whether the template is <code>ASSOCIATED</code> or <code>DISASSOCIATED</code>.
-   *       If the template is <code>ASSOCIATED</code>, then it requests service quota increases for all
-   *       new accounts created in your organization. </p>
-   */
-  ServiceQuotaTemplateAssociationStatus?:
-    | ServiceQuotaTemplateAssociationStatus
-    | string;
-}
-
-export namespace GetAssociationForServiceQuotaTemplateResponse {
-  export const filterSensitiveLog = (
-    obj: GetAssociationForServiceQuotaTemplateResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is GetAssociationForServiceQuotaTemplateResponse =>
-    __isa(o, "GetAssociationForServiceQuotaTemplateResponse");
 }
 
 export interface GetRequestedServiceQuotaChangeRequest {
@@ -1105,60 +1105,6 @@ export namespace QuotaPeriod {
   export const isa = (o: any): o is QuotaPeriod => __isa(o, "QuotaPeriod");
 }
 
-export interface RequestServiceQuotaIncreaseRequest {
-  __type?: "RequestServiceQuotaIncreaseRequest";
-  /**
-   * <p>Specifies the value submitted in the service quota increase request. </p>
-   */
-  DesiredValue: number | undefined;
-
-  /**
-   * <p>Specifies the service quota that you want to use.</p>
-   */
-  QuotaCode: string | undefined;
-
-  /**
-   * <p>Specifies the service that you want to use.</p>
-   */
-  ServiceCode: string | undefined;
-}
-
-export namespace RequestServiceQuotaIncreaseRequest {
-  export const filterSensitiveLog = (
-    obj: RequestServiceQuotaIncreaseRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RequestServiceQuotaIncreaseRequest =>
-    __isa(o, "RequestServiceQuotaIncreaseRequest");
-}
-
-export interface RequestServiceQuotaIncreaseResponse {
-  __type?: "RequestServiceQuotaIncreaseResponse";
-  /**
-   * <p>Returns a list of service quota requests.</p>
-   */
-  RequestedQuota?: RequestedServiceQuotaChange;
-}
-
-export namespace RequestServiceQuotaIncreaseResponse {
-  export const filterSensitiveLog = (
-    obj: RequestServiceQuotaIncreaseResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RequestServiceQuotaIncreaseResponse =>
-    __isa(o, "RequestServiceQuotaIncreaseResponse");
-}
-
-export enum RequestStatus {
-  APPROVED = "APPROVED",
-  CASE_CLOSED = "CASE_CLOSED",
-  CASE_OPENED = "CASE_OPENED",
-  DENIED = "DENIED",
-  PENDING = "PENDING"
-}
-
 /**
  * <p>A structure that contains information about a requested change for a quota.</p>
  */
@@ -1244,6 +1190,60 @@ export namespace RequestedServiceQuotaChange {
   });
   export const isa = (o: any): o is RequestedServiceQuotaChange =>
     __isa(o, "RequestedServiceQuotaChange");
+}
+
+export interface RequestServiceQuotaIncreaseRequest {
+  __type?: "RequestServiceQuotaIncreaseRequest";
+  /**
+   * <p>Specifies the value submitted in the service quota increase request. </p>
+   */
+  DesiredValue: number | undefined;
+
+  /**
+   * <p>Specifies the service quota that you want to use.</p>
+   */
+  QuotaCode: string | undefined;
+
+  /**
+   * <p>Specifies the service that you want to use.</p>
+   */
+  ServiceCode: string | undefined;
+}
+
+export namespace RequestServiceQuotaIncreaseRequest {
+  export const filterSensitiveLog = (
+    obj: RequestServiceQuotaIncreaseRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RequestServiceQuotaIncreaseRequest =>
+    __isa(o, "RequestServiceQuotaIncreaseRequest");
+}
+
+export interface RequestServiceQuotaIncreaseResponse {
+  __type?: "RequestServiceQuotaIncreaseResponse";
+  /**
+   * <p>Returns a list of service quota requests.</p>
+   */
+  RequestedQuota?: RequestedServiceQuotaChange;
+}
+
+export namespace RequestServiceQuotaIncreaseResponse {
+  export const filterSensitiveLog = (
+    obj: RequestServiceQuotaIncreaseResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RequestServiceQuotaIncreaseResponse =>
+    __isa(o, "RequestServiceQuotaIncreaseResponse");
+}
+
+export enum RequestStatus {
+  APPROVED = "APPROVED",
+  CASE_CLOSED = "CASE_CLOSED",
+  CASE_OPENED = "CASE_OPENED",
+  DENIED = "DENIED",
+  PENDING = "PENDING"
 }
 
 /**

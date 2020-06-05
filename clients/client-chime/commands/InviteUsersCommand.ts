@@ -5,9 +5,9 @@ import {
 } from "../ChimeClient";
 import { InviteUsersRequest, InviteUsersResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1InviteUsersCommand,
-  serializeAws_restJson1_1InviteUsersCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1InviteUsersCommand,
+  serializeAws_restJson1InviteUsersCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class InviteUsersCommand extends $Command<
     input: InviteUsersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1InviteUsersCommand(input, context);
+    return serializeAws_restJson1InviteUsersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InviteUsersCommandOutput> {
-    return deserializeAws_restJson1_1InviteUsersCommand(output, context);
+    return deserializeAws_restJson1InviteUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

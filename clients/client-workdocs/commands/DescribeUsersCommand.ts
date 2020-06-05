@@ -5,9 +5,9 @@ import {
 } from "../WorkDocsClient";
 import { DescribeUsersRequest, DescribeUsersResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeUsersCommand,
-  serializeAws_restJson1_1DescribeUsersCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeUsersCommand,
+  serializeAws_restJson1DescribeUsersCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class DescribeUsersCommand extends $Command<
     input: DescribeUsersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeUsersCommand(input, context);
+    return serializeAws_restJson1DescribeUsersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeUsersCommandOutput> {
-    return deserializeAws_restJson1_1DescribeUsersCommand(output, context);
+    return deserializeAws_restJson1DescribeUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

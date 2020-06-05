@@ -2881,43 +2881,6 @@ export namespace GetModelResponse {
     __isa(o, "GetModelResponse");
 }
 
-export interface GetModelTemplateRequest {
-  __type?: "GetModelTemplateRequest";
-  /**
-   * <p>The API identifier.</p>
-   */
-  ApiId: string | undefined;
-
-  /**
-   * <p>The model ID.</p>
-   */
-  ModelId: string | undefined;
-}
-
-export namespace GetModelTemplateRequest {
-  export const filterSensitiveLog = (obj: GetModelTemplateRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetModelTemplateRequest =>
-    __isa(o, "GetModelTemplateRequest");
-}
-
-export interface GetModelTemplateResponse {
-  __type?: "GetModelTemplateResponse";
-  /**
-   * <p>The template value.</p>
-   */
-  Value?: string;
-}
-
-export namespace GetModelTemplateResponse {
-  export const filterSensitiveLog = (obj: GetModelTemplateResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetModelTemplateResponse =>
-    __isa(o, "GetModelTemplateResponse");
-}
-
 export interface GetModelsRequest {
   __type?: "GetModelsRequest";
   /**
@@ -2963,6 +2926,43 @@ export namespace GetModelsResponse {
   });
   export const isa = (o: any): o is GetModelsResponse =>
     __isa(o, "GetModelsResponse");
+}
+
+export interface GetModelTemplateRequest {
+  __type?: "GetModelTemplateRequest";
+  /**
+   * <p>The API identifier.</p>
+   */
+  ApiId: string | undefined;
+
+  /**
+   * <p>The model ID.</p>
+   */
+  ModelId: string | undefined;
+}
+
+export namespace GetModelTemplateRequest {
+  export const filterSensitiveLog = (obj: GetModelTemplateRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetModelTemplateRequest =>
+    __isa(o, "GetModelTemplateRequest");
+}
+
+export interface GetModelTemplateResponse {
+  __type?: "GetModelTemplateResponse";
+  /**
+   * <p>The template value.</p>
+   */
+  Value?: string;
+}
+
+export namespace GetModelTemplateResponse {
+  export const filterSensitiveLog = (obj: GetModelTemplateResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetModelTemplateResponse =>
+    __isa(o, "GetModelTemplateResponse");
 }
 
 export interface GetRouteRequest {

@@ -5,9 +5,9 @@ import {
 } from "../NetworkManagerClient";
 import { GetSitesRequest, GetSitesResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetSitesCommand,
-  serializeAws_restJson1_1GetSitesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetSitesCommand,
+  serializeAws_restJson1GetSitesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetSitesCommand extends $Command<
     input: GetSitesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetSitesCommand(input, context);
+    return serializeAws_restJson1GetSitesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSitesCommandOutput> {
-    return deserializeAws_restJson1_1GetSitesCommand(output, context);
+    return deserializeAws_restJson1GetSitesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1020,717 +1020,6 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class IoT extends IoTClient {
   /**
-   * <p>Confirms a topic rule destination. When you create a rule requiring a destination, AWS
-   *          IoT sends a confirmation message to the endpoint or base address you specify. The message
-   *          includes a token which you pass back when calling <code>ConfirmTopicRuleDestination</code>
-   *          to confirm that you own or have access to the endpoint.</p>
-   */
-  public confirmTopicRuleDestination(
-    args: ConfirmTopicRuleDestinationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ConfirmTopicRuleDestinationCommandOutput>;
-  public confirmTopicRuleDestination(
-    args: ConfirmTopicRuleDestinationCommandInput,
-    cb: (err: any, data?: ConfirmTopicRuleDestinationCommandOutput) => void
-  ): void;
-  public confirmTopicRuleDestination(
-    args: ConfirmTopicRuleDestinationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ConfirmTopicRuleDestinationCommandOutput) => void
-  ): void;
-  public confirmTopicRuleDestination(
-    args: ConfirmTopicRuleDestinationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ConfirmTopicRuleDestinationCommandOutput) => void),
-    cb?: (err: any, data?: ConfirmTopicRuleDestinationCommandOutput) => void
-  ): Promise<ConfirmTopicRuleDestinationCommandOutput> | void {
-    const command = new ConfirmTopicRuleDestinationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a rule. Creating rules is an administrator-level action. Any user who has
-   *          permission to create rules will be able to access data processed by the rule.</p>
-   */
-  public createTopicRule(
-    args: CreateTopicRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateTopicRuleCommandOutput>;
-  public createTopicRule(
-    args: CreateTopicRuleCommandInput,
-    cb: (err: any, data?: CreateTopicRuleCommandOutput) => void
-  ): void;
-  public createTopicRule(
-    args: CreateTopicRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateTopicRuleCommandOutput) => void
-  ): void;
-  public createTopicRule(
-    args: CreateTopicRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTopicRuleCommandOutput) => void),
-    cb?: (err: any, data?: CreateTopicRuleCommandOutput) => void
-  ): Promise<CreateTopicRuleCommandOutput> | void {
-    const command = new CreateTopicRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a topic rule destination. The destination must be confirmed prior to use.</p>
-   */
-  public createTopicRuleDestination(
-    args: CreateTopicRuleDestinationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateTopicRuleDestinationCommandOutput>;
-  public createTopicRuleDestination(
-    args: CreateTopicRuleDestinationCommandInput,
-    cb: (err: any, data?: CreateTopicRuleDestinationCommandOutput) => void
-  ): void;
-  public createTopicRuleDestination(
-    args: CreateTopicRuleDestinationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateTopicRuleDestinationCommandOutput) => void
-  ): void;
-  public createTopicRuleDestination(
-    args: CreateTopicRuleDestinationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTopicRuleDestinationCommandOutput) => void),
-    cb?: (err: any, data?: CreateTopicRuleDestinationCommandOutput) => void
-  ): Promise<CreateTopicRuleDestinationCommandOutput> | void {
-    const command = new CreateTopicRuleDestinationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes the rule.</p>
-   */
-  public deleteTopicRule(
-    args: DeleteTopicRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteTopicRuleCommandOutput>;
-  public deleteTopicRule(
-    args: DeleteTopicRuleCommandInput,
-    cb: (err: any, data?: DeleteTopicRuleCommandOutput) => void
-  ): void;
-  public deleteTopicRule(
-    args: DeleteTopicRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteTopicRuleCommandOutput) => void
-  ): void;
-  public deleteTopicRule(
-    args: DeleteTopicRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTopicRuleCommandOutput) => void),
-    cb?: (err: any, data?: DeleteTopicRuleCommandOutput) => void
-  ): Promise<DeleteTopicRuleCommandOutput> | void {
-    const command = new DeleteTopicRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a topic rule destination.</p>
-   */
-  public deleteTopicRuleDestination(
-    args: DeleteTopicRuleDestinationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteTopicRuleDestinationCommandOutput>;
-  public deleteTopicRuleDestination(
-    args: DeleteTopicRuleDestinationCommandInput,
-    cb: (err: any, data?: DeleteTopicRuleDestinationCommandOutput) => void
-  ): void;
-  public deleteTopicRuleDestination(
-    args: DeleteTopicRuleDestinationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteTopicRuleDestinationCommandOutput) => void
-  ): void;
-  public deleteTopicRuleDestination(
-    args: DeleteTopicRuleDestinationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTopicRuleDestinationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteTopicRuleDestinationCommandOutput) => void
-  ): Promise<DeleteTopicRuleDestinationCommandOutput> | void {
-    const command = new DeleteTopicRuleDestinationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a logging level.</p>
-   */
-  public deleteV2LoggingLevel(
-    args: DeleteV2LoggingLevelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteV2LoggingLevelCommandOutput>;
-  public deleteV2LoggingLevel(
-    args: DeleteV2LoggingLevelCommandInput,
-    cb: (err: any, data?: DeleteV2LoggingLevelCommandOutput) => void
-  ): void;
-  public deleteV2LoggingLevel(
-    args: DeleteV2LoggingLevelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteV2LoggingLevelCommandOutput) => void
-  ): void;
-  public deleteV2LoggingLevel(
-    args: DeleteV2LoggingLevelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteV2LoggingLevelCommandOutput) => void),
-    cb?: (err: any, data?: DeleteV2LoggingLevelCommandOutput) => void
-  ): Promise<DeleteV2LoggingLevelCommandOutput> | void {
-    const command = new DeleteV2LoggingLevelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Disables the rule.</p>
-   */
-  public disableTopicRule(
-    args: DisableTopicRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisableTopicRuleCommandOutput>;
-  public disableTopicRule(
-    args: DisableTopicRuleCommandInput,
-    cb: (err: any, data?: DisableTopicRuleCommandOutput) => void
-  ): void;
-  public disableTopicRule(
-    args: DisableTopicRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisableTopicRuleCommandOutput) => void
-  ): void;
-  public disableTopicRule(
-    args: DisableTopicRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableTopicRuleCommandOutput) => void),
-    cb?: (err: any, data?: DisableTopicRuleCommandOutput) => void
-  ): Promise<DisableTopicRuleCommandOutput> | void {
-    const command = new DisableTopicRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Enables the rule.</p>
-   */
-  public enableTopicRule(
-    args: EnableTopicRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<EnableTopicRuleCommandOutput>;
-  public enableTopicRule(
-    args: EnableTopicRuleCommandInput,
-    cb: (err: any, data?: EnableTopicRuleCommandOutput) => void
-  ): void;
-  public enableTopicRule(
-    args: EnableTopicRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: EnableTopicRuleCommandOutput) => void
-  ): void;
-  public enableTopicRule(
-    args: EnableTopicRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableTopicRuleCommandOutput) => void),
-    cb?: (err: any, data?: EnableTopicRuleCommandOutput) => void
-  ): Promise<EnableTopicRuleCommandOutput> | void {
-    const command = new EnableTopicRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets the logging options.</p>
-   *          <p>NOTE: use of this command is not recommended. Use <code>GetV2LoggingOptions</code>
-   *          instead.</p>
-   */
-  public getLoggingOptions(
-    args: GetLoggingOptionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetLoggingOptionsCommandOutput>;
-  public getLoggingOptions(
-    args: GetLoggingOptionsCommandInput,
-    cb: (err: any, data?: GetLoggingOptionsCommandOutput) => void
-  ): void;
-  public getLoggingOptions(
-    args: GetLoggingOptionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetLoggingOptionsCommandOutput) => void
-  ): void;
-  public getLoggingOptions(
-    args: GetLoggingOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLoggingOptionsCommandOutput) => void),
-    cb?: (err: any, data?: GetLoggingOptionsCommandOutput) => void
-  ): Promise<GetLoggingOptionsCommandOutput> | void {
-    const command = new GetLoggingOptionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets information about the rule.</p>
-   */
-  public getTopicRule(
-    args: GetTopicRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetTopicRuleCommandOutput>;
-  public getTopicRule(
-    args: GetTopicRuleCommandInput,
-    cb: (err: any, data?: GetTopicRuleCommandOutput) => void
-  ): void;
-  public getTopicRule(
-    args: GetTopicRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetTopicRuleCommandOutput) => void
-  ): void;
-  public getTopicRule(
-    args: GetTopicRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTopicRuleCommandOutput) => void),
-    cb?: (err: any, data?: GetTopicRuleCommandOutput) => void
-  ): Promise<GetTopicRuleCommandOutput> | void {
-    const command = new GetTopicRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets information about a topic rule destination.</p>
-   */
-  public getTopicRuleDestination(
-    args: GetTopicRuleDestinationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetTopicRuleDestinationCommandOutput>;
-  public getTopicRuleDestination(
-    args: GetTopicRuleDestinationCommandInput,
-    cb: (err: any, data?: GetTopicRuleDestinationCommandOutput) => void
-  ): void;
-  public getTopicRuleDestination(
-    args: GetTopicRuleDestinationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetTopicRuleDestinationCommandOutput) => void
-  ): void;
-  public getTopicRuleDestination(
-    args: GetTopicRuleDestinationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTopicRuleDestinationCommandOutput) => void),
-    cb?: (err: any, data?: GetTopicRuleDestinationCommandOutput) => void
-  ): Promise<GetTopicRuleDestinationCommandOutput> | void {
-    const command = new GetTopicRuleDestinationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets the fine grained logging options.</p>
-   */
-  public getV2LoggingOptions(
-    args: GetV2LoggingOptionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetV2LoggingOptionsCommandOutput>;
-  public getV2LoggingOptions(
-    args: GetV2LoggingOptionsCommandInput,
-    cb: (err: any, data?: GetV2LoggingOptionsCommandOutput) => void
-  ): void;
-  public getV2LoggingOptions(
-    args: GetV2LoggingOptionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetV2LoggingOptionsCommandOutput) => void
-  ): void;
-  public getV2LoggingOptions(
-    args: GetV2LoggingOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetV2LoggingOptionsCommandOutput) => void),
-    cb?: (err: any, data?: GetV2LoggingOptionsCommandOutput) => void
-  ): Promise<GetV2LoggingOptionsCommandOutput> | void {
-    const command = new GetV2LoggingOptionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists all the topic rule destinations in your AWS account.</p>
-   */
-  public listTopicRuleDestinations(
-    args: ListTopicRuleDestinationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTopicRuleDestinationsCommandOutput>;
-  public listTopicRuleDestinations(
-    args: ListTopicRuleDestinationsCommandInput,
-    cb: (err: any, data?: ListTopicRuleDestinationsCommandOutput) => void
-  ): void;
-  public listTopicRuleDestinations(
-    args: ListTopicRuleDestinationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTopicRuleDestinationsCommandOutput) => void
-  ): void;
-  public listTopicRuleDestinations(
-    args: ListTopicRuleDestinationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTopicRuleDestinationsCommandOutput) => void),
-    cb?: (err: any, data?: ListTopicRuleDestinationsCommandOutput) => void
-  ): Promise<ListTopicRuleDestinationsCommandOutput> | void {
-    const command = new ListTopicRuleDestinationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the rules for the specific topic.</p>
-   */
-  public listTopicRules(
-    args: ListTopicRulesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTopicRulesCommandOutput>;
-  public listTopicRules(
-    args: ListTopicRulesCommandInput,
-    cb: (err: any, data?: ListTopicRulesCommandOutput) => void
-  ): void;
-  public listTopicRules(
-    args: ListTopicRulesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTopicRulesCommandOutput) => void
-  ): void;
-  public listTopicRules(
-    args: ListTopicRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTopicRulesCommandOutput) => void),
-    cb?: (err: any, data?: ListTopicRulesCommandOutput) => void
-  ): Promise<ListTopicRulesCommandOutput> | void {
-    const command = new ListTopicRulesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists logging levels.</p>
-   */
-  public listV2LoggingLevels(
-    args: ListV2LoggingLevelsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListV2LoggingLevelsCommandOutput>;
-  public listV2LoggingLevels(
-    args: ListV2LoggingLevelsCommandInput,
-    cb: (err: any, data?: ListV2LoggingLevelsCommandOutput) => void
-  ): void;
-  public listV2LoggingLevels(
-    args: ListV2LoggingLevelsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListV2LoggingLevelsCommandOutput) => void
-  ): void;
-  public listV2LoggingLevels(
-    args: ListV2LoggingLevelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListV2LoggingLevelsCommandOutput) => void),
-    cb?: (err: any, data?: ListV2LoggingLevelsCommandOutput) => void
-  ): Promise<ListV2LoggingLevelsCommandOutput> | void {
-    const command = new ListV2LoggingLevelsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Replaces the rule. You must specify all parameters for the new rule. Creating rules
-   *          is an administrator-level action. Any user who has permission to create rules will be able
-   *          to access data processed by the rule.</p>
-   */
-  public replaceTopicRule(
-    args: ReplaceTopicRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ReplaceTopicRuleCommandOutput>;
-  public replaceTopicRule(
-    args: ReplaceTopicRuleCommandInput,
-    cb: (err: any, data?: ReplaceTopicRuleCommandOutput) => void
-  ): void;
-  public replaceTopicRule(
-    args: ReplaceTopicRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ReplaceTopicRuleCommandOutput) => void
-  ): void;
-  public replaceTopicRule(
-    args: ReplaceTopicRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReplaceTopicRuleCommandOutput) => void),
-    cb?: (err: any, data?: ReplaceTopicRuleCommandOutput) => void
-  ): Promise<ReplaceTopicRuleCommandOutput> | void {
-    const command = new ReplaceTopicRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Sets the logging options.</p>
-   *          <p>NOTE: use of this command is not recommended. Use <code>SetV2LoggingOptions</code>
-   *          instead.</p>
-   */
-  public setLoggingOptions(
-    args: SetLoggingOptionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SetLoggingOptionsCommandOutput>;
-  public setLoggingOptions(
-    args: SetLoggingOptionsCommandInput,
-    cb: (err: any, data?: SetLoggingOptionsCommandOutput) => void
-  ): void;
-  public setLoggingOptions(
-    args: SetLoggingOptionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: SetLoggingOptionsCommandOutput) => void
-  ): void;
-  public setLoggingOptions(
-    args: SetLoggingOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetLoggingOptionsCommandOutput) => void),
-    cb?: (err: any, data?: SetLoggingOptionsCommandOutput) => void
-  ): Promise<SetLoggingOptionsCommandOutput> | void {
-    const command = new SetLoggingOptionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Sets the logging level.</p>
-   */
-  public setV2LoggingLevel(
-    args: SetV2LoggingLevelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SetV2LoggingLevelCommandOutput>;
-  public setV2LoggingLevel(
-    args: SetV2LoggingLevelCommandInput,
-    cb: (err: any, data?: SetV2LoggingLevelCommandOutput) => void
-  ): void;
-  public setV2LoggingLevel(
-    args: SetV2LoggingLevelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: SetV2LoggingLevelCommandOutput) => void
-  ): void;
-  public setV2LoggingLevel(
-    args: SetV2LoggingLevelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetV2LoggingLevelCommandOutput) => void),
-    cb?: (err: any, data?: SetV2LoggingLevelCommandOutput) => void
-  ): Promise<SetV2LoggingLevelCommandOutput> | void {
-    const command = new SetV2LoggingLevelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Sets the logging options for the V2 logging service.</p>
-   */
-  public setV2LoggingOptions(
-    args: SetV2LoggingOptionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SetV2LoggingOptionsCommandOutput>;
-  public setV2LoggingOptions(
-    args: SetV2LoggingOptionsCommandInput,
-    cb: (err: any, data?: SetV2LoggingOptionsCommandOutput) => void
-  ): void;
-  public setV2LoggingOptions(
-    args: SetV2LoggingOptionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: SetV2LoggingOptionsCommandOutput) => void
-  ): void;
-  public setV2LoggingOptions(
-    args: SetV2LoggingOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetV2LoggingOptionsCommandOutput) => void),
-    cb?: (err: any, data?: SetV2LoggingOptionsCommandOutput) => void
-  ): Promise<SetV2LoggingOptionsCommandOutput> | void {
-    const command = new SetV2LoggingOptionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates a topic rule destination. You use this to change the status, endpoint URL, or
-   *          confirmation URL of the destination.</p>
-   */
-  public updateTopicRuleDestination(
-    args: UpdateTopicRuleDestinationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateTopicRuleDestinationCommandOutput>;
-  public updateTopicRuleDestination(
-    args: UpdateTopicRuleDestinationCommandInput,
-    cb: (err: any, data?: UpdateTopicRuleDestinationCommandOutput) => void
-  ): void;
-  public updateTopicRuleDestination(
-    args: UpdateTopicRuleDestinationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateTopicRuleDestinationCommandOutput) => void
-  ): void;
-  public updateTopicRuleDestination(
-    args: UpdateTopicRuleDestinationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTopicRuleDestinationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateTopicRuleDestinationCommandOutput) => void
-  ): Promise<UpdateTopicRuleDestinationCommandOutput> | void {
-    const command = new UpdateTopicRuleDestinationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Accepts a pending certificate transfer. The default state of the certificate is
    *          INACTIVE.</p>
    *          <p>To check for pending certificate transfers, call <a>ListCertificates</a>
@@ -1757,6 +1046,123 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: AcceptCertificateTransferCommandOutput) => void
   ): Promise<AcceptCertificateTransferCommandOutput> | void {
     const command = new AcceptCertificateTransferCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds a thing to a billing group.</p>
+   */
+  public addThingToBillingGroup(
+    args: AddThingToBillingGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddThingToBillingGroupCommandOutput>;
+  public addThingToBillingGroup(
+    args: AddThingToBillingGroupCommandInput,
+    cb: (err: any, data?: AddThingToBillingGroupCommandOutput) => void
+  ): void;
+  public addThingToBillingGroup(
+    args: AddThingToBillingGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddThingToBillingGroupCommandOutput) => void
+  ): void;
+  public addThingToBillingGroup(
+    args: AddThingToBillingGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AddThingToBillingGroupCommandOutput) => void),
+    cb?: (err: any, data?: AddThingToBillingGroupCommandOutput) => void
+  ): Promise<AddThingToBillingGroupCommandOutput> | void {
+    const command = new AddThingToBillingGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds a thing to a thing group.</p>
+   */
+  public addThingToThingGroup(
+    args: AddThingToThingGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddThingToThingGroupCommandOutput>;
+  public addThingToThingGroup(
+    args: AddThingToThingGroupCommandInput,
+    cb: (err: any, data?: AddThingToThingGroupCommandOutput) => void
+  ): void;
+  public addThingToThingGroup(
+    args: AddThingToThingGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddThingToThingGroupCommandOutput) => void
+  ): void;
+  public addThingToThingGroup(
+    args: AddThingToThingGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AddThingToThingGroupCommandOutput) => void),
+    cb?: (err: any, data?: AddThingToThingGroupCommandOutput) => void
+  ): Promise<AddThingToThingGroupCommandOutput> | void {
+    const command = new AddThingToThingGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates a group with a continuous job. The following criteria must be met: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>The job must have been created with the <code>targetSelection</code> field set to
+   *                     "CONTINUOUS".</p>
+   *             </li>
+   *             <li>
+   *                 <p>The job status must currently be "IN_PROGRESS".</p>
+   *             </li>
+   *             <li>
+   *                 <p>The total number of targets associated with a job must not exceed 100.</p>
+   *             </li>
+   *          </ul>
+   */
+  public associateTargetsWithJob(
+    args: AssociateTargetsWithJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateTargetsWithJobCommandOutput>;
+  public associateTargetsWithJob(
+    args: AssociateTargetsWithJobCommandInput,
+    cb: (err: any, data?: AssociateTargetsWithJobCommandOutput) => void
+  ): void;
+  public associateTargetsWithJob(
+    args: AssociateTargetsWithJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateTargetsWithJobCommandOutput) => void
+  ): void;
+  public associateTargetsWithJob(
+    args: AssociateTargetsWithJobCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AssociateTargetsWithJobCommandOutput) => void),
+    cb?: (err: any, data?: AssociateTargetsWithJobCommandOutput) => void
+  ): Promise<AssociateTargetsWithJobCommandOutput> | void {
+    const command = new AssociateTargetsWithJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1842,6 +1248,156 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Associates a Device Defender security profile with a thing group or this account. Each
+   *         thing group or account can have up to five security profiles associated with it.</p>
+   */
+  public attachSecurityProfile(
+    args: AttachSecurityProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AttachSecurityProfileCommandOutput>;
+  public attachSecurityProfile(
+    args: AttachSecurityProfileCommandInput,
+    cb: (err: any, data?: AttachSecurityProfileCommandOutput) => void
+  ): void;
+  public attachSecurityProfile(
+    args: AttachSecurityProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AttachSecurityProfileCommandOutput) => void
+  ): void;
+  public attachSecurityProfile(
+    args: AttachSecurityProfileCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AttachSecurityProfileCommandOutput) => void),
+    cb?: (err: any, data?: AttachSecurityProfileCommandOutput) => void
+  ): Promise<AttachSecurityProfileCommandOutput> | void {
+    const command = new AttachSecurityProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Attaches the specified principal to the specified thing. A principal can be X.509
+   * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
+   * 			identities.</p>
+   */
+  public attachThingPrincipal(
+    args: AttachThingPrincipalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AttachThingPrincipalCommandOutput>;
+  public attachThingPrincipal(
+    args: AttachThingPrincipalCommandInput,
+    cb: (err: any, data?: AttachThingPrincipalCommandOutput) => void
+  ): void;
+  public attachThingPrincipal(
+    args: AttachThingPrincipalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AttachThingPrincipalCommandOutput) => void
+  ): void;
+  public attachThingPrincipal(
+    args: AttachThingPrincipalCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AttachThingPrincipalCommandOutput) => void),
+    cb?: (err: any, data?: AttachThingPrincipalCommandOutput) => void
+  ): Promise<AttachThingPrincipalCommandOutput> | void {
+    const command = new AttachThingPrincipalCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Cancels a mitigation action task that is in progress. If the task is not in progress, an InvalidRequestException occurs.</p>
+   */
+  public cancelAuditMitigationActionsTask(
+    args: CancelAuditMitigationActionsTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelAuditMitigationActionsTaskCommandOutput>;
+  public cancelAuditMitigationActionsTask(
+    args: CancelAuditMitigationActionsTaskCommandInput,
+    cb: (err: any, data?: CancelAuditMitigationActionsTaskCommandOutput) => void
+  ): void;
+  public cancelAuditMitigationActionsTask(
+    args: CancelAuditMitigationActionsTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelAuditMitigationActionsTaskCommandOutput) => void
+  ): void;
+  public cancelAuditMitigationActionsTask(
+    args: CancelAuditMitigationActionsTaskCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: CancelAuditMitigationActionsTaskCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: CancelAuditMitigationActionsTaskCommandOutput
+    ) => void
+  ): Promise<CancelAuditMitigationActionsTaskCommandOutput> | void {
+    const command = new CancelAuditMitigationActionsTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Cancels an audit that is in progress. The audit can be either scheduled or on-demand.
+   *           If the audit is not in progress, an "InvalidRequestException" occurs.</p>
+   */
+  public cancelAuditTask(
+    args: CancelAuditTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelAuditTaskCommandOutput>;
+  public cancelAuditTask(
+    args: CancelAuditTaskCommandInput,
+    cb: (err: any, data?: CancelAuditTaskCommandOutput) => void
+  ): void;
+  public cancelAuditTask(
+    args: CancelAuditTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelAuditTaskCommandOutput) => void
+  ): void;
+  public cancelAuditTask(
+    args: CancelAuditTaskCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CancelAuditTaskCommandOutput) => void),
+    cb?: (err: any, data?: CancelAuditTaskCommandOutput) => void
+  ): Promise<CancelAuditTaskCommandOutput> | void {
+    const command = new CancelAuditTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Cancels a pending transfer for the specified certificate.</p>
    *          <p>
    *             <b>Note</b> Only the transfer source account can use this
@@ -1872,6 +1428,76 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: CancelCertificateTransferCommandOutput) => void
   ): Promise<CancelCertificateTransferCommandOutput> | void {
     const command = new CancelCertificateTransferCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Cancels a job.</p>
+   */
+  public cancelJob(
+    args: CancelJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelJobCommandOutput>;
+  public cancelJob(
+    args: CancelJobCommandInput,
+    cb: (err: any, data?: CancelJobCommandOutput) => void
+  ): void;
+  public cancelJob(
+    args: CancelJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelJobCommandOutput) => void
+  ): void;
+  public cancelJob(
+    args: CancelJobCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CancelJobCommandOutput) => void),
+    cb?: (err: any, data?: CancelJobCommandOutput) => void
+  ): Promise<CancelJobCommandOutput> | void {
+    const command = new CancelJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Cancels the execution of a job for a given thing.</p>
+   */
+  public cancelJobExecution(
+    args: CancelJobExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelJobExecutionCommandOutput>;
+  public cancelJobExecution(
+    args: CancelJobExecutionCommandInput,
+    cb: (err: any, data?: CancelJobExecutionCommandOutput) => void
+  ): void;
+  public cancelJobExecution(
+    args: CancelJobExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelJobExecutionCommandOutput) => void
+  ): void;
+  public cancelJobExecution(
+    args: CancelJobExecutionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CancelJobExecutionCommandOutput) => void),
+    cb?: (err: any, data?: CancelJobExecutionCommandOutput) => void
+  ): Promise<CancelJobExecutionCommandOutput> | void {
+    const command = new CancelJobExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1919,6 +1545,44 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Confirms a topic rule destination. When you create a rule requiring a destination, AWS
+   *          IoT sends a confirmation message to the endpoint or base address you specify. The message
+   *          includes a token which you pass back when calling <code>ConfirmTopicRuleDestination</code>
+   *          to confirm that you own or have access to the endpoint.</p>
+   */
+  public confirmTopicRuleDestination(
+    args: ConfirmTopicRuleDestinationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ConfirmTopicRuleDestinationCommandOutput>;
+  public confirmTopicRuleDestination(
+    args: ConfirmTopicRuleDestinationCommandInput,
+    cb: (err: any, data?: ConfirmTopicRuleDestinationCommandOutput) => void
+  ): void;
+  public confirmTopicRuleDestination(
+    args: ConfirmTopicRuleDestinationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ConfirmTopicRuleDestinationCommandOutput) => void
+  ): void;
+  public confirmTopicRuleDestination(
+    args: ConfirmTopicRuleDestinationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ConfirmTopicRuleDestinationCommandOutput) => void),
+    cb?: (err: any, data?: ConfirmTopicRuleDestinationCommandOutput) => void
+  ): Promise<ConfirmTopicRuleDestinationCommandOutput> | void {
+    const command = new ConfirmTopicRuleDestinationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates an authorizer.</p>
    */
   public createAuthorizer(
@@ -1942,6 +1606,41 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: CreateAuthorizerCommandOutput) => void
   ): Promise<CreateAuthorizerCommandOutput> | void {
     const command = new CreateAuthorizerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a billing group.</p>
+   */
+  public createBillingGroup(
+    args: CreateBillingGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBillingGroupCommandOutput>;
+  public createBillingGroup(
+    args: CreateBillingGroupCommandInput,
+    cb: (err: any, data?: CreateBillingGroupCommandOutput) => void
+  ): void;
+  public createBillingGroup(
+    args: CreateBillingGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateBillingGroupCommandOutput) => void
+  ): void;
+  public createBillingGroup(
+    args: CreateBillingGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateBillingGroupCommandOutput) => void),
+    cb?: (err: any, data?: CreateBillingGroupCommandOutput) => void
+  ): Promise<CreateBillingGroupCommandOutput> | void {
+    const command = new CreateBillingGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2061,6 +1760,76 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Creates a dynamic thing group.</p>
+   */
+  public createDynamicThingGroup(
+    args: CreateDynamicThingGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDynamicThingGroupCommandOutput>;
+  public createDynamicThingGroup(
+    args: CreateDynamicThingGroupCommandInput,
+    cb: (err: any, data?: CreateDynamicThingGroupCommandOutput) => void
+  ): void;
+  public createDynamicThingGroup(
+    args: CreateDynamicThingGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDynamicThingGroupCommandOutput) => void
+  ): void;
+  public createDynamicThingGroup(
+    args: CreateDynamicThingGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDynamicThingGroupCommandOutput) => void),
+    cb?: (err: any, data?: CreateDynamicThingGroupCommandOutput) => void
+  ): Promise<CreateDynamicThingGroupCommandOutput> | void {
+    const command = new CreateDynamicThingGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a job.</p>
+   */
+  public createJob(
+    args: CreateJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateJobCommandOutput>;
+  public createJob(
+    args: CreateJobCommandInput,
+    cb: (err: any, data?: CreateJobCommandOutput) => void
+  ): void;
+  public createJob(
+    args: CreateJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateJobCommandOutput) => void
+  ): void;
+  public createJob(
+    args: CreateJobCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateJobCommandOutput) => void),
+    cb?: (err: any, data?: CreateJobCommandOutput) => void
+  ): Promise<CreateJobCommandOutput> | void {
+    const command = new CreateJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued
    *          public key. You can also call <code>CreateKeysAndCertificate</code> over MQTT from a
    *          device, for more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api">Provisioning MQTT API</a>.</p>
@@ -2089,6 +1858,76 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: CreateKeysAndCertificateCommandOutput) => void
   ): Promise<CreateKeysAndCertificateCommandOutput> | void {
     const command = new CreateKeysAndCertificateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. Each mitigation action can apply only one type of change.</p>
+   */
+  public createMitigationAction(
+    args: CreateMitigationActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMitigationActionCommandOutput>;
+  public createMitigationAction(
+    args: CreateMitigationActionCommandInput,
+    cb: (err: any, data?: CreateMitigationActionCommandOutput) => void
+  ): void;
+  public createMitigationAction(
+    args: CreateMitigationActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMitigationActionCommandOutput) => void
+  ): void;
+  public createMitigationAction(
+    args: CreateMitigationActionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateMitigationActionCommandOutput) => void),
+    cb?: (err: any, data?: CreateMitigationActionCommandOutput) => void
+  ): Promise<CreateMitigationActionCommandOutput> | void {
+    const command = new CreateMitigationActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an AWS IoT OTAUpdate on a target group of things or groups.</p>
+   */
+  public createOTAUpdate(
+    args: CreateOTAUpdateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateOTAUpdateCommandOutput>;
+  public createOTAUpdate(
+    args: CreateOTAUpdateCommandInput,
+    cb: (err: any, data?: CreateOTAUpdateCommandOutput) => void
+  ): void;
+  public createOTAUpdate(
+    args: CreateOTAUpdateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateOTAUpdateCommandOutput) => void
+  ): void;
+  public createOTAUpdate(
+    args: CreateOTAUpdateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateOTAUpdateCommandOutput) => void),
+    cb?: (err: any, data?: CreateOTAUpdateCommandOutput) => void
+  ): Promise<CreateOTAUpdateCommandOutput> | void {
+    const command = new CreateOTAUpdateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2332,6 +2171,341 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Creates a scheduled audit that is run at a specified
+   *           time interval.</p>
+   */
+  public createScheduledAudit(
+    args: CreateScheduledAuditCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateScheduledAuditCommandOutput>;
+  public createScheduledAudit(
+    args: CreateScheduledAuditCommandInput,
+    cb: (err: any, data?: CreateScheduledAuditCommandOutput) => void
+  ): void;
+  public createScheduledAudit(
+    args: CreateScheduledAuditCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateScheduledAuditCommandOutput) => void
+  ): void;
+  public createScheduledAudit(
+    args: CreateScheduledAuditCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateScheduledAuditCommandOutput) => void),
+    cb?: (err: any, data?: CreateScheduledAuditCommandOutput) => void
+  ): Promise<CreateScheduledAuditCommandOutput> | void {
+    const command = new CreateScheduledAuditCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a Device Defender security profile.</p>
+   */
+  public createSecurityProfile(
+    args: CreateSecurityProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSecurityProfileCommandOutput>;
+  public createSecurityProfile(
+    args: CreateSecurityProfileCommandInput,
+    cb: (err: any, data?: CreateSecurityProfileCommandOutput) => void
+  ): void;
+  public createSecurityProfile(
+    args: CreateSecurityProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSecurityProfileCommandOutput) => void
+  ): void;
+  public createSecurityProfile(
+    args: CreateSecurityProfileCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateSecurityProfileCommandOutput) => void),
+    cb?: (err: any, data?: CreateSecurityProfileCommandOutput) => void
+  ): Promise<CreateSecurityProfileCommandOutput> | void {
+    const command = new CreateSecurityProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data
+   *             bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files
+   *             associated with a stream.</p>
+   */
+  public createStream(
+    args: CreateStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStreamCommandOutput>;
+  public createStream(
+    args: CreateStreamCommandInput,
+    cb: (err: any, data?: CreateStreamCommandOutput) => void
+  ): void;
+  public createStream(
+    args: CreateStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateStreamCommandOutput) => void
+  ): void;
+  public createStream(
+    args: CreateStreamCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateStreamCommandOutput) => void),
+    cb?: (err: any, data?: CreateStreamCommandOutput) => void
+  ): Promise<CreateStreamCommandOutput> | void {
+    const command = new CreateStreamCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a thing record in the registry. If this call is made multiple times using
+   * 			the same thing name and configuration, the call will succeed. If this call is made with
+   * 			the same thing name but different configuration a
+   * 				<code>ResourceAlreadyExistsException</code> is thrown.</p>
+   * 		       <note>
+   * 			         <p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a> for
+   * 				information about authorizing control plane actions.</p>
+   * 		       </note>
+   */
+  public createThing(
+    args: CreateThingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateThingCommandOutput>;
+  public createThing(
+    args: CreateThingCommandInput,
+    cb: (err: any, data?: CreateThingCommandOutput) => void
+  ): void;
+  public createThing(
+    args: CreateThingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateThingCommandOutput) => void
+  ): void;
+  public createThing(
+    args: CreateThingCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateThingCommandOutput) => void),
+    cb?: (err: any, data?: CreateThingCommandOutput) => void
+  ): Promise<CreateThingCommandOutput> | void {
+    const command = new CreateThingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Create a thing group.</p>
+   * 		       <note>
+   * 			         <p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a> for
+   * 				information about authorizing control plane actions.</p>
+   * 		       </note>
+   */
+  public createThingGroup(
+    args: CreateThingGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateThingGroupCommandOutput>;
+  public createThingGroup(
+    args: CreateThingGroupCommandInput,
+    cb: (err: any, data?: CreateThingGroupCommandOutput) => void
+  ): void;
+  public createThingGroup(
+    args: CreateThingGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateThingGroupCommandOutput) => void
+  ): void;
+  public createThingGroup(
+    args: CreateThingGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateThingGroupCommandOutput) => void),
+    cb?: (err: any, data?: CreateThingGroupCommandOutput) => void
+  ): Promise<CreateThingGroupCommandOutput> | void {
+    const command = new CreateThingGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new thing type.</p>
+   */
+  public createThingType(
+    args: CreateThingTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateThingTypeCommandOutput>;
+  public createThingType(
+    args: CreateThingTypeCommandInput,
+    cb: (err: any, data?: CreateThingTypeCommandOutput) => void
+  ): void;
+  public createThingType(
+    args: CreateThingTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateThingTypeCommandOutput) => void
+  ): void;
+  public createThingType(
+    args: CreateThingTypeCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateThingTypeCommandOutput) => void),
+    cb?: (err: any, data?: CreateThingTypeCommandOutput) => void
+  ): Promise<CreateThingTypeCommandOutput> | void {
+    const command = new CreateThingTypeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a rule. Creating rules is an administrator-level action. Any user who has
+   *          permission to create rules will be able to access data processed by the rule.</p>
+   */
+  public createTopicRule(
+    args: CreateTopicRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTopicRuleCommandOutput>;
+  public createTopicRule(
+    args: CreateTopicRuleCommandInput,
+    cb: (err: any, data?: CreateTopicRuleCommandOutput) => void
+  ): void;
+  public createTopicRule(
+    args: CreateTopicRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTopicRuleCommandOutput) => void
+  ): void;
+  public createTopicRule(
+    args: CreateTopicRuleCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateTopicRuleCommandOutput) => void),
+    cb?: (err: any, data?: CreateTopicRuleCommandOutput) => void
+  ): Promise<CreateTopicRuleCommandOutput> | void {
+    const command = new CreateTopicRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a topic rule destination. The destination must be confirmed prior to use.</p>
+   */
+  public createTopicRuleDestination(
+    args: CreateTopicRuleDestinationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTopicRuleDestinationCommandOutput>;
+  public createTopicRuleDestination(
+    args: CreateTopicRuleDestinationCommandInput,
+    cb: (err: any, data?: CreateTopicRuleDestinationCommandOutput) => void
+  ): void;
+  public createTopicRuleDestination(
+    args: CreateTopicRuleDestinationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTopicRuleDestinationCommandOutput) => void
+  ): void;
+  public createTopicRuleDestination(
+    args: CreateTopicRuleDestinationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateTopicRuleDestinationCommandOutput) => void),
+    cb?: (err: any, data?: CreateTopicRuleDestinationCommandOutput) => void
+  ): Promise<CreateTopicRuleDestinationCommandOutput> | void {
+    const command = new CreateTopicRuleDestinationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Restores the default settings for Device Defender audits for this account. Any
+   *           configuration data you entered is deleted and all audit checks are reset to
+   *           disabled.  </p>
+   */
+  public deleteAccountAuditConfiguration(
+    args: DeleteAccountAuditConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccountAuditConfigurationCommandOutput>;
+  public deleteAccountAuditConfiguration(
+    args: DeleteAccountAuditConfigurationCommandInput,
+    cb: (err: any, data?: DeleteAccountAuditConfigurationCommandOutput) => void
+  ): void;
+  public deleteAccountAuditConfiguration(
+    args: DeleteAccountAuditConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccountAuditConfigurationCommandOutput) => void
+  ): void;
+  public deleteAccountAuditConfiguration(
+    args: DeleteAccountAuditConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DeleteAccountAuditConfigurationCommandOutput
+        ) => void),
+    cb?: (err: any, data?: DeleteAccountAuditConfigurationCommandOutput) => void
+  ): Promise<DeleteAccountAuditConfigurationCommandOutput> | void {
+    const command = new DeleteAccountAuditConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes an authorizer.</p>
    */
   public deleteAuthorizer(
@@ -2355,6 +2529,41 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: DeleteAuthorizerCommandOutput) => void
   ): Promise<DeleteAuthorizerCommandOutput> | void {
     const command = new DeleteAuthorizerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the billing group.</p>
+   */
+  public deleteBillingGroup(
+    args: DeleteBillingGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBillingGroupCommandOutput>;
+  public deleteBillingGroup(
+    args: DeleteBillingGroupCommandInput,
+    cb: (err: any, data?: DeleteBillingGroupCommandOutput) => void
+  ): void;
+  public deleteBillingGroup(
+    args: DeleteBillingGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBillingGroupCommandOutput) => void
+  ): void;
+  public deleteBillingGroup(
+    args: DeleteBillingGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteBillingGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBillingGroupCommandOutput) => void
+  ): Promise<DeleteBillingGroupCommandOutput> | void {
+    const command = new DeleteBillingGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2466,6 +2675,188 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: DeleteDomainConfigurationCommandOutput) => void
   ): Promise<DeleteDomainConfigurationCommandOutput> | void {
     const command = new DeleteDomainConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a dynamic thing group.</p>
+   */
+  public deleteDynamicThingGroup(
+    args: DeleteDynamicThingGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDynamicThingGroupCommandOutput>;
+  public deleteDynamicThingGroup(
+    args: DeleteDynamicThingGroupCommandInput,
+    cb: (err: any, data?: DeleteDynamicThingGroupCommandOutput) => void
+  ): void;
+  public deleteDynamicThingGroup(
+    args: DeleteDynamicThingGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDynamicThingGroupCommandOutput) => void
+  ): void;
+  public deleteDynamicThingGroup(
+    args: DeleteDynamicThingGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDynamicThingGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDynamicThingGroupCommandOutput) => void
+  ): Promise<DeleteDynamicThingGroupCommandOutput> | void {
+    const command = new DeleteDynamicThingGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a job and its related job executions.</p>
+   *          <p>Deleting a job may take time, depending on the number of job
+   *         executions created for the job and various other factors. While the job
+   *         is being deleted, the status of the job will be shown as
+   *         "DELETION_IN_PROGRESS". Attempting to delete or cancel a job whose status
+   *         is already "DELETION_IN_PROGRESS" will result in an error.</p>
+   *          <p>Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or
+   *         a LimitExceededException will occur.</p>
+   */
+  public deleteJob(
+    args: DeleteJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteJobCommandOutput>;
+  public deleteJob(
+    args: DeleteJobCommandInput,
+    cb: (err: any, data?: DeleteJobCommandOutput) => void
+  ): void;
+  public deleteJob(
+    args: DeleteJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteJobCommandOutput) => void
+  ): void;
+  public deleteJob(
+    args: DeleteJobCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteJobCommandOutput) => void),
+    cb?: (err: any, data?: DeleteJobCommandOutput) => void
+  ): Promise<DeleteJobCommandOutput> | void {
+    const command = new DeleteJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a job execution.</p>
+   */
+  public deleteJobExecution(
+    args: DeleteJobExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteJobExecutionCommandOutput>;
+  public deleteJobExecution(
+    args: DeleteJobExecutionCommandInput,
+    cb: (err: any, data?: DeleteJobExecutionCommandOutput) => void
+  ): void;
+  public deleteJobExecution(
+    args: DeleteJobExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteJobExecutionCommandOutput) => void
+  ): void;
+  public deleteJobExecution(
+    args: DeleteJobExecutionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteJobExecutionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteJobExecutionCommandOutput) => void
+  ): Promise<DeleteJobExecutionCommandOutput> | void {
+    const command = new DeleteJobExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a defined mitigation action from your AWS account.</p>
+   */
+  public deleteMitigationAction(
+    args: DeleteMitigationActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMitigationActionCommandOutput>;
+  public deleteMitigationAction(
+    args: DeleteMitigationActionCommandInput,
+    cb: (err: any, data?: DeleteMitigationActionCommandOutput) => void
+  ): void;
+  public deleteMitigationAction(
+    args: DeleteMitigationActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMitigationActionCommandOutput) => void
+  ): void;
+  public deleteMitigationAction(
+    args: DeleteMitigationActionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteMitigationActionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteMitigationActionCommandOutput) => void
+  ): Promise<DeleteMitigationActionCommandOutput> | void {
+    const command = new DeleteMitigationActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete an OTA update.</p>
+   */
+  public deleteOTAUpdate(
+    args: DeleteOTAUpdateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteOTAUpdateCommandOutput>;
+  public deleteOTAUpdate(
+    args: DeleteOTAUpdateCommandInput,
+    cb: (err: any, data?: DeleteOTAUpdateCommandOutput) => void
+  ): void;
+  public deleteOTAUpdate(
+    args: DeleteOTAUpdateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteOTAUpdateCommandOutput) => void
+  ): void;
+  public deleteOTAUpdate(
+    args: DeleteOTAUpdateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteOTAUpdateCommandOutput) => void),
+    cb?: (err: any, data?: DeleteOTAUpdateCommandOutput) => void
+  ): Promise<DeleteOTAUpdateCommandOutput> | void {
+    const command = new DeleteOTAUpdateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2709,6 +3100,526 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Deletes a scheduled audit.</p>
+   */
+  public deleteScheduledAudit(
+    args: DeleteScheduledAuditCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteScheduledAuditCommandOutput>;
+  public deleteScheduledAudit(
+    args: DeleteScheduledAuditCommandInput,
+    cb: (err: any, data?: DeleteScheduledAuditCommandOutput) => void
+  ): void;
+  public deleteScheduledAudit(
+    args: DeleteScheduledAuditCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteScheduledAuditCommandOutput) => void
+  ): void;
+  public deleteScheduledAudit(
+    args: DeleteScheduledAuditCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteScheduledAuditCommandOutput) => void),
+    cb?: (err: any, data?: DeleteScheduledAuditCommandOutput) => void
+  ): Promise<DeleteScheduledAuditCommandOutput> | void {
+    const command = new DeleteScheduledAuditCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a Device Defender security profile.</p>
+   */
+  public deleteSecurityProfile(
+    args: DeleteSecurityProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSecurityProfileCommandOutput>;
+  public deleteSecurityProfile(
+    args: DeleteSecurityProfileCommandInput,
+    cb: (err: any, data?: DeleteSecurityProfileCommandOutput) => void
+  ): void;
+  public deleteSecurityProfile(
+    args: DeleteSecurityProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSecurityProfileCommandOutput) => void
+  ): void;
+  public deleteSecurityProfile(
+    args: DeleteSecurityProfileCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteSecurityProfileCommandOutput) => void),
+    cb?: (err: any, data?: DeleteSecurityProfileCommandOutput) => void
+  ): Promise<DeleteSecurityProfileCommandOutput> | void {
+    const command = new DeleteSecurityProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a stream.</p>
+   */
+  public deleteStream(
+    args: DeleteStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteStreamCommandOutput>;
+  public deleteStream(
+    args: DeleteStreamCommandInput,
+    cb: (err: any, data?: DeleteStreamCommandOutput) => void
+  ): void;
+  public deleteStream(
+    args: DeleteStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteStreamCommandOutput) => void
+  ): void;
+  public deleteStream(
+    args: DeleteStreamCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteStreamCommandOutput) => void),
+    cb?: (err: any, data?: DeleteStreamCommandOutput) => void
+  ): Promise<DeleteStreamCommandOutput> | void {
+    const command = new DeleteStreamCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified thing. Returns successfully with no error if the deletion is
+   * 			successful or you specify a thing that doesn't exist.</p>
+   */
+  public deleteThing(
+    args: DeleteThingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteThingCommandOutput>;
+  public deleteThing(
+    args: DeleteThingCommandInput,
+    cb: (err: any, data?: DeleteThingCommandOutput) => void
+  ): void;
+  public deleteThing(
+    args: DeleteThingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteThingCommandOutput) => void
+  ): void;
+  public deleteThing(
+    args: DeleteThingCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteThingCommandOutput) => void),
+    cb?: (err: any, data?: DeleteThingCommandOutput) => void
+  ): Promise<DeleteThingCommandOutput> | void {
+    const command = new DeleteThingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a thing group.</p>
+   */
+  public deleteThingGroup(
+    args: DeleteThingGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteThingGroupCommandOutput>;
+  public deleteThingGroup(
+    args: DeleteThingGroupCommandInput,
+    cb: (err: any, data?: DeleteThingGroupCommandOutput) => void
+  ): void;
+  public deleteThingGroup(
+    args: DeleteThingGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteThingGroupCommandOutput) => void
+  ): void;
+  public deleteThingGroup(
+    args: DeleteThingGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteThingGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeleteThingGroupCommandOutput) => void
+  ): Promise<DeleteThingGroupCommandOutput> | void {
+    const command = new DeleteThingGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified thing type. You cannot delete a thing type if it has things
+   * 			associated with it. To delete a thing type, first mark it as deprecated by calling <a>DeprecateThingType</a>, then remove any associated things by calling <a>UpdateThing</a> to change the thing type on any associated thing, and
+   * 			finally use <a>DeleteThingType</a> to delete the thing type.</p>
+   */
+  public deleteThingType(
+    args: DeleteThingTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteThingTypeCommandOutput>;
+  public deleteThingType(
+    args: DeleteThingTypeCommandInput,
+    cb: (err: any, data?: DeleteThingTypeCommandOutput) => void
+  ): void;
+  public deleteThingType(
+    args: DeleteThingTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteThingTypeCommandOutput) => void
+  ): void;
+  public deleteThingType(
+    args: DeleteThingTypeCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteThingTypeCommandOutput) => void),
+    cb?: (err: any, data?: DeleteThingTypeCommandOutput) => void
+  ): Promise<DeleteThingTypeCommandOutput> | void {
+    const command = new DeleteThingTypeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the rule.</p>
+   */
+  public deleteTopicRule(
+    args: DeleteTopicRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTopicRuleCommandOutput>;
+  public deleteTopicRule(
+    args: DeleteTopicRuleCommandInput,
+    cb: (err: any, data?: DeleteTopicRuleCommandOutput) => void
+  ): void;
+  public deleteTopicRule(
+    args: DeleteTopicRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTopicRuleCommandOutput) => void
+  ): void;
+  public deleteTopicRule(
+    args: DeleteTopicRuleCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteTopicRuleCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTopicRuleCommandOutput) => void
+  ): Promise<DeleteTopicRuleCommandOutput> | void {
+    const command = new DeleteTopicRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a topic rule destination.</p>
+   */
+  public deleteTopicRuleDestination(
+    args: DeleteTopicRuleDestinationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTopicRuleDestinationCommandOutput>;
+  public deleteTopicRuleDestination(
+    args: DeleteTopicRuleDestinationCommandInput,
+    cb: (err: any, data?: DeleteTopicRuleDestinationCommandOutput) => void
+  ): void;
+  public deleteTopicRuleDestination(
+    args: DeleteTopicRuleDestinationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTopicRuleDestinationCommandOutput) => void
+  ): void;
+  public deleteTopicRuleDestination(
+    args: DeleteTopicRuleDestinationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteTopicRuleDestinationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTopicRuleDestinationCommandOutput) => void
+  ): Promise<DeleteTopicRuleDestinationCommandOutput> | void {
+    const command = new DeleteTopicRuleDestinationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a logging level.</p>
+   */
+  public deleteV2LoggingLevel(
+    args: DeleteV2LoggingLevelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteV2LoggingLevelCommandOutput>;
+  public deleteV2LoggingLevel(
+    args: DeleteV2LoggingLevelCommandInput,
+    cb: (err: any, data?: DeleteV2LoggingLevelCommandOutput) => void
+  ): void;
+  public deleteV2LoggingLevel(
+    args: DeleteV2LoggingLevelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteV2LoggingLevelCommandOutput) => void
+  ): void;
+  public deleteV2LoggingLevel(
+    args: DeleteV2LoggingLevelCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteV2LoggingLevelCommandOutput) => void),
+    cb?: (err: any, data?: DeleteV2LoggingLevelCommandOutput) => void
+  ): Promise<DeleteV2LoggingLevelCommandOutput> | void {
+    const command = new DeleteV2LoggingLevelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deprecates a thing type. You can not associate new things with deprecated thing
+   * 			type.</p>
+   */
+  public deprecateThingType(
+    args: DeprecateThingTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeprecateThingTypeCommandOutput>;
+  public deprecateThingType(
+    args: DeprecateThingTypeCommandInput,
+    cb: (err: any, data?: DeprecateThingTypeCommandOutput) => void
+  ): void;
+  public deprecateThingType(
+    args: DeprecateThingTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeprecateThingTypeCommandOutput) => void
+  ): void;
+  public deprecateThingType(
+    args: DeprecateThingTypeCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeprecateThingTypeCommandOutput) => void),
+    cb?: (err: any, data?: DeprecateThingTypeCommandOutput) => void
+  ): Promise<DeprecateThingTypeCommandOutput> | void {
+    const command = new DeprecateThingTypeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about the Device Defender audit settings for this account.
+   *           Settings include how audit notifications are sent and which audit checks are
+   *           enabled or disabled.</p>
+   */
+  public describeAccountAuditConfiguration(
+    args: DescribeAccountAuditConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAccountAuditConfigurationCommandOutput>;
+  public describeAccountAuditConfiguration(
+    args: DescribeAccountAuditConfigurationCommandInput,
+    cb: (
+      err: any,
+      data?: DescribeAccountAuditConfigurationCommandOutput
+    ) => void
+  ): void;
+  public describeAccountAuditConfiguration(
+    args: DescribeAccountAuditConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: DescribeAccountAuditConfigurationCommandOutput
+    ) => void
+  ): void;
+  public describeAccountAuditConfiguration(
+    args: DescribeAccountAuditConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DescribeAccountAuditConfigurationCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DescribeAccountAuditConfigurationCommandOutput
+    ) => void
+  ): Promise<DescribeAccountAuditConfigurationCommandOutput> | void {
+    const command = new DescribeAccountAuditConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about a single audit finding. Properties include the reason for noncompliance, the severity of the issue, and when the audit that returned the finding was started.</p>
+   */
+  public describeAuditFinding(
+    args: DescribeAuditFindingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAuditFindingCommandOutput>;
+  public describeAuditFinding(
+    args: DescribeAuditFindingCommandInput,
+    cb: (err: any, data?: DescribeAuditFindingCommandOutput) => void
+  ): void;
+  public describeAuditFinding(
+    args: DescribeAuditFindingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAuditFindingCommandOutput) => void
+  ): void;
+  public describeAuditFinding(
+    args: DescribeAuditFindingCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeAuditFindingCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAuditFindingCommandOutput) => void
+  ): Promise<DescribeAuditFindingCommandOutput> | void {
+    const command = new DescribeAuditFindingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about an audit mitigation task that is used to apply mitigation actions to a set of audit findings. Properties include the actions being applied, the audit checks to which they're being applied, the task status, and aggregated task statistics.</p>
+   */
+  public describeAuditMitigationActionsTask(
+    args: DescribeAuditMitigationActionsTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAuditMitigationActionsTaskCommandOutput>;
+  public describeAuditMitigationActionsTask(
+    args: DescribeAuditMitigationActionsTaskCommandInput,
+    cb: (
+      err: any,
+      data?: DescribeAuditMitigationActionsTaskCommandOutput
+    ) => void
+  ): void;
+  public describeAuditMitigationActionsTask(
+    args: DescribeAuditMitigationActionsTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: DescribeAuditMitigationActionsTaskCommandOutput
+    ) => void
+  ): void;
+  public describeAuditMitigationActionsTask(
+    args: DescribeAuditMitigationActionsTaskCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DescribeAuditMitigationActionsTaskCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DescribeAuditMitigationActionsTaskCommandOutput
+    ) => void
+  ): Promise<DescribeAuditMitigationActionsTaskCommandOutput> | void {
+    const command = new DescribeAuditMitigationActionsTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about a Device Defender audit.</p>
+   */
+  public describeAuditTask(
+    args: DescribeAuditTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAuditTaskCommandOutput>;
+  public describeAuditTask(
+    args: DescribeAuditTaskCommandInput,
+    cb: (err: any, data?: DescribeAuditTaskCommandOutput) => void
+  ): void;
+  public describeAuditTask(
+    args: DescribeAuditTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAuditTaskCommandOutput) => void
+  ): void;
+  public describeAuditTask(
+    args: DescribeAuditTaskCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeAuditTaskCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAuditTaskCommandOutput) => void
+  ): Promise<DescribeAuditTaskCommandOutput> | void {
+    const command = new DescribeAuditTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes an authorizer.</p>
    */
   public describeAuthorizer(
@@ -2732,6 +3643,41 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: DescribeAuthorizerCommandOutput) => void
   ): Promise<DescribeAuthorizerCommandOutput> | void {
     const command = new DescribeAuthorizerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about a billing group.</p>
+   */
+  public describeBillingGroup(
+    args: DescribeBillingGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBillingGroupCommandOutput>;
+  public describeBillingGroup(
+    args: DescribeBillingGroupCommandInput,
+    cb: (err: any, data?: DescribeBillingGroupCommandOutput) => void
+  ): void;
+  public describeBillingGroup(
+    args: DescribeBillingGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBillingGroupCommandOutput) => void
+  ): void;
+  public describeBillingGroup(
+    args: DescribeBillingGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeBillingGroupCommandOutput) => void),
+    cb?: (err: any, data?: DescribeBillingGroupCommandOutput) => void
+  ): Promise<DescribeBillingGroupCommandOutput> | void {
+    const command = new DescribeBillingGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2922,6 +3868,181 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Describes event configurations.</p>
+   */
+  public describeEventConfigurations(
+    args: DescribeEventConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEventConfigurationsCommandOutput>;
+  public describeEventConfigurations(
+    args: DescribeEventConfigurationsCommandInput,
+    cb: (err: any, data?: DescribeEventConfigurationsCommandOutput) => void
+  ): void;
+  public describeEventConfigurations(
+    args: DescribeEventConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEventConfigurationsCommandOutput) => void
+  ): void;
+  public describeEventConfigurations(
+    args: DescribeEventConfigurationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeEventConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEventConfigurationsCommandOutput) => void
+  ): Promise<DescribeEventConfigurationsCommandOutput> | void {
+    const command = new DescribeEventConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes a search index.</p>
+   */
+  public describeIndex(
+    args: DescribeIndexCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIndexCommandOutput>;
+  public describeIndex(
+    args: DescribeIndexCommandInput,
+    cb: (err: any, data?: DescribeIndexCommandOutput) => void
+  ): void;
+  public describeIndex(
+    args: DescribeIndexCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIndexCommandOutput) => void
+  ): void;
+  public describeIndex(
+    args: DescribeIndexCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeIndexCommandOutput) => void),
+    cb?: (err: any, data?: DescribeIndexCommandOutput) => void
+  ): Promise<DescribeIndexCommandOutput> | void {
+    const command = new DescribeIndexCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes a job.</p>
+   */
+  public describeJob(
+    args: DescribeJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeJobCommandOutput>;
+  public describeJob(
+    args: DescribeJobCommandInput,
+    cb: (err: any, data?: DescribeJobCommandOutput) => void
+  ): void;
+  public describeJob(
+    args: DescribeJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeJobCommandOutput) => void
+  ): void;
+  public describeJob(
+    args: DescribeJobCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeJobCommandOutput) => void),
+    cb?: (err: any, data?: DescribeJobCommandOutput) => void
+  ): Promise<DescribeJobCommandOutput> | void {
+    const command = new DescribeJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes a job execution.</p>
+   */
+  public describeJobExecution(
+    args: DescribeJobExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeJobExecutionCommandOutput>;
+  public describeJobExecution(
+    args: DescribeJobExecutionCommandInput,
+    cb: (err: any, data?: DescribeJobExecutionCommandOutput) => void
+  ): void;
+  public describeJobExecution(
+    args: DescribeJobExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeJobExecutionCommandOutput) => void
+  ): void;
+  public describeJobExecution(
+    args: DescribeJobExecutionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeJobExecutionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeJobExecutionCommandOutput) => void
+  ): Promise<DescribeJobExecutionCommandOutput> | void {
+    const command = new DescribeJobExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about a mitigation action.</p>
+   */
+  public describeMitigationAction(
+    args: DescribeMitigationActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMitigationActionCommandOutput>;
+  public describeMitigationAction(
+    args: DescribeMitigationActionCommandInput,
+    cb: (err: any, data?: DescribeMitigationActionCommandOutput) => void
+  ): void;
+  public describeMitigationAction(
+    args: DescribeMitigationActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMitigationActionCommandOutput) => void
+  ): void;
+  public describeMitigationAction(
+    args: DescribeMitigationActionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeMitigationActionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMitigationActionCommandOutput) => void
+  ): Promise<DescribeMitigationActionCommandOutput> | void {
+    const command = new DescribeMitigationActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about a fleet provisioning template.</p>
    */
   public describeProvisioningTemplate(
@@ -3039,6 +4160,251 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Gets information about a scheduled audit.</p>
+   */
+  public describeScheduledAudit(
+    args: DescribeScheduledAuditCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeScheduledAuditCommandOutput>;
+  public describeScheduledAudit(
+    args: DescribeScheduledAuditCommandInput,
+    cb: (err: any, data?: DescribeScheduledAuditCommandOutput) => void
+  ): void;
+  public describeScheduledAudit(
+    args: DescribeScheduledAuditCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeScheduledAuditCommandOutput) => void
+  ): void;
+  public describeScheduledAudit(
+    args: DescribeScheduledAuditCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeScheduledAuditCommandOutput) => void),
+    cb?: (err: any, data?: DescribeScheduledAuditCommandOutput) => void
+  ): Promise<DescribeScheduledAuditCommandOutput> | void {
+    const command = new DescribeScheduledAuditCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about a Device Defender security profile.</p>
+   */
+  public describeSecurityProfile(
+    args: DescribeSecurityProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSecurityProfileCommandOutput>;
+  public describeSecurityProfile(
+    args: DescribeSecurityProfileCommandInput,
+    cb: (err: any, data?: DescribeSecurityProfileCommandOutput) => void
+  ): void;
+  public describeSecurityProfile(
+    args: DescribeSecurityProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSecurityProfileCommandOutput) => void
+  ): void;
+  public describeSecurityProfile(
+    args: DescribeSecurityProfileCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeSecurityProfileCommandOutput) => void),
+    cb?: (err: any, data?: DescribeSecurityProfileCommandOutput) => void
+  ): Promise<DescribeSecurityProfileCommandOutput> | void {
+    const command = new DescribeSecurityProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about a stream.</p>
+   */
+  public describeStream(
+    args: DescribeStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeStreamCommandOutput>;
+  public describeStream(
+    args: DescribeStreamCommandInput,
+    cb: (err: any, data?: DescribeStreamCommandOutput) => void
+  ): void;
+  public describeStream(
+    args: DescribeStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeStreamCommandOutput) => void
+  ): void;
+  public describeStream(
+    args: DescribeStreamCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeStreamCommandOutput) => void),
+    cb?: (err: any, data?: DescribeStreamCommandOutput) => void
+  ): Promise<DescribeStreamCommandOutput> | void {
+    const command = new DescribeStreamCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about the specified thing.</p>
+   */
+  public describeThing(
+    args: DescribeThingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeThingCommandOutput>;
+  public describeThing(
+    args: DescribeThingCommandInput,
+    cb: (err: any, data?: DescribeThingCommandOutput) => void
+  ): void;
+  public describeThing(
+    args: DescribeThingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeThingCommandOutput) => void
+  ): void;
+  public describeThing(
+    args: DescribeThingCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeThingCommandOutput) => void),
+    cb?: (err: any, data?: DescribeThingCommandOutput) => void
+  ): Promise<DescribeThingCommandOutput> | void {
+    const command = new DescribeThingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describe a thing group.</p>
+   */
+  public describeThingGroup(
+    args: DescribeThingGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeThingGroupCommandOutput>;
+  public describeThingGroup(
+    args: DescribeThingGroupCommandInput,
+    cb: (err: any, data?: DescribeThingGroupCommandOutput) => void
+  ): void;
+  public describeThingGroup(
+    args: DescribeThingGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeThingGroupCommandOutput) => void
+  ): void;
+  public describeThingGroup(
+    args: DescribeThingGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeThingGroupCommandOutput) => void),
+    cb?: (err: any, data?: DescribeThingGroupCommandOutput) => void
+  ): Promise<DescribeThingGroupCommandOutput> | void {
+    const command = new DescribeThingGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes a bulk thing provisioning task.</p>
+   */
+  public describeThingRegistrationTask(
+    args: DescribeThingRegistrationTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeThingRegistrationTaskCommandOutput>;
+  public describeThingRegistrationTask(
+    args: DescribeThingRegistrationTaskCommandInput,
+    cb: (err: any, data?: DescribeThingRegistrationTaskCommandOutput) => void
+  ): void;
+  public describeThingRegistrationTask(
+    args: DescribeThingRegistrationTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeThingRegistrationTaskCommandOutput) => void
+  ): void;
+  public describeThingRegistrationTask(
+    args: DescribeThingRegistrationTaskCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeThingRegistrationTaskCommandOutput) => void),
+    cb?: (err: any, data?: DescribeThingRegistrationTaskCommandOutput) => void
+  ): Promise<DescribeThingRegistrationTaskCommandOutput> | void {
+    const command = new DescribeThingRegistrationTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about the specified thing type.</p>
+   */
+  public describeThingType(
+    args: DescribeThingTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeThingTypeCommandOutput>;
+  public describeThingType(
+    args: DescribeThingTypeCommandInput,
+    cb: (err: any, data?: DescribeThingTypeCommandOutput) => void
+  ): void;
+  public describeThingType(
+    args: DescribeThingTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeThingTypeCommandOutput) => void
+  ): void;
+  public describeThingType(
+    args: DescribeThingTypeCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeThingTypeCommandOutput) => void),
+    cb?: (err: any, data?: DescribeThingTypeCommandOutput) => void
+  ): Promise<DescribeThingTypeCommandOutput> | void {
+    const command = new DescribeThingTypeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Detaches a policy from the specified target.</p>
    */
   public detachPolicy(
@@ -3111,6 +4477,187 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Disassociates a Device Defender security profile from a thing group or from this account.</p>
+   */
+  public detachSecurityProfile(
+    args: DetachSecurityProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetachSecurityProfileCommandOutput>;
+  public detachSecurityProfile(
+    args: DetachSecurityProfileCommandInput,
+    cb: (err: any, data?: DetachSecurityProfileCommandOutput) => void
+  ): void;
+  public detachSecurityProfile(
+    args: DetachSecurityProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DetachSecurityProfileCommandOutput) => void
+  ): void;
+  public detachSecurityProfile(
+    args: DetachSecurityProfileCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DetachSecurityProfileCommandOutput) => void),
+    cb?: (err: any, data?: DetachSecurityProfileCommandOutput) => void
+  ): Promise<DetachSecurityProfileCommandOutput> | void {
+    const command = new DetachSecurityProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Detaches the specified principal from the specified thing. A principal can be X.509
+   * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
+   * 			identities.</p>
+   * 		       <note>
+   * 			         <p>This call is asynchronous. It might take several seconds for the detachment to
+   * 				propagate.</p>
+   * 		       </note>
+   */
+  public detachThingPrincipal(
+    args: DetachThingPrincipalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetachThingPrincipalCommandOutput>;
+  public detachThingPrincipal(
+    args: DetachThingPrincipalCommandInput,
+    cb: (err: any, data?: DetachThingPrincipalCommandOutput) => void
+  ): void;
+  public detachThingPrincipal(
+    args: DetachThingPrincipalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DetachThingPrincipalCommandOutput) => void
+  ): void;
+  public detachThingPrincipal(
+    args: DetachThingPrincipalCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DetachThingPrincipalCommandOutput) => void),
+    cb?: (err: any, data?: DetachThingPrincipalCommandOutput) => void
+  ): Promise<DetachThingPrincipalCommandOutput> | void {
+    const command = new DetachThingPrincipalCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disables the rule.</p>
+   */
+  public disableTopicRule(
+    args: DisableTopicRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableTopicRuleCommandOutput>;
+  public disableTopicRule(
+    args: DisableTopicRuleCommandInput,
+    cb: (err: any, data?: DisableTopicRuleCommandOutput) => void
+  ): void;
+  public disableTopicRule(
+    args: DisableTopicRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableTopicRuleCommandOutput) => void
+  ): void;
+  public disableTopicRule(
+    args: DisableTopicRuleCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisableTopicRuleCommandOutput) => void),
+    cb?: (err: any, data?: DisableTopicRuleCommandOutput) => void
+  ): Promise<DisableTopicRuleCommandOutput> | void {
+    const command = new DisableTopicRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Enables the rule.</p>
+   */
+  public enableTopicRule(
+    args: EnableTopicRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableTopicRuleCommandOutput>;
+  public enableTopicRule(
+    args: EnableTopicRuleCommandInput,
+    cb: (err: any, data?: EnableTopicRuleCommandOutput) => void
+  ): void;
+  public enableTopicRule(
+    args: EnableTopicRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableTopicRuleCommandOutput) => void
+  ): void;
+  public enableTopicRule(
+    args: EnableTopicRuleCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: EnableTopicRuleCommandOutput) => void),
+    cb?: (err: any, data?: EnableTopicRuleCommandOutput) => void
+  ): Promise<EnableTopicRuleCommandOutput> | void {
+    const command = new EnableTopicRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the approximate count of unique values that match the query.</p>
+   */
+  public getCardinality(
+    args: GetCardinalityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCardinalityCommandOutput>;
+  public getCardinality(
+    args: GetCardinalityCommandInput,
+    cb: (err: any, data?: GetCardinalityCommandOutput) => void
+  ): void;
+  public getCardinality(
+    args: GetCardinalityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCardinalityCommandOutput) => void
+  ): void;
+  public getCardinality(
+    args: GetCardinalityCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetCardinalityCommandOutput) => void),
+    cb?: (err: any, data?: GetCardinalityCommandOutput) => void
+  ): Promise<GetCardinalityCommandOutput> | void {
+    const command = new GetCardinalityCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets a list of the policies that have an effect on the authorization behavior of the
    *          specified device when it connects to the AWS IoT device gateway.</p>
    */
@@ -3135,6 +4682,191 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: GetEffectivePoliciesCommandOutput) => void
   ): Promise<GetEffectivePoliciesCommandOutput> | void {
     const command = new GetEffectivePoliciesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the indexing configuration.</p>
+   */
+  public getIndexingConfiguration(
+    args: GetIndexingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIndexingConfigurationCommandOutput>;
+  public getIndexingConfiguration(
+    args: GetIndexingConfigurationCommandInput,
+    cb: (err: any, data?: GetIndexingConfigurationCommandOutput) => void
+  ): void;
+  public getIndexingConfiguration(
+    args: GetIndexingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIndexingConfigurationCommandOutput) => void
+  ): void;
+  public getIndexingConfiguration(
+    args: GetIndexingConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetIndexingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetIndexingConfigurationCommandOutput) => void
+  ): Promise<GetIndexingConfigurationCommandOutput> | void {
+    const command = new GetIndexingConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a job document.</p>
+   */
+  public getJobDocument(
+    args: GetJobDocumentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetJobDocumentCommandOutput>;
+  public getJobDocument(
+    args: GetJobDocumentCommandInput,
+    cb: (err: any, data?: GetJobDocumentCommandOutput) => void
+  ): void;
+  public getJobDocument(
+    args: GetJobDocumentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetJobDocumentCommandOutput) => void
+  ): void;
+  public getJobDocument(
+    args: GetJobDocumentCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetJobDocumentCommandOutput) => void),
+    cb?: (err: any, data?: GetJobDocumentCommandOutput) => void
+  ): Promise<GetJobDocumentCommandOutput> | void {
+    const command = new GetJobDocumentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the logging options.</p>
+   *          <p>NOTE: use of this command is not recommended. Use <code>GetV2LoggingOptions</code>
+   *          instead.</p>
+   */
+  public getLoggingOptions(
+    args: GetLoggingOptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLoggingOptionsCommandOutput>;
+  public getLoggingOptions(
+    args: GetLoggingOptionsCommandInput,
+    cb: (err: any, data?: GetLoggingOptionsCommandOutput) => void
+  ): void;
+  public getLoggingOptions(
+    args: GetLoggingOptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLoggingOptionsCommandOutput) => void
+  ): void;
+  public getLoggingOptions(
+    args: GetLoggingOptionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetLoggingOptionsCommandOutput) => void),
+    cb?: (err: any, data?: GetLoggingOptionsCommandOutput) => void
+  ): Promise<GetLoggingOptionsCommandOutput> | void {
+    const command = new GetLoggingOptionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets an OTA update.</p>
+   */
+  public getOTAUpdate(
+    args: GetOTAUpdateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOTAUpdateCommandOutput>;
+  public getOTAUpdate(
+    args: GetOTAUpdateCommandInput,
+    cb: (err: any, data?: GetOTAUpdateCommandOutput) => void
+  ): void;
+  public getOTAUpdate(
+    args: GetOTAUpdateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOTAUpdateCommandOutput) => void
+  ): void;
+  public getOTAUpdate(
+    args: GetOTAUpdateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetOTAUpdateCommandOutput) => void),
+    cb?: (err: any, data?: GetOTAUpdateCommandOutput) => void
+  ): Promise<GetOTAUpdateCommandOutput> | void {
+    const command = new GetOTAUpdateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Groups the aggregated values that match the query into percentile groupings. The default
+   *         percentile groupings are: 1,5,25,50,75,95,99, although you can specify your own
+   *         when you call <code>GetPercentiles</code>. This function returns a value for each
+   *         percentile group specified (or the default percentile groupings). The percentile group
+   *         "1" contains the aggregated field value that occurs in approximately one percent of the
+   *         values that match the query. The percentile group "5" contains the aggregated field value
+   *         that occurs in approximately five percent of the values that match the query, and so on.
+   *         The result is an approximation, the more values that match the query, the more accurate
+   *         the percentile values.</p>
+   */
+  public getPercentiles(
+    args: GetPercentilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPercentilesCommandOutput>;
+  public getPercentiles(
+    args: GetPercentilesCommandInput,
+    cb: (err: any, data?: GetPercentilesCommandOutput) => void
+  ): void;
+  public getPercentiles(
+    args: GetPercentilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPercentilesCommandOutput) => void
+  ): void;
+  public getPercentiles(
+    args: GetPercentilesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetPercentilesCommandOutput) => void),
+    cb?: (err: any, data?: GetPercentilesCommandOutput) => void
+  ): Promise<GetPercentilesCommandOutput> | void {
+    const command = new GetPercentilesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3253,6 +4985,183 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Returns the count, average, sum, minimum, maximum, sum of squares, variance,
+   *       and standard deviation for the specified aggregated field. If the aggregation field is of type
+   *       <code>String</code>, only the count statistic is returned.</p>
+   */
+  public getStatistics(
+    args: GetStatisticsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStatisticsCommandOutput>;
+  public getStatistics(
+    args: GetStatisticsCommandInput,
+    cb: (err: any, data?: GetStatisticsCommandOutput) => void
+  ): void;
+  public getStatistics(
+    args: GetStatisticsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetStatisticsCommandOutput) => void
+  ): void;
+  public getStatistics(
+    args: GetStatisticsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetStatisticsCommandOutput) => void),
+    cb?: (err: any, data?: GetStatisticsCommandOutput) => void
+  ): Promise<GetStatisticsCommandOutput> | void {
+    const command = new GetStatisticsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about the rule.</p>
+   */
+  public getTopicRule(
+    args: GetTopicRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTopicRuleCommandOutput>;
+  public getTopicRule(
+    args: GetTopicRuleCommandInput,
+    cb: (err: any, data?: GetTopicRuleCommandOutput) => void
+  ): void;
+  public getTopicRule(
+    args: GetTopicRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTopicRuleCommandOutput) => void
+  ): void;
+  public getTopicRule(
+    args: GetTopicRuleCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetTopicRuleCommandOutput) => void),
+    cb?: (err: any, data?: GetTopicRuleCommandOutput) => void
+  ): Promise<GetTopicRuleCommandOutput> | void {
+    const command = new GetTopicRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about a topic rule destination.</p>
+   */
+  public getTopicRuleDestination(
+    args: GetTopicRuleDestinationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTopicRuleDestinationCommandOutput>;
+  public getTopicRuleDestination(
+    args: GetTopicRuleDestinationCommandInput,
+    cb: (err: any, data?: GetTopicRuleDestinationCommandOutput) => void
+  ): void;
+  public getTopicRuleDestination(
+    args: GetTopicRuleDestinationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTopicRuleDestinationCommandOutput) => void
+  ): void;
+  public getTopicRuleDestination(
+    args: GetTopicRuleDestinationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetTopicRuleDestinationCommandOutput) => void),
+    cb?: (err: any, data?: GetTopicRuleDestinationCommandOutput) => void
+  ): Promise<GetTopicRuleDestinationCommandOutput> | void {
+    const command = new GetTopicRuleDestinationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the fine grained logging options.</p>
+   */
+  public getV2LoggingOptions(
+    args: GetV2LoggingOptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetV2LoggingOptionsCommandOutput>;
+  public getV2LoggingOptions(
+    args: GetV2LoggingOptionsCommandInput,
+    cb: (err: any, data?: GetV2LoggingOptionsCommandOutput) => void
+  ): void;
+  public getV2LoggingOptions(
+    args: GetV2LoggingOptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetV2LoggingOptionsCommandOutput) => void
+  ): void;
+  public getV2LoggingOptions(
+    args: GetV2LoggingOptionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetV2LoggingOptionsCommandOutput) => void),
+    cb?: (err: any, data?: GetV2LoggingOptionsCommandOutput) => void
+  ): Promise<GetV2LoggingOptionsCommandOutput> | void {
+    const command = new GetV2LoggingOptionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the active violations for a given Device Defender security profile.</p>
+   */
+  public listActiveViolations(
+    args: ListActiveViolationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListActiveViolationsCommandOutput>;
+  public listActiveViolations(
+    args: ListActiveViolationsCommandInput,
+    cb: (err: any, data?: ListActiveViolationsCommandOutput) => void
+  ): void;
+  public listActiveViolations(
+    args: ListActiveViolationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListActiveViolationsCommandOutput) => void
+  ): void;
+  public listActiveViolations(
+    args: ListActiveViolationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListActiveViolationsCommandOutput) => void),
+    cb?: (err: any, data?: ListActiveViolationsCommandOutput) => void
+  ): Promise<ListActiveViolationsCommandOutput> | void {
+    const command = new ListActiveViolationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the policies attached to the specified thing group.</p>
    */
   public listAttachedPolicies(
@@ -3288,6 +5197,163 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Lists the findings (results) of a Device Defender audit or of the audits
+   *         performed during a specified time period. (Findings are retained for 180 days.)</p>
+   */
+  public listAuditFindings(
+    args: ListAuditFindingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAuditFindingsCommandOutput>;
+  public listAuditFindings(
+    args: ListAuditFindingsCommandInput,
+    cb: (err: any, data?: ListAuditFindingsCommandOutput) => void
+  ): void;
+  public listAuditFindings(
+    args: ListAuditFindingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAuditFindingsCommandOutput) => void
+  ): void;
+  public listAuditFindings(
+    args: ListAuditFindingsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListAuditFindingsCommandOutput) => void),
+    cb?: (err: any, data?: ListAuditFindingsCommandOutput) => void
+  ): Promise<ListAuditFindingsCommandOutput> | void {
+    const command = new ListAuditFindingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the status of audit mitigation action tasks that were executed.</p>
+   */
+  public listAuditMitigationActionsExecutions(
+    args: ListAuditMitigationActionsExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAuditMitigationActionsExecutionsCommandOutput>;
+  public listAuditMitigationActionsExecutions(
+    args: ListAuditMitigationActionsExecutionsCommandInput,
+    cb: (
+      err: any,
+      data?: ListAuditMitigationActionsExecutionsCommandOutput
+    ) => void
+  ): void;
+  public listAuditMitigationActionsExecutions(
+    args: ListAuditMitigationActionsExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: ListAuditMitigationActionsExecutionsCommandOutput
+    ) => void
+  ): void;
+  public listAuditMitigationActionsExecutions(
+    args: ListAuditMitigationActionsExecutionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: ListAuditMitigationActionsExecutionsCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: ListAuditMitigationActionsExecutionsCommandOutput
+    ) => void
+  ): Promise<ListAuditMitigationActionsExecutionsCommandOutput> | void {
+    const command = new ListAuditMitigationActionsExecutionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of audit mitigation action tasks that match the specified filters.</p>
+   */
+  public listAuditMitigationActionsTasks(
+    args: ListAuditMitigationActionsTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAuditMitigationActionsTasksCommandOutput>;
+  public listAuditMitigationActionsTasks(
+    args: ListAuditMitigationActionsTasksCommandInput,
+    cb: (err: any, data?: ListAuditMitigationActionsTasksCommandOutput) => void
+  ): void;
+  public listAuditMitigationActionsTasks(
+    args: ListAuditMitigationActionsTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAuditMitigationActionsTasksCommandOutput) => void
+  ): void;
+  public listAuditMitigationActionsTasks(
+    args: ListAuditMitigationActionsTasksCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: ListAuditMitigationActionsTasksCommandOutput
+        ) => void),
+    cb?: (err: any, data?: ListAuditMitigationActionsTasksCommandOutput) => void
+  ): Promise<ListAuditMitigationActionsTasksCommandOutput> | void {
+    const command = new ListAuditMitigationActionsTasksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the Device Defender audits that have been performed during a given
+   *           time period.</p>
+   */
+  public listAuditTasks(
+    args: ListAuditTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAuditTasksCommandOutput>;
+  public listAuditTasks(
+    args: ListAuditTasksCommandInput,
+    cb: (err: any, data?: ListAuditTasksCommandOutput) => void
+  ): void;
+  public listAuditTasks(
+    args: ListAuditTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAuditTasksCommandOutput) => void
+  ): void;
+  public listAuditTasks(
+    args: ListAuditTasksCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListAuditTasksCommandOutput) => void),
+    cb?: (err: any, data?: ListAuditTasksCommandOutput) => void
+  ): Promise<ListAuditTasksCommandOutput> | void {
+    const command = new ListAuditTasksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the authorizers registered in your account.</p>
    */
   public listAuthorizers(
@@ -3311,6 +5377,41 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: ListAuthorizersCommandOutput) => void
   ): Promise<ListAuthorizersCommandOutput> | void {
     const command = new ListAuthorizersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the billing groups you have created.</p>
+   */
+  public listBillingGroups(
+    args: ListBillingGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBillingGroupsCommandOutput>;
+  public listBillingGroups(
+    args: ListBillingGroupsCommandInput,
+    cb: (err: any, data?: ListBillingGroupsCommandOutput) => void
+  ): void;
+  public listBillingGroups(
+    args: ListBillingGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBillingGroupsCommandOutput) => void
+  ): void;
+  public listBillingGroups(
+    args: ListBillingGroupsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListBillingGroupsCommandOutput) => void),
+    cb?: (err: any, data?: ListBillingGroupsCommandOutput) => void
+  ): Promise<ListBillingGroupsCommandOutput> | void {
+    const command = new ListBillingGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3458,6 +5559,216 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: ListDomainConfigurationsCommandOutput) => void
   ): Promise<ListDomainConfigurationsCommandOutput> | void {
     const command = new ListDomainConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the search indices.</p>
+   */
+  public listIndices(
+    args: ListIndicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIndicesCommandOutput>;
+  public listIndices(
+    args: ListIndicesCommandInput,
+    cb: (err: any, data?: ListIndicesCommandOutput) => void
+  ): void;
+  public listIndices(
+    args: ListIndicesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIndicesCommandOutput) => void
+  ): void;
+  public listIndices(
+    args: ListIndicesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListIndicesCommandOutput) => void),
+    cb?: (err: any, data?: ListIndicesCommandOutput) => void
+  ): Promise<ListIndicesCommandOutput> | void {
+    const command = new ListIndicesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the job executions for a job.</p>
+   */
+  public listJobExecutionsForJob(
+    args: ListJobExecutionsForJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobExecutionsForJobCommandOutput>;
+  public listJobExecutionsForJob(
+    args: ListJobExecutionsForJobCommandInput,
+    cb: (err: any, data?: ListJobExecutionsForJobCommandOutput) => void
+  ): void;
+  public listJobExecutionsForJob(
+    args: ListJobExecutionsForJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListJobExecutionsForJobCommandOutput) => void
+  ): void;
+  public listJobExecutionsForJob(
+    args: ListJobExecutionsForJobCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListJobExecutionsForJobCommandOutput) => void),
+    cb?: (err: any, data?: ListJobExecutionsForJobCommandOutput) => void
+  ): Promise<ListJobExecutionsForJobCommandOutput> | void {
+    const command = new ListJobExecutionsForJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the job executions for the specified thing.</p>
+   */
+  public listJobExecutionsForThing(
+    args: ListJobExecutionsForThingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobExecutionsForThingCommandOutput>;
+  public listJobExecutionsForThing(
+    args: ListJobExecutionsForThingCommandInput,
+    cb: (err: any, data?: ListJobExecutionsForThingCommandOutput) => void
+  ): void;
+  public listJobExecutionsForThing(
+    args: ListJobExecutionsForThingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListJobExecutionsForThingCommandOutput) => void
+  ): void;
+  public listJobExecutionsForThing(
+    args: ListJobExecutionsForThingCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListJobExecutionsForThingCommandOutput) => void),
+    cb?: (err: any, data?: ListJobExecutionsForThingCommandOutput) => void
+  ): Promise<ListJobExecutionsForThingCommandOutput> | void {
+    const command = new ListJobExecutionsForThingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists jobs.</p>
+   */
+  public listJobs(
+    args: ListJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobsCommandOutput>;
+  public listJobs(
+    args: ListJobsCommandInput,
+    cb: (err: any, data?: ListJobsCommandOutput) => void
+  ): void;
+  public listJobs(
+    args: ListJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListJobsCommandOutput) => void
+  ): void;
+  public listJobs(
+    args: ListJobsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListJobsCommandOutput) => void
+  ): Promise<ListJobsCommandOutput> | void {
+    const command = new ListJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of all mitigation actions that match the specified filter criteria.</p>
+   */
+  public listMitigationActions(
+    args: ListMitigationActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMitigationActionsCommandOutput>;
+  public listMitigationActions(
+    args: ListMitigationActionsCommandInput,
+    cb: (err: any, data?: ListMitigationActionsCommandOutput) => void
+  ): void;
+  public listMitigationActions(
+    args: ListMitigationActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMitigationActionsCommandOutput) => void
+  ): void;
+  public listMitigationActions(
+    args: ListMitigationActionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListMitigationActionsCommandOutput) => void),
+    cb?: (err: any, data?: ListMitigationActionsCommandOutput) => void
+  ): Promise<ListMitigationActionsCommandOutput> | void {
+    const command = new ListMitigationActionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists OTA updates.</p>
+   */
+  public listOTAUpdates(
+    args: ListOTAUpdatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOTAUpdatesCommandOutput>;
+  public listOTAUpdates(
+    args: ListOTAUpdatesCommandInput,
+    cb: (err: any, data?: ListOTAUpdatesCommandOutput) => void
+  ): void;
+  public listOTAUpdates(
+    args: ListOTAUpdatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOTAUpdatesCommandOutput) => void
+  ): void;
+  public listOTAUpdates(
+    args: ListOTAUpdatesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListOTAUpdatesCommandOutput) => void),
+    cb?: (err: any, data?: ListOTAUpdatesCommandOutput) => void
+  ): Promise<ListOTAUpdatesCommandOutput> | void {
+    const command = new ListOTAUpdatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3651,35 +5962,31 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>A list of fleet provisioning template versions.</p>
+   * <p>Lists the things associated with the specified principal. A principal can be X.509
+   * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
+   * 			identities. </p>
    */
-  public listProvisioningTemplateVersions(
-    args: ListProvisioningTemplateVersionsCommandInput,
+  public listPrincipalThings(
+    args: ListPrincipalThingsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListProvisioningTemplateVersionsCommandOutput>;
-  public listProvisioningTemplateVersions(
-    args: ListProvisioningTemplateVersionsCommandInput,
-    cb: (err: any, data?: ListProvisioningTemplateVersionsCommandOutput) => void
+  ): Promise<ListPrincipalThingsCommandOutput>;
+  public listPrincipalThings(
+    args: ListPrincipalThingsCommandInput,
+    cb: (err: any, data?: ListPrincipalThingsCommandOutput) => void
   ): void;
-  public listProvisioningTemplateVersions(
-    args: ListProvisioningTemplateVersionsCommandInput,
+  public listPrincipalThings(
+    args: ListPrincipalThingsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListProvisioningTemplateVersionsCommandOutput) => void
+    cb: (err: any, data?: ListPrincipalThingsCommandOutput) => void
   ): void;
-  public listProvisioningTemplateVersions(
-    args: ListProvisioningTemplateVersionsCommandInput,
+  public listPrincipalThings(
+    args: ListPrincipalThingsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListProvisioningTemplateVersionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListProvisioningTemplateVersionsCommandOutput
-    ) => void
-  ): Promise<ListProvisioningTemplateVersionsCommandOutput> | void {
-    const command = new ListProvisioningTemplateVersionsCommand(args);
+      | ((err: any, data?: ListPrincipalThingsCommandOutput) => void),
+    cb?: (err: any, data?: ListPrincipalThingsCommandOutput) => void
+  ): Promise<ListPrincipalThingsCommandOutput> | void {
+    const command = new ListPrincipalThingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3727,6 +6034,47 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>A list of fleet provisioning template versions.</p>
+   */
+  public listProvisioningTemplateVersions(
+    args: ListProvisioningTemplateVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProvisioningTemplateVersionsCommandOutput>;
+  public listProvisioningTemplateVersions(
+    args: ListProvisioningTemplateVersionsCommandInput,
+    cb: (err: any, data?: ListProvisioningTemplateVersionsCommandOutput) => void
+  ): void;
+  public listProvisioningTemplateVersions(
+    args: ListProvisioningTemplateVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProvisioningTemplateVersionsCommandOutput) => void
+  ): void;
+  public listProvisioningTemplateVersions(
+    args: ListProvisioningTemplateVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: ListProvisioningTemplateVersionsCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: ListProvisioningTemplateVersionsCommandOutput
+    ) => void
+  ): Promise<ListProvisioningTemplateVersionsCommandOutput> | void {
+    const command = new ListProvisioningTemplateVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the role aliases registered in your account.</p>
    */
   public listRoleAliases(
@@ -3750,6 +6098,182 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: ListRoleAliasesCommandOutput) => void
   ): Promise<ListRoleAliasesCommandOutput> | void {
     const command = new ListRoleAliasesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all of your scheduled audits.</p>
+   */
+  public listScheduledAudits(
+    args: ListScheduledAuditsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListScheduledAuditsCommandOutput>;
+  public listScheduledAudits(
+    args: ListScheduledAuditsCommandInput,
+    cb: (err: any, data?: ListScheduledAuditsCommandOutput) => void
+  ): void;
+  public listScheduledAudits(
+    args: ListScheduledAuditsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListScheduledAuditsCommandOutput) => void
+  ): void;
+  public listScheduledAudits(
+    args: ListScheduledAuditsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListScheduledAuditsCommandOutput) => void),
+    cb?: (err: any, data?: ListScheduledAuditsCommandOutput) => void
+  ): Promise<ListScheduledAuditsCommandOutput> | void {
+    const command = new ListScheduledAuditsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the Device Defender security profiles you have created. You can use filters to list only those security
+   *       profiles associated with a thing group or only those associated with your account.</p>
+   */
+  public listSecurityProfiles(
+    args: ListSecurityProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSecurityProfilesCommandOutput>;
+  public listSecurityProfiles(
+    args: ListSecurityProfilesCommandInput,
+    cb: (err: any, data?: ListSecurityProfilesCommandOutput) => void
+  ): void;
+  public listSecurityProfiles(
+    args: ListSecurityProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSecurityProfilesCommandOutput) => void
+  ): void;
+  public listSecurityProfiles(
+    args: ListSecurityProfilesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListSecurityProfilesCommandOutput) => void),
+    cb?: (err: any, data?: ListSecurityProfilesCommandOutput) => void
+  ): Promise<ListSecurityProfilesCommandOutput> | void {
+    const command = new ListSecurityProfilesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the Device Defender security profiles attached to a target (thing group).</p>
+   */
+  public listSecurityProfilesForTarget(
+    args: ListSecurityProfilesForTargetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSecurityProfilesForTargetCommandOutput>;
+  public listSecurityProfilesForTarget(
+    args: ListSecurityProfilesForTargetCommandInput,
+    cb: (err: any, data?: ListSecurityProfilesForTargetCommandOutput) => void
+  ): void;
+  public listSecurityProfilesForTarget(
+    args: ListSecurityProfilesForTargetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSecurityProfilesForTargetCommandOutput) => void
+  ): void;
+  public listSecurityProfilesForTarget(
+    args: ListSecurityProfilesForTargetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListSecurityProfilesForTargetCommandOutput) => void),
+    cb?: (err: any, data?: ListSecurityProfilesForTargetCommandOutput) => void
+  ): Promise<ListSecurityProfilesForTargetCommandOutput> | void {
+    const command = new ListSecurityProfilesForTargetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all of the streams in your AWS account.</p>
+   */
+  public listStreams(
+    args: ListStreamsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStreamsCommandOutput>;
+  public listStreams(
+    args: ListStreamsCommandInput,
+    cb: (err: any, data?: ListStreamsCommandOutput) => void
+  ): void;
+  public listStreams(
+    args: ListStreamsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStreamsCommandOutput) => void
+  ): void;
+  public listStreams(
+    args: ListStreamsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListStreamsCommandOutput) => void),
+    cb?: (err: any, data?: ListStreamsCommandOutput) => void
+  ): Promise<ListStreamsCommandOutput> | void {
+    const command = new ListStreamsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the tags (metadata) you have assigned to the resource.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3797,2327 +6321,29 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Registers a CA certificate with AWS IoT. This CA certificate can then be used to sign
-   *          device certificates, which can be then registered with AWS IoT. You can register up to 10
-   *          CA certificates per AWS account that have the same subject field. This enables you to have
-   *          up to 10 certificate authorities sign your device certificates. If you have more than one
-   *          CA certificate registered, make sure you pass the CA certificate when you register your
-   *          device certificates with the RegisterCertificate API.</p>
+   * <p>Lists the targets (thing groups) associated with a given Device Defender security profile.</p>
    */
-  public registerCACertificate(
-    args: RegisterCACertificateCommandInput,
+  public listTargetsForSecurityProfile(
+    args: ListTargetsForSecurityProfileCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<RegisterCACertificateCommandOutput>;
-  public registerCACertificate(
-    args: RegisterCACertificateCommandInput,
-    cb: (err: any, data?: RegisterCACertificateCommandOutput) => void
+  ): Promise<ListTargetsForSecurityProfileCommandOutput>;
+  public listTargetsForSecurityProfile(
+    args: ListTargetsForSecurityProfileCommandInput,
+    cb: (err: any, data?: ListTargetsForSecurityProfileCommandOutput) => void
   ): void;
-  public registerCACertificate(
-    args: RegisterCACertificateCommandInput,
+  public listTargetsForSecurityProfile(
+    args: ListTargetsForSecurityProfileCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterCACertificateCommandOutput) => void
+    cb: (err: any, data?: ListTargetsForSecurityProfileCommandOutput) => void
   ): void;
-  public registerCACertificate(
-    args: RegisterCACertificateCommandInput,
+  public listTargetsForSecurityProfile(
+    args: ListTargetsForSecurityProfileCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: RegisterCACertificateCommandOutput) => void),
-    cb?: (err: any, data?: RegisterCACertificateCommandOutput) => void
-  ): Promise<RegisterCACertificateCommandOutput> | void {
-    const command = new RegisterCACertificateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Registers a device certificate with AWS IoT. If you have more than one CA certificate
-   *          that has the same subject field, you must specify the CA certificate that was used to sign
-   *          the device certificate being registered.</p>
-   */
-  public registerCertificate(
-    args: RegisterCertificateCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RegisterCertificateCommandOutput>;
-  public registerCertificate(
-    args: RegisterCertificateCommandInput,
-    cb: (err: any, data?: RegisterCertificateCommandOutput) => void
-  ): void;
-  public registerCertificate(
-    args: RegisterCertificateCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterCertificateCommandOutput) => void
-  ): void;
-  public registerCertificate(
-    args: RegisterCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterCertificateCommandOutput) => void),
-    cb?: (err: any, data?: RegisterCertificateCommandOutput) => void
-  ): Promise<RegisterCertificateCommandOutput> | void {
-    const command = new RegisterCertificateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Provisions a thing in the device registry. RegisterThing calls other AWS IoT control
-   *          plane APIs. These calls might exceed your account level <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot">
-   *             AWS IoT Throttling Limits</a> and cause throttle errors. Please contact <a href="https://console.aws.amazon.com/support/home">AWS Customer Support</a> to raise
-   *          your throttling limits if necessary.</p>
-   */
-  public registerThing(
-    args: RegisterThingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RegisterThingCommandOutput>;
-  public registerThing(
-    args: RegisterThingCommandInput,
-    cb: (err: any, data?: RegisterThingCommandOutput) => void
-  ): void;
-  public registerThing(
-    args: RegisterThingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterThingCommandOutput) => void
-  ): void;
-  public registerThing(
-    args: RegisterThingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterThingCommandOutput) => void),
-    cb?: (err: any, data?: RegisterThingCommandOutput) => void
-  ): Promise<RegisterThingCommandOutput> | void {
-    const command = new RegisterThingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Rejects a pending certificate transfer. After AWS IoT rejects a certificate transfer,
-   *          the certificate status changes from <b>PENDING_TRANSFER</b> to
-   *             <b>INACTIVE</b>.</p>
-   *          <p>To check for pending certificate transfers, call <a>ListCertificates</a>
-   *          to enumerate your certificates.</p>
-   *          <p>This operation can only be called by the transfer destination. After it is called,
-   *          the certificate will be returned to the source's account in the INACTIVE state.</p>
-   */
-  public rejectCertificateTransfer(
-    args: RejectCertificateTransferCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RejectCertificateTransferCommandOutput>;
-  public rejectCertificateTransfer(
-    args: RejectCertificateTransferCommandInput,
-    cb: (err: any, data?: RejectCertificateTransferCommandOutput) => void
-  ): void;
-  public rejectCertificateTransfer(
-    args: RejectCertificateTransferCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RejectCertificateTransferCommandOutput) => void
-  ): void;
-  public rejectCertificateTransfer(
-    args: RejectCertificateTransferCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RejectCertificateTransferCommandOutput) => void),
-    cb?: (err: any, data?: RejectCertificateTransferCommandOutput) => void
-  ): Promise<RejectCertificateTransferCommandOutput> | void {
-    const command = new RejectCertificateTransferCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Sets the default authorizer. This will be used if a websocket connection is made
-   *          without specifying an authorizer.</p>
-   */
-  public setDefaultAuthorizer(
-    args: SetDefaultAuthorizerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SetDefaultAuthorizerCommandOutput>;
-  public setDefaultAuthorizer(
-    args: SetDefaultAuthorizerCommandInput,
-    cb: (err: any, data?: SetDefaultAuthorizerCommandOutput) => void
-  ): void;
-  public setDefaultAuthorizer(
-    args: SetDefaultAuthorizerCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: SetDefaultAuthorizerCommandOutput) => void
-  ): void;
-  public setDefaultAuthorizer(
-    args: SetDefaultAuthorizerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetDefaultAuthorizerCommandOutput) => void),
-    cb?: (err: any, data?: SetDefaultAuthorizerCommandOutput) => void
-  ): Promise<SetDefaultAuthorizerCommandOutput> | void {
-    const command = new SetDefaultAuthorizerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Sets the specified version of the specified policy as the policy's default
-   *          (operative) version. This action affects all certificates to which the policy is attached.
-   *          To list the principals the policy is attached to, use the ListPrincipalPolicy
-   *          API.</p>
-   */
-  public setDefaultPolicyVersion(
-    args: SetDefaultPolicyVersionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SetDefaultPolicyVersionCommandOutput>;
-  public setDefaultPolicyVersion(
-    args: SetDefaultPolicyVersionCommandInput,
-    cb: (err: any, data?: SetDefaultPolicyVersionCommandOutput) => void
-  ): void;
-  public setDefaultPolicyVersion(
-    args: SetDefaultPolicyVersionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: SetDefaultPolicyVersionCommandOutput) => void
-  ): void;
-  public setDefaultPolicyVersion(
-    args: SetDefaultPolicyVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetDefaultPolicyVersionCommandOutput) => void),
-    cb?: (err: any, data?: SetDefaultPolicyVersionCommandOutput) => void
-  ): Promise<SetDefaultPolicyVersionCommandOutput> | void {
-    const command = new SetDefaultPolicyVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Tests if a specified principal is authorized to perform an AWS IoT action on a
-   *          specified resource. Use this to test and debug the authorization behavior of devices that
-   *          connect to the AWS IoT device gateway.</p>
-   */
-  public testAuthorization(
-    args: TestAuthorizationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TestAuthorizationCommandOutput>;
-  public testAuthorization(
-    args: TestAuthorizationCommandInput,
-    cb: (err: any, data?: TestAuthorizationCommandOutput) => void
-  ): void;
-  public testAuthorization(
-    args: TestAuthorizationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TestAuthorizationCommandOutput) => void
-  ): void;
-  public testAuthorization(
-    args: TestAuthorizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TestAuthorizationCommandOutput) => void),
-    cb?: (err: any, data?: TestAuthorizationCommandOutput) => void
-  ): Promise<TestAuthorizationCommandOutput> | void {
-    const command = new TestAuthorizationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Tests a custom authorization behavior by invoking a specified custom authorizer. Use
-   *          this to test and debug the custom authorization behavior of devices that connect to the AWS
-   *          IoT device gateway.</p>
-   */
-  public testInvokeAuthorizer(
-    args: TestInvokeAuthorizerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TestInvokeAuthorizerCommandOutput>;
-  public testInvokeAuthorizer(
-    args: TestInvokeAuthorizerCommandInput,
-    cb: (err: any, data?: TestInvokeAuthorizerCommandOutput) => void
-  ): void;
-  public testInvokeAuthorizer(
-    args: TestInvokeAuthorizerCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TestInvokeAuthorizerCommandOutput) => void
-  ): void;
-  public testInvokeAuthorizer(
-    args: TestInvokeAuthorizerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TestInvokeAuthorizerCommandOutput) => void),
-    cb?: (err: any, data?: TestInvokeAuthorizerCommandOutput) => void
-  ): Promise<TestInvokeAuthorizerCommandOutput> | void {
-    const command = new TestInvokeAuthorizerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Transfers the specified certificate to the specified AWS account.</p>
-   *          <p>You can cancel the transfer until it is acknowledged by the recipient.</p>
-   *          <p>No notification is sent to the transfer destination's account. It is up to the caller
-   *          to notify the transfer target.</p>
-   *          <p>The certificate being transferred must not be in the ACTIVE state. You can use the
-   *          UpdateCertificate API to deactivate it.</p>
-   *          <p>The certificate must not have any policies attached to it. You can use the
-   *          DetachPrincipalPolicy API to detach them.</p>
-   */
-  public transferCertificate(
-    args: TransferCertificateCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TransferCertificateCommandOutput>;
-  public transferCertificate(
-    args: TransferCertificateCommandInput,
-    cb: (err: any, data?: TransferCertificateCommandOutput) => void
-  ): void;
-  public transferCertificate(
-    args: TransferCertificateCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TransferCertificateCommandOutput) => void
-  ): void;
-  public transferCertificate(
-    args: TransferCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TransferCertificateCommandOutput) => void),
-    cb?: (err: any, data?: TransferCertificateCommandOutput) => void
-  ): Promise<TransferCertificateCommandOutput> | void {
-    const command = new TransferCertificateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates an authorizer.</p>
-   */
-  public updateAuthorizer(
-    args: UpdateAuthorizerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAuthorizerCommandOutput>;
-  public updateAuthorizer(
-    args: UpdateAuthorizerCommandInput,
-    cb: (err: any, data?: UpdateAuthorizerCommandOutput) => void
-  ): void;
-  public updateAuthorizer(
-    args: UpdateAuthorizerCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateAuthorizerCommandOutput) => void
-  ): void;
-  public updateAuthorizer(
-    args: UpdateAuthorizerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAuthorizerCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAuthorizerCommandOutput) => void
-  ): Promise<UpdateAuthorizerCommandOutput> | void {
-    const command = new UpdateAuthorizerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates a registered CA certificate.</p>
-   */
-  public updateCACertificate(
-    args: UpdateCACertificateCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateCACertificateCommandOutput>;
-  public updateCACertificate(
-    args: UpdateCACertificateCommandInput,
-    cb: (err: any, data?: UpdateCACertificateCommandOutput) => void
-  ): void;
-  public updateCACertificate(
-    args: UpdateCACertificateCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateCACertificateCommandOutput) => void
-  ): void;
-  public updateCACertificate(
-    args: UpdateCACertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateCACertificateCommandOutput) => void),
-    cb?: (err: any, data?: UpdateCACertificateCommandOutput) => void
-  ): Promise<UpdateCACertificateCommandOutput> | void {
-    const command = new UpdateCACertificateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates the status of the specified certificate. This operation is
-   *          idempotent.</p>
-   *          <p>Moving a certificate from the ACTIVE state (including REVOKED) will not disconnect
-   *          currently connected devices, but these devices will be unable to reconnect.</p>
-   *          <p>The ACTIVE state is required to authenticate devices connecting to AWS IoT using a
-   *          certificate.</p>
-   */
-  public updateCertificate(
-    args: UpdateCertificateCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateCertificateCommandOutput>;
-  public updateCertificate(
-    args: UpdateCertificateCommandInput,
-    cb: (err: any, data?: UpdateCertificateCommandOutput) => void
-  ): void;
-  public updateCertificate(
-    args: UpdateCertificateCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateCertificateCommandOutput) => void
-  ): void;
-  public updateCertificate(
-    args: UpdateCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateCertificateCommandOutput) => void),
-    cb?: (err: any, data?: UpdateCertificateCommandOutput) => void
-  ): Promise<UpdateCertificateCommandOutput> | void {
-    const command = new UpdateCertificateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates values stored in the domain configuration. Domain configurations for default endpoints can't be updated.</p>
-   *          <note>
-   *             <p>The domain configuration feature is in public preview and is subject to change.</p>
-   *          </note>
-   */
-  public updateDomainConfiguration(
-    args: UpdateDomainConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateDomainConfigurationCommandOutput>;
-  public updateDomainConfiguration(
-    args: UpdateDomainConfigurationCommandInput,
-    cb: (err: any, data?: UpdateDomainConfigurationCommandOutput) => void
-  ): void;
-  public updateDomainConfiguration(
-    args: UpdateDomainConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDomainConfigurationCommandOutput) => void
-  ): void;
-  public updateDomainConfiguration(
-    args: UpdateDomainConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDomainConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDomainConfigurationCommandOutput) => void
-  ): Promise<UpdateDomainConfigurationCommandOutput> | void {
-    const command = new UpdateDomainConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates a fleet provisioning template.</p>
-   */
-  public updateProvisioningTemplate(
-    args: UpdateProvisioningTemplateCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateProvisioningTemplateCommandOutput>;
-  public updateProvisioningTemplate(
-    args: UpdateProvisioningTemplateCommandInput,
-    cb: (err: any, data?: UpdateProvisioningTemplateCommandOutput) => void
-  ): void;
-  public updateProvisioningTemplate(
-    args: UpdateProvisioningTemplateCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateProvisioningTemplateCommandOutput) => void
-  ): void;
-  public updateProvisioningTemplate(
-    args: UpdateProvisioningTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateProvisioningTemplateCommandOutput) => void),
-    cb?: (err: any, data?: UpdateProvisioningTemplateCommandOutput) => void
-  ): Promise<UpdateProvisioningTemplateCommandOutput> | void {
-    const command = new UpdateProvisioningTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates a role alias.</p>
-   */
-  public updateRoleAlias(
-    args: UpdateRoleAliasCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateRoleAliasCommandOutput>;
-  public updateRoleAlias(
-    args: UpdateRoleAliasCommandInput,
-    cb: (err: any, data?: UpdateRoleAliasCommandOutput) => void
-  ): void;
-  public updateRoleAlias(
-    args: UpdateRoleAliasCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateRoleAliasCommandOutput) => void
-  ): void;
-  public updateRoleAlias(
-    args: UpdateRoleAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRoleAliasCommandOutput) => void),
-    cb?: (err: any, data?: UpdateRoleAliasCommandOutput) => void
-  ): Promise<UpdateRoleAliasCommandOutput> | void {
-    const command = new UpdateRoleAliasCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Describes a search index.</p>
-   */
-  public describeIndex(
-    args: DescribeIndexCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeIndexCommandOutput>;
-  public describeIndex(
-    args: DescribeIndexCommandInput,
-    cb: (err: any, data?: DescribeIndexCommandOutput) => void
-  ): void;
-  public describeIndex(
-    args: DescribeIndexCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeIndexCommandOutput) => void
-  ): void;
-  public describeIndex(
-    args: DescribeIndexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeIndexCommandOutput) => void),
-    cb?: (err: any, data?: DescribeIndexCommandOutput) => void
-  ): Promise<DescribeIndexCommandOutput> | void {
-    const command = new DescribeIndexCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns the approximate count of unique values that match the query.</p>
-   */
-  public getCardinality(
-    args: GetCardinalityCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetCardinalityCommandOutput>;
-  public getCardinality(
-    args: GetCardinalityCommandInput,
-    cb: (err: any, data?: GetCardinalityCommandOutput) => void
-  ): void;
-  public getCardinality(
-    args: GetCardinalityCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetCardinalityCommandOutput) => void
-  ): void;
-  public getCardinality(
-    args: GetCardinalityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCardinalityCommandOutput) => void),
-    cb?: (err: any, data?: GetCardinalityCommandOutput) => void
-  ): Promise<GetCardinalityCommandOutput> | void {
-    const command = new GetCardinalityCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets the indexing configuration.</p>
-   */
-  public getIndexingConfiguration(
-    args: GetIndexingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetIndexingConfigurationCommandOutput>;
-  public getIndexingConfiguration(
-    args: GetIndexingConfigurationCommandInput,
-    cb: (err: any, data?: GetIndexingConfigurationCommandOutput) => void
-  ): void;
-  public getIndexingConfiguration(
-    args: GetIndexingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetIndexingConfigurationCommandOutput) => void
-  ): void;
-  public getIndexingConfiguration(
-    args: GetIndexingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIndexingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetIndexingConfigurationCommandOutput) => void
-  ): Promise<GetIndexingConfigurationCommandOutput> | void {
-    const command = new GetIndexingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Groups the aggregated values that match the query into percentile groupings. The default
-   *         percentile groupings are: 1,5,25,50,75,95,99, although you can specify your own
-   *         when you call <code>GetPercentiles</code>. This function returns a value for each
-   *         percentile group specified (or the default percentile groupings). The percentile group
-   *         "1" contains the aggregated field value that occurs in approximately one percent of the
-   *         values that match the query. The percentile group "5" contains the aggregated field value
-   *         that occurs in approximately five percent of the values that match the query, and so on.
-   *         The result is an approximation, the more values that match the query, the more accurate
-   *         the percentile values.</p>
-   */
-  public getPercentiles(
-    args: GetPercentilesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPercentilesCommandOutput>;
-  public getPercentiles(
-    args: GetPercentilesCommandInput,
-    cb: (err: any, data?: GetPercentilesCommandOutput) => void
-  ): void;
-  public getPercentiles(
-    args: GetPercentilesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetPercentilesCommandOutput) => void
-  ): void;
-  public getPercentiles(
-    args: GetPercentilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPercentilesCommandOutput) => void),
-    cb?: (err: any, data?: GetPercentilesCommandOutput) => void
-  ): Promise<GetPercentilesCommandOutput> | void {
-    const command = new GetPercentilesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns the count, average, sum, minimum, maximum, sum of squares, variance,
-   *       and standard deviation for the specified aggregated field. If the aggregation field is of type
-   *       <code>String</code>, only the count statistic is returned.</p>
-   */
-  public getStatistics(
-    args: GetStatisticsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetStatisticsCommandOutput>;
-  public getStatistics(
-    args: GetStatisticsCommandInput,
-    cb: (err: any, data?: GetStatisticsCommandOutput) => void
-  ): void;
-  public getStatistics(
-    args: GetStatisticsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetStatisticsCommandOutput) => void
-  ): void;
-  public getStatistics(
-    args: GetStatisticsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetStatisticsCommandOutput) => void),
-    cb?: (err: any, data?: GetStatisticsCommandOutput) => void
-  ): Promise<GetStatisticsCommandOutput> | void {
-    const command = new GetStatisticsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the search indices.</p>
-   */
-  public listIndices(
-    args: ListIndicesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListIndicesCommandOutput>;
-  public listIndices(
-    args: ListIndicesCommandInput,
-    cb: (err: any, data?: ListIndicesCommandOutput) => void
-  ): void;
-  public listIndices(
-    args: ListIndicesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListIndicesCommandOutput) => void
-  ): void;
-  public listIndices(
-    args: ListIndicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIndicesCommandOutput) => void),
-    cb?: (err: any, data?: ListIndicesCommandOutput) => void
-  ): Promise<ListIndicesCommandOutput> | void {
-    const command = new ListIndicesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>The query search index.</p>
-   */
-  public searchIndex(
-    args: SearchIndexCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SearchIndexCommandOutput>;
-  public searchIndex(
-    args: SearchIndexCommandInput,
-    cb: (err: any, data?: SearchIndexCommandOutput) => void
-  ): void;
-  public searchIndex(
-    args: SearchIndexCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: SearchIndexCommandOutput) => void
-  ): void;
-  public searchIndex(
-    args: SearchIndexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchIndexCommandOutput) => void),
-    cb?: (err: any, data?: SearchIndexCommandOutput) => void
-  ): Promise<SearchIndexCommandOutput> | void {
-    const command = new SearchIndexCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates the search configuration.</p>
-   */
-  public updateIndexingConfiguration(
-    args: UpdateIndexingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateIndexingConfigurationCommandOutput>;
-  public updateIndexingConfiguration(
-    args: UpdateIndexingConfigurationCommandInput,
-    cb: (err: any, data?: UpdateIndexingConfigurationCommandOutput) => void
-  ): void;
-  public updateIndexingConfiguration(
-    args: UpdateIndexingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateIndexingConfigurationCommandOutput) => void
-  ): void;
-  public updateIndexingConfiguration(
-    args: UpdateIndexingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateIndexingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateIndexingConfigurationCommandOutput) => void
-  ): Promise<UpdateIndexingConfigurationCommandOutput> | void {
-    const command = new UpdateIndexingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Associates a group with a continuous job. The following criteria must be met: </p>
-   *         <ul>
-   *             <li>
-   *                 <p>The job must have been created with the <code>targetSelection</code> field set to
-   *                     "CONTINUOUS".</p>
-   *             </li>
-   *             <li>
-   *                 <p>The job status must currently be "IN_PROGRESS".</p>
-   *             </li>
-   *             <li>
-   *                 <p>The total number of targets associated with a job must not exceed 100.</p>
-   *             </li>
-   *          </ul>
-   */
-  public associateTargetsWithJob(
-    args: AssociateTargetsWithJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AssociateTargetsWithJobCommandOutput>;
-  public associateTargetsWithJob(
-    args: AssociateTargetsWithJobCommandInput,
-    cb: (err: any, data?: AssociateTargetsWithJobCommandOutput) => void
-  ): void;
-  public associateTargetsWithJob(
-    args: AssociateTargetsWithJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssociateTargetsWithJobCommandOutput) => void
-  ): void;
-  public associateTargetsWithJob(
-    args: AssociateTargetsWithJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateTargetsWithJobCommandOutput) => void),
-    cb?: (err: any, data?: AssociateTargetsWithJobCommandOutput) => void
-  ): Promise<AssociateTargetsWithJobCommandOutput> | void {
-    const command = new AssociateTargetsWithJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Cancels a job.</p>
-   */
-  public cancelJob(
-    args: CancelJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CancelJobCommandOutput>;
-  public cancelJob(
-    args: CancelJobCommandInput,
-    cb: (err: any, data?: CancelJobCommandOutput) => void
-  ): void;
-  public cancelJob(
-    args: CancelJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CancelJobCommandOutput) => void
-  ): void;
-  public cancelJob(
-    args: CancelJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelJobCommandOutput) => void),
-    cb?: (err: any, data?: CancelJobCommandOutput) => void
-  ): Promise<CancelJobCommandOutput> | void {
-    const command = new CancelJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Cancels the execution of a job for a given thing.</p>
-   */
-  public cancelJobExecution(
-    args: CancelJobExecutionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CancelJobExecutionCommandOutput>;
-  public cancelJobExecution(
-    args: CancelJobExecutionCommandInput,
-    cb: (err: any, data?: CancelJobExecutionCommandOutput) => void
-  ): void;
-  public cancelJobExecution(
-    args: CancelJobExecutionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CancelJobExecutionCommandOutput) => void
-  ): void;
-  public cancelJobExecution(
-    args: CancelJobExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelJobExecutionCommandOutput) => void),
-    cb?: (err: any, data?: CancelJobExecutionCommandOutput) => void
-  ): Promise<CancelJobExecutionCommandOutput> | void {
-    const command = new CancelJobExecutionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a job.</p>
-   */
-  public createJob(
-    args: CreateJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateJobCommandOutput>;
-  public createJob(
-    args: CreateJobCommandInput,
-    cb: (err: any, data?: CreateJobCommandOutput) => void
-  ): void;
-  public createJob(
-    args: CreateJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateJobCommandOutput) => void
-  ): void;
-  public createJob(
-    args: CreateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateJobCommandOutput) => void),
-    cb?: (err: any, data?: CreateJobCommandOutput) => void
-  ): Promise<CreateJobCommandOutput> | void {
-    const command = new CreateJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a job and its related job executions.</p>
-   *          <p>Deleting a job may take time, depending on the number of job
-   *         executions created for the job and various other factors. While the job
-   *         is being deleted, the status of the job will be shown as
-   *         "DELETION_IN_PROGRESS". Attempting to delete or cancel a job whose status
-   *         is already "DELETION_IN_PROGRESS" will result in an error.</p>
-   *          <p>Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or
-   *         a LimitExceededException will occur.</p>
-   */
-  public deleteJob(
-    args: DeleteJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteJobCommandOutput>;
-  public deleteJob(
-    args: DeleteJobCommandInput,
-    cb: (err: any, data?: DeleteJobCommandOutput) => void
-  ): void;
-  public deleteJob(
-    args: DeleteJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteJobCommandOutput) => void
-  ): void;
-  public deleteJob(
-    args: DeleteJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteJobCommandOutput) => void),
-    cb?: (err: any, data?: DeleteJobCommandOutput) => void
-  ): Promise<DeleteJobCommandOutput> | void {
-    const command = new DeleteJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a job execution.</p>
-   */
-  public deleteJobExecution(
-    args: DeleteJobExecutionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteJobExecutionCommandOutput>;
-  public deleteJobExecution(
-    args: DeleteJobExecutionCommandInput,
-    cb: (err: any, data?: DeleteJobExecutionCommandOutput) => void
-  ): void;
-  public deleteJobExecution(
-    args: DeleteJobExecutionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteJobExecutionCommandOutput) => void
-  ): void;
-  public deleteJobExecution(
-    args: DeleteJobExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteJobExecutionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteJobExecutionCommandOutput) => void
-  ): Promise<DeleteJobExecutionCommandOutput> | void {
-    const command = new DeleteJobExecutionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Describes a job.</p>
-   */
-  public describeJob(
-    args: DescribeJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeJobCommandOutput>;
-  public describeJob(
-    args: DescribeJobCommandInput,
-    cb: (err: any, data?: DescribeJobCommandOutput) => void
-  ): void;
-  public describeJob(
-    args: DescribeJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeJobCommandOutput) => void
-  ): void;
-  public describeJob(
-    args: DescribeJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeJobCommandOutput) => void),
-    cb?: (err: any, data?: DescribeJobCommandOutput) => void
-  ): Promise<DescribeJobCommandOutput> | void {
-    const command = new DescribeJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Describes a job execution.</p>
-   */
-  public describeJobExecution(
-    args: DescribeJobExecutionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeJobExecutionCommandOutput>;
-  public describeJobExecution(
-    args: DescribeJobExecutionCommandInput,
-    cb: (err: any, data?: DescribeJobExecutionCommandOutput) => void
-  ): void;
-  public describeJobExecution(
-    args: DescribeJobExecutionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeJobExecutionCommandOutput) => void
-  ): void;
-  public describeJobExecution(
-    args: DescribeJobExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeJobExecutionCommandOutput) => void),
-    cb?: (err: any, data?: DescribeJobExecutionCommandOutput) => void
-  ): Promise<DescribeJobExecutionCommandOutput> | void {
-    const command = new DescribeJobExecutionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets a job document.</p>
-   */
-  public getJobDocument(
-    args: GetJobDocumentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetJobDocumentCommandOutput>;
-  public getJobDocument(
-    args: GetJobDocumentCommandInput,
-    cb: (err: any, data?: GetJobDocumentCommandOutput) => void
-  ): void;
-  public getJobDocument(
-    args: GetJobDocumentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetJobDocumentCommandOutput) => void
-  ): void;
-  public getJobDocument(
-    args: GetJobDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobDocumentCommandOutput) => void),
-    cb?: (err: any, data?: GetJobDocumentCommandOutput) => void
-  ): Promise<GetJobDocumentCommandOutput> | void {
-    const command = new GetJobDocumentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the job executions for a job.</p>
-   */
-  public listJobExecutionsForJob(
-    args: ListJobExecutionsForJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListJobExecutionsForJobCommandOutput>;
-  public listJobExecutionsForJob(
-    args: ListJobExecutionsForJobCommandInput,
-    cb: (err: any, data?: ListJobExecutionsForJobCommandOutput) => void
-  ): void;
-  public listJobExecutionsForJob(
-    args: ListJobExecutionsForJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListJobExecutionsForJobCommandOutput) => void
-  ): void;
-  public listJobExecutionsForJob(
-    args: ListJobExecutionsForJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobExecutionsForJobCommandOutput) => void),
-    cb?: (err: any, data?: ListJobExecutionsForJobCommandOutput) => void
-  ): Promise<ListJobExecutionsForJobCommandOutput> | void {
-    const command = new ListJobExecutionsForJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the job executions for the specified thing.</p>
-   */
-  public listJobExecutionsForThing(
-    args: ListJobExecutionsForThingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListJobExecutionsForThingCommandOutput>;
-  public listJobExecutionsForThing(
-    args: ListJobExecutionsForThingCommandInput,
-    cb: (err: any, data?: ListJobExecutionsForThingCommandOutput) => void
-  ): void;
-  public listJobExecutionsForThing(
-    args: ListJobExecutionsForThingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListJobExecutionsForThingCommandOutput) => void
-  ): void;
-  public listJobExecutionsForThing(
-    args: ListJobExecutionsForThingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobExecutionsForThingCommandOutput) => void),
-    cb?: (err: any, data?: ListJobExecutionsForThingCommandOutput) => void
-  ): Promise<ListJobExecutionsForThingCommandOutput> | void {
-    const command = new ListJobExecutionsForThingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists jobs.</p>
-   */
-  public listJobs(
-    args: ListJobsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListJobsCommandOutput>;
-  public listJobs(
-    args: ListJobsCommandInput,
-    cb: (err: any, data?: ListJobsCommandOutput) => void
-  ): void;
-  public listJobs(
-    args: ListJobsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListJobsCommandOutput) => void
-  ): void;
-  public listJobs(
-    args: ListJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListJobsCommandOutput) => void
-  ): Promise<ListJobsCommandOutput> | void {
-    const command = new ListJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates supported fields of the specified job.</p>
-   */
-  public updateJob(
-    args: UpdateJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateJobCommandOutput>;
-  public updateJob(
-    args: UpdateJobCommandInput,
-    cb: (err: any, data?: UpdateJobCommandOutput) => void
-  ): void;
-  public updateJob(
-    args: UpdateJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateJobCommandOutput) => void
-  ): void;
-  public updateJob(
-    args: UpdateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateJobCommandOutput) => void),
-    cb?: (err: any, data?: UpdateJobCommandOutput) => void
-  ): Promise<UpdateJobCommandOutput> | void {
-    const command = new UpdateJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates an AWS IoT OTAUpdate on a target group of things or groups.</p>
-   */
-  public createOTAUpdate(
-    args: CreateOTAUpdateCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateOTAUpdateCommandOutput>;
-  public createOTAUpdate(
-    args: CreateOTAUpdateCommandInput,
-    cb: (err: any, data?: CreateOTAUpdateCommandOutput) => void
-  ): void;
-  public createOTAUpdate(
-    args: CreateOTAUpdateCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateOTAUpdateCommandOutput) => void
-  ): void;
-  public createOTAUpdate(
-    args: CreateOTAUpdateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateOTAUpdateCommandOutput) => void),
-    cb?: (err: any, data?: CreateOTAUpdateCommandOutput) => void
-  ): Promise<CreateOTAUpdateCommandOutput> | void {
-    const command = new CreateOTAUpdateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Delete an OTA update.</p>
-   */
-  public deleteOTAUpdate(
-    args: DeleteOTAUpdateCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteOTAUpdateCommandOutput>;
-  public deleteOTAUpdate(
-    args: DeleteOTAUpdateCommandInput,
-    cb: (err: any, data?: DeleteOTAUpdateCommandOutput) => void
-  ): void;
-  public deleteOTAUpdate(
-    args: DeleteOTAUpdateCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteOTAUpdateCommandOutput) => void
-  ): void;
-  public deleteOTAUpdate(
-    args: DeleteOTAUpdateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteOTAUpdateCommandOutput) => void),
-    cb?: (err: any, data?: DeleteOTAUpdateCommandOutput) => void
-  ): Promise<DeleteOTAUpdateCommandOutput> | void {
-    const command = new DeleteOTAUpdateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets an OTA update.</p>
-   */
-  public getOTAUpdate(
-    args: GetOTAUpdateCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetOTAUpdateCommandOutput>;
-  public getOTAUpdate(
-    args: GetOTAUpdateCommandInput,
-    cb: (err: any, data?: GetOTAUpdateCommandOutput) => void
-  ): void;
-  public getOTAUpdate(
-    args: GetOTAUpdateCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetOTAUpdateCommandOutput) => void
-  ): void;
-  public getOTAUpdate(
-    args: GetOTAUpdateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOTAUpdateCommandOutput) => void),
-    cb?: (err: any, data?: GetOTAUpdateCommandOutput) => void
-  ): Promise<GetOTAUpdateCommandOutput> | void {
-    const command = new GetOTAUpdateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists OTA updates.</p>
-   */
-  public listOTAUpdates(
-    args: ListOTAUpdatesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListOTAUpdatesCommandOutput>;
-  public listOTAUpdates(
-    args: ListOTAUpdatesCommandInput,
-    cb: (err: any, data?: ListOTAUpdatesCommandOutput) => void
-  ): void;
-  public listOTAUpdates(
-    args: ListOTAUpdatesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListOTAUpdatesCommandOutput) => void
-  ): void;
-  public listOTAUpdates(
-    args: ListOTAUpdatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListOTAUpdatesCommandOutput) => void),
-    cb?: (err: any, data?: ListOTAUpdatesCommandOutput) => void
-  ): Promise<ListOTAUpdatesCommandOutput> | void {
-    const command = new ListOTAUpdatesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Adds a thing to a billing group.</p>
-   */
-  public addThingToBillingGroup(
-    args: AddThingToBillingGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AddThingToBillingGroupCommandOutput>;
-  public addThingToBillingGroup(
-    args: AddThingToBillingGroupCommandInput,
-    cb: (err: any, data?: AddThingToBillingGroupCommandOutput) => void
-  ): void;
-  public addThingToBillingGroup(
-    args: AddThingToBillingGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AddThingToBillingGroupCommandOutput) => void
-  ): void;
-  public addThingToBillingGroup(
-    args: AddThingToBillingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddThingToBillingGroupCommandOutput) => void),
-    cb?: (err: any, data?: AddThingToBillingGroupCommandOutput) => void
-  ): Promise<AddThingToBillingGroupCommandOutput> | void {
-    const command = new AddThingToBillingGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Adds a thing to a thing group.</p>
-   */
-  public addThingToThingGroup(
-    args: AddThingToThingGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AddThingToThingGroupCommandOutput>;
-  public addThingToThingGroup(
-    args: AddThingToThingGroupCommandInput,
-    cb: (err: any, data?: AddThingToThingGroupCommandOutput) => void
-  ): void;
-  public addThingToThingGroup(
-    args: AddThingToThingGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AddThingToThingGroupCommandOutput) => void
-  ): void;
-  public addThingToThingGroup(
-    args: AddThingToThingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddThingToThingGroupCommandOutput) => void),
-    cb?: (err: any, data?: AddThingToThingGroupCommandOutput) => void
-  ): Promise<AddThingToThingGroupCommandOutput> | void {
-    const command = new AddThingToThingGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Attaches the specified principal to the specified thing. A principal can be X.509
-   * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
-   * 			identities.</p>
-   */
-  public attachThingPrincipal(
-    args: AttachThingPrincipalCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AttachThingPrincipalCommandOutput>;
-  public attachThingPrincipal(
-    args: AttachThingPrincipalCommandInput,
-    cb: (err: any, data?: AttachThingPrincipalCommandOutput) => void
-  ): void;
-  public attachThingPrincipal(
-    args: AttachThingPrincipalCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AttachThingPrincipalCommandOutput) => void
-  ): void;
-  public attachThingPrincipal(
-    args: AttachThingPrincipalCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachThingPrincipalCommandOutput) => void),
-    cb?: (err: any, data?: AttachThingPrincipalCommandOutput) => void
-  ): Promise<AttachThingPrincipalCommandOutput> | void {
-    const command = new AttachThingPrincipalCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a billing group.</p>
-   */
-  public createBillingGroup(
-    args: CreateBillingGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateBillingGroupCommandOutput>;
-  public createBillingGroup(
-    args: CreateBillingGroupCommandInput,
-    cb: (err: any, data?: CreateBillingGroupCommandOutput) => void
-  ): void;
-  public createBillingGroup(
-    args: CreateBillingGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateBillingGroupCommandOutput) => void
-  ): void;
-  public createBillingGroup(
-    args: CreateBillingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBillingGroupCommandOutput) => void),
-    cb?: (err: any, data?: CreateBillingGroupCommandOutput) => void
-  ): Promise<CreateBillingGroupCommandOutput> | void {
-    const command = new CreateBillingGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a dynamic thing group.</p>
-   */
-  public createDynamicThingGroup(
-    args: CreateDynamicThingGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateDynamicThingGroupCommandOutput>;
-  public createDynamicThingGroup(
-    args: CreateDynamicThingGroupCommandInput,
-    cb: (err: any, data?: CreateDynamicThingGroupCommandOutput) => void
-  ): void;
-  public createDynamicThingGroup(
-    args: CreateDynamicThingGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateDynamicThingGroupCommandOutput) => void
-  ): void;
-  public createDynamicThingGroup(
-    args: CreateDynamicThingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDynamicThingGroupCommandOutput) => void),
-    cb?: (err: any, data?: CreateDynamicThingGroupCommandOutput) => void
-  ): Promise<CreateDynamicThingGroupCommandOutput> | void {
-    const command = new CreateDynamicThingGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a thing record in the registry. If this call is made multiple times using
-   * 			the same thing name and configuration, the call will succeed. If this call is made with
-   * 			the same thing name but different configuration a
-   * 				<code>ResourceAlreadyExistsException</code> is thrown.</p>
-   * 		       <note>
-   * 			         <p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a> for
-   * 				information about authorizing control plane actions.</p>
-   * 		       </note>
-   */
-  public createThing(
-    args: CreateThingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateThingCommandOutput>;
-  public createThing(
-    args: CreateThingCommandInput,
-    cb: (err: any, data?: CreateThingCommandOutput) => void
-  ): void;
-  public createThing(
-    args: CreateThingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateThingCommandOutput) => void
-  ): void;
-  public createThing(
-    args: CreateThingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateThingCommandOutput) => void),
-    cb?: (err: any, data?: CreateThingCommandOutput) => void
-  ): Promise<CreateThingCommandOutput> | void {
-    const command = new CreateThingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Create a thing group.</p>
-   * 		       <note>
-   * 			         <p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a> for
-   * 				information about authorizing control plane actions.</p>
-   * 		       </note>
-   */
-  public createThingGroup(
-    args: CreateThingGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateThingGroupCommandOutput>;
-  public createThingGroup(
-    args: CreateThingGroupCommandInput,
-    cb: (err: any, data?: CreateThingGroupCommandOutput) => void
-  ): void;
-  public createThingGroup(
-    args: CreateThingGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateThingGroupCommandOutput) => void
-  ): void;
-  public createThingGroup(
-    args: CreateThingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateThingGroupCommandOutput) => void),
-    cb?: (err: any, data?: CreateThingGroupCommandOutput) => void
-  ): Promise<CreateThingGroupCommandOutput> | void {
-    const command = new CreateThingGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a new thing type.</p>
-   */
-  public createThingType(
-    args: CreateThingTypeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateThingTypeCommandOutput>;
-  public createThingType(
-    args: CreateThingTypeCommandInput,
-    cb: (err: any, data?: CreateThingTypeCommandOutput) => void
-  ): void;
-  public createThingType(
-    args: CreateThingTypeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateThingTypeCommandOutput) => void
-  ): void;
-  public createThingType(
-    args: CreateThingTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateThingTypeCommandOutput) => void),
-    cb?: (err: any, data?: CreateThingTypeCommandOutput) => void
-  ): Promise<CreateThingTypeCommandOutput> | void {
-    const command = new CreateThingTypeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes the billing group.</p>
-   */
-  public deleteBillingGroup(
-    args: DeleteBillingGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteBillingGroupCommandOutput>;
-  public deleteBillingGroup(
-    args: DeleteBillingGroupCommandInput,
-    cb: (err: any, data?: DeleteBillingGroupCommandOutput) => void
-  ): void;
-  public deleteBillingGroup(
-    args: DeleteBillingGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteBillingGroupCommandOutput) => void
-  ): void;
-  public deleteBillingGroup(
-    args: DeleteBillingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBillingGroupCommandOutput) => void),
-    cb?: (err: any, data?: DeleteBillingGroupCommandOutput) => void
-  ): Promise<DeleteBillingGroupCommandOutput> | void {
-    const command = new DeleteBillingGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a dynamic thing group.</p>
-   */
-  public deleteDynamicThingGroup(
-    args: DeleteDynamicThingGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteDynamicThingGroupCommandOutput>;
-  public deleteDynamicThingGroup(
-    args: DeleteDynamicThingGroupCommandInput,
-    cb: (err: any, data?: DeleteDynamicThingGroupCommandOutput) => void
-  ): void;
-  public deleteDynamicThingGroup(
-    args: DeleteDynamicThingGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDynamicThingGroupCommandOutput) => void
-  ): void;
-  public deleteDynamicThingGroup(
-    args: DeleteDynamicThingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDynamicThingGroupCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDynamicThingGroupCommandOutput) => void
-  ): Promise<DeleteDynamicThingGroupCommandOutput> | void {
-    const command = new DeleteDynamicThingGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes the specified thing. Returns successfully with no error if the deletion is
-   * 			successful or you specify a thing that doesn't exist.</p>
-   */
-  public deleteThing(
-    args: DeleteThingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteThingCommandOutput>;
-  public deleteThing(
-    args: DeleteThingCommandInput,
-    cb: (err: any, data?: DeleteThingCommandOutput) => void
-  ): void;
-  public deleteThing(
-    args: DeleteThingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteThingCommandOutput) => void
-  ): void;
-  public deleteThing(
-    args: DeleteThingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteThingCommandOutput) => void),
-    cb?: (err: any, data?: DeleteThingCommandOutput) => void
-  ): Promise<DeleteThingCommandOutput> | void {
-    const command = new DeleteThingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a thing group.</p>
-   */
-  public deleteThingGroup(
-    args: DeleteThingGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteThingGroupCommandOutput>;
-  public deleteThingGroup(
-    args: DeleteThingGroupCommandInput,
-    cb: (err: any, data?: DeleteThingGroupCommandOutput) => void
-  ): void;
-  public deleteThingGroup(
-    args: DeleteThingGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteThingGroupCommandOutput) => void
-  ): void;
-  public deleteThingGroup(
-    args: DeleteThingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteThingGroupCommandOutput) => void),
-    cb?: (err: any, data?: DeleteThingGroupCommandOutput) => void
-  ): Promise<DeleteThingGroupCommandOutput> | void {
-    const command = new DeleteThingGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes the specified thing type. You cannot delete a thing type if it has things
-   * 			associated with it. To delete a thing type, first mark it as deprecated by calling <a>DeprecateThingType</a>, then remove any associated things by calling <a>UpdateThing</a> to change the thing type on any associated thing, and
-   * 			finally use <a>DeleteThingType</a> to delete the thing type.</p>
-   */
-  public deleteThingType(
-    args: DeleteThingTypeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteThingTypeCommandOutput>;
-  public deleteThingType(
-    args: DeleteThingTypeCommandInput,
-    cb: (err: any, data?: DeleteThingTypeCommandOutput) => void
-  ): void;
-  public deleteThingType(
-    args: DeleteThingTypeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteThingTypeCommandOutput) => void
-  ): void;
-  public deleteThingType(
-    args: DeleteThingTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteThingTypeCommandOutput) => void),
-    cb?: (err: any, data?: DeleteThingTypeCommandOutput) => void
-  ): Promise<DeleteThingTypeCommandOutput> | void {
-    const command = new DeleteThingTypeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deprecates a thing type. You can not associate new things with deprecated thing
-   * 			type.</p>
-   */
-  public deprecateThingType(
-    args: DeprecateThingTypeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeprecateThingTypeCommandOutput>;
-  public deprecateThingType(
-    args: DeprecateThingTypeCommandInput,
-    cb: (err: any, data?: DeprecateThingTypeCommandOutput) => void
-  ): void;
-  public deprecateThingType(
-    args: DeprecateThingTypeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeprecateThingTypeCommandOutput) => void
-  ): void;
-  public deprecateThingType(
-    args: DeprecateThingTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeprecateThingTypeCommandOutput) => void),
-    cb?: (err: any, data?: DeprecateThingTypeCommandOutput) => void
-  ): Promise<DeprecateThingTypeCommandOutput> | void {
-    const command = new DeprecateThingTypeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns information about a billing group.</p>
-   */
-  public describeBillingGroup(
-    args: DescribeBillingGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeBillingGroupCommandOutput>;
-  public describeBillingGroup(
-    args: DescribeBillingGroupCommandInput,
-    cb: (err: any, data?: DescribeBillingGroupCommandOutput) => void
-  ): void;
-  public describeBillingGroup(
-    args: DescribeBillingGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeBillingGroupCommandOutput) => void
-  ): void;
-  public describeBillingGroup(
-    args: DescribeBillingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBillingGroupCommandOutput) => void),
-    cb?: (err: any, data?: DescribeBillingGroupCommandOutput) => void
-  ): Promise<DescribeBillingGroupCommandOutput> | void {
-    const command = new DescribeBillingGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Describes event configurations.</p>
-   */
-  public describeEventConfigurations(
-    args: DescribeEventConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeEventConfigurationsCommandOutput>;
-  public describeEventConfigurations(
-    args: DescribeEventConfigurationsCommandInput,
-    cb: (err: any, data?: DescribeEventConfigurationsCommandOutput) => void
-  ): void;
-  public describeEventConfigurations(
-    args: DescribeEventConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeEventConfigurationsCommandOutput) => void
-  ): void;
-  public describeEventConfigurations(
-    args: DescribeEventConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventConfigurationsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeEventConfigurationsCommandOutput) => void
-  ): Promise<DescribeEventConfigurationsCommandOutput> | void {
-    const command = new DescribeEventConfigurationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets information about the specified thing.</p>
-   */
-  public describeThing(
-    args: DescribeThingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeThingCommandOutput>;
-  public describeThing(
-    args: DescribeThingCommandInput,
-    cb: (err: any, data?: DescribeThingCommandOutput) => void
-  ): void;
-  public describeThing(
-    args: DescribeThingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeThingCommandOutput) => void
-  ): void;
-  public describeThing(
-    args: DescribeThingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeThingCommandOutput) => void),
-    cb?: (err: any, data?: DescribeThingCommandOutput) => void
-  ): Promise<DescribeThingCommandOutput> | void {
-    const command = new DescribeThingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Describe a thing group.</p>
-   */
-  public describeThingGroup(
-    args: DescribeThingGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeThingGroupCommandOutput>;
-  public describeThingGroup(
-    args: DescribeThingGroupCommandInput,
-    cb: (err: any, data?: DescribeThingGroupCommandOutput) => void
-  ): void;
-  public describeThingGroup(
-    args: DescribeThingGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeThingGroupCommandOutput) => void
-  ): void;
-  public describeThingGroup(
-    args: DescribeThingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeThingGroupCommandOutput) => void),
-    cb?: (err: any, data?: DescribeThingGroupCommandOutput) => void
-  ): Promise<DescribeThingGroupCommandOutput> | void {
-    const command = new DescribeThingGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Describes a bulk thing provisioning task.</p>
-   */
-  public describeThingRegistrationTask(
-    args: DescribeThingRegistrationTaskCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeThingRegistrationTaskCommandOutput>;
-  public describeThingRegistrationTask(
-    args: DescribeThingRegistrationTaskCommandInput,
-    cb: (err: any, data?: DescribeThingRegistrationTaskCommandOutput) => void
-  ): void;
-  public describeThingRegistrationTask(
-    args: DescribeThingRegistrationTaskCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeThingRegistrationTaskCommandOutput) => void
-  ): void;
-  public describeThingRegistrationTask(
-    args: DescribeThingRegistrationTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeThingRegistrationTaskCommandOutput) => void),
-    cb?: (err: any, data?: DescribeThingRegistrationTaskCommandOutput) => void
-  ): Promise<DescribeThingRegistrationTaskCommandOutput> | void {
-    const command = new DescribeThingRegistrationTaskCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets information about the specified thing type.</p>
-   */
-  public describeThingType(
-    args: DescribeThingTypeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeThingTypeCommandOutput>;
-  public describeThingType(
-    args: DescribeThingTypeCommandInput,
-    cb: (err: any, data?: DescribeThingTypeCommandOutput) => void
-  ): void;
-  public describeThingType(
-    args: DescribeThingTypeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeThingTypeCommandOutput) => void
-  ): void;
-  public describeThingType(
-    args: DescribeThingTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeThingTypeCommandOutput) => void),
-    cb?: (err: any, data?: DescribeThingTypeCommandOutput) => void
-  ): Promise<DescribeThingTypeCommandOutput> | void {
-    const command = new DescribeThingTypeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Detaches the specified principal from the specified thing. A principal can be X.509
-   * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
-   * 			identities.</p>
-   * 		       <note>
-   * 			         <p>This call is asynchronous. It might take several seconds for the detachment to
-   * 				propagate.</p>
-   * 		       </note>
-   */
-  public detachThingPrincipal(
-    args: DetachThingPrincipalCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DetachThingPrincipalCommandOutput>;
-  public detachThingPrincipal(
-    args: DetachThingPrincipalCommandInput,
-    cb: (err: any, data?: DetachThingPrincipalCommandOutput) => void
-  ): void;
-  public detachThingPrincipal(
-    args: DetachThingPrincipalCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DetachThingPrincipalCommandOutput) => void
-  ): void;
-  public detachThingPrincipal(
-    args: DetachThingPrincipalCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachThingPrincipalCommandOutput) => void),
-    cb?: (err: any, data?: DetachThingPrincipalCommandOutput) => void
-  ): Promise<DetachThingPrincipalCommandOutput> | void {
-    const command = new DetachThingPrincipalCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the billing groups you have created.</p>
-   */
-  public listBillingGroups(
-    args: ListBillingGroupsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListBillingGroupsCommandOutput>;
-  public listBillingGroups(
-    args: ListBillingGroupsCommandInput,
-    cb: (err: any, data?: ListBillingGroupsCommandOutput) => void
-  ): void;
-  public listBillingGroups(
-    args: ListBillingGroupsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListBillingGroupsCommandOutput) => void
-  ): void;
-  public listBillingGroups(
-    args: ListBillingGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBillingGroupsCommandOutput) => void),
-    cb?: (err: any, data?: ListBillingGroupsCommandOutput) => void
-  ): Promise<ListBillingGroupsCommandOutput> | void {
-    const command = new ListBillingGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the things associated with the specified principal. A principal can be X.509
-   * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
-   * 			identities. </p>
-   */
-  public listPrincipalThings(
-    args: ListPrincipalThingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListPrincipalThingsCommandOutput>;
-  public listPrincipalThings(
-    args: ListPrincipalThingsCommandInput,
-    cb: (err: any, data?: ListPrincipalThingsCommandOutput) => void
-  ): void;
-  public listPrincipalThings(
-    args: ListPrincipalThingsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListPrincipalThingsCommandOutput) => void
-  ): void;
-  public listPrincipalThings(
-    args: ListPrincipalThingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPrincipalThingsCommandOutput) => void),
-    cb?: (err: any, data?: ListPrincipalThingsCommandOutput) => void
-  ): Promise<ListPrincipalThingsCommandOutput> | void {
-    const command = new ListPrincipalThingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the tags (metadata) you have assigned to the resource.</p>
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
+      | ((err: any, data?: ListTargetsForSecurityProfileCommandOutput) => void),
+    cb?: (err: any, data?: ListTargetsForSecurityProfileCommandOutput) => void
+  ): Promise<ListTargetsForSecurityProfileCommandOutput> | void {
+    const command = new ListTargetsForSecurityProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -6313,41 +6539,6 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Lists the existing thing types.</p>
-   */
-  public listThingTypes(
-    args: ListThingTypesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListThingTypesCommandOutput>;
-  public listThingTypes(
-    args: ListThingTypesCommandInput,
-    cb: (err: any, data?: ListThingTypesCommandOutput) => void
-  ): void;
-  public listThingTypes(
-    args: ListThingTypesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListThingTypesCommandOutput) => void
-  ): void;
-  public listThingTypes(
-    args: ListThingTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListThingTypesCommandOutput) => void),
-    cb?: (err: any, data?: ListThingTypesCommandOutput) => void
-  ): Promise<ListThingTypesCommandOutput> | void {
-    const command = new ListThingTypesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Lists your things. Use the <b>attributeName</b> and
    * 				<b>attributeValue</b> parameters to filter your things.
    * 			For example, calling <code>ListThings</code> with attributeName=Color and
@@ -6457,6 +6648,339 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Lists the existing thing types.</p>
+   */
+  public listThingTypes(
+    args: ListThingTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListThingTypesCommandOutput>;
+  public listThingTypes(
+    args: ListThingTypesCommandInput,
+    cb: (err: any, data?: ListThingTypesCommandOutput) => void
+  ): void;
+  public listThingTypes(
+    args: ListThingTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListThingTypesCommandOutput) => void
+  ): void;
+  public listThingTypes(
+    args: ListThingTypesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListThingTypesCommandOutput) => void),
+    cb?: (err: any, data?: ListThingTypesCommandOutput) => void
+  ): Promise<ListThingTypesCommandOutput> | void {
+    const command = new ListThingTypesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all the topic rule destinations in your AWS account.</p>
+   */
+  public listTopicRuleDestinations(
+    args: ListTopicRuleDestinationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTopicRuleDestinationsCommandOutput>;
+  public listTopicRuleDestinations(
+    args: ListTopicRuleDestinationsCommandInput,
+    cb: (err: any, data?: ListTopicRuleDestinationsCommandOutput) => void
+  ): void;
+  public listTopicRuleDestinations(
+    args: ListTopicRuleDestinationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTopicRuleDestinationsCommandOutput) => void
+  ): void;
+  public listTopicRuleDestinations(
+    args: ListTopicRuleDestinationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTopicRuleDestinationsCommandOutput) => void),
+    cb?: (err: any, data?: ListTopicRuleDestinationsCommandOutput) => void
+  ): Promise<ListTopicRuleDestinationsCommandOutput> | void {
+    const command = new ListTopicRuleDestinationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the rules for the specific topic.</p>
+   */
+  public listTopicRules(
+    args: ListTopicRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTopicRulesCommandOutput>;
+  public listTopicRules(
+    args: ListTopicRulesCommandInput,
+    cb: (err: any, data?: ListTopicRulesCommandOutput) => void
+  ): void;
+  public listTopicRules(
+    args: ListTopicRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTopicRulesCommandOutput) => void
+  ): void;
+  public listTopicRules(
+    args: ListTopicRulesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTopicRulesCommandOutput) => void),
+    cb?: (err: any, data?: ListTopicRulesCommandOutput) => void
+  ): Promise<ListTopicRulesCommandOutput> | void {
+    const command = new ListTopicRulesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists logging levels.</p>
+   */
+  public listV2LoggingLevels(
+    args: ListV2LoggingLevelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListV2LoggingLevelsCommandOutput>;
+  public listV2LoggingLevels(
+    args: ListV2LoggingLevelsCommandInput,
+    cb: (err: any, data?: ListV2LoggingLevelsCommandOutput) => void
+  ): void;
+  public listV2LoggingLevels(
+    args: ListV2LoggingLevelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListV2LoggingLevelsCommandOutput) => void
+  ): void;
+  public listV2LoggingLevels(
+    args: ListV2LoggingLevelsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListV2LoggingLevelsCommandOutput) => void),
+    cb?: (err: any, data?: ListV2LoggingLevelsCommandOutput) => void
+  ): Promise<ListV2LoggingLevelsCommandOutput> | void {
+    const command = new ListV2LoggingLevelsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the Device Defender security profile violations discovered during the given time period.
+   *       You can use filters to limit the results to those alerts issued for a particular security profile,
+   *       behavior, or thing (device).</p>
+   */
+  public listViolationEvents(
+    args: ListViolationEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListViolationEventsCommandOutput>;
+  public listViolationEvents(
+    args: ListViolationEventsCommandInput,
+    cb: (err: any, data?: ListViolationEventsCommandOutput) => void
+  ): void;
+  public listViolationEvents(
+    args: ListViolationEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListViolationEventsCommandOutput) => void
+  ): void;
+  public listViolationEvents(
+    args: ListViolationEventsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListViolationEventsCommandOutput) => void),
+    cb?: (err: any, data?: ListViolationEventsCommandOutput) => void
+  ): Promise<ListViolationEventsCommandOutput> | void {
+    const command = new ListViolationEventsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Registers a CA certificate with AWS IoT. This CA certificate can then be used to sign
+   *          device certificates, which can be then registered with AWS IoT. You can register up to 10
+   *          CA certificates per AWS account that have the same subject field. This enables you to have
+   *          up to 10 certificate authorities sign your device certificates. If you have more than one
+   *          CA certificate registered, make sure you pass the CA certificate when you register your
+   *          device certificates with the RegisterCertificate API.</p>
+   */
+  public registerCACertificate(
+    args: RegisterCACertificateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterCACertificateCommandOutput>;
+  public registerCACertificate(
+    args: RegisterCACertificateCommandInput,
+    cb: (err: any, data?: RegisterCACertificateCommandOutput) => void
+  ): void;
+  public registerCACertificate(
+    args: RegisterCACertificateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterCACertificateCommandOutput) => void
+  ): void;
+  public registerCACertificate(
+    args: RegisterCACertificateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RegisterCACertificateCommandOutput) => void),
+    cb?: (err: any, data?: RegisterCACertificateCommandOutput) => void
+  ): Promise<RegisterCACertificateCommandOutput> | void {
+    const command = new RegisterCACertificateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Registers a device certificate with AWS IoT. If you have more than one CA certificate
+   *          that has the same subject field, you must specify the CA certificate that was used to sign
+   *          the device certificate being registered.</p>
+   */
+  public registerCertificate(
+    args: RegisterCertificateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterCertificateCommandOutput>;
+  public registerCertificate(
+    args: RegisterCertificateCommandInput,
+    cb: (err: any, data?: RegisterCertificateCommandOutput) => void
+  ): void;
+  public registerCertificate(
+    args: RegisterCertificateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterCertificateCommandOutput) => void
+  ): void;
+  public registerCertificate(
+    args: RegisterCertificateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RegisterCertificateCommandOutput) => void),
+    cb?: (err: any, data?: RegisterCertificateCommandOutput) => void
+  ): Promise<RegisterCertificateCommandOutput> | void {
+    const command = new RegisterCertificateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provisions a thing in the device registry. RegisterThing calls other AWS IoT control
+   *          plane APIs. These calls might exceed your account level <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot">
+   *             AWS IoT Throttling Limits</a> and cause throttle errors. Please contact <a href="https://console.aws.amazon.com/support/home">AWS Customer Support</a> to raise
+   *          your throttling limits if necessary.</p>
+   */
+  public registerThing(
+    args: RegisterThingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterThingCommandOutput>;
+  public registerThing(
+    args: RegisterThingCommandInput,
+    cb: (err: any, data?: RegisterThingCommandOutput) => void
+  ): void;
+  public registerThing(
+    args: RegisterThingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterThingCommandOutput) => void
+  ): void;
+  public registerThing(
+    args: RegisterThingCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RegisterThingCommandOutput) => void),
+    cb?: (err: any, data?: RegisterThingCommandOutput) => void
+  ): Promise<RegisterThingCommandOutput> | void {
+    const command = new RegisterThingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Rejects a pending certificate transfer. After AWS IoT rejects a certificate transfer,
+   *          the certificate status changes from <b>PENDING_TRANSFER</b> to
+   *             <b>INACTIVE</b>.</p>
+   *          <p>To check for pending certificate transfers, call <a>ListCertificates</a>
+   *          to enumerate your certificates.</p>
+   *          <p>This operation can only be called by the transfer destination. After it is called,
+   *          the certificate will be returned to the source's account in the INACTIVE state.</p>
+   */
+  public rejectCertificateTransfer(
+    args: RejectCertificateTransferCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RejectCertificateTransferCommandOutput>;
+  public rejectCertificateTransfer(
+    args: RejectCertificateTransferCommandInput,
+    cb: (err: any, data?: RejectCertificateTransferCommandOutput) => void
+  ): void;
+  public rejectCertificateTransfer(
+    args: RejectCertificateTransferCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RejectCertificateTransferCommandOutput) => void
+  ): void;
+  public rejectCertificateTransfer(
+    args: RejectCertificateTransferCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RejectCertificateTransferCommandOutput) => void),
+    cb?: (err: any, data?: RejectCertificateTransferCommandOutput) => void
+  ): Promise<RejectCertificateTransferCommandOutput> | void {
+    const command = new RejectCertificateTransferCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Removes the given thing from the billing group.</p>
    */
   public removeThingFromBillingGroup(
@@ -6515,6 +7039,332 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: RemoveThingFromThingGroupCommandOutput) => void
   ): Promise<RemoveThingFromThingGroupCommandOutput> | void {
     const command = new RemoveThingFromThingGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Replaces the rule. You must specify all parameters for the new rule. Creating rules
+   *          is an administrator-level action. Any user who has permission to create rules will be able
+   *          to access data processed by the rule.</p>
+   */
+  public replaceTopicRule(
+    args: ReplaceTopicRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReplaceTopicRuleCommandOutput>;
+  public replaceTopicRule(
+    args: ReplaceTopicRuleCommandInput,
+    cb: (err: any, data?: ReplaceTopicRuleCommandOutput) => void
+  ): void;
+  public replaceTopicRule(
+    args: ReplaceTopicRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ReplaceTopicRuleCommandOutput) => void
+  ): void;
+  public replaceTopicRule(
+    args: ReplaceTopicRuleCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ReplaceTopicRuleCommandOutput) => void),
+    cb?: (err: any, data?: ReplaceTopicRuleCommandOutput) => void
+  ): Promise<ReplaceTopicRuleCommandOutput> | void {
+    const command = new ReplaceTopicRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>The query search index.</p>
+   */
+  public searchIndex(
+    args: SearchIndexCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchIndexCommandOutput>;
+  public searchIndex(
+    args: SearchIndexCommandInput,
+    cb: (err: any, data?: SearchIndexCommandOutput) => void
+  ): void;
+  public searchIndex(
+    args: SearchIndexCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchIndexCommandOutput) => void
+  ): void;
+  public searchIndex(
+    args: SearchIndexCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SearchIndexCommandOutput) => void),
+    cb?: (err: any, data?: SearchIndexCommandOutput) => void
+  ): Promise<SearchIndexCommandOutput> | void {
+    const command = new SearchIndexCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Sets the default authorizer. This will be used if a websocket connection is made
+   *          without specifying an authorizer.</p>
+   */
+  public setDefaultAuthorizer(
+    args: SetDefaultAuthorizerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetDefaultAuthorizerCommandOutput>;
+  public setDefaultAuthorizer(
+    args: SetDefaultAuthorizerCommandInput,
+    cb: (err: any, data?: SetDefaultAuthorizerCommandOutput) => void
+  ): void;
+  public setDefaultAuthorizer(
+    args: SetDefaultAuthorizerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetDefaultAuthorizerCommandOutput) => void
+  ): void;
+  public setDefaultAuthorizer(
+    args: SetDefaultAuthorizerCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SetDefaultAuthorizerCommandOutput) => void),
+    cb?: (err: any, data?: SetDefaultAuthorizerCommandOutput) => void
+  ): Promise<SetDefaultAuthorizerCommandOutput> | void {
+    const command = new SetDefaultAuthorizerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Sets the specified version of the specified policy as the policy's default
+   *          (operative) version. This action affects all certificates to which the policy is attached.
+   *          To list the principals the policy is attached to, use the ListPrincipalPolicy
+   *          API.</p>
+   */
+  public setDefaultPolicyVersion(
+    args: SetDefaultPolicyVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetDefaultPolicyVersionCommandOutput>;
+  public setDefaultPolicyVersion(
+    args: SetDefaultPolicyVersionCommandInput,
+    cb: (err: any, data?: SetDefaultPolicyVersionCommandOutput) => void
+  ): void;
+  public setDefaultPolicyVersion(
+    args: SetDefaultPolicyVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetDefaultPolicyVersionCommandOutput) => void
+  ): void;
+  public setDefaultPolicyVersion(
+    args: SetDefaultPolicyVersionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SetDefaultPolicyVersionCommandOutput) => void),
+    cb?: (err: any, data?: SetDefaultPolicyVersionCommandOutput) => void
+  ): Promise<SetDefaultPolicyVersionCommandOutput> | void {
+    const command = new SetDefaultPolicyVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Sets the logging options.</p>
+   *          <p>NOTE: use of this command is not recommended. Use <code>SetV2LoggingOptions</code>
+   *          instead.</p>
+   */
+  public setLoggingOptions(
+    args: SetLoggingOptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetLoggingOptionsCommandOutput>;
+  public setLoggingOptions(
+    args: SetLoggingOptionsCommandInput,
+    cb: (err: any, data?: SetLoggingOptionsCommandOutput) => void
+  ): void;
+  public setLoggingOptions(
+    args: SetLoggingOptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetLoggingOptionsCommandOutput) => void
+  ): void;
+  public setLoggingOptions(
+    args: SetLoggingOptionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SetLoggingOptionsCommandOutput) => void),
+    cb?: (err: any, data?: SetLoggingOptionsCommandOutput) => void
+  ): Promise<SetLoggingOptionsCommandOutput> | void {
+    const command = new SetLoggingOptionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Sets the logging level.</p>
+   */
+  public setV2LoggingLevel(
+    args: SetV2LoggingLevelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetV2LoggingLevelCommandOutput>;
+  public setV2LoggingLevel(
+    args: SetV2LoggingLevelCommandInput,
+    cb: (err: any, data?: SetV2LoggingLevelCommandOutput) => void
+  ): void;
+  public setV2LoggingLevel(
+    args: SetV2LoggingLevelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetV2LoggingLevelCommandOutput) => void
+  ): void;
+  public setV2LoggingLevel(
+    args: SetV2LoggingLevelCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SetV2LoggingLevelCommandOutput) => void),
+    cb?: (err: any, data?: SetV2LoggingLevelCommandOutput) => void
+  ): Promise<SetV2LoggingLevelCommandOutput> | void {
+    const command = new SetV2LoggingLevelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Sets the logging options for the V2 logging service.</p>
+   */
+  public setV2LoggingOptions(
+    args: SetV2LoggingOptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetV2LoggingOptionsCommandOutput>;
+  public setV2LoggingOptions(
+    args: SetV2LoggingOptionsCommandInput,
+    cb: (err: any, data?: SetV2LoggingOptionsCommandOutput) => void
+  ): void;
+  public setV2LoggingOptions(
+    args: SetV2LoggingOptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetV2LoggingOptionsCommandOutput) => void
+  ): void;
+  public setV2LoggingOptions(
+    args: SetV2LoggingOptionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SetV2LoggingOptionsCommandOutput) => void),
+    cb?: (err: any, data?: SetV2LoggingOptionsCommandOutput) => void
+  ): Promise<SetV2LoggingOptionsCommandOutput> | void {
+    const command = new SetV2LoggingOptionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts a task that applies a set of mitigation actions to the specified target.</p>
+   */
+  public startAuditMitigationActionsTask(
+    args: StartAuditMitigationActionsTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAuditMitigationActionsTaskCommandOutput>;
+  public startAuditMitigationActionsTask(
+    args: StartAuditMitigationActionsTaskCommandInput,
+    cb: (err: any, data?: StartAuditMitigationActionsTaskCommandOutput) => void
+  ): void;
+  public startAuditMitigationActionsTask(
+    args: StartAuditMitigationActionsTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAuditMitigationActionsTaskCommandOutput) => void
+  ): void;
+  public startAuditMitigationActionsTask(
+    args: StartAuditMitigationActionsTaskCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: StartAuditMitigationActionsTaskCommandOutput
+        ) => void),
+    cb?: (err: any, data?: StartAuditMitigationActionsTaskCommandOutput) => void
+  ): Promise<StartAuditMitigationActionsTaskCommandOutput> | void {
+    const command = new StartAuditMitigationActionsTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts an on-demand Device Defender audit.</p>
+   */
+  public startOnDemandAuditTask(
+    args: StartOnDemandAuditTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartOnDemandAuditTaskCommandOutput>;
+  public startOnDemandAuditTask(
+    args: StartOnDemandAuditTaskCommandInput,
+    cb: (err: any, data?: StartOnDemandAuditTaskCommandOutput) => void
+  ): void;
+  public startOnDemandAuditTask(
+    args: StartOnDemandAuditTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartOnDemandAuditTaskCommandOutput) => void
+  ): void;
+  public startOnDemandAuditTask(
+    args: StartOnDemandAuditTaskCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartOnDemandAuditTaskCommandOutput) => void),
+    cb?: (err: any, data?: StartOnDemandAuditTaskCommandOutput) => void
+  ): Promise<StartOnDemandAuditTaskCommandOutput> | void {
+    const command = new StartOnDemandAuditTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -6633,6 +7483,122 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Tests if a specified principal is authorized to perform an AWS IoT action on a
+   *          specified resource. Use this to test and debug the authorization behavior of devices that
+   *          connect to the AWS IoT device gateway.</p>
+   */
+  public testAuthorization(
+    args: TestAuthorizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestAuthorizationCommandOutput>;
+  public testAuthorization(
+    args: TestAuthorizationCommandInput,
+    cb: (err: any, data?: TestAuthorizationCommandOutput) => void
+  ): void;
+  public testAuthorization(
+    args: TestAuthorizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestAuthorizationCommandOutput) => void
+  ): void;
+  public testAuthorization(
+    args: TestAuthorizationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TestAuthorizationCommandOutput) => void),
+    cb?: (err: any, data?: TestAuthorizationCommandOutput) => void
+  ): Promise<TestAuthorizationCommandOutput> | void {
+    const command = new TestAuthorizationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Tests a custom authorization behavior by invoking a specified custom authorizer. Use
+   *          this to test and debug the custom authorization behavior of devices that connect to the AWS
+   *          IoT device gateway.</p>
+   */
+  public testInvokeAuthorizer(
+    args: TestInvokeAuthorizerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestInvokeAuthorizerCommandOutput>;
+  public testInvokeAuthorizer(
+    args: TestInvokeAuthorizerCommandInput,
+    cb: (err: any, data?: TestInvokeAuthorizerCommandOutput) => void
+  ): void;
+  public testInvokeAuthorizer(
+    args: TestInvokeAuthorizerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestInvokeAuthorizerCommandOutput) => void
+  ): void;
+  public testInvokeAuthorizer(
+    args: TestInvokeAuthorizerCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TestInvokeAuthorizerCommandOutput) => void),
+    cb?: (err: any, data?: TestInvokeAuthorizerCommandOutput) => void
+  ): Promise<TestInvokeAuthorizerCommandOutput> | void {
+    const command = new TestInvokeAuthorizerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Transfers the specified certificate to the specified AWS account.</p>
+   *          <p>You can cancel the transfer until it is acknowledged by the recipient.</p>
+   *          <p>No notification is sent to the transfer destination's account. It is up to the caller
+   *          to notify the transfer target.</p>
+   *          <p>The certificate being transferred must not be in the ACTIVE state. You can use the
+   *          UpdateCertificate API to deactivate it.</p>
+   *          <p>The certificate must not have any policies attached to it. You can use the
+   *          DetachPrincipalPolicy API to detach them.</p>
+   */
+  public transferCertificate(
+    args: TransferCertificateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TransferCertificateCommandOutput>;
+  public transferCertificate(
+    args: TransferCertificateCommandInput,
+    cb: (err: any, data?: TransferCertificateCommandOutput) => void
+  ): void;
+  public transferCertificate(
+    args: TransferCertificateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TransferCertificateCommandOutput) => void
+  ): void;
+  public transferCertificate(
+    args: TransferCertificateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TransferCertificateCommandOutput) => void),
+    cb?: (err: any, data?: TransferCertificateCommandOutput) => void
+  ): Promise<TransferCertificateCommandOutput> | void {
+    const command = new TransferCertificateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Removes the given tags (metadata) from the resource.</p>
    */
   public untagResource(
@@ -6668,6 +7634,81 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Configures or reconfigures the Device Defender audit settings for this account.
+   *           Settings include how audit notifications are sent and which audit checks are
+   *           enabled or disabled.</p>
+   */
+  public updateAccountAuditConfiguration(
+    args: UpdateAccountAuditConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAccountAuditConfigurationCommandOutput>;
+  public updateAccountAuditConfiguration(
+    args: UpdateAccountAuditConfigurationCommandInput,
+    cb: (err: any, data?: UpdateAccountAuditConfigurationCommandOutput) => void
+  ): void;
+  public updateAccountAuditConfiguration(
+    args: UpdateAccountAuditConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAccountAuditConfigurationCommandOutput) => void
+  ): void;
+  public updateAccountAuditConfiguration(
+    args: UpdateAccountAuditConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: UpdateAccountAuditConfigurationCommandOutput
+        ) => void),
+    cb?: (err: any, data?: UpdateAccountAuditConfigurationCommandOutput) => void
+  ): Promise<UpdateAccountAuditConfigurationCommandOutput> | void {
+    const command = new UpdateAccountAuditConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an authorizer.</p>
+   */
+  public updateAuthorizer(
+    args: UpdateAuthorizerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAuthorizerCommandOutput>;
+  public updateAuthorizer(
+    args: UpdateAuthorizerCommandInput,
+    cb: (err: any, data?: UpdateAuthorizerCommandOutput) => void
+  ): void;
+  public updateAuthorizer(
+    args: UpdateAuthorizerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAuthorizerCommandOutput) => void
+  ): void;
+  public updateAuthorizer(
+    args: UpdateAuthorizerCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateAuthorizerCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAuthorizerCommandOutput) => void
+  ): Promise<UpdateAuthorizerCommandOutput> | void {
+    const command = new UpdateAuthorizerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates information about the billing group.</p>
    */
   public updateBillingGroup(
@@ -6691,6 +7732,119 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: UpdateBillingGroupCommandOutput) => void
   ): Promise<UpdateBillingGroupCommandOutput> | void {
     const command = new UpdateBillingGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a registered CA certificate.</p>
+   */
+  public updateCACertificate(
+    args: UpdateCACertificateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCACertificateCommandOutput>;
+  public updateCACertificate(
+    args: UpdateCACertificateCommandInput,
+    cb: (err: any, data?: UpdateCACertificateCommandOutput) => void
+  ): void;
+  public updateCACertificate(
+    args: UpdateCACertificateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCACertificateCommandOutput) => void
+  ): void;
+  public updateCACertificate(
+    args: UpdateCACertificateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateCACertificateCommandOutput) => void),
+    cb?: (err: any, data?: UpdateCACertificateCommandOutput) => void
+  ): Promise<UpdateCACertificateCommandOutput> | void {
+    const command = new UpdateCACertificateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the status of the specified certificate. This operation is
+   *          idempotent.</p>
+   *          <p>Moving a certificate from the ACTIVE state (including REVOKED) will not disconnect
+   *          currently connected devices, but these devices will be unable to reconnect.</p>
+   *          <p>The ACTIVE state is required to authenticate devices connecting to AWS IoT using a
+   *          certificate.</p>
+   */
+  public updateCertificate(
+    args: UpdateCertificateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCertificateCommandOutput>;
+  public updateCertificate(
+    args: UpdateCertificateCommandInput,
+    cb: (err: any, data?: UpdateCertificateCommandOutput) => void
+  ): void;
+  public updateCertificate(
+    args: UpdateCertificateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCertificateCommandOutput) => void
+  ): void;
+  public updateCertificate(
+    args: UpdateCertificateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateCertificateCommandOutput) => void),
+    cb?: (err: any, data?: UpdateCertificateCommandOutput) => void
+  ): Promise<UpdateCertificateCommandOutput> | void {
+    const command = new UpdateCertificateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates values stored in the domain configuration. Domain configurations for default endpoints can't be updated.</p>
+   *          <note>
+   *             <p>The domain configuration feature is in public preview and is subject to change.</p>
+   *          </note>
+   */
+  public updateDomainConfiguration(
+    args: UpdateDomainConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDomainConfigurationCommandOutput>;
+  public updateDomainConfiguration(
+    args: UpdateDomainConfigurationCommandInput,
+    cb: (err: any, data?: UpdateDomainConfigurationCommandOutput) => void
+  ): void;
+  public updateDomainConfiguration(
+    args: UpdateDomainConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDomainConfigurationCommandOutput) => void
+  ): void;
+  public updateDomainConfiguration(
+    args: UpdateDomainConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateDomainConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDomainConfigurationCommandOutput) => void
+  ): Promise<UpdateDomainConfigurationCommandOutput> | void {
+    const command = new UpdateDomainConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -6761,6 +7915,287 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: UpdateEventConfigurationsCommandOutput) => void
   ): Promise<UpdateEventConfigurationsCommandOutput> | void {
     const command = new UpdateEventConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the search configuration.</p>
+   */
+  public updateIndexingConfiguration(
+    args: UpdateIndexingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateIndexingConfigurationCommandOutput>;
+  public updateIndexingConfiguration(
+    args: UpdateIndexingConfigurationCommandInput,
+    cb: (err: any, data?: UpdateIndexingConfigurationCommandOutput) => void
+  ): void;
+  public updateIndexingConfiguration(
+    args: UpdateIndexingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateIndexingConfigurationCommandOutput) => void
+  ): void;
+  public updateIndexingConfiguration(
+    args: UpdateIndexingConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateIndexingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateIndexingConfigurationCommandOutput) => void
+  ): Promise<UpdateIndexingConfigurationCommandOutput> | void {
+    const command = new UpdateIndexingConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates supported fields of the specified job.</p>
+   */
+  public updateJob(
+    args: UpdateJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateJobCommandOutput>;
+  public updateJob(
+    args: UpdateJobCommandInput,
+    cb: (err: any, data?: UpdateJobCommandOutput) => void
+  ): void;
+  public updateJob(
+    args: UpdateJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateJobCommandOutput) => void
+  ): void;
+  public updateJob(
+    args: UpdateJobCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateJobCommandOutput) => void),
+    cb?: (err: any, data?: UpdateJobCommandOutput) => void
+  ): Promise<UpdateJobCommandOutput> | void {
+    const command = new UpdateJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the definition for the specified mitigation action.</p>
+   */
+  public updateMitigationAction(
+    args: UpdateMitigationActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMitigationActionCommandOutput>;
+  public updateMitigationAction(
+    args: UpdateMitigationActionCommandInput,
+    cb: (err: any, data?: UpdateMitigationActionCommandOutput) => void
+  ): void;
+  public updateMitigationAction(
+    args: UpdateMitigationActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMitigationActionCommandOutput) => void
+  ): void;
+  public updateMitigationAction(
+    args: UpdateMitigationActionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateMitigationActionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateMitigationActionCommandOutput) => void
+  ): Promise<UpdateMitigationActionCommandOutput> | void {
+    const command = new UpdateMitigationActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a fleet provisioning template.</p>
+   */
+  public updateProvisioningTemplate(
+    args: UpdateProvisioningTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProvisioningTemplateCommandOutput>;
+  public updateProvisioningTemplate(
+    args: UpdateProvisioningTemplateCommandInput,
+    cb: (err: any, data?: UpdateProvisioningTemplateCommandOutput) => void
+  ): void;
+  public updateProvisioningTemplate(
+    args: UpdateProvisioningTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProvisioningTemplateCommandOutput) => void
+  ): void;
+  public updateProvisioningTemplate(
+    args: UpdateProvisioningTemplateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateProvisioningTemplateCommandOutput) => void),
+    cb?: (err: any, data?: UpdateProvisioningTemplateCommandOutput) => void
+  ): Promise<UpdateProvisioningTemplateCommandOutput> | void {
+    const command = new UpdateProvisioningTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a role alias.</p>
+   */
+  public updateRoleAlias(
+    args: UpdateRoleAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRoleAliasCommandOutput>;
+  public updateRoleAlias(
+    args: UpdateRoleAliasCommandInput,
+    cb: (err: any, data?: UpdateRoleAliasCommandOutput) => void
+  ): void;
+  public updateRoleAlias(
+    args: UpdateRoleAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRoleAliasCommandOutput) => void
+  ): void;
+  public updateRoleAlias(
+    args: UpdateRoleAliasCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateRoleAliasCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRoleAliasCommandOutput) => void
+  ): Promise<UpdateRoleAliasCommandOutput> | void {
+    const command = new UpdateRoleAliasCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a scheduled audit, including which checks are performed and
+   *           how often the audit takes place.</p>
+   */
+  public updateScheduledAudit(
+    args: UpdateScheduledAuditCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateScheduledAuditCommandOutput>;
+  public updateScheduledAudit(
+    args: UpdateScheduledAuditCommandInput,
+    cb: (err: any, data?: UpdateScheduledAuditCommandOutput) => void
+  ): void;
+  public updateScheduledAudit(
+    args: UpdateScheduledAuditCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateScheduledAuditCommandOutput) => void
+  ): void;
+  public updateScheduledAudit(
+    args: UpdateScheduledAuditCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateScheduledAuditCommandOutput) => void),
+    cb?: (err: any, data?: UpdateScheduledAuditCommandOutput) => void
+  ): Promise<UpdateScheduledAuditCommandOutput> | void {
+    const command = new UpdateScheduledAuditCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a Device Defender security profile.</p>
+   */
+  public updateSecurityProfile(
+    args: UpdateSecurityProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSecurityProfileCommandOutput>;
+  public updateSecurityProfile(
+    args: UpdateSecurityProfileCommandInput,
+    cb: (err: any, data?: UpdateSecurityProfileCommandOutput) => void
+  ): void;
+  public updateSecurityProfile(
+    args: UpdateSecurityProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSecurityProfileCommandOutput) => void
+  ): void;
+  public updateSecurityProfile(
+    args: UpdateSecurityProfileCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateSecurityProfileCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSecurityProfileCommandOutput) => void
+  ): Promise<UpdateSecurityProfileCommandOutput> | void {
+    const command = new UpdateSecurityProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an existing stream. The stream version will be incremented by one.</p>
+   */
+  public updateStream(
+    args: UpdateStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateStreamCommandOutput>;
+  public updateStream(
+    args: UpdateStreamCommandInput,
+    cb: (err: any, data?: UpdateStreamCommandOutput) => void
+  ): void;
+  public updateStream(
+    args: UpdateStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateStreamCommandOutput) => void
+  ): void;
+  public updateStream(
+    args: UpdateStreamCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateStreamCommandOutput) => void),
+    cb?: (err: any, data?: UpdateStreamCommandOutput) => void
+  ): Promise<UpdateStreamCommandOutput> | void {
+    const command = new UpdateStreamCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -6878,1288 +8313,30 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Associates a Device Defender security profile with a thing group or this account. Each
-   *         thing group or account can have up to five security profiles associated with it.</p>
+   * <p>Updates a topic rule destination. You use this to change the status, endpoint URL, or
+   *          confirmation URL of the destination.</p>
    */
-  public attachSecurityProfile(
-    args: AttachSecurityProfileCommandInput,
+  public updateTopicRuleDestination(
+    args: UpdateTopicRuleDestinationCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<AttachSecurityProfileCommandOutput>;
-  public attachSecurityProfile(
-    args: AttachSecurityProfileCommandInput,
-    cb: (err: any, data?: AttachSecurityProfileCommandOutput) => void
+  ): Promise<UpdateTopicRuleDestinationCommandOutput>;
+  public updateTopicRuleDestination(
+    args: UpdateTopicRuleDestinationCommandInput,
+    cb: (err: any, data?: UpdateTopicRuleDestinationCommandOutput) => void
   ): void;
-  public attachSecurityProfile(
-    args: AttachSecurityProfileCommandInput,
+  public updateTopicRuleDestination(
+    args: UpdateTopicRuleDestinationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: AttachSecurityProfileCommandOutput) => void
+    cb: (err: any, data?: UpdateTopicRuleDestinationCommandOutput) => void
   ): void;
-  public attachSecurityProfile(
-    args: AttachSecurityProfileCommandInput,
+  public updateTopicRuleDestination(
+    args: UpdateTopicRuleDestinationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: AttachSecurityProfileCommandOutput) => void),
-    cb?: (err: any, data?: AttachSecurityProfileCommandOutput) => void
-  ): Promise<AttachSecurityProfileCommandOutput> | void {
-    const command = new AttachSecurityProfileCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Cancels a mitigation action task that is in progress. If the task is not in progress, an InvalidRequestException occurs.</p>
-   */
-  public cancelAuditMitigationActionsTask(
-    args: CancelAuditMitigationActionsTaskCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CancelAuditMitigationActionsTaskCommandOutput>;
-  public cancelAuditMitigationActionsTask(
-    args: CancelAuditMitigationActionsTaskCommandInput,
-    cb: (err: any, data?: CancelAuditMitigationActionsTaskCommandOutput) => void
-  ): void;
-  public cancelAuditMitigationActionsTask(
-    args: CancelAuditMitigationActionsTaskCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CancelAuditMitigationActionsTaskCommandOutput) => void
-  ): void;
-  public cancelAuditMitigationActionsTask(
-    args: CancelAuditMitigationActionsTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CancelAuditMitigationActionsTaskCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CancelAuditMitigationActionsTaskCommandOutput
-    ) => void
-  ): Promise<CancelAuditMitigationActionsTaskCommandOutput> | void {
-    const command = new CancelAuditMitigationActionsTaskCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Cancels an audit that is in progress. The audit can be either scheduled or on-demand.
-   *           If the audit is not in progress, an "InvalidRequestException" occurs.</p>
-   */
-  public cancelAuditTask(
-    args: CancelAuditTaskCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CancelAuditTaskCommandOutput>;
-  public cancelAuditTask(
-    args: CancelAuditTaskCommandInput,
-    cb: (err: any, data?: CancelAuditTaskCommandOutput) => void
-  ): void;
-  public cancelAuditTask(
-    args: CancelAuditTaskCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CancelAuditTaskCommandOutput) => void
-  ): void;
-  public cancelAuditTask(
-    args: CancelAuditTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelAuditTaskCommandOutput) => void),
-    cb?: (err: any, data?: CancelAuditTaskCommandOutput) => void
-  ): Promise<CancelAuditTaskCommandOutput> | void {
-    const command = new CancelAuditTaskCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. Each mitigation action can apply only one type of change.</p>
-   */
-  public createMitigationAction(
-    args: CreateMitigationActionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateMitigationActionCommandOutput>;
-  public createMitigationAction(
-    args: CreateMitigationActionCommandInput,
-    cb: (err: any, data?: CreateMitigationActionCommandOutput) => void
-  ): void;
-  public createMitigationAction(
-    args: CreateMitigationActionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateMitigationActionCommandOutput) => void
-  ): void;
-  public createMitigationAction(
-    args: CreateMitigationActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMitigationActionCommandOutput) => void),
-    cb?: (err: any, data?: CreateMitigationActionCommandOutput) => void
-  ): Promise<CreateMitigationActionCommandOutput> | void {
-    const command = new CreateMitigationActionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a scheduled audit that is run at a specified
-   *           time interval.</p>
-   */
-  public createScheduledAudit(
-    args: CreateScheduledAuditCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateScheduledAuditCommandOutput>;
-  public createScheduledAudit(
-    args: CreateScheduledAuditCommandInput,
-    cb: (err: any, data?: CreateScheduledAuditCommandOutput) => void
-  ): void;
-  public createScheduledAudit(
-    args: CreateScheduledAuditCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateScheduledAuditCommandOutput) => void
-  ): void;
-  public createScheduledAudit(
-    args: CreateScheduledAuditCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateScheduledAuditCommandOutput) => void),
-    cb?: (err: any, data?: CreateScheduledAuditCommandOutput) => void
-  ): Promise<CreateScheduledAuditCommandOutput> | void {
-    const command = new CreateScheduledAuditCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a Device Defender security profile.</p>
-   */
-  public createSecurityProfile(
-    args: CreateSecurityProfileCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateSecurityProfileCommandOutput>;
-  public createSecurityProfile(
-    args: CreateSecurityProfileCommandInput,
-    cb: (err: any, data?: CreateSecurityProfileCommandOutput) => void
-  ): void;
-  public createSecurityProfile(
-    args: CreateSecurityProfileCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateSecurityProfileCommandOutput) => void
-  ): void;
-  public createSecurityProfile(
-    args: CreateSecurityProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSecurityProfileCommandOutput) => void),
-    cb?: (err: any, data?: CreateSecurityProfileCommandOutput) => void
-  ): Promise<CreateSecurityProfileCommandOutput> | void {
-    const command = new CreateSecurityProfileCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Restores the default settings for Device Defender audits for this account. Any
-   *           configuration data you entered is deleted and all audit checks are reset to
-   *           disabled.  </p>
-   */
-  public deleteAccountAuditConfiguration(
-    args: DeleteAccountAuditConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteAccountAuditConfigurationCommandOutput>;
-  public deleteAccountAuditConfiguration(
-    args: DeleteAccountAuditConfigurationCommandInput,
-    cb: (err: any, data?: DeleteAccountAuditConfigurationCommandOutput) => void
-  ): void;
-  public deleteAccountAuditConfiguration(
-    args: DeleteAccountAuditConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteAccountAuditConfigurationCommandOutput) => void
-  ): void;
-  public deleteAccountAuditConfiguration(
-    args: DeleteAccountAuditConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteAccountAuditConfigurationCommandOutput
-        ) => void),
-    cb?: (err: any, data?: DeleteAccountAuditConfigurationCommandOutput) => void
-  ): Promise<DeleteAccountAuditConfigurationCommandOutput> | void {
-    const command = new DeleteAccountAuditConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a defined mitigation action from your AWS account.</p>
-   */
-  public deleteMitigationAction(
-    args: DeleteMitigationActionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteMitigationActionCommandOutput>;
-  public deleteMitigationAction(
-    args: DeleteMitigationActionCommandInput,
-    cb: (err: any, data?: DeleteMitigationActionCommandOutput) => void
-  ): void;
-  public deleteMitigationAction(
-    args: DeleteMitigationActionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteMitigationActionCommandOutput) => void
-  ): void;
-  public deleteMitigationAction(
-    args: DeleteMitigationActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMitigationActionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteMitigationActionCommandOutput) => void
-  ): Promise<DeleteMitigationActionCommandOutput> | void {
-    const command = new DeleteMitigationActionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a scheduled audit.</p>
-   */
-  public deleteScheduledAudit(
-    args: DeleteScheduledAuditCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteScheduledAuditCommandOutput>;
-  public deleteScheduledAudit(
-    args: DeleteScheduledAuditCommandInput,
-    cb: (err: any, data?: DeleteScheduledAuditCommandOutput) => void
-  ): void;
-  public deleteScheduledAudit(
-    args: DeleteScheduledAuditCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteScheduledAuditCommandOutput) => void
-  ): void;
-  public deleteScheduledAudit(
-    args: DeleteScheduledAuditCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteScheduledAuditCommandOutput) => void),
-    cb?: (err: any, data?: DeleteScheduledAuditCommandOutput) => void
-  ): Promise<DeleteScheduledAuditCommandOutput> | void {
-    const command = new DeleteScheduledAuditCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a Device Defender security profile.</p>
-   */
-  public deleteSecurityProfile(
-    args: DeleteSecurityProfileCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteSecurityProfileCommandOutput>;
-  public deleteSecurityProfile(
-    args: DeleteSecurityProfileCommandInput,
-    cb: (err: any, data?: DeleteSecurityProfileCommandOutput) => void
-  ): void;
-  public deleteSecurityProfile(
-    args: DeleteSecurityProfileCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteSecurityProfileCommandOutput) => void
-  ): void;
-  public deleteSecurityProfile(
-    args: DeleteSecurityProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSecurityProfileCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSecurityProfileCommandOutput) => void
-  ): Promise<DeleteSecurityProfileCommandOutput> | void {
-    const command = new DeleteSecurityProfileCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets information about the Device Defender audit settings for this account.
-   *           Settings include how audit notifications are sent and which audit checks are
-   *           enabled or disabled.</p>
-   */
-  public describeAccountAuditConfiguration(
-    args: DescribeAccountAuditConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAccountAuditConfigurationCommandOutput>;
-  public describeAccountAuditConfiguration(
-    args: DescribeAccountAuditConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeAccountAuditConfigurationCommandOutput
-    ) => void
-  ): void;
-  public describeAccountAuditConfiguration(
-    args: DescribeAccountAuditConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeAccountAuditConfigurationCommandOutput
-    ) => void
-  ): void;
-  public describeAccountAuditConfiguration(
-    args: DescribeAccountAuditConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeAccountAuditConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeAccountAuditConfigurationCommandOutput
-    ) => void
-  ): Promise<DescribeAccountAuditConfigurationCommandOutput> | void {
-    const command = new DescribeAccountAuditConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets information about a single audit finding. Properties include the reason for noncompliance, the severity of the issue, and when the audit that returned the finding was started.</p>
-   */
-  public describeAuditFinding(
-    args: DescribeAuditFindingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAuditFindingCommandOutput>;
-  public describeAuditFinding(
-    args: DescribeAuditFindingCommandInput,
-    cb: (err: any, data?: DescribeAuditFindingCommandOutput) => void
-  ): void;
-  public describeAuditFinding(
-    args: DescribeAuditFindingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeAuditFindingCommandOutput) => void
-  ): void;
-  public describeAuditFinding(
-    args: DescribeAuditFindingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAuditFindingCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAuditFindingCommandOutput) => void
-  ): Promise<DescribeAuditFindingCommandOutput> | void {
-    const command = new DescribeAuditFindingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets information about an audit mitigation task that is used to apply mitigation actions to a set of audit findings. Properties include the actions being applied, the audit checks to which they're being applied, the task status, and aggregated task statistics.</p>
-   */
-  public describeAuditMitigationActionsTask(
-    args: DescribeAuditMitigationActionsTaskCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAuditMitigationActionsTaskCommandOutput>;
-  public describeAuditMitigationActionsTask(
-    args: DescribeAuditMitigationActionsTaskCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeAuditMitigationActionsTaskCommandOutput
-    ) => void
-  ): void;
-  public describeAuditMitigationActionsTask(
-    args: DescribeAuditMitigationActionsTaskCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeAuditMitigationActionsTaskCommandOutput
-    ) => void
-  ): void;
-  public describeAuditMitigationActionsTask(
-    args: DescribeAuditMitigationActionsTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeAuditMitigationActionsTaskCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeAuditMitigationActionsTaskCommandOutput
-    ) => void
-  ): Promise<DescribeAuditMitigationActionsTaskCommandOutput> | void {
-    const command = new DescribeAuditMitigationActionsTaskCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets information about a Device Defender audit.</p>
-   */
-  public describeAuditTask(
-    args: DescribeAuditTaskCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAuditTaskCommandOutput>;
-  public describeAuditTask(
-    args: DescribeAuditTaskCommandInput,
-    cb: (err: any, data?: DescribeAuditTaskCommandOutput) => void
-  ): void;
-  public describeAuditTask(
-    args: DescribeAuditTaskCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeAuditTaskCommandOutput) => void
-  ): void;
-  public describeAuditTask(
-    args: DescribeAuditTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAuditTaskCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAuditTaskCommandOutput) => void
-  ): Promise<DescribeAuditTaskCommandOutput> | void {
-    const command = new DescribeAuditTaskCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets information about a mitigation action.</p>
-   */
-  public describeMitigationAction(
-    args: DescribeMitigationActionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeMitigationActionCommandOutput>;
-  public describeMitigationAction(
-    args: DescribeMitigationActionCommandInput,
-    cb: (err: any, data?: DescribeMitigationActionCommandOutput) => void
-  ): void;
-  public describeMitigationAction(
-    args: DescribeMitigationActionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeMitigationActionCommandOutput) => void
-  ): void;
-  public describeMitigationAction(
-    args: DescribeMitigationActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMitigationActionCommandOutput) => void),
-    cb?: (err: any, data?: DescribeMitigationActionCommandOutput) => void
-  ): Promise<DescribeMitigationActionCommandOutput> | void {
-    const command = new DescribeMitigationActionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets information about a scheduled audit.</p>
-   */
-  public describeScheduledAudit(
-    args: DescribeScheduledAuditCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeScheduledAuditCommandOutput>;
-  public describeScheduledAudit(
-    args: DescribeScheduledAuditCommandInput,
-    cb: (err: any, data?: DescribeScheduledAuditCommandOutput) => void
-  ): void;
-  public describeScheduledAudit(
-    args: DescribeScheduledAuditCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeScheduledAuditCommandOutput) => void
-  ): void;
-  public describeScheduledAudit(
-    args: DescribeScheduledAuditCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScheduledAuditCommandOutput) => void),
-    cb?: (err: any, data?: DescribeScheduledAuditCommandOutput) => void
-  ): Promise<DescribeScheduledAuditCommandOutput> | void {
-    const command = new DescribeScheduledAuditCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets information about a Device Defender security profile.</p>
-   */
-  public describeSecurityProfile(
-    args: DescribeSecurityProfileCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeSecurityProfileCommandOutput>;
-  public describeSecurityProfile(
-    args: DescribeSecurityProfileCommandInput,
-    cb: (err: any, data?: DescribeSecurityProfileCommandOutput) => void
-  ): void;
-  public describeSecurityProfile(
-    args: DescribeSecurityProfileCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeSecurityProfileCommandOutput) => void
-  ): void;
-  public describeSecurityProfile(
-    args: DescribeSecurityProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSecurityProfileCommandOutput) => void),
-    cb?: (err: any, data?: DescribeSecurityProfileCommandOutput) => void
-  ): Promise<DescribeSecurityProfileCommandOutput> | void {
-    const command = new DescribeSecurityProfileCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Disassociates a Device Defender security profile from a thing group or from this account.</p>
-   */
-  public detachSecurityProfile(
-    args: DetachSecurityProfileCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DetachSecurityProfileCommandOutput>;
-  public detachSecurityProfile(
-    args: DetachSecurityProfileCommandInput,
-    cb: (err: any, data?: DetachSecurityProfileCommandOutput) => void
-  ): void;
-  public detachSecurityProfile(
-    args: DetachSecurityProfileCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DetachSecurityProfileCommandOutput) => void
-  ): void;
-  public detachSecurityProfile(
-    args: DetachSecurityProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachSecurityProfileCommandOutput) => void),
-    cb?: (err: any, data?: DetachSecurityProfileCommandOutput) => void
-  ): Promise<DetachSecurityProfileCommandOutput> | void {
-    const command = new DetachSecurityProfileCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the active violations for a given Device Defender security profile.</p>
-   */
-  public listActiveViolations(
-    args: ListActiveViolationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListActiveViolationsCommandOutput>;
-  public listActiveViolations(
-    args: ListActiveViolationsCommandInput,
-    cb: (err: any, data?: ListActiveViolationsCommandOutput) => void
-  ): void;
-  public listActiveViolations(
-    args: ListActiveViolationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListActiveViolationsCommandOutput) => void
-  ): void;
-  public listActiveViolations(
-    args: ListActiveViolationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListActiveViolationsCommandOutput) => void),
-    cb?: (err: any, data?: ListActiveViolationsCommandOutput) => void
-  ): Promise<ListActiveViolationsCommandOutput> | void {
-    const command = new ListActiveViolationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the findings (results) of a Device Defender audit or of the audits
-   *         performed during a specified time period. (Findings are retained for 180 days.)</p>
-   */
-  public listAuditFindings(
-    args: ListAuditFindingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAuditFindingsCommandOutput>;
-  public listAuditFindings(
-    args: ListAuditFindingsCommandInput,
-    cb: (err: any, data?: ListAuditFindingsCommandOutput) => void
-  ): void;
-  public listAuditFindings(
-    args: ListAuditFindingsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAuditFindingsCommandOutput) => void
-  ): void;
-  public listAuditFindings(
-    args: ListAuditFindingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAuditFindingsCommandOutput) => void),
-    cb?: (err: any, data?: ListAuditFindingsCommandOutput) => void
-  ): Promise<ListAuditFindingsCommandOutput> | void {
-    const command = new ListAuditFindingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets the status of audit mitigation action tasks that were executed.</p>
-   */
-  public listAuditMitigationActionsExecutions(
-    args: ListAuditMitigationActionsExecutionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAuditMitigationActionsExecutionsCommandOutput>;
-  public listAuditMitigationActionsExecutions(
-    args: ListAuditMitigationActionsExecutionsCommandInput,
-    cb: (
-      err: any,
-      data?: ListAuditMitigationActionsExecutionsCommandOutput
-    ) => void
-  ): void;
-  public listAuditMitigationActionsExecutions(
-    args: ListAuditMitigationActionsExecutionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListAuditMitigationActionsExecutionsCommandOutput
-    ) => void
-  ): void;
-  public listAuditMitigationActionsExecutions(
-    args: ListAuditMitigationActionsExecutionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListAuditMitigationActionsExecutionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListAuditMitigationActionsExecutionsCommandOutput
-    ) => void
-  ): Promise<ListAuditMitigationActionsExecutionsCommandOutput> | void {
-    const command = new ListAuditMitigationActionsExecutionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets a list of audit mitigation action tasks that match the specified filters.</p>
-   */
-  public listAuditMitigationActionsTasks(
-    args: ListAuditMitigationActionsTasksCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAuditMitigationActionsTasksCommandOutput>;
-  public listAuditMitigationActionsTasks(
-    args: ListAuditMitigationActionsTasksCommandInput,
-    cb: (err: any, data?: ListAuditMitigationActionsTasksCommandOutput) => void
-  ): void;
-  public listAuditMitigationActionsTasks(
-    args: ListAuditMitigationActionsTasksCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAuditMitigationActionsTasksCommandOutput) => void
-  ): void;
-  public listAuditMitigationActionsTasks(
-    args: ListAuditMitigationActionsTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListAuditMitigationActionsTasksCommandOutput
-        ) => void),
-    cb?: (err: any, data?: ListAuditMitigationActionsTasksCommandOutput) => void
-  ): Promise<ListAuditMitigationActionsTasksCommandOutput> | void {
-    const command = new ListAuditMitigationActionsTasksCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the Device Defender audits that have been performed during a given
-   *           time period.</p>
-   */
-  public listAuditTasks(
-    args: ListAuditTasksCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAuditTasksCommandOutput>;
-  public listAuditTasks(
-    args: ListAuditTasksCommandInput,
-    cb: (err: any, data?: ListAuditTasksCommandOutput) => void
-  ): void;
-  public listAuditTasks(
-    args: ListAuditTasksCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAuditTasksCommandOutput) => void
-  ): void;
-  public listAuditTasks(
-    args: ListAuditTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAuditTasksCommandOutput) => void),
-    cb?: (err: any, data?: ListAuditTasksCommandOutput) => void
-  ): Promise<ListAuditTasksCommandOutput> | void {
-    const command = new ListAuditTasksCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets a list of all mitigation actions that match the specified filter criteria.</p>
-   */
-  public listMitigationActions(
-    args: ListMitigationActionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListMitigationActionsCommandOutput>;
-  public listMitigationActions(
-    args: ListMitigationActionsCommandInput,
-    cb: (err: any, data?: ListMitigationActionsCommandOutput) => void
-  ): void;
-  public listMitigationActions(
-    args: ListMitigationActionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListMitigationActionsCommandOutput) => void
-  ): void;
-  public listMitigationActions(
-    args: ListMitigationActionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMitigationActionsCommandOutput) => void),
-    cb?: (err: any, data?: ListMitigationActionsCommandOutput) => void
-  ): Promise<ListMitigationActionsCommandOutput> | void {
-    const command = new ListMitigationActionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists all of your scheduled audits.</p>
-   */
-  public listScheduledAudits(
-    args: ListScheduledAuditsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListScheduledAuditsCommandOutput>;
-  public listScheduledAudits(
-    args: ListScheduledAuditsCommandInput,
-    cb: (err: any, data?: ListScheduledAuditsCommandOutput) => void
-  ): void;
-  public listScheduledAudits(
-    args: ListScheduledAuditsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListScheduledAuditsCommandOutput) => void
-  ): void;
-  public listScheduledAudits(
-    args: ListScheduledAuditsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListScheduledAuditsCommandOutput) => void),
-    cb?: (err: any, data?: ListScheduledAuditsCommandOutput) => void
-  ): Promise<ListScheduledAuditsCommandOutput> | void {
-    const command = new ListScheduledAuditsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the Device Defender security profiles you have created. You can use filters to list only those security
-   *       profiles associated with a thing group or only those associated with your account.</p>
-   */
-  public listSecurityProfiles(
-    args: ListSecurityProfilesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSecurityProfilesCommandOutput>;
-  public listSecurityProfiles(
-    args: ListSecurityProfilesCommandInput,
-    cb: (err: any, data?: ListSecurityProfilesCommandOutput) => void
-  ): void;
-  public listSecurityProfiles(
-    args: ListSecurityProfilesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListSecurityProfilesCommandOutput) => void
-  ): void;
-  public listSecurityProfiles(
-    args: ListSecurityProfilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSecurityProfilesCommandOutput) => void),
-    cb?: (err: any, data?: ListSecurityProfilesCommandOutput) => void
-  ): Promise<ListSecurityProfilesCommandOutput> | void {
-    const command = new ListSecurityProfilesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the Device Defender security profiles attached to a target (thing group).</p>
-   */
-  public listSecurityProfilesForTarget(
-    args: ListSecurityProfilesForTargetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSecurityProfilesForTargetCommandOutput>;
-  public listSecurityProfilesForTarget(
-    args: ListSecurityProfilesForTargetCommandInput,
-    cb: (err: any, data?: ListSecurityProfilesForTargetCommandOutput) => void
-  ): void;
-  public listSecurityProfilesForTarget(
-    args: ListSecurityProfilesForTargetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListSecurityProfilesForTargetCommandOutput) => void
-  ): void;
-  public listSecurityProfilesForTarget(
-    args: ListSecurityProfilesForTargetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSecurityProfilesForTargetCommandOutput) => void),
-    cb?: (err: any, data?: ListSecurityProfilesForTargetCommandOutput) => void
-  ): Promise<ListSecurityProfilesForTargetCommandOutput> | void {
-    const command = new ListSecurityProfilesForTargetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the targets (thing groups) associated with a given Device Defender security profile.</p>
-   */
-  public listTargetsForSecurityProfile(
-    args: ListTargetsForSecurityProfileCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTargetsForSecurityProfileCommandOutput>;
-  public listTargetsForSecurityProfile(
-    args: ListTargetsForSecurityProfileCommandInput,
-    cb: (err: any, data?: ListTargetsForSecurityProfileCommandOutput) => void
-  ): void;
-  public listTargetsForSecurityProfile(
-    args: ListTargetsForSecurityProfileCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTargetsForSecurityProfileCommandOutput) => void
-  ): void;
-  public listTargetsForSecurityProfile(
-    args: ListTargetsForSecurityProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTargetsForSecurityProfileCommandOutput) => void),
-    cb?: (err: any, data?: ListTargetsForSecurityProfileCommandOutput) => void
-  ): Promise<ListTargetsForSecurityProfileCommandOutput> | void {
-    const command = new ListTargetsForSecurityProfileCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the Device Defender security profile violations discovered during the given time period.
-   *       You can use filters to limit the results to those alerts issued for a particular security profile,
-   *       behavior, or thing (device).</p>
-   */
-  public listViolationEvents(
-    args: ListViolationEventsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListViolationEventsCommandOutput>;
-  public listViolationEvents(
-    args: ListViolationEventsCommandInput,
-    cb: (err: any, data?: ListViolationEventsCommandOutput) => void
-  ): void;
-  public listViolationEvents(
-    args: ListViolationEventsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListViolationEventsCommandOutput) => void
-  ): void;
-  public listViolationEvents(
-    args: ListViolationEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListViolationEventsCommandOutput) => void),
-    cb?: (err: any, data?: ListViolationEventsCommandOutput) => void
-  ): Promise<ListViolationEventsCommandOutput> | void {
-    const command = new ListViolationEventsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Starts a task that applies a set of mitigation actions to the specified target.</p>
-   */
-  public startAuditMitigationActionsTask(
-    args: StartAuditMitigationActionsTaskCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartAuditMitigationActionsTaskCommandOutput>;
-  public startAuditMitigationActionsTask(
-    args: StartAuditMitigationActionsTaskCommandInput,
-    cb: (err: any, data?: StartAuditMitigationActionsTaskCommandOutput) => void
-  ): void;
-  public startAuditMitigationActionsTask(
-    args: StartAuditMitigationActionsTaskCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartAuditMitigationActionsTaskCommandOutput) => void
-  ): void;
-  public startAuditMitigationActionsTask(
-    args: StartAuditMitigationActionsTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: StartAuditMitigationActionsTaskCommandOutput
-        ) => void),
-    cb?: (err: any, data?: StartAuditMitigationActionsTaskCommandOutput) => void
-  ): Promise<StartAuditMitigationActionsTaskCommandOutput> | void {
-    const command = new StartAuditMitigationActionsTaskCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Starts an on-demand Device Defender audit.</p>
-   */
-  public startOnDemandAuditTask(
-    args: StartOnDemandAuditTaskCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartOnDemandAuditTaskCommandOutput>;
-  public startOnDemandAuditTask(
-    args: StartOnDemandAuditTaskCommandInput,
-    cb: (err: any, data?: StartOnDemandAuditTaskCommandOutput) => void
-  ): void;
-  public startOnDemandAuditTask(
-    args: StartOnDemandAuditTaskCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartOnDemandAuditTaskCommandOutput) => void
-  ): void;
-  public startOnDemandAuditTask(
-    args: StartOnDemandAuditTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartOnDemandAuditTaskCommandOutput) => void),
-    cb?: (err: any, data?: StartOnDemandAuditTaskCommandOutput) => void
-  ): Promise<StartOnDemandAuditTaskCommandOutput> | void {
-    const command = new StartOnDemandAuditTaskCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Configures or reconfigures the Device Defender audit settings for this account.
-   *           Settings include how audit notifications are sent and which audit checks are
-   *           enabled or disabled.</p>
-   */
-  public updateAccountAuditConfiguration(
-    args: UpdateAccountAuditConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAccountAuditConfigurationCommandOutput>;
-  public updateAccountAuditConfiguration(
-    args: UpdateAccountAuditConfigurationCommandInput,
-    cb: (err: any, data?: UpdateAccountAuditConfigurationCommandOutput) => void
-  ): void;
-  public updateAccountAuditConfiguration(
-    args: UpdateAccountAuditConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateAccountAuditConfigurationCommandOutput) => void
-  ): void;
-  public updateAccountAuditConfiguration(
-    args: UpdateAccountAuditConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateAccountAuditConfigurationCommandOutput
-        ) => void),
-    cb?: (err: any, data?: UpdateAccountAuditConfigurationCommandOutput) => void
-  ): Promise<UpdateAccountAuditConfigurationCommandOutput> | void {
-    const command = new UpdateAccountAuditConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates the definition for the specified mitigation action.</p>
-   */
-  public updateMitigationAction(
-    args: UpdateMitigationActionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateMitigationActionCommandOutput>;
-  public updateMitigationAction(
-    args: UpdateMitigationActionCommandInput,
-    cb: (err: any, data?: UpdateMitigationActionCommandOutput) => void
-  ): void;
-  public updateMitigationAction(
-    args: UpdateMitigationActionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateMitigationActionCommandOutput) => void
-  ): void;
-  public updateMitigationAction(
-    args: UpdateMitigationActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateMitigationActionCommandOutput) => void),
-    cb?: (err: any, data?: UpdateMitigationActionCommandOutput) => void
-  ): Promise<UpdateMitigationActionCommandOutput> | void {
-    const command = new UpdateMitigationActionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates a scheduled audit, including which checks are performed and
-   *           how often the audit takes place.</p>
-   */
-  public updateScheduledAudit(
-    args: UpdateScheduledAuditCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateScheduledAuditCommandOutput>;
-  public updateScheduledAudit(
-    args: UpdateScheduledAuditCommandInput,
-    cb: (err: any, data?: UpdateScheduledAuditCommandOutput) => void
-  ): void;
-  public updateScheduledAudit(
-    args: UpdateScheduledAuditCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateScheduledAuditCommandOutput) => void
-  ): void;
-  public updateScheduledAudit(
-    args: UpdateScheduledAuditCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateScheduledAuditCommandOutput) => void),
-    cb?: (err: any, data?: UpdateScheduledAuditCommandOutput) => void
-  ): Promise<UpdateScheduledAuditCommandOutput> | void {
-    const command = new UpdateScheduledAuditCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates a Device Defender security profile.</p>
-   */
-  public updateSecurityProfile(
-    args: UpdateSecurityProfileCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateSecurityProfileCommandOutput>;
-  public updateSecurityProfile(
-    args: UpdateSecurityProfileCommandInput,
-    cb: (err: any, data?: UpdateSecurityProfileCommandOutput) => void
-  ): void;
-  public updateSecurityProfile(
-    args: UpdateSecurityProfileCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateSecurityProfileCommandOutput) => void
-  ): void;
-  public updateSecurityProfile(
-    args: UpdateSecurityProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSecurityProfileCommandOutput) => void),
-    cb?: (err: any, data?: UpdateSecurityProfileCommandOutput) => void
-  ): Promise<UpdateSecurityProfileCommandOutput> | void {
-    const command = new UpdateSecurityProfileCommand(args);
+      | ((err: any, data?: UpdateTopicRuleDestinationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateTopicRuleDestinationCommandOutput) => void
+  ): Promise<UpdateTopicRuleDestinationCommandOutput> | void {
+    const command = new UpdateTopicRuleDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -8201,183 +8378,6 @@ export class IoT extends IoTClient {
     ) => void
   ): Promise<ValidateSecurityProfileBehaviorsCommandOutput> | void {
     const command = new ValidateSecurityProfileBehaviorsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data
-   *             bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files
-   *             associated with a stream.</p>
-   */
-  public createStream(
-    args: CreateStreamCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateStreamCommandOutput>;
-  public createStream(
-    args: CreateStreamCommandInput,
-    cb: (err: any, data?: CreateStreamCommandOutput) => void
-  ): void;
-  public createStream(
-    args: CreateStreamCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateStreamCommandOutput) => void
-  ): void;
-  public createStream(
-    args: CreateStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStreamCommandOutput) => void),
-    cb?: (err: any, data?: CreateStreamCommandOutput) => void
-  ): Promise<CreateStreamCommandOutput> | void {
-    const command = new CreateStreamCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a stream.</p>
-   */
-  public deleteStream(
-    args: DeleteStreamCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteStreamCommandOutput>;
-  public deleteStream(
-    args: DeleteStreamCommandInput,
-    cb: (err: any, data?: DeleteStreamCommandOutput) => void
-  ): void;
-  public deleteStream(
-    args: DeleteStreamCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteStreamCommandOutput) => void
-  ): void;
-  public deleteStream(
-    args: DeleteStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteStreamCommandOutput) => void),
-    cb?: (err: any, data?: DeleteStreamCommandOutput) => void
-  ): Promise<DeleteStreamCommandOutput> | void {
-    const command = new DeleteStreamCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets information about a stream.</p>
-   */
-  public describeStream(
-    args: DescribeStreamCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeStreamCommandOutput>;
-  public describeStream(
-    args: DescribeStreamCommandInput,
-    cb: (err: any, data?: DescribeStreamCommandOutput) => void
-  ): void;
-  public describeStream(
-    args: DescribeStreamCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeStreamCommandOutput) => void
-  ): void;
-  public describeStream(
-    args: DescribeStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStreamCommandOutput) => void),
-    cb?: (err: any, data?: DescribeStreamCommandOutput) => void
-  ): Promise<DescribeStreamCommandOutput> | void {
-    const command = new DescribeStreamCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists all of the streams in your AWS account.</p>
-   */
-  public listStreams(
-    args: ListStreamsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListStreamsCommandOutput>;
-  public listStreams(
-    args: ListStreamsCommandInput,
-    cb: (err: any, data?: ListStreamsCommandOutput) => void
-  ): void;
-  public listStreams(
-    args: ListStreamsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListStreamsCommandOutput) => void
-  ): void;
-  public listStreams(
-    args: ListStreamsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStreamsCommandOutput) => void),
-    cb?: (err: any, data?: ListStreamsCommandOutput) => void
-  ): Promise<ListStreamsCommandOutput> | void {
-    const command = new ListStreamsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates an existing stream. The stream version will be incremented by one.</p>
-   */
-  public updateStream(
-    args: UpdateStreamCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateStreamCommandOutput>;
-  public updateStream(
-    args: UpdateStreamCommandInput,
-    cb: (err: any, data?: UpdateStreamCommandOutput) => void
-  ): void;
-  public updateStream(
-    args: UpdateStreamCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateStreamCommandOutput) => void
-  ): void;
-  public updateStream(
-    args: UpdateStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateStreamCommandOutput) => void),
-    cb?: (err: any, data?: UpdateStreamCommandOutput) => void
-  ): Promise<UpdateStreamCommandOutput> | void {
-    const command = new UpdateStreamCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

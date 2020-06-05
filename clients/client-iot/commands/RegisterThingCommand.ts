@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { RegisterThingRequest, RegisterThingResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1RegisterThingCommand,
-  serializeAws_restJson1_1RegisterThingCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1RegisterThingCommand,
+  serializeAws_restJson1RegisterThingCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class RegisterThingCommand extends $Command<
     input: RegisterThingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RegisterThingCommand(input, context);
+    return serializeAws_restJson1RegisterThingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterThingCommandOutput> {
-    return deserializeAws_restJson1_1RegisterThingCommand(output, context);
+    return deserializeAws_restJson1RegisterThingCommand(output, context);
   }
 
   // Start section: command_body_extra

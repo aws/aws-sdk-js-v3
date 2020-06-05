@@ -8,9 +8,9 @@ import {
   mqClientResolvedConfig
 } from "../mqClient";
 import {
-  deserializeAws_restJson1_1ListConfigurationRevisionsCommand,
-  serializeAws_restJson1_1ListConfigurationRevisionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListConfigurationRevisionsCommand,
+  serializeAws_restJson1ListConfigurationRevisionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListConfigurationRevisionsCommand extends $Command<
     input: ListConfigurationRevisionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListConfigurationRevisionsCommand(
+    return serializeAws_restJson1ListConfigurationRevisionsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListConfigurationRevisionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListConfigurationRevisionsCommandOutput> {
-    return deserializeAws_restJson1_1ListConfigurationRevisionsCommand(
+    return deserializeAws_restJson1ListConfigurationRevisionsCommand(
       output,
       context
     );

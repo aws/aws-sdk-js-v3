@@ -5,9 +5,9 @@ import {
 } from "../MarketplaceCatalogClient";
 import { DescribeEntityRequest, DescribeEntityResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeEntityCommand,
-  serializeAws_restJson1_1DescribeEntityCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeEntityCommand,
+  serializeAws_restJson1DescribeEntityCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class DescribeEntityCommand extends $Command<
     input: DescribeEntityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeEntityCommand(input, context);
+    return serializeAws_restJson1DescribeEntityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEntityCommandOutput> {
-    return deserializeAws_restJson1_1DescribeEntityCommand(output, context);
+    return deserializeAws_restJson1DescribeEntityCommand(output, context);
   }
 
   // Start section: command_body_extra

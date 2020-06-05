@@ -5,9 +5,9 @@ import {
 } from "../DetectiveClient";
 import { ListGraphsRequest, ListGraphsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListGraphsCommand,
-  serializeAws_restJson1_1ListGraphsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListGraphsCommand,
+  serializeAws_restJson1ListGraphsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListGraphsCommand extends $Command<
     input: ListGraphsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListGraphsCommand(input, context);
+    return serializeAws_restJson1ListGraphsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListGraphsCommandOutput> {
-    return deserializeAws_restJson1_1ListGraphsCommand(output, context);
+    return deserializeAws_restJson1ListGraphsCommand(output, context);
   }
 
   // Start section: command_body_extra

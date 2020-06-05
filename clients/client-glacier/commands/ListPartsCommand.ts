@@ -5,9 +5,9 @@ import {
 } from "../GlacierClient";
 import { ListPartsInput, ListPartsOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListPartsCommand,
-  serializeAws_restJson1_1ListPartsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListPartsCommand,
+  serializeAws_restJson1ListPartsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListPartsCommand extends $Command<
     input: ListPartsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListPartsCommand(input, context);
+    return serializeAws_restJson1ListPartsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPartsCommandOutput> {
-    return deserializeAws_restJson1_1ListPartsCommand(output, context);
+    return deserializeAws_restJson1ListPartsCommand(output, context);
   }
 
   // Start section: command_body_extra

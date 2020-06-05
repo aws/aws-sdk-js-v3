@@ -105,6 +105,30 @@ export namespace AddAvailabilityZonesOutput {
 }
 
 /**
+ * <p>This data type is reserved.</p>
+ */
+export interface AdditionalAttribute {
+  __type?: "AdditionalAttribute";
+  /**
+   * <p>This parameter is reserved.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>This parameter is reserved.</p>
+   */
+  Value?: string;
+}
+
+export namespace AdditionalAttribute {
+  export const filterSensitiveLog = (obj: AdditionalAttribute): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AdditionalAttribute =>
+    __isa(o, "AdditionalAttribute");
+}
+
+/**
  * <p>Contains the parameters for AddTags.</p>
  */
 export interface AddTagsInput {
@@ -139,30 +163,6 @@ export namespace AddTagsOutput {
     ...obj
   });
   export const isa = (o: any): o is AddTagsOutput => __isa(o, "AddTagsOutput");
-}
-
-/**
- * <p>This data type is reserved.</p>
- */
-export interface AdditionalAttribute {
-  __type?: "AdditionalAttribute";
-  /**
-   * <p>This parameter is reserved.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>This parameter is reserved.</p>
-   */
-  Value?: string;
-}
-
-export namespace AdditionalAttribute {
-  export const filterSensitiveLog = (obj: AdditionalAttribute): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AdditionalAttribute =>
-    __isa(o, "AdditionalAttribute");
 }
 
 /**

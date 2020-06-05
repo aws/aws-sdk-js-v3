@@ -8,9 +8,9 @@ import {
   ListDistributionConfigurationsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListDistributionConfigurationsCommand,
-  serializeAws_restJson1_1ListDistributionConfigurationsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListDistributionConfigurationsCommand,
+  serializeAws_restJson1ListDistributionConfigurationsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListDistributionConfigurationsCommand extends $Command<
     input: ListDistributionConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListDistributionConfigurationsCommand(
+    return serializeAws_restJson1ListDistributionConfigurationsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListDistributionConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDistributionConfigurationsCommandOutput> {
-    return deserializeAws_restJson1_1ListDistributionConfigurationsCommand(
+    return deserializeAws_restJson1ListDistributionConfigurationsCommand(
       output,
       context
     );

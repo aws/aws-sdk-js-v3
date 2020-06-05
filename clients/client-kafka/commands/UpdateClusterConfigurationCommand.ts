@@ -8,9 +8,9 @@ import {
   UpdateClusterConfigurationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateClusterConfigurationCommand,
-  serializeAws_restJson1_1UpdateClusterConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateClusterConfigurationCommand,
+  serializeAws_restJson1UpdateClusterConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdateClusterConfigurationCommand extends $Command<
     input: UpdateClusterConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateClusterConfigurationCommand(
+    return serializeAws_restJson1UpdateClusterConfigurationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdateClusterConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateClusterConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1UpdateClusterConfigurationCommand(
+    return deserializeAws_restJson1UpdateClusterConfigurationCommand(
       output,
       context
     );

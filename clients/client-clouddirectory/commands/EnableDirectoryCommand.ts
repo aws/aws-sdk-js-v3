@@ -8,9 +8,9 @@ import {
   EnableDirectoryResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1EnableDirectoryCommand,
-  serializeAws_restJson1_1EnableDirectoryCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1EnableDirectoryCommand,
+  serializeAws_restJson1EnableDirectoryCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class EnableDirectoryCommand extends $Command<
     input: EnableDirectoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1EnableDirectoryCommand(input, context);
+    return serializeAws_restJson1EnableDirectoryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableDirectoryCommandOutput> {
-    return deserializeAws_restJson1_1EnableDirectoryCommand(output, context);
+    return deserializeAws_restJson1EnableDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

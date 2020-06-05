@@ -131,7 +131,7 @@ const deserializeAws_json1_0CreateConnectionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
-    case "com.amazonaws.codestar.connections#LimitExceededException":
+    case "com.amazonaws.codestarconnections#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
           parsedOutput,
@@ -191,7 +191,7 @@ const deserializeAws_json1_0DeleteConnectionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.codestar.connections#ResourceNotFoundException":
+    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -251,7 +251,7 @@ const deserializeAws_json1_0GetConnectionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.codestar.connections#ResourceNotFoundException":
+    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,

@@ -8,9 +8,9 @@ import {
   DescribeDetectorResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeDetectorCommand,
-  serializeAws_restJson1_1DescribeDetectorCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeDetectorCommand,
+  serializeAws_restJson1DescribeDetectorCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DescribeDetectorCommand extends $Command<
     input: DescribeDetectorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeDetectorCommand(input, context);
+    return serializeAws_restJson1DescribeDetectorCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDetectorCommandOutput> {
-    return deserializeAws_restJson1_1DescribeDetectorCommand(output, context);
+    return deserializeAws_restJson1DescribeDetectorCommand(output, context);
   }
 
   // Start section: command_body_extra

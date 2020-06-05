@@ -6,27 +6,6 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- * <p>The request has failed because the AWS Transfer for SFTP service is not available.</p>
- */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  Message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (
-    obj: ServiceUnavailableException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ServiceUnavailableException =>
-    __isa(o, "ServiceUnavailableException");
-}
-
-/**
  * <p>This exception is thrown when the <code>UpdatServer</code> is called for a server that has
  *       VPC as the endpoint type and the server's <code>VpcEndpointID</code> is not in the available
  *       state.</p>
@@ -330,83 +309,6 @@ export namespace DeleteUserRequest {
     __isa(o, "DeleteUserRequest");
 }
 
-export interface DescribeServerRequest {
-  __type?: "DescribeServerRequest";
-  /**
-   * <p>A system-assigned unique identifier for an SFTP server.</p>
-   */
-  ServerId: string | undefined;
-}
-
-export namespace DescribeServerRequest {
-  export const filterSensitiveLog = (obj: DescribeServerRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeServerRequest =>
-    __isa(o, "DescribeServerRequest");
-}
-
-export interface DescribeServerResponse {
-  __type?: "DescribeServerResponse";
-  /**
-   * <p>An array containing the properties of the server with the <code>ServerID</code> you
-   *       specified.</p>
-   */
-  Server: DescribedServer | undefined;
-}
-
-export namespace DescribeServerResponse {
-  export const filterSensitiveLog = (obj: DescribeServerResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeServerResponse =>
-    __isa(o, "DescribeServerResponse");
-}
-
-export interface DescribeUserRequest {
-  __type?: "DescribeUserRequest";
-  /**
-   * <p>A system-assigned unique identifier for an SFTP server that has this user assigned.</p>
-   */
-  ServerId: string | undefined;
-
-  /**
-   * <p>The name of the user assigned to one or more servers. User names are part of the sign-in
-   *       credentials to use the AWS Transfer for SFTP service and perform file transfer tasks.</p>
-   */
-  UserName: string | undefined;
-}
-
-export namespace DescribeUserRequest {
-  export const filterSensitiveLog = (obj: DescribeUserRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeUserRequest =>
-    __isa(o, "DescribeUserRequest");
-}
-
-export interface DescribeUserResponse {
-  __type?: "DescribeUserResponse";
-  /**
-   * <p>A system-assigned unique identifier for an SFTP server that has this user assigned.</p>
-   */
-  ServerId: string | undefined;
-
-  /**
-   * <p>An array containing the properties of the user account for the <code>ServerID</code> value
-   *       that you specified.</p>
-   */
-  User: DescribedUser | undefined;
-}
-
-export namespace DescribeUserResponse {
-  export const filterSensitiveLog = (obj: DescribeUserResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeUserResponse =>
-    __isa(o, "DescribeUserResponse");
-}
-
 /**
  * <p>Describes the properties of the server that was specified. Information returned includes
  *       the following: the server Amazon Resource Name (ARN), the authentication configuration and
@@ -585,6 +487,83 @@ export namespace DescribedUser {
     ...obj
   });
   export const isa = (o: any): o is DescribedUser => __isa(o, "DescribedUser");
+}
+
+export interface DescribeServerRequest {
+  __type?: "DescribeServerRequest";
+  /**
+   * <p>A system-assigned unique identifier for an SFTP server.</p>
+   */
+  ServerId: string | undefined;
+}
+
+export namespace DescribeServerRequest {
+  export const filterSensitiveLog = (obj: DescribeServerRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeServerRequest =>
+    __isa(o, "DescribeServerRequest");
+}
+
+export interface DescribeServerResponse {
+  __type?: "DescribeServerResponse";
+  /**
+   * <p>An array containing the properties of the server with the <code>ServerID</code> you
+   *       specified.</p>
+   */
+  Server: DescribedServer | undefined;
+}
+
+export namespace DescribeServerResponse {
+  export const filterSensitiveLog = (obj: DescribeServerResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeServerResponse =>
+    __isa(o, "DescribeServerResponse");
+}
+
+export interface DescribeUserRequest {
+  __type?: "DescribeUserRequest";
+  /**
+   * <p>A system-assigned unique identifier for an SFTP server that has this user assigned.</p>
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>The name of the user assigned to one or more servers. User names are part of the sign-in
+   *       credentials to use the AWS Transfer for SFTP service and perform file transfer tasks.</p>
+   */
+  UserName: string | undefined;
+}
+
+export namespace DescribeUserRequest {
+  export const filterSensitiveLog = (obj: DescribeUserRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeUserRequest =>
+    __isa(o, "DescribeUserRequest");
+}
+
+export interface DescribeUserResponse {
+  __type?: "DescribeUserResponse";
+  /**
+   * <p>A system-assigned unique identifier for an SFTP server that has this user assigned.</p>
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>An array containing the properties of the user account for the <code>ServerID</code> value
+   *       that you specified.</p>
+   */
+  User: DescribedUser | undefined;
+}
+
+export namespace DescribeUserResponse {
+  export const filterSensitiveLog = (obj: DescribeUserResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeUserResponse =>
+    __isa(o, "DescribeUserResponse");
 }
 
 /**
@@ -811,6 +790,126 @@ export namespace InvalidRequestException {
     __isa(o, "InvalidRequestException");
 }
 
+/**
+ * <p>Returns properties of the server that was specified.</p>
+ */
+export interface ListedServer {
+  __type?: "ListedServer";
+  /**
+   * <p>The unique Amazon Resource Name (ARN) for the server to be listed.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The type of VPC endpoint that your SFTP server is connected to. If your SFTP server is
+   *       connected to a VPC endpoint, your server isn't accessible over the public internet.</p>
+   */
+  EndpointType?: EndpointType | string;
+
+  /**
+   * <p>The authentication method used to validate a user for the server that was specified. This
+   *       can include Secure Shell (SSH), user name and password combinations, or your own custom
+   *       authentication method. Valid values include <code>SERVICE_MANAGED</code> or
+   *         <code>API_GATEWAY</code>.</p>
+   */
+  IdentityProviderType?: IdentityProviderType | string;
+
+  /**
+   * <p>The AWS Identity and Access Management entity that allows the server to turn on Amazon
+   *       CloudWatch logging.</p>
+   */
+  LoggingRole?: string;
+
+  /**
+   * <p>This value is the unique system assigned identifier for the SFTP servers that were
+   *       listed.</p>
+   */
+  ServerId?: string;
+
+  /**
+   * <p>This property describes the condition of the SFTP server for the server that was
+   *       described. A value of <code>ONLINE</code>> indicates that the server can accept jobs and
+   *       transfer files. A <code>State</code> value of <code>OFFLINE</code> means that the server
+   *       cannot perform file transfer operations.</p>
+   *
+   *          <p>The states of <code>STARTING</code> and <code>STOPPING</code> indicate that the server is
+   *       in an intermediate state, either not fully able to respond, or not fully offline. The values
+   *       of <code>START_FAILED</code> or <code>STOP_FAILED</code> can indicate an error
+   *       condition.</p>
+   */
+  State?: State | string;
+
+  /**
+   * <p>This property is a numeric value that indicates the number of users that are assigned to
+   *       the SFTP server you specified with the <code>ServerId</code>.</p>
+   */
+  UserCount?: number;
+}
+
+export namespace ListedServer {
+  export const filterSensitiveLog = (obj: ListedServer): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListedServer => __isa(o, "ListedServer");
+}
+
+/**
+ * <p>Returns properties of the user that you specify.</p>
+ */
+export interface ListedUser {
+  __type?: "ListedUser";
+  /**
+   * <p>This property is the unique Amazon Resource Name (ARN) for the user that you want to learn
+   *       about.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>This value specifies the location that files are written to or read from an Amazon S3
+   *       bucket for the user you specify by their ARN.</p>
+   */
+  HomeDirectory?: string;
+
+  /**
+   * <p>The type of landing directory (folder) you mapped for your users' home directory. If you
+   *       set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket paths as is in
+   *       their SFTP clients. If you set it <code>LOGICAL</code>, you will need to provide mappings in
+   *       the <code>HomeDirectoryMappings</code> for how you want to make S3 paths visible to your
+   *       user.</p>
+   */
+  HomeDirectoryType?: HomeDirectoryType | string;
+
+  /**
+   * <p>The role in use by this user. A <i>role</i> is an AWS Identity and Access
+   *       Management (IAM) entity
+   *       that,
+   *       in this
+   *       case,
+   *       allows the SFTP server to act on a user's behalf. It allows the server to inherit the trust
+   *       relationship that enables that user to perform file operations to their Amazon S3
+   *       bucket.</p>
+   */
+  Role?: string;
+
+  /**
+   * <p>This value is the number of SSH public keys stored for the user you specified.</p>
+   */
+  SshPublicKeyCount?: number;
+
+  /**
+   * <p>The name of the user whose ARN was specified. User names are used for authentication
+   *       purposes.</p>
+   */
+  UserName?: string;
+}
+
+export namespace ListedUser {
+  export const filterSensitiveLog = (obj: ListedUser): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListedUser => __isa(o, "ListedUser");
+}
+
 export interface ListServersRequest {
   __type?: "ListServersRequest";
   /**
@@ -985,126 +1084,6 @@ export namespace ListUsersResponse {
 }
 
 /**
- * <p>Returns properties of the server that was specified.</p>
- */
-export interface ListedServer {
-  __type?: "ListedServer";
-  /**
-   * <p>The unique Amazon Resource Name (ARN) for the server to be listed.</p>
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The type of VPC endpoint that your SFTP server is connected to. If your SFTP server is
-   *       connected to a VPC endpoint, your server isn't accessible over the public internet.</p>
-   */
-  EndpointType?: EndpointType | string;
-
-  /**
-   * <p>The authentication method used to validate a user for the server that was specified. This
-   *       can include Secure Shell (SSH), user name and password combinations, or your own custom
-   *       authentication method. Valid values include <code>SERVICE_MANAGED</code> or
-   *         <code>API_GATEWAY</code>.</p>
-   */
-  IdentityProviderType?: IdentityProviderType | string;
-
-  /**
-   * <p>The AWS Identity and Access Management entity that allows the server to turn on Amazon
-   *       CloudWatch logging.</p>
-   */
-  LoggingRole?: string;
-
-  /**
-   * <p>This value is the unique system assigned identifier for the SFTP servers that were
-   *       listed.</p>
-   */
-  ServerId?: string;
-
-  /**
-   * <p>This property describes the condition of the SFTP server for the server that was
-   *       described. A value of <code>ONLINE</code>> indicates that the server can accept jobs and
-   *       transfer files. A <code>State</code> value of <code>OFFLINE</code> means that the server
-   *       cannot perform file transfer operations.</p>
-   *
-   *          <p>The states of <code>STARTING</code> and <code>STOPPING</code> indicate that the server is
-   *       in an intermediate state, either not fully able to respond, or not fully offline. The values
-   *       of <code>START_FAILED</code> or <code>STOP_FAILED</code> can indicate an error
-   *       condition.</p>
-   */
-  State?: State | string;
-
-  /**
-   * <p>This property is a numeric value that indicates the number of users that are assigned to
-   *       the SFTP server you specified with the <code>ServerId</code>.</p>
-   */
-  UserCount?: number;
-}
-
-export namespace ListedServer {
-  export const filterSensitiveLog = (obj: ListedServer): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListedServer => __isa(o, "ListedServer");
-}
-
-/**
- * <p>Returns properties of the user that you specify.</p>
- */
-export interface ListedUser {
-  __type?: "ListedUser";
-  /**
-   * <p>This property is the unique Amazon Resource Name (ARN) for the user that you want to learn
-   *       about.</p>
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>This value specifies the location that files are written to or read from an Amazon S3
-   *       bucket for the user you specify by their ARN.</p>
-   */
-  HomeDirectory?: string;
-
-  /**
-   * <p>The type of landing directory (folder) you mapped for your users' home directory. If you
-   *       set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket paths as is in
-   *       their SFTP clients. If you set it <code>LOGICAL</code>, you will need to provide mappings in
-   *       the <code>HomeDirectoryMappings</code> for how you want to make S3 paths visible to your
-   *       user.</p>
-   */
-  HomeDirectoryType?: HomeDirectoryType | string;
-
-  /**
-   * <p>The role in use by this user. A <i>role</i> is an AWS Identity and Access
-   *       Management (IAM) entity
-   *       that,
-   *       in this
-   *       case,
-   *       allows the SFTP server to act on a user's behalf. It allows the server to inherit the trust
-   *       relationship that enables that user to perform file operations to their Amazon S3
-   *       bucket.</p>
-   */
-  Role?: string;
-
-  /**
-   * <p>This value is the number of SSH public keys stored for the user you specified.</p>
-   */
-  SshPublicKeyCount?: number;
-
-  /**
-   * <p>The name of the user whose ARN was specified. User names are used for authentication
-   *       purposes.</p>
-   */
-  UserName?: string;
-}
-
-export namespace ListedUser {
-  export const filterSensitiveLog = (obj: ListedUser): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListedUser => __isa(o, "ListedUser");
-}
-
-/**
  * <p>The requested resource does not exist.</p>
  */
 export interface ResourceExistsException
@@ -1145,6 +1124,27 @@ export namespace ResourceNotFoundException {
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
+}
+
+/**
+ * <p>The request has failed because the AWS Transfer for SFTP service is not available.</p>
+ */
+export interface ServiceUnavailableException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ServiceUnavailableException";
+  $fault: "server";
+  Message?: string;
+}
+
+export namespace ServiceUnavailableException {
+  export const filterSensitiveLog = (
+    obj: ServiceUnavailableException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ServiceUnavailableException =>
+    __isa(o, "ServiceUnavailableException");
 }
 
 /**

@@ -5,9 +5,9 @@ import {
 } from "../PinpointClient";
 import { GetSmsTemplateRequest, GetSmsTemplateResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetSmsTemplateCommand,
-  serializeAws_restJson1_1GetSmsTemplateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetSmsTemplateCommand,
+  serializeAws_restJson1GetSmsTemplateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetSmsTemplateCommand extends $Command<
     input: GetSmsTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetSmsTemplateCommand(input, context);
+    return serializeAws_restJson1GetSmsTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSmsTemplateCommandOutput> {
-    return deserializeAws_restJson1_1GetSmsTemplateCommand(output, context);
+    return deserializeAws_restJson1GetSmsTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

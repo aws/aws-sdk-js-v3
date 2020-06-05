@@ -254,7 +254,7 @@ const deserializeAws_json1_1DeleteTerminologyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.shine#InternalServerException":
+    case "com.amazonaws.translate#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -265,7 +265,7 @@ const deserializeAws_json1_1DeleteTerminologyCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.shine#ResourceNotFoundException":
+    case "com.amazonaws.translate#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -276,7 +276,7 @@ const deserializeAws_json1_1DeleteTerminologyCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.shine#TooManyRequestsException":
+    case "com.amazonaws.translate#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -342,7 +342,7 @@ const deserializeAws_json1_1DescribeTextTranslationJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.shine#InternalServerException":
+    case "com.amazonaws.translate#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -353,7 +353,7 @@ const deserializeAws_json1_1DescribeTextTranslationJobCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.shine#ResourceNotFoundException":
+    case "com.amazonaws.translate#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -364,7 +364,7 @@ const deserializeAws_json1_1DescribeTextTranslationJobCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.shine#TooManyRequestsException":
+    case "com.amazonaws.translate#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -424,7 +424,7 @@ const deserializeAws_json1_1GetTerminologyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.shine#InternalServerException":
+    case "com.amazonaws.translate#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -435,7 +435,7 @@ const deserializeAws_json1_1GetTerminologyCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.shine#InvalidParameterValueException":
+    case "com.amazonaws.translate#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -446,7 +446,7 @@ const deserializeAws_json1_1GetTerminologyCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.shine#ResourceNotFoundException":
+    case "com.amazonaws.translate#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -457,7 +457,7 @@ const deserializeAws_json1_1GetTerminologyCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.shine#TooManyRequestsException":
+    case "com.amazonaws.translate#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -517,7 +517,7 @@ const deserializeAws_json1_1ImportTerminologyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.shine#InternalServerException":
+    case "com.amazonaws.translate#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -528,7 +528,7 @@ const deserializeAws_json1_1ImportTerminologyCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.shine#InvalidParameterValueException":
+    case "com.amazonaws.translate#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -539,7 +539,7 @@ const deserializeAws_json1_1ImportTerminologyCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.shine#LimitExceededException":
+    case "com.amazonaws.translate#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -550,7 +550,7 @@ const deserializeAws_json1_1ImportTerminologyCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.shine#TooManyRequestsException":
+    case "com.amazonaws.translate#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -610,7 +610,7 @@ const deserializeAws_json1_1ListTerminologiesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.shine#InternalServerException":
+    case "com.amazonaws.translate#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -621,7 +621,7 @@ const deserializeAws_json1_1ListTerminologiesCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.shine#InvalidParameterValueException":
+    case "com.amazonaws.translate#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -632,7 +632,7 @@ const deserializeAws_json1_1ListTerminologiesCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.shine#TooManyRequestsException":
+    case "com.amazonaws.translate#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -698,7 +698,7 @@ const deserializeAws_json1_1ListTextTranslationJobsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.shine#InternalServerException":
+    case "com.amazonaws.translate#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -709,7 +709,7 @@ const deserializeAws_json1_1ListTextTranslationJobsCommandError = async (
       };
       break;
     case "InvalidFilterException":
-    case "com.amazonaws.shine#InvalidFilterException":
+    case "com.amazonaws.translate#InvalidFilterException":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterExceptionResponse(
           parsedOutput,
@@ -720,7 +720,7 @@ const deserializeAws_json1_1ListTextTranslationJobsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.shine#InvalidRequestException":
+    case "com.amazonaws.translate#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -731,7 +731,7 @@ const deserializeAws_json1_1ListTextTranslationJobsCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.shine#TooManyRequestsException":
+    case "com.amazonaws.translate#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -797,7 +797,7 @@ const deserializeAws_json1_1StartTextTranslationJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.shine#InternalServerException":
+    case "com.amazonaws.translate#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -808,7 +808,7 @@ const deserializeAws_json1_1StartTextTranslationJobCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.shine#InvalidRequestException":
+    case "com.amazonaws.translate#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -819,7 +819,7 @@ const deserializeAws_json1_1StartTextTranslationJobCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.shine#ResourceNotFoundException":
+    case "com.amazonaws.translate#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -830,7 +830,7 @@ const deserializeAws_json1_1StartTextTranslationJobCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.shine#TooManyRequestsException":
+    case "com.amazonaws.translate#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -841,7 +841,7 @@ const deserializeAws_json1_1StartTextTranslationJobCommandError = async (
       };
       break;
     case "UnsupportedLanguagePairException":
-    case "com.amazonaws.shine#UnsupportedLanguagePairException":
+    case "com.amazonaws.translate#UnsupportedLanguagePairException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedLanguagePairExceptionResponse(
           parsedOutput,
@@ -907,7 +907,7 @@ const deserializeAws_json1_1StopTextTranslationJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.shine#InternalServerException":
+    case "com.amazonaws.translate#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -918,7 +918,7 @@ const deserializeAws_json1_1StopTextTranslationJobCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.shine#ResourceNotFoundException":
+    case "com.amazonaws.translate#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -929,7 +929,7 @@ const deserializeAws_json1_1StopTextTranslationJobCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.shine#TooManyRequestsException":
+    case "com.amazonaws.translate#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -989,7 +989,7 @@ const deserializeAws_json1_1TranslateTextCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DetectedLanguageLowConfidenceException":
-    case "com.amazonaws.shine#DetectedLanguageLowConfidenceException":
+    case "com.amazonaws.translate#DetectedLanguageLowConfidenceException":
       response = {
         ...(await deserializeAws_json1_1DetectedLanguageLowConfidenceExceptionResponse(
           parsedOutput,
@@ -1000,7 +1000,7 @@ const deserializeAws_json1_1TranslateTextCommandError = async (
       };
       break;
     case "InternalServerException":
-    case "com.amazonaws.shine#InternalServerException":
+    case "com.amazonaws.translate#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1011,7 +1011,7 @@ const deserializeAws_json1_1TranslateTextCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.shine#InvalidRequestException":
+    case "com.amazonaws.translate#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1022,7 +1022,7 @@ const deserializeAws_json1_1TranslateTextCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.shine#ResourceNotFoundException":
+    case "com.amazonaws.translate#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1033,7 +1033,7 @@ const deserializeAws_json1_1TranslateTextCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.shine#ServiceUnavailableException":
+    case "com.amazonaws.translate#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -1044,7 +1044,7 @@ const deserializeAws_json1_1TranslateTextCommandError = async (
       };
       break;
     case "TextSizeLimitExceededException":
-    case "com.amazonaws.shine#TextSizeLimitExceededException":
+    case "com.amazonaws.translate#TextSizeLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
           parsedOutput,
@@ -1055,7 +1055,7 @@ const deserializeAws_json1_1TranslateTextCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.shine#TooManyRequestsException":
+    case "com.amazonaws.translate#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1066,7 +1066,7 @@ const deserializeAws_json1_1TranslateTextCommandError = async (
       };
       break;
     case "UnsupportedLanguagePairException":
-    case "com.amazonaws.shine#UnsupportedLanguagePairException":
+    case "com.amazonaws.translate#UnsupportedLanguagePairException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedLanguagePairExceptionResponse(
           parsedOutput,
@@ -1891,15 +1891,6 @@ const deserializeAws_json1_1Term = (
   } as any;
 };
 
-const deserializeAws_json1_1TermList = (
-  output: any,
-  context: __SerdeContext
-): Term[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Term(entry, context)
-  );
-};
-
 const deserializeAws_json1_1TerminologyDataLocation = (
   output: any,
   context: __SerdeContext
@@ -1975,6 +1966,15 @@ const deserializeAws_json1_1TerminologyPropertiesList = (
 ): TerminologyProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TerminologyProperties(entry, context)
+  );
+};
+
+const deserializeAws_json1_1TermList = (
+  output: any,
+  context: __SerdeContext
+): Term[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Term(entry, context)
   );
 };
 

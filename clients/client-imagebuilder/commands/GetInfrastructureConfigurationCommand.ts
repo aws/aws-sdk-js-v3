@@ -8,9 +8,9 @@ import {
   GetInfrastructureConfigurationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetInfrastructureConfigurationCommand,
-  serializeAws_restJson1_1GetInfrastructureConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetInfrastructureConfigurationCommand,
+  serializeAws_restJson1GetInfrastructureConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetInfrastructureConfigurationCommand extends $Command<
     input: GetInfrastructureConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetInfrastructureConfigurationCommand(
+    return serializeAws_restJson1GetInfrastructureConfigurationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetInfrastructureConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetInfrastructureConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1GetInfrastructureConfigurationCommand(
+    return deserializeAws_restJson1GetInfrastructureConfigurationCommand(
       output,
       context
     );

@@ -8,9 +8,9 @@ import {
   DescribeMultiplexResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeMultiplexCommand,
-  serializeAws_restJson1_1DescribeMultiplexCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeMultiplexCommand,
+  serializeAws_restJson1DescribeMultiplexCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DescribeMultiplexCommand extends $Command<
     input: DescribeMultiplexCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeMultiplexCommand(input, context);
+    return serializeAws_restJson1DescribeMultiplexCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMultiplexCommandOutput> {
-    return deserializeAws_restJson1_1DescribeMultiplexCommand(output, context);
+    return deserializeAws_restJson1DescribeMultiplexCommand(output, context);
   }
 
   // Start section: command_body_extra

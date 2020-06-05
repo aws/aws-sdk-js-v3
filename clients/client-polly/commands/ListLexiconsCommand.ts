@@ -5,9 +5,9 @@ import {
 } from "../PollyClient";
 import { ListLexiconsInput, ListLexiconsOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListLexiconsCommand,
-  serializeAws_restJson1_1ListLexiconsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListLexiconsCommand,
+  serializeAws_restJson1ListLexiconsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListLexiconsCommand extends $Command<
     input: ListLexiconsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListLexiconsCommand(input, context);
+    return serializeAws_restJson1ListLexiconsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLexiconsCommandOutput> {
-    return deserializeAws_restJson1_1ListLexiconsCommand(output, context);
+    return deserializeAws_restJson1ListLexiconsCommand(output, context);
   }
 
   // Start section: command_body_extra

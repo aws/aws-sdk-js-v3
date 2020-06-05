@@ -5,9 +5,9 @@ import {
 } from "../CloudDirectoryClient";
 import { DeleteObjectRequest, DeleteObjectResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteObjectCommand,
-  serializeAws_restJson1_1DeleteObjectCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteObjectCommand,
+  serializeAws_restJson1DeleteObjectCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteObjectCommand extends $Command<
     input: DeleteObjectCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteObjectCommand(input, context);
+    return serializeAws_restJson1DeleteObjectCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteObjectCommandOutput> {
-    return deserializeAws_restJson1_1DeleteObjectCommand(output, context);
+    return deserializeAws_restJson1DeleteObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

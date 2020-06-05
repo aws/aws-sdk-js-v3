@@ -5,9 +5,9 @@ import {
 } from "../SecurityHubClient";
 import { UpdateFindingsRequest, UpdateFindingsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateFindingsCommand,
-  serializeAws_restJson1_1UpdateFindingsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateFindingsCommand,
+  serializeAws_restJson1UpdateFindingsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class UpdateFindingsCommand extends $Command<
     input: UpdateFindingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateFindingsCommand(input, context);
+    return serializeAws_restJson1UpdateFindingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFindingsCommandOutput> {
-    return deserializeAws_restJson1_1UpdateFindingsCommand(output, context);
+    return deserializeAws_restJson1UpdateFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

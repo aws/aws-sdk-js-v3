@@ -640,21 +640,6 @@ export const serializeAws_json1_1DescribeTaskDefinitionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeTaskSetsCommand = async (
-  input: DescribeTaskSetsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.DescribeTaskSets"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeTaskSetsRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1DescribeTasksCommand = async (
   input: DescribeTasksCommandInput,
   context: __SerdeContext
@@ -666,6 +651,21 @@ export const serializeAws_json1_1DescribeTasksCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTasksRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeTaskSetsCommand = async (
+  input: DescribeTaskSetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.DescribeTaskSets"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTaskSetsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1157,7 +1157,7 @@ const deserializeAws_json1_1CreateCapacityProviderCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -1168,7 +1168,7 @@ const deserializeAws_json1_1CreateCapacityProviderCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1179,7 +1179,7 @@ const deserializeAws_json1_1CreateCapacityProviderCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.madison.frontend#LimitExceededException":
+    case "com.amazonaws.ecs#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1190,7 +1190,7 @@ const deserializeAws_json1_1CreateCapacityProviderCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -1250,7 +1250,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -1261,7 +1261,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1272,7 +1272,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -1332,7 +1332,7 @@ const deserializeAws_json1_1CreateServiceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.madison.frontend#AccessDeniedException":
+    case "com.amazonaws.ecs#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1343,7 +1343,7 @@ const deserializeAws_json1_1CreateServiceCommandError = async (
       };
       break;
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -1354,7 +1354,7 @@ const deserializeAws_json1_1CreateServiceCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -1365,7 +1365,7 @@ const deserializeAws_json1_1CreateServiceCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1376,7 +1376,7 @@ const deserializeAws_json1_1CreateServiceCommandError = async (
       };
       break;
     case "PlatformTaskDefinitionIncompatibilityException":
-    case "com.amazonaws.madison.frontend#PlatformTaskDefinitionIncompatibilityException":
+    case "com.amazonaws.ecs#PlatformTaskDefinitionIncompatibilityException":
       response = {
         ...(await deserializeAws_json1_1PlatformTaskDefinitionIncompatibilityExceptionResponse(
           parsedOutput,
@@ -1387,7 +1387,7 @@ const deserializeAws_json1_1CreateServiceCommandError = async (
       };
       break;
     case "PlatformUnknownException":
-    case "com.amazonaws.madison.frontend#PlatformUnknownException":
+    case "com.amazonaws.ecs#PlatformUnknownException":
       response = {
         ...(await deserializeAws_json1_1PlatformUnknownExceptionResponse(
           parsedOutput,
@@ -1398,7 +1398,7 @@ const deserializeAws_json1_1CreateServiceCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -1409,7 +1409,7 @@ const deserializeAws_json1_1CreateServiceCommandError = async (
       };
       break;
     case "UnsupportedFeatureException":
-    case "com.amazonaws.madison.frontend#UnsupportedFeatureException":
+    case "com.amazonaws.ecs#UnsupportedFeatureException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedFeatureExceptionResponse(
           parsedOutput,
@@ -1469,7 +1469,7 @@ const deserializeAws_json1_1CreateTaskSetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.madison.frontend#AccessDeniedException":
+    case "com.amazonaws.ecs#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1480,7 +1480,7 @@ const deserializeAws_json1_1CreateTaskSetCommandError = async (
       };
       break;
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -1491,7 +1491,7 @@ const deserializeAws_json1_1CreateTaskSetCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -1502,7 +1502,7 @@ const deserializeAws_json1_1CreateTaskSetCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1513,7 +1513,7 @@ const deserializeAws_json1_1CreateTaskSetCommandError = async (
       };
       break;
     case "PlatformTaskDefinitionIncompatibilityException":
-    case "com.amazonaws.madison.frontend#PlatformTaskDefinitionIncompatibilityException":
+    case "com.amazonaws.ecs#PlatformTaskDefinitionIncompatibilityException":
       response = {
         ...(await deserializeAws_json1_1PlatformTaskDefinitionIncompatibilityExceptionResponse(
           parsedOutput,
@@ -1524,7 +1524,7 @@ const deserializeAws_json1_1CreateTaskSetCommandError = async (
       };
       break;
     case "PlatformUnknownException":
-    case "com.amazonaws.madison.frontend#PlatformUnknownException":
+    case "com.amazonaws.ecs#PlatformUnknownException":
       response = {
         ...(await deserializeAws_json1_1PlatformUnknownExceptionResponse(
           parsedOutput,
@@ -1535,7 +1535,7 @@ const deserializeAws_json1_1CreateTaskSetCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -1546,7 +1546,7 @@ const deserializeAws_json1_1CreateTaskSetCommandError = async (
       };
       break;
     case "ServiceNotActiveException":
-    case "com.amazonaws.madison.frontend#ServiceNotActiveException":
+    case "com.amazonaws.ecs#ServiceNotActiveException":
       response = {
         ...(await deserializeAws_json1_1ServiceNotActiveExceptionResponse(
           parsedOutput,
@@ -1557,7 +1557,7 @@ const deserializeAws_json1_1CreateTaskSetCommandError = async (
       };
       break;
     case "ServiceNotFoundException":
-    case "com.amazonaws.madison.frontend#ServiceNotFoundException":
+    case "com.amazonaws.ecs#ServiceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ServiceNotFoundExceptionResponse(
           parsedOutput,
@@ -1568,7 +1568,7 @@ const deserializeAws_json1_1CreateTaskSetCommandError = async (
       };
       break;
     case "UnsupportedFeatureException":
-    case "com.amazonaws.madison.frontend#UnsupportedFeatureException":
+    case "com.amazonaws.ecs#UnsupportedFeatureException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedFeatureExceptionResponse(
           parsedOutput,
@@ -1631,7 +1631,7 @@ const deserializeAws_json1_1DeleteAccountSettingCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -1642,7 +1642,7 @@ const deserializeAws_json1_1DeleteAccountSettingCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1653,7 +1653,7 @@ const deserializeAws_json1_1DeleteAccountSettingCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -1713,7 +1713,7 @@ const deserializeAws_json1_1DeleteAttributesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -1724,7 +1724,7 @@ const deserializeAws_json1_1DeleteAttributesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1735,7 +1735,7 @@ const deserializeAws_json1_1DeleteAttributesCommandError = async (
       };
       break;
     case "TargetNotFoundException":
-    case "com.amazonaws.madison.frontend#TargetNotFoundException":
+    case "com.amazonaws.ecs#TargetNotFoundException":
       response = {
         ...(await deserializeAws_json1_1TargetNotFoundExceptionResponse(
           parsedOutput,
@@ -1795,7 +1795,7 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -1806,7 +1806,7 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
       };
       break;
     case "ClusterContainsContainerInstancesException":
-    case "com.amazonaws.madison.frontend#ClusterContainsContainerInstancesException":
+    case "com.amazonaws.ecs#ClusterContainsContainerInstancesException":
       response = {
         ...(await deserializeAws_json1_1ClusterContainsContainerInstancesExceptionResponse(
           parsedOutput,
@@ -1817,7 +1817,7 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
       };
       break;
     case "ClusterContainsServicesException":
-    case "com.amazonaws.madison.frontend#ClusterContainsServicesException":
+    case "com.amazonaws.ecs#ClusterContainsServicesException":
       response = {
         ...(await deserializeAws_json1_1ClusterContainsServicesExceptionResponse(
           parsedOutput,
@@ -1828,7 +1828,7 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
       };
       break;
     case "ClusterContainsTasksException":
-    case "com.amazonaws.madison.frontend#ClusterContainsTasksException":
+    case "com.amazonaws.ecs#ClusterContainsTasksException":
       response = {
         ...(await deserializeAws_json1_1ClusterContainsTasksExceptionResponse(
           parsedOutput,
@@ -1839,7 +1839,7 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -1850,7 +1850,7 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1861,7 +1861,7 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -1872,7 +1872,7 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
       };
       break;
     case "UpdateInProgressException":
-    case "com.amazonaws.madison.frontend#UpdateInProgressException":
+    case "com.amazonaws.ecs#UpdateInProgressException":
       response = {
         ...(await deserializeAws_json1_1UpdateInProgressExceptionResponse(
           parsedOutput,
@@ -1932,7 +1932,7 @@ const deserializeAws_json1_1DeleteServiceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -1943,7 +1943,7 @@ const deserializeAws_json1_1DeleteServiceCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -1954,7 +1954,7 @@ const deserializeAws_json1_1DeleteServiceCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1965,7 +1965,7 @@ const deserializeAws_json1_1DeleteServiceCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -1976,7 +1976,7 @@ const deserializeAws_json1_1DeleteServiceCommandError = async (
       };
       break;
     case "ServiceNotFoundException":
-    case "com.amazonaws.madison.frontend#ServiceNotFoundException":
+    case "com.amazonaws.ecs#ServiceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ServiceNotFoundExceptionResponse(
           parsedOutput,
@@ -2036,7 +2036,7 @@ const deserializeAws_json1_1DeleteTaskSetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.madison.frontend#AccessDeniedException":
+    case "com.amazonaws.ecs#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -2047,7 +2047,7 @@ const deserializeAws_json1_1DeleteTaskSetCommandError = async (
       };
       break;
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -2058,7 +2058,7 @@ const deserializeAws_json1_1DeleteTaskSetCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -2069,7 +2069,7 @@ const deserializeAws_json1_1DeleteTaskSetCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2080,7 +2080,7 @@ const deserializeAws_json1_1DeleteTaskSetCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -2091,7 +2091,7 @@ const deserializeAws_json1_1DeleteTaskSetCommandError = async (
       };
       break;
     case "ServiceNotActiveException":
-    case "com.amazonaws.madison.frontend#ServiceNotActiveException":
+    case "com.amazonaws.ecs#ServiceNotActiveException":
       response = {
         ...(await deserializeAws_json1_1ServiceNotActiveExceptionResponse(
           parsedOutput,
@@ -2102,7 +2102,7 @@ const deserializeAws_json1_1DeleteTaskSetCommandError = async (
       };
       break;
     case "ServiceNotFoundException":
-    case "com.amazonaws.madison.frontend#ServiceNotFoundException":
+    case "com.amazonaws.ecs#ServiceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ServiceNotFoundExceptionResponse(
           parsedOutput,
@@ -2113,7 +2113,7 @@ const deserializeAws_json1_1DeleteTaskSetCommandError = async (
       };
       break;
     case "TaskSetNotFoundException":
-    case "com.amazonaws.madison.frontend#TaskSetNotFoundException":
+    case "com.amazonaws.ecs#TaskSetNotFoundException":
       response = {
         ...(await deserializeAws_json1_1TaskSetNotFoundExceptionResponse(
           parsedOutput,
@@ -2124,7 +2124,7 @@ const deserializeAws_json1_1DeleteTaskSetCommandError = async (
       };
       break;
     case "UnsupportedFeatureException":
-    case "com.amazonaws.madison.frontend#UnsupportedFeatureException":
+    case "com.amazonaws.ecs#UnsupportedFeatureException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedFeatureExceptionResponse(
           parsedOutput,
@@ -2190,7 +2190,7 @@ const deserializeAws_json1_1DeregisterContainerInstanceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -2201,7 +2201,7 @@ const deserializeAws_json1_1DeregisterContainerInstanceCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -2212,7 +2212,7 @@ const deserializeAws_json1_1DeregisterContainerInstanceCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2223,7 +2223,7 @@ const deserializeAws_json1_1DeregisterContainerInstanceCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -2289,7 +2289,7 @@ const deserializeAws_json1_1DeregisterTaskDefinitionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -2300,7 +2300,7 @@ const deserializeAws_json1_1DeregisterTaskDefinitionCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2311,7 +2311,7 @@ const deserializeAws_json1_1DeregisterTaskDefinitionCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -2377,7 +2377,7 @@ const deserializeAws_json1_1DescribeCapacityProvidersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -2388,7 +2388,7 @@ const deserializeAws_json1_1DescribeCapacityProvidersCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2399,7 +2399,7 @@ const deserializeAws_json1_1DescribeCapacityProvidersCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -2459,7 +2459,7 @@ const deserializeAws_json1_1DescribeClustersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -2470,7 +2470,7 @@ const deserializeAws_json1_1DescribeClustersCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2481,7 +2481,7 @@ const deserializeAws_json1_1DescribeClustersCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -2547,7 +2547,7 @@ const deserializeAws_json1_1DescribeContainerInstancesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -2558,7 +2558,7 @@ const deserializeAws_json1_1DescribeContainerInstancesCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -2569,7 +2569,7 @@ const deserializeAws_json1_1DescribeContainerInstancesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2580,7 +2580,7 @@ const deserializeAws_json1_1DescribeContainerInstancesCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -2640,7 +2640,7 @@ const deserializeAws_json1_1DescribeServicesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -2651,7 +2651,7 @@ const deserializeAws_json1_1DescribeServicesCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -2662,7 +2662,7 @@ const deserializeAws_json1_1DescribeServicesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2673,7 +2673,7 @@ const deserializeAws_json1_1DescribeServicesCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -2739,7 +2739,7 @@ const deserializeAws_json1_1DescribeTaskDefinitionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -2750,7 +2750,7 @@ const deserializeAws_json1_1DescribeTaskDefinitionCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2761,7 +2761,100 @@ const deserializeAws_json1_1DescribeTaskDefinitionCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeTasksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTasksCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeTasksCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeTasksResponse(data, context);
+  const response: DescribeTasksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeTasksResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeTasksCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTasksCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.ecs#ClientException":
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -2821,7 +2914,7 @@ const deserializeAws_json1_1DescribeTaskSetsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.madison.frontend#AccessDeniedException":
+    case "com.amazonaws.ecs#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -2832,7 +2925,7 @@ const deserializeAws_json1_1DescribeTaskSetsCommandError = async (
       };
       break;
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -2843,7 +2936,7 @@ const deserializeAws_json1_1DescribeTaskSetsCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -2854,7 +2947,7 @@ const deserializeAws_json1_1DescribeTaskSetsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2865,7 +2958,7 @@ const deserializeAws_json1_1DescribeTaskSetsCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -2876,7 +2969,7 @@ const deserializeAws_json1_1DescribeTaskSetsCommandError = async (
       };
       break;
     case "ServiceNotActiveException":
-    case "com.amazonaws.madison.frontend#ServiceNotActiveException":
+    case "com.amazonaws.ecs#ServiceNotActiveException":
       response = {
         ...(await deserializeAws_json1_1ServiceNotActiveExceptionResponse(
           parsedOutput,
@@ -2887,7 +2980,7 @@ const deserializeAws_json1_1DescribeTaskSetsCommandError = async (
       };
       break;
     case "ServiceNotFoundException":
-    case "com.amazonaws.madison.frontend#ServiceNotFoundException":
+    case "com.amazonaws.ecs#ServiceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ServiceNotFoundExceptionResponse(
           parsedOutput,
@@ -2898,102 +2991,9 @@ const deserializeAws_json1_1DescribeTaskSetsCommandError = async (
       };
       break;
     case "UnsupportedFeatureException":
-    case "com.amazonaws.madison.frontend#UnsupportedFeatureException":
+    case "com.amazonaws.ecs#UnsupportedFeatureException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedFeatureExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1DescribeTasksCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTasksCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeTasksCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTasksResponse(data, context);
-  const response: DescribeTasksCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DescribeTasksResponse",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DescribeTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
-      response = {
-        ...(await deserializeAws_json1_1ClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
           context
         )),
@@ -3054,7 +3054,7 @@ const deserializeAws_json1_1DiscoverPollEndpointCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -3065,7 +3065,7 @@ const deserializeAws_json1_1DiscoverPollEndpointCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -3128,7 +3128,7 @@ const deserializeAws_json1_1ListAccountSettingsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -3139,7 +3139,7 @@ const deserializeAws_json1_1ListAccountSettingsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3150,7 +3150,7 @@ const deserializeAws_json1_1ListAccountSettingsCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -3210,7 +3210,7 @@ const deserializeAws_json1_1ListAttributesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -3221,7 +3221,7 @@ const deserializeAws_json1_1ListAttributesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3281,7 +3281,7 @@ const deserializeAws_json1_1ListClustersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -3292,7 +3292,7 @@ const deserializeAws_json1_1ListClustersCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3303,7 +3303,7 @@ const deserializeAws_json1_1ListClustersCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -3369,7 +3369,7 @@ const deserializeAws_json1_1ListContainerInstancesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -3380,7 +3380,7 @@ const deserializeAws_json1_1ListContainerInstancesCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -3391,7 +3391,7 @@ const deserializeAws_json1_1ListContainerInstancesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3402,7 +3402,7 @@ const deserializeAws_json1_1ListContainerInstancesCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -3462,7 +3462,7 @@ const deserializeAws_json1_1ListServicesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -3473,7 +3473,7 @@ const deserializeAws_json1_1ListServicesCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -3484,7 +3484,7 @@ const deserializeAws_json1_1ListServicesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3495,7 +3495,7 @@ const deserializeAws_json1_1ListServicesCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -3558,7 +3558,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -3569,7 +3569,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -3580,7 +3580,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3591,7 +3591,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -3657,7 +3657,7 @@ const deserializeAws_json1_1ListTaskDefinitionFamiliesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -3668,7 +3668,7 @@ const deserializeAws_json1_1ListTaskDefinitionFamiliesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3679,7 +3679,7 @@ const deserializeAws_json1_1ListTaskDefinitionFamiliesCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -3742,7 +3742,7 @@ const deserializeAws_json1_1ListTaskDefinitionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -3753,7 +3753,7 @@ const deserializeAws_json1_1ListTaskDefinitionsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3764,7 +3764,7 @@ const deserializeAws_json1_1ListTaskDefinitionsCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -3824,7 +3824,7 @@ const deserializeAws_json1_1ListTasksCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -3835,7 +3835,7 @@ const deserializeAws_json1_1ListTasksCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -3846,7 +3846,7 @@ const deserializeAws_json1_1ListTasksCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3857,7 +3857,7 @@ const deserializeAws_json1_1ListTasksCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -3868,7 +3868,7 @@ const deserializeAws_json1_1ListTasksCommandError = async (
       };
       break;
     case "ServiceNotFoundException":
-    case "com.amazonaws.madison.frontend#ServiceNotFoundException":
+    case "com.amazonaws.ecs#ServiceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ServiceNotFoundExceptionResponse(
           parsedOutput,
@@ -3928,7 +3928,7 @@ const deserializeAws_json1_1PutAccountSettingCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -3939,7 +3939,7 @@ const deserializeAws_json1_1PutAccountSettingCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3950,7 +3950,7 @@ const deserializeAws_json1_1PutAccountSettingCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -4016,7 +4016,7 @@ const deserializeAws_json1_1PutAccountSettingDefaultCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -4027,7 +4027,7 @@ const deserializeAws_json1_1PutAccountSettingDefaultCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -4038,7 +4038,7 @@ const deserializeAws_json1_1PutAccountSettingDefaultCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -4098,7 +4098,7 @@ const deserializeAws_json1_1PutAttributesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AttributeLimitExceededException":
-    case "com.amazonaws.madison.frontend#AttributeLimitExceededException":
+    case "com.amazonaws.ecs#AttributeLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1AttributeLimitExceededExceptionResponse(
           parsedOutput,
@@ -4109,7 +4109,7 @@ const deserializeAws_json1_1PutAttributesCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -4120,7 +4120,7 @@ const deserializeAws_json1_1PutAttributesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -4131,7 +4131,7 @@ const deserializeAws_json1_1PutAttributesCommandError = async (
       };
       break;
     case "TargetNotFoundException":
-    case "com.amazonaws.madison.frontend#TargetNotFoundException":
+    case "com.amazonaws.ecs#TargetNotFoundException":
       response = {
         ...(await deserializeAws_json1_1TargetNotFoundExceptionResponse(
           parsedOutput,
@@ -4197,7 +4197,7 @@ const deserializeAws_json1_1PutClusterCapacityProvidersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -4208,7 +4208,7 @@ const deserializeAws_json1_1PutClusterCapacityProvidersCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -4219,7 +4219,7 @@ const deserializeAws_json1_1PutClusterCapacityProvidersCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -4230,7 +4230,7 @@ const deserializeAws_json1_1PutClusterCapacityProvidersCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.madison.frontend#ResourceInUseException":
+    case "com.amazonaws.ecs#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -4241,7 +4241,7 @@ const deserializeAws_json1_1PutClusterCapacityProvidersCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -4252,7 +4252,7 @@ const deserializeAws_json1_1PutClusterCapacityProvidersCommandError = async (
       };
       break;
     case "UpdateInProgressException":
-    case "com.amazonaws.madison.frontend#UpdateInProgressException":
+    case "com.amazonaws.ecs#UpdateInProgressException":
       response = {
         ...(await deserializeAws_json1_1UpdateInProgressExceptionResponse(
           parsedOutput,
@@ -4318,7 +4318,7 @@ const deserializeAws_json1_1RegisterContainerInstanceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -4329,7 +4329,7 @@ const deserializeAws_json1_1RegisterContainerInstanceCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -4340,7 +4340,7 @@ const deserializeAws_json1_1RegisterContainerInstanceCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -4406,7 +4406,7 @@ const deserializeAws_json1_1RegisterTaskDefinitionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -4417,7 +4417,7 @@ const deserializeAws_json1_1RegisterTaskDefinitionCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -4428,7 +4428,7 @@ const deserializeAws_json1_1RegisterTaskDefinitionCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -4488,7 +4488,7 @@ const deserializeAws_json1_1RunTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.madison.frontend#AccessDeniedException":
+    case "com.amazonaws.ecs#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -4499,7 +4499,7 @@ const deserializeAws_json1_1RunTaskCommandError = async (
       };
       break;
     case "BlockedException":
-    case "com.amazonaws.madison.frontend#BlockedException":
+    case "com.amazonaws.ecs#BlockedException":
       response = {
         ...(await deserializeAws_json1_1BlockedExceptionResponse(
           parsedOutput,
@@ -4510,7 +4510,7 @@ const deserializeAws_json1_1RunTaskCommandError = async (
       };
       break;
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -4521,7 +4521,7 @@ const deserializeAws_json1_1RunTaskCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -4532,7 +4532,7 @@ const deserializeAws_json1_1RunTaskCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -4543,7 +4543,7 @@ const deserializeAws_json1_1RunTaskCommandError = async (
       };
       break;
     case "PlatformTaskDefinitionIncompatibilityException":
-    case "com.amazonaws.madison.frontend#PlatformTaskDefinitionIncompatibilityException":
+    case "com.amazonaws.ecs#PlatformTaskDefinitionIncompatibilityException":
       response = {
         ...(await deserializeAws_json1_1PlatformTaskDefinitionIncompatibilityExceptionResponse(
           parsedOutput,
@@ -4554,7 +4554,7 @@ const deserializeAws_json1_1RunTaskCommandError = async (
       };
       break;
     case "PlatformUnknownException":
-    case "com.amazonaws.madison.frontend#PlatformUnknownException":
+    case "com.amazonaws.ecs#PlatformUnknownException":
       response = {
         ...(await deserializeAws_json1_1PlatformUnknownExceptionResponse(
           parsedOutput,
@@ -4565,7 +4565,7 @@ const deserializeAws_json1_1RunTaskCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -4576,7 +4576,7 @@ const deserializeAws_json1_1RunTaskCommandError = async (
       };
       break;
     case "UnsupportedFeatureException":
-    case "com.amazonaws.madison.frontend#UnsupportedFeatureException":
+    case "com.amazonaws.ecs#UnsupportedFeatureException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedFeatureExceptionResponse(
           parsedOutput,
@@ -4636,7 +4636,7 @@ const deserializeAws_json1_1StartTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -4647,7 +4647,7 @@ const deserializeAws_json1_1StartTaskCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -4658,7 +4658,7 @@ const deserializeAws_json1_1StartTaskCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -4669,7 +4669,7 @@ const deserializeAws_json1_1StartTaskCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -4729,7 +4729,7 @@ const deserializeAws_json1_1StopTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -4740,7 +4740,7 @@ const deserializeAws_json1_1StopTaskCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -4751,7 +4751,7 @@ const deserializeAws_json1_1StopTaskCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -4762,7 +4762,7 @@ const deserializeAws_json1_1StopTaskCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -4828,7 +4828,7 @@ const deserializeAws_json1_1SubmitAttachmentStateChangesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.madison.frontend#AccessDeniedException":
+    case "com.amazonaws.ecs#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -4839,7 +4839,7 @@ const deserializeAws_json1_1SubmitAttachmentStateChangesCommandError = async (
       };
       break;
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -4850,7 +4850,7 @@ const deserializeAws_json1_1SubmitAttachmentStateChangesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -4861,7 +4861,7 @@ const deserializeAws_json1_1SubmitAttachmentStateChangesCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -4927,7 +4927,7 @@ const deserializeAws_json1_1SubmitContainerStateChangeCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.madison.frontend#AccessDeniedException":
+    case "com.amazonaws.ecs#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -4938,7 +4938,7 @@ const deserializeAws_json1_1SubmitContainerStateChangeCommandError = async (
       };
       break;
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -4949,7 +4949,7 @@ const deserializeAws_json1_1SubmitContainerStateChangeCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -5012,7 +5012,7 @@ const deserializeAws_json1_1SubmitTaskStateChangeCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.madison.frontend#AccessDeniedException":
+    case "com.amazonaws.ecs#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -5023,7 +5023,7 @@ const deserializeAws_json1_1SubmitTaskStateChangeCommandError = async (
       };
       break;
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -5034,7 +5034,7 @@ const deserializeAws_json1_1SubmitTaskStateChangeCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -5045,7 +5045,7 @@ const deserializeAws_json1_1SubmitTaskStateChangeCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -5105,7 +5105,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -5116,7 +5116,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -5127,7 +5127,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -5138,7 +5138,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.madison.frontend#ResourceNotFoundException":
+    case "com.amazonaws.ecs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -5149,7 +5149,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -5209,7 +5209,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -5220,7 +5220,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -5231,7 +5231,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -5242,7 +5242,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.madison.frontend#ResourceNotFoundException":
+    case "com.amazonaws.ecs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -5253,7 +5253,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -5316,7 +5316,7 @@ const deserializeAws_json1_1UpdateClusterSettingsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -5327,7 +5327,7 @@ const deserializeAws_json1_1UpdateClusterSettingsCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -5338,7 +5338,7 @@ const deserializeAws_json1_1UpdateClusterSettingsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -5349,7 +5349,7 @@ const deserializeAws_json1_1UpdateClusterSettingsCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -5412,7 +5412,7 @@ const deserializeAws_json1_1UpdateContainerAgentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -5423,7 +5423,7 @@ const deserializeAws_json1_1UpdateContainerAgentCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -5434,7 +5434,7 @@ const deserializeAws_json1_1UpdateContainerAgentCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -5445,7 +5445,7 @@ const deserializeAws_json1_1UpdateContainerAgentCommandError = async (
       };
       break;
     case "MissingVersionException":
-    case "com.amazonaws.madison.frontend#MissingVersionException":
+    case "com.amazonaws.ecs#MissingVersionException":
       response = {
         ...(await deserializeAws_json1_1MissingVersionExceptionResponse(
           parsedOutput,
@@ -5456,7 +5456,7 @@ const deserializeAws_json1_1UpdateContainerAgentCommandError = async (
       };
       break;
     case "NoUpdateAvailableException":
-    case "com.amazonaws.madison.frontend#NoUpdateAvailableException":
+    case "com.amazonaws.ecs#NoUpdateAvailableException":
       response = {
         ...(await deserializeAws_json1_1NoUpdateAvailableExceptionResponse(
           parsedOutput,
@@ -5467,7 +5467,7 @@ const deserializeAws_json1_1UpdateContainerAgentCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -5478,7 +5478,7 @@ const deserializeAws_json1_1UpdateContainerAgentCommandError = async (
       };
       break;
     case "UpdateInProgressException":
-    case "com.amazonaws.madison.frontend#UpdateInProgressException":
+    case "com.amazonaws.ecs#UpdateInProgressException":
       response = {
         ...(await deserializeAws_json1_1UpdateInProgressExceptionResponse(
           parsedOutput,
@@ -5544,7 +5544,7 @@ const deserializeAws_json1_1UpdateContainerInstancesStateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -5555,7 +5555,7 @@ const deserializeAws_json1_1UpdateContainerInstancesStateCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -5566,7 +5566,7 @@ const deserializeAws_json1_1UpdateContainerInstancesStateCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -5577,7 +5577,7 @@ const deserializeAws_json1_1UpdateContainerInstancesStateCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -5637,7 +5637,7 @@ const deserializeAws_json1_1UpdateServiceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.madison.frontend#AccessDeniedException":
+    case "com.amazonaws.ecs#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -5648,7 +5648,7 @@ const deserializeAws_json1_1UpdateServiceCommandError = async (
       };
       break;
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -5659,7 +5659,7 @@ const deserializeAws_json1_1UpdateServiceCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -5670,7 +5670,7 @@ const deserializeAws_json1_1UpdateServiceCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -5681,7 +5681,7 @@ const deserializeAws_json1_1UpdateServiceCommandError = async (
       };
       break;
     case "PlatformTaskDefinitionIncompatibilityException":
-    case "com.amazonaws.madison.frontend#PlatformTaskDefinitionIncompatibilityException":
+    case "com.amazonaws.ecs#PlatformTaskDefinitionIncompatibilityException":
       response = {
         ...(await deserializeAws_json1_1PlatformTaskDefinitionIncompatibilityExceptionResponse(
           parsedOutput,
@@ -5692,7 +5692,7 @@ const deserializeAws_json1_1UpdateServiceCommandError = async (
       };
       break;
     case "PlatformUnknownException":
-    case "com.amazonaws.madison.frontend#PlatformUnknownException":
+    case "com.amazonaws.ecs#PlatformUnknownException":
       response = {
         ...(await deserializeAws_json1_1PlatformUnknownExceptionResponse(
           parsedOutput,
@@ -5703,7 +5703,7 @@ const deserializeAws_json1_1UpdateServiceCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -5714,7 +5714,7 @@ const deserializeAws_json1_1UpdateServiceCommandError = async (
       };
       break;
     case "ServiceNotActiveException":
-    case "com.amazonaws.madison.frontend#ServiceNotActiveException":
+    case "com.amazonaws.ecs#ServiceNotActiveException":
       response = {
         ...(await deserializeAws_json1_1ServiceNotActiveExceptionResponse(
           parsedOutput,
@@ -5725,7 +5725,7 @@ const deserializeAws_json1_1UpdateServiceCommandError = async (
       };
       break;
     case "ServiceNotFoundException":
-    case "com.amazonaws.madison.frontend#ServiceNotFoundException":
+    case "com.amazonaws.ecs#ServiceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ServiceNotFoundExceptionResponse(
           parsedOutput,
@@ -5791,7 +5791,7 @@ const deserializeAws_json1_1UpdateServicePrimaryTaskSetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.madison.frontend#AccessDeniedException":
+    case "com.amazonaws.ecs#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -5802,7 +5802,7 @@ const deserializeAws_json1_1UpdateServicePrimaryTaskSetCommandError = async (
       };
       break;
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -5813,7 +5813,7 @@ const deserializeAws_json1_1UpdateServicePrimaryTaskSetCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -5824,7 +5824,7 @@ const deserializeAws_json1_1UpdateServicePrimaryTaskSetCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -5835,7 +5835,7 @@ const deserializeAws_json1_1UpdateServicePrimaryTaskSetCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -5846,7 +5846,7 @@ const deserializeAws_json1_1UpdateServicePrimaryTaskSetCommandError = async (
       };
       break;
     case "ServiceNotActiveException":
-    case "com.amazonaws.madison.frontend#ServiceNotActiveException":
+    case "com.amazonaws.ecs#ServiceNotActiveException":
       response = {
         ...(await deserializeAws_json1_1ServiceNotActiveExceptionResponse(
           parsedOutput,
@@ -5857,7 +5857,7 @@ const deserializeAws_json1_1UpdateServicePrimaryTaskSetCommandError = async (
       };
       break;
     case "ServiceNotFoundException":
-    case "com.amazonaws.madison.frontend#ServiceNotFoundException":
+    case "com.amazonaws.ecs#ServiceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ServiceNotFoundExceptionResponse(
           parsedOutput,
@@ -5868,7 +5868,7 @@ const deserializeAws_json1_1UpdateServicePrimaryTaskSetCommandError = async (
       };
       break;
     case "TaskSetNotFoundException":
-    case "com.amazonaws.madison.frontend#TaskSetNotFoundException":
+    case "com.amazonaws.ecs#TaskSetNotFoundException":
       response = {
         ...(await deserializeAws_json1_1TaskSetNotFoundExceptionResponse(
           parsedOutput,
@@ -5879,7 +5879,7 @@ const deserializeAws_json1_1UpdateServicePrimaryTaskSetCommandError = async (
       };
       break;
     case "UnsupportedFeatureException":
-    case "com.amazonaws.madison.frontend#UnsupportedFeatureException":
+    case "com.amazonaws.ecs#UnsupportedFeatureException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedFeatureExceptionResponse(
           parsedOutput,
@@ -5939,7 +5939,7 @@ const deserializeAws_json1_1UpdateTaskSetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.madison.frontend#AccessDeniedException":
+    case "com.amazonaws.ecs#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -5950,7 +5950,7 @@ const deserializeAws_json1_1UpdateTaskSetCommandError = async (
       };
       break;
     case "ClientException":
-    case "com.amazonaws.madison.frontend#ClientException":
+    case "com.amazonaws.ecs#ClientException":
       response = {
         ...(await deserializeAws_json1_1ClientExceptionResponse(
           parsedOutput,
@@ -5961,7 +5961,7 @@ const deserializeAws_json1_1UpdateTaskSetCommandError = async (
       };
       break;
     case "ClusterNotFoundException":
-    case "com.amazonaws.madison.frontend#ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -5972,7 +5972,7 @@ const deserializeAws_json1_1UpdateTaskSetCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.madison.frontend#InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -5983,7 +5983,7 @@ const deserializeAws_json1_1UpdateTaskSetCommandError = async (
       };
       break;
     case "ServerException":
-    case "com.amazonaws.madison.frontend#ServerException":
+    case "com.amazonaws.ecs#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(
           parsedOutput,
@@ -5994,7 +5994,7 @@ const deserializeAws_json1_1UpdateTaskSetCommandError = async (
       };
       break;
     case "ServiceNotActiveException":
-    case "com.amazonaws.madison.frontend#ServiceNotActiveException":
+    case "com.amazonaws.ecs#ServiceNotActiveException":
       response = {
         ...(await deserializeAws_json1_1ServiceNotActiveExceptionResponse(
           parsedOutput,
@@ -6005,7 +6005,7 @@ const deserializeAws_json1_1UpdateTaskSetCommandError = async (
       };
       break;
     case "ServiceNotFoundException":
-    case "com.amazonaws.madison.frontend#ServiceNotFoundException":
+    case "com.amazonaws.ecs#ServiceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ServiceNotFoundExceptionResponse(
           parsedOutput,
@@ -6016,7 +6016,7 @@ const deserializeAws_json1_1UpdateTaskSetCommandError = async (
       };
       break;
     case "TaskSetNotFoundException":
-    case "com.amazonaws.madison.frontend#TaskSetNotFoundException":
+    case "com.amazonaws.ecs#TaskSetNotFoundException":
       response = {
         ...(await deserializeAws_json1_1TaskSetNotFoundExceptionResponse(
           parsedOutput,
@@ -6027,7 +6027,7 @@ const deserializeAws_json1_1UpdateTaskSetCommandError = async (
       };
       break;
     case "UnsupportedFeatureException":
-    case "com.amazonaws.madison.frontend#UnsupportedFeatureException":
+    case "com.amazonaws.ecs#UnsupportedFeatureException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedFeatureExceptionResponse(
           parsedOutput,
@@ -8869,6 +8869,15 @@ const deserializeAws_json1_1CapacityProvider = (
   } as any;
 };
 
+const deserializeAws_json1_1CapacityProviders = (
+  output: any,
+  context: __SerdeContext
+): CapacityProvider[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1CapacityProvider(entry, context)
+  );
+};
+
 const deserializeAws_json1_1CapacityProviderStrategy = (
   output: any,
   context: __SerdeContext
@@ -8897,15 +8906,6 @@ const deserializeAws_json1_1CapacityProviderStrategyItem = (
         ? output.weight
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1CapacityProviders = (
-  output: any,
-  context: __SerdeContext
-): CapacityProvider[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1CapacityProvider(entry, context)
-  );
 };
 
 const deserializeAws_json1_1ClientException = (
@@ -9048,6 +9048,15 @@ const deserializeAws_json1_1ClusterNotFoundException = (
   } as any;
 };
 
+const deserializeAws_json1_1Clusters = (
+  output: any,
+  context: __SerdeContext
+): Cluster[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Cluster(entry, context)
+  );
+};
+
 const deserializeAws_json1_1ClusterSetting = (
   output: any,
   context: __SerdeContext
@@ -9071,15 +9080,6 @@ const deserializeAws_json1_1ClusterSettings = (
 ): ClusterSetting[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ClusterSetting(entry, context)
-  );
-};
-
-const deserializeAws_json1_1Clusters = (
-  output: any,
-  context: __SerdeContext
-): Cluster[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Cluster(entry, context)
   );
 };
 
@@ -11916,6 +11916,15 @@ const deserializeAws_json1_1TaskOverride = (
   } as any;
 };
 
+const deserializeAws_json1_1Tasks = (
+  output: any,
+  context: __SerdeContext
+): Task[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Task(entry, context)
+  );
+};
+
 const deserializeAws_json1_1TaskSet = (
   output: any,
   context: __SerdeContext
@@ -12043,15 +12052,6 @@ const deserializeAws_json1_1TaskSets = (
 ): TaskSet[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TaskSet(entry, context)
-  );
-};
-
-const deserializeAws_json1_1Tasks = (
-  output: any,
-  context: __SerdeContext
-): Task[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Task(entry, context)
   );
 };
 

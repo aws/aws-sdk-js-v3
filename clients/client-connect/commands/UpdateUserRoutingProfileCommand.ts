@@ -5,9 +5,9 @@ import {
 } from "../ConnectClient";
 import { UpdateUserRoutingProfileRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateUserRoutingProfileCommand,
-  serializeAws_restJson1_1UpdateUserRoutingProfileCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateUserRoutingProfileCommand,
+  serializeAws_restJson1UpdateUserRoutingProfileCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class UpdateUserRoutingProfileCommand extends $Command<
     input: UpdateUserRoutingProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateUserRoutingProfileCommand(
+    return serializeAws_restJson1UpdateUserRoutingProfileCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class UpdateUserRoutingProfileCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateUserRoutingProfileCommandOutput> {
-    return deserializeAws_restJson1_1UpdateUserRoutingProfileCommand(
+    return deserializeAws_restJson1UpdateUserRoutingProfileCommand(
       output,
       context
     );

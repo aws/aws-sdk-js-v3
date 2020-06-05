@@ -27,405 +27,6 @@ export namespace AccessDeniedFault {
 }
 
 /**
- * <p>There are not enough resources allocated to the database migration.</p>
- */
-export interface InsufficientResourceCapacityFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InsufficientResourceCapacityFault";
-  $fault: "client";
-  /**
-   * <p></p>
-   */
-  message?: string;
-}
-
-export namespace InsufficientResourceCapacityFault {
-  export const filterSensitiveLog = (
-    obj: InsufficientResourceCapacityFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InsufficientResourceCapacityFault =>
-    __isa(o, "InsufficientResourceCapacityFault");
-}
-
-/**
- * <p>The certificate was not valid.</p>
- */
-export interface InvalidCertificateFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidCertificateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidCertificateFault {
-  export const filterSensitiveLog = (obj: InvalidCertificateFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidCertificateFault =>
-    __isa(o, "InvalidCertificateFault");
-}
-
-/**
- * <p>The resource is in a state that prevents it from being used for database migration.</p>
- */
-export interface InvalidResourceStateFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidResourceStateFault";
-  $fault: "client";
-  /**
-   * <p></p>
-   */
-  message?: string;
-}
-
-export namespace InvalidResourceStateFault {
-  export const filterSensitiveLog = (obj: InvalidResourceStateFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidResourceStateFault =>
-    __isa(o, "InvalidResourceStateFault");
-}
-
-/**
- * <p>The subnet provided is invalid.</p>
- */
-export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
-  name: "InvalidSubnet";
-  $fault: "client";
-  /**
-   * <p></p>
-   */
-  message?: string;
-}
-
-export namespace InvalidSubnet {
-  export const filterSensitiveLog = (obj: InvalidSubnet): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidSubnet => __isa(o, "InvalidSubnet");
-}
-
-/**
- * <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
- */
-export interface KMSAccessDeniedFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "KMSAccessDeniedFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace KMSAccessDeniedFault {
-  export const filterSensitiveLog = (obj: KMSAccessDeniedFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is KMSAccessDeniedFault =>
-    __isa(o, "KMSAccessDeniedFault");
-}
-
-/**
- * <p>The specified master key (CMK) isn't enabled.</p>
- */
-export interface KMSDisabledFault extends __SmithyException, $MetadataBearer {
-  name: "KMSDisabledFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace KMSDisabledFault {
-  export const filterSensitiveLog = (obj: KMSDisabledFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is KMSDisabledFault =>
-    __isa(o, "KMSDisabledFault");
-}
-
-/**
- * <p>The state of the specified AWS KMS resource isn't valid for this request.</p>
- */
-export interface KMSInvalidStateFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "KMSInvalidStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace KMSInvalidStateFault {
-  export const filterSensitiveLog = (obj: KMSInvalidStateFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is KMSInvalidStateFault =>
-    __isa(o, "KMSInvalidStateFault");
-}
-
-/**
- * <p>AWS DMS cannot access the AWS KMS key.</p>
- */
-export interface KMSKeyNotAccessibleFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "KMSKeyNotAccessibleFault";
-  $fault: "client";
-  /**
-   * <p></p>
-   */
-  message?: string;
-}
-
-export namespace KMSKeyNotAccessibleFault {
-  export const filterSensitiveLog = (obj: KMSKeyNotAccessibleFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is KMSKeyNotAccessibleFault =>
-    __isa(o, "KMSKeyNotAccessibleFault");
-}
-
-/**
- * <p>The specified AWS KMS entity or resource can't be found.</p>
- */
-export interface KMSNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "KMSNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace KMSNotFoundFault {
-  export const filterSensitiveLog = (obj: KMSNotFoundFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is KMSNotFoundFault =>
-    __isa(o, "KMSNotFoundFault");
-}
-
-/**
- * <p>This request triggered AWS KMS request throttling.</p>
- */
-export interface KMSThrottlingFault extends __SmithyException, $MetadataBearer {
-  name: "KMSThrottlingFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace KMSThrottlingFault {
-  export const filterSensitiveLog = (obj: KMSThrottlingFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is KMSThrottlingFault =>
-    __isa(o, "KMSThrottlingFault");
-}
-
-/**
- * <p>The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.</p>
- */
-export interface ReplicationSubnetGroupDoesNotCoverEnoughAZs
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ReplicationSubnetGroupDoesNotCoverEnoughAZs";
-  $fault: "client";
-  /**
-   * <p></p>
-   */
-  message?: string;
-}
-
-export namespace ReplicationSubnetGroupDoesNotCoverEnoughAZs {
-  export const filterSensitiveLog = (
-    obj: ReplicationSubnetGroupDoesNotCoverEnoughAZs
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is ReplicationSubnetGroupDoesNotCoverEnoughAZs =>
-    __isa(o, "ReplicationSubnetGroupDoesNotCoverEnoughAZs");
-}
-
-/**
- * <p>The resource you are attempting to create already exists.</p>
- */
-export interface ResourceAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceAlreadyExistsFault";
-  $fault: "client";
-  /**
-   * <p></p>
-   */
-  message?: string;
-
-  resourceArn?: string;
-}
-
-export namespace ResourceAlreadyExistsFault {
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceAlreadyExistsFault =>
-    __isa(o, "ResourceAlreadyExistsFault");
-}
-
-/**
- * <p>The resource could not be found.</p>
- */
-export interface ResourceNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceNotFoundFault";
-  $fault: "client";
-  /**
-   * <p></p>
-   */
-  message?: string;
-}
-
-export namespace ResourceNotFoundFault {
-  export const filterSensitiveLog = (obj: ResourceNotFoundFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceNotFoundFault =>
-    __isa(o, "ResourceNotFoundFault");
-}
-
-/**
- * <p>The quota for this resource quota has been exceeded.</p>
- */
-export interface ResourceQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceQuotaExceededFault";
-  $fault: "client";
-  /**
-   * <p></p>
-   */
-  message?: string;
-}
-
-export namespace ResourceQuotaExceededFault {
-  export const filterSensitiveLog = (obj: ResourceQuotaExceededFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceQuotaExceededFault =>
-    __isa(o, "ResourceQuotaExceededFault");
-}
-
-/**
- * <p>The SNS topic is invalid.</p>
- */
-export interface SNSInvalidTopicFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "SNSInvalidTopicFault";
-  $fault: "client";
-  /**
-   * <p></p>
-   */
-  message?: string;
-}
-
-export namespace SNSInvalidTopicFault {
-  export const filterSensitiveLog = (obj: SNSInvalidTopicFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SNSInvalidTopicFault =>
-    __isa(o, "SNSInvalidTopicFault");
-}
-
-/**
- * <p>You are not authorized for the SNS subscription.</p>
- */
-export interface SNSNoAuthorizationFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "SNSNoAuthorizationFault";
-  $fault: "client";
-  /**
-   * <p></p>
-   */
-  message?: string;
-}
-
-export namespace SNSNoAuthorizationFault {
-  export const filterSensitiveLog = (obj: SNSNoAuthorizationFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SNSNoAuthorizationFault =>
-    __isa(o, "SNSNoAuthorizationFault");
-}
-
-/**
- * <p>The storage quota has been exceeded.</p>
- */
-export interface StorageQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "StorageQuotaExceededFault";
-  $fault: "client";
-  /**
-   * <p></p>
-   */
-  message?: string;
-}
-
-export namespace StorageQuotaExceededFault {
-  export const filterSensitiveLog = (obj: StorageQuotaExceededFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StorageQuotaExceededFault =>
-    __isa(o, "StorageQuotaExceededFault");
-}
-
-/**
- * <p>The specified subnet is already in use.</p>
- */
-export interface SubnetAlreadyInUse extends __SmithyException, $MetadataBearer {
-  name: "SubnetAlreadyInUse";
-  $fault: "client";
-  /**
-   * <p></p>
-   */
-  message?: string;
-}
-
-export namespace SubnetAlreadyInUse {
-  export const filterSensitiveLog = (obj: SubnetAlreadyInUse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SubnetAlreadyInUse =>
-    __isa(o, "SubnetAlreadyInUse");
-}
-
-/**
- * <p>An upgrade dependency is preventing the database migration.</p>
- */
-export interface UpgradeDependencyFailureFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "UpgradeDependencyFailureFault";
-  $fault: "client";
-  /**
-   * <p></p>
-   */
-  message?: string;
-}
-
-export namespace UpgradeDependencyFailureFault {
-  export const filterSensitiveLog = (
-    obj: UpgradeDependencyFailureFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpgradeDependencyFailureFault =>
-    __isa(o, "UpgradeDependencyFailureFault");
-}
-
-/**
  * <p>Describes a quota for an AWS account, for example, the number of replication instances
  *          allowed.</p>
  */
@@ -1819,6 +1420,71 @@ export namespace DescribeConnectionsResponse {
 /**
  * <p></p>
  */
+export interface DescribeEndpointsMessage {
+  __type?: "DescribeEndpointsMessage";
+  /**
+   * <p>Filters applied to the describe action.</p>
+   *          <p>Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p> The maximum number of records to include in the response. If more records exist than
+   *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
+   *          in the response so that the remaining results can be retrieved. </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+}
+
+export namespace DescribeEndpointsMessage {
+  export const filterSensitiveLog = (obj: DescribeEndpointsMessage): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeEndpointsMessage =>
+    __isa(o, "DescribeEndpointsMessage");
+}
+
+/**
+ * <p></p>
+ */
+export interface DescribeEndpointsResponse {
+  __type?: "DescribeEndpointsResponse";
+  /**
+   * <p>Endpoint description.</p>
+   */
+  Endpoints?: Endpoint[];
+
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   */
+  Marker?: string;
+}
+
+export namespace DescribeEndpointsResponse {
+  export const filterSensitiveLog = (obj: DescribeEndpointsResponse): any => ({
+    ...obj,
+    ...(obj.Endpoints && {
+      Endpoints: obj.Endpoints.map(item => Endpoint.filterSensitiveLog(item))
+    })
+  });
+  export const isa = (o: any): o is DescribeEndpointsResponse =>
+    __isa(o, "DescribeEndpointsResponse");
+}
+
+/**
+ * <p></p>
+ */
 export interface DescribeEndpointTypesMessage {
   __type?: "DescribeEndpointTypesMessage";
   /**
@@ -1885,71 +1551,6 @@ export namespace DescribeEndpointTypesResponse {
 /**
  * <p></p>
  */
-export interface DescribeEndpointsMessage {
-  __type?: "DescribeEndpointsMessage";
-  /**
-   * <p>Filters applied to the describe action.</p>
-   *          <p>Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p> An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>. </p>
-   */
-  Marker?: string;
-
-  /**
-   * <p> The maximum number of records to include in the response. If more records exist than
-   *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
-   *          in the response so that the remaining results can be retrieved. </p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-}
-
-export namespace DescribeEndpointsMessage {
-  export const filterSensitiveLog = (obj: DescribeEndpointsMessage): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeEndpointsMessage =>
-    __isa(o, "DescribeEndpointsMessage");
-}
-
-/**
- * <p></p>
- */
-export interface DescribeEndpointsResponse {
-  __type?: "DescribeEndpointsResponse";
-  /**
-   * <p>Endpoint description.</p>
-   */
-  Endpoints?: Endpoint[];
-
-  /**
-   * <p> An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>. </p>
-   */
-  Marker?: string;
-}
-
-export namespace DescribeEndpointsResponse {
-  export const filterSensitiveLog = (obj: DescribeEndpointsResponse): any => ({
-    ...obj,
-    ...(obj.Endpoints && {
-      Endpoints: obj.Endpoints.map(item => Endpoint.filterSensitiveLog(item))
-    })
-  });
-  export const isa = (o: any): o is DescribeEndpointsResponse =>
-    __isa(o, "DescribeEndpointsResponse");
-}
-
-/**
- * <p></p>
- */
 export interface DescribeEventCategoriesMessage {
   __type?: "DescribeEventCategoriesMessage";
   /**
@@ -1993,76 +1594,6 @@ export namespace DescribeEventCategoriesResponse {
   });
   export const isa = (o: any): o is DescribeEventCategoriesResponse =>
     __isa(o, "DescribeEventCategoriesResponse");
-}
-
-/**
- * <p></p>
- */
-export interface DescribeEventSubscriptionsMessage {
-  __type?: "DescribeEventSubscriptionsMessage";
-  /**
-   * <p>Filters applied to the action.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p> An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>. </p>
-   */
-  Marker?: string;
-
-  /**
-   * <p> The maximum number of records to include in the response. If more records exist than
-   *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
-   *          in the response so that the remaining results can be retrieved. </p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * <p>The name of the AWS DMS event subscription to be described.</p>
-   */
-  SubscriptionName?: string;
-}
-
-export namespace DescribeEventSubscriptionsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeEventSubscriptionsMessage
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeEventSubscriptionsMessage =>
-    __isa(o, "DescribeEventSubscriptionsMessage");
-}
-
-/**
- * <p></p>
- */
-export interface DescribeEventSubscriptionsResponse {
-  __type?: "DescribeEventSubscriptionsResponse";
-  /**
-   * <p>A list of event subscriptions.</p>
-   */
-  EventSubscriptionsList?: EventSubscription[];
-
-  /**
-   * <p> An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>. </p>
-   */
-  Marker?: string;
-}
-
-export namespace DescribeEventSubscriptionsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeEventSubscriptionsResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeEventSubscriptionsResponse =>
-    __isa(o, "DescribeEventSubscriptionsResponse");
 }
 
 /**
@@ -2155,6 +1686,76 @@ export namespace DescribeEventsResponse {
   });
   export const isa = (o: any): o is DescribeEventsResponse =>
     __isa(o, "DescribeEventsResponse");
+}
+
+/**
+ * <p></p>
+ */
+export interface DescribeEventSubscriptionsMessage {
+  __type?: "DescribeEventSubscriptionsMessage";
+  /**
+   * <p>Filters applied to the action.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p> The maximum number of records to include in the response. If more records exist than
+   *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
+   *          in the response so that the remaining results can be retrieved. </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>The name of the AWS DMS event subscription to be described.</p>
+   */
+  SubscriptionName?: string;
+}
+
+export namespace DescribeEventSubscriptionsMessage {
+  export const filterSensitiveLog = (
+    obj: DescribeEventSubscriptionsMessage
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeEventSubscriptionsMessage =>
+    __isa(o, "DescribeEventSubscriptionsMessage");
+}
+
+/**
+ * <p></p>
+ */
+export interface DescribeEventSubscriptionsResponse {
+  __type?: "DescribeEventSubscriptionsResponse";
+  /**
+   * <p>A list of event subscriptions.</p>
+   */
+  EventSubscriptionsList?: EventSubscription[];
+
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   */
+  Marker?: string;
+}
+
+export namespace DescribeEventSubscriptionsResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeEventSubscriptionsResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeEventSubscriptionsResponse =>
+    __isa(o, "DescribeEventSubscriptionsResponse");
 }
 
 /**
@@ -2333,6 +1934,73 @@ export namespace DescribeRefreshSchemasStatusResponse {
     __isa(o, "DescribeRefreshSchemasStatusResponse");
 }
 
+/**
+ * <p></p>
+ */
+export interface DescribeReplicationInstancesMessage {
+  __type?: "DescribeReplicationInstancesMessage";
+  /**
+   * <p>Filters applied to the describe action.</p>
+   *          <p>Valid filter names: replication-instance-arn | replication-instance-id |
+   *          replication-instance-class | engine-version</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p> The maximum number of records to include in the response. If more records exist than
+   *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
+   *          in the response so that the remaining results can be retrieved. </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+}
+
+export namespace DescribeReplicationInstancesMessage {
+  export const filterSensitiveLog = (
+    obj: DescribeReplicationInstancesMessage
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeReplicationInstancesMessage =>
+    __isa(o, "DescribeReplicationInstancesMessage");
+}
+
+/**
+ * <p></p>
+ */
+export interface DescribeReplicationInstancesResponse {
+  __type?: "DescribeReplicationInstancesResponse";
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The replication instances described.</p>
+   */
+  ReplicationInstances?: ReplicationInstance[];
+}
+
+export namespace DescribeReplicationInstancesResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeReplicationInstancesResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeReplicationInstancesResponse =>
+    __isa(o, "DescribeReplicationInstancesResponse");
+}
+
 export interface DescribeReplicationInstanceTaskLogsMessage {
   __type?: "DescribeReplicationInstanceTaskLogsMessage";
   /**
@@ -2400,73 +2068,6 @@ export namespace DescribeReplicationInstanceTaskLogsResponse {
     o: any
   ): o is DescribeReplicationInstanceTaskLogsResponse =>
     __isa(o, "DescribeReplicationInstanceTaskLogsResponse");
-}
-
-/**
- * <p></p>
- */
-export interface DescribeReplicationInstancesMessage {
-  __type?: "DescribeReplicationInstancesMessage";
-  /**
-   * <p>Filters applied to the describe action.</p>
-   *          <p>Valid filter names: replication-instance-arn | replication-instance-id |
-   *          replication-instance-class | engine-version</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p> An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>. </p>
-   */
-  Marker?: string;
-
-  /**
-   * <p> The maximum number of records to include in the response. If more records exist than
-   *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
-   *          in the response so that the remaining results can be retrieved. </p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-}
-
-export namespace DescribeReplicationInstancesMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeReplicationInstancesMessage
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeReplicationInstancesMessage =>
-    __isa(o, "DescribeReplicationInstancesMessage");
-}
-
-/**
- * <p></p>
- */
-export interface DescribeReplicationInstancesResponse {
-  __type?: "DescribeReplicationInstancesResponse";
-  /**
-   * <p> An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>. </p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The replication instances described.</p>
-   */
-  ReplicationInstances?: ReplicationInstance[];
-}
-
-export namespace DescribeReplicationInstancesResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeReplicationInstancesResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeReplicationInstancesResponse =>
-    __isa(o, "DescribeReplicationInstancesResponse");
 }
 
 /**
@@ -3307,6 +2908,90 @@ export namespace ImportCertificateResponse {
 }
 
 /**
+ * <p>There are not enough resources allocated to the database migration.</p>
+ */
+export interface InsufficientResourceCapacityFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InsufficientResourceCapacityFault";
+  $fault: "client";
+  /**
+   * <p></p>
+   */
+  message?: string;
+}
+
+export namespace InsufficientResourceCapacityFault {
+  export const filterSensitiveLog = (
+    obj: InsufficientResourceCapacityFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InsufficientResourceCapacityFault =>
+    __isa(o, "InsufficientResourceCapacityFault");
+}
+
+/**
+ * <p>The certificate was not valid.</p>
+ */
+export interface InvalidCertificateFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidCertificateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidCertificateFault {
+  export const filterSensitiveLog = (obj: InvalidCertificateFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidCertificateFault =>
+    __isa(o, "InvalidCertificateFault");
+}
+
+/**
+ * <p>The resource is in a state that prevents it from being used for database migration.</p>
+ */
+export interface InvalidResourceStateFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidResourceStateFault";
+  $fault: "client";
+  /**
+   * <p></p>
+   */
+  message?: string;
+}
+
+export namespace InvalidResourceStateFault {
+  export const filterSensitiveLog = (obj: InvalidResourceStateFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidResourceStateFault =>
+    __isa(o, "InvalidResourceStateFault");
+}
+
+/**
+ * <p>The subnet provided is invalid.</p>
+ */
+export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
+  name: "InvalidSubnet";
+  $fault: "client";
+  /**
+   * <p></p>
+   */
+  message?: string;
+}
+
+export namespace InvalidSubnet {
+  export const filterSensitiveLog = (obj: InvalidSubnet): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidSubnet => __isa(o, "InvalidSubnet");
+}
+
+/**
  * <p></p>
  */
 export interface KinesisSettings {
@@ -3335,6 +3020,117 @@ export namespace KinesisSettings {
   });
   export const isa = (o: any): o is KinesisSettings =>
     __isa(o, "KinesisSettings");
+}
+
+/**
+ * <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
+ */
+export interface KMSAccessDeniedFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "KMSAccessDeniedFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace KMSAccessDeniedFault {
+  export const filterSensitiveLog = (obj: KMSAccessDeniedFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is KMSAccessDeniedFault =>
+    __isa(o, "KMSAccessDeniedFault");
+}
+
+/**
+ * <p>The specified master key (CMK) isn't enabled.</p>
+ */
+export interface KMSDisabledFault extends __SmithyException, $MetadataBearer {
+  name: "KMSDisabledFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace KMSDisabledFault {
+  export const filterSensitiveLog = (obj: KMSDisabledFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is KMSDisabledFault =>
+    __isa(o, "KMSDisabledFault");
+}
+
+/**
+ * <p>The state of the specified AWS KMS resource isn't valid for this request.</p>
+ */
+export interface KMSInvalidStateFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "KMSInvalidStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace KMSInvalidStateFault {
+  export const filterSensitiveLog = (obj: KMSInvalidStateFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is KMSInvalidStateFault =>
+    __isa(o, "KMSInvalidStateFault");
+}
+
+/**
+ * <p>AWS DMS cannot access the AWS KMS key.</p>
+ */
+export interface KMSKeyNotAccessibleFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "KMSKeyNotAccessibleFault";
+  $fault: "client";
+  /**
+   * <p></p>
+   */
+  message?: string;
+}
+
+export namespace KMSKeyNotAccessibleFault {
+  export const filterSensitiveLog = (obj: KMSKeyNotAccessibleFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is KMSKeyNotAccessibleFault =>
+    __isa(o, "KMSKeyNotAccessibleFault");
+}
+
+/**
+ * <p>The specified AWS KMS entity or resource can't be found.</p>
+ */
+export interface KMSNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "KMSNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace KMSNotFoundFault {
+  export const filterSensitiveLog = (obj: KMSNotFoundFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is KMSNotFoundFault =>
+    __isa(o, "KMSNotFoundFault");
+}
+
+/**
+ * <p>This request triggered AWS KMS request throttling.</p>
+ */
+export interface KMSThrottlingFault extends __SmithyException, $MetadataBearer {
+  name: "KMSThrottlingFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace KMSThrottlingFault {
+  export const filterSensitiveLog = (obj: KMSThrottlingFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is KMSThrottlingFault =>
+    __isa(o, "KMSThrottlingFault");
 }
 
 /**
@@ -4851,6 +4647,32 @@ export namespace ReplicationSubnetGroup {
 }
 
 /**
+ * <p>The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.</p>
+ */
+export interface ReplicationSubnetGroupDoesNotCoverEnoughAZs
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ReplicationSubnetGroupDoesNotCoverEnoughAZs";
+  $fault: "client";
+  /**
+   * <p></p>
+   */
+  message?: string;
+}
+
+export namespace ReplicationSubnetGroupDoesNotCoverEnoughAZs {
+  export const filterSensitiveLog = (
+    obj: ReplicationSubnetGroupDoesNotCoverEnoughAZs
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is ReplicationSubnetGroupDoesNotCoverEnoughAZs =>
+    __isa(o, "ReplicationSubnetGroupDoesNotCoverEnoughAZs");
+}
+
+/**
  * <p></p>
  */
 export interface ReplicationTask {
@@ -5097,6 +4919,52 @@ export namespace ReplicationTaskStats {
 }
 
 /**
+ * <p>The resource you are attempting to create already exists.</p>
+ */
+export interface ResourceAlreadyExistsFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceAlreadyExistsFault";
+  $fault: "client";
+  /**
+   * <p></p>
+   */
+  message?: string;
+
+  resourceArn?: string;
+}
+
+export namespace ResourceAlreadyExistsFault {
+  export const filterSensitiveLog = (obj: ResourceAlreadyExistsFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceAlreadyExistsFault =>
+    __isa(o, "ResourceAlreadyExistsFault");
+}
+
+/**
+ * <p>The resource could not be found.</p>
+ */
+export interface ResourceNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceNotFoundFault";
+  $fault: "client";
+  /**
+   * <p></p>
+   */
+  message?: string;
+}
+
+export namespace ResourceNotFoundFault {
+  export const filterSensitiveLog = (obj: ResourceNotFoundFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceNotFoundFault =>
+    __isa(o, "ResourceNotFoundFault");
+}
+
+/**
  * <p></p>
  */
 export interface ResourcePendingMaintenanceActions {
@@ -5122,6 +4990,28 @@ export namespace ResourcePendingMaintenanceActions {
   });
   export const isa = (o: any): o is ResourcePendingMaintenanceActions =>
     __isa(o, "ResourcePendingMaintenanceActions");
+}
+
+/**
+ * <p>The quota for this resource quota has been exceeded.</p>
+ */
+export interface ResourceQuotaExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceQuotaExceededFault";
+  $fault: "client";
+  /**
+   * <p></p>
+   */
+  message?: string;
+}
+
+export namespace ResourceQuotaExceededFault {
+  export const filterSensitiveLog = (obj: ResourceQuotaExceededFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceQuotaExceededFault =>
+    __isa(o, "ResourceQuotaExceededFault");
 }
 
 /**
@@ -5439,6 +5329,50 @@ export namespace S3Settings {
   export const isa = (o: any): o is S3Settings => __isa(o, "S3Settings");
 }
 
+/**
+ * <p>The SNS topic is invalid.</p>
+ */
+export interface SNSInvalidTopicFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "SNSInvalidTopicFault";
+  $fault: "client";
+  /**
+   * <p></p>
+   */
+  message?: string;
+}
+
+export namespace SNSInvalidTopicFault {
+  export const filterSensitiveLog = (obj: SNSInvalidTopicFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SNSInvalidTopicFault =>
+    __isa(o, "SNSInvalidTopicFault");
+}
+
+/**
+ * <p>You are not authorized for the SNS subscription.</p>
+ */
+export interface SNSNoAuthorizationFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "SNSNoAuthorizationFault";
+  $fault: "client";
+  /**
+   * <p></p>
+   */
+  message?: string;
+}
+
+export namespace SNSNoAuthorizationFault {
+  export const filterSensitiveLog = (obj: SNSNoAuthorizationFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SNSNoAuthorizationFault =>
+    __isa(o, "SNSNoAuthorizationFault");
+}
+
 export type SourceType = "replication-instance";
 
 /**
@@ -5612,6 +5546,28 @@ export namespace StopReplicationTaskResponse {
 }
 
 /**
+ * <p>The storage quota has been exceeded.</p>
+ */
+export interface StorageQuotaExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "StorageQuotaExceededFault";
+  $fault: "client";
+  /**
+   * <p></p>
+   */
+  message?: string;
+}
+
+export namespace StorageQuotaExceededFault {
+  export const filterSensitiveLog = (obj: StorageQuotaExceededFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StorageQuotaExceededFault =>
+    __isa(o, "StorageQuotaExceededFault");
+}
+
+/**
  * <p></p>
  */
 export interface Subnet {
@@ -5637,6 +5593,26 @@ export namespace Subnet {
     ...obj
   });
   export const isa = (o: any): o is Subnet => __isa(o, "Subnet");
+}
+
+/**
+ * <p>The specified subnet is already in use.</p>
+ */
+export interface SubnetAlreadyInUse extends __SmithyException, $MetadataBearer {
+  name: "SubnetAlreadyInUse";
+  $fault: "client";
+  /**
+   * <p></p>
+   */
+  message?: string;
+}
+
+export namespace SubnetAlreadyInUse {
+  export const filterSensitiveLog = (obj: SubnetAlreadyInUse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SubnetAlreadyInUse =>
+    __isa(o, "SubnetAlreadyInUse");
 }
 
 /**
@@ -5899,6 +5875,30 @@ export namespace TestConnectionResponse {
   });
   export const isa = (o: any): o is TestConnectionResponse =>
     __isa(o, "TestConnectionResponse");
+}
+
+/**
+ * <p>An upgrade dependency is preventing the database migration.</p>
+ */
+export interface UpgradeDependencyFailureFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "UpgradeDependencyFailureFault";
+  $fault: "client";
+  /**
+   * <p></p>
+   */
+  message?: string;
+}
+
+export namespace UpgradeDependencyFailureFault {
+  export const filterSensitiveLog = (
+    obj: UpgradeDependencyFailureFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpgradeDependencyFailureFault =>
+    __isa(o, "UpgradeDependencyFailureFault");
 }
 
 /**

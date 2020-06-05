@@ -8,9 +8,9 @@ import {
   DeleteSignalingChannelOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteSignalingChannelCommand,
-  serializeAws_restJson1_1DeleteSignalingChannelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteSignalingChannelCommand,
+  serializeAws_restJson1DeleteSignalingChannelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteSignalingChannelCommand extends $Command<
     input: DeleteSignalingChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteSignalingChannelCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DeleteSignalingChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSignalingChannelCommandOutput> {
-    return deserializeAws_restJson1_1DeleteSignalingChannelCommand(
+    return deserializeAws_restJson1DeleteSignalingChannelCommand(
       output,
       context
     );

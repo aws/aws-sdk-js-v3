@@ -1256,6 +1256,41 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
+   * <p>Retrieves a list that describes one or more specified users in the user pool.</p>
+   */
+  public describeUsers(
+    args: DescribeUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeUsersCommandOutput>;
+  public describeUsers(
+    args: DescribeUsersCommandInput,
+    cb: (err: any, data?: DescribeUsersCommandOutput) => void
+  ): void;
+  public describeUsers(
+    args: DescribeUsersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeUsersCommandOutput) => void
+  ): void;
+  public describeUsers(
+    args: DescribeUsersCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeUsersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeUsersCommandOutput) => void
+  ): Promise<DescribeUsersCommandOutput> | void {
+    const command = new DescribeUsersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves a list that describes the UserStackAssociation objects. You must specify either or both of the following:</p>
    *         <ul>
    *             <li>
@@ -1287,41 +1322,6 @@ export class AppStream extends AppStreamClient {
     cb?: (err: any, data?: DescribeUserStackAssociationsCommandOutput) => void
   ): Promise<DescribeUserStackAssociationsCommandOutput> | void {
     const command = new DescribeUserStackAssociationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves a list that describes one or more specified users in the user pool.</p>
-   */
-  public describeUsers(
-    args: DescribeUsersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeUsersCommandOutput>;
-  public describeUsers(
-    args: DescribeUsersCommandInput,
-    cb: (err: any, data?: DescribeUsersCommandOutput) => void
-  ): void;
-  public describeUsers(
-    args: DescribeUsersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeUsersCommandOutput) => void
-  ): void;
-  public describeUsers(
-    args: DescribeUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUsersCommandOutput) => void),
-    cb?: (err: any, data?: DescribeUsersCommandOutput) => void
-  ): Promise<DescribeUsersCommandOutput> | void {
-    const command = new DescribeUsersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

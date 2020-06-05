@@ -8,9 +8,9 @@ import {
   DisassociatePhoneNumberFromUserResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DisassociatePhoneNumberFromUserCommand,
-  serializeAws_restJson1_1DisassociatePhoneNumberFromUserCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DisassociatePhoneNumberFromUserCommand,
+  serializeAws_restJson1DisassociatePhoneNumberFromUserCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DisassociatePhoneNumberFromUserCommand extends $Command<
     input: DisassociatePhoneNumberFromUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociatePhoneNumberFromUserCommand(
+    return serializeAws_restJson1DisassociatePhoneNumberFromUserCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DisassociatePhoneNumberFromUserCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociatePhoneNumberFromUserCommandOutput> {
-    return deserializeAws_restJson1_1DisassociatePhoneNumberFromUserCommand(
+    return deserializeAws_restJson1DisassociatePhoneNumberFromUserCommand(
       output,
       context
     );

@@ -1006,6 +1006,41 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * <p>Describes a specified task or tasks.</p>
+   */
+  public describeTasks(
+    args: DescribeTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTasksCommandOutput>;
+  public describeTasks(
+    args: DescribeTasksCommandInput,
+    cb: (err: any, data?: DescribeTasksCommandOutput) => void
+  ): void;
+  public describeTasks(
+    args: DescribeTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTasksCommandOutput) => void
+  ): void;
+  public describeTasks(
+    args: DescribeTasksCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeTasksCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTasksCommandOutput) => void
+  ): Promise<DescribeTasksCommandOutput> | void {
+    const command = new DescribeTasksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes the task sets in the specified cluster and service. This is used when a
    *             service uses the <code>EXTERNAL</code> deployment controller type. For more information,
    *             see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS Deployment
@@ -1032,41 +1067,6 @@ export class ECS extends ECSClient {
     cb?: (err: any, data?: DescribeTaskSetsCommandOutput) => void
   ): Promise<DescribeTaskSetsCommandOutput> | void {
     const command = new DescribeTaskSetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Describes a specified task or tasks.</p>
-   */
-  public describeTasks(
-    args: DescribeTasksCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeTasksCommandOutput>;
-  public describeTasks(
-    args: DescribeTasksCommandInput,
-    cb: (err: any, data?: DescribeTasksCommandOutput) => void
-  ): void;
-  public describeTasks(
-    args: DescribeTasksCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeTasksCommandOutput) => void
-  ): void;
-  public describeTasks(
-    args: DescribeTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTasksCommandOutput) => void),
-    cb?: (err: any, data?: DescribeTasksCommandOutput) => void
-  ): Promise<DescribeTasksCommandOutput> | void {
-    const command = new DescribeTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

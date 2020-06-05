@@ -8,9 +8,9 @@ import {
   CreatePackagingGroupResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreatePackagingGroupCommand,
-  serializeAws_restJson1_1CreatePackagingGroupCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreatePackagingGroupCommand,
+  serializeAws_restJson1CreatePackagingGroupCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class CreatePackagingGroupCommand extends $Command<
     input: CreatePackagingGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreatePackagingGroupCommand(input, context);
+    return serializeAws_restJson1CreatePackagingGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePackagingGroupCommandOutput> {
-    return deserializeAws_restJson1_1CreatePackagingGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreatePackagingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

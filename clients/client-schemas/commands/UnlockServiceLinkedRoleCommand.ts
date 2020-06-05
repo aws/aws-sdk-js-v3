@@ -3,9 +3,9 @@ import {
   UnlockServiceLinkedRoleResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UnlockServiceLinkedRoleCommand,
-  serializeAws_restJson1_1UnlockServiceLinkedRoleCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UnlockServiceLinkedRoleCommand,
+  serializeAws_restJson1UnlockServiceLinkedRoleCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -74,17 +74,14 @@ export class UnlockServiceLinkedRoleCommand extends $Command<
     input: UnlockServiceLinkedRoleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UnlockServiceLinkedRoleCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1UnlockServiceLinkedRoleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UnlockServiceLinkedRoleCommandOutput> {
-    return deserializeAws_restJson1_1UnlockServiceLinkedRoleCommand(
+    return deserializeAws_restJson1UnlockServiceLinkedRoleCommand(
       output,
       context
     );

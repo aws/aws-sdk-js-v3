@@ -8,9 +8,9 @@ import {
   ListV2LoggingLevelsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListV2LoggingLevelsCommand,
-  serializeAws_restJson1_1ListV2LoggingLevelsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListV2LoggingLevelsCommand,
+  serializeAws_restJson1ListV2LoggingLevelsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListV2LoggingLevelsCommand extends $Command<
     input: ListV2LoggingLevelsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListV2LoggingLevelsCommand(input, context);
+    return serializeAws_restJson1ListV2LoggingLevelsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListV2LoggingLevelsCommandOutput> {
-    return deserializeAws_restJson1_1ListV2LoggingLevelsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListV2LoggingLevelsCommand(output, context);
   }
 
   // Start section: command_body_extra

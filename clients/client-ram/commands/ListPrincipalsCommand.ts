@@ -5,9 +5,9 @@ import {
 } from "../RAMClient";
 import { ListPrincipalsRequest, ListPrincipalsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListPrincipalsCommand,
-  serializeAws_restJson1_1ListPrincipalsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListPrincipalsCommand,
+  serializeAws_restJson1ListPrincipalsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class ListPrincipalsCommand extends $Command<
     input: ListPrincipalsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListPrincipalsCommand(input, context);
+    return serializeAws_restJson1ListPrincipalsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPrincipalsCommandOutput> {
-    return deserializeAws_restJson1_1ListPrincipalsCommand(output, context);
+    return deserializeAws_restJson1ListPrincipalsCommand(output, context);
   }
 
   // Start section: command_body_extra

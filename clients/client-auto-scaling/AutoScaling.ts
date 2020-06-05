@@ -326,6 +326,47 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * <p>Attaches one or more Classic Load Balancers to the specified Auto Scaling group.</p>
+   *         <p>To attach an Application Load Balancer or a Network Load Balancer instead, see <a>AttachLoadBalancerTargetGroups</a>.</p>
+   *         <p>To describe the load balancers for an Auto Scaling group, use <a>DescribeLoadBalancers</a>. To detach the load balancer from the Auto Scaling group,
+   *             use <a>DetachLoadBalancers</a>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-load-balancer-asg.html">Attaching a Load
+   *                 Balancer to Your Auto Scaling Group</a> in the
+   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   */
+  public attachLoadBalancers(
+    args: AttachLoadBalancersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AttachLoadBalancersCommandOutput>;
+  public attachLoadBalancers(
+    args: AttachLoadBalancersCommandInput,
+    cb: (err: any, data?: AttachLoadBalancersCommandOutput) => void
+  ): void;
+  public attachLoadBalancers(
+    args: AttachLoadBalancersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AttachLoadBalancersCommandOutput) => void
+  ): void;
+  public attachLoadBalancers(
+    args: AttachLoadBalancersCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AttachLoadBalancersCommandOutput) => void),
+    cb?: (err: any, data?: AttachLoadBalancersCommandOutput) => void
+  ): Promise<AttachLoadBalancersCommandOutput> | void {
+    const command = new AttachLoadBalancersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Attaches one or more target groups to the specified Auto Scaling group.</p>
    *         <p>To describe the target groups for an Auto Scaling group, use <a>DescribeLoadBalancerTargetGroups</a>. To detach the target group from the
    *             Auto Scaling group, use <a>DetachLoadBalancerTargetGroups</a>.</p>
@@ -359,47 +400,6 @@ export class AutoScaling extends AutoScalingClient {
     cb?: (err: any, data?: AttachLoadBalancerTargetGroupsCommandOutput) => void
   ): Promise<AttachLoadBalancerTargetGroupsCommandOutput> | void {
     const command = new AttachLoadBalancerTargetGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Attaches one or more Classic Load Balancers to the specified Auto Scaling group.</p>
-   *         <p>To attach an Application Load Balancer or a Network Load Balancer instead, see <a>AttachLoadBalancerTargetGroups</a>.</p>
-   *         <p>To describe the load balancers for an Auto Scaling group, use <a>DescribeLoadBalancers</a>. To detach the load balancer from the Auto Scaling group,
-   *             use <a>DetachLoadBalancers</a>.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-load-balancer-asg.html">Attaching a Load
-   *                 Balancer to Your Auto Scaling Group</a> in the
-   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   */
-  public attachLoadBalancers(
-    args: AttachLoadBalancersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AttachLoadBalancersCommandOutput>;
-  public attachLoadBalancers(
-    args: AttachLoadBalancersCommandInput,
-    cb: (err: any, data?: AttachLoadBalancersCommandOutput) => void
-  ): void;
-  public attachLoadBalancers(
-    args: AttachLoadBalancersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AttachLoadBalancersCommandOutput) => void
-  ): void;
-  public attachLoadBalancers(
-    args: AttachLoadBalancersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachLoadBalancersCommandOutput) => void),
-    cb?: (err: any, data?: AttachLoadBalancersCommandOutput) => void
-  ): Promise<AttachLoadBalancersCommandOutput> | void {
-    const command = new AttachLoadBalancersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1173,6 +1173,41 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * <p>Describes the lifecycle hooks for the specified Auto Scaling group.</p>
+   */
+  public describeLifecycleHooks(
+    args: DescribeLifecycleHooksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLifecycleHooksCommandOutput>;
+  public describeLifecycleHooks(
+    args: DescribeLifecycleHooksCommandInput,
+    cb: (err: any, data?: DescribeLifecycleHooksCommandOutput) => void
+  ): void;
+  public describeLifecycleHooks(
+    args: DescribeLifecycleHooksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLifecycleHooksCommandOutput) => void
+  ): void;
+  public describeLifecycleHooks(
+    args: DescribeLifecycleHooksCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeLifecycleHooksCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLifecycleHooksCommandOutput) => void
+  ): Promise<DescribeLifecycleHooksCommandOutput> | void {
+    const command = new DescribeLifecycleHooksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes the available types of lifecycle hooks.</p>
    *         <p>The following hook types are supported:</p>
    *         <ul>
@@ -1217,29 +1252,31 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
-   * <p>Describes the lifecycle hooks for the specified Auto Scaling group.</p>
+   * <p>Describes the load balancers for the specified Auto Scaling group.</p>
+   *         <p>This operation describes only Classic Load Balancers. If you have Application Load
+   *             Balancers or Network Load Balancers, use <a>DescribeLoadBalancerTargetGroups</a> instead.</p>
    */
-  public describeLifecycleHooks(
-    args: DescribeLifecycleHooksCommandInput,
+  public describeLoadBalancers(
+    args: DescribeLoadBalancersCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeLifecycleHooksCommandOutput>;
-  public describeLifecycleHooks(
-    args: DescribeLifecycleHooksCommandInput,
-    cb: (err: any, data?: DescribeLifecycleHooksCommandOutput) => void
+  ): Promise<DescribeLoadBalancersCommandOutput>;
+  public describeLoadBalancers(
+    args: DescribeLoadBalancersCommandInput,
+    cb: (err: any, data?: DescribeLoadBalancersCommandOutput) => void
   ): void;
-  public describeLifecycleHooks(
-    args: DescribeLifecycleHooksCommandInput,
+  public describeLoadBalancers(
+    args: DescribeLoadBalancersCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeLifecycleHooksCommandOutput) => void
+    cb: (err: any, data?: DescribeLoadBalancersCommandOutput) => void
   ): void;
-  public describeLifecycleHooks(
-    args: DescribeLifecycleHooksCommandInput,
+  public describeLoadBalancers(
+    args: DescribeLoadBalancersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLifecycleHooksCommandOutput) => void),
-    cb?: (err: any, data?: DescribeLifecycleHooksCommandOutput) => void
-  ): Promise<DescribeLifecycleHooksCommandOutput> | void {
-    const command = new DescribeLifecycleHooksCommand(args);
+      | ((err: any, data?: DescribeLoadBalancersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLoadBalancersCommandOutput) => void
+  ): Promise<DescribeLoadBalancersCommandOutput> | void {
+    const command = new DescribeLoadBalancersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1281,43 +1318,6 @@ export class AutoScaling extends AutoScalingClient {
     ) => void
   ): Promise<DescribeLoadBalancerTargetGroupsCommandOutput> | void {
     const command = new DescribeLoadBalancerTargetGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Describes the load balancers for the specified Auto Scaling group.</p>
-   *         <p>This operation describes only Classic Load Balancers. If you have Application Load
-   *             Balancers or Network Load Balancers, use <a>DescribeLoadBalancerTargetGroups</a> instead.</p>
-   */
-  public describeLoadBalancers(
-    args: DescribeLoadBalancersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeLoadBalancersCommandOutput>;
-  public describeLoadBalancers(
-    args: DescribeLoadBalancersCommandInput,
-    cb: (err: any, data?: DescribeLoadBalancersCommandOutput) => void
-  ): void;
-  public describeLoadBalancers(
-    args: DescribeLoadBalancersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeLoadBalancersCommandOutput) => void
-  ): void;
-  public describeLoadBalancers(
-    args: DescribeLoadBalancersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLoadBalancersCommandOutput) => void),
-    cb?: (err: any, data?: DescribeLoadBalancersCommandOutput) => void
-  ): Promise<DescribeLoadBalancersCommandOutput> | void {
-    const command = new DescribeLoadBalancersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1682,44 +1682,6 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
-   * <p>Detaches one or more target groups from the specified Auto Scaling group.</p>
-   */
-  public detachLoadBalancerTargetGroups(
-    args: DetachLoadBalancerTargetGroupsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DetachLoadBalancerTargetGroupsCommandOutput>;
-  public detachLoadBalancerTargetGroups(
-    args: DetachLoadBalancerTargetGroupsCommandInput,
-    cb: (err: any, data?: DetachLoadBalancerTargetGroupsCommandOutput) => void
-  ): void;
-  public detachLoadBalancerTargetGroups(
-    args: DetachLoadBalancerTargetGroupsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DetachLoadBalancerTargetGroupsCommandOutput) => void
-  ): void;
-  public detachLoadBalancerTargetGroups(
-    args: DetachLoadBalancerTargetGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DetachLoadBalancerTargetGroupsCommandOutput
-        ) => void),
-    cb?: (err: any, data?: DetachLoadBalancerTargetGroupsCommandOutput) => void
-  ): Promise<DetachLoadBalancerTargetGroupsCommandOutput> | void {
-    const command = new DetachLoadBalancerTargetGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p>
    *         <p>This operation detaches only Classic Load Balancers. If you have Application Load
    *             Balancers or Network Load Balancers, use <a>DetachLoadBalancerTargetGroups</a> instead.</p>
@@ -1749,6 +1711,44 @@ export class AutoScaling extends AutoScalingClient {
     cb?: (err: any, data?: DetachLoadBalancersCommandOutput) => void
   ): Promise<DetachLoadBalancersCommandOutput> | void {
     const command = new DetachLoadBalancersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Detaches one or more target groups from the specified Auto Scaling group.</p>
+   */
+  public detachLoadBalancerTargetGroups(
+    args: DetachLoadBalancerTargetGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetachLoadBalancerTargetGroupsCommandOutput>;
+  public detachLoadBalancerTargetGroups(
+    args: DetachLoadBalancerTargetGroupsCommandInput,
+    cb: (err: any, data?: DetachLoadBalancerTargetGroupsCommandOutput) => void
+  ): void;
+  public detachLoadBalancerTargetGroups(
+    args: DetachLoadBalancerTargetGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DetachLoadBalancerTargetGroupsCommandOutput) => void
+  ): void;
+  public detachLoadBalancerTargetGroups(
+    args: DetachLoadBalancerTargetGroupsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DetachLoadBalancerTargetGroupsCommandOutput
+        ) => void),
+    cb?: (err: any, data?: DetachLoadBalancerTargetGroupsCommandOutput) => void
+  ): Promise<DetachLoadBalancerTargetGroupsCommandOutput> | void {
+    const command = new DetachLoadBalancerTargetGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

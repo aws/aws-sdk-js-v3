@@ -457,41 +457,6 @@ export class ECR extends ECRClient {
   }
 
   /**
-   * <p>Describes the image scan findings for the specified image.</p>
-   */
-  public describeImageScanFindings(
-    args: DescribeImageScanFindingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeImageScanFindingsCommandOutput>;
-  public describeImageScanFindings(
-    args: DescribeImageScanFindingsCommandInput,
-    cb: (err: any, data?: DescribeImageScanFindingsCommandOutput) => void
-  ): void;
-  public describeImageScanFindings(
-    args: DescribeImageScanFindingsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeImageScanFindingsCommandOutput) => void
-  ): void;
-  public describeImageScanFindings(
-    args: DescribeImageScanFindingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeImageScanFindingsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeImageScanFindingsCommandOutput) => void
-  ): Promise<DescribeImageScanFindingsCommandOutput> | void {
-    const command = new DescribeImageScanFindingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Returns metadata about the images in a repository, including image size, image tags,
    *             and creation date.</p>
    *         <note>
@@ -522,6 +487,41 @@ export class ECR extends ECRClient {
     cb?: (err: any, data?: DescribeImagesCommandOutput) => void
   ): Promise<DescribeImagesCommandOutput> | void {
     const command = new DescribeImagesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the image scan findings for the specified image.</p>
+   */
+  public describeImageScanFindings(
+    args: DescribeImageScanFindingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeImageScanFindingsCommandOutput>;
+  public describeImageScanFindings(
+    args: DescribeImageScanFindingsCommandInput,
+    cb: (err: any, data?: DescribeImageScanFindingsCommandOutput) => void
+  ): void;
+  public describeImageScanFindings(
+    args: DescribeImageScanFindingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeImageScanFindingsCommandOutput) => void
+  ): void;
+  public describeImageScanFindings(
+    args: DescribeImageScanFindingsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeImageScanFindingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeImageScanFindingsCommandOutput) => void
+  ): Promise<DescribeImageScanFindingsCommandOutput> | void {
+    const command = new DescribeImageScanFindingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

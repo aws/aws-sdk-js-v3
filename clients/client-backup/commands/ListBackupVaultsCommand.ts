@@ -5,9 +5,9 @@ import {
 } from "../BackupClient";
 import { ListBackupVaultsInput, ListBackupVaultsOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListBackupVaultsCommand,
-  serializeAws_restJson1_1ListBackupVaultsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListBackupVaultsCommand,
+  serializeAws_restJson1ListBackupVaultsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class ListBackupVaultsCommand extends $Command<
     input: ListBackupVaultsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListBackupVaultsCommand(input, context);
+    return serializeAws_restJson1ListBackupVaultsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBackupVaultsCommandOutput> {
-    return deserializeAws_restJson1_1ListBackupVaultsCommand(output, context);
+    return deserializeAws_restJson1ListBackupVaultsCommand(output, context);
   }
 
   // Start section: command_body_extra

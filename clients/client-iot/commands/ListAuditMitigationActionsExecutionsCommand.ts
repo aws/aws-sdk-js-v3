@@ -8,9 +8,9 @@ import {
   ListAuditMitigationActionsExecutionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListAuditMitigationActionsExecutionsCommand,
-  serializeAws_restJson1_1ListAuditMitigationActionsExecutionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListAuditMitigationActionsExecutionsCommand,
+  serializeAws_restJson1ListAuditMitigationActionsExecutionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -76,7 +76,7 @@ export class ListAuditMitigationActionsExecutionsCommand extends $Command<
     input: ListAuditMitigationActionsExecutionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListAuditMitigationActionsExecutionsCommand(
+    return serializeAws_restJson1ListAuditMitigationActionsExecutionsCommand(
       input,
       context
     );
@@ -86,7 +86,7 @@ export class ListAuditMitigationActionsExecutionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAuditMitigationActionsExecutionsCommandOutput> {
-    return deserializeAws_restJson1_1ListAuditMitigationActionsExecutionsCommand(
+    return deserializeAws_restJson1ListAuditMitigationActionsExecutionsCommand(
       output,
       context
     );

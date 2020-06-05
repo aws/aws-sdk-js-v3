@@ -279,41 +279,6 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
-   * <p>Gets status information for an AWS Cloud9 development environment.</p>
-   */
-  public describeEnvironmentStatus(
-    args: DescribeEnvironmentStatusCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeEnvironmentStatusCommandOutput>;
-  public describeEnvironmentStatus(
-    args: DescribeEnvironmentStatusCommandInput,
-    cb: (err: any, data?: DescribeEnvironmentStatusCommandOutput) => void
-  ): void;
-  public describeEnvironmentStatus(
-    args: DescribeEnvironmentStatusCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeEnvironmentStatusCommandOutput) => void
-  ): void;
-  public describeEnvironmentStatus(
-    args: DescribeEnvironmentStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEnvironmentStatusCommandOutput) => void),
-    cb?: (err: any, data?: DescribeEnvironmentStatusCommandOutput) => void
-  ): Promise<DescribeEnvironmentStatusCommandOutput> | void {
-    const command = new DescribeEnvironmentStatusCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Gets information about AWS Cloud9 development environments.</p>
    */
   public describeEnvironments(
@@ -337,6 +302,41 @@ export class Cloud9 extends Cloud9Client {
     cb?: (err: any, data?: DescribeEnvironmentsCommandOutput) => void
   ): Promise<DescribeEnvironmentsCommandOutput> | void {
     const command = new DescribeEnvironmentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets status information for an AWS Cloud9 development environment.</p>
+   */
+  public describeEnvironmentStatus(
+    args: DescribeEnvironmentStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEnvironmentStatusCommandOutput>;
+  public describeEnvironmentStatus(
+    args: DescribeEnvironmentStatusCommandInput,
+    cb: (err: any, data?: DescribeEnvironmentStatusCommandOutput) => void
+  ): void;
+  public describeEnvironmentStatus(
+    args: DescribeEnvironmentStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEnvironmentStatusCommandOutput) => void
+  ): void;
+  public describeEnvironmentStatus(
+    args: DescribeEnvironmentStatusCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeEnvironmentStatusCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEnvironmentStatusCommandOutput) => void
+  ): Promise<DescribeEnvironmentStatusCommandOutput> | void {
+    const command = new DescribeEnvironmentStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

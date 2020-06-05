@@ -8,9 +8,9 @@ import {
   DescribeNotificationRuleResult
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeNotificationRuleCommand,
-  serializeAws_restJson1_1DescribeNotificationRuleCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeNotificationRuleCommand,
+  serializeAws_restJson1DescribeNotificationRuleCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeNotificationRuleCommand extends $Command<
     input: DescribeNotificationRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeNotificationRuleCommand(
+    return serializeAws_restJson1DescribeNotificationRuleCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeNotificationRuleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNotificationRuleCommandOutput> {
-    return deserializeAws_restJson1_1DescribeNotificationRuleCommand(
+    return deserializeAws_restJson1DescribeNotificationRuleCommand(
       output,
       context
     );

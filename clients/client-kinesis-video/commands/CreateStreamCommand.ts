@@ -5,9 +5,9 @@ import {
 } from "../KinesisVideoClient";
 import { CreateStreamInput, CreateStreamOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateStreamCommand,
-  serializeAws_restJson1_1CreateStreamCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateStreamCommand,
+  serializeAws_restJson1CreateStreamCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateStreamCommand extends $Command<
     input: CreateStreamCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateStreamCommand(input, context);
+    return serializeAws_restJson1CreateStreamCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateStreamCommandOutput> {
-    return deserializeAws_restJson1_1CreateStreamCommand(output, context);
+    return deserializeAws_restJson1CreateStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

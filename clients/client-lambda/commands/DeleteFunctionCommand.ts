@@ -5,9 +5,9 @@ import {
 } from "../LambdaClient";
 import { DeleteFunctionRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteFunctionCommand,
-  serializeAws_restJson1_1DeleteFunctionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteFunctionCommand,
+  serializeAws_restJson1DeleteFunctionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteFunctionCommand extends $Command<
     input: DeleteFunctionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteFunctionCommand(input, context);
+    return serializeAws_restJson1DeleteFunctionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFunctionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteFunctionCommand(output, context);
+    return deserializeAws_restJson1DeleteFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

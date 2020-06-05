@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { DetachPrincipalPolicyRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DetachPrincipalPolicyCommand,
-  serializeAws_restJson1_1DetachPrincipalPolicyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DetachPrincipalPolicyCommand,
+  serializeAws_restJson1DetachPrincipalPolicyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,14 +70,14 @@ export class DetachPrincipalPolicyCommand extends $Command<
     input: DetachPrincipalPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DetachPrincipalPolicyCommand(input, context);
+    return serializeAws_restJson1DetachPrincipalPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DetachPrincipalPolicyCommandOutput> {
-    return deserializeAws_restJson1_1DetachPrincipalPolicyCommand(
+    return deserializeAws_restJson1DetachPrincipalPolicyCommand(
       output,
       context
     );

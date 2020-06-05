@@ -5,9 +5,9 @@ import {
 } from "../AccessAnalyzerClient";
 import { GetAnalyzerRequest, GetAnalyzerResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetAnalyzerCommand,
-  serializeAws_restJson1_1GetAnalyzerCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetAnalyzerCommand,
+  serializeAws_restJson1GetAnalyzerCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetAnalyzerCommand extends $Command<
     input: GetAnalyzerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetAnalyzerCommand(input, context);
+    return serializeAws_restJson1GetAnalyzerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAnalyzerCommandOutput> {
-    return deserializeAws_restJson1_1GetAnalyzerCommand(output, context);
+    return deserializeAws_restJson1GetAnalyzerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,1392 +5,6 @@ import {
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-/**
- * <p>Specified CIDRIP or EC2 security group is not authorized for the specified DB security group.</p>
- *          <p>Neptune may not also be authorized via IAM to perform necessary actions on your behalf.</p>
- */
-export interface AuthorizationNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "AuthorizationNotFoundFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace AuthorizationNotFoundFault {
-  export const filterSensitiveLog = (obj: AuthorizationNotFoundFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AuthorizationNotFoundFault =>
-    __isa(o, "AuthorizationNotFoundFault");
-}
-
-/**
- * <p>
- *             <i>CertificateIdentifier</i> does not refer to an existing certificate.</p>
- */
-export interface CertificateNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CertificateNotFoundFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace CertificateNotFoundFault {
-  export const filterSensitiveLog = (obj: CertificateNotFoundFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CertificateNotFoundFault =>
-    __isa(o, "CertificateNotFoundFault");
-}
-
-/**
- * <p>User already has a DB cluster with the given identifier.</p>
- */
-export interface DBClusterAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBClusterAlreadyExistsFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBClusterAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: DBClusterAlreadyExistsFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBClusterAlreadyExistsFault =>
-    __isa(o, "DBClusterAlreadyExistsFault");
-}
-
-/**
- * <p>
- *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
- */
-export interface DBClusterNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBClusterNotFoundFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBClusterNotFoundFault {
-  export const filterSensitiveLog = (obj: DBClusterNotFoundFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBClusterNotFoundFault =>
-    __isa(o, "DBClusterNotFoundFault");
-}
-
-/**
- * <p>
- *             <i>DBClusterParameterGroupName</i> does not refer to an
- *       existing DB Cluster parameter group.</p>
- */
-export interface DBClusterParameterGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBClusterParameterGroupNotFoundFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBClusterParameterGroupNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: DBClusterParameterGroupNotFoundFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBClusterParameterGroupNotFoundFault =>
-    __isa(o, "DBClusterParameterGroupNotFoundFault");
-}
-
-/**
- * <p>User attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
- */
-export interface DBClusterQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBClusterQuotaExceededFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBClusterQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: DBClusterQuotaExceededFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBClusterQuotaExceededFault =>
-    __isa(o, "DBClusterQuotaExceededFault");
-}
-
-/**
- * <p>The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.</p>
- */
-export interface DBClusterRoleAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBClusterRoleAlreadyExistsFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBClusterRoleAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: DBClusterRoleAlreadyExistsFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBClusterRoleAlreadyExistsFault =>
-    __isa(o, "DBClusterRoleAlreadyExistsFault");
-}
-
-/**
- * <p>The specified IAM role Amazon Resource Name (ARN) is not associated with the specified DB cluster.</p>
- */
-export interface DBClusterRoleNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBClusterRoleNotFoundFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBClusterRoleNotFoundFault {
-  export const filterSensitiveLog = (obj: DBClusterRoleNotFoundFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBClusterRoleNotFoundFault =>
-    __isa(o, "DBClusterRoleNotFoundFault");
-}
-
-/**
- * <p>You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.</p>
- */
-export interface DBClusterRoleQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBClusterRoleQuotaExceededFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBClusterRoleQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: DBClusterRoleQuotaExceededFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBClusterRoleQuotaExceededFault =>
-    __isa(o, "DBClusterRoleQuotaExceededFault");
-}
-
-/**
- * <p>User already has a DB cluster snapshot with the given identifier.</p>
- */
-export interface DBClusterSnapshotAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBClusterSnapshotAlreadyExistsFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBClusterSnapshotAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: DBClusterSnapshotAlreadyExistsFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBClusterSnapshotAlreadyExistsFault =>
-    __isa(o, "DBClusterSnapshotAlreadyExistsFault");
-}
-
-/**
- * <p>
- *             <i>DBClusterSnapshotIdentifier</i> does not refer to an existing
- *       DB cluster snapshot.</p>
- */
-export interface DBClusterSnapshotNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBClusterSnapshotNotFoundFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBClusterSnapshotNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: DBClusterSnapshotNotFoundFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBClusterSnapshotNotFoundFault =>
-    __isa(o, "DBClusterSnapshotNotFoundFault");
-}
-
-/**
- * <p>User already has a DB instance with the given identifier.</p>
- */
-export interface DBInstanceAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBInstanceAlreadyExistsFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBInstanceAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: DBInstanceAlreadyExistsFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBInstanceAlreadyExistsFault =>
-    __isa(o, "DBInstanceAlreadyExistsFault");
-}
-
-/**
- * <p>
- *             <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
- */
-export interface DBInstanceNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBInstanceNotFoundFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBInstanceNotFoundFault {
-  export const filterSensitiveLog = (obj: DBInstanceNotFoundFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBInstanceNotFoundFault =>
-    __isa(o, "DBInstanceNotFoundFault");
-}
-
-/**
- * <p>A DB parameter group with the same name exists.</p>
- */
-export interface DBParameterGroupAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBParameterGroupAlreadyExistsFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBParameterGroupAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: DBParameterGroupAlreadyExistsFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBParameterGroupAlreadyExistsFault =>
-    __isa(o, "DBParameterGroupAlreadyExistsFault");
-}
-
-/**
- * <p>
- *             <i>DBParameterGroupName</i> does not refer to an
- *       existing DB parameter group.</p>
- */
-export interface DBParameterGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBParameterGroupNotFoundFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBParameterGroupNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: DBParameterGroupNotFoundFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBParameterGroupNotFoundFault =>
-    __isa(o, "DBParameterGroupNotFoundFault");
-}
-
-/**
- * <p>Request would result in user exceeding the allowed number of DB parameter groups.</p>
- */
-export interface DBParameterGroupQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBParameterGroupQuotaExceededFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBParameterGroupQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: DBParameterGroupQuotaExceededFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBParameterGroupQuotaExceededFault =>
-    __isa(o, "DBParameterGroupQuotaExceededFault");
-}
-
-/**
- * <p>
- *             <i>DBSecurityGroupName</i> does not refer
- *       to an existing DB security group.</p>
- */
-export interface DBSecurityGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBSecurityGroupNotFoundFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBSecurityGroupNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: DBSecurityGroupNotFoundFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBSecurityGroupNotFoundFault =>
-    __isa(o, "DBSecurityGroupNotFoundFault");
-}
-
-/**
- * <p>
- *             <i>DBSnapshotIdentifier</i> is already used by an existing snapshot.</p>
- */
-export interface DBSnapshotAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBSnapshotAlreadyExistsFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBSnapshotAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: DBSnapshotAlreadyExistsFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBSnapshotAlreadyExistsFault =>
-    __isa(o, "DBSnapshotAlreadyExistsFault");
-}
-
-/**
- * <p>
- *             <i>DBSnapshotIdentifier</i> does not refer to an existing DB snapshot.</p>
- */
-export interface DBSnapshotNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBSnapshotNotFoundFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBSnapshotNotFoundFault {
-  export const filterSensitiveLog = (obj: DBSnapshotNotFoundFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBSnapshotNotFoundFault =>
-    __isa(o, "DBSnapshotNotFoundFault");
-}
-
-/**
- * <p>
- *             <i>DBSubnetGroupName</i> is already used by an existing DB subnet group.</p>
- */
-export interface DBSubnetGroupAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBSubnetGroupAlreadyExistsFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBSubnetGroupAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: DBSubnetGroupAlreadyExistsFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBSubnetGroupAlreadyExistsFault =>
-    __isa(o, "DBSubnetGroupAlreadyExistsFault");
-}
-
-/**
- * <p>Subnets in the DB subnet group should cover at least two Availability
- *       Zones unless there is only one Availability Zone.</p>
- */
-export interface DBSubnetGroupDoesNotCoverEnoughAZs
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBSubnetGroupDoesNotCoverEnoughAZs";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBSubnetGroupDoesNotCoverEnoughAZs {
-  export const filterSensitiveLog = (
-    obj: DBSubnetGroupDoesNotCoverEnoughAZs
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBSubnetGroupDoesNotCoverEnoughAZs =>
-    __isa(o, "DBSubnetGroupDoesNotCoverEnoughAZs");
-}
-
-/**
- * <p>
- *             <i>DBSubnetGroupName</i> does not refer to an
- *       existing DB subnet group.</p>
- */
-export interface DBSubnetGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBSubnetGroupNotFoundFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBSubnetGroupNotFoundFault {
-  export const filterSensitiveLog = (obj: DBSubnetGroupNotFoundFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBSubnetGroupNotFoundFault =>
-    __isa(o, "DBSubnetGroupNotFoundFault");
-}
-
-/**
- * <p>Request would result in user exceeding the allowed number of DB subnet groups.</p>
- */
-export interface DBSubnetGroupQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBSubnetGroupQuotaExceededFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBSubnetGroupQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: DBSubnetGroupQuotaExceededFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBSubnetGroupQuotaExceededFault =>
-    __isa(o, "DBSubnetGroupQuotaExceededFault");
-}
-
-/**
- * <p>Request would result in user exceeding the allowed number of subnets in a DB subnet groups.</p>
- */
-export interface DBSubnetQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBSubnetQuotaExceededFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBSubnetQuotaExceededFault {
-  export const filterSensitiveLog = (obj: DBSubnetQuotaExceededFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBSubnetQuotaExceededFault =>
-    __isa(o, "DBSubnetQuotaExceededFault");
-}
-
-/**
- * <p>The DB upgrade failed because a resource the DB depends on could not be modified.</p>
- */
-export interface DBUpgradeDependencyFailureFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DBUpgradeDependencyFailureFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DBUpgradeDependencyFailureFault {
-  export const filterSensitiveLog = (
-    obj: DBUpgradeDependencyFailureFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBUpgradeDependencyFailureFault =>
-    __isa(o, "DBUpgradeDependencyFailureFault");
-}
-
-/**
- * <p>
- *             <i>Domain</i> does not refer to an existing Active Directory Domain.</p>
- */
-export interface DomainNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DomainNotFoundFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace DomainNotFoundFault {
-  export const filterSensitiveLog = (obj: DomainNotFoundFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DomainNotFoundFault =>
-    __isa(o, "DomainNotFoundFault");
-}
-
-/**
- * <p>You have exceeded the number of events you can subscribe to.</p>
- */
-export interface EventSubscriptionQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "EventSubscriptionQuotaExceededFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace EventSubscriptionQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: EventSubscriptionQuotaExceededFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is EventSubscriptionQuotaExceededFault =>
-    __isa(o, "EventSubscriptionQuotaExceededFault");
-}
-
-/**
- * <p>Request would result in user exceeding the allowed number of DB instances.</p>
- */
-export interface InstanceQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InstanceQuotaExceededFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace InstanceQuotaExceededFault {
-  export const filterSensitiveLog = (obj: InstanceQuotaExceededFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InstanceQuotaExceededFault =>
-    __isa(o, "InstanceQuotaExceededFault");
-}
-
-/**
- * <p>The DB cluster does not have enough capacity for the current operation.</p>
- */
-export interface InsufficientDBClusterCapacityFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InsufficientDBClusterCapacityFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace InsufficientDBClusterCapacityFault {
-  export const filterSensitiveLog = (
-    obj: InsufficientDBClusterCapacityFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InsufficientDBClusterCapacityFault =>
-    __isa(o, "InsufficientDBClusterCapacityFault");
-}
-
-/**
- * <p>Specified DB instance class is not available in the specified Availability Zone.</p>
- */
-export interface InsufficientDBInstanceCapacityFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InsufficientDBInstanceCapacityFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace InsufficientDBInstanceCapacityFault {
-  export const filterSensitiveLog = (
-    obj: InsufficientDBInstanceCapacityFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InsufficientDBInstanceCapacityFault =>
-    __isa(o, "InsufficientDBInstanceCapacityFault");
-}
-
-/**
- * <p>There is insufficient storage available for the current action. You may
- *        be able to resolve this error by updating your subnet group to use different
- *        Availability Zones that have more storage available.</p>
- */
-export interface InsufficientStorageClusterCapacityFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InsufficientStorageClusterCapacityFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace InsufficientStorageClusterCapacityFault {
-  export const filterSensitiveLog = (
-    obj: InsufficientStorageClusterCapacityFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InsufficientStorageClusterCapacityFault =>
-    __isa(o, "InsufficientStorageClusterCapacityFault");
-}
-
-/**
- * <p>The supplied value is not a valid DB cluster snapshot state.</p>
- */
-export interface InvalidDBClusterSnapshotStateFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidDBClusterSnapshotStateFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidDBClusterSnapshotStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidDBClusterSnapshotStateFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidDBClusterSnapshotStateFault =>
-    __isa(o, "InvalidDBClusterSnapshotStateFault");
-}
-
-/**
- * <p>The DB cluster is not in a valid state.</p>
- */
-export interface InvalidDBClusterStateFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidDBClusterStateFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidDBClusterStateFault {
-  export const filterSensitiveLog = (obj: InvalidDBClusterStateFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidDBClusterStateFault =>
-    __isa(o, "InvalidDBClusterStateFault");
-}
-
-/**
- * <p>The specified DB instance is not in the <i>available</i> state.</p>
- */
-export interface InvalidDBInstanceStateFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidDBInstanceStateFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidDBInstanceStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidDBInstanceStateFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidDBInstanceStateFault =>
-    __isa(o, "InvalidDBInstanceStateFault");
-}
-
-/**
- * <p>The DB parameter group is in use or is in an invalid state. If you are attempting to
- *       delete the parameter group, you cannot delete it when the parameter group is in this state.</p>
- */
-export interface InvalidDBParameterGroupStateFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidDBParameterGroupStateFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidDBParameterGroupStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidDBParameterGroupStateFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidDBParameterGroupStateFault =>
-    __isa(o, "InvalidDBParameterGroupStateFault");
-}
-
-/**
- * <p>The state of the DB security group does not allow deletion.</p>
- */
-export interface InvalidDBSecurityGroupStateFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidDBSecurityGroupStateFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidDBSecurityGroupStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidDBSecurityGroupStateFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidDBSecurityGroupStateFault =>
-    __isa(o, "InvalidDBSecurityGroupStateFault");
-}
-
-/**
- * <p>The state of the DB snapshot does not allow deletion.</p>
- */
-export interface InvalidDBSnapshotStateFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidDBSnapshotStateFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidDBSnapshotStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidDBSnapshotStateFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidDBSnapshotStateFault =>
-    __isa(o, "InvalidDBSnapshotStateFault");
-}
-
-/**
- * <p>The DB subnet group cannot be deleted because it is in use.</p>
- */
-export interface InvalidDBSubnetGroupStateFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidDBSubnetGroupStateFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidDBSubnetGroupStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidDBSubnetGroupStateFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidDBSubnetGroupStateFault =>
-    __isa(o, "InvalidDBSubnetGroupStateFault");
-}
-
-/**
- * <p>The DB subnet is not in the <i>available</i> state.</p>
- */
-export interface InvalidDBSubnetStateFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidDBSubnetStateFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidDBSubnetStateFault {
-  export const filterSensitiveLog = (obj: InvalidDBSubnetStateFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidDBSubnetStateFault =>
-    __isa(o, "InvalidDBSubnetStateFault");
-}
-
-/**
- * <p>The event subscription is in an invalid state.</p>
- */
-export interface InvalidEventSubscriptionStateFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidEventSubscriptionStateFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidEventSubscriptionStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidEventSubscriptionStateFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidEventSubscriptionStateFault =>
-    __isa(o, "InvalidEventSubscriptionStateFault");
-}
-
-/**
- * <p>Cannot restore from vpc backup to non-vpc DB instance.</p>
- */
-export interface InvalidRestoreFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidRestoreFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidRestoreFault {
-  export const filterSensitiveLog = (obj: InvalidRestoreFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidRestoreFault =>
-    __isa(o, "InvalidRestoreFault");
-}
-
-/**
- * <p>The requested subnet is invalid, or multiple subnets were requested that are
- *       not all in a common VPC.</p>
- */
-export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
-  name: "InvalidSubnet";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidSubnet {
-  export const filterSensitiveLog = (obj: InvalidSubnet): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidSubnet => __isa(o, "InvalidSubnet");
-}
-
-/**
- * <p>DB subnet group does not cover all Availability Zones after it is created
- *       because users' change.</p>
- */
-export interface InvalidVPCNetworkStateFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidVPCNetworkStateFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidVPCNetworkStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidVPCNetworkStateFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidVPCNetworkStateFault =>
-    __isa(o, "InvalidVPCNetworkStateFault");
-}
-
-/**
- * <p>Error accessing KMS key.</p>
- */
-export interface KMSKeyNotAccessibleFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "KMSKeyNotAccessibleFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace KMSKeyNotAccessibleFault {
-  export const filterSensitiveLog = (obj: KMSKeyNotAccessibleFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is KMSKeyNotAccessibleFault =>
-    __isa(o, "KMSKeyNotAccessibleFault");
-}
-
-/**
- * <p>The designated option group could not be found.</p>
- */
-export interface OptionGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "OptionGroupNotFoundFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace OptionGroupNotFoundFault {
-  export const filterSensitiveLog = (obj: OptionGroupNotFoundFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is OptionGroupNotFoundFault =>
-    __isa(o, "OptionGroupNotFoundFault");
-}
-
-/**
- * <p>Provisioned IOPS not available in the specified Availability Zone.</p>
- */
-export interface ProvisionedIopsNotAvailableInAZFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ProvisionedIopsNotAvailableInAZFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace ProvisionedIopsNotAvailableInAZFault {
-  export const filterSensitiveLog = (
-    obj: ProvisionedIopsNotAvailableInAZFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ProvisionedIopsNotAvailableInAZFault =>
-    __isa(o, "ProvisionedIopsNotAvailableInAZFault");
-}
-
-/**
- * <p>The specified resource ID was not found.</p>
- */
-export interface ResourceNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceNotFoundFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace ResourceNotFoundFault {
-  export const filterSensitiveLog = (obj: ResourceNotFoundFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceNotFoundFault =>
-    __isa(o, "ResourceNotFoundFault");
-}
-
-/**
- * <p>The SNS topic is invalid.</p>
- */
-export interface SNSInvalidTopicFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "SNSInvalidTopicFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace SNSInvalidTopicFault {
-  export const filterSensitiveLog = (obj: SNSInvalidTopicFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SNSInvalidTopicFault =>
-    __isa(o, "SNSInvalidTopicFault");
-}
-
-/**
- * <p>There is no SNS authorization.</p>
- */
-export interface SNSNoAuthorizationFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "SNSNoAuthorizationFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace SNSNoAuthorizationFault {
-  export const filterSensitiveLog = (obj: SNSNoAuthorizationFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SNSNoAuthorizationFault =>
-    __isa(o, "SNSNoAuthorizationFault");
-}
-
-/**
- * <p>The ARN of the SNS topic could not be found.</p>
- */
-export interface SNSTopicArnNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "SNSTopicArnNotFoundFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace SNSTopicArnNotFoundFault {
-  export const filterSensitiveLog = (obj: SNSTopicArnNotFoundFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SNSTopicArnNotFoundFault =>
-    __isa(o, "SNSTopicArnNotFoundFault");
-}
-
-/**
- * <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
- */
-export interface SharedSnapshotQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "SharedSnapshotQuotaExceededFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace SharedSnapshotQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: SharedSnapshotQuotaExceededFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SharedSnapshotQuotaExceededFault =>
-    __isa(o, "SharedSnapshotQuotaExceededFault");
-}
-
-/**
- * <p>Request would result in user exceeding the allowed number of DB snapshots.</p>
- */
-export interface SnapshotQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "SnapshotQuotaExceededFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace SnapshotQuotaExceededFault {
-  export const filterSensitiveLog = (obj: SnapshotQuotaExceededFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SnapshotQuotaExceededFault =>
-    __isa(o, "SnapshotQuotaExceededFault");
-}
-
-/**
- * <p>The source could not be found.</p>
- */
-export interface SourceNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "SourceNotFoundFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace SourceNotFoundFault {
-  export const filterSensitiveLog = (obj: SourceNotFoundFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SourceNotFoundFault =>
-    __isa(o, "SourceNotFoundFault");
-}
-
-/**
- * <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>
- */
-export interface StorageQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "StorageQuotaExceededFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace StorageQuotaExceededFault {
-  export const filterSensitiveLog = (obj: StorageQuotaExceededFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StorageQuotaExceededFault =>
-    __isa(o, "StorageQuotaExceededFault");
-}
-
-/**
- * <p>
- *             <i>StorageType</i> specified cannot be associated with the DB Instance.</p>
- */
-export interface StorageTypeNotSupportedFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "StorageTypeNotSupportedFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace StorageTypeNotSupportedFault {
-  export const filterSensitiveLog = (
-    obj: StorageTypeNotSupportedFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StorageTypeNotSupportedFault =>
-    __isa(o, "StorageTypeNotSupportedFault");
-}
-
-/**
- * <p>The DB subnet is already in use in the Availability Zone.</p>
- */
-export interface SubnetAlreadyInUse extends __SmithyException, $MetadataBearer {
-  name: "SubnetAlreadyInUse";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace SubnetAlreadyInUse {
-  export const filterSensitiveLog = (obj: SubnetAlreadyInUse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SubnetAlreadyInUse =>
-    __isa(o, "SubnetAlreadyInUse");
-}
-
-/**
- * <p>This subscription already exists.</p>
- */
-export interface SubscriptionAlreadyExistFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "SubscriptionAlreadyExistFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace SubscriptionAlreadyExistFault {
-  export const filterSensitiveLog = (
-    obj: SubscriptionAlreadyExistFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SubscriptionAlreadyExistFault =>
-    __isa(o, "SubscriptionAlreadyExistFault");
-}
-
-/**
- * <p>The designated subscription category could not be found.</p>
- */
-export interface SubscriptionCategoryNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "SubscriptionCategoryNotFoundFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace SubscriptionCategoryNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: SubscriptionCategoryNotFoundFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SubscriptionCategoryNotFoundFault =>
-    __isa(o, "SubscriptionCategoryNotFoundFault");
-}
-
-/**
- * <p>The designated subscription could not be found.</p>
- */
-export interface SubscriptionNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "SubscriptionNotFoundFault";
-  $fault: "client";
-  /**
-   * <p>A message describing the details of the problem.</p>
-   */
-  message?: string;
-}
-
-export namespace SubscriptionNotFoundFault {
-  export const filterSensitiveLog = (obj: SubscriptionNotFoundFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SubscriptionNotFoundFault =>
-    __isa(o, "SubscriptionNotFoundFault");
-}
-
 export interface AddRoleToDBClusterMessage {
   __type?: "AddRoleToDBClusterMessage";
   /**
@@ -1568,6 +182,29 @@ export namespace ApplyPendingMaintenanceActionResult {
 }
 
 /**
+ * <p>Specified CIDRIP or EC2 security group is not authorized for the specified DB security group.</p>
+ *          <p>Neptune may not also be authorized via IAM to perform necessary actions on your behalf.</p>
+ */
+export interface AuthorizationNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "AuthorizationNotFoundFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace AuthorizationNotFoundFault {
+  export const filterSensitiveLog = (obj: AuthorizationNotFoundFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AuthorizationNotFoundFault =>
+    __isa(o, "AuthorizationNotFoundFault");
+}
+
+/**
  * <p>Specifies an Availability Zone.</p>
  */
 export interface AvailabilityZone {
@@ -1584,6 +221,29 @@ export namespace AvailabilityZone {
   });
   export const isa = (o: any): o is AvailabilityZone =>
     __isa(o, "AvailabilityZone");
+}
+
+/**
+ * <p>
+ *             <i>CertificateIdentifier</i> does not refer to an existing certificate.</p>
+ */
+export interface CertificateNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CertificateNotFoundFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace CertificateNotFoundFault {
+  export const filterSensitiveLog = (obj: CertificateNotFoundFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CertificateNotFoundFault =>
+    __isa(o, "CertificateNotFoundFault");
 }
 
 /**
@@ -3145,6 +1805,30 @@ export namespace DBCluster {
 }
 
 /**
+ * <p>User already has a DB cluster with the given identifier.</p>
+ */
+export interface DBClusterAlreadyExistsFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBClusterAlreadyExistsFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBClusterAlreadyExistsFault {
+  export const filterSensitiveLog = (
+    obj: DBClusterAlreadyExistsFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBClusterAlreadyExistsFault =>
+    __isa(o, "DBClusterAlreadyExistsFault");
+}
+
+/**
  * <p>Contains information about an instance that is part of a DB cluster.</p>
  */
 export interface DBClusterMember {
@@ -3200,6 +1884,29 @@ export namespace DBClusterMessage {
   });
   export const isa = (o: any): o is DBClusterMessage =>
     __isa(o, "DBClusterMessage");
+}
+
+/**
+ * <p>
+ *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ */
+export interface DBClusterNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBClusterNotFoundFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBClusterNotFoundFault {
+  export const filterSensitiveLog = (obj: DBClusterNotFoundFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBClusterNotFoundFault =>
+    __isa(o, "DBClusterNotFoundFault");
 }
 
 /**
@@ -3320,6 +2027,32 @@ export namespace DBClusterParameterGroupNameMessage {
     __isa(o, "DBClusterParameterGroupNameMessage");
 }
 
+/**
+ * <p>
+ *             <i>DBClusterParameterGroupName</i> does not refer to an
+ *       existing DB Cluster parameter group.</p>
+ */
+export interface DBClusterParameterGroupNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBClusterParameterGroupNotFoundFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBClusterParameterGroupNotFoundFault {
+  export const filterSensitiveLog = (
+    obj: DBClusterParameterGroupNotFoundFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBClusterParameterGroupNotFoundFault =>
+    __isa(o, "DBClusterParameterGroupNotFoundFault");
+}
+
 export interface DBClusterParameterGroupsMessage {
   __type?: "DBClusterParameterGroupsMessage";
   /**
@@ -3344,6 +2077,30 @@ export namespace DBClusterParameterGroupsMessage {
   });
   export const isa = (o: any): o is DBClusterParameterGroupsMessage =>
     __isa(o, "DBClusterParameterGroupsMessage");
+}
+
+/**
+ * <p>User attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
+ */
+export interface DBClusterQuotaExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBClusterQuotaExceededFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBClusterQuotaExceededFault {
+  export const filterSensitiveLog = (
+    obj: DBClusterQuotaExceededFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBClusterQuotaExceededFault =>
+    __isa(o, "DBClusterQuotaExceededFault");
 }
 
 /**
@@ -3388,6 +2145,76 @@ export namespace DBClusterRole {
     ...obj
   });
   export const isa = (o: any): o is DBClusterRole => __isa(o, "DBClusterRole");
+}
+
+/**
+ * <p>The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.</p>
+ */
+export interface DBClusterRoleAlreadyExistsFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBClusterRoleAlreadyExistsFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBClusterRoleAlreadyExistsFault {
+  export const filterSensitiveLog = (
+    obj: DBClusterRoleAlreadyExistsFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBClusterRoleAlreadyExistsFault =>
+    __isa(o, "DBClusterRoleAlreadyExistsFault");
+}
+
+/**
+ * <p>The specified IAM role Amazon Resource Name (ARN) is not associated with the specified DB cluster.</p>
+ */
+export interface DBClusterRoleNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBClusterRoleNotFoundFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBClusterRoleNotFoundFault {
+  export const filterSensitiveLog = (obj: DBClusterRoleNotFoundFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBClusterRoleNotFoundFault =>
+    __isa(o, "DBClusterRoleNotFoundFault");
+}
+
+/**
+ * <p>You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.</p>
+ */
+export interface DBClusterRoleQuotaExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBClusterRoleQuotaExceededFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBClusterRoleQuotaExceededFault {
+  export const filterSensitiveLog = (
+    obj: DBClusterRoleQuotaExceededFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBClusterRoleQuotaExceededFault =>
+    __isa(o, "DBClusterRoleQuotaExceededFault");
 }
 
 /**
@@ -3513,6 +2340,30 @@ export namespace DBClusterSnapshot {
 }
 
 /**
+ * <p>User already has a DB cluster snapshot with the given identifier.</p>
+ */
+export interface DBClusterSnapshotAlreadyExistsFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBClusterSnapshotAlreadyExistsFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBClusterSnapshotAlreadyExistsFault {
+  export const filterSensitiveLog = (
+    obj: DBClusterSnapshotAlreadyExistsFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBClusterSnapshotAlreadyExistsFault =>
+    __isa(o, "DBClusterSnapshotAlreadyExistsFault");
+}
+
+/**
  * <p>Contains the name and values of a manual DB cluster snapshot attribute.</p>
  *          <p>Manual DB cluster snapshot attributes are used to authorize other AWS accounts to restore
  *       a manual DB cluster snapshot. For more information, see the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
@@ -3594,6 +2445,32 @@ export namespace DBClusterSnapshotMessage {
   });
   export const isa = (o: any): o is DBClusterSnapshotMessage =>
     __isa(o, "DBClusterSnapshotMessage");
+}
+
+/**
+ * <p>
+ *             <i>DBClusterSnapshotIdentifier</i> does not refer to an existing
+ *       DB cluster snapshot.</p>
+ */
+export interface DBClusterSnapshotNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBClusterSnapshotNotFoundFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBClusterSnapshotNotFoundFault {
+  export const filterSensitiveLog = (
+    obj: DBClusterSnapshotNotFoundFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBClusterSnapshotNotFoundFault =>
+    __isa(o, "DBClusterSnapshotNotFoundFault");
 }
 
 /**
@@ -4013,6 +2890,30 @@ export namespace DBInstance {
   export const isa = (o: any): o is DBInstance => __isa(o, "DBInstance");
 }
 
+/**
+ * <p>User already has a DB instance with the given identifier.</p>
+ */
+export interface DBInstanceAlreadyExistsFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBInstanceAlreadyExistsFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBInstanceAlreadyExistsFault {
+  export const filterSensitiveLog = (
+    obj: DBInstanceAlreadyExistsFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBInstanceAlreadyExistsFault =>
+    __isa(o, "DBInstanceAlreadyExistsFault");
+}
+
 export interface DBInstanceMessage {
   __type?: "DBInstanceMessage";
   /**
@@ -4034,6 +2935,29 @@ export namespace DBInstanceMessage {
   });
   export const isa = (o: any): o is DBInstanceMessage =>
     __isa(o, "DBInstanceMessage");
+}
+
+/**
+ * <p>
+ *             <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+ */
+export interface DBInstanceNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBInstanceNotFoundFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBInstanceNotFoundFault {
+  export const filterSensitiveLog = (obj: DBInstanceNotFoundFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBInstanceNotFoundFault =>
+    __isa(o, "DBInstanceNotFoundFault");
 }
 
 /**
@@ -4109,6 +3033,30 @@ export namespace DBParameterGroup {
     __isa(o, "DBParameterGroup");
 }
 
+/**
+ * <p>A DB parameter group with the same name exists.</p>
+ */
+export interface DBParameterGroupAlreadyExistsFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBParameterGroupAlreadyExistsFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBParameterGroupAlreadyExistsFault {
+  export const filterSensitiveLog = (
+    obj: DBParameterGroupAlreadyExistsFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBParameterGroupAlreadyExistsFault =>
+    __isa(o, "DBParameterGroupAlreadyExistsFault");
+}
+
 export interface DBParameterGroupDetails {
   __type?: "DBParameterGroupDetails";
   /**
@@ -4148,6 +3096,79 @@ export namespace DBParameterGroupNameMessage {
   });
   export const isa = (o: any): o is DBParameterGroupNameMessage =>
     __isa(o, "DBParameterGroupNameMessage");
+}
+
+/**
+ * <p>
+ *             <i>DBParameterGroupName</i> does not refer to an
+ *       existing DB parameter group.</p>
+ */
+export interface DBParameterGroupNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBParameterGroupNotFoundFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBParameterGroupNotFoundFault {
+  export const filterSensitiveLog = (
+    obj: DBParameterGroupNotFoundFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBParameterGroupNotFoundFault =>
+    __isa(o, "DBParameterGroupNotFoundFault");
+}
+
+/**
+ * <p>Request would result in user exceeding the allowed number of DB parameter groups.</p>
+ */
+export interface DBParameterGroupQuotaExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBParameterGroupQuotaExceededFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBParameterGroupQuotaExceededFault {
+  export const filterSensitiveLog = (
+    obj: DBParameterGroupQuotaExceededFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBParameterGroupQuotaExceededFault =>
+    __isa(o, "DBParameterGroupQuotaExceededFault");
+}
+
+export interface DBParameterGroupsMessage {
+  __type?: "DBParameterGroupsMessage";
+  /**
+   * <p>A list of <a>DBParameterGroup</a> instances.</p>
+   */
+  DBParameterGroups?: DBParameterGroup[];
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is
+   *       specified, the response includes only records beyond the marker, up to the value specified by
+   *       <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
+
+export namespace DBParameterGroupsMessage {
+  export const filterSensitiveLog = (obj: DBParameterGroupsMessage): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBParameterGroupsMessage =>
+    __isa(o, "DBParameterGroupsMessage");
 }
 
 /**
@@ -4197,29 +3218,6 @@ export namespace DBParameterGroupStatus {
     __isa(o, "DBParameterGroupStatus");
 }
 
-export interface DBParameterGroupsMessage {
-  __type?: "DBParameterGroupsMessage";
-  /**
-   * <p>A list of <a>DBParameterGroup</a> instances.</p>
-   */
-  DBParameterGroups?: DBParameterGroup[];
-
-  /**
-   * <p>An optional pagination token provided by a previous request. If this parameter is
-   *       specified, the response includes only records beyond the marker, up to the value specified by
-   *       <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-}
-
-export namespace DBParameterGroupsMessage {
-  export const filterSensitiveLog = (obj: DBParameterGroupsMessage): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DBParameterGroupsMessage =>
-    __isa(o, "DBParameterGroupsMessage");
-}
-
 /**
  * <p>Specifies membership in a designated DB security group.</p>
  */
@@ -4242,6 +3240,80 @@ export namespace DBSecurityGroupMembership {
   });
   export const isa = (o: any): o is DBSecurityGroupMembership =>
     __isa(o, "DBSecurityGroupMembership");
+}
+
+/**
+ * <p>
+ *             <i>DBSecurityGroupName</i> does not refer
+ *       to an existing DB security group.</p>
+ */
+export interface DBSecurityGroupNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBSecurityGroupNotFoundFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBSecurityGroupNotFoundFault {
+  export const filterSensitiveLog = (
+    obj: DBSecurityGroupNotFoundFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBSecurityGroupNotFoundFault =>
+    __isa(o, "DBSecurityGroupNotFoundFault");
+}
+
+/**
+ * <p>
+ *             <i>DBSnapshotIdentifier</i> is already used by an existing snapshot.</p>
+ */
+export interface DBSnapshotAlreadyExistsFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBSnapshotAlreadyExistsFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBSnapshotAlreadyExistsFault {
+  export const filterSensitiveLog = (
+    obj: DBSnapshotAlreadyExistsFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBSnapshotAlreadyExistsFault =>
+    __isa(o, "DBSnapshotAlreadyExistsFault");
+}
+
+/**
+ * <p>
+ *             <i>DBSnapshotIdentifier</i> does not refer to an existing DB snapshot.</p>
+ */
+export interface DBSnapshotNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBSnapshotNotFoundFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBSnapshotNotFoundFault {
+  export const filterSensitiveLog = (obj: DBSnapshotNotFoundFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBSnapshotNotFoundFault =>
+    __isa(o, "DBSnapshotNotFoundFault");
 }
 
 /**
@@ -4288,6 +3360,56 @@ export namespace DBSubnetGroup {
   export const isa = (o: any): o is DBSubnetGroup => __isa(o, "DBSubnetGroup");
 }
 
+/**
+ * <p>
+ *             <i>DBSubnetGroupName</i> is already used by an existing DB subnet group.</p>
+ */
+export interface DBSubnetGroupAlreadyExistsFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBSubnetGroupAlreadyExistsFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBSubnetGroupAlreadyExistsFault {
+  export const filterSensitiveLog = (
+    obj: DBSubnetGroupAlreadyExistsFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBSubnetGroupAlreadyExistsFault =>
+    __isa(o, "DBSubnetGroupAlreadyExistsFault");
+}
+
+/**
+ * <p>Subnets in the DB subnet group should cover at least two Availability
+ *       Zones unless there is only one Availability Zone.</p>
+ */
+export interface DBSubnetGroupDoesNotCoverEnoughAZs
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBSubnetGroupDoesNotCoverEnoughAZs";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBSubnetGroupDoesNotCoverEnoughAZs {
+  export const filterSensitiveLog = (
+    obj: DBSubnetGroupDoesNotCoverEnoughAZs
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBSubnetGroupDoesNotCoverEnoughAZs =>
+    __isa(o, "DBSubnetGroupDoesNotCoverEnoughAZs");
+}
+
 export interface DBSubnetGroupMessage {
   __type?: "DBSubnetGroupMessage";
   /**
@@ -4309,6 +3431,100 @@ export namespace DBSubnetGroupMessage {
   });
   export const isa = (o: any): o is DBSubnetGroupMessage =>
     __isa(o, "DBSubnetGroupMessage");
+}
+
+/**
+ * <p>
+ *             <i>DBSubnetGroupName</i> does not refer to an
+ *       existing DB subnet group.</p>
+ */
+export interface DBSubnetGroupNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBSubnetGroupNotFoundFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBSubnetGroupNotFoundFault {
+  export const filterSensitiveLog = (obj: DBSubnetGroupNotFoundFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBSubnetGroupNotFoundFault =>
+    __isa(o, "DBSubnetGroupNotFoundFault");
+}
+
+/**
+ * <p>Request would result in user exceeding the allowed number of DB subnet groups.</p>
+ */
+export interface DBSubnetGroupQuotaExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBSubnetGroupQuotaExceededFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBSubnetGroupQuotaExceededFault {
+  export const filterSensitiveLog = (
+    obj: DBSubnetGroupQuotaExceededFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBSubnetGroupQuotaExceededFault =>
+    __isa(o, "DBSubnetGroupQuotaExceededFault");
+}
+
+/**
+ * <p>Request would result in user exceeding the allowed number of subnets in a DB subnet groups.</p>
+ */
+export interface DBSubnetQuotaExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBSubnetQuotaExceededFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBSubnetQuotaExceededFault {
+  export const filterSensitiveLog = (obj: DBSubnetQuotaExceededFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBSubnetQuotaExceededFault =>
+    __isa(o, "DBSubnetQuotaExceededFault");
+}
+
+/**
+ * <p>The DB upgrade failed because a resource the DB depends on could not be modified.</p>
+ */
+export interface DBUpgradeDependencyFailureFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DBUpgradeDependencyFailureFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBUpgradeDependencyFailureFault {
+  export const filterSensitiveLog = (
+    obj: DBUpgradeDependencyFailureFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DBUpgradeDependencyFailureFault =>
+    __isa(o, "DBUpgradeDependencyFailureFault");
 }
 
 export interface DeleteDBClusterMessage {
@@ -4725,6 +3941,59 @@ export namespace DescribeDBClusterParametersMessage {
     __isa(o, "DescribeDBClusterParametersMessage");
 }
 
+export interface DescribeDBClustersMessage {
+  __type?: "DescribeDBClustersMessage";
+  /**
+   * <p>The user-supplied DB cluster identifier. If this parameter is specified, information from
+   *       only the specific DB cluster is returned. This parameter isn't case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match an existing DBClusterIdentifier.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBClusterIdentifier?: string;
+
+  /**
+   * <p>A filter that specifies one or more DB clusters to describe.</p>
+   *          <p>Supported filters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon
+   *           Resource Names (ARNs). The results list will only include information about the DB
+   *           clusters identified by these ARNs.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a>
+   *       request. If this parameter is specified, the response includes only records beyond the marker,
+   *       up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the
+   *       specified <code>MaxRecords</code> value, a pagination token called a marker is included in the
+   *       response so that the remaining results can be retrieved.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+}
+
+export namespace DescribeDBClustersMessage {
+  export const filterSensitiveLog = (obj: DescribeDBClustersMessage): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeDBClustersMessage =>
+    __isa(o, "DescribeDBClustersMessage");
+}
+
 export interface DescribeDBClusterSnapshotAttributesMessage {
   __type?: "DescribeDBClusterSnapshotAttributesMessage";
   /**
@@ -4884,59 +4153,6 @@ export namespace DescribeDBClusterSnapshotsMessage {
   });
   export const isa = (o: any): o is DescribeDBClusterSnapshotsMessage =>
     __isa(o, "DescribeDBClusterSnapshotsMessage");
-}
-
-export interface DescribeDBClustersMessage {
-  __type?: "DescribeDBClustersMessage";
-  /**
-   * <p>The user-supplied DB cluster identifier. If this parameter is specified, information from
-   *       only the specific DB cluster is returned. This parameter isn't case-sensitive.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match an existing DBClusterIdentifier.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBClusterIdentifier?: string;
-
-  /**
-   * <p>A filter that specifies one or more DB clusters to describe.</p>
-   *          <p>Supported filters:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon
-   *           Resource Names (ARNs). The results list will only include information about the DB
-   *           clusters identified by these ARNs.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a>
-   *       request. If this parameter is specified, the response includes only records beyond the marker,
-   *       up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The maximum number of records to include in the response. If more records exist than the
-   *       specified <code>MaxRecords</code> value, a pagination token called a marker is included in the
-   *       response so that the remaining results can be retrieved.</p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-}
-
-export namespace DescribeDBClustersMessage {
-  export const filterSensitiveLog = (obj: DescribeDBClustersMessage): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeDBClustersMessage =>
-    __isa(o, "DescribeDBClustersMessage");
 }
 
 export interface DescribeDBEngineVersionsMessage {
@@ -5357,45 +4573,6 @@ export namespace DescribeEventCategoriesMessage {
     __isa(o, "DescribeEventCategoriesMessage");
 }
 
-export interface DescribeEventSubscriptionsMessage {
-  __type?: "DescribeEventSubscriptionsMessage";
-  /**
-   * <p>This parameter is not currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p> An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions
-   *       request. If this parameter is specified, the response includes only records beyond the marker,
-   *       up to the value specified by <code>MaxRecords</code> .</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p> The maximum number of records to include in the response. If more records exist than the
-   *       specified <code>MaxRecords</code> value, a pagination token called a marker is included in the
-   *       response so that the remaining results can be retrieved.</p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * <p>The name of the event notification subscription you want to describe.</p>
-   */
-  SubscriptionName?: string;
-}
-
-export namespace DescribeEventSubscriptionsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeEventSubscriptionsMessage
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeEventSubscriptionsMessage =>
-    __isa(o, "DescribeEventSubscriptionsMessage");
-}
-
 export interface DescribeEventsMessage {
   __type?: "DescribeEventsMessage";
   /**
@@ -5491,6 +4668,45 @@ export namespace DescribeEventsMessage {
   });
   export const isa = (o: any): o is DescribeEventsMessage =>
     __isa(o, "DescribeEventsMessage");
+}
+
+export interface DescribeEventSubscriptionsMessage {
+  __type?: "DescribeEventSubscriptionsMessage";
+  /**
+   * <p>This parameter is not currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p> An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions
+   *       request. If this parameter is specified, the response includes only records beyond the marker,
+   *       up to the value specified by <code>MaxRecords</code> .</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p> The maximum number of records to include in the response. If more records exist than the
+   *       specified <code>MaxRecords</code> value, a pagination token called a marker is included in the
+   *       response so that the remaining results can be retrieved.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>The name of the event notification subscription you want to describe.</p>
+   */
+  SubscriptionName?: string;
+}
+
+export namespace DescribeEventSubscriptionsMessage {
+  export const filterSensitiveLog = (
+    obj: DescribeEventSubscriptionsMessage
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeEventSubscriptionsMessage =>
+    __isa(o, "DescribeEventSubscriptionsMessage");
 }
 
 export interface DescribeOrderableDBInstanceOptionsMessage {
@@ -5691,6 +4907,29 @@ export namespace DomainMembership {
 }
 
 /**
+ * <p>
+ *             <i>Domain</i> does not refer to an existing Active Directory Domain.</p>
+ */
+export interface DomainNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DomainNotFoundFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DomainNotFoundFault {
+  export const filterSensitiveLog = (obj: DomainNotFoundFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DomainNotFoundFault =>
+    __isa(o, "DomainNotFoundFault");
+}
+
+/**
  * <p>A range of double values.</p>
  */
 export interface DoubleRange {
@@ -5857,6 +5096,28 @@ export namespace EventCategoriesMessage {
     __isa(o, "EventCategoriesMessage");
 }
 
+export interface EventsMessage {
+  __type?: "EventsMessage";
+  /**
+   * <p> A list of <a>Event</a> instances.</p>
+   */
+  Events?: Event[];
+
+  /**
+   * <p> An optional pagination token provided by a previous Events request. If this parameter is
+   *       specified, the response includes only records beyond the marker, up to the value specified by
+   *       <code>MaxRecords</code> .</p>
+   */
+  Marker?: string;
+}
+
+export namespace EventsMessage {
+  export const filterSensitiveLog = (obj: EventsMessage): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is EventsMessage => __isa(o, "EventsMessage");
+}
+
 /**
  * <p>Contains the results of a successful invocation of the <a>DescribeEventSubscriptions</a> action.</p>
  */
@@ -5928,6 +5189,30 @@ export namespace EventSubscription {
     __isa(o, "EventSubscription");
 }
 
+/**
+ * <p>You have exceeded the number of events you can subscribe to.</p>
+ */
+export interface EventSubscriptionQuotaExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "EventSubscriptionQuotaExceededFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace EventSubscriptionQuotaExceededFault {
+  export const filterSensitiveLog = (
+    obj: EventSubscriptionQuotaExceededFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is EventSubscriptionQuotaExceededFault =>
+    __isa(o, "EventSubscriptionQuotaExceededFault");
+}
+
 export interface EventSubscriptionsMessage {
   __type?: "EventSubscriptionsMessage";
   /**
@@ -5949,28 +5234,6 @@ export namespace EventSubscriptionsMessage {
   });
   export const isa = (o: any): o is EventSubscriptionsMessage =>
     __isa(o, "EventSubscriptionsMessage");
-}
-
-export interface EventsMessage {
-  __type?: "EventsMessage";
-  /**
-   * <p> A list of <a>Event</a> instances.</p>
-   */
-  Events?: Event[];
-
-  /**
-   * <p> An optional pagination token provided by a previous Events request. If this parameter is
-   *       specified, the response includes only records beyond the marker, up to the value specified by
-   *       <code>MaxRecords</code> .</p>
-   */
-  Marker?: string;
-}
-
-export namespace EventsMessage {
-  export const filterSensitiveLog = (obj: EventsMessage): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is EventsMessage => __isa(o, "EventsMessage");
 }
 
 export interface FailoverDBClusterMessage {
@@ -6041,6 +5304,404 @@ export namespace Filter {
     ...obj
   });
   export const isa = (o: any): o is Filter => __isa(o, "Filter");
+}
+
+/**
+ * <p>Request would result in user exceeding the allowed number of DB instances.</p>
+ */
+export interface InstanceQuotaExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InstanceQuotaExceededFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace InstanceQuotaExceededFault {
+  export const filterSensitiveLog = (obj: InstanceQuotaExceededFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InstanceQuotaExceededFault =>
+    __isa(o, "InstanceQuotaExceededFault");
+}
+
+/**
+ * <p>The DB cluster does not have enough capacity for the current operation.</p>
+ */
+export interface InsufficientDBClusterCapacityFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InsufficientDBClusterCapacityFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace InsufficientDBClusterCapacityFault {
+  export const filterSensitiveLog = (
+    obj: InsufficientDBClusterCapacityFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InsufficientDBClusterCapacityFault =>
+    __isa(o, "InsufficientDBClusterCapacityFault");
+}
+
+/**
+ * <p>Specified DB instance class is not available in the specified Availability Zone.</p>
+ */
+export interface InsufficientDBInstanceCapacityFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InsufficientDBInstanceCapacityFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace InsufficientDBInstanceCapacityFault {
+  export const filterSensitiveLog = (
+    obj: InsufficientDBInstanceCapacityFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InsufficientDBInstanceCapacityFault =>
+    __isa(o, "InsufficientDBInstanceCapacityFault");
+}
+
+/**
+ * <p>There is insufficient storage available for the current action. You may
+ *        be able to resolve this error by updating your subnet group to use different
+ *        Availability Zones that have more storage available.</p>
+ */
+export interface InsufficientStorageClusterCapacityFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InsufficientStorageClusterCapacityFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace InsufficientStorageClusterCapacityFault {
+  export const filterSensitiveLog = (
+    obj: InsufficientStorageClusterCapacityFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InsufficientStorageClusterCapacityFault =>
+    __isa(o, "InsufficientStorageClusterCapacityFault");
+}
+
+/**
+ * <p>The supplied value is not a valid DB cluster snapshot state.</p>
+ */
+export interface InvalidDBClusterSnapshotStateFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidDBClusterSnapshotStateFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidDBClusterSnapshotStateFault {
+  export const filterSensitiveLog = (
+    obj: InvalidDBClusterSnapshotStateFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidDBClusterSnapshotStateFault =>
+    __isa(o, "InvalidDBClusterSnapshotStateFault");
+}
+
+/**
+ * <p>The DB cluster is not in a valid state.</p>
+ */
+export interface InvalidDBClusterStateFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidDBClusterStateFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidDBClusterStateFault {
+  export const filterSensitiveLog = (obj: InvalidDBClusterStateFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidDBClusterStateFault =>
+    __isa(o, "InvalidDBClusterStateFault");
+}
+
+/**
+ * <p>The specified DB instance is not in the <i>available</i> state.</p>
+ */
+export interface InvalidDBInstanceStateFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidDBInstanceStateFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidDBInstanceStateFault {
+  export const filterSensitiveLog = (
+    obj: InvalidDBInstanceStateFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidDBInstanceStateFault =>
+    __isa(o, "InvalidDBInstanceStateFault");
+}
+
+/**
+ * <p>The DB parameter group is in use or is in an invalid state. If you are attempting to
+ *       delete the parameter group, you cannot delete it when the parameter group is in this state.</p>
+ */
+export interface InvalidDBParameterGroupStateFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidDBParameterGroupStateFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidDBParameterGroupStateFault {
+  export const filterSensitiveLog = (
+    obj: InvalidDBParameterGroupStateFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidDBParameterGroupStateFault =>
+    __isa(o, "InvalidDBParameterGroupStateFault");
+}
+
+/**
+ * <p>The state of the DB security group does not allow deletion.</p>
+ */
+export interface InvalidDBSecurityGroupStateFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidDBSecurityGroupStateFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidDBSecurityGroupStateFault {
+  export const filterSensitiveLog = (
+    obj: InvalidDBSecurityGroupStateFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidDBSecurityGroupStateFault =>
+    __isa(o, "InvalidDBSecurityGroupStateFault");
+}
+
+/**
+ * <p>The state of the DB snapshot does not allow deletion.</p>
+ */
+export interface InvalidDBSnapshotStateFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidDBSnapshotStateFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidDBSnapshotStateFault {
+  export const filterSensitiveLog = (
+    obj: InvalidDBSnapshotStateFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidDBSnapshotStateFault =>
+    __isa(o, "InvalidDBSnapshotStateFault");
+}
+
+/**
+ * <p>The DB subnet group cannot be deleted because it is in use.</p>
+ */
+export interface InvalidDBSubnetGroupStateFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidDBSubnetGroupStateFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidDBSubnetGroupStateFault {
+  export const filterSensitiveLog = (
+    obj: InvalidDBSubnetGroupStateFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidDBSubnetGroupStateFault =>
+    __isa(o, "InvalidDBSubnetGroupStateFault");
+}
+
+/**
+ * <p>The DB subnet is not in the <i>available</i> state.</p>
+ */
+export interface InvalidDBSubnetStateFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidDBSubnetStateFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidDBSubnetStateFault {
+  export const filterSensitiveLog = (obj: InvalidDBSubnetStateFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidDBSubnetStateFault =>
+    __isa(o, "InvalidDBSubnetStateFault");
+}
+
+/**
+ * <p>The event subscription is in an invalid state.</p>
+ */
+export interface InvalidEventSubscriptionStateFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidEventSubscriptionStateFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidEventSubscriptionStateFault {
+  export const filterSensitiveLog = (
+    obj: InvalidEventSubscriptionStateFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidEventSubscriptionStateFault =>
+    __isa(o, "InvalidEventSubscriptionStateFault");
+}
+
+/**
+ * <p>Cannot restore from vpc backup to non-vpc DB instance.</p>
+ */
+export interface InvalidRestoreFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidRestoreFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidRestoreFault {
+  export const filterSensitiveLog = (obj: InvalidRestoreFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidRestoreFault =>
+    __isa(o, "InvalidRestoreFault");
+}
+
+/**
+ * <p>The requested subnet is invalid, or multiple subnets were requested that are
+ *       not all in a common VPC.</p>
+ */
+export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
+  name: "InvalidSubnet";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidSubnet {
+  export const filterSensitiveLog = (obj: InvalidSubnet): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidSubnet => __isa(o, "InvalidSubnet");
+}
+
+/**
+ * <p>DB subnet group does not cover all Availability Zones after it is created
+ *       because users' change.</p>
+ */
+export interface InvalidVPCNetworkStateFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidVPCNetworkStateFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidVPCNetworkStateFault {
+  export const filterSensitiveLog = (
+    obj: InvalidVPCNetworkStateFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidVPCNetworkStateFault =>
+    __isa(o, "InvalidVPCNetworkStateFault");
+}
+
+/**
+ * <p>Error accessing KMS key.</p>
+ */
+export interface KMSKeyNotAccessibleFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "KMSKeyNotAccessibleFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace KMSKeyNotAccessibleFault {
+  export const filterSensitiveLog = (obj: KMSKeyNotAccessibleFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is KMSKeyNotAccessibleFault =>
+    __isa(o, "KMSKeyNotAccessibleFault");
 }
 
 export interface ListTagsForResourceMessage {
@@ -6885,6 +6546,28 @@ export namespace OptionGroupMembership {
 }
 
 /**
+ * <p>The designated option group could not be found.</p>
+ */
+export interface OptionGroupNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "OptionGroupNotFoundFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace OptionGroupNotFoundFault {
+  export const filterSensitiveLog = (obj: OptionGroupNotFoundFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is OptionGroupNotFoundFault =>
+    __isa(o, "OptionGroupNotFoundFault");
+}
+
+/**
  * <p>Contains a list of available options for a DB instance.</p>
  *          <p> This data type is used as a response element in the <a>DescribeOrderableDBInstanceOptions</a> action.</p>
  */
@@ -7332,6 +7015,30 @@ export namespace PromoteReadReplicaDBClusterResult {
 }
 
 /**
+ * <p>Provisioned IOPS not available in the specified Availability Zone.</p>
+ */
+export interface ProvisionedIopsNotAvailableInAZFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ProvisionedIopsNotAvailableInAZFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace ProvisionedIopsNotAvailableInAZFault {
+  export const filterSensitiveLog = (
+    obj: ProvisionedIopsNotAvailableInAZFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ProvisionedIopsNotAvailableInAZFault =>
+    __isa(o, "ProvisionedIopsNotAvailableInAZFault");
+}
+
+/**
  * <p>A range of integer values.</p>
  */
 export interface Range {
@@ -7577,6 +7284,28 @@ export namespace ResetDBParameterGroupMessage {
   });
   export const isa = (o: any): o is ResetDBParameterGroupMessage =>
     __isa(o, "ResetDBParameterGroupMessage");
+}
+
+/**
+ * <p>The specified resource ID was not found.</p>
+ */
+export interface ResourceNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceNotFoundFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace ResourceNotFoundFault {
+  export const filterSensitiveLog = (obj: ResourceNotFoundFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceNotFoundFault =>
+    __isa(o, "ResourceNotFoundFault");
 }
 
 /**
@@ -7989,6 +7718,140 @@ export namespace RestoreDBClusterToPointInTimeResult {
     __isa(o, "RestoreDBClusterToPointInTimeResult");
 }
 
+/**
+ * <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
+ */
+export interface SharedSnapshotQuotaExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "SharedSnapshotQuotaExceededFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace SharedSnapshotQuotaExceededFault {
+  export const filterSensitiveLog = (
+    obj: SharedSnapshotQuotaExceededFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SharedSnapshotQuotaExceededFault =>
+    __isa(o, "SharedSnapshotQuotaExceededFault");
+}
+
+/**
+ * <p>Request would result in user exceeding the allowed number of DB snapshots.</p>
+ */
+export interface SnapshotQuotaExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "SnapshotQuotaExceededFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace SnapshotQuotaExceededFault {
+  export const filterSensitiveLog = (obj: SnapshotQuotaExceededFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SnapshotQuotaExceededFault =>
+    __isa(o, "SnapshotQuotaExceededFault");
+}
+
+/**
+ * <p>The SNS topic is invalid.</p>
+ */
+export interface SNSInvalidTopicFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "SNSInvalidTopicFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace SNSInvalidTopicFault {
+  export const filterSensitiveLog = (obj: SNSInvalidTopicFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SNSInvalidTopicFault =>
+    __isa(o, "SNSInvalidTopicFault");
+}
+
+/**
+ * <p>There is no SNS authorization.</p>
+ */
+export interface SNSNoAuthorizationFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "SNSNoAuthorizationFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace SNSNoAuthorizationFault {
+  export const filterSensitiveLog = (obj: SNSNoAuthorizationFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SNSNoAuthorizationFault =>
+    __isa(o, "SNSNoAuthorizationFault");
+}
+
+/**
+ * <p>The ARN of the SNS topic could not be found.</p>
+ */
+export interface SNSTopicArnNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "SNSTopicArnNotFoundFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace SNSTopicArnNotFoundFault {
+  export const filterSensitiveLog = (obj: SNSTopicArnNotFoundFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SNSTopicArnNotFoundFault =>
+    __isa(o, "SNSTopicArnNotFoundFault");
+}
+
+/**
+ * <p>The source could not be found.</p>
+ */
+export interface SourceNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "SourceNotFoundFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace SourceNotFoundFault {
+  export const filterSensitiveLog = (obj: SourceNotFoundFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SourceNotFoundFault =>
+    __isa(o, "SourceNotFoundFault");
+}
+
 export type SourceType =
   | "db-cluster"
   | "db-cluster-snapshot"
@@ -7996,6 +7859,53 @@ export type SourceType =
   | "db-parameter-group"
   | "db-security-group"
   | "db-snapshot";
+
+/**
+ * <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>
+ */
+export interface StorageQuotaExceededFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "StorageQuotaExceededFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace StorageQuotaExceededFault {
+  export const filterSensitiveLog = (obj: StorageQuotaExceededFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StorageQuotaExceededFault =>
+    __isa(o, "StorageQuotaExceededFault");
+}
+
+/**
+ * <p>
+ *             <i>StorageType</i> specified cannot be associated with the DB Instance.</p>
+ */
+export interface StorageTypeNotSupportedFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "StorageTypeNotSupportedFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace StorageTypeNotSupportedFault {
+  export const filterSensitiveLog = (
+    obj: StorageTypeNotSupportedFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StorageTypeNotSupportedFault =>
+    __isa(o, "StorageTypeNotSupportedFault");
+}
 
 /**
  * <p>Specifies a subnet.</p>
@@ -8024,6 +7934,96 @@ export namespace Subnet {
     ...obj
   });
   export const isa = (o: any): o is Subnet => __isa(o, "Subnet");
+}
+
+/**
+ * <p>The DB subnet is already in use in the Availability Zone.</p>
+ */
+export interface SubnetAlreadyInUse extends __SmithyException, $MetadataBearer {
+  name: "SubnetAlreadyInUse";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace SubnetAlreadyInUse {
+  export const filterSensitiveLog = (obj: SubnetAlreadyInUse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SubnetAlreadyInUse =>
+    __isa(o, "SubnetAlreadyInUse");
+}
+
+/**
+ * <p>This subscription already exists.</p>
+ */
+export interface SubscriptionAlreadyExistFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "SubscriptionAlreadyExistFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace SubscriptionAlreadyExistFault {
+  export const filterSensitiveLog = (
+    obj: SubscriptionAlreadyExistFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SubscriptionAlreadyExistFault =>
+    __isa(o, "SubscriptionAlreadyExistFault");
+}
+
+/**
+ * <p>The designated subscription category could not be found.</p>
+ */
+export interface SubscriptionCategoryNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "SubscriptionCategoryNotFoundFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace SubscriptionCategoryNotFoundFault {
+  export const filterSensitiveLog = (
+    obj: SubscriptionCategoryNotFoundFault
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SubscriptionCategoryNotFoundFault =>
+    __isa(o, "SubscriptionCategoryNotFoundFault");
+}
+
+/**
+ * <p>The designated subscription could not be found.</p>
+ */
+export interface SubscriptionNotFoundFault
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "SubscriptionNotFoundFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace SubscriptionNotFoundFault {
+  export const filterSensitiveLog = (obj: SubscriptionNotFoundFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SubscriptionNotFoundFault =>
+    __isa(o, "SubscriptionNotFoundFault");
 }
 
 /**

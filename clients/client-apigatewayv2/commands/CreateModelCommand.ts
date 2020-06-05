@@ -5,9 +5,9 @@ import {
 } from "../ApiGatewayV2Client";
 import { CreateModelRequest, CreateModelResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateModelCommand,
-  serializeAws_restJson1_1CreateModelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateModelCommand,
+  serializeAws_restJson1CreateModelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateModelCommand extends $Command<
     input: CreateModelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateModelCommand(input, context);
+    return serializeAws_restJson1CreateModelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateModelCommandOutput> {
-    return deserializeAws_restJson1_1CreateModelCommand(output, context);
+    return deserializeAws_restJson1CreateModelCommand(output, context);
   }
 
   // Start section: command_body_extra

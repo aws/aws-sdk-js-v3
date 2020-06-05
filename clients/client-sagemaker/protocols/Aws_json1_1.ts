@@ -3072,7 +3072,7 @@ const deserializeAws_json1_1AssociateTrialComponentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -3083,7 +3083,7 @@ const deserializeAws_json1_1AssociateTrialComponentCommandError = async (
       };
       break;
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -3192,7 +3192,7 @@ const deserializeAws_json1_1CreateAppCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUse":
-    case "com.amazonaws.sagemaker.api#ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseResponse(
           parsedOutput,
@@ -3203,7 +3203,7 @@ const deserializeAws_json1_1CreateAppCommandError = async (
       };
       break;
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -3263,7 +3263,7 @@ const deserializeAws_json1_1CreateAutoMLJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUse":
-    case "com.amazonaws.sagemaker.api#ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseResponse(
           parsedOutput,
@@ -3274,7 +3274,7 @@ const deserializeAws_json1_1CreateAutoMLJobCommandError = async (
       };
       break;
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -3389,7 +3389,7 @@ const deserializeAws_json1_1CreateCompilationJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUse":
-    case "com.amazonaws.sagemaker.api#ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseResponse(
           parsedOutput,
@@ -3400,7 +3400,7 @@ const deserializeAws_json1_1CreateCompilationJobCommandError = async (
       };
       break;
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -3460,7 +3460,7 @@ const deserializeAws_json1_1CreateDomainCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUse":
-    case "com.amazonaws.sagemaker.api#ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseResponse(
           parsedOutput,
@@ -3471,7 +3471,7 @@ const deserializeAws_json1_1CreateDomainCommandError = async (
       };
       break;
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -3531,7 +3531,7 @@ const deserializeAws_json1_1CreateEndpointCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -3594,7 +3594,7 @@ const deserializeAws_json1_1CreateEndpointConfigCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -3654,7 +3654,7 @@ const deserializeAws_json1_1CreateExperimentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -3717,7 +3717,7 @@ const deserializeAws_json1_1CreateFlowDefinitionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUse":
-    case "com.amazonaws.sagemaker.api#ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseResponse(
           parsedOutput,
@@ -3728,7 +3728,7 @@ const deserializeAws_json1_1CreateFlowDefinitionCommandError = async (
       };
       break;
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -3788,7 +3788,7 @@ const deserializeAws_json1_1CreateHumanTaskUiCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUse":
-    case "com.amazonaws.sagemaker.api#ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseResponse(
           parsedOutput,
@@ -3799,7 +3799,7 @@ const deserializeAws_json1_1CreateHumanTaskUiCommandError = async (
       };
       break;
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -3865,7 +3865,7 @@ const deserializeAws_json1_1CreateHyperParameterTuningJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUse":
-    case "com.amazonaws.sagemaker.api#ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseResponse(
           parsedOutput,
@@ -3876,7 +3876,7 @@ const deserializeAws_json1_1CreateHyperParameterTuningJobCommandError = async (
       };
       break;
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -3936,7 +3936,7 @@ const deserializeAws_json1_1CreateLabelingJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUse":
-    case "com.amazonaws.sagemaker.api#ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseResponse(
           parsedOutput,
@@ -3947,7 +3947,7 @@ const deserializeAws_json1_1CreateLabelingJobCommandError = async (
       };
       break;
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -4007,7 +4007,7 @@ const deserializeAws_json1_1CreateModelCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -4125,7 +4125,7 @@ const deserializeAws_json1_1CreateMonitoringScheduleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUse":
-    case "com.amazonaws.sagemaker.api#ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseResponse(
           parsedOutput,
@@ -4136,7 +4136,7 @@ const deserializeAws_json1_1CreateMonitoringScheduleCommandError = async (
       };
       break;
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -4199,7 +4199,7 @@ const deserializeAws_json1_1CreateNotebookInstanceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -4265,7 +4265,7 @@ const deserializeAws_json1_1CreateNotebookInstanceLifecycleConfigCommandError = 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -4331,7 +4331,7 @@ const deserializeAws_json1_1CreatePresignedDomainUrlCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -4449,7 +4449,7 @@ const deserializeAws_json1_1CreateProcessingJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUse":
-    case "com.amazonaws.sagemaker.api#ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseResponse(
           parsedOutput,
@@ -4460,7 +4460,7 @@ const deserializeAws_json1_1CreateProcessingJobCommandError = async (
       };
       break;
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -4471,7 +4471,7 @@ const deserializeAws_json1_1CreateProcessingJobCommandError = async (
       };
       break;
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -4531,7 +4531,7 @@ const deserializeAws_json1_1CreateTrainingJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUse":
-    case "com.amazonaws.sagemaker.api#ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseResponse(
           parsedOutput,
@@ -4542,7 +4542,7 @@ const deserializeAws_json1_1CreateTrainingJobCommandError = async (
       };
       break;
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -4553,7 +4553,7 @@ const deserializeAws_json1_1CreateTrainingJobCommandError = async (
       };
       break;
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -4616,7 +4616,7 @@ const deserializeAws_json1_1CreateTransformJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUse":
-    case "com.amazonaws.sagemaker.api#ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseResponse(
           parsedOutput,
@@ -4627,7 +4627,7 @@ const deserializeAws_json1_1CreateTransformJobCommandError = async (
       };
       break;
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -4638,7 +4638,7 @@ const deserializeAws_json1_1CreateTransformJobCommandError = async (
       };
       break;
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -4698,7 +4698,7 @@ const deserializeAws_json1_1CreateTrialCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -4709,7 +4709,7 @@ const deserializeAws_json1_1CreateTrialCommandError = async (
       };
       break;
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -4772,7 +4772,7 @@ const deserializeAws_json1_1CreateTrialComponentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -4832,7 +4832,7 @@ const deserializeAws_json1_1CreateUserProfileCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUse":
-    case "com.amazonaws.sagemaker.api#ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseResponse(
           parsedOutput,
@@ -4843,7 +4843,7 @@ const deserializeAws_json1_1CreateUserProfileCommandError = async (
       };
       break;
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -4903,7 +4903,7 @@ const deserializeAws_json1_1CreateWorkteamCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUse":
-    case "com.amazonaws.sagemaker.api#ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseResponse(
           parsedOutput,
@@ -4914,7 +4914,7 @@ const deserializeAws_json1_1CreateWorkteamCommandError = async (
       };
       break;
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -5015,7 +5015,7 @@ const deserializeAws_json1_1DeleteAppCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUse":
-    case "com.amazonaws.sagemaker.api#ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseResponse(
           parsedOutput,
@@ -5026,7 +5026,7 @@ const deserializeAws_json1_1DeleteAppCommandError = async (
       };
       break;
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -5130,7 +5130,7 @@ const deserializeAws_json1_1DeleteDomainCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUse":
-    case "com.amazonaws.sagemaker.api#ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseResponse(
           parsedOutput,
@@ -5141,7 +5141,7 @@ const deserializeAws_json1_1DeleteDomainCommandError = async (
       };
       break;
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -5294,7 +5294,7 @@ const deserializeAws_json1_1DeleteExperimentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -5357,7 +5357,7 @@ const deserializeAws_json1_1DeleteFlowDefinitionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -5509,7 +5509,7 @@ const deserializeAws_json1_1DeleteMonitoringScheduleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -5714,7 +5714,7 @@ const deserializeAws_json1_1DeleteTrialCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -5777,7 +5777,7 @@ const deserializeAws_json1_1DeleteTrialComponentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -5833,7 +5833,7 @@ const deserializeAws_json1_1DeleteUserProfileCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUse":
-    case "com.amazonaws.sagemaker.api#ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseResponse(
           parsedOutput,
@@ -5844,7 +5844,7 @@ const deserializeAws_json1_1DeleteUserProfileCommandError = async (
       };
       break;
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -5904,7 +5904,7 @@ const deserializeAws_json1_1DeleteWorkteamCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -6013,7 +6013,7 @@ const deserializeAws_json1_1DescribeAppCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -6073,7 +6073,7 @@ const deserializeAws_json1_1DescribeAutoMLJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -6191,7 +6191,7 @@ const deserializeAws_json1_1DescribeCompilationJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -6251,7 +6251,7 @@ const deserializeAws_json1_1DescribeDomainCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -6415,7 +6415,7 @@ const deserializeAws_json1_1DescribeExperimentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -6481,7 +6481,7 @@ const deserializeAws_json1_1DescribeFlowDefinitionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -6544,7 +6544,7 @@ const deserializeAws_json1_1DescribeHumanTaskUiCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -6610,7 +6610,7 @@ const deserializeAws_json1_1DescribeHyperParameterTuningJobCommandError = async 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -6673,7 +6673,7 @@ const deserializeAws_json1_1DescribeLabelingJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -6840,7 +6840,7 @@ const deserializeAws_json1_1DescribeMonitoringScheduleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -7013,7 +7013,7 @@ const deserializeAws_json1_1DescribeProcessingJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -7131,7 +7131,7 @@ const deserializeAws_json1_1DescribeTrainingJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -7194,7 +7194,7 @@ const deserializeAws_json1_1DescribeTransformJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -7254,7 +7254,7 @@ const deserializeAws_json1_1DescribeTrialCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -7320,7 +7320,7 @@ const deserializeAws_json1_1DescribeTrialComponentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -7383,7 +7383,7 @@ const deserializeAws_json1_1DescribeUserProfileCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -7547,7 +7547,7 @@ const deserializeAws_json1_1DisassociateTrialComponentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -7812,7 +7812,7 @@ const deserializeAws_json1_1ListCandidatesForAutoMLJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -8386,7 +8386,7 @@ const deserializeAws_json1_1ListLabelingJobsForWorkteamCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -8972,7 +8972,7 @@ const deserializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobCommandErr
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -9084,7 +9084,7 @@ const deserializeAws_json1_1ListTrialComponentsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -9144,7 +9144,7 @@ const deserializeAws_json1_1ListTrialsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -9399,7 +9399,7 @@ const deserializeAws_json1_1StartMonitoringScheduleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -9458,7 +9458,7 @@ const deserializeAws_json1_1StartNotebookInstanceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -9514,7 +9514,7 @@ const deserializeAws_json1_1StopAutoMLJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -9573,7 +9573,7 @@ const deserializeAws_json1_1StopCompilationJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -9632,7 +9632,7 @@ const deserializeAws_json1_1StopHyperParameterTuningJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -9688,7 +9688,7 @@ const deserializeAws_json1_1StopLabelingJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -9747,7 +9747,7 @@ const deserializeAws_json1_1StopMonitoringScheduleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -9851,7 +9851,7 @@ const deserializeAws_json1_1StopProcessingJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -9907,7 +9907,7 @@ const deserializeAws_json1_1StopTrainingJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -9963,7 +9963,7 @@ const deserializeAws_json1_1StopTransformJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -10075,7 +10075,7 @@ const deserializeAws_json1_1UpdateDomainCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUse":
-    case "com.amazonaws.sagemaker.api#ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseResponse(
           parsedOutput,
@@ -10086,7 +10086,7 @@ const deserializeAws_json1_1UpdateDomainCommandError = async (
       };
       break;
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -10097,7 +10097,7 @@ const deserializeAws_json1_1UpdateDomainCommandError = async (
       };
       break;
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -10157,7 +10157,7 @@ const deserializeAws_json1_1UpdateEndpointCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -10223,7 +10223,7 @@ const deserializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommandError = asy
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -10283,7 +10283,7 @@ const deserializeAws_json1_1UpdateExperimentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConflictException":
-    case "com.amazonaws.sagemaker.api#ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -10294,7 +10294,7 @@ const deserializeAws_json1_1UpdateExperimentCommandError = async (
       };
       break;
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -10360,7 +10360,7 @@ const deserializeAws_json1_1UpdateMonitoringScheduleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -10371,7 +10371,7 @@ const deserializeAws_json1_1UpdateMonitoringScheduleCommandError = async (
       };
       break;
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -10434,7 +10434,7 @@ const deserializeAws_json1_1UpdateNotebookInstanceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -10500,7 +10500,7 @@ const deserializeAws_json1_1UpdateNotebookInstanceLifecycleConfigCommandError = 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -10560,7 +10560,7 @@ const deserializeAws_json1_1UpdateTrialCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConflictException":
-    case "com.amazonaws.sagemaker.api#ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -10571,7 +10571,7 @@ const deserializeAws_json1_1UpdateTrialCommandError = async (
       };
       break;
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -10634,7 +10634,7 @@ const deserializeAws_json1_1UpdateTrialComponentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConflictException":
-    case "com.amazonaws.sagemaker.api#ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -10645,7 +10645,7 @@ const deserializeAws_json1_1UpdateTrialComponentCommandError = async (
       };
       break;
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -10705,7 +10705,7 @@ const deserializeAws_json1_1UpdateUserProfileCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUse":
-    case "com.amazonaws.sagemaker.api#ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseResponse(
           parsedOutput,
@@ -10716,7 +10716,7 @@ const deserializeAws_json1_1UpdateUserProfileCommandError = async (
       };
       break;
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -10727,7 +10727,7 @@ const deserializeAws_json1_1UpdateUserProfileCommandError = async (
       };
       break;
     case "ResourceNotFound":
-    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(
           parsedOutput,
@@ -10836,7 +10836,7 @@ const deserializeAws_json1_1UpdateWorkteamCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker.api#ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(
           parsedOutput,
@@ -10932,6 +10932,13 @@ const deserializeAws_json1_1ResourceNotFoundResponse = async (
   return contents;
 };
 
+const serializeAws_json1_1AdditionalCodeRepositoryNamesOrUrls = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
+};
+
 const serializeAws_json1_1AddTagsInput = (
   input: AddTagsInput,
   context: __SerdeContext
@@ -10942,13 +10949,6 @@ const serializeAws_json1_1AddTagsInput = (
       Tags: serializeAws_json1_1TagList(input.Tags, context)
     })
   };
-};
-
-const serializeAws_json1_1AdditionalCodeRepositoryNamesOrUrls = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1AlgorithmSpecification = (
@@ -11250,6 +11250,15 @@ const serializeAws_json1_1CategoricalParameterRange = (
   };
 };
 
+const serializeAws_json1_1CategoricalParameterRanges = (
+  input: CategoricalParameterRange[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry =>
+    serializeAws_json1_1CategoricalParameterRange(entry, context)
+  );
+};
+
 const serializeAws_json1_1CategoricalParameterRangeSpecification = (
   input: CategoricalParameterRangeSpecification,
   context: __SerdeContext
@@ -11259,15 +11268,6 @@ const serializeAws_json1_1CategoricalParameterRangeSpecification = (
       Values: serializeAws_json1_1ParameterValues(input.Values, context)
     })
   };
-};
-
-const serializeAws_json1_1CategoricalParameterRanges = (
-  input: CategoricalParameterRange[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_1CategoricalParameterRange(entry, context)
-  );
 };
 
 const serializeAws_json1_1Channel = (
@@ -11482,6 +11482,15 @@ const serializeAws_json1_1ContinuousParameterRange = (
   };
 };
 
+const serializeAws_json1_1ContinuousParameterRanges = (
+  input: ContinuousParameterRange[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry =>
+    serializeAws_json1_1ContinuousParameterRange(entry, context)
+  );
+};
+
 const serializeAws_json1_1ContinuousParameterRangeSpecification = (
   input: ContinuousParameterRangeSpecification,
   context: __SerdeContext
@@ -11490,15 +11499,6 @@ const serializeAws_json1_1ContinuousParameterRangeSpecification = (
     ...(input.MaxValue !== undefined && { MaxValue: input.MaxValue }),
     ...(input.MinValue !== undefined && { MinValue: input.MinValue })
   };
-};
-
-const serializeAws_json1_1ContinuousParameterRanges = (
-  input: ContinuousParameterRange[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_1ContinuousParameterRange(entry, context)
-  );
 };
 
 const serializeAws_json1_1CreateAlgorithmInput = (
@@ -13360,6 +13360,19 @@ const serializeAws_json1_1HyperParameterAlgorithmSpecification = (
   };
 };
 
+const serializeAws_json1_1HyperParameters = (
+  input: { [key: string]: string },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
+};
+
 const serializeAws_json1_1HyperParameterSpecification = (
   input: HyperParameterSpecification,
   context: __SerdeContext
@@ -13548,19 +13561,6 @@ const serializeAws_json1_1HyperParameterTuningJobWarmStartConfig = (
   };
 };
 
-const serializeAws_json1_1HyperParameters = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
-      ...acc,
-      [key]: value
-    }),
-    {}
-  );
-};
-
 const serializeAws_json1_1InferenceSpecification = (
   input: InferenceSpecification,
   context: __SerdeContext
@@ -13638,6 +13638,15 @@ const serializeAws_json1_1IntegerParameterRange = (
   };
 };
 
+const serializeAws_json1_1IntegerParameterRanges = (
+  input: IntegerParameterRange[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry =>
+    serializeAws_json1_1IntegerParameterRange(entry, context)
+  );
+};
+
 const serializeAws_json1_1IntegerParameterRangeSpecification = (
   input: IntegerParameterRangeSpecification,
   context: __SerdeContext
@@ -13646,15 +13655,6 @@ const serializeAws_json1_1IntegerParameterRangeSpecification = (
     ...(input.MaxValue !== undefined && { MaxValue: input.MaxValue }),
     ...(input.MinValue !== undefined && { MinValue: input.MinValue })
   };
-};
-
-const serializeAws_json1_1IntegerParameterRanges = (
-  input: IntegerParameterRange[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_1IntegerParameterRange(entry, context)
-  );
 };
 
 const serializeAws_json1_1JsonContentTypes = (
@@ -15369,6 +15369,15 @@ const serializeAws_json1_1RealtimeInferenceInstanceTypes = (
   return input.map(entry => entry);
 };
 
+const serializeAws_json1_1RenderableTask = (
+  input: RenderableTask,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Input !== undefined && { Input: input.Input })
+  };
+};
+
 const serializeAws_json1_1RenderUiTemplateRequest = (
   input: RenderUiTemplateRequest,
   context: __SerdeContext
@@ -15381,15 +15390,6 @@ const serializeAws_json1_1RenderUiTemplateRequest = (
     ...(input.UiTemplate !== undefined && {
       UiTemplate: serializeAws_json1_1UiTemplate(input.UiTemplate, context)
     })
-  };
-};
-
-const serializeAws_json1_1RenderableTask = (
-  input: RenderableTask,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Input !== undefined && { Input: input.Input })
   };
 };
 
@@ -15721,6 +15721,20 @@ const serializeAws_json1_1StopNotebookInstanceInput = (
   };
 };
 
+const serializeAws_json1_1StoppingCondition = (
+  input: StoppingCondition,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxRuntimeInSeconds !== undefined && {
+      MaxRuntimeInSeconds: input.MaxRuntimeInSeconds
+    }),
+    ...(input.MaxWaitTimeInSeconds !== undefined && {
+      MaxWaitTimeInSeconds: input.MaxWaitTimeInSeconds
+    })
+  };
+};
+
 const serializeAws_json1_1StopProcessingJobRequest = (
   input: StopProcessingJobRequest,
   context: __SerdeContext
@@ -15750,20 +15764,6 @@ const serializeAws_json1_1StopTransformJobRequest = (
   return {
     ...(input.TransformJobName !== undefined && {
       TransformJobName: input.TransformJobName
-    })
-  };
-};
-
-const serializeAws_json1_1StoppingCondition = (
-  input: StoppingCondition,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxRuntimeInSeconds !== undefined && {
-      MaxRuntimeInSeconds: input.MaxRuntimeInSeconds
-    }),
-    ...(input.MaxWaitTimeInSeconds !== undefined && {
-      MaxWaitTimeInSeconds: input.MaxWaitTimeInSeconds
     })
   };
 };
@@ -16101,16 +16101,6 @@ const serializeAws_json1_1TrialComponentArtifacts = (
   );
 };
 
-const serializeAws_json1_1TrialComponentParameterValue = (
-  input: TrialComponentParameterValue,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.NumberValue !== undefined && { NumberValue: input.NumberValue }),
-    ...(input.StringValue !== undefined && { StringValue: input.StringValue })
-  };
-};
-
 const serializeAws_json1_1TrialComponentParameters = (
   input: { [key: string]: TrialComponentParameterValue },
   context: __SerdeContext
@@ -16125,6 +16115,16 @@ const serializeAws_json1_1TrialComponentParameters = (
     }),
     {}
   );
+};
+
+const serializeAws_json1_1TrialComponentParameterValue = (
+  input: TrialComponentParameterValue,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.NumberValue !== undefined && { NumberValue: input.NumberValue }),
+    ...(input.StringValue !== undefined && { StringValue: input.StringValue })
+  };
 };
 
 const serializeAws_json1_1TrialComponentStatus = (
@@ -16146,16 +16146,6 @@ const serializeAws_json1_1TuningJobCompletionCriteria = (
   return {
     ...(input.TargetObjectiveMetricValue !== undefined && {
       TargetObjectiveMetricValue: input.TargetObjectiveMetricValue
-    })
-  };
-};
-
-const serializeAws_json1_1USD = (input: USD, context: __SerdeContext): any => {
-  return {
-    ...(input.Cents !== undefined && { Cents: input.Cents }),
-    ...(input.Dollars !== undefined && { Dollars: input.Dollars }),
-    ...(input.TenthFractionsOfACent !== undefined && {
-      TenthFractionsOfACent: input.TenthFractionsOfACent
     })
   };
 };
@@ -16473,6 +16463,16 @@ const serializeAws_json1_1UpdateWorkteamRequest = (
   };
 };
 
+const serializeAws_json1_1USD = (input: USD, context: __SerdeContext): any => {
+  return {
+    ...(input.Cents !== undefined && { Cents: input.Cents }),
+    ...(input.Dollars !== undefined && { Dollars: input.Dollars }),
+    ...(input.TenthFractionsOfACent !== undefined && {
+      TenthFractionsOfACent: input.TenthFractionsOfACent
+    })
+  };
+};
+
 const serializeAws_json1_1UserSettings = (
   input: UserSettings,
   context: __SerdeContext
@@ -16538,6 +16538,13 @@ const serializeAws_json1_1VpcSecurityGroupIds = (
   return input.map(entry => entry);
 };
 
+const deserializeAws_json1_1AdditionalCodeRepositoryNamesOrUrls = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_1AddTagsOutput = (
   output: any,
   context: __SerdeContext
@@ -16549,13 +16556,6 @@ const deserializeAws_json1_1AddTagsOutput = (
         ? deserializeAws_json1_1TagList(output.Tags, context)
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1AdditionalCodeRepositoryNamesOrUrls = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1AlgorithmSpecification = (
@@ -16913,6 +16913,15 @@ const deserializeAws_json1_1AutoMLCandidate = (
   } as any;
 };
 
+const deserializeAws_json1_1AutoMLCandidates = (
+  output: any,
+  context: __SerdeContext
+): AutoMLCandidate[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1AutoMLCandidate(entry, context)
+  );
+};
+
 const deserializeAws_json1_1AutoMLCandidateStep = (
   output: any,
   context: __SerdeContext
@@ -16934,15 +16943,6 @@ const deserializeAws_json1_1AutoMLCandidateStep = (
         ? output.CandidateStepType
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1AutoMLCandidates = (
-  output: any,
-  context: __SerdeContext
-): AutoMLCandidate[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1AutoMLCandidate(entry, context)
-  );
 };
 
 const deserializeAws_json1_1AutoMLChannel = (
@@ -17273,6 +17273,15 @@ const deserializeAws_json1_1CategoricalParameterRange = (
   } as any;
 };
 
+const deserializeAws_json1_1CategoricalParameterRanges = (
+  output: any,
+  context: __SerdeContext
+): CategoricalParameterRange[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1CategoricalParameterRange(entry, context)
+  );
+};
+
 const deserializeAws_json1_1CategoricalParameterRangeSpecification = (
   output: any,
   context: __SerdeContext
@@ -17284,15 +17293,6 @@ const deserializeAws_json1_1CategoricalParameterRangeSpecification = (
         ? deserializeAws_json1_1ParameterValues(output.Values, context)
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1CategoricalParameterRanges = (
-  output: any,
-  context: __SerdeContext
-): CategoricalParameterRange[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1CategoricalParameterRange(entry, context)
-  );
 };
 
 const deserializeAws_json1_1Channel = (
@@ -17684,6 +17684,15 @@ const deserializeAws_json1_1ContinuousParameterRange = (
   } as any;
 };
 
+const deserializeAws_json1_1ContinuousParameterRanges = (
+  output: any,
+  context: __SerdeContext
+): ContinuousParameterRange[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ContinuousParameterRange(entry, context)
+  );
+};
+
 const deserializeAws_json1_1ContinuousParameterRangeSpecification = (
   output: any,
   context: __SerdeContext
@@ -17699,15 +17708,6 @@ const deserializeAws_json1_1ContinuousParameterRangeSpecification = (
         ? output.MinValue
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1ContinuousParameterRanges = (
-  output: any,
-  context: __SerdeContext
-): ContinuousParameterRange[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ContinuousParameterRange(entry, context)
-  );
 };
 
 const deserializeAws_json1_1CreateAlgorithmOutput = (
@@ -20924,6 +20924,19 @@ const deserializeAws_json1_1HyperParameterAlgorithmSpecification = (
   } as any;
 };
 
+const deserializeAws_json1_1HyperParameters = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
+};
+
 const deserializeAws_json1_1HyperParameterSpecification = (
   output: any,
   context: __SerdeContext
@@ -21312,19 +21325,6 @@ const deserializeAws_json1_1HyperParameterTuningJobWarmStartConfig = (
   } as any;
 };
 
-const deserializeAws_json1_1HyperParameters = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
-      ...acc,
-      [key]: value
-    }),
-    {}
-  );
-};
-
 const deserializeAws_json1_1InferenceSpecification = (
   output: any,
   context: __SerdeContext
@@ -21435,6 +21435,15 @@ const deserializeAws_json1_1IntegerParameterRange = (
   } as any;
 };
 
+const deserializeAws_json1_1IntegerParameterRanges = (
+  output: any,
+  context: __SerdeContext
+): IntegerParameterRange[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1IntegerParameterRange(entry, context)
+  );
+};
+
 const deserializeAws_json1_1IntegerParameterRangeSpecification = (
   output: any,
   context: __SerdeContext
@@ -21450,15 +21459,6 @@ const deserializeAws_json1_1IntegerParameterRangeSpecification = (
         ? output.MinValue
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1IntegerParameterRanges = (
-  output: any,
-  context: __SerdeContext
-): IntegerParameterRange[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1IntegerParameterRange(entry, context)
-  );
 };
 
 const deserializeAws_json1_1JsonContentTypes = (
@@ -23779,13 +23779,6 @@ const deserializeAws_json1_1ProcessingStoppingCondition = (
   } as any;
 };
 
-const deserializeAws_json1_1ProductListings = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
 const deserializeAws_json1_1ProductionVariant = (
   output: any,
   context: __SerdeContext
@@ -23874,6 +23867,13 @@ const deserializeAws_json1_1ProductionVariantSummaryList = (
   );
 };
 
+const deserializeAws_json1_1ProductListings = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_1PropertyNameSuggestion = (
   output: any,
   context: __SerdeContext
@@ -23916,23 +23916,6 @@ const deserializeAws_json1_1RealtimeInferenceInstanceTypes = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1RenderUiTemplateResponse = (
-  output: any,
-  context: __SerdeContext
-): RenderUiTemplateResponse => {
-  return {
-    __type: "RenderUiTemplateResponse",
-    Errors:
-      output.Errors !== undefined && output.Errors !== null
-        ? deserializeAws_json1_1RenderingErrorList(output.Errors, context)
-        : undefined,
-    RenderedContent:
-      output.RenderedContent !== undefined && output.RenderedContent !== null
-        ? output.RenderedContent
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1RenderingError = (
   output: any,
   context: __SerdeContext
@@ -23957,6 +23940,23 @@ const deserializeAws_json1_1RenderingErrorList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RenderingError(entry, context)
   );
+};
+
+const deserializeAws_json1_1RenderUiTemplateResponse = (
+  output: any,
+  context: __SerdeContext
+): RenderUiTemplateResponse => {
+  return {
+    __type: "RenderUiTemplateResponse",
+    Errors:
+      output.Errors !== undefined && output.Errors !== null
+        ? deserializeAws_json1_1RenderingErrorList(output.Errors, context)
+        : undefined,
+    RenderedContent:
+      output.RenderedContent !== undefined && output.RenderedContent !== null
+        ? output.RenderedContent
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResolvedAttributes = (
@@ -25288,6 +25288,22 @@ const deserializeAws_json1_1TrialComponentMetricSummary = (
   } as any;
 };
 
+const deserializeAws_json1_1TrialComponentParameters = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: TrialComponentParameterValue } => {
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: TrialComponentParameterValue },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1TrialComponentParameterValue(value, context)
+    }),
+    {}
+  );
+};
+
 const deserializeAws_json1_1TrialComponentParameterValue = (
   output: any,
   context: __SerdeContext
@@ -25303,22 +25319,6 @@ const deserializeAws_json1_1TrialComponentParameterValue = (
         ? output.StringValue
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1TrialComponentParameters = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: TrialComponentParameterValue } => {
-  return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: TrialComponentParameterValue },
-      [key, value]: [string, any]
-    ) => ({
-      ...acc,
-      [key]: deserializeAws_json1_1TrialComponentParameterValue(value, context)
-    }),
-    {}
-  );
 };
 
 const deserializeAws_json1_1TrialComponentSimpleSummaries = (
@@ -25557,28 +25557,6 @@ const deserializeAws_json1_1TuningJobCompletionCriteria = (
   } as any;
 };
 
-const deserializeAws_json1_1USD = (
-  output: any,
-  context: __SerdeContext
-): USD => {
-  return {
-    __type: "USD",
-    Cents:
-      output.Cents !== undefined && output.Cents !== null
-        ? output.Cents
-        : undefined,
-    Dollars:
-      output.Dollars !== undefined && output.Dollars !== null
-        ? output.Dollars
-        : undefined,
-    TenthFractionsOfACent:
-      output.TenthFractionsOfACent !== undefined &&
-      output.TenthFractionsOfACent !== null
-        ? output.TenthFractionsOfACent
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1UiConfig = (
   output: any,
   context: __SerdeContext
@@ -25767,6 +25745,28 @@ const deserializeAws_json1_1UpdateWorkteamResponse = (
     Workteam:
       output.Workteam !== undefined && output.Workteam !== null
         ? deserializeAws_json1_1Workteam(output.Workteam, context)
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1USD = (
+  output: any,
+  context: __SerdeContext
+): USD => {
+  return {
+    __type: "USD",
+    Cents:
+      output.Cents !== undefined && output.Cents !== null
+        ? output.Cents
+        : undefined,
+    Dollars:
+      output.Dollars !== undefined && output.Dollars !== null
+        ? output.Dollars
+        : undefined,
+    TenthFractionsOfACent:
+      output.TenthFractionsOfACent !== undefined &&
+      output.TenthFractionsOfACent !== null
+        ? output.TenthFractionsOfACent
         : undefined
   } as any;
 };

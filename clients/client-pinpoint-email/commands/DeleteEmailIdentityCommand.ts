@@ -8,9 +8,9 @@ import {
   DeleteEmailIdentityResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteEmailIdentityCommand,
-  serializeAws_restJson1_1DeleteEmailIdentityCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteEmailIdentityCommand,
+  serializeAws_restJson1DeleteEmailIdentityCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteEmailIdentityCommand extends $Command<
     input: DeleteEmailIdentityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteEmailIdentityCommand(input, context);
+    return serializeAws_restJson1DeleteEmailIdentityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEmailIdentityCommandOutput> {
-    return deserializeAws_restJson1_1DeleteEmailIdentityCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteEmailIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

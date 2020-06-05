@@ -8,9 +8,9 @@ import {
   GetLinkAssociationsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetLinkAssociationsCommand,
-  serializeAws_restJson1_1GetLinkAssociationsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetLinkAssociationsCommand,
+  serializeAws_restJson1GetLinkAssociationsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetLinkAssociationsCommand extends $Command<
     input: GetLinkAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetLinkAssociationsCommand(input, context);
+    return serializeAws_restJson1GetLinkAssociationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLinkAssociationsCommandOutput> {
-    return deserializeAws_restJson1_1GetLinkAssociationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetLinkAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

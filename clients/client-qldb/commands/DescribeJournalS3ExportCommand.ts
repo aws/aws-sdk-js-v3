@@ -8,9 +8,9 @@ import {
   DescribeJournalS3ExportResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeJournalS3ExportCommand,
-  serializeAws_restJson1_1DescribeJournalS3ExportCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeJournalS3ExportCommand,
+  serializeAws_restJson1DescribeJournalS3ExportCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DescribeJournalS3ExportCommand extends $Command<
     input: DescribeJournalS3ExportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeJournalS3ExportCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DescribeJournalS3ExportCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeJournalS3ExportCommandOutput> {
-    return deserializeAws_restJson1_1DescribeJournalS3ExportCommand(
+    return deserializeAws_restJson1DescribeJournalS3ExportCommand(
       output,
       context
     );

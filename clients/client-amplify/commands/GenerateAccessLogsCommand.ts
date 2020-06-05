@@ -8,9 +8,9 @@ import {
   GenerateAccessLogsResult
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GenerateAccessLogsCommand,
-  serializeAws_restJson1_1GenerateAccessLogsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GenerateAccessLogsCommand,
+  serializeAws_restJson1GenerateAccessLogsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GenerateAccessLogsCommand extends $Command<
     input: GenerateAccessLogsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GenerateAccessLogsCommand(input, context);
+    return serializeAws_restJson1GenerateAccessLogsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GenerateAccessLogsCommandOutput> {
-    return deserializeAws_restJson1_1GenerateAccessLogsCommand(output, context);
+    return deserializeAws_restJson1GenerateAccessLogsCommand(output, context);
   }
 
   // Start section: command_body_extra

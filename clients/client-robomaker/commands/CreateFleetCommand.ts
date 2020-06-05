@@ -5,9 +5,9 @@ import {
 } from "../RoboMakerClient";
 import { CreateFleetRequest, CreateFleetResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateFleetCommand,
-  serializeAws_restJson1_1CreateFleetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateFleetCommand,
+  serializeAws_restJson1CreateFleetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateFleetCommand extends $Command<
     input: CreateFleetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateFleetCommand(input, context);
+    return serializeAws_restJson1CreateFleetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateFleetCommandOutput> {
-    return deserializeAws_restJson1_1CreateFleetCommand(output, context);
+    return deserializeAws_restJson1CreateFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -843,42 +843,6 @@ export namespace ApplicationSummary {
 }
 
 /**
- * <p>For an SQL-based application, provides additional mapping information when the record
- *       format uses delimiters, such as CSV. For example, the following sample records use CSV format,
- *       where the records use the <i>'\n'</i> as the row delimiter and a comma (",") as
- *       the column delimiter: </p>
- *
- *          <p>
- *             <code>"name1", "address1"</code>
- *          </p>
- *          <p>
- *             <code>"name2", "address2"</code>
- *          </p>
- */
-export interface CSVMappingParameters {
-  __type?: "CSVMappingParameters";
-  /**
-   * <p>The column delimiter. For example, in a CSV format, a comma (",") is the typical column
-   *       delimiter.</p>
-   */
-  RecordColumnDelimiter: string | undefined;
-
-  /**
-   * <p>The row delimiter. For example, in a CSV format, <i>'\n'</i> is the typical
-   *       row delimiter.</p>
-   */
-  RecordRowDelimiter: string | undefined;
-}
-
-export namespace CSVMappingParameters {
-  export const filterSensitiveLog = (obj: CSVMappingParameters): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CSVMappingParameters =>
-    __isa(o, "CSVMappingParameters");
-}
-
-/**
  * <p>Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance.
  *       For more information, see
  *       <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.6/concepts/programming-model.html#checkpoints-for-fault-tolerance">
@@ -1426,6 +1390,42 @@ export namespace CreateApplicationSnapshotResponse {
   });
   export const isa = (o: any): o is CreateApplicationSnapshotResponse =>
     __isa(o, "CreateApplicationSnapshotResponse");
+}
+
+/**
+ * <p>For an SQL-based application, provides additional mapping information when the record
+ *       format uses delimiters, such as CSV. For example, the following sample records use CSV format,
+ *       where the records use the <i>'\n'</i> as the row delimiter and a comma (",") as
+ *       the column delimiter: </p>
+ *
+ *          <p>
+ *             <code>"name1", "address1"</code>
+ *          </p>
+ *          <p>
+ *             <code>"name2", "address2"</code>
+ *          </p>
+ */
+export interface CSVMappingParameters {
+  __type?: "CSVMappingParameters";
+  /**
+   * <p>The column delimiter. For example, in a CSV format, a comma (",") is the typical column
+   *       delimiter.</p>
+   */
+  RecordColumnDelimiter: string | undefined;
+
+  /**
+   * <p>The row delimiter. For example, in a CSV format, <i>'\n'</i> is the typical
+   *       row delimiter.</p>
+   */
+  RecordRowDelimiter: string | undefined;
+}
+
+export namespace CSVMappingParameters {
+  export const filterSensitiveLog = (obj: CSVMappingParameters): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CSVMappingParameters =>
+    __isa(o, "CSVMappingParameters");
 }
 
 export interface DeleteApplicationCloudWatchLoggingOptionRequest {

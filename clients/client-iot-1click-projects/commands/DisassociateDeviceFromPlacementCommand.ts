@@ -8,9 +8,9 @@ import {
   DisassociateDeviceFromPlacementResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DisassociateDeviceFromPlacementCommand,
-  serializeAws_restJson1_1DisassociateDeviceFromPlacementCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DisassociateDeviceFromPlacementCommand,
+  serializeAws_restJson1DisassociateDeviceFromPlacementCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DisassociateDeviceFromPlacementCommand extends $Command<
     input: DisassociateDeviceFromPlacementCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociateDeviceFromPlacementCommand(
+    return serializeAws_restJson1DisassociateDeviceFromPlacementCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DisassociateDeviceFromPlacementCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateDeviceFromPlacementCommandOutput> {
-    return deserializeAws_restJson1_1DisassociateDeviceFromPlacementCommand(
+    return deserializeAws_restJson1DisassociateDeviceFromPlacementCommand(
       output,
       context
     );

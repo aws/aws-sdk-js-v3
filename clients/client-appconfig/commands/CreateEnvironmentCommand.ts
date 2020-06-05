@@ -5,9 +5,9 @@ import {
 } from "../AppConfigClient";
 import { CreateEnvironmentRequest, Environment } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateEnvironmentCommand,
-  serializeAws_restJson1_1CreateEnvironmentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateEnvironmentCommand,
+  serializeAws_restJson1CreateEnvironmentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateEnvironmentCommand extends $Command<
     input: CreateEnvironmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateEnvironmentCommand(input, context);
+    return serializeAws_restJson1CreateEnvironmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateEnvironmentCommandOutput> {
-    return deserializeAws_restJson1_1CreateEnvironmentCommand(output, context);
+    return deserializeAws_restJson1CreateEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

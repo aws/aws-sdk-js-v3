@@ -660,7 +660,7 @@ const deserializeAws_queryBuildSuggestersCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -671,7 +671,7 @@ const deserializeAws_queryBuildSuggestersCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -682,7 +682,7 @@ const deserializeAws_queryBuildSuggestersCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -744,7 +744,7 @@ const deserializeAws_queryCreateDomainCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -755,7 +755,7 @@ const deserializeAws_queryCreateDomainCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -766,7 +766,7 @@ const deserializeAws_queryCreateDomainCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.a9.cloudsearch.config2013#LimitExceededException":
+    case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
@@ -831,7 +831,7 @@ const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -842,7 +842,7 @@ const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -853,7 +853,7 @@ const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
       };
       break;
     case "InvalidTypeException":
-    case "com.a9.cloudsearch.config2013#InvalidTypeException":
+    case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(
           parsedOutput,
@@ -864,7 +864,7 @@ const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.a9.cloudsearch.config2013#LimitExceededException":
+    case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
@@ -875,7 +875,7 @@ const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -937,7 +937,7 @@ const deserializeAws_queryDefineExpressionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -948,7 +948,7 @@ const deserializeAws_queryDefineExpressionCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -959,7 +959,7 @@ const deserializeAws_queryDefineExpressionCommandError = async (
       };
       break;
     case "InvalidTypeException":
-    case "com.a9.cloudsearch.config2013#InvalidTypeException":
+    case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(
           parsedOutput,
@@ -970,7 +970,7 @@ const deserializeAws_queryDefineExpressionCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.a9.cloudsearch.config2013#LimitExceededException":
+    case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
@@ -981,7 +981,7 @@ const deserializeAws_queryDefineExpressionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1043,7 +1043,7 @@ const deserializeAws_queryDefineIndexFieldCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -1054,7 +1054,7 @@ const deserializeAws_queryDefineIndexFieldCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -1065,7 +1065,7 @@ const deserializeAws_queryDefineIndexFieldCommandError = async (
       };
       break;
     case "InvalidTypeException":
-    case "com.a9.cloudsearch.config2013#InvalidTypeException":
+    case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(
           parsedOutput,
@@ -1076,7 +1076,7 @@ const deserializeAws_queryDefineIndexFieldCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.a9.cloudsearch.config2013#LimitExceededException":
+    case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
@@ -1087,7 +1087,7 @@ const deserializeAws_queryDefineIndexFieldCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1149,7 +1149,7 @@ const deserializeAws_queryDefineSuggesterCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -1160,7 +1160,7 @@ const deserializeAws_queryDefineSuggesterCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -1171,7 +1171,7 @@ const deserializeAws_queryDefineSuggesterCommandError = async (
       };
       break;
     case "InvalidTypeException":
-    case "com.a9.cloudsearch.config2013#InvalidTypeException":
+    case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(
           parsedOutput,
@@ -1182,7 +1182,7 @@ const deserializeAws_queryDefineSuggesterCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.a9.cloudsearch.config2013#LimitExceededException":
+    case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
@@ -1193,7 +1193,7 @@ const deserializeAws_queryDefineSuggesterCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1258,7 +1258,7 @@ const deserializeAws_queryDeleteAnalysisSchemeCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -1269,7 +1269,7 @@ const deserializeAws_queryDeleteAnalysisSchemeCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -1280,7 +1280,7 @@ const deserializeAws_queryDeleteAnalysisSchemeCommandError = async (
       };
       break;
     case "InvalidTypeException":
-    case "com.a9.cloudsearch.config2013#InvalidTypeException":
+    case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(
           parsedOutput,
@@ -1291,7 +1291,7 @@ const deserializeAws_queryDeleteAnalysisSchemeCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1353,7 +1353,7 @@ const deserializeAws_queryDeleteDomainCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -1364,7 +1364,7 @@ const deserializeAws_queryDeleteDomainCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -1426,7 +1426,7 @@ const deserializeAws_queryDeleteExpressionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -1437,7 +1437,7 @@ const deserializeAws_queryDeleteExpressionCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -1448,7 +1448,7 @@ const deserializeAws_queryDeleteExpressionCommandError = async (
       };
       break;
     case "InvalidTypeException":
-    case "com.a9.cloudsearch.config2013#InvalidTypeException":
+    case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(
           parsedOutput,
@@ -1459,7 +1459,7 @@ const deserializeAws_queryDeleteExpressionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1521,7 +1521,7 @@ const deserializeAws_queryDeleteIndexFieldCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -1532,7 +1532,7 @@ const deserializeAws_queryDeleteIndexFieldCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -1543,7 +1543,7 @@ const deserializeAws_queryDeleteIndexFieldCommandError = async (
       };
       break;
     case "InvalidTypeException":
-    case "com.a9.cloudsearch.config2013#InvalidTypeException":
+    case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(
           parsedOutput,
@@ -1554,7 +1554,7 @@ const deserializeAws_queryDeleteIndexFieldCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1616,7 +1616,7 @@ const deserializeAws_queryDeleteSuggesterCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -1627,7 +1627,7 @@ const deserializeAws_queryDeleteSuggesterCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -1638,7 +1638,7 @@ const deserializeAws_queryDeleteSuggesterCommandError = async (
       };
       break;
     case "InvalidTypeException":
-    case "com.a9.cloudsearch.config2013#InvalidTypeException":
+    case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(
           parsedOutput,
@@ -1649,7 +1649,7 @@ const deserializeAws_queryDeleteSuggesterCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1714,7 +1714,7 @@ const deserializeAws_queryDescribeAnalysisSchemesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -1725,7 +1725,7 @@ const deserializeAws_queryDescribeAnalysisSchemesCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -1736,7 +1736,7 @@ const deserializeAws_queryDescribeAnalysisSchemesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1801,7 +1801,7 @@ const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -1812,7 +1812,7 @@ const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
       };
       break;
     case "DisabledOperationException":
-    case "com.a9.cloudsearch.config2013#DisabledOperationException":
+    case "com.amazonaws.cloudsearch#DisabledOperationException":
       response = {
         ...(await deserializeAws_queryDisabledOperationExceptionResponse(
           parsedOutput,
@@ -1823,7 +1823,7 @@ const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -1834,7 +1834,7 @@ const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
       };
       break;
     case "InvalidTypeException":
-    case "com.a9.cloudsearch.config2013#InvalidTypeException":
+    case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(
           parsedOutput,
@@ -1845,7 +1845,7 @@ const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.a9.cloudsearch.config2013#LimitExceededException":
+    case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
@@ -1856,7 +1856,7 @@ const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1921,7 +1921,7 @@ const deserializeAws_queryDescribeDomainEndpointOptionsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -1932,7 +1932,7 @@ const deserializeAws_queryDescribeDomainEndpointOptionsCommandError = async (
       };
       break;
     case "DisabledOperationException":
-    case "com.a9.cloudsearch.config2013#DisabledOperationException":
+    case "com.amazonaws.cloudsearch#DisabledOperationException":
       response = {
         ...(await deserializeAws_queryDisabledOperationExceptionResponse(
           parsedOutput,
@@ -1943,7 +1943,7 @@ const deserializeAws_queryDescribeDomainEndpointOptionsCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -1954,7 +1954,7 @@ const deserializeAws_queryDescribeDomainEndpointOptionsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.a9.cloudsearch.config2013#LimitExceededException":
+    case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
@@ -1965,7 +1965,7 @@ const deserializeAws_queryDescribeDomainEndpointOptionsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2027,7 +2027,7 @@ const deserializeAws_queryDescribeDomainsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -2038,7 +2038,7 @@ const deserializeAws_queryDescribeDomainsCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -2100,7 +2100,7 @@ const deserializeAws_queryDescribeExpressionsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -2111,7 +2111,7 @@ const deserializeAws_queryDescribeExpressionsCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -2122,7 +2122,7 @@ const deserializeAws_queryDescribeExpressionsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2184,7 +2184,7 @@ const deserializeAws_queryDescribeIndexFieldsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -2195,7 +2195,7 @@ const deserializeAws_queryDescribeIndexFieldsCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -2206,7 +2206,7 @@ const deserializeAws_queryDescribeIndexFieldsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2271,7 +2271,7 @@ const deserializeAws_queryDescribeScalingParametersCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -2282,7 +2282,7 @@ const deserializeAws_queryDescribeScalingParametersCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -2293,7 +2293,7 @@ const deserializeAws_queryDescribeScalingParametersCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2358,7 +2358,7 @@ const deserializeAws_queryDescribeServiceAccessPoliciesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -2369,7 +2369,7 @@ const deserializeAws_queryDescribeServiceAccessPoliciesCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -2380,7 +2380,7 @@ const deserializeAws_queryDescribeServiceAccessPoliciesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2442,7 +2442,7 @@ const deserializeAws_queryDescribeSuggestersCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -2453,7 +2453,7 @@ const deserializeAws_queryDescribeSuggestersCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -2464,7 +2464,7 @@ const deserializeAws_queryDescribeSuggestersCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2526,7 +2526,7 @@ const deserializeAws_queryIndexDocumentsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -2537,7 +2537,7 @@ const deserializeAws_queryIndexDocumentsCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -2548,7 +2548,7 @@ const deserializeAws_queryIndexDocumentsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2610,7 +2610,7 @@ const deserializeAws_queryListDomainNamesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -2675,7 +2675,7 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -2686,7 +2686,7 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
       };
       break;
     case "DisabledOperationException":
-    case "com.a9.cloudsearch.config2013#DisabledOperationException":
+    case "com.amazonaws.cloudsearch#DisabledOperationException":
       response = {
         ...(await deserializeAws_queryDisabledOperationExceptionResponse(
           parsedOutput,
@@ -2697,7 +2697,7 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -2708,7 +2708,7 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
       };
       break;
     case "InvalidTypeException":
-    case "com.a9.cloudsearch.config2013#InvalidTypeException":
+    case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(
           parsedOutput,
@@ -2719,7 +2719,7 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.a9.cloudsearch.config2013#LimitExceededException":
+    case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
@@ -2730,7 +2730,7 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2741,7 +2741,7 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.a9.cloudsearch.config2013#ValidationException":
+    case "com.amazonaws.cloudsearch#ValidationException":
       response = {
         ...(await deserializeAws_queryValidationExceptionResponse(
           parsedOutput,
@@ -2806,7 +2806,7 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -2817,7 +2817,7 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
       };
       break;
     case "DisabledOperationException":
-    case "com.a9.cloudsearch.config2013#DisabledOperationException":
+    case "com.amazonaws.cloudsearch#DisabledOperationException":
       response = {
         ...(await deserializeAws_queryDisabledOperationExceptionResponse(
           parsedOutput,
@@ -2828,7 +2828,7 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -2839,7 +2839,7 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
       };
       break;
     case "InvalidTypeException":
-    case "com.a9.cloudsearch.config2013#InvalidTypeException":
+    case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(
           parsedOutput,
@@ -2850,7 +2850,7 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.a9.cloudsearch.config2013#LimitExceededException":
+    case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
@@ -2861,7 +2861,7 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2872,7 +2872,7 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.a9.cloudsearch.config2013#ValidationException":
+    case "com.amazonaws.cloudsearch#ValidationException":
       response = {
         ...(await deserializeAws_queryValidationExceptionResponse(
           parsedOutput,
@@ -2937,7 +2937,7 @@ const deserializeAws_queryUpdateScalingParametersCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -2948,7 +2948,7 @@ const deserializeAws_queryUpdateScalingParametersCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -2959,7 +2959,7 @@ const deserializeAws_queryUpdateScalingParametersCommandError = async (
       };
       break;
     case "InvalidTypeException":
-    case "com.a9.cloudsearch.config2013#InvalidTypeException":
+    case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(
           parsedOutput,
@@ -2970,7 +2970,7 @@ const deserializeAws_queryUpdateScalingParametersCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.a9.cloudsearch.config2013#LimitExceededException":
+    case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
@@ -2981,7 +2981,7 @@ const deserializeAws_queryUpdateScalingParametersCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3046,7 +3046,7 @@ const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
-    case "com.a9.cloudsearch.config2013#BaseException":
+    case "com.amazonaws.cloudsearch#BaseException":
       response = {
         ...(await deserializeAws_queryBaseExceptionResponse(
           parsedOutput,
@@ -3057,7 +3057,7 @@ const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.a9.cloudsearch.config2013#InternalException":
+    case "com.amazonaws.cloudsearch#InternalException":
       response = {
         ...(await deserializeAws_queryInternalExceptionResponse(
           parsedOutput,
@@ -3068,7 +3068,7 @@ const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
       };
       break;
     case "InvalidTypeException":
-    case "com.a9.cloudsearch.config2013#InvalidTypeException":
+    case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(
           parsedOutput,
@@ -3079,7 +3079,7 @@ const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.a9.cloudsearch.config2013#LimitExceededException":
+    case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
@@ -3090,7 +3090,7 @@ const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.a9.cloudsearch.config2013#ResourceNotFoundException":
+    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -5292,6 +5292,24 @@ const deserializeAws_queryIntArrayOptions = (
   return contents;
 };
 
+const deserializeAws_queryInternalException = (
+  output: any,
+  context: __SerdeContext
+): InternalException => {
+  let contents: any = {
+    __type: "InternalException",
+    Code: undefined,
+    Message: undefined
+  };
+  if (output["Code"] !== undefined) {
+    contents.Code = output["Code"];
+  }
+  if (output["Message"] !== undefined) {
+    contents.Message = output["Message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryIntOptions = (
   output: any,
   context: __SerdeContext
@@ -5322,24 +5340,6 @@ const deserializeAws_queryIntOptions = (
   }
   if (output["SourceField"] !== undefined) {
     contents.SourceField = output["SourceField"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInternalException = (
-  output: any,
-  context: __SerdeContext
-): InternalException => {
-  let contents: any = {
-    __type: "InternalException",
-    Code: undefined,
-    Message: undefined
-  };
-  if (output["Code"] !== undefined) {
-    contents.Code = output["Code"];
-  }
-  if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
   }
   return contents;
 };

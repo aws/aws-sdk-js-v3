@@ -1072,45 +1072,6 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
-   * <p>Creates a snapshot of a specific virtual private server, or
-   *         <i>instance</i>. You can use a snapshot to create a new instance that is based
-   *       on that snapshot.</p>
-   *          <p>The <code>create instance snapshot</code> operation supports tag-based access control
-   *       via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
-   */
-  public createInstanceSnapshot(
-    args: CreateInstanceSnapshotCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateInstanceSnapshotCommandOutput>;
-  public createInstanceSnapshot(
-    args: CreateInstanceSnapshotCommandInput,
-    cb: (err: any, data?: CreateInstanceSnapshotCommandOutput) => void
-  ): void;
-  public createInstanceSnapshot(
-    args: CreateInstanceSnapshotCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateInstanceSnapshotCommandOutput) => void
-  ): void;
-  public createInstanceSnapshot(
-    args: CreateInstanceSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateInstanceSnapshotCommandOutput) => void),
-    cb?: (err: any, data?: CreateInstanceSnapshotCommandOutput) => void
-  ): Promise<CreateInstanceSnapshotCommandOutput> | void {
-    const command = new CreateInstanceSnapshotCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Creates one or more Amazon Lightsail instances.</p>
    *          <p>The <code>create instances</code> operation supports tag-based access control via
    *       request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
@@ -1175,6 +1136,45 @@ export class Lightsail extends LightsailClient {
     cb?: (err: any, data?: CreateInstancesFromSnapshotCommandOutput) => void
   ): Promise<CreateInstancesFromSnapshotCommandOutput> | void {
     const command = new CreateInstancesFromSnapshotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a snapshot of a specific virtual private server, or
+   *         <i>instance</i>. You can use a snapshot to create a new instance that is based
+   *       on that snapshot.</p>
+   *          <p>The <code>create instance snapshot</code> operation supports tag-based access control
+   *       via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   */
+  public createInstanceSnapshot(
+    args: CreateInstanceSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateInstanceSnapshotCommandOutput>;
+  public createInstanceSnapshot(
+    args: CreateInstanceSnapshotCommandInput,
+    cb: (err: any, data?: CreateInstanceSnapshotCommandOutput) => void
+  ): void;
+  public createInstanceSnapshot(
+    args: CreateInstanceSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateInstanceSnapshotCommandOutput) => void
+  ): void;
+  public createInstanceSnapshot(
+    args: CreateInstanceSnapshotCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateInstanceSnapshotCommandOutput) => void),
+    cb?: (err: any, data?: CreateInstanceSnapshotCommandOutput) => void
+  ): Promise<CreateInstanceSnapshotCommandOutput> | void {
+    const command = new CreateInstanceSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2464,6 +2464,45 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * <p>Returns information about all block storage disks in your AWS account and
+   *       region.</p>
+   *          <p>If you are describing a long list of disks, you can paginate the output to make the
+   *       list more manageable. You can use the pageToken and nextPageToken values to retrieve the next
+   *       items in the list.</p>
+   */
+  public getDisks(
+    args: GetDisksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDisksCommandOutput>;
+  public getDisks(
+    args: GetDisksCommandInput,
+    cb: (err: any, data?: GetDisksCommandOutput) => void
+  ): void;
+  public getDisks(
+    args: GetDisksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDisksCommandOutput) => void
+  ): void;
+  public getDisks(
+    args: GetDisksCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDisksCommandOutput) => void),
+    cb?: (err: any, data?: GetDisksCommandOutput) => void
+  ): Promise<GetDisksCommandOutput> | void {
+    const command = new GetDisksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about a specific block storage disk snapshot.</p>
    */
   public getDiskSnapshot(
@@ -2526,45 +2565,6 @@ export class Lightsail extends LightsailClient {
     cb?: (err: any, data?: GetDiskSnapshotsCommandOutput) => void
   ): Promise<GetDiskSnapshotsCommandOutput> | void {
     const command = new GetDiskSnapshotsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns information about all block storage disks in your AWS account and
-   *       region.</p>
-   *          <p>If you are describing a long list of disks, you can paginate the output to make the
-   *       list more manageable. You can use the pageToken and nextPageToken values to retrieve the next
-   *       items in the list.</p>
-   */
-  public getDisks(
-    args: GetDisksCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDisksCommandOutput>;
-  public getDisks(
-    args: GetDisksCommandInput,
-    cb: (err: any, data?: GetDisksCommandOutput) => void
-  ): void;
-  public getDisks(
-    args: GetDisksCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDisksCommandOutput) => void
-  ): void;
-  public getDisks(
-    args: GetDisksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDisksCommandOutput) => void),
-    cb?: (err: any, data?: GetDisksCommandOutput) => void
-  ): Promise<GetDisksCommandOutput> | void {
-    const command = new GetDisksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2832,6 +2832,42 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * <p>Returns information about all Amazon Lightsail virtual private servers, or
+   *         <i>instances</i>.</p>
+   */
+  public getInstances(
+    args: GetInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInstancesCommandOutput>;
+  public getInstances(
+    args: GetInstancesCommandInput,
+    cb: (err: any, data?: GetInstancesCommandOutput) => void
+  ): void;
+  public getInstances(
+    args: GetInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInstancesCommandOutput) => void
+  ): void;
+  public getInstances(
+    args: GetInstancesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetInstancesCommandOutput) => void),
+    cb?: (err: any, data?: GetInstancesCommandOutput) => void
+  ): Promise<GetInstancesCommandOutput> | void {
+    const command = new GetInstancesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about a specific instance snapshot.</p>
    */
   public getInstanceSnapshot(
@@ -2925,42 +2961,6 @@ export class Lightsail extends LightsailClient {
     cb?: (err: any, data?: GetInstanceStateCommandOutput) => void
   ): Promise<GetInstanceStateCommandOutput> | void {
     const command = new GetInstanceStateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns information about all Amazon Lightsail virtual private servers, or
-   *         <i>instances</i>.</p>
-   */
-  public getInstances(
-    args: GetInstancesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetInstancesCommandOutput>;
-  public getInstances(
-    args: GetInstancesCommandInput,
-    cb: (err: any, data?: GetInstancesCommandOutput) => void
-  ): void;
-  public getInstances(
-    args: GetInstancesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetInstancesCommandOutput) => void
-  ): void;
-  public getInstances(
-    args: GetInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInstancesCommandOutput) => void),
-    cb?: (err: any, data?: GetInstancesCommandOutput) => void
-  ): Promise<GetInstancesCommandOutput> | void {
-    const command = new GetInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3113,6 +3113,44 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * <p>Returns information about all load balancers in an account.</p>
+   *          <p>If you are describing a long list of load balancers, you can paginate the output to
+   *       make the list more manageable. You can use the pageToken and nextPageToken values to retrieve
+   *       the next items in the list.</p>
+   */
+  public getLoadBalancers(
+    args: GetLoadBalancersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLoadBalancersCommandOutput>;
+  public getLoadBalancers(
+    args: GetLoadBalancersCommandInput,
+    cb: (err: any, data?: GetLoadBalancersCommandOutput) => void
+  ): void;
+  public getLoadBalancers(
+    args: GetLoadBalancersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLoadBalancersCommandOutput) => void
+  ): void;
+  public getLoadBalancers(
+    args: GetLoadBalancersCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetLoadBalancersCommandOutput) => void),
+    cb?: (err: any, data?: GetLoadBalancersCommandOutput) => void
+  ): Promise<GetLoadBalancersCommandOutput> | void {
+    const command = new GetLoadBalancersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about the TLS certificates that are associated with the specified
    *       Lightsail load balancer.</p>
    *          <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>
@@ -3143,44 +3181,6 @@ export class Lightsail extends LightsailClient {
     cb?: (err: any, data?: GetLoadBalancerTlsCertificatesCommandOutput) => void
   ): Promise<GetLoadBalancerTlsCertificatesCommandOutput> | void {
     const command = new GetLoadBalancerTlsCertificatesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns information about all load balancers in an account.</p>
-   *          <p>If you are describing a long list of load balancers, you can paginate the output to
-   *       make the list more manageable. You can use the pageToken and nextPageToken values to retrieve
-   *       the next items in the list.</p>
-   */
-  public getLoadBalancers(
-    args: GetLoadBalancersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetLoadBalancersCommandOutput>;
-  public getLoadBalancers(
-    args: GetLoadBalancersCommandInput,
-    cb: (err: any, data?: GetLoadBalancersCommandOutput) => void
-  ): void;
-  public getLoadBalancers(
-    args: GetLoadBalancersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetLoadBalancersCommandOutput) => void
-  ): void;
-  public getLoadBalancers(
-    args: GetLoadBalancersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLoadBalancersCommandOutput) => void),
-    cb?: (err: any, data?: GetLoadBalancersCommandOutput) => void
-  ): Promise<GetLoadBalancersCommandOutput> | void {
-    const command = new GetLoadBalancersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3697,6 +3697,41 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * <p>Returns information about all of your databases in Amazon Lightsail.</p>
+   */
+  public getRelationalDatabases(
+    args: GetRelationalDatabasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRelationalDatabasesCommandOutput>;
+  public getRelationalDatabases(
+    args: GetRelationalDatabasesCommandInput,
+    cb: (err: any, data?: GetRelationalDatabasesCommandOutput) => void
+  ): void;
+  public getRelationalDatabases(
+    args: GetRelationalDatabasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRelationalDatabasesCommandOutput) => void
+  ): void;
+  public getRelationalDatabases(
+    args: GetRelationalDatabasesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetRelationalDatabasesCommandOutput) => void),
+    cb?: (err: any, data?: GetRelationalDatabasesCommandOutput) => void
+  ): Promise<GetRelationalDatabasesCommandOutput> | void {
+    const command = new GetRelationalDatabasesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about a specific database snapshot in Amazon Lightsail.</p>
    */
   public getRelationalDatabaseSnapshot(
@@ -3758,41 +3793,6 @@ export class Lightsail extends LightsailClient {
     cb?: (err: any, data?: GetRelationalDatabaseSnapshotsCommandOutput) => void
   ): Promise<GetRelationalDatabaseSnapshotsCommandOutput> | void {
     const command = new GetRelationalDatabaseSnapshotsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns information about all of your databases in Amazon Lightsail.</p>
-   */
-  public getRelationalDatabases(
-    args: GetRelationalDatabasesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetRelationalDatabasesCommandOutput>;
-  public getRelationalDatabases(
-    args: GetRelationalDatabasesCommandInput,
-    cb: (err: any, data?: GetRelationalDatabasesCommandOutput) => void
-  ): void;
-  public getRelationalDatabases(
-    args: GetRelationalDatabasesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetRelationalDatabasesCommandOutput) => void
-  ): void;
-  public getRelationalDatabases(
-    args: GetRelationalDatabasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRelationalDatabasesCommandOutput) => void),
-    cb?: (err: any, data?: GetRelationalDatabasesCommandOutput) => void
-  ): Promise<GetRelationalDatabasesCommandOutput> | void {
-    const command = new GetRelationalDatabasesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

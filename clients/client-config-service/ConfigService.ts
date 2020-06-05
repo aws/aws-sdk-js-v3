@@ -1441,6 +1441,50 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * <p>Returns the details of one or more configuration aggregators.
+   * 			If the configuration aggregator is not specified, this action
+   * 			returns the details for all the configuration aggregators associated
+   * 			with the account. </p>
+   */
+  public describeConfigurationAggregators(
+    args: DescribeConfigurationAggregatorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeConfigurationAggregatorsCommandOutput>;
+  public describeConfigurationAggregators(
+    args: DescribeConfigurationAggregatorsCommandInput,
+    cb: (err: any, data?: DescribeConfigurationAggregatorsCommandOutput) => void
+  ): void;
+  public describeConfigurationAggregators(
+    args: DescribeConfigurationAggregatorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeConfigurationAggregatorsCommandOutput) => void
+  ): void;
+  public describeConfigurationAggregators(
+    args: DescribeConfigurationAggregatorsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DescribeConfigurationAggregatorsCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DescribeConfigurationAggregatorsCommandOutput
+    ) => void
+  ): Promise<DescribeConfigurationAggregatorsCommandOutput> | void {
+    const command = new DescribeConfigurationAggregatorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns status information for sources within an aggregator.
    * 			The status includes information about the last time AWS Config verified authorization between the source account and an aggregator account. In case of a failure, the status contains the related error code or message. </p>
    */
@@ -1491,38 +1535,39 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Returns the details of one or more configuration aggregators.
-   * 			If the configuration aggregator is not specified, this action
-   * 			returns the details for all the configuration aggregators associated
-   * 			with the account. </p>
+   * <p>Returns the details for the specified configuration recorders.
+   * 			If the configuration recorder is not specified, this action returns
+   * 			the details for all configuration recorders associated with the
+   * 			account.</p>
+   * 		       <note>
+   * 			         <p>Currently, you can specify only one configuration recorder
+   * 				per region in your account.</p>
+   * 		       </note>
    */
-  public describeConfigurationAggregators(
-    args: DescribeConfigurationAggregatorsCommandInput,
+  public describeConfigurationRecorders(
+    args: DescribeConfigurationRecordersCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeConfigurationAggregatorsCommandOutput>;
-  public describeConfigurationAggregators(
-    args: DescribeConfigurationAggregatorsCommandInput,
-    cb: (err: any, data?: DescribeConfigurationAggregatorsCommandOutput) => void
+  ): Promise<DescribeConfigurationRecordersCommandOutput>;
+  public describeConfigurationRecorders(
+    args: DescribeConfigurationRecordersCommandInput,
+    cb: (err: any, data?: DescribeConfigurationRecordersCommandOutput) => void
   ): void;
-  public describeConfigurationAggregators(
-    args: DescribeConfigurationAggregatorsCommandInput,
+  public describeConfigurationRecorders(
+    args: DescribeConfigurationRecordersCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeConfigurationAggregatorsCommandOutput) => void
+    cb: (err: any, data?: DescribeConfigurationRecordersCommandOutput) => void
   ): void;
-  public describeConfigurationAggregators(
-    args: DescribeConfigurationAggregatorsCommandInput,
+  public describeConfigurationRecorders(
+    args: DescribeConfigurationRecordersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: DescribeConfigurationAggregatorsCommandOutput
+          data?: DescribeConfigurationRecordersCommandOutput
         ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeConfigurationAggregatorsCommandOutput
-    ) => void
-  ): Promise<DescribeConfigurationAggregatorsCommandOutput> | void {
-    const command = new DescribeConfigurationAggregatorsCommand(args);
+    cb?: (err: any, data?: DescribeConfigurationRecordersCommandOutput) => void
+  ): Promise<DescribeConfigurationRecordersCommandOutput> | void {
+    const command = new DescribeConfigurationRecordersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1589,51 +1634,6 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Returns the details for the specified configuration recorders.
-   * 			If the configuration recorder is not specified, this action returns
-   * 			the details for all configuration recorders associated with the
-   * 			account.</p>
-   * 		       <note>
-   * 			         <p>Currently, you can specify only one configuration recorder
-   * 				per region in your account.</p>
-   * 		       </note>
-   */
-  public describeConfigurationRecorders(
-    args: DescribeConfigurationRecordersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeConfigurationRecordersCommandOutput>;
-  public describeConfigurationRecorders(
-    args: DescribeConfigurationRecordersCommandInput,
-    cb: (err: any, data?: DescribeConfigurationRecordersCommandOutput) => void
-  ): void;
-  public describeConfigurationRecorders(
-    args: DescribeConfigurationRecordersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeConfigurationRecordersCommandOutput) => void
-  ): void;
-  public describeConfigurationRecorders(
-    args: DescribeConfigurationRecordersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeConfigurationRecordersCommandOutput
-        ) => void),
-    cb?: (err: any, data?: DescribeConfigurationRecordersCommandOutput) => void
-  ): Promise<DescribeConfigurationRecordersCommandOutput> | void {
-    const command = new DescribeConfigurationRecordersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Returns compliance details for each rule in that conformance pack.</p>
    * 		       <note>
    *             <p>You must provide exact rule names.</p>
@@ -1684,6 +1684,41 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * <p>Returns a list of one or more conformance packs.</p>
+   */
+  public describeConformancePacks(
+    args: DescribeConformancePacksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeConformancePacksCommandOutput>;
+  public describeConformancePacks(
+    args: DescribeConformancePacksCommandInput,
+    cb: (err: any, data?: DescribeConformancePacksCommandOutput) => void
+  ): void;
+  public describeConformancePacks(
+    args: DescribeConformancePacksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeConformancePacksCommandOutput) => void
+  ): void;
+  public describeConformancePacks(
+    args: DescribeConformancePacksCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeConformancePacksCommandOutput) => void),
+    cb?: (err: any, data?: DescribeConformancePacksCommandOutput) => void
+  ): Promise<DescribeConformancePacksCommandOutput> | void {
+    const command = new DescribeConformancePacksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Provides one or more conformance packs deployment status.</p>
    * 		       <note>
    *             <p>If there are no conformance packs then you will see an empty result.</p>
@@ -1722,29 +1757,35 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Returns a list of one or more conformance packs.</p>
+   * <p>Returns details about the specified delivery channel. If a
+   * 			delivery channel is not specified, this action returns the details
+   * 			of all delivery channels associated with the account.</p>
+   * 		       <note>
+   * 			         <p>Currently, you can specify only one delivery channel per
+   * 				region in your account.</p>
+   * 		       </note>
    */
-  public describeConformancePacks(
-    args: DescribeConformancePacksCommandInput,
+  public describeDeliveryChannels(
+    args: DescribeDeliveryChannelsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeConformancePacksCommandOutput>;
-  public describeConformancePacks(
-    args: DescribeConformancePacksCommandInput,
-    cb: (err: any, data?: DescribeConformancePacksCommandOutput) => void
+  ): Promise<DescribeDeliveryChannelsCommandOutput>;
+  public describeDeliveryChannels(
+    args: DescribeDeliveryChannelsCommandInput,
+    cb: (err: any, data?: DescribeDeliveryChannelsCommandOutput) => void
   ): void;
-  public describeConformancePacks(
-    args: DescribeConformancePacksCommandInput,
+  public describeDeliveryChannels(
+    args: DescribeDeliveryChannelsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeConformancePacksCommandOutput) => void
+    cb: (err: any, data?: DescribeDeliveryChannelsCommandOutput) => void
   ): void;
-  public describeConformancePacks(
-    args: DescribeConformancePacksCommandInput,
+  public describeDeliveryChannels(
+    args: DescribeDeliveryChannelsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DescribeConformancePacksCommandOutput) => void),
-    cb?: (err: any, data?: DescribeConformancePacksCommandOutput) => void
-  ): Promise<DescribeConformancePacksCommandOutput> | void {
-    const command = new DescribeConformancePacksCommand(args);
+      | ((err: any, data?: DescribeDeliveryChannelsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDeliveryChannelsCommandOutput) => void
+  ): Promise<DescribeDeliveryChannelsCommandOutput> | void {
+    const command = new DescribeDeliveryChannelsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1799,35 +1840,38 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Returns details about the specified delivery channel. If a
-   * 			delivery channel is not specified, this action returns the details
-   * 			of all delivery channels associated with the account.</p>
+   * <p>Returns a list of organization config rules.</p>
    * 		       <note>
-   * 			         <p>Currently, you can specify only one delivery channel per
-   * 				region in your account.</p>
-   * 		       </note>
+   *             <p>When you specify the limit and the next token, you receive a paginated response.
+   * 			Limit and next token are not applicable if you specify organization config rule names.
+   * 			It is only applicable, when you request all the organization config rules.</p>
+   * 			         <p>Only a master account can call this API.</p>
+   *          </note>
    */
-  public describeDeliveryChannels(
-    args: DescribeDeliveryChannelsCommandInput,
+  public describeOrganizationConfigRules(
+    args: DescribeOrganizationConfigRulesCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeDeliveryChannelsCommandOutput>;
-  public describeDeliveryChannels(
-    args: DescribeDeliveryChannelsCommandInput,
-    cb: (err: any, data?: DescribeDeliveryChannelsCommandOutput) => void
+  ): Promise<DescribeOrganizationConfigRulesCommandOutput>;
+  public describeOrganizationConfigRules(
+    args: DescribeOrganizationConfigRulesCommandInput,
+    cb: (err: any, data?: DescribeOrganizationConfigRulesCommandOutput) => void
   ): void;
-  public describeDeliveryChannels(
-    args: DescribeDeliveryChannelsCommandInput,
+  public describeOrganizationConfigRules(
+    args: DescribeOrganizationConfigRulesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeDeliveryChannelsCommandOutput) => void
+    cb: (err: any, data?: DescribeOrganizationConfigRulesCommandOutput) => void
   ): void;
-  public describeDeliveryChannels(
-    args: DescribeDeliveryChannelsCommandInput,
+  public describeOrganizationConfigRules(
+    args: DescribeOrganizationConfigRulesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDeliveryChannelsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDeliveryChannelsCommandOutput) => void
-  ): Promise<DescribeDeliveryChannelsCommandOutput> | void {
-    const command = new DescribeDeliveryChannelsCommand(args);
+      | ((
+          err: any,
+          data?: DescribeOrganizationConfigRulesCommandOutput
+        ) => void),
+    cb?: (err: any, data?: DescribeOrganizationConfigRulesCommandOutput) => void
+  ): Promise<DescribeOrganizationConfigRulesCommandOutput> | void {
+    const command = new DescribeOrganizationConfigRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1894,38 +1938,47 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Returns a list of organization config rules.</p>
+   * <p>Returns a list of organization conformance packs.</p>
    * 		       <note>
-   *             <p>When you specify the limit and the next token, you receive a paginated response.
-   * 			Limit and next token are not applicable if you specify organization config rule names.
-   * 			It is only applicable, when you request all the organization config rules.</p>
+   *             <p>When you specify the limit and the next token, you receive a paginated response. </p>
+   * 			         <p>Limit and next token are not applicable if you specify organization conformance packs names. They are only applicable,
+   * 			when you request all the organization conformance packs. </p>
    * 			         <p>Only a master account can call this API.</p>
    *          </note>
    */
-  public describeOrganizationConfigRules(
-    args: DescribeOrganizationConfigRulesCommandInput,
+  public describeOrganizationConformancePacks(
+    args: DescribeOrganizationConformancePacksCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeOrganizationConfigRulesCommandOutput>;
-  public describeOrganizationConfigRules(
-    args: DescribeOrganizationConfigRulesCommandInput,
-    cb: (err: any, data?: DescribeOrganizationConfigRulesCommandOutput) => void
+  ): Promise<DescribeOrganizationConformancePacksCommandOutput>;
+  public describeOrganizationConformancePacks(
+    args: DescribeOrganizationConformancePacksCommandInput,
+    cb: (
+      err: any,
+      data?: DescribeOrganizationConformancePacksCommandOutput
+    ) => void
   ): void;
-  public describeOrganizationConfigRules(
-    args: DescribeOrganizationConfigRulesCommandInput,
+  public describeOrganizationConformancePacks(
+    args: DescribeOrganizationConformancePacksCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeOrganizationConfigRulesCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DescribeOrganizationConformancePacksCommandOutput
+    ) => void
   ): void;
-  public describeOrganizationConfigRules(
-    args: DescribeOrganizationConfigRulesCommandInput,
+  public describeOrganizationConformancePacks(
+    args: DescribeOrganizationConformancePacksCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: DescribeOrganizationConfigRulesCommandOutput
+          data?: DescribeOrganizationConformancePacksCommandOutput
         ) => void),
-    cb?: (err: any, data?: DescribeOrganizationConfigRulesCommandOutput) => void
-  ): Promise<DescribeOrganizationConfigRulesCommandOutput> | void {
-    const command = new DescribeOrganizationConfigRulesCommand(args);
+    cb?: (
+      err: any,
+      data?: DescribeOrganizationConformancePacksCommandOutput
+    ) => void
+  ): Promise<DescribeOrganizationConformancePacksCommandOutput> | void {
+    const command = new DescribeOrganizationConformancePacksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1983,59 +2036,6 @@ export class ConfigService extends ConfigServiceClient {
     const command = new DescribeOrganizationConformancePackStatusesCommand(
       args
     );
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns a list of organization conformance packs.</p>
-   * 		       <note>
-   *             <p>When you specify the limit and the next token, you receive a paginated response. </p>
-   * 			         <p>Limit and next token are not applicable if you specify organization conformance packs names. They are only applicable,
-   * 			when you request all the organization conformance packs. </p>
-   * 			         <p>Only a master account can call this API.</p>
-   *          </note>
-   */
-  public describeOrganizationConformancePacks(
-    args: DescribeOrganizationConformancePacksCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeOrganizationConformancePacksCommandOutput>;
-  public describeOrganizationConformancePacks(
-    args: DescribeOrganizationConformancePacksCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeOrganizationConformancePacksCommandOutput
-    ) => void
-  ): void;
-  public describeOrganizationConformancePacks(
-    args: DescribeOrganizationConformancePacksCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeOrganizationConformancePacksCommandOutput
-    ) => void
-  ): void;
-  public describeOrganizationConformancePacks(
-    args: DescribeOrganizationConformancePacksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeOrganizationConformancePacksCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeOrganizationConformancePacksCommandOutput
-    ) => void
-  ): Promise<DescribeOrganizationConformancePacksCommandOutput> | void {
-    const command = new DescribeOrganizationConformancePacksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

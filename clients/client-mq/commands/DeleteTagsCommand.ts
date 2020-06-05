@@ -5,9 +5,9 @@ import {
   mqClientResolvedConfig
 } from "../mqClient";
 import {
-  deserializeAws_restJson1_1DeleteTagsCommand,
-  serializeAws_restJson1_1DeleteTagsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteTagsCommand,
+  serializeAws_restJson1DeleteTagsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteTagsCommand extends $Command<
     input: DeleteTagsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteTagsCommand(input, context);
+    return serializeAws_restJson1DeleteTagsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTagsCommandOutput> {
-    return deserializeAws_restJson1_1DeleteTagsCommand(output, context);
+    return deserializeAws_restJson1DeleteTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

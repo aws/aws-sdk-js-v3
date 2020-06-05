@@ -8,9 +8,9 @@ import {
   DeleteThreatIntelSetResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteThreatIntelSetCommand,
-  serializeAws_restJson1_1DeleteThreatIntelSetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteThreatIntelSetCommand,
+  serializeAws_restJson1DeleteThreatIntelSetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteThreatIntelSetCommand extends $Command<
     input: DeleteThreatIntelSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteThreatIntelSetCommand(input, context);
+    return serializeAws_restJson1DeleteThreatIntelSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteThreatIntelSetCommandOutput> {
-    return deserializeAws_restJson1_1DeleteThreatIntelSetCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteThreatIntelSetCommand(output, context);
   }
 
   // Start section: command_body_extra

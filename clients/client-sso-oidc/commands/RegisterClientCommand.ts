@@ -5,9 +5,9 @@ import {
 } from "../SSOOIDCClient";
 import { RegisterClientRequest, RegisterClientResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1RegisterClientCommand,
-  serializeAws_restJson1_1RegisterClientCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1RegisterClientCommand,
+  serializeAws_restJson1RegisterClientCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class RegisterClientCommand extends $Command<
     input: RegisterClientCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RegisterClientCommand(input, context);
+    return serializeAws_restJson1RegisterClientCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterClientCommandOutput> {
-    return deserializeAws_restJson1_1RegisterClientCommand(output, context);
+    return deserializeAws_restJson1RegisterClientCommand(output, context);
   }
 
   // Start section: command_body_extra

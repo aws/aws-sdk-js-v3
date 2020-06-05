@@ -5,9 +5,9 @@ import {
 } from "../PollyClient";
 import { DeleteLexiconInput, DeleteLexiconOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteLexiconCommand,
-  serializeAws_restJson1_1DeleteLexiconCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteLexiconCommand,
+  serializeAws_restJson1DeleteLexiconCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteLexiconCommand extends $Command<
     input: DeleteLexiconCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteLexiconCommand(input, context);
+    return serializeAws_restJson1DeleteLexiconCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLexiconCommandOutput> {
-    return deserializeAws_restJson1_1DeleteLexiconCommand(output, context);
+    return deserializeAws_restJson1DeleteLexiconCommand(output, context);
   }
 
   // Start section: command_body_extra

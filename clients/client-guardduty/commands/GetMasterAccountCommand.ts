@@ -8,9 +8,9 @@ import {
   GetMasterAccountResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetMasterAccountCommand,
-  serializeAws_restJson1_1GetMasterAccountCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetMasterAccountCommand,
+  serializeAws_restJson1GetMasterAccountCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetMasterAccountCommand extends $Command<
     input: GetMasterAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetMasterAccountCommand(input, context);
+    return serializeAws_restJson1GetMasterAccountCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMasterAccountCommandOutput> {
-    return deserializeAws_restJson1_1GetMasterAccountCommand(output, context);
+    return deserializeAws_restJson1GetMasterAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

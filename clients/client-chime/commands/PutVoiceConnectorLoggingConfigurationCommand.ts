@@ -8,9 +8,9 @@ import {
   PutVoiceConnectorLoggingConfigurationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutVoiceConnectorLoggingConfigurationCommand,
-  serializeAws_restJson1_1PutVoiceConnectorLoggingConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand,
+  serializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -76,7 +76,7 @@ export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<
     input: PutVoiceConnectorLoggingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutVoiceConnectorLoggingConfigurationCommand(
+    return serializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand(
       input,
       context
     );
@@ -86,7 +86,7 @@ export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutVoiceConnectorLoggingConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1PutVoiceConnectorLoggingConfigurationCommand(
+    return deserializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand(
       output,
       context
     );

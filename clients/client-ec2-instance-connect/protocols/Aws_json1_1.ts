@@ -72,7 +72,7 @@ const deserializeAws_json1_1SendSSHPublicKeyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthException":
-    case "com.amazon.aws.sshaccessproxyservice#AuthException":
+    case "com.amazonaws.ec2instanceconnect#AuthException":
       response = {
         ...(await deserializeAws_json1_1AuthExceptionResponse(
           parsedOutput,
@@ -83,7 +83,7 @@ const deserializeAws_json1_1SendSSHPublicKeyCommandError = async (
       };
       break;
     case "EC2InstanceNotFoundException":
-    case "com.amazon.aws.sshaccessproxyservice#EC2InstanceNotFoundException":
+    case "com.amazonaws.ec2instanceconnect#EC2InstanceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EC2InstanceNotFoundExceptionResponse(
           parsedOutput,
@@ -94,7 +94,7 @@ const deserializeAws_json1_1SendSSHPublicKeyCommandError = async (
       };
       break;
     case "InvalidArgsException":
-    case "com.amazon.aws.sshaccessproxyservice#InvalidArgsException":
+    case "com.amazonaws.ec2instanceconnect#InvalidArgsException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgsExceptionResponse(
           parsedOutput,
@@ -105,7 +105,7 @@ const deserializeAws_json1_1SendSSHPublicKeyCommandError = async (
       };
       break;
     case "ServiceException":
-    case "com.amazon.aws.sshaccessproxyservice#ServiceException":
+    case "com.amazonaws.ec2instanceconnect#ServiceException":
       response = {
         ...(await deserializeAws_json1_1ServiceExceptionResponse(
           parsedOutput,
@@ -116,7 +116,7 @@ const deserializeAws_json1_1SendSSHPublicKeyCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazon.aws.sshaccessproxyservice#ThrottlingException":
+    case "com.amazonaws.ec2instanceconnect#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,

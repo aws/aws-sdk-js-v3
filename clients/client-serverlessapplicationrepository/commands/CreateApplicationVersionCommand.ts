@@ -8,9 +8,9 @@ import {
   CreateApplicationVersionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateApplicationVersionCommand,
-  serializeAws_restJson1_1CreateApplicationVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateApplicationVersionCommand,
+  serializeAws_restJson1CreateApplicationVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CreateApplicationVersionCommand extends $Command<
     input: CreateApplicationVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateApplicationVersionCommand(
+    return serializeAws_restJson1CreateApplicationVersionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CreateApplicationVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateApplicationVersionCommandOutput> {
-    return deserializeAws_restJson1_1CreateApplicationVersionCommand(
+    return deserializeAws_restJson1CreateApplicationVersionCommand(
       output,
       context
     );

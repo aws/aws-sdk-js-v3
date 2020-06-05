@@ -8,9 +8,9 @@ import {
   ListProvisionedCapacityOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListProvisionedCapacityCommand,
-  serializeAws_restJson1_1ListProvisionedCapacityCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListProvisionedCapacityCommand,
+  serializeAws_restJson1ListProvisionedCapacityCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListProvisionedCapacityCommand extends $Command<
     input: ListProvisionedCapacityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListProvisionedCapacityCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1ListProvisionedCapacityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProvisionedCapacityCommandOutput> {
-    return deserializeAws_restJson1_1ListProvisionedCapacityCommand(
+    return deserializeAws_restJson1ListProvisionedCapacityCommand(
       output,
       context
     );

@@ -5,9 +5,9 @@ import {
 } from "../CloudDirectoryClient";
 import { DeleteFacetRequest, DeleteFacetResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteFacetCommand,
-  serializeAws_restJson1_1DeleteFacetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteFacetCommand,
+  serializeAws_restJson1DeleteFacetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteFacetCommand extends $Command<
     input: DeleteFacetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteFacetCommand(input, context);
+    return serializeAws_restJson1DeleteFacetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFacetCommandOutput> {
-    return deserializeAws_restJson1_1DeleteFacetCommand(output, context);
+    return deserializeAws_restJson1DeleteFacetCommand(output, context);
   }
 
   // Start section: command_body_extra

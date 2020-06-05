@@ -5,9 +5,9 @@ import {
 } from "../AppSyncClient";
 import { DeleteApiKeyRequest, DeleteApiKeyResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteApiKeyCommand,
-  serializeAws_restJson1_1DeleteApiKeyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteApiKeyCommand,
+  serializeAws_restJson1DeleteApiKeyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteApiKeyCommand extends $Command<
     input: DeleteApiKeyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteApiKeyCommand(input, context);
+    return serializeAws_restJson1DeleteApiKeyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApiKeyCommandOutput> {
-    return deserializeAws_restJson1_1DeleteApiKeyCommand(output, context);
+    return deserializeAws_restJson1DeleteApiKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

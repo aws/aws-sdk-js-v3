@@ -8,9 +8,9 @@ import {
   CreateActionTargetResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateActionTargetCommand,
-  serializeAws_restJson1_1CreateActionTargetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateActionTargetCommand,
+  serializeAws_restJson1CreateActionTargetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class CreateActionTargetCommand extends $Command<
     input: CreateActionTargetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateActionTargetCommand(input, context);
+    return serializeAws_restJson1CreateActionTargetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateActionTargetCommandOutput> {
-    return deserializeAws_restJson1_1CreateActionTargetCommand(output, context);
+    return deserializeAws_restJson1CreateActionTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

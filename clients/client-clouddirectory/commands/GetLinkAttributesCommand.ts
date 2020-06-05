@@ -8,9 +8,9 @@ import {
   GetLinkAttributesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetLinkAttributesCommand,
-  serializeAws_restJson1_1GetLinkAttributesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetLinkAttributesCommand,
+  serializeAws_restJson1GetLinkAttributesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetLinkAttributesCommand extends $Command<
     input: GetLinkAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetLinkAttributesCommand(input, context);
+    return serializeAws_restJson1GetLinkAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLinkAttributesCommandOutput> {
-    return deserializeAws_restJson1_1GetLinkAttributesCommand(output, context);
+    return deserializeAws_restJson1GetLinkAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

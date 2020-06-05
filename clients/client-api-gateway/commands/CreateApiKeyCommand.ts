@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { ApiKey, CreateApiKeyRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateApiKeyCommand,
-  serializeAws_restJson1_1CreateApiKeyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateApiKeyCommand,
+  serializeAws_restJson1CreateApiKeyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateApiKeyCommand extends $Command<
     input: CreateApiKeyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateApiKeyCommand(input, context);
+    return serializeAws_restJson1CreateApiKeyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateApiKeyCommandOutput> {
-    return deserializeAws_restJson1_1CreateApiKeyCommand(output, context);
+    return deserializeAws_restJson1CreateApiKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

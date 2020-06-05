@@ -8,9 +8,9 @@ import {
   DeleteSecurityProfileResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteSecurityProfileCommand,
-  serializeAws_restJson1_1DeleteSecurityProfileCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteSecurityProfileCommand,
+  serializeAws_restJson1DeleteSecurityProfileCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class DeleteSecurityProfileCommand extends $Command<
     input: DeleteSecurityProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteSecurityProfileCommand(input, context);
+    return serializeAws_restJson1DeleteSecurityProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSecurityProfileCommandOutput> {
-    return deserializeAws_restJson1_1DeleteSecurityProfileCommand(
+    return deserializeAws_restJson1DeleteSecurityProfileCommand(
       output,
       context
     );

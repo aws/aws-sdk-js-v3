@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { DeletePolicyVersionRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeletePolicyVersionCommand,
-  serializeAws_restJson1_1DeletePolicyVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeletePolicyVersionCommand,
+  serializeAws_restJson1DeletePolicyVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,17 +70,14 @@ export class DeletePolicyVersionCommand extends $Command<
     input: DeletePolicyVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeletePolicyVersionCommand(input, context);
+    return serializeAws_restJson1DeletePolicyVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePolicyVersionCommandOutput> {
-    return deserializeAws_restJson1_1DeletePolicyVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeletePolicyVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

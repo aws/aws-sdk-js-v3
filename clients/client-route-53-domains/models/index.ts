@@ -1897,26 +1897,6 @@ export namespace RetrieveDomainAuthCodeResponse {
 }
 
 /**
- * <p>The top-level domain does not support this operation.</p>
- */
-export interface TLDRulesViolation extends __SmithyException, $MetadataBearer {
-  name: "TLDRulesViolation";
-  $fault: "client";
-  /**
-   * <p>The top-level domain does not support this operation.</p>
-   */
-  message?: string;
-}
-
-export namespace TLDRulesViolation {
-  export const filterSensitiveLog = (obj: TLDRulesViolation): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TLDRulesViolation =>
-    __isa(o, "TLDRulesViolation");
-}
-
-/**
  * <p>Each tag includes the following elements.</p>
  */
 export interface Tag {
@@ -1941,6 +1921,32 @@ export namespace Tag {
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
+}
+
+/**
+ * <p>The top-level domain does not support this operation.</p>
+ */
+export interface TLDRulesViolation extends __SmithyException, $MetadataBearer {
+  name: "TLDRulesViolation";
+  $fault: "client";
+  /**
+   * <p>The top-level domain does not support this operation.</p>
+   */
+  message?: string;
+}
+
+export namespace TLDRulesViolation {
+  export const filterSensitiveLog = (obj: TLDRulesViolation): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TLDRulesViolation =>
+    __isa(o, "TLDRulesViolation");
+}
+
+export enum Transferable {
+  DONT_KNOW = "DONT_KNOW",
+  TRANSFERABLE = "TRANSFERABLE",
+  UNTRANSFERABLE = "UNTRANSFERABLE"
 }
 
 /**
@@ -2060,12 +2066,6 @@ export namespace TransferDomainResponse {
   });
   export const isa = (o: any): o is TransferDomainResponse =>
     __isa(o, "TransferDomainResponse");
-}
-
-export enum Transferable {
-  DONT_KNOW = "DONT_KNOW",
-  TRANSFERABLE = "TRANSFERABLE",
-  UNTRANSFERABLE = "UNTRANSFERABLE"
 }
 
 /**

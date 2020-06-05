@@ -676,41 +676,6 @@ export class schemas extends schemasClient {
   }
 
   /**
-   * <p>Provides a list of the schema versions and related information.</p>
-   */
-  public listSchemaVersions(
-    args: ListSchemaVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSchemaVersionsCommandOutput>;
-  public listSchemaVersions(
-    args: ListSchemaVersionsCommandInput,
-    cb: (err: any, data?: ListSchemaVersionsCommandOutput) => void
-  ): void;
-  public listSchemaVersions(
-    args: ListSchemaVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListSchemaVersionsCommandOutput) => void
-  ): void;
-  public listSchemaVersions(
-    args: ListSchemaVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSchemaVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListSchemaVersionsCommandOutput) => void
-  ): Promise<ListSchemaVersionsCommandOutput> | void {
-    const command = new ListSchemaVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>List the schemas.</p>
    */
   public listSchemas(
@@ -734,6 +699,41 @@ export class schemas extends schemasClient {
     cb?: (err: any, data?: ListSchemasCommandOutput) => void
   ): Promise<ListSchemasCommandOutput> | void {
     const command = new ListSchemasCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides a list of the schema versions and related information.</p>
+   */
+  public listSchemaVersions(
+    args: ListSchemaVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSchemaVersionsCommandOutput>;
+  public listSchemaVersions(
+    args: ListSchemaVersionsCommandInput,
+    cb: (err: any, data?: ListSchemaVersionsCommandOutput) => void
+  ): void;
+  public listSchemaVersions(
+    args: ListSchemaVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSchemaVersionsCommandOutput) => void
+  ): void;
+  public listSchemaVersions(
+    args: ListSchemaVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListSchemaVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListSchemaVersionsCommandOutput) => void
+  ): Promise<ListSchemaVersionsCommandOutput> | void {
+    const command = new ListSchemaVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

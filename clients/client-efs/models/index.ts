@@ -28,524 +28,6 @@ export namespace AccessPointAlreadyExists {
 }
 
 /**
- * <p>Returned if the AWS account has already created the maximum number of access points
- *             allowed per file system.</p>
- */
-export interface AccessPointLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "AccessPointLimitExceeded";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace AccessPointLimitExceeded {
-  export const filterSensitiveLog = (obj: AccessPointLimitExceeded): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AccessPointLimitExceeded =>
-    __isa(o, "AccessPointLimitExceeded");
-}
-
-/**
- * <p>Returned if the specified <code>AccessPointId</code> value doesn't exist in the
- *             requester's AWS account.</p>
- */
-export interface AccessPointNotFound
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "AccessPointNotFound";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace AccessPointNotFound {
-  export const filterSensitiveLog = (obj: AccessPointNotFound): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AccessPointNotFound =>
-    __isa(o, "AccessPointNotFound");
-}
-
-/**
- * <p>Returned if the request is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter.</p>
- */
-export interface BadRequest extends __SmithyException, $MetadataBearer {
-  name: "BadRequest";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace BadRequest {
-  export const filterSensitiveLog = (obj: BadRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is BadRequest => __isa(o, "BadRequest");
-}
-
-/**
- * <p>The service timed out trying to fulfill the request, and the client should try the
- *             call again.</p>
- */
-export interface DependencyTimeout extends __SmithyException, $MetadataBearer {
-  name: "DependencyTimeout";
-  $fault: "server";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace DependencyTimeout {
-  export const filterSensitiveLog = (obj: DependencyTimeout): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DependencyTimeout =>
-    __isa(o, "DependencyTimeout");
-}
-
-/**
- * <p>Returned if the file system you are trying to create already exists, with the
- *             creation token you provided.</p>
- */
-export interface FileSystemAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "FileSystemAlreadyExists";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  FileSystemId: string | undefined;
-  Message?: string;
-}
-
-export namespace FileSystemAlreadyExists {
-  export const filterSensitiveLog = (obj: FileSystemAlreadyExists): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is FileSystemAlreadyExists =>
-    __isa(o, "FileSystemAlreadyExists");
-}
-
-/**
- * <p>Returned if a file system has mount targets.</p>
- */
-export interface FileSystemInUse extends __SmithyException, $MetadataBearer {
-  name: "FileSystemInUse";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace FileSystemInUse {
-  export const filterSensitiveLog = (obj: FileSystemInUse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is FileSystemInUse =>
-    __isa(o, "FileSystemInUse");
-}
-
-/**
- * <p>Returned if the AWS account has already created the maximum number of file systems
- *             allowed per account.</p>
- */
-export interface FileSystemLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "FileSystemLimitExceeded";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace FileSystemLimitExceeded {
-  export const filterSensitiveLog = (obj: FileSystemLimitExceeded): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is FileSystemLimitExceeded =>
-    __isa(o, "FileSystemLimitExceeded");
-}
-
-/**
- * <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
- *             requester's AWS account.</p>
- */
-export interface FileSystemNotFound extends __SmithyException, $MetadataBearer {
-  name: "FileSystemNotFound";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace FileSystemNotFound {
-  export const filterSensitiveLog = (obj: FileSystemNotFound): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is FileSystemNotFound =>
-    __isa(o, "FileSystemNotFound");
-}
-
-/**
- * <p>Returned if the file system's lifecycle state is not "available".</p>
- */
-export interface IncorrectFileSystemLifeCycleState
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "IncorrectFileSystemLifeCycleState";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace IncorrectFileSystemLifeCycleState {
-  export const filterSensitiveLog = (
-    obj: IncorrectFileSystemLifeCycleState
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is IncorrectFileSystemLifeCycleState =>
-    __isa(o, "IncorrectFileSystemLifeCycleState");
-}
-
-/**
- * <p>Returned if the mount target is not in the correct state for the
- *             operation.</p>
- */
-export interface IncorrectMountTargetState
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "IncorrectMountTargetState";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace IncorrectMountTargetState {
-  export const filterSensitiveLog = (obj: IncorrectMountTargetState): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is IncorrectMountTargetState =>
-    __isa(o, "IncorrectMountTargetState");
-}
-
-/**
- * <p>Returned if there's not enough capacity to provision additional throughput. This value
- *             might be returned when you try to create a file system in provisioned throughput mode,
- *             when you attempt to increase the provisioned throughput of an existing file system, or
- *             when you attempt to change an existing file system from bursting to provisioned
- *             throughput mode.</p>
- */
-export interface InsufficientThroughputCapacity
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InsufficientThroughputCapacity";
-  $fault: "server";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace InsufficientThroughputCapacity {
-  export const filterSensitiveLog = (
-    obj: InsufficientThroughputCapacity
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InsufficientThroughputCapacity =>
-    __isa(o, "InsufficientThroughputCapacity");
-}
-
-/**
- * <p>Returned if an error occurred on the server side.</p>
- */
-export interface InternalServerError
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InternalServerError";
-  $fault: "server";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace InternalServerError {
-  export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InternalServerError =>
-    __isa(o, "InternalServerError");
-}
-
-/**
- * <p>Returned if the <code>FileSystemPolicy</code> is is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter. Returned in the case of a policy lockout safety check error.</p>
- */
-export interface InvalidPolicyException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidPolicyException";
-  $fault: "client";
-  ErrorCode?: string;
-  Message?: string;
-}
-
-export namespace InvalidPolicyException {
-  export const filterSensitiveLog = (obj: InvalidPolicyException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidPolicyException =>
-    __isa(o, "InvalidPolicyException");
-}
-
-/**
- * <p>Returned if the request specified an <code>IpAddress</code> that is already in use
- *             in the subnet.</p>
- */
-export interface IpAddressInUse extends __SmithyException, $MetadataBearer {
-  name: "IpAddressInUse";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace IpAddressInUse {
-  export const filterSensitiveLog = (obj: IpAddressInUse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is IpAddressInUse =>
-    __isa(o, "IpAddressInUse");
-}
-
-/**
- * <p>Returned if the mount target would violate one of the specified restrictions based
- *             on the file system's existing mount targets.</p>
- */
-export interface MountTargetConflict
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "MountTargetConflict";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace MountTargetConflict {
-  export const filterSensitiveLog = (obj: MountTargetConflict): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is MountTargetConflict =>
-    __isa(o, "MountTargetConflict");
-}
-
-/**
- * <p>Returned if there is no mount target with the specified ID found in the
- *             caller's account.</p>
- */
-export interface MountTargetNotFound
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "MountTargetNotFound";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace MountTargetNotFound {
-  export const filterSensitiveLog = (obj: MountTargetNotFound): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is MountTargetNotFound =>
-    __isa(o, "MountTargetNotFound");
-}
-
-/**
- * <p>The calling account has reached the limit for elastic network interfaces for the
- *             specific AWS Region. The client should try to delete some elastic network interfaces or
- *             get the account limit raised. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon VPC Limits</a>
- *             in the <i>Amazon VPC User Guide </i> (see the Network interfaces per VPC
- *             entry in the table). </p>
- */
-export interface NetworkInterfaceLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "NetworkInterfaceLimitExceeded";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace NetworkInterfaceLimitExceeded {
-  export const filterSensitiveLog = (
-    obj: NetworkInterfaceLimitExceeded
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NetworkInterfaceLimitExceeded =>
-    __isa(o, "NetworkInterfaceLimitExceeded");
-}
-
-/**
- * <p>Returned if <code>IpAddress</code> was not specified in the request and there are
- *             no free IP addresses in the subnet.</p>
- */
-export interface NoFreeAddressesInSubnet
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "NoFreeAddressesInSubnet";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace NoFreeAddressesInSubnet {
-  export const filterSensitiveLog = (obj: NoFreeAddressesInSubnet): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NoFreeAddressesInSubnet =>
-    __isa(o, "NoFreeAddressesInSubnet");
-}
-
-/**
- * <p>Returned if the default file system policy is in effect for the EFS file system specified.</p>
- */
-export interface PolicyNotFound extends __SmithyException, $MetadataBearer {
-  name: "PolicyNotFound";
-  $fault: "client";
-  ErrorCode?: string;
-  Message?: string;
-}
-
-export namespace PolicyNotFound {
-  export const filterSensitiveLog = (obj: PolicyNotFound): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is PolicyNotFound =>
-    __isa(o, "PolicyNotFound");
-}
-
-/**
- * <p>Returned if the size of <code>SecurityGroups</code> specified in the request is
- *             greater than five.</p>
- */
-export interface SecurityGroupLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "SecurityGroupLimitExceeded";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace SecurityGroupLimitExceeded {
-  export const filterSensitiveLog = (obj: SecurityGroupLimitExceeded): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SecurityGroupLimitExceeded =>
-    __isa(o, "SecurityGroupLimitExceeded");
-}
-
-/**
- * <p>Returned if one of the specified security groups doesn't exist in the subnet's
- *             VPC.</p>
- */
-export interface SecurityGroupNotFound
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "SecurityGroupNotFound";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace SecurityGroupNotFound {
-  export const filterSensitiveLog = (obj: SecurityGroupNotFound): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SecurityGroupNotFound =>
-    __isa(o, "SecurityGroupNotFound");
-}
-
-/**
- * <p>Returned if there is no subnet with ID <code>SubnetId</code> provided in the
- *             request.</p>
- */
-export interface SubnetNotFound extends __SmithyException, $MetadataBearer {
-  name: "SubnetNotFound";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace SubnetNotFound {
-  export const filterSensitiveLog = (obj: SubnetNotFound): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SubnetNotFound =>
-    __isa(o, "SubnetNotFound");
-}
-
-/**
- * <p>Returned if the throughput mode or amount of provisioned throughput can't be changed
- *             because the throughput limit of 1024 MiB/s has been reached.</p>
- */
-export interface ThroughputLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ThroughputLimitExceeded";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace ThroughputLimitExceeded {
-  export const filterSensitiveLog = (obj: ThroughputLimitExceeded): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ThroughputLimitExceeded =>
-    __isa(o, "ThroughputLimitExceeded");
-}
-
-/**
- * <p>Returned if you don’t wait at least 24 hours before changing the throughput mode, or
- *             decreasing the Provisioned Throughput value.</p>
- */
-export interface TooManyRequests extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequests";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace TooManyRequests {
-  export const filterSensitiveLog = (obj: TooManyRequests): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyRequests =>
-    __isa(o, "TooManyRequests");
-}
-
-/**
- * <p></p>
- */
-export interface UnsupportedAvailabilityZone
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "UnsupportedAvailabilityZone";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace UnsupportedAvailabilityZone {
-  export const filterSensitiveLog = (
-    obj: UnsupportedAvailabilityZone
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UnsupportedAvailabilityZone =>
-    __isa(o, "UnsupportedAvailabilityZone");
-}
-
-/**
  * <p>Provides a description of an EFS file system access point.</p>
  */
 export interface AccessPointDescription {
@@ -608,6 +90,66 @@ export namespace AccessPointDescription {
   });
   export const isa = (o: any): o is AccessPointDescription =>
     __isa(o, "AccessPointDescription");
+}
+
+/**
+ * <p>Returned if the AWS account has already created the maximum number of access points
+ *             allowed per file system.</p>
+ */
+export interface AccessPointLimitExceeded
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "AccessPointLimitExceeded";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace AccessPointLimitExceeded {
+  export const filterSensitiveLog = (obj: AccessPointLimitExceeded): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AccessPointLimitExceeded =>
+    __isa(o, "AccessPointLimitExceeded");
+}
+
+/**
+ * <p>Returned if the specified <code>AccessPointId</code> value doesn't exist in the
+ *             requester's AWS account.</p>
+ */
+export interface AccessPointNotFound
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "AccessPointNotFound";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace AccessPointNotFound {
+  export const filterSensitiveLog = (obj: AccessPointNotFound): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AccessPointNotFound =>
+    __isa(o, "AccessPointNotFound");
+}
+
+/**
+ * <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ */
+export interface BadRequest extends __SmithyException, $MetadataBearer {
+  name: "BadRequest";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace BadRequest {
+  export const filterSensitiveLog = (obj: BadRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is BadRequest => __isa(o, "BadRequest");
 }
 
 export interface CreateAccessPointRequest {
@@ -935,6 +477,25 @@ export namespace DeleteTagsRequest {
   });
   export const isa = (o: any): o is DeleteTagsRequest =>
     __isa(o, "DeleteTagsRequest");
+}
+
+/**
+ * <p>The service timed out trying to fulfill the request, and the client should try the
+ *             call again.</p>
+ */
+export interface DependencyTimeout extends __SmithyException, $MetadataBearer {
+  name: "DependencyTimeout";
+  $fault: "server";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace DependencyTimeout {
+  export const filterSensitiveLog = (obj: DependencyTimeout): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DependencyTimeout =>
+    __isa(o, "DependencyTimeout");
 }
 
 export interface DescribeAccessPointsRequest {
@@ -1292,6 +853,28 @@ export namespace DescribeTagsResponse {
 }
 
 /**
+ * <p>Returned if the file system you are trying to create already exists, with the
+ *             creation token you provided.</p>
+ */
+export interface FileSystemAlreadyExists
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "FileSystemAlreadyExists";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  FileSystemId: string | undefined;
+  Message?: string;
+}
+
+export namespace FileSystemAlreadyExists {
+  export const filterSensitiveLog = (obj: FileSystemAlreadyExists): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is FileSystemAlreadyExists =>
+    __isa(o, "FileSystemAlreadyExists");
+}
+
+/**
  * <p>A description of the file system.</p>
  */
 export interface FileSystemDescription {
@@ -1399,6 +982,64 @@ export namespace FileSystemDescription {
     __isa(o, "FileSystemDescription");
 }
 
+/**
+ * <p>Returned if a file system has mount targets.</p>
+ */
+export interface FileSystemInUse extends __SmithyException, $MetadataBearer {
+  name: "FileSystemInUse";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace FileSystemInUse {
+  export const filterSensitiveLog = (obj: FileSystemInUse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is FileSystemInUse =>
+    __isa(o, "FileSystemInUse");
+}
+
+/**
+ * <p>Returned if the AWS account has already created the maximum number of file systems
+ *             allowed per account.</p>
+ */
+export interface FileSystemLimitExceeded
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "FileSystemLimitExceeded";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace FileSystemLimitExceeded {
+  export const filterSensitiveLog = (obj: FileSystemLimitExceeded): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is FileSystemLimitExceeded =>
+    __isa(o, "FileSystemLimitExceeded");
+}
+
+/**
+ * <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
+ *             requester's AWS account.</p>
+ */
+export interface FileSystemNotFound extends __SmithyException, $MetadataBearer {
+  name: "FileSystemNotFound";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace FileSystemNotFound {
+  export const filterSensitiveLog = (obj: FileSystemNotFound): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is FileSystemNotFound =>
+    __isa(o, "FileSystemNotFound");
+}
+
 export interface FileSystemPolicyDescription {
   __type?: "FileSystemPolicyDescription";
   /**
@@ -1465,12 +1106,133 @@ export namespace FileSystemSize {
     __isa(o, "FileSystemSize");
 }
 
-export enum LifeCycleState {
-  AVAILABLE = "available",
-  CREATING = "creating",
-  DELETED = "deleted",
-  DELETING = "deleting",
-  UPDATING = "updating"
+/**
+ * <p>Returned if the file system's lifecycle state is not "available".</p>
+ */
+export interface IncorrectFileSystemLifeCycleState
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "IncorrectFileSystemLifeCycleState";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace IncorrectFileSystemLifeCycleState {
+  export const filterSensitiveLog = (
+    obj: IncorrectFileSystemLifeCycleState
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is IncorrectFileSystemLifeCycleState =>
+    __isa(o, "IncorrectFileSystemLifeCycleState");
+}
+
+/**
+ * <p>Returned if the mount target is not in the correct state for the
+ *             operation.</p>
+ */
+export interface IncorrectMountTargetState
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "IncorrectMountTargetState";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace IncorrectMountTargetState {
+  export const filterSensitiveLog = (obj: IncorrectMountTargetState): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is IncorrectMountTargetState =>
+    __isa(o, "IncorrectMountTargetState");
+}
+
+/**
+ * <p>Returned if there's not enough capacity to provision additional throughput. This value
+ *             might be returned when you try to create a file system in provisioned throughput mode,
+ *             when you attempt to increase the provisioned throughput of an existing file system, or
+ *             when you attempt to change an existing file system from bursting to provisioned
+ *             throughput mode.</p>
+ */
+export interface InsufficientThroughputCapacity
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InsufficientThroughputCapacity";
+  $fault: "server";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace InsufficientThroughputCapacity {
+  export const filterSensitiveLog = (
+    obj: InsufficientThroughputCapacity
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InsufficientThroughputCapacity =>
+    __isa(o, "InsufficientThroughputCapacity");
+}
+
+/**
+ * <p>Returned if an error occurred on the server side.</p>
+ */
+export interface InternalServerError
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InternalServerError";
+  $fault: "server";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace InternalServerError {
+  export const filterSensitiveLog = (obj: InternalServerError): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InternalServerError =>
+    __isa(o, "InternalServerError");
+}
+
+/**
+ * <p>Returned if the <code>FileSystemPolicy</code> is is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter. Returned in the case of a policy lockout safety check error.</p>
+ */
+export interface InvalidPolicyException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidPolicyException";
+  $fault: "client";
+  ErrorCode?: string;
+  Message?: string;
+}
+
+export namespace InvalidPolicyException {
+  export const filterSensitiveLog = (obj: InvalidPolicyException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidPolicyException =>
+    __isa(o, "InvalidPolicyException");
+}
+
+/**
+ * <p>Returned if the request specified an <code>IpAddress</code> that is already in use
+ *             in the subnet.</p>
+ */
+export interface IpAddressInUse extends __SmithyException, $MetadataBearer {
+  name: "IpAddressInUse";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace IpAddressInUse {
+  export const filterSensitiveLog = (obj: IpAddressInUse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is IpAddressInUse =>
+    __isa(o, "IpAddressInUse");
 }
 
 export interface LifecycleConfigurationDescription {
@@ -1513,6 +1275,14 @@ export namespace LifecyclePolicy {
   });
   export const isa = (o: any): o is LifecyclePolicy =>
     __isa(o, "LifecyclePolicy");
+}
+
+export enum LifeCycleState {
+  AVAILABLE = "available",
+  CREATING = "creating",
+  DELETED = "deleted",
+  DELETING = "deleting",
+  UPDATING = "updating"
 }
 
 export interface ListTagsForResourceRequest {
@@ -1592,6 +1362,27 @@ export namespace ModifyMountTargetSecurityGroupsRequest {
 }
 
 /**
+ * <p>Returned if the mount target would violate one of the specified restrictions based
+ *             on the file system's existing mount targets.</p>
+ */
+export interface MountTargetConflict
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "MountTargetConflict";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace MountTargetConflict {
+  export const filterSensitiveLog = (obj: MountTargetConflict): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is MountTargetConflict =>
+    __isa(o, "MountTargetConflict");
+}
+
+/**
  * <p>Provides a description of a mount target.</p>
  */
 export interface MountTargetDescription {
@@ -1654,9 +1445,95 @@ export namespace MountTargetDescription {
     __isa(o, "MountTargetDescription");
 }
 
+/**
+ * <p>Returned if there is no mount target with the specified ID found in the
+ *             caller's account.</p>
+ */
+export interface MountTargetNotFound
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "MountTargetNotFound";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace MountTargetNotFound {
+  export const filterSensitiveLog = (obj: MountTargetNotFound): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is MountTargetNotFound =>
+    __isa(o, "MountTargetNotFound");
+}
+
+/**
+ * <p>The calling account has reached the limit for elastic network interfaces for the
+ *             specific AWS Region. The client should try to delete some elastic network interfaces or
+ *             get the account limit raised. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon VPC Limits</a>
+ *             in the <i>Amazon VPC User Guide </i> (see the Network interfaces per VPC
+ *             entry in the table). </p>
+ */
+export interface NetworkInterfaceLimitExceeded
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "NetworkInterfaceLimitExceeded";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace NetworkInterfaceLimitExceeded {
+  export const filterSensitiveLog = (
+    obj: NetworkInterfaceLimitExceeded
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NetworkInterfaceLimitExceeded =>
+    __isa(o, "NetworkInterfaceLimitExceeded");
+}
+
+/**
+ * <p>Returned if <code>IpAddress</code> was not specified in the request and there are
+ *             no free IP addresses in the subnet.</p>
+ */
+export interface NoFreeAddressesInSubnet
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "NoFreeAddressesInSubnet";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace NoFreeAddressesInSubnet {
+  export const filterSensitiveLog = (obj: NoFreeAddressesInSubnet): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NoFreeAddressesInSubnet =>
+    __isa(o, "NoFreeAddressesInSubnet");
+}
+
 export enum PerformanceMode {
   GENERAL_PURPOSE = "generalPurpose",
   MAX_IO = "maxIO"
+}
+
+/**
+ * <p>Returned if the default file system policy is in effect for the EFS file system specified.</p>
+ */
+export interface PolicyNotFound extends __SmithyException, $MetadataBearer {
+  name: "PolicyNotFound";
+  $fault: "client";
+  ErrorCode?: string;
+  Message?: string;
+}
+
+export namespace PolicyNotFound {
+  export const filterSensitiveLog = (obj: PolicyNotFound): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is PolicyNotFound =>
+    __isa(o, "PolicyNotFound");
 }
 
 /**
@@ -1786,6 +1663,67 @@ export namespace RootDirectory {
 }
 
 /**
+ * <p>Returned if the size of <code>SecurityGroups</code> specified in the request is
+ *             greater than five.</p>
+ */
+export interface SecurityGroupLimitExceeded
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "SecurityGroupLimitExceeded";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace SecurityGroupLimitExceeded {
+  export const filterSensitiveLog = (obj: SecurityGroupLimitExceeded): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SecurityGroupLimitExceeded =>
+    __isa(o, "SecurityGroupLimitExceeded");
+}
+
+/**
+ * <p>Returned if one of the specified security groups doesn't exist in the subnet's
+ *             VPC.</p>
+ */
+export interface SecurityGroupNotFound
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "SecurityGroupNotFound";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace SecurityGroupNotFound {
+  export const filterSensitiveLog = (obj: SecurityGroupNotFound): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SecurityGroupNotFound =>
+    __isa(o, "SecurityGroupNotFound");
+}
+
+/**
+ * <p>Returned if there is no subnet with ID <code>SubnetId</code> provided in the
+ *             request.</p>
+ */
+export interface SubnetNotFound extends __SmithyException, $MetadataBearer {
+  name: "SubnetNotFound";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace SubnetNotFound {
+  export const filterSensitiveLog = (obj: SubnetNotFound): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SubnetNotFound =>
+    __isa(o, "SubnetNotFound");
+}
+
+/**
  * <p>A tag is a key-value pair. Allowed characters are letters, white space, and numbers that
  *       can be represented in UTF-8, and the following characters:<code> + - = . _ : /</code>
  *          </p>
@@ -1831,9 +1769,49 @@ export namespace TagResourceRequest {
     __isa(o, "TagResourceRequest");
 }
 
+/**
+ * <p>Returned if the throughput mode or amount of provisioned throughput can't be changed
+ *             because the throughput limit of 1024 MiB/s has been reached.</p>
+ */
+export interface ThroughputLimitExceeded
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ThroughputLimitExceeded";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace ThroughputLimitExceeded {
+  export const filterSensitiveLog = (obj: ThroughputLimitExceeded): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ThroughputLimitExceeded =>
+    __isa(o, "ThroughputLimitExceeded");
+}
+
 export enum ThroughputMode {
   BURSTING = "bursting",
   PROVISIONED = "provisioned"
+}
+
+/**
+ * <p>Returned if you don’t wait at least 24 hours before changing the throughput mode, or
+ *             decreasing the Provisioned Throughput value.</p>
+ */
+export interface TooManyRequests extends __SmithyException, $MetadataBearer {
+  name: "TooManyRequests";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace TooManyRequests {
+  export const filterSensitiveLog = (obj: TooManyRequests): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyRequests =>
+    __isa(o, "TooManyRequests");
 }
 
 export enum TransitionToIARules {
@@ -1842,6 +1820,28 @@ export enum TransitionToIARules {
   AFTER_60_DAYS = "AFTER_60_DAYS",
   AFTER_7_DAYS = "AFTER_7_DAYS",
   AFTER_90_DAYS = "AFTER_90_DAYS"
+}
+
+/**
+ * <p></p>
+ */
+export interface UnsupportedAvailabilityZone
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "UnsupportedAvailabilityZone";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace UnsupportedAvailabilityZone {
+  export const filterSensitiveLog = (
+    obj: UnsupportedAvailabilityZone
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UnsupportedAvailabilityZone =>
+    __isa(o, "UnsupportedAvailabilityZone");
 }
 
 export interface UntagResourceRequest {

@@ -8,9 +8,9 @@ import {
   DeleteInvitationsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteInvitationsCommand,
-  serializeAws_restJson1_1DeleteInvitationsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteInvitationsCommand,
+  serializeAws_restJson1DeleteInvitationsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DeleteInvitationsCommand extends $Command<
     input: DeleteInvitationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteInvitationsCommand(input, context);
+    return serializeAws_restJson1DeleteInvitationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteInvitationsCommandOutput> {
-    return deserializeAws_restJson1_1DeleteInvitationsCommand(output, context);
+    return deserializeAws_restJson1DeleteInvitationsCommand(output, context);
   }
 
   // Start section: command_body_extra

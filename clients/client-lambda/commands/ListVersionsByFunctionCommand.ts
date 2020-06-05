@@ -8,9 +8,9 @@ import {
   ListVersionsByFunctionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListVersionsByFunctionCommand,
-  serializeAws_restJson1_1ListVersionsByFunctionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListVersionsByFunctionCommand,
+  serializeAws_restJson1ListVersionsByFunctionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListVersionsByFunctionCommand extends $Command<
     input: ListVersionsByFunctionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListVersionsByFunctionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1ListVersionsByFunctionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListVersionsByFunctionCommandOutput> {
-    return deserializeAws_restJson1_1ListVersionsByFunctionCommand(
+    return deserializeAws_restJson1ListVersionsByFunctionCommand(
       output,
       context
     );

@@ -5,9 +5,9 @@ import {
 } from "../ManagedBlockchainClient";
 import { GetNodeInput, GetNodeOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetNodeCommand,
-  serializeAws_restJson1_1GetNodeCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetNodeCommand,
+  serializeAws_restJson1GetNodeCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetNodeCommand extends $Command<
     input: GetNodeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetNodeCommand(input, context);
+    return serializeAws_restJson1GetNodeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetNodeCommandOutput> {
-    return deserializeAws_restJson1_1GetNodeCommand(output, context);
+    return deserializeAws_restJson1GetNodeCommand(output, context);
   }
 
   // Start section: command_body_extra

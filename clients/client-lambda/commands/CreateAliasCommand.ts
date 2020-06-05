@@ -5,9 +5,9 @@ import {
 } from "../LambdaClient";
 import { AliasConfiguration, CreateAliasRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateAliasCommand,
-  serializeAws_restJson1_1CreateAliasCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateAliasCommand,
+  serializeAws_restJson1CreateAliasCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateAliasCommand extends $Command<
     input: CreateAliasCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateAliasCommand(input, context);
+    return serializeAws_restJson1CreateAliasCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateAliasCommandOutput> {
-    return deserializeAws_restJson1_1CreateAliasCommand(output, context);
+    return deserializeAws_restJson1CreateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

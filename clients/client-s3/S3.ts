@@ -1980,65 +1980,6 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p>Removes the entire tag set from the specified object. For more information about
-   *       managing object tags, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">
-   *       Object Tagging</a>.</p>
-   *
-   *          <p>To use this operation, you must have permission to perform the
-   *             <code>s3:DeleteObjectTagging</code> action.</p>
-   *
-   *          <p>To delete tags of a specific object version, add the <code>versionId</code> query
-   *          parameter in the request. You will need permission for the
-   *             <code>s3:DeleteObjectVersionTagging</code> action.</p>
-   *
-   *          <p>The following operations are related to
-   *          <code>DeleteBucketMetricsConfiguration</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a>PutObjectTagging</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a>GetObjectTagging</a>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  public deleteObjectTagging(
-    args: DeleteObjectTaggingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteObjectTaggingCommandOutput>;
-  public deleteObjectTagging(
-    args: DeleteObjectTaggingCommandInput,
-    cb: (err: any, data?: DeleteObjectTaggingCommandOutput) => void
-  ): void;
-  public deleteObjectTagging(
-    args: DeleteObjectTaggingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteObjectTaggingCommandOutput) => void
-  ): void;
-  public deleteObjectTagging(
-    args: DeleteObjectTaggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteObjectTaggingCommandOutput) => void),
-    cb?: (err: any, data?: DeleteObjectTaggingCommandOutput) => void
-  ): Promise<DeleteObjectTaggingCommandOutput> | void {
-    const command = new DeleteObjectTaggingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>This operation enables you to delete multiple objects from a bucket using a single HTTP request. If you know the object keys that you want to delete, then this operation provides a suitable alternative to sending individual delete requests, reducing per-request overhead.</p>
    *
    *          <p>The request contains a list of up to 1000 keys that you want to delete. In the XML, you
@@ -2114,6 +2055,65 @@ export class S3 extends S3Client {
     cb?: (err: any, data?: DeleteObjectsCommandOutput) => void
   ): Promise<DeleteObjectsCommandOutput> | void {
     const command = new DeleteObjectsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes the entire tag set from the specified object. For more information about
+   *       managing object tags, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">
+   *       Object Tagging</a>.</p>
+   *
+   *          <p>To use this operation, you must have permission to perform the
+   *             <code>s3:DeleteObjectTagging</code> action.</p>
+   *
+   *          <p>To delete tags of a specific object version, add the <code>versionId</code> query
+   *          parameter in the request. You will need permission for the
+   *             <code>s3:DeleteObjectVersionTagging</code> action.</p>
+   *
+   *          <p>The following operations are related to
+   *          <code>DeleteBucketMetricsConfiguration</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a>PutObjectTagging</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>GetObjectTagging</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public deleteObjectTagging(
+    args: DeleteObjectTaggingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteObjectTaggingCommandOutput>;
+  public deleteObjectTagging(
+    args: DeleteObjectTaggingCommandInput,
+    cb: (err: any, data?: DeleteObjectTaggingCommandOutput) => void
+  ): void;
+  public deleteObjectTagging(
+    args: DeleteObjectTaggingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteObjectTaggingCommandOutput) => void
+  ): void;
+  public deleteObjectTagging(
+    args: DeleteObjectTaggingCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteObjectTaggingCommandOutput) => void),
+    cb?: (err: any, data?: DeleteObjectTaggingCommandOutput) => void
+  ): Promise<DeleteObjectTaggingCommandOutput> | void {
+    const command = new DeleteObjectTaggingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4201,70 +4201,6 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p>Returns metadata about all of the versions of objects in a bucket. You can also use request parameters as selection criteria to return metadata about a subset of all the object versions. </p>
-   *
-   *          <note>
-   *             <p> A 200 OK response can contain valid or invalid XML. Make sure to design your application to parse the contents of the response and handle it appropriately.</p>
-   *          </note>
-   *          <p>To use this operation, you must have READ access to the bucket.</p>
-   *
-   *          <p>The following operations are related to <code>ListObjectVersions</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a>ListObjectsV2</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a>GetObject</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a>PutObject</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a>DeleteObject</a>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  public listObjectVersions(
-    args: ListObjectVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListObjectVersionsCommandOutput>;
-  public listObjectVersions(
-    args: ListObjectVersionsCommandInput,
-    cb: (err: any, data?: ListObjectVersionsCommandOutput) => void
-  ): void;
-  public listObjectVersions(
-    args: ListObjectVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListObjectVersionsCommandOutput) => void
-  ): void;
-  public listObjectVersions(
-    args: ListObjectVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListObjectVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListObjectVersionsCommandOutput) => void
-  ): Promise<ListObjectVersionsCommandOutput> | void {
-    const command = new ListObjectVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Returns some or all (up to 1,000) of the objects in a bucket. You can use the request
    *          parameters as selection criteria to return a subset of the objects in a bucket. A 200 OK
    *          response can contain valid or invalid XML. Be sure to design your application to parse the
@@ -4387,6 +4323,70 @@ export class S3 extends S3Client {
     cb?: (err: any, data?: ListObjectsV2CommandOutput) => void
   ): Promise<ListObjectsV2CommandOutput> | void {
     const command = new ListObjectsV2Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns metadata about all of the versions of objects in a bucket. You can also use request parameters as selection criteria to return metadata about a subset of all the object versions. </p>
+   *
+   *          <note>
+   *             <p> A 200 OK response can contain valid or invalid XML. Make sure to design your application to parse the contents of the response and handle it appropriately.</p>
+   *          </note>
+   *          <p>To use this operation, you must have READ access to the bucket.</p>
+   *
+   *          <p>The following operations are related to <code>ListObjectVersions</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a>ListObjectsV2</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>GetObject</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>PutObject</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DeleteObject</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public listObjectVersions(
+    args: ListObjectVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListObjectVersionsCommandOutput>;
+  public listObjectVersions(
+    args: ListObjectVersionsCommandInput,
+    cb: (err: any, data?: ListObjectVersionsCommandOutput) => void
+  ): void;
+  public listObjectVersions(
+    args: ListObjectVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListObjectVersionsCommandOutput) => void
+  ): void;
+  public listObjectVersions(
+    args: ListObjectVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListObjectVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListObjectVersionsCommandOutput) => void
+  ): Promise<ListObjectVersionsCommandOutput> | void {
+    const command = new ListObjectVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -5,18 +5,41 @@ import {
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum AgentParameterField {
+  /**
+   * Maximum stack depth to be captured by the CodeGuru Profiler.
+   */
+  MAX_STACK_DEPTH = "MaxStackDepth",
+  /**
+   * Percentage of memory to be used by CodeGuru profiler. Minimum of 30MB is required for the agent.
+   */
+  MEMORY_USAGE_LIMIT_PERCENT = "MemoryUsageLimitPercent",
+  /**
+   * Minimum time in milliseconds between sending reports.
+   */
+  MINIMUM_TIME_FOR_REPORTING_IN_MILLISECONDS = "MinimumTimeForReportingInMilliseconds",
+  /**
+   * Reporting interval in milliseconds used to report profiles.
+   */
+  REPORTING_INTERVAL_IN_MILLISECONDS = "ReportingIntervalInMilliseconds",
+  /**
+   * Sampling interval in milliseconds used to sample profiles.
+   */
+  SAMPLING_INTERVAL_IN_MILLISECONDS = "SamplingIntervalInMilliseconds"
+}
+
 /**
- * The time range of an aggregated profile.
+ * <p>Information about the time range of the latest available aggregated profile.</p>
  */
 export interface AggregatedProfileTime {
   __type?: "AggregatedProfileTime";
   /**
-   * The aggregation period of the aggregated profile.
+   * <p>The time period.</p>
    */
   period?: AggregationPeriod | string;
 
   /**
-   * The start time of the aggregated profile.
+   * <p>The start time.</p>
    */
   start?: Date;
 }
@@ -44,8 +67,22 @@ export enum AggregationPeriod {
   PT5M = "PT5M"
 }
 
+export enum ComputePlatform {
+  /**
+   * Compute platform meant to used for AWS Lambda.
+   */
+  AWSLAMBDA = "AWSLambda",
+  /**
+   * Compute platform meant to used for all usecases (like EC2, Fargate, physical servers etc.) but AWS Lambda.
+   */
+  DEFAULT = "Default"
+}
+
 /**
- * Request can can cause an inconsistent state for the resource.
+ * <p>The requested operation would cause a conflict with the current state
+ *         of a service resource associated with the request. Resolve the conflict
+ *         before retrying this request.
+ *       </p>
  */
 export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
@@ -62,7 +99,7 @@ export namespace ConflictException {
 }
 
 /**
- * Unexpected error during processing of request.
+ * <p>The server encountered an internal error and is unable to complete the request.</p>
  */
 export interface InternalServerException
   extends __SmithyException,
@@ -81,6 +118,13 @@ export namespace InternalServerException {
     __isa(o, "InternalServerException");
 }
 
+export enum MetricType {
+  /**
+   * Metric value aggregated for all instances of a frame name in a profile relative to the root frame.
+   */
+  AGGREGATED_RELATIVE_TOTAL_TIME = "AGGREGATED_RELATIVE_TOTAL_TIME"
+}
+
 export enum OrderBy {
   /**
    * Order by timestamp in ascending order.
@@ -93,7 +137,7 @@ export enum OrderBy {
 }
 
 /**
- * Request references a resource which does not exist.
+ * <p>The resource specified in the request does not exist.</p>
  */
 export interface ResourceNotFoundException
   extends __SmithyException,
@@ -112,7 +156,10 @@ export namespace ResourceNotFoundException {
 }
 
 /**
- * Request would cause a service quota to be exceeded.
+ * <p>You have exceeded your service quota. To perform the requested action,
+ *         remove some of the relevant resources, or use <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a> to request a
+ *         service quota increase.
+ *       </p>
  */
 export interface ServiceQuotaExceededException
   extends __SmithyException,
@@ -134,7 +181,7 @@ export namespace ServiceQuotaExceededException {
 }
 
 /**
- * Request was denied due to request throttling.
+ * <p>The request was denied due to request throttling.</p>
  */
 export interface ThrottlingException
   extends __SmithyException,
@@ -154,7 +201,7 @@ export namespace ThrottlingException {
 }
 
 /**
- * The input fails to satisfy the constraints of the API.
+ * <p>The parameter is not valid.</p>
  */
 export interface ValidationException
   extends __SmithyException,
@@ -173,17 +220,18 @@ export namespace ValidationException {
 }
 
 /**
- * The configuration for the agent to use.
+ * <p/>
  */
 export interface AgentConfiguration {
   __type?: "AgentConfiguration";
+  agentParameters?: { [key: string]: string };
   /**
-   * Specifies the period to follow the configuration (to profile or not) and call back to get a new configuration.
+   * <p/>
    */
   periodInSeconds: number | undefined;
 
   /**
-   * Specifies if the profiling should be enabled by the agent.
+   * <p/>
    */
   shouldProfile: boolean | undefined;
 }
@@ -197,17 +245,18 @@ export namespace AgentConfiguration {
 }
 
 /**
- * Request for ConfigureAgent operation.
+ * <p>The structure representing the configureAgentRequest.</p>
  */
 export interface ConfigureAgentRequest {
   __type?: "ConfigureAgentRequest";
   /**
-   * Identifier of the instance of  compute fleet being profiled by the agent. For instance, host name in EC2, task id for ECS, function name for AWS Lambda
+   * <p/>
    */
   fleetInstanceId?: string;
 
+  metadata?: { [key: string]: string };
   /**
-   * The name of the profiling group.
+   * <p/>
    */
   profilingGroupName: string | undefined;
 }
@@ -221,12 +270,12 @@ export namespace ConfigureAgentRequest {
 }
 
 /**
- * Response for ConfigureAgent operation.
+ * <p>The structure representing the configureAgentResponse.</p>
  */
 export interface ConfigureAgentResponse {
   __type?: "ConfigureAgentResponse";
   /**
-   * The configuration for the agent to use.
+   * <p/>
    */
   configuration: AgentConfiguration | undefined;
 }
@@ -239,14 +288,52 @@ export namespace ConfigureAgentResponse {
     __isa(o, "ConfigureAgentResponse");
 }
 
+export enum MetadataField {
+  /**
+   * Unique identifier for the agent instance.
+   */
+  AGENT_ID = "AgentId",
+  /**
+   * AWS requestId of the Lambda invocation.
+   */
+  AWS_REQUEST_ID = "AwsRequestId",
+  /**
+   * Compute platform on which agent is running.
+   */
+  COMPUTE_PLATFORM = "ComputePlatform",
+  /**
+   * Execution environment on which Lambda function is running.
+   */
+  EXECUTION_ENVIRONMENT = "ExecutionEnvironment",
+  /**
+   * Function ARN that's used to invoke the Lambda function.
+   */
+  LAMBDA_FUNCTION_ARN = "LambdaFunctionArn",
+  /**
+   * Memory allocated for the Lambda function.
+   */
+  LAMBDA_MEMORY_LIMIT_IN_MB = "LambdaMemoryLimitInMB",
+  /**
+   * Time in milliseconds for the previous Lambda invocation.
+   */
+  LAMBDA_PREVIOUS_EXECUTION_TIME_IN_MILLISECONDS = "LambdaPreviousExecutionTimeInMilliseconds",
+  /**
+   * Time in milliseconds left before the execution times out.
+   */
+  LAMBDA_REMAINING_TIME_IN_MILLISECONDS = "LambdaRemainingTimeInMilliseconds",
+  /**
+   * Time in milliseconds between two invocations of the Lambda function.
+   */
+  LAMBDA_TIME_GAP_BETWEEN_INVOKES_IN_MILLISECONDS = "LambdaTimeGapBetweenInvokesInMilliseconds"
+}
+
 /**
- * Configuration to orchestrate agents to create and report agent profiles of the profiling group.
- *   Agents are orchestrated if they follow the agent orchestration protocol.
+ * <p/>
  */
 export interface AgentOrchestrationConfig {
   __type?: "AgentOrchestrationConfig";
   /**
-   * If the agents should be enabled to create and report profiles.
+   * <p/>
    */
   profilingEnabled: boolean | undefined;
 }
@@ -260,23 +347,25 @@ export namespace AgentOrchestrationConfig {
 }
 
 /**
- * Request for CreateProfilingGroup operation.
+ * <p>The structure representing the createProfiliingGroupRequest.</p>
  */
 export interface CreateProfilingGroupRequest {
   __type?: "CreateProfilingGroupRequest";
   /**
-   * Configuration to orchestrate agents to create and report agent profiles of the profiling group.
-   *   Agents are orchestrated if they follow the agent orchestration protocol.
+   * <p>The agent orchestration configuration.</p>
    */
   agentOrchestrationConfig?: AgentOrchestrationConfig;
 
   /**
-   * Client token for the request.
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   *          <p>This parameter specifies a unique
+   *         identifier for the new profiling group that helps ensure idempotency.</p>
    */
   clientToken?: string;
 
+  computePlatform?: ComputePlatform | string;
   /**
-   * The name of the profiling group.
+   * <p>The name of the profiling group.</p>
    */
   profilingGroupName: string | undefined;
 }
@@ -292,12 +381,12 @@ export namespace CreateProfilingGroupRequest {
 }
 
 /**
- * Response for CreateProfilingGroup operation.
+ * <p>The structure representing the createProfilingGroupResponse.</p>
  */
 export interface CreateProfilingGroupResponse {
   __type?: "CreateProfilingGroupResponse";
   /**
-   * The description of a profiling group.
+   * <p>Information about the new profiling group</p>
    */
   profilingGroup: ProfilingGroupDescription | undefined;
 }
@@ -313,12 +402,12 @@ export namespace CreateProfilingGroupResponse {
 }
 
 /**
- * Request for DeleteProfilingGroup operation.
+ * <p>The structure representing the deleteProfilingGroupRequest.</p>
  */
 export interface DeleteProfilingGroupRequest {
   __type?: "DeleteProfilingGroupRequest";
   /**
-   * The name of the profiling group.
+   * <p>The profiling group name to delete.</p>
    */
   profilingGroupName: string | undefined;
 }
@@ -334,7 +423,7 @@ export namespace DeleteProfilingGroupRequest {
 }
 
 /**
- * Response for DeleteProfilingGroup operation.
+ * <p>The structure representing the deleteProfilingGroupResponse.</p>
  */
 export interface DeleteProfilingGroupResponse {
   __type?: "DeleteProfilingGroupResponse";
@@ -351,12 +440,12 @@ export namespace DeleteProfilingGroupResponse {
 }
 
 /**
- * Request for DescribeProfilingGroup operation.
+ * <p>The structure representing the describeProfilingGroupRequest.</p>
  */
 export interface DescribeProfilingGroupRequest {
   __type?: "DescribeProfilingGroupRequest";
   /**
-   * The name of the profiling group.
+   * <p>The profiling group name.</p>
    */
   profilingGroupName: string | undefined;
 }
@@ -372,12 +461,12 @@ export namespace DescribeProfilingGroupRequest {
 }
 
 /**
- * Response for DescribeProfilingGroup operation.
+ * <p>The structure representing the describeProfilingGroupResponse.</p>
  */
 export interface DescribeProfilingGroupResponse {
   __type?: "DescribeProfilingGroupResponse";
   /**
-   * The description of a profiling group.
+   * <p>Information about a profiling group.</p>
    */
   profilingGroup: ProfilingGroupDescription | undefined;
 }
@@ -393,22 +482,36 @@ export namespace DescribeProfilingGroupResponse {
 }
 
 /**
- * Request for ListProfilingGroups operation.
+ * <p>The structure representing the listProfilingGroupsRequest.</p>
  */
 export interface ListProfilingGroupsRequest {
   __type?: "ListProfilingGroupsRequest";
   /**
-   * If set to true, returns the full description of the profiling groups instead of the names. Defaults to false.
+   * <p>A Boolean value indicating whether to include a description.</p>
    */
   includeDescription?: boolean;
 
   /**
-   * Upper bound on the number of results to list in a single call.
+   * <p>The maximum number of profiling groups results returned by <code>ListProfilingGroups</code>
+   *          in paginated output. When this parameter is used, <code>ListProfilingGroups</code> only returns
+   *          <code>maxResults</code> results in a single page along with a <code>nextToken</code> response
+   *          element. The remaining results of the initial request
+   *          can be seen by sending another <code>ListProfilingGroups</code> request with the returned
+   *          <code>nextToken</code> value.
+   *       </p>
    */
   maxResults?: number;
 
   /**
-   * Token for paginating results.
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *          <code>ListProfilingGroups</code> request where <code>maxResults</code> was used and the results
+   *          exceeded the value of that parameter. Pagination continues from the end of the previous results
+   *          that returned the <code>nextToken</code> value.
+   *       </p>
+   *          <note>
+   *             <p>This token should be treated as an opaque identifier that is only used to retrieve
+   *          the next items in a list and not for other programmatic purposes.</p>
+   *          </note>
    */
   nextToken?: string;
 }
@@ -422,22 +525,25 @@ export namespace ListProfilingGroupsRequest {
 }
 
 /**
- * Response for ListProfilingGroups operation.
+ * <p>The structure representing the listProfilingGroupsResponse.</p>
  */
 export interface ListProfilingGroupsResponse {
   __type?: "ListProfilingGroupsResponse";
   /**
-   * Token for paginating results.
+   * <p>The <code>nextToken</code> value to include in a future <code>ListProfilingGroups</code> request.
+   *          When the results of a <code>ListProfilingGroups</code> request exceed <code>maxResults</code>, this
+   *          value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more
+   *          results to return. </p>
    */
   nextToken?: string;
 
   /**
-   * List of profiling group names.
+   * <p>Information about profiling group names.</p>
    */
   profilingGroupNames: string[] | undefined;
 
   /**
-   * List of profiling group descriptions.
+   * <p>Information about profiling groups.</p>
    */
   profilingGroups?: ProfilingGroupDescription[];
 }
@@ -453,38 +559,38 @@ export namespace ListProfilingGroupsResponse {
 }
 
 /**
- * The description of a profiling group.
+ * <p>The description of a profiling group.</p>
  */
 export interface ProfilingGroupDescription {
   __type?: "ProfilingGroupDescription";
   /**
-   * Configuration to orchestrate agents to create and report agent profiles of the profiling group.
-   *   Agents are orchestrated if they follow the agent orchestration protocol.
+   * <p/>
    */
   agentOrchestrationConfig?: AgentOrchestrationConfig;
 
   /**
-   * The ARN of the profiling group.
+   * <p>The Amazon Resource Name (ARN) identifying the profiling group.</p>
    */
   arn?: string;
 
+  computePlatform?: ComputePlatform | string;
   /**
-   * The timestamp of when the profiling group was created.
+   * <p>The time, in milliseconds since the epoch, when the profiling group was created.</p>
    */
   createdAt?: Date;
 
   /**
-   * The name of the profiling group.
+   * <p>The name of the profiling group.</p>
    */
   name?: string;
 
   /**
-   * The status of profiling of a profiling group.
+   * <p>The status of the profiling group.</p>
    */
   profilingStatus?: ProfilingStatus;
 
   /**
-   * The timestamp of when the profiling group was last updated.
+   * <p>The time, in milliseconds since the epoch, when the profiling group was last updated.</p>
    */
   updatedAt?: Date;
 }
@@ -498,22 +604,22 @@ export namespace ProfilingGroupDescription {
 }
 
 /**
- * The status of profiling of a profiling group.
+ * <p>Information about the profiling status.</p>
  */
 export interface ProfilingStatus {
   __type?: "ProfilingStatus";
   /**
-   * Timestamp of when the last interaction of the agent with configureAgent API for orchestration.
+   * <p>The time, in milliseconds since the epoch, when the latest agent was orchestrated.</p>
    */
   latestAgentOrchestratedAt?: Date;
 
   /**
-   * Timestamp of when the latest agent profile was successfully reported.
+   * <p>The time, in milliseconds since the epoch, when the latest agent was reported..</p>
    */
   latestAgentProfileReportedAt?: Date;
 
   /**
-   * The time range of latest aggregated profile available.
+   * <p>The latest aggregated profile</p>
    */
   latestAggregatedProfile?: AggregatedProfileTime;
 }
@@ -527,17 +633,17 @@ export namespace ProfilingStatus {
 }
 
 /**
- * Request for UpdateProfilingGroup operation.
+ * <p>The structure representing the updateProfilingGroupRequest.</p>
  */
 export interface UpdateProfilingGroupRequest {
   __type?: "UpdateProfilingGroupRequest";
   /**
-   * Remote configuration to configure the agents of the profiling group.
+   * <p/>
    */
   agentOrchestrationConfig: AgentOrchestrationConfig | undefined;
 
   /**
-   * The name of the profiling group.
+   * <p>The name of the profiling group to update.</p>
    */
   profilingGroupName: string | undefined;
 }
@@ -553,12 +659,12 @@ export namespace UpdateProfilingGroupRequest {
 }
 
 /**
- * Response for UpdateProfilingGroup operation.
+ * <p>The structure representing the updateProfilingGroupResponse.</p>
  */
 export interface UpdateProfilingGroupResponse {
   __type?: "UpdateProfilingGroupResponse";
   /**
-   * The description of a profiling group.
+   * <p>Updated information about the profiling group.</p>
    */
   profilingGroup: ProfilingGroupDescription | undefined;
 }
@@ -573,41 +679,217 @@ export namespace UpdateProfilingGroupResponse {
     __isa(o, "UpdateProfilingGroupResponse");
 }
 
+export enum ActionGroup {
+  /**
+   * Permission group type for Agent APIs - ConfigureAgent, PostAgentProfile
+   */
+  AGENT_PERMISSIONS = "agentPermissions"
+}
+
 /**
- * Request for GetProfile operation.
+ * <p>The structure representing the getPolicyRequest.</p>
  */
-export interface GetProfileRequest {
-  __type?: "GetProfileRequest";
+export interface GetPolicyRequest {
+  __type?: "GetPolicyRequest";
   /**
-   * The format of the profile to return. Supports application/json or application/x-amzn-ion.
-   *     Defaults to application/x-amzn-ion.
+   * <p>The name of the profiling group.</p>
    */
-  accept?: string;
+  profilingGroupName: string | undefined;
+}
+
+export namespace GetPolicyRequest {
+  export const filterSensitiveLog = (obj: GetPolicyRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetPolicyRequest =>
+    __isa(o, "GetPolicyRequest");
+}
+
+/**
+ * <p>The structure representing the getPolicyResponse.</p>
+ */
+export interface GetPolicyResponse {
+  __type?: "GetPolicyResponse";
+  /**
+   * <p>The resource-based policy attached to the <code>ProfilingGroup</code>.</p>
+   */
+  policy: string | undefined;
 
   /**
-   * The end time of the profile to get. Either period or endTime must be specified.
-   *     Must be greater than start and the overall time range to be in the past and not larger than a week.
+   * <p>A unique identifier for the current revision of the policy.</p>
    */
-  endTime?: Date;
+  revisionId: string | undefined;
+}
+
+export namespace GetPolicyResponse {
+  export const filterSensitiveLog = (obj: GetPolicyResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetPolicyResponse =>
+    __isa(o, "GetPolicyResponse");
+}
+
+/**
+ * <p>The structure representing the putPermissionRequest.</p>
+ */
+export interface PutPermissionRequest {
+  __type?: "PutPermissionRequest";
+  /**
+   * <p>The list of actions that the users and roles can perform on the profiling
+   *             group.</p>
+   */
+  actionGroup: ActionGroup | string | undefined;
 
   /**
-   * Limit the max depth of the profile.
+   * <p>The list of role and user ARNs or the accountId that needs access (wildcards are not
+   *             allowed).</p>
    */
-  maxDepth?: number;
+  principals: string[] | undefined;
 
   /**
-   * The period of the profile to get. Exactly two of `startTime`, `period` and `endTime` must be specified.
-   *     Must be positive and the overall time range to be in the past and not larger than a week.
-   */
-  period?: string;
-
-  /**
-   * The name of the profiling group.
+   * <p>The name of the profiling group.</p>
    */
   profilingGroupName: string | undefined;
 
   /**
-   * The start time of the profile to get.
+   * <p>A unique identifier for the current revision of the policy. This is required, if a
+   *             policy exists for the profiling group. This is not required when creating the policy for
+   *             the first time.</p>
+   */
+  revisionId?: string;
+}
+
+export namespace PutPermissionRequest {
+  export const filterSensitiveLog = (obj: PutPermissionRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is PutPermissionRequest =>
+    __isa(o, "PutPermissionRequest");
+}
+
+/**
+ * <p>The structure representing the putPermissionResponse.</p>
+ */
+export interface PutPermissionResponse {
+  __type?: "PutPermissionResponse";
+  /**
+   * <p>The resource-based policy.</p>
+   */
+  policy: string | undefined;
+
+  /**
+   * <p>A unique identifier for the current revision of the policy.</p>
+   */
+  revisionId: string | undefined;
+}
+
+export namespace PutPermissionResponse {
+  export const filterSensitiveLog = (obj: PutPermissionResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is PutPermissionResponse =>
+    __isa(o, "PutPermissionResponse");
+}
+
+/**
+ * <p>The structure representing the removePermissionRequest.</p>
+ */
+export interface RemovePermissionRequest {
+  __type?: "RemovePermissionRequest";
+  /**
+   * <p>The list of actions that the users and roles can perform on the profiling
+   *             group.</p>
+   */
+  actionGroup: ActionGroup | string | undefined;
+
+  /**
+   * <p>The name of the profiling group.</p>
+   */
+  profilingGroupName: string | undefined;
+
+  /**
+   * <p>A unique identifier for the current revision of the policy.</p>
+   */
+  revisionId: string | undefined;
+}
+
+export namespace RemovePermissionRequest {
+  export const filterSensitiveLog = (obj: RemovePermissionRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RemovePermissionRequest =>
+    __isa(o, "RemovePermissionRequest");
+}
+
+/**
+ * <p>The structure representing the removePermissionResponse.</p>
+ */
+export interface RemovePermissionResponse {
+  __type?: "RemovePermissionResponse";
+  /**
+   * <p>The resource-based policy.</p>
+   */
+  policy: string | undefined;
+
+  /**
+   * <p>A unique identifier for the current revision of the policy.</p>
+   */
+  revisionId: string | undefined;
+}
+
+export namespace RemovePermissionResponse {
+  export const filterSensitiveLog = (obj: RemovePermissionResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RemovePermissionResponse =>
+    __isa(o, "RemovePermissionResponse");
+}
+
+/**
+ * <p>The structure representing the getProfileRequest.</p>
+ */
+export interface GetProfileRequest {
+  __type?: "GetProfileRequest";
+  /**
+   * <p>The format of the profile to return. You can choose <code>application/json</code>
+   *         or the default <code>application/x-amzn-ion</code>.
+   *         </p>
+   */
+  accept?: string;
+
+  /**
+   * <p/>
+   *          <p>You must specify exactly two of the following parameters:
+   *         <code>startTime</code>, <code>period</code>, and <code>endTime</code>.
+   *       </p>
+   */
+  endTime?: Date;
+
+  /**
+   * <p>The maximum depth of the graph.</p>
+   */
+  maxDepth?: number;
+
+  /**
+   * <p>The period of the profile to get. The time range
+   *         must be in the past and not longer than one week.
+   *       </p>
+   *          <p>You must specify exactly two of the following parameters:
+   *         <code>startTime</code>, <code>period</code>, and <code>endTime</code>.
+   *       </p>
+   */
+  period?: string;
+
+  /**
+   * <p>The name of the profiling group to get.</p>
+   */
+  profilingGroupName: string | undefined;
+
+  /**
+   * <p>The start time of the profile to get.</p>
+   *          <p>You must specify exactly two of the following parameters:
+   *         <code>startTime</code>, <code>period</code>, and <code>endTime</code>.
+   *       </p>
    */
   startTime?: Date;
 }
@@ -621,23 +903,24 @@ export namespace GetProfileRequest {
 }
 
 /**
- * Response for GetProfile operation.
+ * <p>The structure representing the getProfileResponse.</p>
  */
 export interface GetProfileResponse {
   __type?: "GetProfileResponse";
   /**
-   * The content encoding of the profile in the payload.
+   * <p>The content encoding of the profile.</p>
    */
   contentEncoding?: string;
 
   /**
-   * The content type of the profile in the payload.
-   *     Will be application/json or application/x-amzn-ion based on Accept header in the request.
+   * <p>The content type of the profile in the payload. It is
+   *         either <code>application/json</code> or the default
+   *         <code>application/x-amzn-ion</code>.</p>
    */
   contentType: string | undefined;
 
   /**
-   * The profile representing the aggregation of agent profiles of the profiling group for a time range.
+   * <p>Information about the profile.</p>
    */
   profile: Uint8Array | undefined;
 }
@@ -651,43 +934,58 @@ export namespace GetProfileResponse {
 }
 
 /**
- * Request for ListProfileTimes operation.
+ * <p>The structure representing the listProfileTimesRequest.</p>
  */
 export interface ListProfileTimesRequest {
   __type?: "ListProfileTimesRequest";
   /**
-   * The end time of the time range to list profiles until.
+   * <p>The end time of the time range from which to list the profiles.</p>
    */
   endTime: Date | undefined;
 
   /**
-   * Upper bound on the number of results to list in a single call.
+   * <p>The maximum number of profile time results returned by <code>ListProfileTimes</code>
+   *          in paginated output. When this parameter is used, <code>ListProfileTimes</code> only returns
+   *          <code>maxResults</code> results in a single page with a <code>nextToken</code> response
+   *          element. The remaining results of the initial request
+   *          can be seen by sending another <code>ListProfileTimes</code> request with the returned
+   *          <code>nextToken</code> value.
+   *       </p>
    */
   maxResults?: number;
 
   /**
-   * Token for paginating results.
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *          <code>ListProfileTimes</code> request where <code>maxResults</code> was used and the results
+   *          exceeded the value of that parameter. Pagination continues from the end of the previous results
+   *          that returned the <code>nextToken</code> value.
+   *       </p>
+   *          <note>
+   *             <p>This token should be treated as an opaque identifier that is only used to retrieve
+   *          the next items in a list and not for other programmatic purposes.</p>
+   *          </note>
    */
   nextToken?: string;
 
   /**
-   * The order (ascending or descending by start time of the profile) to list the profiles by.
-   *     Defaults to TIMESTAMP_DESCENDING.
+   * <p>The order (ascending or descending by start time of the profile) to
+   *         use when listing profiles. Defaults to <code>TIMESTAMP_DESCENDING</code>.
+   *       </p>
    */
   orderBy?: OrderBy | string;
 
   /**
-   * The aggregation period to list the profiles for.
+   * <p>The aggregation period.</p>
    */
   period: AggregationPeriod | string | undefined;
 
   /**
-   * The name of the profiling group.
+   * <p>The name of the profiling group.</p>
    */
   profilingGroupName: string | undefined;
 
   /**
-   * The start time of the time range to list the profiles from.
+   * <p>The start time of the time range from which to list the profiles.</p>
    */
   startTime: Date | undefined;
 }
@@ -701,17 +999,22 @@ export namespace ListProfileTimesRequest {
 }
 
 /**
- * Response for ListProfileTimes operation.
+ * <p>The structure representing the listProfileTimesResponse.</p>
  */
 export interface ListProfileTimesResponse {
   __type?: "ListProfileTimesResponse";
   /**
-   * Token for paginating results.
+   * <p>The <code>nextToken</code> value to include in a future <code>ListProfileTimes</code> request.
+   *          When the results of a <code>ListProfileTimes</code> request exceed <code>maxResults</code>, this
+   *          value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more
+   *          results to return. </p>
    */
   nextToken?: string;
 
   /**
-   * List of start times of the available profiles for the aggregation period in the specified time range.
+   * <p>The list of start times of the available profiles for the aggregation
+   *         period in the specified time range.
+   *       </p>
    */
   profileTimes: ProfileTime[] | undefined;
 }
@@ -725,12 +1028,12 @@ export namespace ListProfileTimesResponse {
 }
 
 /**
- * Periods of time used for aggregation of profiles, represented using ISO 8601 format.
+ * <p>Information about the profile time.</p>
  */
 export interface ProfileTime {
   __type?: "ProfileTime";
   /**
-   * The start time of the profile.
+   * <p>The start time of the profile.</p>
    */
   start?: Date;
 }
@@ -743,29 +1046,27 @@ export namespace ProfileTime {
 }
 
 /**
- * Request for PostAgentProfile operation.
+ * <p>The structure representing the postAgentProfileRequest.</p>
  */
 export interface PostAgentProfileRequest {
   __type?: "PostAgentProfileRequest";
   /**
-   * The profile collected by an agent for a time range.
+   * <p/>
    */
   agentProfile: Uint8Array | undefined;
 
   /**
-   * The content type of the agent profile in the payload.
-   *     Recommended to send the profile gzipped with content-type application/octet-stream.
-   *     Other accepted values are application/x-amzn-ion and application/json for unzipped Ion and JSON respectively.
+   * <p/>
    */
   contentType: string | undefined;
 
   /**
-   * Client generated token to deduplicate the agent profile during aggregation.
+   * <p/>
    */
   profileToken?: string;
 
   /**
-   * The name of the profiling group.
+   * <p/>
    */
   profilingGroupName: string | undefined;
 }
@@ -779,7 +1080,7 @@ export namespace PostAgentProfileRequest {
 }
 
 /**
- * Response for PostAgentProfile operation.
+ * <p>The structure representing the postAgentProfileResponse.</p>
  */
 export interface PostAgentProfileResponse {
   __type?: "PostAgentProfileResponse";
@@ -791,4 +1092,55 @@ export namespace PostAgentProfileResponse {
   });
   export const isa = (o: any): o is PostAgentProfileResponse =>
     __isa(o, "PostAgentProfileResponse");
+}
+
+export interface FrameMetric {
+  __type?: "FrameMetric";
+  frameName: string | undefined;
+  threadStates: string[] | undefined;
+  type: MetricType | string | undefined;
+}
+
+export namespace FrameMetric {
+  export const filterSensitiveLog = (obj: FrameMetric): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is FrameMetric => __isa(o, "FrameMetric");
+}
+
+export interface RetrieveTimeSeriesRequest {
+  __type?: "RetrieveTimeSeriesRequest";
+  endTime?: Date;
+  frameMetrics?: FrameMetric[];
+  period?: string;
+  profilingGroupName: string | undefined;
+  startTime?: Date;
+  targetResolution?: AggregationPeriod | string;
+}
+
+export namespace RetrieveTimeSeriesRequest {
+  export const filterSensitiveLog = (obj: RetrieveTimeSeriesRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RetrieveTimeSeriesRequest =>
+    __isa(o, "RetrieveTimeSeriesRequest");
+}
+
+export interface RetrieveTimeSeriesResponse {
+  __type?: "RetrieveTimeSeriesResponse";
+  data: number[][] | undefined;
+  endTime: Date | undefined;
+  endTimes: Date[] | undefined;
+  frameMetrics: FrameMetric[] | undefined;
+  resolution: AggregationPeriod | string | undefined;
+  startTime: Date | undefined;
+  unprocessedEndTimes: { [key: string]: Date[] } | undefined;
+}
+
+export namespace RetrieveTimeSeriesResponse {
+  export const filterSensitiveLog = (obj: RetrieveTimeSeriesResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RetrieveTimeSeriesResponse =>
+    __isa(o, "RetrieveTimeSeriesResponse");
 }

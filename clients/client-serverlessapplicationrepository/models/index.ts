@@ -1025,6 +1025,48 @@ export namespace ListApplicationDependenciesResponse {
     __isa(o, "ListApplicationDependenciesResponse");
 }
 
+export interface ListApplicationsRequest {
+  __type?: "ListApplicationsRequest";
+  /**
+   * <p>The total number of items to return.</p>
+   */
+  MaxItems?: number;
+
+  /**
+   * <p>A token to specify where to start paginating.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListApplicationsRequest {
+  export const filterSensitiveLog = (obj: ListApplicationsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListApplicationsRequest =>
+    __isa(o, "ListApplicationsRequest");
+}
+
+export interface ListApplicationsResponse {
+  __type?: "ListApplicationsResponse";
+  /**
+   * <p>An array of application summaries.</p>
+   */
+  Applications?: ApplicationSummary[];
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListApplicationsResponse {
+  export const filterSensitiveLog = (obj: ListApplicationsResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListApplicationsResponse =>
+    __isa(o, "ListApplicationsResponse");
+}
+
 export interface ListApplicationVersionsRequest {
   __type?: "ListApplicationVersionsRequest";
   /**
@@ -1074,48 +1116,6 @@ export namespace ListApplicationVersionsResponse {
   });
   export const isa = (o: any): o is ListApplicationVersionsResponse =>
     __isa(o, "ListApplicationVersionsResponse");
-}
-
-export interface ListApplicationsRequest {
-  __type?: "ListApplicationsRequest";
-  /**
-   * <p>The total number of items to return.</p>
-   */
-  MaxItems?: number;
-
-  /**
-   * <p>A token to specify where to start paginating.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListApplicationsRequest {
-  export const filterSensitiveLog = (obj: ListApplicationsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListApplicationsRequest =>
-    __isa(o, "ListApplicationsRequest");
-}
-
-export interface ListApplicationsResponse {
-  __type?: "ListApplicationsResponse";
-  /**
-   * <p>An array of application summaries.</p>
-   */
-  Applications?: ApplicationSummary[];
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListApplicationsResponse {
-  export const filterSensitiveLog = (obj: ListApplicationsResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListApplicationsResponse =>
-    __isa(o, "ListApplicationsResponse");
 }
 
 /**

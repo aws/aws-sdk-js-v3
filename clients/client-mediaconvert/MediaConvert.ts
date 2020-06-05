@@ -656,41 +656,6 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
-   * Retrieve a JSON array of up to twenty of your job templates. This will return the templates themselves, not just a list of them. To retrieve the next twenty templates, use the nextToken string returned with the array
-   */
-  public listJobTemplates(
-    args: ListJobTemplatesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListJobTemplatesCommandOutput>;
-  public listJobTemplates(
-    args: ListJobTemplatesCommandInput,
-    cb: (err: any, data?: ListJobTemplatesCommandOutput) => void
-  ): void;
-  public listJobTemplates(
-    args: ListJobTemplatesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListJobTemplatesCommandOutput) => void
-  ): void;
-  public listJobTemplates(
-    args: ListJobTemplatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobTemplatesCommandOutput) => void),
-    cb?: (err: any, data?: ListJobTemplatesCommandOutput) => void
-  ): Promise<ListJobTemplatesCommandOutput> | void {
-    const command = new ListJobTemplatesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * Retrieve a JSON array of up to twenty of your most recently created jobs. This array includes in-process, completed, and errored jobs. This will return the jobs themselves, not just a list of the jobs. To retrieve the twenty next most recent jobs, use the nextToken string returned with the array.
    */
   public listJobs(
@@ -714,6 +679,41 @@ export class MediaConvert extends MediaConvertClient {
     cb?: (err: any, data?: ListJobsCommandOutput) => void
   ): Promise<ListJobsCommandOutput> | void {
     const command = new ListJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Retrieve a JSON array of up to twenty of your job templates. This will return the templates themselves, not just a list of them. To retrieve the next twenty templates, use the nextToken string returned with the array
+   */
+  public listJobTemplates(
+    args: ListJobTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobTemplatesCommandOutput>;
+  public listJobTemplates(
+    args: ListJobTemplatesCommandInput,
+    cb: (err: any, data?: ListJobTemplatesCommandOutput) => void
+  ): void;
+  public listJobTemplates(
+    args: ListJobTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListJobTemplatesCommandOutput) => void
+  ): void;
+  public listJobTemplates(
+    args: ListJobTemplatesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListJobTemplatesCommandOutput) => void),
+    cb?: (err: any, data?: ListJobTemplatesCommandOutput) => void
+  ): Promise<ListJobTemplatesCommandOutput> | void {
+    const command = new ListJobTemplatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

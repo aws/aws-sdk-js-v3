@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { GetSdkRequest, SdkResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetSdkCommand,
-  serializeAws_restJson1_1GetSdkCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetSdkCommand,
+  serializeAws_restJson1GetSdkCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetSdkCommand extends $Command<
     input: GetSdkCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetSdkCommand(input, context);
+    return serializeAws_restJson1GetSdkCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSdkCommandOutput> {
-    return deserializeAws_restJson1_1GetSdkCommand(output, context);
+    return deserializeAws_restJson1GetSdkCommand(output, context);
   }
 
   // Start section: command_body_extra

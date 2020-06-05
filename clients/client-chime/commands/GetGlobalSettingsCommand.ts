@@ -5,9 +5,9 @@ import {
 } from "../ChimeClient";
 import { GetGlobalSettingsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetGlobalSettingsCommand,
-  serializeAws_restJson1_1GetGlobalSettingsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetGlobalSettingsCommand,
+  serializeAws_restJson1GetGlobalSettingsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetGlobalSettingsCommand extends $Command<
     input: GetGlobalSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetGlobalSettingsCommand(input, context);
+    return serializeAws_restJson1GetGlobalSettingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetGlobalSettingsCommandOutput> {
-    return deserializeAws_restJson1_1GetGlobalSettingsCommand(output, context);
+    return deserializeAws_restJson1GetGlobalSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

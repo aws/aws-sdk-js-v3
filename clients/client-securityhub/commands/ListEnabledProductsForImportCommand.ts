@@ -8,9 +8,9 @@ import {
   ListEnabledProductsForImportResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListEnabledProductsForImportCommand,
-  serializeAws_restJson1_1ListEnabledProductsForImportCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListEnabledProductsForImportCommand,
+  serializeAws_restJson1ListEnabledProductsForImportCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListEnabledProductsForImportCommand extends $Command<
     input: ListEnabledProductsForImportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListEnabledProductsForImportCommand(
+    return serializeAws_restJson1ListEnabledProductsForImportCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListEnabledProductsForImportCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListEnabledProductsForImportCommandOutput> {
-    return deserializeAws_restJson1_1ListEnabledProductsForImportCommand(
+    return deserializeAws_restJson1ListEnabledProductsForImportCommand(
       output,
       context
     );

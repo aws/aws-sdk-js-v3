@@ -5,9 +5,9 @@ import {
 } from "../RAMClient";
 import { GetPermissionRequest, GetPermissionResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetPermissionCommand,
-  serializeAws_restJson1_1GetPermissionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetPermissionCommand,
+  serializeAws_restJson1GetPermissionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetPermissionCommand extends $Command<
     input: GetPermissionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetPermissionCommand(input, context);
+    return serializeAws_restJson1GetPermissionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPermissionCommandOutput> {
-    return deserializeAws_restJson1_1GetPermissionCommand(output, context);
+    return deserializeAws_restJson1GetPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,9 +5,9 @@ import {
 } from "../GlacierClient";
 import { ListVaultsInput, ListVaultsOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListVaultsCommand,
-  serializeAws_restJson1_1ListVaultsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListVaultsCommand,
+  serializeAws_restJson1ListVaultsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListVaultsCommand extends $Command<
     input: ListVaultsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListVaultsCommand(input, context);
+    return serializeAws_restJson1ListVaultsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListVaultsCommandOutput> {
-    return deserializeAws_restJson1_1ListVaultsCommand(output, context);
+    return deserializeAws_restJson1ListVaultsCommand(output, context);
   }
 
   // Start section: command_body_extra

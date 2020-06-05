@@ -5,9 +5,9 @@ import {
 } from "../QLDBClient";
 import { DeleteLedgerRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteLedgerCommand,
-  serializeAws_restJson1_1DeleteLedgerCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteLedgerCommand,
+  serializeAws_restJson1DeleteLedgerCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteLedgerCommand extends $Command<
     input: DeleteLedgerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteLedgerCommand(input, context);
+    return serializeAws_restJson1DeleteLedgerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLedgerCommandOutput> {
-    return deserializeAws_restJson1_1DeleteLedgerCommand(output, context);
+    return deserializeAws_restJson1DeleteLedgerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -8,9 +8,9 @@ import {
   GetVoiceTemplateResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetVoiceTemplateCommand,
-  serializeAws_restJson1_1GetVoiceTemplateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetVoiceTemplateCommand,
+  serializeAws_restJson1GetVoiceTemplateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetVoiceTemplateCommand extends $Command<
     input: GetVoiceTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetVoiceTemplateCommand(input, context);
+    return serializeAws_restJson1GetVoiceTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVoiceTemplateCommandOutput> {
-    return deserializeAws_restJson1_1GetVoiceTemplateCommand(output, context);
+    return deserializeAws_restJson1GetVoiceTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

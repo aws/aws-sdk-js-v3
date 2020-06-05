@@ -8,9 +8,9 @@ import {
   DescribeElasticsearchDomainResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeElasticsearchDomainCommand,
-  serializeAws_restJson1_1DescribeElasticsearchDomainCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeElasticsearchDomainCommand,
+  serializeAws_restJson1DescribeElasticsearchDomainCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeElasticsearchDomainCommand extends $Command<
     input: DescribeElasticsearchDomainCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeElasticsearchDomainCommand(
+    return serializeAws_restJson1DescribeElasticsearchDomainCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeElasticsearchDomainCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeElasticsearchDomainCommandOutput> {
-    return deserializeAws_restJson1_1DescribeElasticsearchDomainCommand(
+    return deserializeAws_restJson1DescribeElasticsearchDomainCommand(
       output,
       context
     );

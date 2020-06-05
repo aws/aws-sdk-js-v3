@@ -8,9 +8,9 @@ import {
   AddResourcePermissionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1AddResourcePermissionsCommand,
-  serializeAws_restJson1_1AddResourcePermissionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AddResourcePermissionsCommand,
+  serializeAws_restJson1AddResourcePermissionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class AddResourcePermissionsCommand extends $Command<
     input: AddResourcePermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AddResourcePermissionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1AddResourcePermissionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddResourcePermissionsCommandOutput> {
-    return deserializeAws_restJson1_1AddResourcePermissionsCommand(
+    return deserializeAws_restJson1AddResourcePermissionsCommand(
       output,
       context
     );

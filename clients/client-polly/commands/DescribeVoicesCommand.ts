@@ -5,9 +5,9 @@ import {
 } from "../PollyClient";
 import { DescribeVoicesInput, DescribeVoicesOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeVoicesCommand,
-  serializeAws_restJson1_1DescribeVoicesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeVoicesCommand,
+  serializeAws_restJson1DescribeVoicesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class DescribeVoicesCommand extends $Command<
     input: DescribeVoicesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeVoicesCommand(input, context);
+    return serializeAws_restJson1DescribeVoicesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVoicesCommandOutput> {
-    return deserializeAws_restJson1_1DescribeVoicesCommand(output, context);
+    return deserializeAws_restJson1DescribeVoicesCommand(output, context);
   }
 
   // Start section: command_body_extra

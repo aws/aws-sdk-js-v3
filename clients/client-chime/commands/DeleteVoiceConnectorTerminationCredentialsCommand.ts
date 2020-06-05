@@ -5,9 +5,9 @@ import {
 } from "../ChimeClient";
 import { DeleteVoiceConnectorTerminationCredentialsRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteVoiceConnectorTerminationCredentialsCommand,
-  serializeAws_restJson1_1DeleteVoiceConnectorTerminationCredentialsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteVoiceConnectorTerminationCredentialsCommand,
+  serializeAws_restJson1DeleteVoiceConnectorTerminationCredentialsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -72,7 +72,7 @@ export class DeleteVoiceConnectorTerminationCredentialsCommand extends $Command<
     input: DeleteVoiceConnectorTerminationCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteVoiceConnectorTerminationCredentialsCommand(
+    return serializeAws_restJson1DeleteVoiceConnectorTerminationCredentialsCommand(
       input,
       context
     );
@@ -82,7 +82,7 @@ export class DeleteVoiceConnectorTerminationCredentialsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVoiceConnectorTerminationCredentialsCommandOutput> {
-    return deserializeAws_restJson1_1DeleteVoiceConnectorTerminationCredentialsCommand(
+    return deserializeAws_restJson1DeleteVoiceConnectorTerminationCredentialsCommand(
       output,
       context
     );

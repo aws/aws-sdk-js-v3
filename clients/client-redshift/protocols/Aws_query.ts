@@ -1240,6 +1240,22 @@ export const serializeAws_queryDescribeClusterParametersCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryDescribeClustersCommand = async (
+  input: DescribeClustersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeClustersMessage(input, context),
+    Action: "DescribeClusters",
+    Version: "2012-12-01"
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryDescribeClusterSecurityGroupsCommand = async (
   input: DescribeClusterSecurityGroupsCommandInput,
   context: __SerdeContext
@@ -1320,22 +1336,6 @@ export const serializeAws_queryDescribeClusterVersionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeClustersCommand = async (
-  input: DescribeClustersCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
-  };
-  let body: any;
-  body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeClustersMessage(input, context),
-    Action: "DescribeClusters",
-    Version: "2012-12-01"
-  });
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_queryDescribeDefaultClusterParametersCommand = async (
   input: DescribeDefaultClusterParametersCommandInput,
   context: __SerdeContext
@@ -1371,22 +1371,6 @@ export const serializeAws_queryDescribeEventCategoriesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeEventSubscriptionsCommand = async (
-  input: DescribeEventSubscriptionsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
-  };
-  let body: any;
-  body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeEventSubscriptionsMessage(input, context),
-    Action: "DescribeEventSubscriptions",
-    Version: "2012-12-01"
-  });
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_queryDescribeEventsCommand = async (
   input: DescribeEventsCommandInput,
   context: __SerdeContext
@@ -1398,6 +1382,22 @@ export const serializeAws_queryDescribeEventsCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeEventsMessage(input, context),
     Action: "DescribeEvents",
+    Version: "2012-12-01"
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDescribeEventSubscriptionsCommand = async (
+  input: DescribeEventSubscriptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeEventSubscriptionsMessage(input, context),
+    Action: "DescribeEventSubscriptions",
     Version: "2012-12-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2106,7 +2106,7 @@ const deserializeAws_queryAcceptReservedNodeExchangeCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependentServiceUnavailableFault":
-    case "redshift.admin#DependentServiceUnavailableFault":
+    case "com.amazonaws.redshift#DependentServiceUnavailableFault":
       response = {
         ...(await deserializeAws_queryDependentServiceUnavailableFaultResponse(
           parsedOutput,
@@ -2117,7 +2117,7 @@ const deserializeAws_queryAcceptReservedNodeExchangeCommandError = async (
       };
       break;
     case "InvalidReservedNodeStateFault":
-    case "redshift.admin#InvalidReservedNodeStateFault":
+    case "com.amazonaws.redshift#InvalidReservedNodeStateFault":
       response = {
         ...(await deserializeAws_queryInvalidReservedNodeStateFaultResponse(
           parsedOutput,
@@ -2128,7 +2128,7 @@ const deserializeAws_queryAcceptReservedNodeExchangeCommandError = async (
       };
       break;
     case "ReservedNodeAlreadyExistsFault":
-    case "redshift.admin#ReservedNodeAlreadyExistsFault":
+    case "com.amazonaws.redshift#ReservedNodeAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryReservedNodeAlreadyExistsFaultResponse(
           parsedOutput,
@@ -2139,7 +2139,7 @@ const deserializeAws_queryAcceptReservedNodeExchangeCommandError = async (
       };
       break;
     case "ReservedNodeAlreadyMigratedFault":
-    case "redshift.admin#ReservedNodeAlreadyMigratedFault":
+    case "com.amazonaws.redshift#ReservedNodeAlreadyMigratedFault":
       response = {
         ...(await deserializeAws_queryReservedNodeAlreadyMigratedFaultResponse(
           parsedOutput,
@@ -2150,7 +2150,7 @@ const deserializeAws_queryAcceptReservedNodeExchangeCommandError = async (
       };
       break;
     case "ReservedNodeNotFoundFault":
-    case "redshift.admin#ReservedNodeNotFoundFault":
+    case "com.amazonaws.redshift#ReservedNodeNotFoundFault":
       response = {
         ...(await deserializeAws_queryReservedNodeNotFoundFaultResponse(
           parsedOutput,
@@ -2161,7 +2161,7 @@ const deserializeAws_queryAcceptReservedNodeExchangeCommandError = async (
       };
       break;
     case "ReservedNodeOfferingNotFoundFault":
-    case "redshift.admin#ReservedNodeOfferingNotFoundFault":
+    case "com.amazonaws.redshift#ReservedNodeOfferingNotFoundFault":
       response = {
         ...(await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(
           parsedOutput,
@@ -2172,7 +2172,7 @@ const deserializeAws_queryAcceptReservedNodeExchangeCommandError = async (
       };
       break;
     case "UnsupportedOperationFault":
-    case "redshift.admin#UnsupportedOperationFault":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
       response = {
         ...(await deserializeAws_queryUnsupportedOperationFaultResponse(
           parsedOutput,
@@ -2237,7 +2237,7 @@ const deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommandError = asy
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationAlreadyExistsFault":
-    case "redshift.admin#AuthorizationAlreadyExistsFault":
+    case "com.amazonaws.redshift#AuthorizationAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryAuthorizationAlreadyExistsFaultResponse(
           parsedOutput,
@@ -2248,7 +2248,7 @@ const deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommandError = asy
       };
       break;
     case "AuthorizationQuotaExceededFault":
-    case "redshift.admin#AuthorizationQuotaExceededFault":
+    case "com.amazonaws.redshift#AuthorizationQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryAuthorizationQuotaExceededFaultResponse(
           parsedOutput,
@@ -2259,7 +2259,7 @@ const deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommandError = asy
       };
       break;
     case "ClusterSecurityGroupNotFoundFault":
-    case "redshift.admin#ClusterSecurityGroupNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(
           parsedOutput,
@@ -2270,7 +2270,7 @@ const deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommandError = asy
       };
       break;
     case "InvalidClusterSecurityGroupStateFault":
-    case "redshift.admin#InvalidClusterSecurityGroupStateFault":
+    case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(
           parsedOutput,
@@ -2335,7 +2335,7 @@ const deserializeAws_queryAuthorizeSnapshotAccessCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationAlreadyExistsFault":
-    case "redshift.admin#AuthorizationAlreadyExistsFault":
+    case "com.amazonaws.redshift#AuthorizationAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryAuthorizationAlreadyExistsFaultResponse(
           parsedOutput,
@@ -2346,7 +2346,7 @@ const deserializeAws_queryAuthorizeSnapshotAccessCommandError = async (
       };
       break;
     case "AuthorizationQuotaExceededFault":
-    case "redshift.admin#AuthorizationQuotaExceededFault":
+    case "com.amazonaws.redshift#AuthorizationQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryAuthorizationQuotaExceededFaultResponse(
           parsedOutput,
@@ -2357,7 +2357,7 @@ const deserializeAws_queryAuthorizeSnapshotAccessCommandError = async (
       };
       break;
     case "ClusterSnapshotNotFoundFault":
-    case "redshift.admin#ClusterSnapshotNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
           parsedOutput,
@@ -2368,7 +2368,7 @@ const deserializeAws_queryAuthorizeSnapshotAccessCommandError = async (
       };
       break;
     case "DependentServiceRequestThrottlingFault":
-    case "redshift.admin#DependentServiceRequestThrottlingFault":
+    case "com.amazonaws.redshift#DependentServiceRequestThrottlingFault":
       response = {
         ...(await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
           parsedOutput,
@@ -2379,7 +2379,7 @@ const deserializeAws_queryAuthorizeSnapshotAccessCommandError = async (
       };
       break;
     case "InvalidClusterSnapshotStateFault":
-    case "redshift.admin#InvalidClusterSnapshotStateFault":
+    case "com.amazonaws.redshift#InvalidClusterSnapshotStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(
           parsedOutput,
@@ -2390,7 +2390,7 @@ const deserializeAws_queryAuthorizeSnapshotAccessCommandError = async (
       };
       break;
     case "LimitExceededFault":
-    case "redshift.admin#LimitExceededFault":
+    case "com.amazonaws.redshift#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(
           parsedOutput,
@@ -2455,7 +2455,7 @@ const deserializeAws_queryBatchDeleteClusterSnapshotsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BatchDeleteRequestSizeExceededFault":
-    case "redshift.admin#BatchDeleteRequestSizeExceededFault":
+    case "com.amazonaws.redshift#BatchDeleteRequestSizeExceededFault":
       response = {
         ...(await deserializeAws_queryBatchDeleteRequestSizeExceededFaultResponse(
           parsedOutput,
@@ -2520,7 +2520,7 @@ const deserializeAws_queryBatchModifyClusterSnapshotsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BatchModifyClusterSnapshotsLimitExceededFault":
-    case "redshift.admin#BatchModifyClusterSnapshotsLimitExceededFault":
+    case "com.amazonaws.redshift#BatchModifyClusterSnapshotsLimitExceededFault":
       response = {
         ...(await deserializeAws_queryBatchModifyClusterSnapshotsLimitExceededFaultResponse(
           parsedOutput,
@@ -2531,7 +2531,7 @@ const deserializeAws_queryBatchModifyClusterSnapshotsCommandError = async (
       };
       break;
     case "InvalidRetentionPeriodFault":
-    case "redshift.admin#InvalidRetentionPeriodFault":
+    case "com.amazonaws.redshift#InvalidRetentionPeriodFault":
       response = {
         ...(await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
           parsedOutput,
@@ -2593,7 +2593,7 @@ const deserializeAws_queryCancelResizeCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -2604,7 +2604,7 @@ const deserializeAws_queryCancelResizeCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "redshift.admin#InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
           parsedOutput,
@@ -2615,7 +2615,7 @@ const deserializeAws_queryCancelResizeCommandError = async (
       };
       break;
     case "ResizeNotFoundFault":
-    case "redshift.admin#ResizeNotFoundFault":
+    case "com.amazonaws.redshift#ResizeNotFoundFault":
       response = {
         ...(await deserializeAws_queryResizeNotFoundFaultResponse(
           parsedOutput,
@@ -2626,7 +2626,7 @@ const deserializeAws_queryCancelResizeCommandError = async (
       };
       break;
     case "UnsupportedOperationFault":
-    case "redshift.admin#UnsupportedOperationFault":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
       response = {
         ...(await deserializeAws_queryUnsupportedOperationFaultResponse(
           parsedOutput,
@@ -2688,7 +2688,7 @@ const deserializeAws_queryCopyClusterSnapshotCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterSnapshotAlreadyExistsFault":
-    case "redshift.admin#ClusterSnapshotAlreadyExistsFault":
+    case "com.amazonaws.redshift#ClusterSnapshotAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryClusterSnapshotAlreadyExistsFaultResponse(
           parsedOutput,
@@ -2699,7 +2699,7 @@ const deserializeAws_queryCopyClusterSnapshotCommandError = async (
       };
       break;
     case "ClusterSnapshotNotFoundFault":
-    case "redshift.admin#ClusterSnapshotNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
           parsedOutput,
@@ -2710,7 +2710,7 @@ const deserializeAws_queryCopyClusterSnapshotCommandError = async (
       };
       break;
     case "ClusterSnapshotQuotaExceededFault":
-    case "redshift.admin#ClusterSnapshotQuotaExceededFault":
+    case "com.amazonaws.redshift#ClusterSnapshotQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryClusterSnapshotQuotaExceededFaultResponse(
           parsedOutput,
@@ -2721,7 +2721,7 @@ const deserializeAws_queryCopyClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidClusterSnapshotStateFault":
-    case "redshift.admin#InvalidClusterSnapshotStateFault":
+    case "com.amazonaws.redshift#InvalidClusterSnapshotStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(
           parsedOutput,
@@ -2732,7 +2732,7 @@ const deserializeAws_queryCopyClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidRetentionPeriodFault":
-    case "redshift.admin#InvalidRetentionPeriodFault":
+    case "com.amazonaws.redshift#InvalidRetentionPeriodFault":
       response = {
         ...(await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
           parsedOutput,
@@ -2794,7 +2794,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterAlreadyExistsFault":
-    case "redshift.admin#ClusterAlreadyExistsFault":
+    case "com.amazonaws.redshift#ClusterAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryClusterAlreadyExistsFaultResponse(
           parsedOutput,
@@ -2805,7 +2805,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
       };
       break;
     case "ClusterParameterGroupNotFoundFault":
-    case "redshift.admin#ClusterParameterGroupNotFoundFault":
+    case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -2816,7 +2816,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
       };
       break;
     case "ClusterQuotaExceededFault":
-    case "redshift.admin#ClusterQuotaExceededFault":
+    case "com.amazonaws.redshift#ClusterQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryClusterQuotaExceededFaultResponse(
           parsedOutput,
@@ -2827,7 +2827,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
       };
       break;
     case "ClusterSecurityGroupNotFoundFault":
-    case "redshift.admin#ClusterSecurityGroupNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(
           parsedOutput,
@@ -2838,7 +2838,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
       };
       break;
     case "ClusterSubnetGroupNotFoundFault":
-    case "redshift.admin#ClusterSubnetGroupNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSubnetGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterSubnetGroupNotFoundFaultResponse(
           parsedOutput,
@@ -2849,7 +2849,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
       };
       break;
     case "DependentServiceRequestThrottlingFault":
-    case "redshift.admin#DependentServiceRequestThrottlingFault":
+    case "com.amazonaws.redshift#DependentServiceRequestThrottlingFault":
       response = {
         ...(await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
           parsedOutput,
@@ -2860,7 +2860,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
       };
       break;
     case "HsmClientCertificateNotFoundFault":
-    case "redshift.admin#HsmClientCertificateNotFoundFault":
+    case "com.amazonaws.redshift#HsmClientCertificateNotFoundFault":
       response = {
         ...(await deserializeAws_queryHsmClientCertificateNotFoundFaultResponse(
           parsedOutput,
@@ -2871,7 +2871,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
       };
       break;
     case "HsmConfigurationNotFoundFault":
-    case "redshift.admin#HsmConfigurationNotFoundFault":
+    case "com.amazonaws.redshift#HsmConfigurationNotFoundFault":
       response = {
         ...(await deserializeAws_queryHsmConfigurationNotFoundFaultResponse(
           parsedOutput,
@@ -2882,7 +2882,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
       };
       break;
     case "InsufficientClusterCapacityFault":
-    case "redshift.admin#InsufficientClusterCapacityFault":
+    case "com.amazonaws.redshift#InsufficientClusterCapacityFault":
       response = {
         ...(await deserializeAws_queryInsufficientClusterCapacityFaultResponse(
           parsedOutput,
@@ -2893,7 +2893,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
       };
       break;
     case "InvalidClusterSubnetGroupStateFault":
-    case "redshift.admin#InvalidClusterSubnetGroupStateFault":
+    case "com.amazonaws.redshift#InvalidClusterSubnetGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterSubnetGroupStateFaultResponse(
           parsedOutput,
@@ -2904,7 +2904,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
       };
       break;
     case "InvalidClusterTrackFault":
-    case "redshift.admin#InvalidClusterTrackFault":
+    case "com.amazonaws.redshift#InvalidClusterTrackFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterTrackFaultResponse(
           parsedOutput,
@@ -2915,7 +2915,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
       };
       break;
     case "InvalidElasticIpFault":
-    case "redshift.admin#InvalidElasticIpFault":
+    case "com.amazonaws.redshift#InvalidElasticIpFault":
       response = {
         ...(await deserializeAws_queryInvalidElasticIpFaultResponse(
           parsedOutput,
@@ -2926,7 +2926,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
       };
       break;
     case "InvalidRetentionPeriodFault":
-    case "redshift.admin#InvalidRetentionPeriodFault":
+    case "com.amazonaws.redshift#InvalidRetentionPeriodFault":
       response = {
         ...(await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
           parsedOutput,
@@ -2937,7 +2937,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
       };
       break;
     case "InvalidSubnet":
-    case "redshift.admin#InvalidSubnet":
+    case "com.amazonaws.redshift#InvalidSubnet":
       response = {
         ...(await deserializeAws_queryInvalidSubnetResponse(
           parsedOutput,
@@ -2948,7 +2948,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
       };
       break;
     case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
       response = {
         ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
@@ -2959,7 +2959,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
       };
       break;
     case "InvalidVPCNetworkStateFault":
-    case "redshift.admin#InvalidVPCNetworkStateFault":
+    case "com.amazonaws.redshift#InvalidVPCNetworkStateFault":
       response = {
         ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
           parsedOutput,
@@ -2970,7 +2970,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
       };
       break;
     case "LimitExceededFault":
-    case "redshift.admin#LimitExceededFault":
+    case "com.amazonaws.redshift#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(
           parsedOutput,
@@ -2981,7 +2981,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
       };
       break;
     case "NumberOfNodesPerClusterLimitExceededFault":
-    case "redshift.admin#NumberOfNodesPerClusterLimitExceededFault":
+    case "com.amazonaws.redshift#NumberOfNodesPerClusterLimitExceededFault":
       response = {
         ...(await deserializeAws_queryNumberOfNodesPerClusterLimitExceededFaultResponse(
           parsedOutput,
@@ -2992,7 +2992,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
       };
       break;
     case "NumberOfNodesQuotaExceededFault":
-    case "redshift.admin#NumberOfNodesQuotaExceededFault":
+    case "com.amazonaws.redshift#NumberOfNodesQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryNumberOfNodesQuotaExceededFaultResponse(
           parsedOutput,
@@ -3003,7 +3003,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
       };
       break;
     case "SnapshotScheduleNotFoundFault":
-    case "redshift.admin#SnapshotScheduleNotFoundFault":
+    case "com.amazonaws.redshift#SnapshotScheduleNotFoundFault":
       response = {
         ...(await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(
           parsedOutput,
@@ -3014,7 +3014,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
       };
       break;
     case "TagLimitExceededFault":
-    case "redshift.admin#TagLimitExceededFault":
+    case "com.amazonaws.redshift#TagLimitExceededFault":
       response = {
         ...(await deserializeAws_queryTagLimitExceededFaultResponse(
           parsedOutput,
@@ -3025,7 +3025,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "redshift.admin#UnauthorizedOperation":
+    case "com.amazonaws.redshift#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_queryUnauthorizedOperationResponse(
           parsedOutput,
@@ -3090,7 +3090,7 @@ const deserializeAws_queryCreateClusterParameterGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterParameterGroupAlreadyExistsFault":
-    case "redshift.admin#ClusterParameterGroupAlreadyExistsFault":
+    case "com.amazonaws.redshift#ClusterParameterGroupAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryClusterParameterGroupAlreadyExistsFaultResponse(
           parsedOutput,
@@ -3101,7 +3101,7 @@ const deserializeAws_queryCreateClusterParameterGroupCommandError = async (
       };
       break;
     case "ClusterParameterGroupQuotaExceededFault":
-    case "redshift.admin#ClusterParameterGroupQuotaExceededFault":
+    case "com.amazonaws.redshift#ClusterParameterGroupQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryClusterParameterGroupQuotaExceededFaultResponse(
           parsedOutput,
@@ -3112,7 +3112,7 @@ const deserializeAws_queryCreateClusterParameterGroupCommandError = async (
       };
       break;
     case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
       response = {
         ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
@@ -3123,7 +3123,7 @@ const deserializeAws_queryCreateClusterParameterGroupCommandError = async (
       };
       break;
     case "TagLimitExceededFault":
-    case "redshift.admin#TagLimitExceededFault":
+    case "com.amazonaws.redshift#TagLimitExceededFault":
       response = {
         ...(await deserializeAws_queryTagLimitExceededFaultResponse(
           parsedOutput,
@@ -3188,7 +3188,7 @@ const deserializeAws_queryCreateClusterSecurityGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterSecurityGroupAlreadyExistsFault":
-    case "redshift.admin#ClusterSecurityGroupAlreadyExistsFault":
+    case "com.amazonaws.redshift#ClusterSecurityGroupAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryClusterSecurityGroupAlreadyExistsFaultResponse(
           parsedOutput,
@@ -3199,7 +3199,7 @@ const deserializeAws_queryCreateClusterSecurityGroupCommandError = async (
       };
       break;
     case "ClusterSecurityGroupQuotaExceededFault":
-    case "redshift.admin#ClusterSecurityGroupQuotaExceededFault":
+    case "com.amazonaws.redshift#ClusterSecurityGroupQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryClusterSecurityGroupQuotaExceededFaultResponse(
           parsedOutput,
@@ -3210,7 +3210,7 @@ const deserializeAws_queryCreateClusterSecurityGroupCommandError = async (
       };
       break;
     case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
       response = {
         ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
@@ -3221,7 +3221,7 @@ const deserializeAws_queryCreateClusterSecurityGroupCommandError = async (
       };
       break;
     case "TagLimitExceededFault":
-    case "redshift.admin#TagLimitExceededFault":
+    case "com.amazonaws.redshift#TagLimitExceededFault":
       response = {
         ...(await deserializeAws_queryTagLimitExceededFaultResponse(
           parsedOutput,
@@ -3286,7 +3286,7 @@ const deserializeAws_queryCreateClusterSnapshotCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -3297,7 +3297,7 @@ const deserializeAws_queryCreateClusterSnapshotCommandError = async (
       };
       break;
     case "ClusterSnapshotAlreadyExistsFault":
-    case "redshift.admin#ClusterSnapshotAlreadyExistsFault":
+    case "com.amazonaws.redshift#ClusterSnapshotAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryClusterSnapshotAlreadyExistsFaultResponse(
           parsedOutput,
@@ -3308,7 +3308,7 @@ const deserializeAws_queryCreateClusterSnapshotCommandError = async (
       };
       break;
     case "ClusterSnapshotQuotaExceededFault":
-    case "redshift.admin#ClusterSnapshotQuotaExceededFault":
+    case "com.amazonaws.redshift#ClusterSnapshotQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryClusterSnapshotQuotaExceededFaultResponse(
           parsedOutput,
@@ -3319,7 +3319,7 @@ const deserializeAws_queryCreateClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "redshift.admin#InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
           parsedOutput,
@@ -3330,7 +3330,7 @@ const deserializeAws_queryCreateClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidRetentionPeriodFault":
-    case "redshift.admin#InvalidRetentionPeriodFault":
+    case "com.amazonaws.redshift#InvalidRetentionPeriodFault":
       response = {
         ...(await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
           parsedOutput,
@@ -3341,7 +3341,7 @@ const deserializeAws_queryCreateClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
       response = {
         ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
@@ -3352,7 +3352,7 @@ const deserializeAws_queryCreateClusterSnapshotCommandError = async (
       };
       break;
     case "TagLimitExceededFault":
-    case "redshift.admin#TagLimitExceededFault":
+    case "com.amazonaws.redshift#TagLimitExceededFault":
       response = {
         ...(await deserializeAws_queryTagLimitExceededFaultResponse(
           parsedOutput,
@@ -3417,7 +3417,7 @@ const deserializeAws_queryCreateClusterSubnetGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterSubnetGroupAlreadyExistsFault":
-    case "redshift.admin#ClusterSubnetGroupAlreadyExistsFault":
+    case "com.amazonaws.redshift#ClusterSubnetGroupAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryClusterSubnetGroupAlreadyExistsFaultResponse(
           parsedOutput,
@@ -3428,7 +3428,7 @@ const deserializeAws_queryCreateClusterSubnetGroupCommandError = async (
       };
       break;
     case "ClusterSubnetGroupQuotaExceededFault":
-    case "redshift.admin#ClusterSubnetGroupQuotaExceededFault":
+    case "com.amazonaws.redshift#ClusterSubnetGroupQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryClusterSubnetGroupQuotaExceededFaultResponse(
           parsedOutput,
@@ -3439,7 +3439,7 @@ const deserializeAws_queryCreateClusterSubnetGroupCommandError = async (
       };
       break;
     case "ClusterSubnetQuotaExceededFault":
-    case "redshift.admin#ClusterSubnetQuotaExceededFault":
+    case "com.amazonaws.redshift#ClusterSubnetQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryClusterSubnetQuotaExceededFaultResponse(
           parsedOutput,
@@ -3450,7 +3450,7 @@ const deserializeAws_queryCreateClusterSubnetGroupCommandError = async (
       };
       break;
     case "DependentServiceRequestThrottlingFault":
-    case "redshift.admin#DependentServiceRequestThrottlingFault":
+    case "com.amazonaws.redshift#DependentServiceRequestThrottlingFault":
       response = {
         ...(await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
           parsedOutput,
@@ -3461,7 +3461,7 @@ const deserializeAws_queryCreateClusterSubnetGroupCommandError = async (
       };
       break;
     case "InvalidSubnet":
-    case "redshift.admin#InvalidSubnet":
+    case "com.amazonaws.redshift#InvalidSubnet":
       response = {
         ...(await deserializeAws_queryInvalidSubnetResponse(
           parsedOutput,
@@ -3472,7 +3472,7 @@ const deserializeAws_queryCreateClusterSubnetGroupCommandError = async (
       };
       break;
     case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
       response = {
         ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
@@ -3483,7 +3483,7 @@ const deserializeAws_queryCreateClusterSubnetGroupCommandError = async (
       };
       break;
     case "TagLimitExceededFault":
-    case "redshift.admin#TagLimitExceededFault":
+    case "com.amazonaws.redshift#TagLimitExceededFault":
       response = {
         ...(await deserializeAws_queryTagLimitExceededFaultResponse(
           parsedOutput,
@@ -3494,7 +3494,7 @@ const deserializeAws_queryCreateClusterSubnetGroupCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "redshift.admin#UnauthorizedOperation":
+    case "com.amazonaws.redshift#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_queryUnauthorizedOperationResponse(
           parsedOutput,
@@ -3559,7 +3559,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EventSubscriptionQuotaExceededFault":
-    case "redshift.admin#EventSubscriptionQuotaExceededFault":
+    case "com.amazonaws.redshift#EventSubscriptionQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(
           parsedOutput,
@@ -3570,7 +3570,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
       };
       break;
     case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
       response = {
         ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
@@ -3581,7 +3581,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
       };
       break;
     case "SNSInvalidTopicFault":
-    case "redshift.admin#SNSInvalidTopicFault":
+    case "com.amazonaws.redshift#SNSInvalidTopicFault":
       response = {
         ...(await deserializeAws_querySNSInvalidTopicFaultResponse(
           parsedOutput,
@@ -3592,7 +3592,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
       };
       break;
     case "SNSNoAuthorizationFault":
-    case "redshift.admin#SNSNoAuthorizationFault":
+    case "com.amazonaws.redshift#SNSNoAuthorizationFault":
       response = {
         ...(await deserializeAws_querySNSNoAuthorizationFaultResponse(
           parsedOutput,
@@ -3603,7 +3603,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
       };
       break;
     case "SNSTopicArnNotFoundFault":
-    case "redshift.admin#SNSTopicArnNotFoundFault":
+    case "com.amazonaws.redshift#SNSTopicArnNotFoundFault":
       response = {
         ...(await deserializeAws_querySNSTopicArnNotFoundFaultResponse(
           parsedOutput,
@@ -3614,7 +3614,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
       };
       break;
     case "SourceNotFoundFault":
-    case "redshift.admin#SourceNotFoundFault":
+    case "com.amazonaws.redshift#SourceNotFoundFault":
       response = {
         ...(await deserializeAws_querySourceNotFoundFaultResponse(
           parsedOutput,
@@ -3625,7 +3625,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
       };
       break;
     case "SubscriptionAlreadyExistFault":
-    case "redshift.admin#SubscriptionAlreadyExistFault":
+    case "com.amazonaws.redshift#SubscriptionAlreadyExistFault":
       response = {
         ...(await deserializeAws_querySubscriptionAlreadyExistFaultResponse(
           parsedOutput,
@@ -3636,7 +3636,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
       };
       break;
     case "SubscriptionCategoryNotFoundFault":
-    case "redshift.admin#SubscriptionCategoryNotFoundFault":
+    case "com.amazonaws.redshift#SubscriptionCategoryNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(
           parsedOutput,
@@ -3647,7 +3647,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
       };
       break;
     case "SubscriptionEventIdNotFoundFault":
-    case "redshift.admin#SubscriptionEventIdNotFoundFault":
+    case "com.amazonaws.redshift#SubscriptionEventIdNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionEventIdNotFoundFaultResponse(
           parsedOutput,
@@ -3658,7 +3658,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
       };
       break;
     case "SubscriptionSeverityNotFoundFault":
-    case "redshift.admin#SubscriptionSeverityNotFoundFault":
+    case "com.amazonaws.redshift#SubscriptionSeverityNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionSeverityNotFoundFaultResponse(
           parsedOutput,
@@ -3669,7 +3669,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
       };
       break;
     case "TagLimitExceededFault":
-    case "redshift.admin#TagLimitExceededFault":
+    case "com.amazonaws.redshift#TagLimitExceededFault":
       response = {
         ...(await deserializeAws_queryTagLimitExceededFaultResponse(
           parsedOutput,
@@ -3734,7 +3734,7 @@ const deserializeAws_queryCreateHsmClientCertificateCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HsmClientCertificateAlreadyExistsFault":
-    case "redshift.admin#HsmClientCertificateAlreadyExistsFault":
+    case "com.amazonaws.redshift#HsmClientCertificateAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryHsmClientCertificateAlreadyExistsFaultResponse(
           parsedOutput,
@@ -3745,7 +3745,7 @@ const deserializeAws_queryCreateHsmClientCertificateCommandError = async (
       };
       break;
     case "HsmClientCertificateQuotaExceededFault":
-    case "redshift.admin#HsmClientCertificateQuotaExceededFault":
+    case "com.amazonaws.redshift#HsmClientCertificateQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryHsmClientCertificateQuotaExceededFaultResponse(
           parsedOutput,
@@ -3756,7 +3756,7 @@ const deserializeAws_queryCreateHsmClientCertificateCommandError = async (
       };
       break;
     case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
       response = {
         ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
@@ -3767,7 +3767,7 @@ const deserializeAws_queryCreateHsmClientCertificateCommandError = async (
       };
       break;
     case "TagLimitExceededFault":
-    case "redshift.admin#TagLimitExceededFault":
+    case "com.amazonaws.redshift#TagLimitExceededFault":
       response = {
         ...(await deserializeAws_queryTagLimitExceededFaultResponse(
           parsedOutput,
@@ -3832,7 +3832,7 @@ const deserializeAws_queryCreateHsmConfigurationCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HsmConfigurationAlreadyExistsFault":
-    case "redshift.admin#HsmConfigurationAlreadyExistsFault":
+    case "com.amazonaws.redshift#HsmConfigurationAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryHsmConfigurationAlreadyExistsFaultResponse(
           parsedOutput,
@@ -3843,7 +3843,7 @@ const deserializeAws_queryCreateHsmConfigurationCommandError = async (
       };
       break;
     case "HsmConfigurationQuotaExceededFault":
-    case "redshift.admin#HsmConfigurationQuotaExceededFault":
+    case "com.amazonaws.redshift#HsmConfigurationQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryHsmConfigurationQuotaExceededFaultResponse(
           parsedOutput,
@@ -3854,7 +3854,7 @@ const deserializeAws_queryCreateHsmConfigurationCommandError = async (
       };
       break;
     case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
       response = {
         ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
@@ -3865,7 +3865,7 @@ const deserializeAws_queryCreateHsmConfigurationCommandError = async (
       };
       break;
     case "TagLimitExceededFault":
-    case "redshift.admin#TagLimitExceededFault":
+    case "com.amazonaws.redshift#TagLimitExceededFault":
       response = {
         ...(await deserializeAws_queryTagLimitExceededFaultResponse(
           parsedOutput,
@@ -3929,19 +3929,8 @@ const deserializeAws_queryCreateScheduledActionCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidScheduleFault":
-    case "redshift.admin#InvalidScheduleFault":
-      response = {
-        ...(await deserializeAws_queryInvalidScheduleFaultResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InvalidScheduledActionFault":
-    case "redshift.admin#InvalidScheduledActionFault":
+    case "com.amazonaws.redshift#InvalidScheduledActionFault":
       response = {
         ...(await deserializeAws_queryInvalidScheduledActionFaultResponse(
           parsedOutput,
@@ -3951,8 +3940,19 @@ const deserializeAws_queryCreateScheduledActionCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidScheduleFault":
+    case "com.amazonaws.redshift#InvalidScheduleFault":
+      response = {
+        ...(await deserializeAws_queryInvalidScheduleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ScheduledActionAlreadyExistsFault":
-    case "redshift.admin#ScheduledActionAlreadyExistsFault":
+    case "com.amazonaws.redshift#ScheduledActionAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryScheduledActionAlreadyExistsFaultResponse(
           parsedOutput,
@@ -3963,7 +3963,7 @@ const deserializeAws_queryCreateScheduledActionCommandError = async (
       };
       break;
     case "ScheduledActionQuotaExceededFault":
-    case "redshift.admin#ScheduledActionQuotaExceededFault":
+    case "com.amazonaws.redshift#ScheduledActionQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryScheduledActionQuotaExceededFaultResponse(
           parsedOutput,
@@ -3974,7 +3974,7 @@ const deserializeAws_queryCreateScheduledActionCommandError = async (
       };
       break;
     case "ScheduledActionTypeUnsupportedFault":
-    case "redshift.admin#ScheduledActionTypeUnsupportedFault":
+    case "com.amazonaws.redshift#ScheduledActionTypeUnsupportedFault":
       response = {
         ...(await deserializeAws_queryScheduledActionTypeUnsupportedFaultResponse(
           parsedOutput,
@@ -3985,7 +3985,7 @@ const deserializeAws_queryCreateScheduledActionCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "redshift.admin#UnauthorizedOperation":
+    case "com.amazonaws.redshift#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_queryUnauthorizedOperationResponse(
           parsedOutput,
@@ -4050,7 +4050,7 @@ const deserializeAws_queryCreateSnapshotCopyGrantCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependentServiceRequestThrottlingFault":
-    case "redshift.admin#DependentServiceRequestThrottlingFault":
+    case "com.amazonaws.redshift#DependentServiceRequestThrottlingFault":
       response = {
         ...(await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
           parsedOutput,
@@ -4061,7 +4061,7 @@ const deserializeAws_queryCreateSnapshotCopyGrantCommandError = async (
       };
       break;
     case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
       response = {
         ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
@@ -4072,7 +4072,7 @@ const deserializeAws_queryCreateSnapshotCopyGrantCommandError = async (
       };
       break;
     case "LimitExceededFault":
-    case "redshift.admin#LimitExceededFault":
+    case "com.amazonaws.redshift#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(
           parsedOutput,
@@ -4083,7 +4083,7 @@ const deserializeAws_queryCreateSnapshotCopyGrantCommandError = async (
       };
       break;
     case "SnapshotCopyGrantAlreadyExistsFault":
-    case "redshift.admin#SnapshotCopyGrantAlreadyExistsFault":
+    case "com.amazonaws.redshift#SnapshotCopyGrantAlreadyExistsFault":
       response = {
         ...(await deserializeAws_querySnapshotCopyGrantAlreadyExistsFaultResponse(
           parsedOutput,
@@ -4094,7 +4094,7 @@ const deserializeAws_queryCreateSnapshotCopyGrantCommandError = async (
       };
       break;
     case "SnapshotCopyGrantQuotaExceededFault":
-    case "redshift.admin#SnapshotCopyGrantQuotaExceededFault":
+    case "com.amazonaws.redshift#SnapshotCopyGrantQuotaExceededFault":
       response = {
         ...(await deserializeAws_querySnapshotCopyGrantQuotaExceededFaultResponse(
           parsedOutput,
@@ -4105,7 +4105,7 @@ const deserializeAws_queryCreateSnapshotCopyGrantCommandError = async (
       };
       break;
     case "TagLimitExceededFault":
-    case "redshift.admin#TagLimitExceededFault":
+    case "com.amazonaws.redshift#TagLimitExceededFault":
       response = {
         ...(await deserializeAws_queryTagLimitExceededFaultResponse(
           parsedOutput,
@@ -4170,7 +4170,7 @@ const deserializeAws_queryCreateSnapshotScheduleCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidScheduleFault":
-    case "redshift.admin#InvalidScheduleFault":
+    case "com.amazonaws.redshift#InvalidScheduleFault":
       response = {
         ...(await deserializeAws_queryInvalidScheduleFaultResponse(
           parsedOutput,
@@ -4181,7 +4181,7 @@ const deserializeAws_queryCreateSnapshotScheduleCommandError = async (
       };
       break;
     case "ScheduleDefinitionTypeUnsupportedFault":
-    case "redshift.admin#ScheduleDefinitionTypeUnsupportedFault":
+    case "com.amazonaws.redshift#ScheduleDefinitionTypeUnsupportedFault":
       response = {
         ...(await deserializeAws_queryScheduleDefinitionTypeUnsupportedFaultResponse(
           parsedOutput,
@@ -4192,7 +4192,7 @@ const deserializeAws_queryCreateSnapshotScheduleCommandError = async (
       };
       break;
     case "SnapshotScheduleAlreadyExistsFault":
-    case "redshift.admin#SnapshotScheduleAlreadyExistsFault":
+    case "com.amazonaws.redshift#SnapshotScheduleAlreadyExistsFault":
       response = {
         ...(await deserializeAws_querySnapshotScheduleAlreadyExistsFaultResponse(
           parsedOutput,
@@ -4203,7 +4203,7 @@ const deserializeAws_queryCreateSnapshotScheduleCommandError = async (
       };
       break;
     case "SnapshotScheduleQuotaExceededFault":
-    case "redshift.admin#SnapshotScheduleQuotaExceededFault":
+    case "com.amazonaws.redshift#SnapshotScheduleQuotaExceededFault":
       response = {
         ...(await deserializeAws_querySnapshotScheduleQuotaExceededFaultResponse(
           parsedOutput,
@@ -4214,7 +4214,7 @@ const deserializeAws_queryCreateSnapshotScheduleCommandError = async (
       };
       break;
     case "TagLimitExceededFault":
-    case "redshift.admin#TagLimitExceededFault":
+    case "com.amazonaws.redshift#TagLimitExceededFault":
       response = {
         ...(await deserializeAws_queryTagLimitExceededFaultResponse(
           parsedOutput,
@@ -4269,7 +4269,7 @@ const deserializeAws_queryCreateTagsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
       response = {
         ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
@@ -4280,7 +4280,7 @@ const deserializeAws_queryCreateTagsCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "redshift.admin#ResourceNotFoundFault":
+    case "com.amazonaws.redshift#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_queryResourceNotFoundFaultResponse(
           parsedOutput,
@@ -4291,7 +4291,7 @@ const deserializeAws_queryCreateTagsCommandError = async (
       };
       break;
     case "TagLimitExceededFault":
-    case "redshift.admin#TagLimitExceededFault":
+    case "com.amazonaws.redshift#TagLimitExceededFault":
       response = {
         ...(await deserializeAws_queryTagLimitExceededFaultResponse(
           parsedOutput,
@@ -4353,7 +4353,7 @@ const deserializeAws_queryDeleteClusterCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -4364,7 +4364,7 @@ const deserializeAws_queryDeleteClusterCommandError = async (
       };
       break;
     case "ClusterSnapshotAlreadyExistsFault":
-    case "redshift.admin#ClusterSnapshotAlreadyExistsFault":
+    case "com.amazonaws.redshift#ClusterSnapshotAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryClusterSnapshotAlreadyExistsFaultResponse(
           parsedOutput,
@@ -4375,7 +4375,7 @@ const deserializeAws_queryDeleteClusterCommandError = async (
       };
       break;
     case "ClusterSnapshotQuotaExceededFault":
-    case "redshift.admin#ClusterSnapshotQuotaExceededFault":
+    case "com.amazonaws.redshift#ClusterSnapshotQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryClusterSnapshotQuotaExceededFaultResponse(
           parsedOutput,
@@ -4386,7 +4386,7 @@ const deserializeAws_queryDeleteClusterCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "redshift.admin#InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
           parsedOutput,
@@ -4397,7 +4397,7 @@ const deserializeAws_queryDeleteClusterCommandError = async (
       };
       break;
     case "InvalidRetentionPeriodFault":
-    case "redshift.admin#InvalidRetentionPeriodFault":
+    case "com.amazonaws.redshift#InvalidRetentionPeriodFault":
       response = {
         ...(await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
           parsedOutput,
@@ -4455,7 +4455,7 @@ const deserializeAws_queryDeleteClusterParameterGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterParameterGroupNotFoundFault":
-    case "redshift.admin#ClusterParameterGroupNotFoundFault":
+    case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -4466,7 +4466,7 @@ const deserializeAws_queryDeleteClusterParameterGroupCommandError = async (
       };
       break;
     case "InvalidClusterParameterGroupStateFault":
-    case "redshift.admin#InvalidClusterParameterGroupStateFault":
+    case "com.amazonaws.redshift#InvalidClusterParameterGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterParameterGroupStateFaultResponse(
           parsedOutput,
@@ -4524,7 +4524,7 @@ const deserializeAws_queryDeleteClusterSecurityGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterSecurityGroupNotFoundFault":
-    case "redshift.admin#ClusterSecurityGroupNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(
           parsedOutput,
@@ -4535,7 +4535,7 @@ const deserializeAws_queryDeleteClusterSecurityGroupCommandError = async (
       };
       break;
     case "InvalidClusterSecurityGroupStateFault":
-    case "redshift.admin#InvalidClusterSecurityGroupStateFault":
+    case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(
           parsedOutput,
@@ -4600,7 +4600,7 @@ const deserializeAws_queryDeleteClusterSnapshotCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterSnapshotNotFoundFault":
-    case "redshift.admin#ClusterSnapshotNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
           parsedOutput,
@@ -4611,7 +4611,7 @@ const deserializeAws_queryDeleteClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidClusterSnapshotStateFault":
-    case "redshift.admin#InvalidClusterSnapshotStateFault":
+    case "com.amazonaws.redshift#InvalidClusterSnapshotStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(
           parsedOutput,
@@ -4669,7 +4669,7 @@ const deserializeAws_queryDeleteClusterSubnetGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterSubnetGroupNotFoundFault":
-    case "redshift.admin#ClusterSubnetGroupNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSubnetGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterSubnetGroupNotFoundFaultResponse(
           parsedOutput,
@@ -4680,7 +4680,7 @@ const deserializeAws_queryDeleteClusterSubnetGroupCommandError = async (
       };
       break;
     case "InvalidClusterSubnetGroupStateFault":
-    case "redshift.admin#InvalidClusterSubnetGroupStateFault":
+    case "com.amazonaws.redshift#InvalidClusterSubnetGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterSubnetGroupStateFaultResponse(
           parsedOutput,
@@ -4691,7 +4691,7 @@ const deserializeAws_queryDeleteClusterSubnetGroupCommandError = async (
       };
       break;
     case "InvalidClusterSubnetStateFault":
-    case "redshift.admin#InvalidClusterSubnetStateFault":
+    case "com.amazonaws.redshift#InvalidClusterSubnetStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterSubnetStateFaultResponse(
           parsedOutput,
@@ -4749,7 +4749,7 @@ const deserializeAws_queryDeleteEventSubscriptionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidSubscriptionStateFault":
-    case "redshift.admin#InvalidSubscriptionStateFault":
+    case "com.amazonaws.redshift#InvalidSubscriptionStateFault":
       response = {
         ...(await deserializeAws_queryInvalidSubscriptionStateFaultResponse(
           parsedOutput,
@@ -4760,7 +4760,7 @@ const deserializeAws_queryDeleteEventSubscriptionCommandError = async (
       };
       break;
     case "SubscriptionNotFoundFault":
-    case "redshift.admin#SubscriptionNotFoundFault":
+    case "com.amazonaws.redshift#SubscriptionNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(
           parsedOutput,
@@ -4818,7 +4818,7 @@ const deserializeAws_queryDeleteHsmClientCertificateCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HsmClientCertificateNotFoundFault":
-    case "redshift.admin#HsmClientCertificateNotFoundFault":
+    case "com.amazonaws.redshift#HsmClientCertificateNotFoundFault":
       response = {
         ...(await deserializeAws_queryHsmClientCertificateNotFoundFaultResponse(
           parsedOutput,
@@ -4829,7 +4829,7 @@ const deserializeAws_queryDeleteHsmClientCertificateCommandError = async (
       };
       break;
     case "InvalidHsmClientCertificateStateFault":
-    case "redshift.admin#InvalidHsmClientCertificateStateFault":
+    case "com.amazonaws.redshift#InvalidHsmClientCertificateStateFault":
       response = {
         ...(await deserializeAws_queryInvalidHsmClientCertificateStateFaultResponse(
           parsedOutput,
@@ -4887,7 +4887,7 @@ const deserializeAws_queryDeleteHsmConfigurationCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HsmConfigurationNotFoundFault":
-    case "redshift.admin#HsmConfigurationNotFoundFault":
+    case "com.amazonaws.redshift#HsmConfigurationNotFoundFault":
       response = {
         ...(await deserializeAws_queryHsmConfigurationNotFoundFaultResponse(
           parsedOutput,
@@ -4898,7 +4898,7 @@ const deserializeAws_queryDeleteHsmConfigurationCommandError = async (
       };
       break;
     case "InvalidHsmConfigurationStateFault":
-    case "redshift.admin#InvalidHsmConfigurationStateFault":
+    case "com.amazonaws.redshift#InvalidHsmConfigurationStateFault":
       response = {
         ...(await deserializeAws_queryInvalidHsmConfigurationStateFaultResponse(
           parsedOutput,
@@ -4956,7 +4956,7 @@ const deserializeAws_queryDeleteScheduledActionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ScheduledActionNotFoundFault":
-    case "redshift.admin#ScheduledActionNotFoundFault":
+    case "com.amazonaws.redshift#ScheduledActionNotFoundFault":
       response = {
         ...(await deserializeAws_queryScheduledActionNotFoundFaultResponse(
           parsedOutput,
@@ -4967,7 +4967,7 @@ const deserializeAws_queryDeleteScheduledActionCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "redshift.admin#UnauthorizedOperation":
+    case "com.amazonaws.redshift#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_queryUnauthorizedOperationResponse(
           parsedOutput,
@@ -5025,7 +5025,7 @@ const deserializeAws_queryDeleteSnapshotCopyGrantCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidSnapshotCopyGrantStateFault":
-    case "redshift.admin#InvalidSnapshotCopyGrantStateFault":
+    case "com.amazonaws.redshift#InvalidSnapshotCopyGrantStateFault":
       response = {
         ...(await deserializeAws_queryInvalidSnapshotCopyGrantStateFaultResponse(
           parsedOutput,
@@ -5036,7 +5036,7 @@ const deserializeAws_queryDeleteSnapshotCopyGrantCommandError = async (
       };
       break;
     case "SnapshotCopyGrantNotFoundFault":
-    case "redshift.admin#SnapshotCopyGrantNotFoundFault":
+    case "com.amazonaws.redshift#SnapshotCopyGrantNotFoundFault":
       response = {
         ...(await deserializeAws_querySnapshotCopyGrantNotFoundFaultResponse(
           parsedOutput,
@@ -5094,7 +5094,7 @@ const deserializeAws_queryDeleteSnapshotScheduleCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidClusterSnapshotScheduleStateFault":
-    case "redshift.admin#InvalidClusterSnapshotScheduleStateFault":
+    case "com.amazonaws.redshift#InvalidClusterSnapshotScheduleStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterSnapshotScheduleStateFaultResponse(
           parsedOutput,
@@ -5105,7 +5105,7 @@ const deserializeAws_queryDeleteSnapshotScheduleCommandError = async (
       };
       break;
     case "SnapshotScheduleNotFoundFault":
-    case "redshift.admin#SnapshotScheduleNotFoundFault":
+    case "com.amazonaws.redshift#SnapshotScheduleNotFoundFault":
       response = {
         ...(await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(
           parsedOutput,
@@ -5160,7 +5160,7 @@ const deserializeAws_queryDeleteTagsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
       response = {
         ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
@@ -5171,7 +5171,7 @@ const deserializeAws_queryDeleteTagsCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "redshift.admin#ResourceNotFoundFault":
+    case "com.amazonaws.redshift#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_queryResourceNotFoundFaultResponse(
           parsedOutput,
@@ -5290,7 +5290,7 @@ const deserializeAws_queryDescribeClusterDbRevisionsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -5301,7 +5301,7 @@ const deserializeAws_queryDescribeClusterDbRevisionsCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "redshift.admin#InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
           parsedOutput,
@@ -5366,7 +5366,7 @@ const deserializeAws_queryDescribeClusterParameterGroupsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterParameterGroupNotFoundFault":
-    case "redshift.admin#ClusterParameterGroupNotFoundFault":
+    case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -5377,7 +5377,7 @@ const deserializeAws_queryDescribeClusterParameterGroupsCommandError = async (
       };
       break;
     case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
       response = {
         ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
@@ -5442,9 +5442,82 @@ const deserializeAws_queryDescribeClusterParametersCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterParameterGroupNotFoundFault":
-    case "redshift.admin#ClusterParameterGroupNotFoundFault":
+    case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDescribeClustersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClustersCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_queryDescribeClustersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryClustersMessage(
+    data.DescribeClustersResult,
+    context
+  );
+  const response: DescribeClustersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ClustersMessage",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeClustersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClustersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
           context
         )),
@@ -5507,7 +5580,7 @@ const deserializeAws_queryDescribeClusterSecurityGroupsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterSecurityGroupNotFoundFault":
-    case "redshift.admin#ClusterSecurityGroupNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(
           parsedOutput,
@@ -5518,7 +5591,7 @@ const deserializeAws_queryDescribeClusterSecurityGroupsCommandError = async (
       };
       break;
     case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
       response = {
         ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
@@ -5583,7 +5656,7 @@ const deserializeAws_queryDescribeClusterSnapshotsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -5594,7 +5667,7 @@ const deserializeAws_queryDescribeClusterSnapshotsCommandError = async (
       };
       break;
     case "ClusterSnapshotNotFoundFault":
-    case "redshift.admin#ClusterSnapshotNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
           parsedOutput,
@@ -5605,7 +5678,7 @@ const deserializeAws_queryDescribeClusterSnapshotsCommandError = async (
       };
       break;
     case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
       response = {
         ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
@@ -5670,7 +5743,7 @@ const deserializeAws_queryDescribeClusterSubnetGroupsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterSubnetGroupNotFoundFault":
-    case "redshift.admin#ClusterSubnetGroupNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSubnetGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterSubnetGroupNotFoundFaultResponse(
           parsedOutput,
@@ -5681,7 +5754,7 @@ const deserializeAws_queryDescribeClusterSubnetGroupsCommandError = async (
       };
       break;
     case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
       response = {
         ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
@@ -5746,7 +5819,7 @@ const deserializeAws_queryDescribeClusterTracksCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidClusterTrackFault":
-    case "redshift.admin#InvalidClusterTrackFault":
+    case "com.amazonaws.redshift#InvalidClusterTrackFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterTrackFaultResponse(
           parsedOutput,
@@ -5757,7 +5830,7 @@ const deserializeAws_queryDescribeClusterTracksCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "redshift.admin#UnauthorizedOperation":
+    case "com.amazonaws.redshift#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_queryUnauthorizedOperationResponse(
           parsedOutput,
@@ -5821,79 +5894,6 @@ const deserializeAws_queryDescribeClusterVersionsCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_queryDescribeClustersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClustersCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeClustersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_queryClustersMessage(
-    data.DescribeClustersResult,
-    context
-  );
-  const response: DescribeClustersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "ClustersMessage",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_queryDescribeClustersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClustersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryClusterNotFoundFaultResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
-      response = {
-        ...(await deserializeAws_queryInvalidTagFaultResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -6020,6 +6020,57 @@ const deserializeAws_queryDescribeEventCategoriesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryDescribeEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_queryDescribeEventsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryEventsMessage(
+    data.DescribeEventsResult,
+    context
+  );
+  const response: DescribeEventsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "EventsMessage",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeEventsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryDescribeEventSubscriptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6057,7 +6108,7 @@ const deserializeAws_queryDescribeEventSubscriptionsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
       response = {
         ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
@@ -6068,7 +6119,7 @@ const deserializeAws_queryDescribeEventSubscriptionsCommandError = async (
       };
       break;
     case "SubscriptionNotFoundFault":
-    case "redshift.admin#SubscriptionNotFoundFault":
+    case "com.amazonaws.redshift#SubscriptionNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(
           parsedOutput,
@@ -6078,57 +6129,6 @@ const deserializeAws_queryDescribeEventSubscriptionsCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_queryDescribeEventsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeEventsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_queryEventsMessage(
-    data.DescribeEventsResult,
-    context
-  );
-  const response: DescribeEventsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "EventsMessage",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_queryDescribeEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -6184,7 +6184,7 @@ const deserializeAws_queryDescribeHsmClientCertificatesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HsmClientCertificateNotFoundFault":
-    case "redshift.admin#HsmClientCertificateNotFoundFault":
+    case "com.amazonaws.redshift#HsmClientCertificateNotFoundFault":
       response = {
         ...(await deserializeAws_queryHsmClientCertificateNotFoundFaultResponse(
           parsedOutput,
@@ -6195,7 +6195,7 @@ const deserializeAws_queryDescribeHsmClientCertificatesCommandError = async (
       };
       break;
     case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
       response = {
         ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
@@ -6260,7 +6260,7 @@ const deserializeAws_queryDescribeHsmConfigurationsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HsmConfigurationNotFoundFault":
-    case "redshift.admin#HsmConfigurationNotFoundFault":
+    case "com.amazonaws.redshift#HsmConfigurationNotFoundFault":
       response = {
         ...(await deserializeAws_queryHsmConfigurationNotFoundFaultResponse(
           parsedOutput,
@@ -6271,7 +6271,7 @@ const deserializeAws_queryDescribeHsmConfigurationsCommandError = async (
       };
       break;
     case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
       response = {
         ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
@@ -6336,7 +6336,7 @@ const deserializeAws_queryDescribeLoggingStatusCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -6401,7 +6401,7 @@ const deserializeAws_queryDescribeNodeConfigurationOptionsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessToSnapshotDeniedFault":
-    case "redshift.admin#AccessToSnapshotDeniedFault":
+    case "com.amazonaws.redshift#AccessToSnapshotDeniedFault":
       response = {
         ...(await deserializeAws_queryAccessToSnapshotDeniedFaultResponse(
           parsedOutput,
@@ -6412,7 +6412,7 @@ const deserializeAws_queryDescribeNodeConfigurationOptionsCommandError = async (
       };
       break;
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -6423,7 +6423,7 @@ const deserializeAws_queryDescribeNodeConfigurationOptionsCommandError = async (
       };
       break;
     case "ClusterSnapshotNotFoundFault":
-    case "redshift.admin#ClusterSnapshotNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
           parsedOutput,
@@ -6434,7 +6434,7 @@ const deserializeAws_queryDescribeNodeConfigurationOptionsCommandError = async (
       };
       break;
     case "InvalidClusterSnapshotStateFault":
-    case "redshift.admin#InvalidClusterSnapshotStateFault":
+    case "com.amazonaws.redshift#InvalidClusterSnapshotStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(
           parsedOutput,
@@ -6553,7 +6553,7 @@ const deserializeAws_queryDescribeReservedNodeOfferingsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependentServiceUnavailableFault":
-    case "redshift.admin#DependentServiceUnavailableFault":
+    case "com.amazonaws.redshift#DependentServiceUnavailableFault":
       response = {
         ...(await deserializeAws_queryDependentServiceUnavailableFaultResponse(
           parsedOutput,
@@ -6564,7 +6564,7 @@ const deserializeAws_queryDescribeReservedNodeOfferingsCommandError = async (
       };
       break;
     case "ReservedNodeOfferingNotFoundFault":
-    case "redshift.admin#ReservedNodeOfferingNotFoundFault":
+    case "com.amazonaws.redshift#ReservedNodeOfferingNotFoundFault":
       response = {
         ...(await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(
           parsedOutput,
@@ -6575,7 +6575,7 @@ const deserializeAws_queryDescribeReservedNodeOfferingsCommandError = async (
       };
       break;
     case "UnsupportedOperationFault":
-    case "redshift.admin#UnsupportedOperationFault":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
       response = {
         ...(await deserializeAws_queryUnsupportedOperationFaultResponse(
           parsedOutput,
@@ -6640,7 +6640,7 @@ const deserializeAws_queryDescribeReservedNodesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependentServiceUnavailableFault":
-    case "redshift.admin#DependentServiceUnavailableFault":
+    case "com.amazonaws.redshift#DependentServiceUnavailableFault":
       response = {
         ...(await deserializeAws_queryDependentServiceUnavailableFaultResponse(
           parsedOutput,
@@ -6651,7 +6651,7 @@ const deserializeAws_queryDescribeReservedNodesCommandError = async (
       };
       break;
     case "ReservedNodeNotFoundFault":
-    case "redshift.admin#ReservedNodeNotFoundFault":
+    case "com.amazonaws.redshift#ReservedNodeNotFoundFault":
       response = {
         ...(await deserializeAws_queryReservedNodeNotFoundFaultResponse(
           parsedOutput,
@@ -6713,7 +6713,7 @@ const deserializeAws_queryDescribeResizeCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -6724,7 +6724,7 @@ const deserializeAws_queryDescribeResizeCommandError = async (
       };
       break;
     case "ResizeNotFoundFault":
-    case "redshift.admin#ResizeNotFoundFault":
+    case "com.amazonaws.redshift#ResizeNotFoundFault":
       response = {
         ...(await deserializeAws_queryResizeNotFoundFaultResponse(
           parsedOutput,
@@ -6789,7 +6789,7 @@ const deserializeAws_queryDescribeScheduledActionsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ScheduledActionNotFoundFault":
-    case "redshift.admin#ScheduledActionNotFoundFault":
+    case "com.amazonaws.redshift#ScheduledActionNotFoundFault":
       response = {
         ...(await deserializeAws_queryScheduledActionNotFoundFaultResponse(
           parsedOutput,
@@ -6800,7 +6800,7 @@ const deserializeAws_queryDescribeScheduledActionsCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "redshift.admin#UnauthorizedOperation":
+    case "com.amazonaws.redshift#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_queryUnauthorizedOperationResponse(
           parsedOutput,
@@ -6865,7 +6865,7 @@ const deserializeAws_queryDescribeSnapshotCopyGrantsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
       response = {
         ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
@@ -6876,7 +6876,7 @@ const deserializeAws_queryDescribeSnapshotCopyGrantsCommandError = async (
       };
       break;
     case "SnapshotCopyGrantNotFoundFault":
-    case "redshift.admin#SnapshotCopyGrantNotFoundFault":
+    case "com.amazonaws.redshift#SnapshotCopyGrantNotFoundFault":
       response = {
         ...(await deserializeAws_querySnapshotCopyGrantNotFoundFaultResponse(
           parsedOutput,
@@ -7046,7 +7046,7 @@ const deserializeAws_queryDescribeTableRestoreStatusCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -7057,7 +7057,7 @@ const deserializeAws_queryDescribeTableRestoreStatusCommandError = async (
       };
       break;
     case "TableRestoreNotFoundFault":
-    case "redshift.admin#TableRestoreNotFoundFault":
+    case "com.amazonaws.redshift#TableRestoreNotFoundFault":
       response = {
         ...(await deserializeAws_queryTableRestoreNotFoundFaultResponse(
           parsedOutput,
@@ -7119,7 +7119,7 @@ const deserializeAws_queryDescribeTagsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
       response = {
         ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
@@ -7130,7 +7130,7 @@ const deserializeAws_queryDescribeTagsCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "redshift.admin#ResourceNotFoundFault":
+    case "com.amazonaws.redshift#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_queryResourceNotFoundFaultResponse(
           parsedOutput,
@@ -7192,7 +7192,7 @@ const deserializeAws_queryDisableLoggingCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -7254,7 +7254,7 @@ const deserializeAws_queryDisableSnapshotCopyCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -7265,7 +7265,7 @@ const deserializeAws_queryDisableSnapshotCopyCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "redshift.admin#InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
           parsedOutput,
@@ -7276,7 +7276,7 @@ const deserializeAws_queryDisableSnapshotCopyCommandError = async (
       };
       break;
     case "SnapshotCopyAlreadyDisabledFault":
-    case "redshift.admin#SnapshotCopyAlreadyDisabledFault":
+    case "com.amazonaws.redshift#SnapshotCopyAlreadyDisabledFault":
       response = {
         ...(await deserializeAws_querySnapshotCopyAlreadyDisabledFaultResponse(
           parsedOutput,
@@ -7287,7 +7287,7 @@ const deserializeAws_queryDisableSnapshotCopyCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "redshift.admin#UnauthorizedOperation":
+    case "com.amazonaws.redshift#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_queryUnauthorizedOperationResponse(
           parsedOutput,
@@ -7349,7 +7349,7 @@ const deserializeAws_queryEnableLoggingCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BucketNotFoundFault":
-    case "redshift.admin#BucketNotFoundFault":
+    case "com.amazonaws.redshift#BucketNotFoundFault":
       response = {
         ...(await deserializeAws_queryBucketNotFoundFaultResponse(
           parsedOutput,
@@ -7360,7 +7360,7 @@ const deserializeAws_queryEnableLoggingCommandError = async (
       };
       break;
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -7371,7 +7371,7 @@ const deserializeAws_queryEnableLoggingCommandError = async (
       };
       break;
     case "InsufficientS3BucketPolicyFault":
-    case "redshift.admin#InsufficientS3BucketPolicyFault":
+    case "com.amazonaws.redshift#InsufficientS3BucketPolicyFault":
       response = {
         ...(await deserializeAws_queryInsufficientS3BucketPolicyFaultResponse(
           parsedOutput,
@@ -7382,7 +7382,7 @@ const deserializeAws_queryEnableLoggingCommandError = async (
       };
       break;
     case "InvalidS3BucketNameFault":
-    case "redshift.admin#InvalidS3BucketNameFault":
+    case "com.amazonaws.redshift#InvalidS3BucketNameFault":
       response = {
         ...(await deserializeAws_queryInvalidS3BucketNameFaultResponse(
           parsedOutput,
@@ -7393,7 +7393,7 @@ const deserializeAws_queryEnableLoggingCommandError = async (
       };
       break;
     case "InvalidS3KeyPrefixFault":
-    case "redshift.admin#InvalidS3KeyPrefixFault":
+    case "com.amazonaws.redshift#InvalidS3KeyPrefixFault":
       response = {
         ...(await deserializeAws_queryInvalidS3KeyPrefixFaultResponse(
           parsedOutput,
@@ -7455,7 +7455,7 @@ const deserializeAws_queryEnableSnapshotCopyCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -7466,7 +7466,7 @@ const deserializeAws_queryEnableSnapshotCopyCommandError = async (
       };
       break;
     case "CopyToRegionDisabledFault":
-    case "redshift.admin#CopyToRegionDisabledFault":
+    case "com.amazonaws.redshift#CopyToRegionDisabledFault":
       response = {
         ...(await deserializeAws_queryCopyToRegionDisabledFaultResponse(
           parsedOutput,
@@ -7477,7 +7477,7 @@ const deserializeAws_queryEnableSnapshotCopyCommandError = async (
       };
       break;
     case "DependentServiceRequestThrottlingFault":
-    case "redshift.admin#DependentServiceRequestThrottlingFault":
+    case "com.amazonaws.redshift#DependentServiceRequestThrottlingFault":
       response = {
         ...(await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
           parsedOutput,
@@ -7488,7 +7488,7 @@ const deserializeAws_queryEnableSnapshotCopyCommandError = async (
       };
       break;
     case "IncompatibleOrderableOptions":
-    case "redshift.admin#IncompatibleOrderableOptions":
+    case "com.amazonaws.redshift#IncompatibleOrderableOptions":
       response = {
         ...(await deserializeAws_queryIncompatibleOrderableOptionsResponse(
           parsedOutput,
@@ -7499,7 +7499,7 @@ const deserializeAws_queryEnableSnapshotCopyCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "redshift.admin#InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
           parsedOutput,
@@ -7510,7 +7510,7 @@ const deserializeAws_queryEnableSnapshotCopyCommandError = async (
       };
       break;
     case "InvalidRetentionPeriodFault":
-    case "redshift.admin#InvalidRetentionPeriodFault":
+    case "com.amazonaws.redshift#InvalidRetentionPeriodFault":
       response = {
         ...(await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
           parsedOutput,
@@ -7521,7 +7521,7 @@ const deserializeAws_queryEnableSnapshotCopyCommandError = async (
       };
       break;
     case "LimitExceededFault":
-    case "redshift.admin#LimitExceededFault":
+    case "com.amazonaws.redshift#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(
           parsedOutput,
@@ -7532,7 +7532,7 @@ const deserializeAws_queryEnableSnapshotCopyCommandError = async (
       };
       break;
     case "SnapshotCopyAlreadyEnabledFault":
-    case "redshift.admin#SnapshotCopyAlreadyEnabledFault":
+    case "com.amazonaws.redshift#SnapshotCopyAlreadyEnabledFault":
       response = {
         ...(await deserializeAws_querySnapshotCopyAlreadyEnabledFaultResponse(
           parsedOutput,
@@ -7543,7 +7543,7 @@ const deserializeAws_queryEnableSnapshotCopyCommandError = async (
       };
       break;
     case "SnapshotCopyGrantNotFoundFault":
-    case "redshift.admin#SnapshotCopyGrantNotFoundFault":
+    case "com.amazonaws.redshift#SnapshotCopyGrantNotFoundFault":
       response = {
         ...(await deserializeAws_querySnapshotCopyGrantNotFoundFaultResponse(
           parsedOutput,
@@ -7554,7 +7554,7 @@ const deserializeAws_queryEnableSnapshotCopyCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "redshift.admin#UnauthorizedOperation":
+    case "com.amazonaws.redshift#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_queryUnauthorizedOperationResponse(
           parsedOutput,
@@ -7565,7 +7565,7 @@ const deserializeAws_queryEnableSnapshotCopyCommandError = async (
       };
       break;
     case "UnknownSnapshotCopyRegionFault":
-    case "redshift.admin#UnknownSnapshotCopyRegionFault":
+    case "com.amazonaws.redshift#UnknownSnapshotCopyRegionFault":
       response = {
         ...(await deserializeAws_queryUnknownSnapshotCopyRegionFaultResponse(
           parsedOutput,
@@ -7630,7 +7630,7 @@ const deserializeAws_queryGetClusterCredentialsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -7641,7 +7641,7 @@ const deserializeAws_queryGetClusterCredentialsCommandError = async (
       };
       break;
     case "UnsupportedOperationFault":
-    case "redshift.admin#UnsupportedOperationFault":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
       response = {
         ...(await deserializeAws_queryUnsupportedOperationFaultResponse(
           parsedOutput,
@@ -7706,7 +7706,7 @@ const deserializeAws_queryGetReservedNodeExchangeOfferingsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependentServiceUnavailableFault":
-    case "redshift.admin#DependentServiceUnavailableFault":
+    case "com.amazonaws.redshift#DependentServiceUnavailableFault":
       response = {
         ...(await deserializeAws_queryDependentServiceUnavailableFaultResponse(
           parsedOutput,
@@ -7717,7 +7717,7 @@ const deserializeAws_queryGetReservedNodeExchangeOfferingsCommandError = async (
       };
       break;
     case "InvalidReservedNodeStateFault":
-    case "redshift.admin#InvalidReservedNodeStateFault":
+    case "com.amazonaws.redshift#InvalidReservedNodeStateFault":
       response = {
         ...(await deserializeAws_queryInvalidReservedNodeStateFaultResponse(
           parsedOutput,
@@ -7728,7 +7728,7 @@ const deserializeAws_queryGetReservedNodeExchangeOfferingsCommandError = async (
       };
       break;
     case "ReservedNodeAlreadyMigratedFault":
-    case "redshift.admin#ReservedNodeAlreadyMigratedFault":
+    case "com.amazonaws.redshift#ReservedNodeAlreadyMigratedFault":
       response = {
         ...(await deserializeAws_queryReservedNodeAlreadyMigratedFaultResponse(
           parsedOutput,
@@ -7739,7 +7739,7 @@ const deserializeAws_queryGetReservedNodeExchangeOfferingsCommandError = async (
       };
       break;
     case "ReservedNodeNotFoundFault":
-    case "redshift.admin#ReservedNodeNotFoundFault":
+    case "com.amazonaws.redshift#ReservedNodeNotFoundFault":
       response = {
         ...(await deserializeAws_queryReservedNodeNotFoundFaultResponse(
           parsedOutput,
@@ -7750,7 +7750,7 @@ const deserializeAws_queryGetReservedNodeExchangeOfferingsCommandError = async (
       };
       break;
     case "ReservedNodeOfferingNotFoundFault":
-    case "redshift.admin#ReservedNodeOfferingNotFoundFault":
+    case "com.amazonaws.redshift#ReservedNodeOfferingNotFoundFault":
       response = {
         ...(await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(
           parsedOutput,
@@ -7761,7 +7761,7 @@ const deserializeAws_queryGetReservedNodeExchangeOfferingsCommandError = async (
       };
       break;
     case "UnsupportedOperationFault":
-    case "redshift.admin#UnsupportedOperationFault":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
       response = {
         ...(await deserializeAws_queryUnsupportedOperationFaultResponse(
           parsedOutput,
@@ -7823,7 +7823,7 @@ const deserializeAws_queryModifyClusterCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterAlreadyExistsFault":
-    case "redshift.admin#ClusterAlreadyExistsFault":
+    case "com.amazonaws.redshift#ClusterAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryClusterAlreadyExistsFaultResponse(
           parsedOutput,
@@ -7834,7 +7834,7 @@ const deserializeAws_queryModifyClusterCommandError = async (
       };
       break;
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -7845,7 +7845,7 @@ const deserializeAws_queryModifyClusterCommandError = async (
       };
       break;
     case "ClusterParameterGroupNotFoundFault":
-    case "redshift.admin#ClusterParameterGroupNotFoundFault":
+    case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -7856,7 +7856,7 @@ const deserializeAws_queryModifyClusterCommandError = async (
       };
       break;
     case "ClusterSecurityGroupNotFoundFault":
-    case "redshift.admin#ClusterSecurityGroupNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(
           parsedOutput,
@@ -7867,7 +7867,7 @@ const deserializeAws_queryModifyClusterCommandError = async (
       };
       break;
     case "DependentServiceRequestThrottlingFault":
-    case "redshift.admin#DependentServiceRequestThrottlingFault":
+    case "com.amazonaws.redshift#DependentServiceRequestThrottlingFault":
       response = {
         ...(await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
           parsedOutput,
@@ -7878,7 +7878,7 @@ const deserializeAws_queryModifyClusterCommandError = async (
       };
       break;
     case "HsmClientCertificateNotFoundFault":
-    case "redshift.admin#HsmClientCertificateNotFoundFault":
+    case "com.amazonaws.redshift#HsmClientCertificateNotFoundFault":
       response = {
         ...(await deserializeAws_queryHsmClientCertificateNotFoundFaultResponse(
           parsedOutput,
@@ -7889,7 +7889,7 @@ const deserializeAws_queryModifyClusterCommandError = async (
       };
       break;
     case "HsmConfigurationNotFoundFault":
-    case "redshift.admin#HsmConfigurationNotFoundFault":
+    case "com.amazonaws.redshift#HsmConfigurationNotFoundFault":
       response = {
         ...(await deserializeAws_queryHsmConfigurationNotFoundFaultResponse(
           parsedOutput,
@@ -7900,7 +7900,7 @@ const deserializeAws_queryModifyClusterCommandError = async (
       };
       break;
     case "InsufficientClusterCapacityFault":
-    case "redshift.admin#InsufficientClusterCapacityFault":
+    case "com.amazonaws.redshift#InsufficientClusterCapacityFault":
       response = {
         ...(await deserializeAws_queryInsufficientClusterCapacityFaultResponse(
           parsedOutput,
@@ -7911,7 +7911,7 @@ const deserializeAws_queryModifyClusterCommandError = async (
       };
       break;
     case "InvalidClusterSecurityGroupStateFault":
-    case "redshift.admin#InvalidClusterSecurityGroupStateFault":
+    case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(
           parsedOutput,
@@ -7922,7 +7922,7 @@ const deserializeAws_queryModifyClusterCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "redshift.admin#InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
           parsedOutput,
@@ -7933,7 +7933,7 @@ const deserializeAws_queryModifyClusterCommandError = async (
       };
       break;
     case "InvalidClusterTrackFault":
-    case "redshift.admin#InvalidClusterTrackFault":
+    case "com.amazonaws.redshift#InvalidClusterTrackFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterTrackFaultResponse(
           parsedOutput,
@@ -7944,7 +7944,7 @@ const deserializeAws_queryModifyClusterCommandError = async (
       };
       break;
     case "InvalidElasticIpFault":
-    case "redshift.admin#InvalidElasticIpFault":
+    case "com.amazonaws.redshift#InvalidElasticIpFault":
       response = {
         ...(await deserializeAws_queryInvalidElasticIpFaultResponse(
           parsedOutput,
@@ -7955,7 +7955,7 @@ const deserializeAws_queryModifyClusterCommandError = async (
       };
       break;
     case "InvalidRetentionPeriodFault":
-    case "redshift.admin#InvalidRetentionPeriodFault":
+    case "com.amazonaws.redshift#InvalidRetentionPeriodFault":
       response = {
         ...(await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
           parsedOutput,
@@ -7966,7 +7966,7 @@ const deserializeAws_queryModifyClusterCommandError = async (
       };
       break;
     case "LimitExceededFault":
-    case "redshift.admin#LimitExceededFault":
+    case "com.amazonaws.redshift#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(
           parsedOutput,
@@ -7977,7 +7977,7 @@ const deserializeAws_queryModifyClusterCommandError = async (
       };
       break;
     case "NumberOfNodesPerClusterLimitExceededFault":
-    case "redshift.admin#NumberOfNodesPerClusterLimitExceededFault":
+    case "com.amazonaws.redshift#NumberOfNodesPerClusterLimitExceededFault":
       response = {
         ...(await deserializeAws_queryNumberOfNodesPerClusterLimitExceededFaultResponse(
           parsedOutput,
@@ -7988,7 +7988,7 @@ const deserializeAws_queryModifyClusterCommandError = async (
       };
       break;
     case "NumberOfNodesQuotaExceededFault":
-    case "redshift.admin#NumberOfNodesQuotaExceededFault":
+    case "com.amazonaws.redshift#NumberOfNodesQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryNumberOfNodesQuotaExceededFaultResponse(
           parsedOutput,
@@ -7999,7 +7999,7 @@ const deserializeAws_queryModifyClusterCommandError = async (
       };
       break;
     case "TableLimitExceededFault":
-    case "redshift.admin#TableLimitExceededFault":
+    case "com.amazonaws.redshift#TableLimitExceededFault":
       response = {
         ...(await deserializeAws_queryTableLimitExceededFaultResponse(
           parsedOutput,
@@ -8010,7 +8010,7 @@ const deserializeAws_queryModifyClusterCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "redshift.admin#UnauthorizedOperation":
+    case "com.amazonaws.redshift#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_queryUnauthorizedOperationResponse(
           parsedOutput,
@@ -8021,7 +8021,7 @@ const deserializeAws_queryModifyClusterCommandError = async (
       };
       break;
     case "UnsupportedOptionFault":
-    case "redshift.admin#UnsupportedOptionFault":
+    case "com.amazonaws.redshift#UnsupportedOptionFault":
       response = {
         ...(await deserializeAws_queryUnsupportedOptionFaultResponse(
           parsedOutput,
@@ -8086,7 +8086,7 @@ const deserializeAws_queryModifyClusterDbRevisionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -8097,7 +8097,7 @@ const deserializeAws_queryModifyClusterDbRevisionCommandError = async (
       };
       break;
     case "ClusterOnLatestRevisionFault":
-    case "redshift.admin#ClusterOnLatestRevisionFault":
+    case "com.amazonaws.redshift#ClusterOnLatestRevisionFault":
       response = {
         ...(await deserializeAws_queryClusterOnLatestRevisionFaultResponse(
           parsedOutput,
@@ -8108,7 +8108,7 @@ const deserializeAws_queryModifyClusterDbRevisionCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "redshift.admin#InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
           parsedOutput,
@@ -8173,7 +8173,7 @@ const deserializeAws_queryModifyClusterIamRolesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -8184,7 +8184,7 @@ const deserializeAws_queryModifyClusterIamRolesCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "redshift.admin#InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
           parsedOutput,
@@ -8249,7 +8249,7 @@ const deserializeAws_queryModifyClusterMaintenanceCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -8314,7 +8314,7 @@ const deserializeAws_queryModifyClusterParameterGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterParameterGroupNotFoundFault":
-    case "redshift.admin#ClusterParameterGroupNotFoundFault":
+    case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -8325,7 +8325,7 @@ const deserializeAws_queryModifyClusterParameterGroupCommandError = async (
       };
       break;
     case "InvalidClusterParameterGroupStateFault":
-    case "redshift.admin#InvalidClusterParameterGroupStateFault":
+    case "com.amazonaws.redshift#InvalidClusterParameterGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterParameterGroupStateFaultResponse(
           parsedOutput,
@@ -8390,7 +8390,7 @@ const deserializeAws_queryModifyClusterSnapshotCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterSnapshotNotFoundFault":
-    case "redshift.admin#ClusterSnapshotNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
           parsedOutput,
@@ -8401,7 +8401,7 @@ const deserializeAws_queryModifyClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidClusterSnapshotStateFault":
-    case "redshift.admin#InvalidClusterSnapshotStateFault":
+    case "com.amazonaws.redshift#InvalidClusterSnapshotStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(
           parsedOutput,
@@ -8412,7 +8412,7 @@ const deserializeAws_queryModifyClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidRetentionPeriodFault":
-    case "redshift.admin#InvalidRetentionPeriodFault":
+    case "com.amazonaws.redshift#InvalidRetentionPeriodFault":
       response = {
         ...(await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
           parsedOutput,
@@ -8470,7 +8470,7 @@ const deserializeAws_queryModifyClusterSnapshotScheduleCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -8481,7 +8481,7 @@ const deserializeAws_queryModifyClusterSnapshotScheduleCommandError = async (
       };
       break;
     case "InvalidClusterSnapshotScheduleStateFault":
-    case "redshift.admin#InvalidClusterSnapshotScheduleStateFault":
+    case "com.amazonaws.redshift#InvalidClusterSnapshotScheduleStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterSnapshotScheduleStateFaultResponse(
           parsedOutput,
@@ -8492,7 +8492,7 @@ const deserializeAws_queryModifyClusterSnapshotScheduleCommandError = async (
       };
       break;
     case "SnapshotScheduleNotFoundFault":
-    case "redshift.admin#SnapshotScheduleNotFoundFault":
+    case "com.amazonaws.redshift#SnapshotScheduleNotFoundFault":
       response = {
         ...(await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(
           parsedOutput,
@@ -8557,7 +8557,7 @@ const deserializeAws_queryModifyClusterSubnetGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterSubnetGroupNotFoundFault":
-    case "redshift.admin#ClusterSubnetGroupNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSubnetGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterSubnetGroupNotFoundFaultResponse(
           parsedOutput,
@@ -8568,7 +8568,7 @@ const deserializeAws_queryModifyClusterSubnetGroupCommandError = async (
       };
       break;
     case "ClusterSubnetQuotaExceededFault":
-    case "redshift.admin#ClusterSubnetQuotaExceededFault":
+    case "com.amazonaws.redshift#ClusterSubnetQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryClusterSubnetQuotaExceededFaultResponse(
           parsedOutput,
@@ -8579,7 +8579,7 @@ const deserializeAws_queryModifyClusterSubnetGroupCommandError = async (
       };
       break;
     case "DependentServiceRequestThrottlingFault":
-    case "redshift.admin#DependentServiceRequestThrottlingFault":
+    case "com.amazonaws.redshift#DependentServiceRequestThrottlingFault":
       response = {
         ...(await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
           parsedOutput,
@@ -8590,7 +8590,7 @@ const deserializeAws_queryModifyClusterSubnetGroupCommandError = async (
       };
       break;
     case "InvalidSubnet":
-    case "redshift.admin#InvalidSubnet":
+    case "com.amazonaws.redshift#InvalidSubnet":
       response = {
         ...(await deserializeAws_queryInvalidSubnetResponse(
           parsedOutput,
@@ -8601,7 +8601,7 @@ const deserializeAws_queryModifyClusterSubnetGroupCommandError = async (
       };
       break;
     case "SubnetAlreadyInUse":
-    case "redshift.admin#SubnetAlreadyInUse":
+    case "com.amazonaws.redshift#SubnetAlreadyInUse":
       response = {
         ...(await deserializeAws_querySubnetAlreadyInUseResponse(
           parsedOutput,
@@ -8612,7 +8612,7 @@ const deserializeAws_queryModifyClusterSubnetGroupCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "redshift.admin#UnauthorizedOperation":
+    case "com.amazonaws.redshift#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_queryUnauthorizedOperationResponse(
           parsedOutput,
@@ -8677,7 +8677,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidSubscriptionStateFault":
-    case "redshift.admin#InvalidSubscriptionStateFault":
+    case "com.amazonaws.redshift#InvalidSubscriptionStateFault":
       response = {
         ...(await deserializeAws_queryInvalidSubscriptionStateFaultResponse(
           parsedOutput,
@@ -8688,7 +8688,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
       };
       break;
     case "SNSInvalidTopicFault":
-    case "redshift.admin#SNSInvalidTopicFault":
+    case "com.amazonaws.redshift#SNSInvalidTopicFault":
       response = {
         ...(await deserializeAws_querySNSInvalidTopicFaultResponse(
           parsedOutput,
@@ -8699,7 +8699,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
       };
       break;
     case "SNSNoAuthorizationFault":
-    case "redshift.admin#SNSNoAuthorizationFault":
+    case "com.amazonaws.redshift#SNSNoAuthorizationFault":
       response = {
         ...(await deserializeAws_querySNSNoAuthorizationFaultResponse(
           parsedOutput,
@@ -8710,7 +8710,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
       };
       break;
     case "SNSTopicArnNotFoundFault":
-    case "redshift.admin#SNSTopicArnNotFoundFault":
+    case "com.amazonaws.redshift#SNSTopicArnNotFoundFault":
       response = {
         ...(await deserializeAws_querySNSTopicArnNotFoundFaultResponse(
           parsedOutput,
@@ -8721,7 +8721,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
       };
       break;
     case "SourceNotFoundFault":
-    case "redshift.admin#SourceNotFoundFault":
+    case "com.amazonaws.redshift#SourceNotFoundFault":
       response = {
         ...(await deserializeAws_querySourceNotFoundFaultResponse(
           parsedOutput,
@@ -8732,7 +8732,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
       };
       break;
     case "SubscriptionCategoryNotFoundFault":
-    case "redshift.admin#SubscriptionCategoryNotFoundFault":
+    case "com.amazonaws.redshift#SubscriptionCategoryNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(
           parsedOutput,
@@ -8743,7 +8743,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
       };
       break;
     case "SubscriptionEventIdNotFoundFault":
-    case "redshift.admin#SubscriptionEventIdNotFoundFault":
+    case "com.amazonaws.redshift#SubscriptionEventIdNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionEventIdNotFoundFaultResponse(
           parsedOutput,
@@ -8754,7 +8754,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
       };
       break;
     case "SubscriptionNotFoundFault":
-    case "redshift.admin#SubscriptionNotFoundFault":
+    case "com.amazonaws.redshift#SubscriptionNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(
           parsedOutput,
@@ -8765,7 +8765,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
       };
       break;
     case "SubscriptionSeverityNotFoundFault":
-    case "redshift.admin#SubscriptionSeverityNotFoundFault":
+    case "com.amazonaws.redshift#SubscriptionSeverityNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionSeverityNotFoundFaultResponse(
           parsedOutput,
@@ -8829,19 +8829,8 @@ const deserializeAws_queryModifyScheduledActionCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidScheduleFault":
-    case "redshift.admin#InvalidScheduleFault":
-      response = {
-        ...(await deserializeAws_queryInvalidScheduleFaultResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InvalidScheduledActionFault":
-    case "redshift.admin#InvalidScheduledActionFault":
+    case "com.amazonaws.redshift#InvalidScheduledActionFault":
       response = {
         ...(await deserializeAws_queryInvalidScheduledActionFaultResponse(
           parsedOutput,
@@ -8851,8 +8840,19 @@ const deserializeAws_queryModifyScheduledActionCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidScheduleFault":
+    case "com.amazonaws.redshift#InvalidScheduleFault":
+      response = {
+        ...(await deserializeAws_queryInvalidScheduleFaultResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ScheduledActionNotFoundFault":
-    case "redshift.admin#ScheduledActionNotFoundFault":
+    case "com.amazonaws.redshift#ScheduledActionNotFoundFault":
       response = {
         ...(await deserializeAws_queryScheduledActionNotFoundFaultResponse(
           parsedOutput,
@@ -8863,7 +8863,7 @@ const deserializeAws_queryModifyScheduledActionCommandError = async (
       };
       break;
     case "ScheduledActionTypeUnsupportedFault":
-    case "redshift.admin#ScheduledActionTypeUnsupportedFault":
+    case "com.amazonaws.redshift#ScheduledActionTypeUnsupportedFault":
       response = {
         ...(await deserializeAws_queryScheduledActionTypeUnsupportedFaultResponse(
           parsedOutput,
@@ -8874,7 +8874,7 @@ const deserializeAws_queryModifyScheduledActionCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "redshift.admin#UnauthorizedOperation":
+    case "com.amazonaws.redshift#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_queryUnauthorizedOperationResponse(
           parsedOutput,
@@ -8939,7 +8939,7 @@ const deserializeAws_queryModifySnapshotCopyRetentionPeriodCommandError = async 
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -8950,7 +8950,7 @@ const deserializeAws_queryModifySnapshotCopyRetentionPeriodCommandError = async 
       };
       break;
     case "InvalidClusterStateFault":
-    case "redshift.admin#InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
           parsedOutput,
@@ -8961,7 +8961,7 @@ const deserializeAws_queryModifySnapshotCopyRetentionPeriodCommandError = async 
       };
       break;
     case "InvalidRetentionPeriodFault":
-    case "redshift.admin#InvalidRetentionPeriodFault":
+    case "com.amazonaws.redshift#InvalidRetentionPeriodFault":
       response = {
         ...(await deserializeAws_queryInvalidRetentionPeriodFaultResponse(
           parsedOutput,
@@ -8972,7 +8972,7 @@ const deserializeAws_queryModifySnapshotCopyRetentionPeriodCommandError = async 
       };
       break;
     case "SnapshotCopyDisabledFault":
-    case "redshift.admin#SnapshotCopyDisabledFault":
+    case "com.amazonaws.redshift#SnapshotCopyDisabledFault":
       response = {
         ...(await deserializeAws_querySnapshotCopyDisabledFaultResponse(
           parsedOutput,
@@ -8983,7 +8983,7 @@ const deserializeAws_queryModifySnapshotCopyRetentionPeriodCommandError = async 
       };
       break;
     case "UnauthorizedOperation":
-    case "redshift.admin#UnauthorizedOperation":
+    case "com.amazonaws.redshift#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_queryUnauthorizedOperationResponse(
           parsedOutput,
@@ -9048,7 +9048,7 @@ const deserializeAws_queryModifySnapshotScheduleCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidScheduleFault":
-    case "redshift.admin#InvalidScheduleFault":
+    case "com.amazonaws.redshift#InvalidScheduleFault":
       response = {
         ...(await deserializeAws_queryInvalidScheduleFaultResponse(
           parsedOutput,
@@ -9059,7 +9059,7 @@ const deserializeAws_queryModifySnapshotScheduleCommandError = async (
       };
       break;
     case "SnapshotScheduleNotFoundFault":
-    case "redshift.admin#SnapshotScheduleNotFoundFault":
+    case "com.amazonaws.redshift#SnapshotScheduleNotFoundFault":
       response = {
         ...(await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(
           parsedOutput,
@@ -9070,7 +9070,7 @@ const deserializeAws_queryModifySnapshotScheduleCommandError = async (
       };
       break;
     case "SnapshotScheduleUpdateInProgressFault":
-    case "redshift.admin#SnapshotScheduleUpdateInProgressFault":
+    case "com.amazonaws.redshift#SnapshotScheduleUpdateInProgressFault":
       response = {
         ...(await deserializeAws_querySnapshotScheduleUpdateInProgressFaultResponse(
           parsedOutput,
@@ -9135,7 +9135,7 @@ const deserializeAws_queryPurchaseReservedNodeOfferingCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ReservedNodeAlreadyExistsFault":
-    case "redshift.admin#ReservedNodeAlreadyExistsFault":
+    case "com.amazonaws.redshift#ReservedNodeAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryReservedNodeAlreadyExistsFaultResponse(
           parsedOutput,
@@ -9146,7 +9146,7 @@ const deserializeAws_queryPurchaseReservedNodeOfferingCommandError = async (
       };
       break;
     case "ReservedNodeOfferingNotFoundFault":
-    case "redshift.admin#ReservedNodeOfferingNotFoundFault":
+    case "com.amazonaws.redshift#ReservedNodeOfferingNotFoundFault":
       response = {
         ...(await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(
           parsedOutput,
@@ -9157,7 +9157,7 @@ const deserializeAws_queryPurchaseReservedNodeOfferingCommandError = async (
       };
       break;
     case "ReservedNodeQuotaExceededFault":
-    case "redshift.admin#ReservedNodeQuotaExceededFault":
+    case "com.amazonaws.redshift#ReservedNodeQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryReservedNodeQuotaExceededFaultResponse(
           parsedOutput,
@@ -9168,7 +9168,7 @@ const deserializeAws_queryPurchaseReservedNodeOfferingCommandError = async (
       };
       break;
     case "UnsupportedOperationFault":
-    case "redshift.admin#UnsupportedOperationFault":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
       response = {
         ...(await deserializeAws_queryUnsupportedOperationFaultResponse(
           parsedOutput,
@@ -9230,7 +9230,7 @@ const deserializeAws_queryRebootClusterCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -9241,7 +9241,7 @@ const deserializeAws_queryRebootClusterCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "redshift.admin#InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
           parsedOutput,
@@ -9306,7 +9306,7 @@ const deserializeAws_queryResetClusterParameterGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterParameterGroupNotFoundFault":
-    case "redshift.admin#ClusterParameterGroupNotFoundFault":
+    case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -9317,7 +9317,7 @@ const deserializeAws_queryResetClusterParameterGroupCommandError = async (
       };
       break;
     case "InvalidClusterParameterGroupStateFault":
-    case "redshift.admin#InvalidClusterParameterGroupStateFault":
+    case "com.amazonaws.redshift#InvalidClusterParameterGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterParameterGroupStateFaultResponse(
           parsedOutput,
@@ -9379,7 +9379,7 @@ const deserializeAws_queryResizeClusterCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -9390,7 +9390,7 @@ const deserializeAws_queryResizeClusterCommandError = async (
       };
       break;
     case "InsufficientClusterCapacityFault":
-    case "redshift.admin#InsufficientClusterCapacityFault":
+    case "com.amazonaws.redshift#InsufficientClusterCapacityFault":
       response = {
         ...(await deserializeAws_queryInsufficientClusterCapacityFaultResponse(
           parsedOutput,
@@ -9401,7 +9401,7 @@ const deserializeAws_queryResizeClusterCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "redshift.admin#InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
           parsedOutput,
@@ -9412,7 +9412,7 @@ const deserializeAws_queryResizeClusterCommandError = async (
       };
       break;
     case "LimitExceededFault":
-    case "redshift.admin#LimitExceededFault":
+    case "com.amazonaws.redshift#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(
           parsedOutput,
@@ -9423,7 +9423,7 @@ const deserializeAws_queryResizeClusterCommandError = async (
       };
       break;
     case "NumberOfNodesPerClusterLimitExceededFault":
-    case "redshift.admin#NumberOfNodesPerClusterLimitExceededFault":
+    case "com.amazonaws.redshift#NumberOfNodesPerClusterLimitExceededFault":
       response = {
         ...(await deserializeAws_queryNumberOfNodesPerClusterLimitExceededFaultResponse(
           parsedOutput,
@@ -9434,7 +9434,7 @@ const deserializeAws_queryResizeClusterCommandError = async (
       };
       break;
     case "NumberOfNodesQuotaExceededFault":
-    case "redshift.admin#NumberOfNodesQuotaExceededFault":
+    case "com.amazonaws.redshift#NumberOfNodesQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryNumberOfNodesQuotaExceededFaultResponse(
           parsedOutput,
@@ -9445,7 +9445,7 @@ const deserializeAws_queryResizeClusterCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "redshift.admin#UnauthorizedOperation":
+    case "com.amazonaws.redshift#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_queryUnauthorizedOperationResponse(
           parsedOutput,
@@ -9456,7 +9456,7 @@ const deserializeAws_queryResizeClusterCommandError = async (
       };
       break;
     case "UnsupportedOperationFault":
-    case "redshift.admin#UnsupportedOperationFault":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
       response = {
         ...(await deserializeAws_queryUnsupportedOperationFaultResponse(
           parsedOutput,
@@ -9467,7 +9467,7 @@ const deserializeAws_queryResizeClusterCommandError = async (
       };
       break;
     case "UnsupportedOptionFault":
-    case "redshift.admin#UnsupportedOptionFault":
+    case "com.amazonaws.redshift#UnsupportedOptionFault":
       response = {
         ...(await deserializeAws_queryUnsupportedOptionFaultResponse(
           parsedOutput,
@@ -9532,7 +9532,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessToSnapshotDeniedFault":
-    case "redshift.admin#AccessToSnapshotDeniedFault":
+    case "com.amazonaws.redshift#AccessToSnapshotDeniedFault":
       response = {
         ...(await deserializeAws_queryAccessToSnapshotDeniedFaultResponse(
           parsedOutput,
@@ -9543,7 +9543,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "ClusterAlreadyExistsFault":
-    case "redshift.admin#ClusterAlreadyExistsFault":
+    case "com.amazonaws.redshift#ClusterAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryClusterAlreadyExistsFaultResponse(
           parsedOutput,
@@ -9554,7 +9554,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "ClusterParameterGroupNotFoundFault":
-    case "redshift.admin#ClusterParameterGroupNotFoundFault":
+    case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -9565,7 +9565,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "ClusterQuotaExceededFault":
-    case "redshift.admin#ClusterQuotaExceededFault":
+    case "com.amazonaws.redshift#ClusterQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryClusterQuotaExceededFaultResponse(
           parsedOutput,
@@ -9576,7 +9576,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "ClusterSecurityGroupNotFoundFault":
-    case "redshift.admin#ClusterSecurityGroupNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(
           parsedOutput,
@@ -9587,7 +9587,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "ClusterSnapshotNotFoundFault":
-    case "redshift.admin#ClusterSnapshotNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
           parsedOutput,
@@ -9598,7 +9598,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "ClusterSubnetGroupNotFoundFault":
-    case "redshift.admin#ClusterSubnetGroupNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSubnetGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterSubnetGroupNotFoundFaultResponse(
           parsedOutput,
@@ -9609,7 +9609,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "DependentServiceRequestThrottlingFault":
-    case "redshift.admin#DependentServiceRequestThrottlingFault":
+    case "com.amazonaws.redshift#DependentServiceRequestThrottlingFault":
       response = {
         ...(await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
           parsedOutput,
@@ -9620,7 +9620,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "HsmClientCertificateNotFoundFault":
-    case "redshift.admin#HsmClientCertificateNotFoundFault":
+    case "com.amazonaws.redshift#HsmClientCertificateNotFoundFault":
       response = {
         ...(await deserializeAws_queryHsmClientCertificateNotFoundFaultResponse(
           parsedOutput,
@@ -9631,7 +9631,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "HsmConfigurationNotFoundFault":
-    case "redshift.admin#HsmConfigurationNotFoundFault":
+    case "com.amazonaws.redshift#HsmConfigurationNotFoundFault":
       response = {
         ...(await deserializeAws_queryHsmConfigurationNotFoundFaultResponse(
           parsedOutput,
@@ -9642,7 +9642,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "InsufficientClusterCapacityFault":
-    case "redshift.admin#InsufficientClusterCapacityFault":
+    case "com.amazonaws.redshift#InsufficientClusterCapacityFault":
       response = {
         ...(await deserializeAws_queryInsufficientClusterCapacityFaultResponse(
           parsedOutput,
@@ -9653,7 +9653,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidClusterSnapshotStateFault":
-    case "redshift.admin#InvalidClusterSnapshotStateFault":
+    case "com.amazonaws.redshift#InvalidClusterSnapshotStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(
           parsedOutput,
@@ -9664,7 +9664,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidClusterSubnetGroupStateFault":
-    case "redshift.admin#InvalidClusterSubnetGroupStateFault":
+    case "com.amazonaws.redshift#InvalidClusterSubnetGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterSubnetGroupStateFaultResponse(
           parsedOutput,
@@ -9675,7 +9675,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidClusterTrackFault":
-    case "redshift.admin#InvalidClusterTrackFault":
+    case "com.amazonaws.redshift#InvalidClusterTrackFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterTrackFaultResponse(
           parsedOutput,
@@ -9686,7 +9686,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidElasticIpFault":
-    case "redshift.admin#InvalidElasticIpFault":
+    case "com.amazonaws.redshift#InvalidElasticIpFault":
       response = {
         ...(await deserializeAws_queryInvalidElasticIpFaultResponse(
           parsedOutput,
@@ -9697,7 +9697,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidRestoreFault":
-    case "redshift.admin#InvalidRestoreFault":
+    case "com.amazonaws.redshift#InvalidRestoreFault":
       response = {
         ...(await deserializeAws_queryInvalidRestoreFaultResponse(
           parsedOutput,
@@ -9708,7 +9708,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidSubnet":
-    case "redshift.admin#InvalidSubnet":
+    case "com.amazonaws.redshift#InvalidSubnet":
       response = {
         ...(await deserializeAws_queryInvalidSubnetResponse(
           parsedOutput,
@@ -9719,7 +9719,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidTagFault":
-    case "redshift.admin#InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
       response = {
         ...(await deserializeAws_queryInvalidTagFaultResponse(
           parsedOutput,
@@ -9730,7 +9730,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidVPCNetworkStateFault":
-    case "redshift.admin#InvalidVPCNetworkStateFault":
+    case "com.amazonaws.redshift#InvalidVPCNetworkStateFault":
       response = {
         ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(
           parsedOutput,
@@ -9741,7 +9741,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "LimitExceededFault":
-    case "redshift.admin#LimitExceededFault":
+    case "com.amazonaws.redshift#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(
           parsedOutput,
@@ -9752,7 +9752,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "NumberOfNodesPerClusterLimitExceededFault":
-    case "redshift.admin#NumberOfNodesPerClusterLimitExceededFault":
+    case "com.amazonaws.redshift#NumberOfNodesPerClusterLimitExceededFault":
       response = {
         ...(await deserializeAws_queryNumberOfNodesPerClusterLimitExceededFaultResponse(
           parsedOutput,
@@ -9763,7 +9763,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "NumberOfNodesQuotaExceededFault":
-    case "redshift.admin#NumberOfNodesQuotaExceededFault":
+    case "com.amazonaws.redshift#NumberOfNodesQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryNumberOfNodesQuotaExceededFaultResponse(
           parsedOutput,
@@ -9774,7 +9774,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "SnapshotScheduleNotFoundFault":
-    case "redshift.admin#SnapshotScheduleNotFoundFault":
+    case "com.amazonaws.redshift#SnapshotScheduleNotFoundFault":
       response = {
         ...(await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(
           parsedOutput,
@@ -9785,7 +9785,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "TagLimitExceededFault":
-    case "redshift.admin#TagLimitExceededFault":
+    case "com.amazonaws.redshift#TagLimitExceededFault":
       response = {
         ...(await deserializeAws_queryTagLimitExceededFaultResponse(
           parsedOutput,
@@ -9796,7 +9796,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "redshift.admin#UnauthorizedOperation":
+    case "com.amazonaws.redshift#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_queryUnauthorizedOperationResponse(
           parsedOutput,
@@ -9861,7 +9861,7 @@ const deserializeAws_queryRestoreTableFromClusterSnapshotCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -9872,7 +9872,7 @@ const deserializeAws_queryRestoreTableFromClusterSnapshotCommandError = async (
       };
       break;
     case "ClusterSnapshotNotFoundFault":
-    case "redshift.admin#ClusterSnapshotNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
           parsedOutput,
@@ -9883,7 +9883,7 @@ const deserializeAws_queryRestoreTableFromClusterSnapshotCommandError = async (
       };
       break;
     case "InProgressTableRestoreQuotaExceededFault":
-    case "redshift.admin#InProgressTableRestoreQuotaExceededFault":
+    case "com.amazonaws.redshift#InProgressTableRestoreQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryInProgressTableRestoreQuotaExceededFaultResponse(
           parsedOutput,
@@ -9894,7 +9894,7 @@ const deserializeAws_queryRestoreTableFromClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidClusterSnapshotStateFault":
-    case "redshift.admin#InvalidClusterSnapshotStateFault":
+    case "com.amazonaws.redshift#InvalidClusterSnapshotStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(
           parsedOutput,
@@ -9905,7 +9905,7 @@ const deserializeAws_queryRestoreTableFromClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "redshift.admin#InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
           parsedOutput,
@@ -9916,7 +9916,7 @@ const deserializeAws_queryRestoreTableFromClusterSnapshotCommandError = async (
       };
       break;
     case "InvalidTableRestoreArgumentFault":
-    case "redshift.admin#InvalidTableRestoreArgumentFault":
+    case "com.amazonaws.redshift#InvalidTableRestoreArgumentFault":
       response = {
         ...(await deserializeAws_queryInvalidTableRestoreArgumentFaultResponse(
           parsedOutput,
@@ -9927,7 +9927,7 @@ const deserializeAws_queryRestoreTableFromClusterSnapshotCommandError = async (
       };
       break;
     case "UnsupportedOperationFault":
-    case "redshift.admin#UnsupportedOperationFault":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
       response = {
         ...(await deserializeAws_queryUnsupportedOperationFaultResponse(
           parsedOutput,
@@ -9992,7 +9992,7 @@ const deserializeAws_queryRevokeClusterSecurityGroupIngressCommandError = async 
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
-    case "redshift.admin#AuthorizationNotFoundFault":
+    case "com.amazonaws.redshift#AuthorizationNotFoundFault":
       response = {
         ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(
           parsedOutput,
@@ -10003,7 +10003,7 @@ const deserializeAws_queryRevokeClusterSecurityGroupIngressCommandError = async 
       };
       break;
     case "ClusterSecurityGroupNotFoundFault":
-    case "redshift.admin#ClusterSecurityGroupNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(
           parsedOutput,
@@ -10014,7 +10014,7 @@ const deserializeAws_queryRevokeClusterSecurityGroupIngressCommandError = async 
       };
       break;
     case "InvalidClusterSecurityGroupStateFault":
-    case "redshift.admin#InvalidClusterSecurityGroupStateFault":
+    case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(
           parsedOutput,
@@ -10079,7 +10079,7 @@ const deserializeAws_queryRevokeSnapshotAccessCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessToSnapshotDeniedFault":
-    case "redshift.admin#AccessToSnapshotDeniedFault":
+    case "com.amazonaws.redshift#AccessToSnapshotDeniedFault":
       response = {
         ...(await deserializeAws_queryAccessToSnapshotDeniedFaultResponse(
           parsedOutput,
@@ -10090,7 +10090,7 @@ const deserializeAws_queryRevokeSnapshotAccessCommandError = async (
       };
       break;
     case "AuthorizationNotFoundFault":
-    case "redshift.admin#AuthorizationNotFoundFault":
+    case "com.amazonaws.redshift#AuthorizationNotFoundFault":
       response = {
         ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(
           parsedOutput,
@@ -10101,7 +10101,7 @@ const deserializeAws_queryRevokeSnapshotAccessCommandError = async (
       };
       break;
     case "ClusterSnapshotNotFoundFault":
-    case "redshift.admin#ClusterSnapshotNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(
           parsedOutput,
@@ -10163,7 +10163,7 @@ const deserializeAws_queryRotateEncryptionKeyCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
-    case "redshift.admin#ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(
           parsedOutput,
@@ -10174,7 +10174,7 @@ const deserializeAws_queryRotateEncryptionKeyCommandError = async (
       };
       break;
     case "DependentServiceRequestThrottlingFault":
-    case "redshift.admin#DependentServiceRequestThrottlingFault":
+    case "com.amazonaws.redshift#DependentServiceRequestThrottlingFault":
       response = {
         ...(await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(
           parsedOutput,
@@ -10185,7 +10185,7 @@ const deserializeAws_queryRotateEncryptionKeyCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "redshift.admin#InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterStateFaultResponse(
           parsedOutput,
@@ -10825,24 +10825,6 @@ const deserializeAws_queryHsmConfigurationQuotaExceededFaultResponse = async (
   return contents;
 };
 
-const deserializeAws_queryInProgressTableRestoreQuotaExceededFaultResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InProgressTableRestoreQuotaExceededFault> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInProgressTableRestoreQuotaExceededFault(
-    body.Error,
-    context
-  );
-  const contents: InProgressTableRestoreQuotaExceededFault = {
-    name: "InProgressTableRestoreQuotaExceededFault",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
 const deserializeAws_queryIncompatibleOrderableOptionsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -10854,6 +10836,24 @@ const deserializeAws_queryIncompatibleOrderableOptionsResponse = async (
   );
   const contents: IncompatibleOrderableOptions = {
     name: "IncompatibleOrderableOptions",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_queryInProgressTableRestoreQuotaExceededFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InProgressTableRestoreQuotaExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryInProgressTableRestoreQuotaExceededFault(
+    body.Error,
+    context
+  );
+  const contents: InProgressTableRestoreQuotaExceededFault = {
+    name: "InProgressTableRestoreQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11185,24 +11185,6 @@ const deserializeAws_queryInvalidS3KeyPrefixFaultResponse = async (
   return contents;
 };
 
-const deserializeAws_queryInvalidScheduleFaultResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidScheduleFault> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidScheduleFault(
-    body.Error,
-    context
-  );
-  const contents: InvalidScheduleFault = {
-    name: "InvalidScheduleFault",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
 const deserializeAws_queryInvalidScheduledActionFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -11214,6 +11196,24 @@ const deserializeAws_queryInvalidScheduledActionFaultResponse = async (
   );
   const contents: InvalidScheduledActionFault = {
     name: "InvalidScheduledActionFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_queryInvalidScheduleFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidScheduleFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryInvalidScheduleFault(
+    body.Error,
+    context
+  );
+  const contents: InvalidScheduleFault = {
+    name: "InvalidScheduleFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11509,78 +11509,6 @@ const deserializeAws_queryResourceNotFoundFaultResponse = async (
   return contents;
 };
 
-const deserializeAws_querySNSInvalidTopicFaultResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<SNSInvalidTopicFault> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_querySNSInvalidTopicFault(
-    body.Error,
-    context
-  );
-  const contents: SNSInvalidTopicFault = {
-    name: "SNSInvalidTopicFault",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
-const deserializeAws_querySNSNoAuthorizationFaultResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<SNSNoAuthorizationFault> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_querySNSNoAuthorizationFault(
-    body.Error,
-    context
-  );
-  const contents: SNSNoAuthorizationFault = {
-    name: "SNSNoAuthorizationFault",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
-const deserializeAws_querySNSTopicArnNotFoundFaultResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<SNSTopicArnNotFoundFault> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_querySNSTopicArnNotFoundFault(
-    body.Error,
-    context
-  );
-  const contents: SNSTopicArnNotFoundFault = {
-    name: "SNSTopicArnNotFoundFault",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
-const deserializeAws_queryScheduleDefinitionTypeUnsupportedFaultResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ScheduleDefinitionTypeUnsupportedFault> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryScheduleDefinitionTypeUnsupportedFault(
-    body.Error,
-    context
-  );
-  const contents: ScheduleDefinitionTypeUnsupportedFault = {
-    name: "ScheduleDefinitionTypeUnsupportedFault",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
 const deserializeAws_queryScheduledActionAlreadyExistsFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -11646,6 +11574,24 @@ const deserializeAws_queryScheduledActionTypeUnsupportedFaultResponse = async (
   );
   const contents: ScheduledActionTypeUnsupportedFault = {
     name: "ScheduledActionTypeUnsupportedFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_queryScheduleDefinitionTypeUnsupportedFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ScheduleDefinitionTypeUnsupportedFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryScheduleDefinitionTypeUnsupportedFault(
+    body.Error,
+    context
+  );
+  const contents: ScheduleDefinitionTypeUnsupportedFault = {
+    name: "ScheduleDefinitionTypeUnsupportedFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11826,6 +11772,60 @@ const deserializeAws_querySnapshotScheduleUpdateInProgressFaultResponse = async 
   );
   const contents: SnapshotScheduleUpdateInProgressFault = {
     name: "SnapshotScheduleUpdateInProgressFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_querySNSInvalidTopicFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SNSInvalidTopicFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_querySNSInvalidTopicFault(
+    body.Error,
+    context
+  );
+  const contents: SNSInvalidTopicFault = {
+    name: "SNSInvalidTopicFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_querySNSNoAuthorizationFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SNSNoAuthorizationFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_querySNSNoAuthorizationFault(
+    body.Error,
+    context
+  );
+  const contents: SNSNoAuthorizationFault = {
+    name: "SNSNoAuthorizationFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_querySNSTopicArnNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SNSTopicArnNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_querySNSTopicArnNotFoundFault(
+    body.Error,
+    context
+  );
+  const contents: SNSTopicArnNotFoundFault = {
+    name: "SNSTopicArnNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -12992,6 +12992,40 @@ const serializeAws_queryDescribeClusterSecurityGroupsMessage = (
   return entries;
 };
 
+const serializeAws_queryDescribeClustersMessage = (
+  input: DescribeClustersMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ClusterIdentifier !== undefined) {
+    entries["ClusterIdentifier"] = input.ClusterIdentifier;
+  }
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.TagKeys !== undefined) {
+    const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagKeys.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.TagValues !== undefined) {
+    const memberEntries = serializeAws_queryTagValueList(
+      input.TagValues,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagValues.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_queryDescribeClusterSnapshotsMessage = (
   input: DescribeClusterSnapshotsMessage,
   context: __SerdeContext
@@ -13125,40 +13159,6 @@ const serializeAws_queryDescribeClusterVersionsMessage = (
   return entries;
 };
 
-const serializeAws_queryDescribeClustersMessage = (
-  input: DescribeClustersMessage,
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
-    entries["ClusterIdentifier"] = input.ClusterIdentifier;
-  }
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
-  }
-  if (input.MaxRecords !== undefined) {
-    entries["MaxRecords"] = input.MaxRecords;
-  }
-  if (input.TagKeys !== undefined) {
-    const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `TagKeys.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.TagValues !== undefined) {
-    const memberEntries = serializeAws_queryTagValueList(
-      input.TagValues,
-      context
-    );
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `TagValues.${key}`;
-      entries[loc] = value;
-    });
-  }
-  return entries;
-};
-
 const serializeAws_queryDescribeDefaultClusterParametersMessage = (
   input: DescribeDefaultClusterParametersMessage,
   context: __SerdeContext
@@ -13183,6 +13183,35 @@ const serializeAws_queryDescribeEventCategoriesMessage = (
   const entries: any = {};
   if (input.SourceType !== undefined) {
     entries["SourceType"] = input.SourceType;
+  }
+  return entries;
+};
+
+const serializeAws_queryDescribeEventsMessage = (
+  input: DescribeEventsMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Duration !== undefined) {
+    entries["Duration"] = input.Duration;
+  }
+  if (input.EndTime !== undefined) {
+    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
+  }
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.SourceIdentifier !== undefined) {
+    entries["SourceIdentifier"] = input.SourceIdentifier;
+  }
+  if (input.SourceType !== undefined) {
+    entries["SourceType"] = input.SourceType;
+  }
+  if (input.StartTime !== undefined) {
+    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -13217,35 +13246,6 @@ const serializeAws_queryDescribeEventSubscriptionsMessage = (
       const loc = `TagValues.${key}`;
       entries[loc] = value;
     });
-  }
-  return entries;
-};
-
-const serializeAws_queryDescribeEventsMessage = (
-  input: DescribeEventsMessage,
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  if (input.Duration !== undefined) {
-    entries["Duration"] = input.Duration;
-  }
-  if (input.EndTime !== undefined) {
-    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
-  }
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
-  }
-  if (input.MaxRecords !== undefined) {
-    entries["MaxRecords"] = input.MaxRecords;
-  }
-  if (input.SourceIdentifier !== undefined) {
-    entries["SourceIdentifier"] = input.SourceIdentifier;
-  }
-  if (input.SourceType !== undefined) {
-    entries["SourceType"] = input.SourceType;
-  }
-  if (input.StartTime !== undefined) {
-    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -14457,19 +14457,6 @@ const serializeAws_queryRotateEncryptionKeyMessage = (
   return entries;
 };
 
-const serializeAws_queryScheduleDefinitionList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  let counter = 1;
-  for (let entry of input) {
-    entries[`ScheduleDefinition.${counter}`] = entry;
-    counter++;
-  }
-  return entries;
-};
-
 const serializeAws_queryScheduledActionFilter = (
   input: ScheduledActionFilter,
   context: __SerdeContext
@@ -14524,6 +14511,19 @@ const serializeAws_queryScheduledActionType = (
       const loc = `ResizeCluster.${key}`;
       entries[loc] = value;
     });
+  }
+  return entries;
+};
+
+const serializeAws_queryScheduleDefinitionList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    entries[`ScheduleDefinition.${counter}`] = entry;
+    counter++;
   }
   return entries;
 };
@@ -14679,1462 +14679,6 @@ const serializeAws_queryVpcSecurityGroupIdList = (
   return entries;
 };
 
-const deserializeAws_queryAccessToSnapshotDeniedFault = (
-  output: any,
-  context: __SerdeContext
-): AccessToSnapshotDeniedFault => {
-  let contents: any = {
-    __type: "AccessToSnapshotDeniedFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryAuthorizationAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): AuthorizationAlreadyExistsFault => {
-  let contents: any = {
-    __type: "AuthorizationAlreadyExistsFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryAuthorizationNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): AuthorizationNotFoundFault => {
-  let contents: any = {
-    __type: "AuthorizationNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryAuthorizationQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): AuthorizationQuotaExceededFault => {
-  let contents: any = {
-    __type: "AuthorizationQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryBatchDeleteRequestSizeExceededFault = (
-  output: any,
-  context: __SerdeContext
-): BatchDeleteRequestSizeExceededFault => {
-  let contents: any = {
-    __type: "BatchDeleteRequestSizeExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryBatchModifyClusterSnapshotsLimitExceededFault = (
-  output: any,
-  context: __SerdeContext
-): BatchModifyClusterSnapshotsLimitExceededFault => {
-  let contents: any = {
-    __type: "BatchModifyClusterSnapshotsLimitExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryBucketNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): BucketNotFoundFault => {
-  let contents: any = {
-    __type: "BucketNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryClusterAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterAlreadyExistsFault => {
-  let contents: any = {
-    __type: "ClusterAlreadyExistsFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryClusterNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterNotFoundFault => {
-  let contents: any = {
-    __type: "ClusterNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryClusterOnLatestRevisionFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterOnLatestRevisionFault => {
-  let contents: any = {
-    __type: "ClusterOnLatestRevisionFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryClusterParameterGroupAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterParameterGroupAlreadyExistsFault => {
-  let contents: any = {
-    __type: "ClusterParameterGroupAlreadyExistsFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryClusterParameterGroupNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterParameterGroupNotFoundFault => {
-  let contents: any = {
-    __type: "ClusterParameterGroupNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryClusterParameterGroupQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterParameterGroupQuotaExceededFault => {
-  let contents: any = {
-    __type: "ClusterParameterGroupQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryClusterQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterQuotaExceededFault => {
-  let contents: any = {
-    __type: "ClusterQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryClusterSecurityGroupAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterSecurityGroupAlreadyExistsFault => {
-  let contents: any = {
-    __type: "ClusterSecurityGroupAlreadyExistsFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryClusterSecurityGroupNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterSecurityGroupNotFoundFault => {
-  let contents: any = {
-    __type: "ClusterSecurityGroupNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryClusterSecurityGroupQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterSecurityGroupQuotaExceededFault => {
-  let contents: any = {
-    __type: "ClusterSecurityGroupQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryClusterSnapshotAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterSnapshotAlreadyExistsFault => {
-  let contents: any = {
-    __type: "ClusterSnapshotAlreadyExistsFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryClusterSnapshotNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterSnapshotNotFoundFault => {
-  let contents: any = {
-    __type: "ClusterSnapshotNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryClusterSnapshotQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterSnapshotQuotaExceededFault => {
-  let contents: any = {
-    __type: "ClusterSnapshotQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryClusterSubnetGroupAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterSubnetGroupAlreadyExistsFault => {
-  let contents: any = {
-    __type: "ClusterSubnetGroupAlreadyExistsFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryClusterSubnetGroupNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterSubnetGroupNotFoundFault => {
-  let contents: any = {
-    __type: "ClusterSubnetGroupNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryClusterSubnetGroupQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterSubnetGroupQuotaExceededFault => {
-  let contents: any = {
-    __type: "ClusterSubnetGroupQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryClusterSubnetQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterSubnetQuotaExceededFault => {
-  let contents: any = {
-    __type: "ClusterSubnetQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryCopyToRegionDisabledFault = (
-  output: any,
-  context: __SerdeContext
-): CopyToRegionDisabledFault => {
-  let contents: any = {
-    __type: "CopyToRegionDisabledFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDependentServiceRequestThrottlingFault = (
-  output: any,
-  context: __SerdeContext
-): DependentServiceRequestThrottlingFault => {
-  let contents: any = {
-    __type: "DependentServiceRequestThrottlingFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryDependentServiceUnavailableFault = (
-  output: any,
-  context: __SerdeContext
-): DependentServiceUnavailableFault => {
-  let contents: any = {
-    __type: "DependentServiceUnavailableFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryEventSubscriptionQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): EventSubscriptionQuotaExceededFault => {
-  let contents: any = {
-    __type: "EventSubscriptionQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryHsmClientCertificateAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): HsmClientCertificateAlreadyExistsFault => {
-  let contents: any = {
-    __type: "HsmClientCertificateAlreadyExistsFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryHsmClientCertificateNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): HsmClientCertificateNotFoundFault => {
-  let contents: any = {
-    __type: "HsmClientCertificateNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryHsmClientCertificateQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): HsmClientCertificateQuotaExceededFault => {
-  let contents: any = {
-    __type: "HsmClientCertificateQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryHsmConfigurationAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): HsmConfigurationAlreadyExistsFault => {
-  let contents: any = {
-    __type: "HsmConfigurationAlreadyExistsFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryHsmConfigurationNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): HsmConfigurationNotFoundFault => {
-  let contents: any = {
-    __type: "HsmConfigurationNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryHsmConfigurationQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): HsmConfigurationQuotaExceededFault => {
-  let contents: any = {
-    __type: "HsmConfigurationQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInProgressTableRestoreQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): InProgressTableRestoreQuotaExceededFault => {
-  let contents: any = {
-    __type: "InProgressTableRestoreQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryIncompatibleOrderableOptions = (
-  output: any,
-  context: __SerdeContext
-): IncompatibleOrderableOptions => {
-  let contents: any = {
-    __type: "IncompatibleOrderableOptions",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInsufficientClusterCapacityFault = (
-  output: any,
-  context: __SerdeContext
-): InsufficientClusterCapacityFault => {
-  let contents: any = {
-    __type: "InsufficientClusterCapacityFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInsufficientS3BucketPolicyFault = (
-  output: any,
-  context: __SerdeContext
-): InsufficientS3BucketPolicyFault => {
-  let contents: any = {
-    __type: "InsufficientS3BucketPolicyFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidClusterParameterGroupStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidClusterParameterGroupStateFault => {
-  let contents: any = {
-    __type: "InvalidClusterParameterGroupStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidClusterSecurityGroupStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidClusterSecurityGroupStateFault => {
-  let contents: any = {
-    __type: "InvalidClusterSecurityGroupStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidClusterSnapshotScheduleStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidClusterSnapshotScheduleStateFault => {
-  let contents: any = {
-    __type: "InvalidClusterSnapshotScheduleStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidClusterSnapshotStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidClusterSnapshotStateFault => {
-  let contents: any = {
-    __type: "InvalidClusterSnapshotStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidClusterStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidClusterStateFault => {
-  let contents: any = {
-    __type: "InvalidClusterStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidClusterSubnetGroupStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidClusterSubnetGroupStateFault => {
-  let contents: any = {
-    __type: "InvalidClusterSubnetGroupStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidClusterSubnetStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidClusterSubnetStateFault => {
-  let contents: any = {
-    __type: "InvalidClusterSubnetStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidClusterTrackFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidClusterTrackFault => {
-  let contents: any = {
-    __type: "InvalidClusterTrackFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidElasticIpFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidElasticIpFault => {
-  let contents: any = {
-    __type: "InvalidElasticIpFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidHsmClientCertificateStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidHsmClientCertificateStateFault => {
-  let contents: any = {
-    __type: "InvalidHsmClientCertificateStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidHsmConfigurationStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidHsmConfigurationStateFault => {
-  let contents: any = {
-    __type: "InvalidHsmConfigurationStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidReservedNodeStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidReservedNodeStateFault => {
-  let contents: any = {
-    __type: "InvalidReservedNodeStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidRestoreFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidRestoreFault => {
-  let contents: any = {
-    __type: "InvalidRestoreFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidRetentionPeriodFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidRetentionPeriodFault => {
-  let contents: any = {
-    __type: "InvalidRetentionPeriodFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidS3BucketNameFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidS3BucketNameFault => {
-  let contents: any = {
-    __type: "InvalidS3BucketNameFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidS3KeyPrefixFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidS3KeyPrefixFault => {
-  let contents: any = {
-    __type: "InvalidS3KeyPrefixFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidScheduleFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidScheduleFault => {
-  let contents: any = {
-    __type: "InvalidScheduleFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidScheduledActionFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidScheduledActionFault => {
-  let contents: any = {
-    __type: "InvalidScheduledActionFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidSnapshotCopyGrantStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidSnapshotCopyGrantStateFault => {
-  let contents: any = {
-    __type: "InvalidSnapshotCopyGrantStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidSubnet = (
-  output: any,
-  context: __SerdeContext
-): InvalidSubnet => {
-  let contents: any = {
-    __type: "InvalidSubnet",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidSubscriptionStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidSubscriptionStateFault => {
-  let contents: any = {
-    __type: "InvalidSubscriptionStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidTableRestoreArgumentFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidTableRestoreArgumentFault => {
-  let contents: any = {
-    __type: "InvalidTableRestoreArgumentFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidTagFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidTagFault => {
-  let contents: any = {
-    __type: "InvalidTagFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidVPCNetworkStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidVPCNetworkStateFault => {
-  let contents: any = {
-    __type: "InvalidVPCNetworkStateFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryLimitExceededFault = (
-  output: any,
-  context: __SerdeContext
-): LimitExceededFault => {
-  let contents: any = {
-    __type: "LimitExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryNumberOfNodesPerClusterLimitExceededFault = (
-  output: any,
-  context: __SerdeContext
-): NumberOfNodesPerClusterLimitExceededFault => {
-  let contents: any = {
-    __type: "NumberOfNodesPerClusterLimitExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryNumberOfNodesQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): NumberOfNodesQuotaExceededFault => {
-  let contents: any = {
-    __type: "NumberOfNodesQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryReservedNodeAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): ReservedNodeAlreadyExistsFault => {
-  let contents: any = {
-    __type: "ReservedNodeAlreadyExistsFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryReservedNodeAlreadyMigratedFault = (
-  output: any,
-  context: __SerdeContext
-): ReservedNodeAlreadyMigratedFault => {
-  let contents: any = {
-    __type: "ReservedNodeAlreadyMigratedFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryReservedNodeNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): ReservedNodeNotFoundFault => {
-  let contents: any = {
-    __type: "ReservedNodeNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryReservedNodeOfferingNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): ReservedNodeOfferingNotFoundFault => {
-  let contents: any = {
-    __type: "ReservedNodeOfferingNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryReservedNodeQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): ReservedNodeQuotaExceededFault => {
-  let contents: any = {
-    __type: "ReservedNodeQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryResizeNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): ResizeNotFoundFault => {
-  let contents: any = {
-    __type: "ResizeNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryResourceNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundFault => {
-  let contents: any = {
-    __type: "ResourceNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySNSInvalidTopicFault = (
-  output: any,
-  context: __SerdeContext
-): SNSInvalidTopicFault => {
-  let contents: any = {
-    __type: "SNSInvalidTopicFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySNSNoAuthorizationFault = (
-  output: any,
-  context: __SerdeContext
-): SNSNoAuthorizationFault => {
-  let contents: any = {
-    __type: "SNSNoAuthorizationFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySNSTopicArnNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): SNSTopicArnNotFoundFault => {
-  let contents: any = {
-    __type: "SNSTopicArnNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryScheduleDefinitionTypeUnsupportedFault = (
-  output: any,
-  context: __SerdeContext
-): ScheduleDefinitionTypeUnsupportedFault => {
-  let contents: any = {
-    __type: "ScheduleDefinitionTypeUnsupportedFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryScheduledActionAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): ScheduledActionAlreadyExistsFault => {
-  let contents: any = {
-    __type: "ScheduledActionAlreadyExistsFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryScheduledActionNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): ScheduledActionNotFoundFault => {
-  let contents: any = {
-    __type: "ScheduledActionNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryScheduledActionQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): ScheduledActionQuotaExceededFault => {
-  let contents: any = {
-    __type: "ScheduledActionQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryScheduledActionTypeUnsupportedFault = (
-  output: any,
-  context: __SerdeContext
-): ScheduledActionTypeUnsupportedFault => {
-  let contents: any = {
-    __type: "ScheduledActionTypeUnsupportedFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySnapshotCopyAlreadyDisabledFault = (
-  output: any,
-  context: __SerdeContext
-): SnapshotCopyAlreadyDisabledFault => {
-  let contents: any = {
-    __type: "SnapshotCopyAlreadyDisabledFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySnapshotCopyAlreadyEnabledFault = (
-  output: any,
-  context: __SerdeContext
-): SnapshotCopyAlreadyEnabledFault => {
-  let contents: any = {
-    __type: "SnapshotCopyAlreadyEnabledFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySnapshotCopyDisabledFault = (
-  output: any,
-  context: __SerdeContext
-): SnapshotCopyDisabledFault => {
-  let contents: any = {
-    __type: "SnapshotCopyDisabledFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySnapshotCopyGrantAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): SnapshotCopyGrantAlreadyExistsFault => {
-  let contents: any = {
-    __type: "SnapshotCopyGrantAlreadyExistsFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySnapshotCopyGrantNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): SnapshotCopyGrantNotFoundFault => {
-  let contents: any = {
-    __type: "SnapshotCopyGrantNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySnapshotCopyGrantQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): SnapshotCopyGrantQuotaExceededFault => {
-  let contents: any = {
-    __type: "SnapshotCopyGrantQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySnapshotScheduleAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): SnapshotScheduleAlreadyExistsFault => {
-  let contents: any = {
-    __type: "SnapshotScheduleAlreadyExistsFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySnapshotScheduleNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): SnapshotScheduleNotFoundFault => {
-  let contents: any = {
-    __type: "SnapshotScheduleNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySnapshotScheduleQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): SnapshotScheduleQuotaExceededFault => {
-  let contents: any = {
-    __type: "SnapshotScheduleQuotaExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySnapshotScheduleUpdateInProgressFault = (
-  output: any,
-  context: __SerdeContext
-): SnapshotScheduleUpdateInProgressFault => {
-  let contents: any = {
-    __type: "SnapshotScheduleUpdateInProgressFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySourceNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): SourceNotFoundFault => {
-  let contents: any = {
-    __type: "SourceNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySubnetAlreadyInUse = (
-  output: any,
-  context: __SerdeContext
-): SubnetAlreadyInUse => {
-  let contents: any = {
-    __type: "SubnetAlreadyInUse",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySubscriptionAlreadyExistFault = (
-  output: any,
-  context: __SerdeContext
-): SubscriptionAlreadyExistFault => {
-  let contents: any = {
-    __type: "SubscriptionAlreadyExistFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySubscriptionCategoryNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): SubscriptionCategoryNotFoundFault => {
-  let contents: any = {
-    __type: "SubscriptionCategoryNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySubscriptionEventIdNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): SubscriptionEventIdNotFoundFault => {
-  let contents: any = {
-    __type: "SubscriptionEventIdNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySubscriptionNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): SubscriptionNotFoundFault => {
-  let contents: any = {
-    __type: "SubscriptionNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySubscriptionSeverityNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): SubscriptionSeverityNotFoundFault => {
-  let contents: any = {
-    __type: "SubscriptionSeverityNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryTableLimitExceededFault = (
-  output: any,
-  context: __SerdeContext
-): TableLimitExceededFault => {
-  let contents: any = {
-    __type: "TableLimitExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryTableRestoreNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): TableRestoreNotFoundFault => {
-  let contents: any = {
-    __type: "TableRestoreNotFoundFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryTagLimitExceededFault = (
-  output: any,
-  context: __SerdeContext
-): TagLimitExceededFault => {
-  let contents: any = {
-    __type: "TagLimitExceededFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryUnauthorizedOperation = (
-  output: any,
-  context: __SerdeContext
-): UnauthorizedOperation => {
-  let contents: any = {
-    __type: "UnauthorizedOperation",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryUnknownSnapshotCopyRegionFault = (
-  output: any,
-  context: __SerdeContext
-): UnknownSnapshotCopyRegionFault => {
-  let contents: any = {
-    __type: "UnknownSnapshotCopyRegionFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryUnsupportedOperationFault = (
-  output: any,
-  context: __SerdeContext
-): UnsupportedOperationFault => {
-  let contents: any = {
-    __type: "UnsupportedOperationFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryUnsupportedOptionFault = (
-  output: any,
-  context: __SerdeContext
-): UnsupportedOptionFault => {
-  let contents: any = {
-    __type: "UnsupportedOptionFault",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
 const deserializeAws_queryAcceptReservedNodeExchangeOutputMessage = (
   output: any,
   context: __SerdeContext
@@ -16148,6 +14692,20 @@ const deserializeAws_queryAcceptReservedNodeExchangeOutputMessage = (
       output["ExchangedReservedNode"],
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_queryAccessToSnapshotDeniedFault = (
+  output: any,
+  context: __SerdeContext
+): AccessToSnapshotDeniedFault => {
+  let contents: any = {
+    __type: "AccessToSnapshotDeniedFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -16202,6 +14760,15 @@ const deserializeAws_queryAccountAttributeList = (
   return contents;
 };
 
+const deserializeAws_queryAccountsWithRestoreAccessList = (
+  output: any,
+  context: __SerdeContext
+): AccountWithRestoreAccess[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAccountWithRestoreAccess(entry, context)
+  );
+};
+
 const deserializeAws_queryAccountWithRestoreAccess = (
   output: any,
   context: __SerdeContext
@@ -16218,15 +14785,6 @@ const deserializeAws_queryAccountWithRestoreAccess = (
     contents.AccountId = output["AccountId"];
   }
   return contents;
-};
-
-const deserializeAws_queryAccountsWithRestoreAccessList = (
-  output: any,
-  context: __SerdeContext
-): AccountWithRestoreAccess[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryAccountWithRestoreAccess(entry, context)
-  );
 };
 
 const deserializeAws_queryAssociatedClusterList = (
@@ -16266,6 +14824,48 @@ const deserializeAws_queryAttributeValueTarget = (
   };
   if (output["AttributeValue"] !== undefined) {
     contents.AttributeValue = output["AttributeValue"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryAuthorizationAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): AuthorizationAlreadyExistsFault => {
+  let contents: any = {
+    __type: "AuthorizationAlreadyExistsFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryAuthorizationNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): AuthorizationNotFoundFault => {
+  let contents: any = {
+    __type: "AuthorizationNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryAuthorizationQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): AuthorizationQuotaExceededFault => {
+  let contents: any = {
+    __type: "AuthorizationQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -16376,6 +14976,34 @@ const deserializeAws_queryBatchDeleteClusterSnapshotsResult = (
   return contents;
 };
 
+const deserializeAws_queryBatchDeleteRequestSizeExceededFault = (
+  output: any,
+  context: __SerdeContext
+): BatchDeleteRequestSizeExceededFault => {
+  let contents: any = {
+    __type: "BatchDeleteRequestSizeExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryBatchModifyClusterSnapshotsLimitExceededFault = (
+  output: any,
+  context: __SerdeContext
+): BatchModifyClusterSnapshotsLimitExceededFault => {
+  let contents: any = {
+    __type: "BatchModifyClusterSnapshotsLimitExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryBatchModifyClusterSnapshotsOutputMessage = (
   output: any,
   context: __SerdeContext
@@ -16428,6 +15056,20 @@ const deserializeAws_queryBatchSnapshotOperationErrors = (
   return (output || []).map((entry: any) =>
     deserializeAws_querySnapshotErrorMessage(entry, context)
   );
+};
+
+const deserializeAws_queryBucketNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): BucketNotFoundFault => {
+  let contents: any = {
+    __type: "BucketNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
 };
 
 const deserializeAws_queryCluster = (
@@ -16734,6 +15376,20 @@ const deserializeAws_queryCluster = (
   return contents;
 };
 
+const deserializeAws_queryClusterAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): ClusterAlreadyExistsFault => {
+  let contents: any = {
+    __type: "ClusterAlreadyExistsFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryClusterAssociatedToSchedule = (
   output: any,
   context: __SerdeContext
@@ -16914,6 +15570,34 @@ const deserializeAws_queryClusterNodesList = (
   );
 };
 
+const deserializeAws_queryClusterNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): ClusterNotFoundFault => {
+  let contents: any = {
+    __type: "ClusterNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryClusterOnLatestRevisionFault = (
+  output: any,
+  context: __SerdeContext
+): ClusterOnLatestRevisionFault => {
+  let contents: any = {
+    __type: "ClusterOnLatestRevisionFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryClusterParameterGroup = (
   output: any,
   context: __SerdeContext
@@ -16942,6 +15626,20 @@ const deserializeAws_queryClusterParameterGroup = (
       __getArrayIfSingleItem(output["Tags"]["Tag"]),
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_queryClusterParameterGroupAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): ClusterParameterGroupAlreadyExistsFault => {
+  let contents: any = {
+    __type: "ClusterParameterGroupAlreadyExistsFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -16991,6 +15689,63 @@ const deserializeAws_queryClusterParameterGroupNameMessage = (
   return contents;
 };
 
+const deserializeAws_queryClusterParameterGroupNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): ClusterParameterGroupNotFoundFault => {
+  let contents: any = {
+    __type: "ClusterParameterGroupNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryClusterParameterGroupQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): ClusterParameterGroupQuotaExceededFault => {
+  let contents: any = {
+    __type: "ClusterParameterGroupQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryClusterParameterGroupsMessage = (
+  output: any,
+  context: __SerdeContext
+): ClusterParameterGroupsMessage => {
+  let contents: any = {
+    __type: "ClusterParameterGroupsMessage",
+    Marker: undefined,
+    ParameterGroups: undefined
+  };
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
+  if (output.ParameterGroups === "") {
+    contents.ParameterGroups = [];
+  }
+  if (
+    output["ParameterGroups"] !== undefined &&
+    output["ParameterGroups"]["ClusterParameterGroup"] !== undefined
+  ) {
+    contents.ParameterGroups = deserializeAws_queryParameterGroupList(
+      __getArrayIfSingleItem(
+        output["ParameterGroups"]["ClusterParameterGroup"]
+      ),
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_queryClusterParameterGroupStatus = (
   output: any,
   context: __SerdeContext
@@ -17031,35 +15786,6 @@ const deserializeAws_queryClusterParameterGroupStatusList = (
   );
 };
 
-const deserializeAws_queryClusterParameterGroupsMessage = (
-  output: any,
-  context: __SerdeContext
-): ClusterParameterGroupsMessage => {
-  let contents: any = {
-    __type: "ClusterParameterGroupsMessage",
-    Marker: undefined,
-    ParameterGroups: undefined
-  };
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
-  }
-  if (output.ParameterGroups === "") {
-    contents.ParameterGroups = [];
-  }
-  if (
-    output["ParameterGroups"] !== undefined &&
-    output["ParameterGroups"]["ClusterParameterGroup"] !== undefined
-  ) {
-    contents.ParameterGroups = deserializeAws_queryParameterGroupList(
-      __getArrayIfSingleItem(
-        output["ParameterGroups"]["ClusterParameterGroup"]
-      ),
-      context
-    );
-  }
-  return contents;
-};
-
 const deserializeAws_queryClusterParameterStatus = (
   output: any,
   context: __SerdeContext
@@ -17090,6 +15816,20 @@ const deserializeAws_queryClusterParameterStatusList = (
   return (output || []).map((entry: any) =>
     deserializeAws_queryClusterParameterStatus(entry, context)
   );
+};
+
+const deserializeAws_queryClusterQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): ClusterQuotaExceededFault => {
+  let contents: any = {
+    __type: "ClusterQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
 };
 
 const deserializeAws_queryClusterSecurityGroup = (
@@ -17142,6 +15882,20 @@ const deserializeAws_queryClusterSecurityGroup = (
       __getArrayIfSingleItem(output["Tags"]["Tag"]),
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_queryClusterSecurityGroupAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): ClusterSecurityGroupAlreadyExistsFault => {
+  let contents: any = {
+    __type: "ClusterSecurityGroupAlreadyExistsFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -17202,6 +15956,34 @@ const deserializeAws_queryClusterSecurityGroupMessage = (
   return contents;
 };
 
+const deserializeAws_queryClusterSecurityGroupNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): ClusterSecurityGroupNotFoundFault => {
+  let contents: any = {
+    __type: "ClusterSecurityGroupNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryClusterSecurityGroupQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): ClusterSecurityGroupQuotaExceededFault => {
+  let contents: any = {
+    __type: "ClusterSecurityGroupQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryClusterSecurityGroups = (
   output: any,
   context: __SerdeContext
@@ -17209,6 +15991,47 @@ const deserializeAws_queryClusterSecurityGroups = (
   return (output || []).map((entry: any) =>
     deserializeAws_queryClusterSecurityGroup(entry, context)
   );
+};
+
+const deserializeAws_queryClustersMessage = (
+  output: any,
+  context: __SerdeContext
+): ClustersMessage => {
+  let contents: any = {
+    __type: "ClustersMessage",
+    Clusters: undefined,
+    Marker: undefined
+  };
+  if (output.Clusters === "") {
+    contents.Clusters = [];
+  }
+  if (
+    output["Clusters"] !== undefined &&
+    output["Clusters"]["Cluster"] !== undefined
+  ) {
+    contents.Clusters = deserializeAws_queryClusterList(
+      __getArrayIfSingleItem(output["Clusters"]["Cluster"]),
+      context
+    );
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryClusterSnapshotAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): ClusterSnapshotAlreadyExistsFault => {
+  let contents: any = {
+    __type: "ClusterSnapshotAlreadyExistsFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
 };
 
 const deserializeAws_queryClusterSnapshotCopyStatus = (
@@ -17235,6 +16058,34 @@ const deserializeAws_queryClusterSnapshotCopyStatus = (
   }
   if (output["SnapshotCopyGrantName"] !== undefined) {
     contents.SnapshotCopyGrantName = output["SnapshotCopyGrantName"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryClusterSnapshotNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): ClusterSnapshotNotFoundFault => {
+  let contents: any = {
+    __type: "ClusterSnapshotNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryClusterSnapshotQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): ClusterSnapshotQuotaExceededFault => {
+  let contents: any = {
+    __type: "ClusterSnapshotQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -17288,6 +16139,20 @@ const deserializeAws_queryClusterSubnetGroup = (
   return contents;
 };
 
+const deserializeAws_queryClusterSubnetGroupAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): ClusterSubnetGroupAlreadyExistsFault => {
+  let contents: any = {
+    __type: "ClusterSubnetGroupAlreadyExistsFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryClusterSubnetGroupMessage = (
   output: any,
   context: __SerdeContext
@@ -17317,6 +16182,34 @@ const deserializeAws_queryClusterSubnetGroupMessage = (
   return contents;
 };
 
+const deserializeAws_queryClusterSubnetGroupNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): ClusterSubnetGroupNotFoundFault => {
+  let contents: any = {
+    __type: "ClusterSubnetGroupNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryClusterSubnetGroupQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): ClusterSubnetGroupQuotaExceededFault => {
+  let contents: any = {
+    __type: "ClusterSubnetGroupQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryClusterSubnetGroups = (
   output: any,
   context: __SerdeContext
@@ -17324,6 +16217,20 @@ const deserializeAws_queryClusterSubnetGroups = (
   return (output || []).map((entry: any) =>
     deserializeAws_queryClusterSubnetGroup(entry, context)
   );
+};
+
+const deserializeAws_queryClusterSubnetQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): ClusterSubnetQuotaExceededFault => {
+  let contents: any = {
+    __type: "ClusterSubnetQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
 };
 
 const deserializeAws_queryClusterVersion = (
@@ -17385,33 +16292,6 @@ const deserializeAws_queryClusterVersionsMessage = (
   return contents;
 };
 
-const deserializeAws_queryClustersMessage = (
-  output: any,
-  context: __SerdeContext
-): ClustersMessage => {
-  let contents: any = {
-    __type: "ClustersMessage",
-    Clusters: undefined,
-    Marker: undefined
-  };
-  if (output.Clusters === "") {
-    contents.Clusters = [];
-  }
-  if (
-    output["Clusters"] !== undefined &&
-    output["Clusters"]["Cluster"] !== undefined
-  ) {
-    contents.Clusters = deserializeAws_queryClusterList(
-      __getArrayIfSingleItem(output["Clusters"]["Cluster"]),
-      context
-    );
-  }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
-  }
-  return contents;
-};
-
 const deserializeAws_queryCopyClusterSnapshotResult = (
   output: any,
   context: __SerdeContext
@@ -17425,6 +16305,20 @@ const deserializeAws_queryCopyClusterSnapshotResult = (
       output["Snapshot"],
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_queryCopyToRegionDisabledFault = (
+  output: any,
+  context: __SerdeContext
+): CopyToRegionDisabledFault => {
+  let contents: any = {
+    __type: "CopyToRegionDisabledFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -17734,6 +16628,34 @@ const deserializeAws_queryDeleteClusterSnapshotResult = (
       output["Snapshot"],
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_queryDependentServiceRequestThrottlingFault = (
+  output: any,
+  context: __SerdeContext
+): DependentServiceRequestThrottlingFault => {
+  let contents: any = {
+    __type: "DependentServiceRequestThrottlingFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryDependentServiceUnavailableFault = (
+  output: any,
+  context: __SerdeContext
+): DependentServiceUnavailableFault => {
+  let contents: any = {
+    __type: "DependentServiceUnavailableFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -18064,6 +16986,33 @@ const deserializeAws_queryEventList = (
   );
 };
 
+const deserializeAws_queryEventsMessage = (
+  output: any,
+  context: __SerdeContext
+): EventsMessage => {
+  let contents: any = {
+    __type: "EventsMessage",
+    Events: undefined,
+    Marker: undefined
+  };
+  if (output.Events === "") {
+    contents.Events = [];
+  }
+  if (
+    output["Events"] !== undefined &&
+    output["Events"]["Event"] !== undefined
+  ) {
+    contents.Events = deserializeAws_queryEventList(
+      __getArrayIfSingleItem(output["Events"]["Event"]),
+      context
+    );
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryEventSubscription = (
   output: any,
   context: __SerdeContext
@@ -18144,6 +17093,20 @@ const deserializeAws_queryEventSubscription = (
   return contents;
 };
 
+const deserializeAws_queryEventSubscriptionQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): EventSubscriptionQuotaExceededFault => {
+  let contents: any = {
+    __type: "EventSubscriptionQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryEventSubscriptionsList = (
   output: any,
   context: __SerdeContext
@@ -18173,33 +17136,6 @@ const deserializeAws_queryEventSubscriptionsMessage = (
       __getArrayIfSingleItem(
         output["EventSubscriptionsList"]["EventSubscription"]
       ),
-      context
-    );
-  }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryEventsMessage = (
-  output: any,
-  context: __SerdeContext
-): EventsMessage => {
-  let contents: any = {
-    __type: "EventsMessage",
-    Events: undefined,
-    Marker: undefined
-  };
-  if (output.Events === "") {
-    contents.Events = [];
-  }
-  if (
-    output["Events"] !== undefined &&
-    output["Events"]["Event"] !== undefined
-  ) {
-    contents.Events = deserializeAws_queryEventList(
-      __getArrayIfSingleItem(output["Events"]["Event"]),
       context
     );
   }
@@ -18268,6 +17204,20 @@ const deserializeAws_queryHsmClientCertificate = (
   return contents;
 };
 
+const deserializeAws_queryHsmClientCertificateAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): HsmClientCertificateAlreadyExistsFault => {
+  let contents: any = {
+    __type: "HsmClientCertificateAlreadyExistsFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryHsmClientCertificateList = (
   output: any,
   context: __SerdeContext
@@ -18302,6 +17252,34 @@ const deserializeAws_queryHsmClientCertificateMessage = (
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryHsmClientCertificateNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): HsmClientCertificateNotFoundFault => {
+  let contents: any = {
+    __type: "HsmClientCertificateNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryHsmClientCertificateQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): HsmClientCertificateQuotaExceededFault => {
+  let contents: any = {
+    __type: "HsmClientCertificateQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -18342,6 +17320,20 @@ const deserializeAws_queryHsmConfiguration = (
   return contents;
 };
 
+const deserializeAws_queryHsmConfigurationAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): HsmConfigurationAlreadyExistsFault => {
+  let contents: any = {
+    __type: "HsmConfigurationAlreadyExistsFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryHsmConfigurationList = (
   output: any,
   context: __SerdeContext
@@ -18378,6 +17370,34 @@ const deserializeAws_queryHsmConfigurationMessage = (
   return contents;
 };
 
+const deserializeAws_queryHsmConfigurationNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): HsmConfigurationNotFoundFault => {
+  let contents: any = {
+    __type: "HsmConfigurationNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryHsmConfigurationQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): HsmConfigurationQuotaExceededFault => {
+  let contents: any = {
+    __type: "HsmConfigurationQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryHsmStatus = (
   output: any,
   context: __SerdeContext
@@ -18397,6 +17417,419 @@ const deserializeAws_queryHsmStatus = (
   }
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryImportTablesCompleted = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_queryImportTablesInProgress = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_queryImportTablesNotStarted = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_queryIncompatibleOrderableOptions = (
+  output: any,
+  context: __SerdeContext
+): IncompatibleOrderableOptions => {
+  let contents: any = {
+    __type: "IncompatibleOrderableOptions",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInProgressTableRestoreQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): InProgressTableRestoreQuotaExceededFault => {
+  let contents: any = {
+    __type: "InProgressTableRestoreQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInsufficientClusterCapacityFault = (
+  output: any,
+  context: __SerdeContext
+): InsufficientClusterCapacityFault => {
+  let contents: any = {
+    __type: "InsufficientClusterCapacityFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInsufficientS3BucketPolicyFault = (
+  output: any,
+  context: __SerdeContext
+): InsufficientS3BucketPolicyFault => {
+  let contents: any = {
+    __type: "InsufficientS3BucketPolicyFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidClusterParameterGroupStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidClusterParameterGroupStateFault => {
+  let contents: any = {
+    __type: "InvalidClusterParameterGroupStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidClusterSecurityGroupStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidClusterSecurityGroupStateFault => {
+  let contents: any = {
+    __type: "InvalidClusterSecurityGroupStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidClusterSnapshotScheduleStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidClusterSnapshotScheduleStateFault => {
+  let contents: any = {
+    __type: "InvalidClusterSnapshotScheduleStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidClusterSnapshotStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidClusterSnapshotStateFault => {
+  let contents: any = {
+    __type: "InvalidClusterSnapshotStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidClusterStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidClusterStateFault => {
+  let contents: any = {
+    __type: "InvalidClusterStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidClusterSubnetGroupStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidClusterSubnetGroupStateFault => {
+  let contents: any = {
+    __type: "InvalidClusterSubnetGroupStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidClusterSubnetStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidClusterSubnetStateFault => {
+  let contents: any = {
+    __type: "InvalidClusterSubnetStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidClusterTrackFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidClusterTrackFault => {
+  let contents: any = {
+    __type: "InvalidClusterTrackFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidElasticIpFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidElasticIpFault => {
+  let contents: any = {
+    __type: "InvalidElasticIpFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidHsmClientCertificateStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidHsmClientCertificateStateFault => {
+  let contents: any = {
+    __type: "InvalidHsmClientCertificateStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidHsmConfigurationStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidHsmConfigurationStateFault => {
+  let contents: any = {
+    __type: "InvalidHsmConfigurationStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidReservedNodeStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidReservedNodeStateFault => {
+  let contents: any = {
+    __type: "InvalidReservedNodeStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidRestoreFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidRestoreFault => {
+  let contents: any = {
+    __type: "InvalidRestoreFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidRetentionPeriodFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidRetentionPeriodFault => {
+  let contents: any = {
+    __type: "InvalidRetentionPeriodFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidS3BucketNameFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidS3BucketNameFault => {
+  let contents: any = {
+    __type: "InvalidS3BucketNameFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidS3KeyPrefixFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidS3KeyPrefixFault => {
+  let contents: any = {
+    __type: "InvalidS3KeyPrefixFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidScheduledActionFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidScheduledActionFault => {
+  let contents: any = {
+    __type: "InvalidScheduledActionFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidScheduleFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidScheduleFault => {
+  let contents: any = {
+    __type: "InvalidScheduleFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidSnapshotCopyGrantStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidSnapshotCopyGrantStateFault => {
+  let contents: any = {
+    __type: "InvalidSnapshotCopyGrantStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidSubnet = (
+  output: any,
+  context: __SerdeContext
+): InvalidSubnet => {
+  let contents: any = {
+    __type: "InvalidSubnet",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidSubscriptionStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidSubscriptionStateFault => {
+  let contents: any = {
+    __type: "InvalidSubscriptionStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidTableRestoreArgumentFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidTableRestoreArgumentFault => {
+  let contents: any = {
+    __type: "InvalidTableRestoreArgumentFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidTagFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidTagFault => {
+  let contents: any = {
+    __type: "InvalidTagFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidVPCNetworkStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidVPCNetworkStateFault => {
+  let contents: any = {
+    __type: "InvalidVPCNetworkStateFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -18438,25 +17871,18 @@ const deserializeAws_queryIPRangeList = (
   );
 };
 
-const deserializeAws_queryImportTablesCompleted = (
+const deserializeAws_queryLimitExceededFault = (
   output: any,
   context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
-const deserializeAws_queryImportTablesInProgress = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
-const deserializeAws_queryImportTablesNotStarted = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
+): LimitExceededFault => {
+  let contents: any = {
+    __type: "LimitExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
 };
 
 const deserializeAws_queryLoggingStatus = (
@@ -18710,6 +18136,34 @@ const deserializeAws_queryNodeConfigurationOptionsMessage = (
       ),
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_queryNumberOfNodesPerClusterLimitExceededFault = (
+  output: any,
+  context: __SerdeContext
+): NumberOfNodesPerClusterLimitExceededFault => {
+  let contents: any = {
+    __type: "NumberOfNodesPerClusterLimitExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryNumberOfNodesQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): NumberOfNodesQuotaExceededFault => {
+  let contents: any = {
+    __type: "NumberOfNodesQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -19045,6 +18499,34 @@ const deserializeAws_queryReservedNode = (
   return contents;
 };
 
+const deserializeAws_queryReservedNodeAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): ReservedNodeAlreadyExistsFault => {
+  let contents: any = {
+    __type: "ReservedNodeAlreadyExistsFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryReservedNodeAlreadyMigratedFault = (
+  output: any,
+  context: __SerdeContext
+): ReservedNodeAlreadyMigratedFault => {
+  let contents: any = {
+    __type: "ReservedNodeAlreadyMigratedFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryReservedNodeList = (
   output: any,
   context: __SerdeContext
@@ -19052,6 +18534,20 @@ const deserializeAws_queryReservedNodeList = (
   return (output || []).map((entry: any) =>
     deserializeAws_queryReservedNode(entry, context)
   );
+};
+
+const deserializeAws_queryReservedNodeNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): ReservedNodeNotFoundFault => {
+  let contents: any = {
+    __type: "ReservedNodeNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
 };
 
 const deserializeAws_queryReservedNodeOffering = (
@@ -19118,6 +18614,20 @@ const deserializeAws_queryReservedNodeOfferingList = (
   );
 };
 
+const deserializeAws_queryReservedNodeOfferingNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): ReservedNodeOfferingNotFoundFault => {
+  let contents: any = {
+    __type: "ReservedNodeOfferingNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryReservedNodeOfferingsMessage = (
   output: any,
   context: __SerdeContext
@@ -19143,6 +18653,20 @@ const deserializeAws_queryReservedNodeOfferingsMessage = (
       ),
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_queryReservedNodeQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): ReservedNodeQuotaExceededFault => {
+  let contents: any = {
+    __type: "ReservedNodeQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -19232,6 +18756,20 @@ const deserializeAws_queryResizeInfo = (
   }
   if (output["ResizeType"] !== undefined) {
     contents.ResizeType = output["ResizeType"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryResizeNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): ResizeNotFoundFault => {
+  let contents: any = {
+    __type: "ResizeNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -19341,6 +18879,20 @@ const deserializeAws_queryResizeProgressMessage = (
     contents.TotalResizeDataInMegaBytes = parseInt(
       output["TotalResizeDataInMegaBytes"]
     );
+  }
+  return contents;
+};
+
+const deserializeAws_queryResourceNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): ResourceNotFoundFault => {
+  let contents: any = {
+    __type: "ResourceNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -19504,13 +19056,6 @@ const deserializeAws_queryRotateEncryptionKeyResult = (
   return contents;
 };
 
-const deserializeAws_queryScheduleDefinitionList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
 const deserializeAws_queryScheduledAction = (
   output: any,
   context: __SerdeContext
@@ -19569,6 +19114,20 @@ const deserializeAws_queryScheduledAction = (
   return contents;
 };
 
+const deserializeAws_queryScheduledActionAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): ScheduledActionAlreadyExistsFault => {
+  let contents: any = {
+    __type: "ScheduledActionAlreadyExistsFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryScheduledActionList = (
   output: any,
   context: __SerdeContext
@@ -19578,26 +19137,30 @@ const deserializeAws_queryScheduledActionList = (
   );
 };
 
-const deserializeAws_queryScheduledActionTimeList = (
+const deserializeAws_queryScheduledActionNotFoundFault = (
   output: any,
   context: __SerdeContext
-): Date[] => {
-  return (output || []).map((entry: any) => new Date(entry));
+): ScheduledActionNotFoundFault => {
+  let contents: any = {
+    __type: "ScheduledActionNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
 };
 
-const deserializeAws_queryScheduledActionType = (
+const deserializeAws_queryScheduledActionQuotaExceededFault = (
   output: any,
   context: __SerdeContext
-): ScheduledActionType => {
+): ScheduledActionQuotaExceededFault => {
   let contents: any = {
-    __type: "ScheduledActionType",
-    ResizeCluster: undefined
+    __type: "ScheduledActionQuotaExceededFault",
+    message: undefined
   };
-  if (output["ResizeCluster"] !== undefined) {
-    contents.ResizeCluster = deserializeAws_queryResizeClusterMessage(
-      output["ResizeCluster"],
-      context
-    );
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -19625,6 +19188,65 @@ const deserializeAws_queryScheduledActionsMessage = (
       __getArrayIfSingleItem(output["ScheduledActions"]["ScheduledAction"]),
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_queryScheduledActionTimeList = (
+  output: any,
+  context: __SerdeContext
+): Date[] => {
+  return (output || []).map((entry: any) => new Date(entry));
+};
+
+const deserializeAws_queryScheduledActionType = (
+  output: any,
+  context: __SerdeContext
+): ScheduledActionType => {
+  let contents: any = {
+    __type: "ScheduledActionType",
+    ResizeCluster: undefined
+  };
+  if (output["ResizeCluster"] !== undefined) {
+    contents.ResizeCluster = deserializeAws_queryResizeClusterMessage(
+      output["ResizeCluster"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryScheduledActionTypeUnsupportedFault = (
+  output: any,
+  context: __SerdeContext
+): ScheduledActionTypeUnsupportedFault => {
+  let contents: any = {
+    __type: "ScheduledActionTypeUnsupportedFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryScheduleDefinitionList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_queryScheduleDefinitionTypeUnsupportedFault = (
+  output: any,
+  context: __SerdeContext
+): ScheduleDefinitionTypeUnsupportedFault => {
+  let contents: any = {
+    __type: "ScheduleDefinitionTypeUnsupportedFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -19821,6 +19443,48 @@ const deserializeAws_querySnapshot = (
   return contents;
 };
 
+const deserializeAws_querySnapshotCopyAlreadyDisabledFault = (
+  output: any,
+  context: __SerdeContext
+): SnapshotCopyAlreadyDisabledFault => {
+  let contents: any = {
+    __type: "SnapshotCopyAlreadyDisabledFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySnapshotCopyAlreadyEnabledFault = (
+  output: any,
+  context: __SerdeContext
+): SnapshotCopyAlreadyEnabledFault => {
+  let contents: any = {
+    __type: "SnapshotCopyAlreadyEnabledFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySnapshotCopyDisabledFault = (
+  output: any,
+  context: __SerdeContext
+): SnapshotCopyDisabledFault => {
+  let contents: any = {
+    __type: "SnapshotCopyDisabledFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_querySnapshotCopyGrant = (
   output: any,
   context: __SerdeContext
@@ -19845,6 +19509,20 @@ const deserializeAws_querySnapshotCopyGrant = (
       __getArrayIfSingleItem(output["Tags"]["Tag"]),
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_querySnapshotCopyGrantAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): SnapshotCopyGrantAlreadyExistsFault => {
+  let contents: any = {
+    __type: "SnapshotCopyGrantAlreadyExistsFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -19881,6 +19559,34 @@ const deserializeAws_querySnapshotCopyGrantMessage = (
       __getArrayIfSingleItem(output["SnapshotCopyGrants"]["SnapshotCopyGrant"]),
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_querySnapshotCopyGrantNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): SnapshotCopyGrantNotFoundFault => {
+  let contents: any = {
+    __type: "SnapshotCopyGrantNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySnapshotCopyGrantQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): SnapshotCopyGrantQuotaExceededFault => {
+  let contents: any = {
+    __type: "SnapshotCopyGrantQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -20031,6 +19737,20 @@ const deserializeAws_querySnapshotSchedule = (
   return contents;
 };
 
+const deserializeAws_querySnapshotScheduleAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): SnapshotScheduleAlreadyExistsFault => {
+  let contents: any = {
+    __type: "SnapshotScheduleAlreadyExistsFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_querySnapshotScheduleList = (
   output: any,
   context: __SerdeContext
@@ -20040,11 +19760,109 @@ const deserializeAws_querySnapshotScheduleList = (
   );
 };
 
+const deserializeAws_querySnapshotScheduleNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): SnapshotScheduleNotFoundFault => {
+  let contents: any = {
+    __type: "SnapshotScheduleNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySnapshotScheduleQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): SnapshotScheduleQuotaExceededFault => {
+  let contents: any = {
+    __type: "SnapshotScheduleQuotaExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySnapshotScheduleUpdateInProgressFault = (
+  output: any,
+  context: __SerdeContext
+): SnapshotScheduleUpdateInProgressFault => {
+  let contents: any = {
+    __type: "SnapshotScheduleUpdateInProgressFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySNSInvalidTopicFault = (
+  output: any,
+  context: __SerdeContext
+): SNSInvalidTopicFault => {
+  let contents: any = {
+    __type: "SNSInvalidTopicFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySNSNoAuthorizationFault = (
+  output: any,
+  context: __SerdeContext
+): SNSNoAuthorizationFault => {
+  let contents: any = {
+    __type: "SNSNoAuthorizationFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySNSTopicArnNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): SNSTopicArnNotFoundFault => {
+  let contents: any = {
+    __type: "SNSTopicArnNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_querySourceIdsList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_querySourceNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): SourceNotFoundFault => {
+  let contents: any = {
+    __type: "SourceNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
 };
 
 const deserializeAws_querySubnet = (
@@ -20072,6 +19890,20 @@ const deserializeAws_querySubnet = (
   return contents;
 };
 
+const deserializeAws_querySubnetAlreadyInUse = (
+  output: any,
+  context: __SerdeContext
+): SubnetAlreadyInUse => {
+  let contents: any = {
+    __type: "SubnetAlreadyInUse",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_querySubnetList = (
   output: any,
   context: __SerdeContext
@@ -20079,6 +19911,76 @@ const deserializeAws_querySubnetList = (
   return (output || []).map((entry: any) =>
     deserializeAws_querySubnet(entry, context)
   );
+};
+
+const deserializeAws_querySubscriptionAlreadyExistFault = (
+  output: any,
+  context: __SerdeContext
+): SubscriptionAlreadyExistFault => {
+  let contents: any = {
+    __type: "SubscriptionAlreadyExistFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySubscriptionCategoryNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): SubscriptionCategoryNotFoundFault => {
+  let contents: any = {
+    __type: "SubscriptionCategoryNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySubscriptionEventIdNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): SubscriptionEventIdNotFoundFault => {
+  let contents: any = {
+    __type: "SubscriptionEventIdNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySubscriptionNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): SubscriptionNotFoundFault => {
+  let contents: any = {
+    __type: "SubscriptionNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySubscriptionSeverityNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): SubscriptionSeverityNotFoundFault => {
+  let contents: any = {
+    __type: "SubscriptionSeverityNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
 };
 
 const deserializeAws_querySupportedOperation = (
@@ -20125,6 +20027,34 @@ const deserializeAws_querySupportedPlatformsList = (
   return (output || []).map((entry: any) =>
     deserializeAws_querySupportedPlatform(entry, context)
   );
+};
+
+const deserializeAws_queryTableLimitExceededFault = (
+  output: any,
+  context: __SerdeContext
+): TableLimitExceededFault => {
+  let contents: any = {
+    __type: "TableLimitExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryTableRestoreNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): TableRestoreNotFoundFault => {
+  let contents: any = {
+    __type: "TableRestoreNotFoundFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
 };
 
 const deserializeAws_queryTableRestoreStatus = (
@@ -20246,15 +20176,6 @@ const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
   return contents;
 };
 
-const deserializeAws_queryTagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryTag(entry, context)
-  );
-};
-
 const deserializeAws_queryTaggedResource = (
   output: any,
   context: __SerdeContext
@@ -20313,6 +20234,29 @@ const deserializeAws_queryTaggedResourceListMessage = (
   return contents;
 };
 
+const deserializeAws_queryTagLimitExceededFault = (
+  output: any,
+  context: __SerdeContext
+): TagLimitExceededFault => {
+  let contents: any = {
+    __type: "TagLimitExceededFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryTagList = (
+  output: any,
+  context: __SerdeContext
+): Tag[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryTag(entry, context)
+  );
+};
+
 const deserializeAws_queryTrackList = (
   output: any,
   context: __SerdeContext
@@ -20345,6 +20289,62 @@ const deserializeAws_queryTrackListMessage = (
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryUnauthorizedOperation = (
+  output: any,
+  context: __SerdeContext
+): UnauthorizedOperation => {
+  let contents: any = {
+    __type: "UnauthorizedOperation",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryUnknownSnapshotCopyRegionFault = (
+  output: any,
+  context: __SerdeContext
+): UnknownSnapshotCopyRegionFault => {
+  let contents: any = {
+    __type: "UnknownSnapshotCopyRegionFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryUnsupportedOperationFault = (
+  output: any,
+  context: __SerdeContext
+): UnsupportedOperationFault => {
+  let contents: any = {
+    __type: "UnsupportedOperationFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryUnsupportedOptionFault = (
+  output: any,
+  context: __SerdeContext
+): UnsupportedOptionFault => {
+  let contents: any = {
+    __type: "UnsupportedOptionFault",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };

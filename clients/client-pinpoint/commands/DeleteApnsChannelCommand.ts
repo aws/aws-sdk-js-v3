@@ -8,9 +8,9 @@ import {
   DeleteApnsChannelResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteApnsChannelCommand,
-  serializeAws_restJson1_1DeleteApnsChannelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteApnsChannelCommand,
+  serializeAws_restJson1DeleteApnsChannelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DeleteApnsChannelCommand extends $Command<
     input: DeleteApnsChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteApnsChannelCommand(input, context);
+    return serializeAws_restJson1DeleteApnsChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApnsChannelCommandOutput> {
-    return deserializeAws_restJson1_1DeleteApnsChannelCommand(output, context);
+    return deserializeAws_restJson1DeleteApnsChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

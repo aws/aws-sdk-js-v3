@@ -2096,6 +2096,46 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
+   * <p>Requests a description of one or more stacks.</p>
+   *          <p>
+   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
+   *       Manage permissions level for the stack, or an attached policy that explicitly grants
+   *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
+   *         Permissions</a>.</p>
+   */
+  public describeStacks(
+    args: DescribeStacksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeStacksCommandOutput>;
+  public describeStacks(
+    args: DescribeStacksCommandInput,
+    cb: (err: any, data?: DescribeStacksCommandOutput) => void
+  ): void;
+  public describeStacks(
+    args: DescribeStacksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeStacksCommandOutput) => void
+  ): void;
+  public describeStacks(
+    args: DescribeStacksCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeStacksCommandOutput) => void),
+    cb?: (err: any, data?: DescribeStacksCommandOutput) => void
+  ): Promise<DescribeStacksCommandOutput> | void {
+    const command = new DescribeStacksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes the number of layers and apps in a specified stack, and the number of instances in
    *       each state, such as <code>running_setup</code> or <code>online</code>.</p>
    *          <p>
@@ -2125,46 +2165,6 @@ export class OpsWorks extends OpsWorksClient {
     cb?: (err: any, data?: DescribeStackSummaryCommandOutput) => void
   ): Promise<DescribeStackSummaryCommandOutput> | void {
     const command = new DescribeStackSummaryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Requests a description of one or more stacks.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
-   *       Manage permissions level for the stack, or an attached policy that explicitly grants
-   *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public describeStacks(
-    args: DescribeStacksCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeStacksCommandOutput>;
-  public describeStacks(
-    args: DescribeStacksCommandInput,
-    cb: (err: any, data?: DescribeStacksCommandOutput) => void
-  ): void;
-  public describeStacks(
-    args: DescribeStacksCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeStacksCommandOutput) => void
-  ): void;
-  public describeStacks(
-    args: DescribeStacksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStacksCommandOutput) => void),
-    cb?: (err: any, data?: DescribeStacksCommandOutput) => void
-  ): Promise<DescribeStacksCommandOutput> | void {
-    const command = new DescribeStacksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

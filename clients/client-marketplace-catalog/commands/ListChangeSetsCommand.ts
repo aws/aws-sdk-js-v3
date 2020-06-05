@@ -5,9 +5,9 @@ import {
 } from "../MarketplaceCatalogClient";
 import { ListChangeSetsRequest, ListChangeSetsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListChangeSetsCommand,
-  serializeAws_restJson1_1ListChangeSetsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListChangeSetsCommand,
+  serializeAws_restJson1ListChangeSetsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class ListChangeSetsCommand extends $Command<
     input: ListChangeSetsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListChangeSetsCommand(input, context);
+    return serializeAws_restJson1ListChangeSetsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListChangeSetsCommandOutput> {
-    return deserializeAws_restJson1_1ListChangeSetsCommand(output, context);
+    return deserializeAws_restJson1ListChangeSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

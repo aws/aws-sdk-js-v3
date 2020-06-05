@@ -5,9 +5,9 @@ import {
 } from "../DataExchangeClient";
 import { GetRevisionRequest, GetRevisionResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetRevisionCommand,
-  serializeAws_restJson1_1GetRevisionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetRevisionCommand,
+  serializeAws_restJson1GetRevisionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetRevisionCommand extends $Command<
     input: GetRevisionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetRevisionCommand(input, context);
+    return serializeAws_restJson1GetRevisionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRevisionCommandOutput> {
-    return deserializeAws_restJson1_1GetRevisionCommand(output, context);
+    return deserializeAws_restJson1GetRevisionCommand(output, context);
   }
 
   // Start section: command_body_extra

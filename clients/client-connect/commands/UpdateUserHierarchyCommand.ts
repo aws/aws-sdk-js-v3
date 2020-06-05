@@ -5,9 +5,9 @@ import {
 } from "../ConnectClient";
 import { UpdateUserHierarchyRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateUserHierarchyCommand,
-  serializeAws_restJson1_1UpdateUserHierarchyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateUserHierarchyCommand,
+  serializeAws_restJson1UpdateUserHierarchyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,17 +70,14 @@ export class UpdateUserHierarchyCommand extends $Command<
     input: UpdateUserHierarchyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateUserHierarchyCommand(input, context);
+    return serializeAws_restJson1UpdateUserHierarchyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateUserHierarchyCommandOutput> {
-    return deserializeAws_restJson1_1UpdateUserHierarchyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateUserHierarchyCommand(output, context);
   }
 
   // Start section: command_body_extra

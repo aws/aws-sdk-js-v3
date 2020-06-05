@@ -8,9 +8,9 @@ import {
   UpdateIntegrationResponseResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateIntegrationResponseCommand,
-  serializeAws_restJson1_1UpdateIntegrationResponseCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateIntegrationResponseCommand,
+  serializeAws_restJson1UpdateIntegrationResponseCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdateIntegrationResponseCommand extends $Command<
     input: UpdateIntegrationResponseCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateIntegrationResponseCommand(
+    return serializeAws_restJson1UpdateIntegrationResponseCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdateIntegrationResponseCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateIntegrationResponseCommandOutput> {
-    return deserializeAws_restJson1_1UpdateIntegrationResponseCommand(
+    return deserializeAws_restJson1UpdateIntegrationResponseCommand(
       output,
       context
     );

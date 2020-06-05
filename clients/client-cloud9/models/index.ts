@@ -309,6 +309,45 @@ export namespace DescribeEnvironmentMembershipsResult {
     __isa(o, "DescribeEnvironmentMembershipsResult");
 }
 
+export interface DescribeEnvironmentsRequest {
+  __type?: "DescribeEnvironmentsRequest";
+  /**
+   * <p>The IDs of individual environments to get information about.</p>
+   */
+  environmentIds: string[] | undefined;
+}
+
+export namespace DescribeEnvironmentsRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeEnvironmentsRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeEnvironmentsRequest =>
+    __isa(o, "DescribeEnvironmentsRequest");
+}
+
+export interface DescribeEnvironmentsResult {
+  __type?: "DescribeEnvironmentsResult";
+  /**
+   * <p>Information about the environments that are returned.</p>
+   */
+  environments?: Environment[];
+}
+
+export namespace DescribeEnvironmentsResult {
+  export const filterSensitiveLog = (obj: DescribeEnvironmentsResult): any => ({
+    ...obj,
+    ...(obj.environments && {
+      environments: obj.environments.map(item =>
+        Environment.filterSensitiveLog(item)
+      )
+    })
+  });
+  export const isa = (o: any): o is DescribeEnvironmentsResult =>
+    __isa(o, "DescribeEnvironmentsResult");
+}
+
 export interface DescribeEnvironmentStatusRequest {
   __type?: "DescribeEnvironmentStatusRequest";
   /**
@@ -378,45 +417,6 @@ export namespace DescribeEnvironmentStatusResult {
   });
   export const isa = (o: any): o is DescribeEnvironmentStatusResult =>
     __isa(o, "DescribeEnvironmentStatusResult");
-}
-
-export interface DescribeEnvironmentsRequest {
-  __type?: "DescribeEnvironmentsRequest";
-  /**
-   * <p>The IDs of individual environments to get information about.</p>
-   */
-  environmentIds: string[] | undefined;
-}
-
-export namespace DescribeEnvironmentsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeEnvironmentsRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeEnvironmentsRequest =>
-    __isa(o, "DescribeEnvironmentsRequest");
-}
-
-export interface DescribeEnvironmentsResult {
-  __type?: "DescribeEnvironmentsResult";
-  /**
-   * <p>Information about the environments that are returned.</p>
-   */
-  environments?: Environment[];
-}
-
-export namespace DescribeEnvironmentsResult {
-  export const filterSensitiveLog = (obj: DescribeEnvironmentsResult): any => ({
-    ...obj,
-    ...(obj.environments && {
-      environments: obj.environments.map(item =>
-        Environment.filterSensitiveLog(item)
-      )
-    })
-  });
-  export const isa = (o: any): o is DescribeEnvironmentsResult =>
-    __isa(o, "DescribeEnvironmentsResult");
 }
 
 /**

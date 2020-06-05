@@ -897,7 +897,7 @@ const deserializeAws_json1_0CountClosedWorkflowExecutionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -908,7 +908,7 @@ const deserializeAws_json1_0CountClosedWorkflowExecutionsCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -971,7 +971,7 @@ const deserializeAws_json1_0CountOpenWorkflowExecutionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -982,7 +982,7 @@ const deserializeAws_json1_0CountOpenWorkflowExecutionsCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -1045,7 +1045,7 @@ const deserializeAws_json1_0CountPendingActivityTasksCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -1056,7 +1056,7 @@ const deserializeAws_json1_0CountPendingActivityTasksCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -1119,7 +1119,7 @@ const deserializeAws_json1_0CountPendingDecisionTasksCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -1130,7 +1130,7 @@ const deserializeAws_json1_0CountPendingDecisionTasksCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -1189,7 +1189,7 @@ const deserializeAws_json1_0DeprecateActivityTypeCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -1200,7 +1200,7 @@ const deserializeAws_json1_0DeprecateActivityTypeCommandError = async (
       };
       break;
     case "TypeDeprecatedFault":
-    case "com.amazonaws.swf.base.model#TypeDeprecatedFault":
+    case "com.amazonaws.swf#TypeDeprecatedFault":
       response = {
         ...(await deserializeAws_json1_0TypeDeprecatedFaultResponse(
           parsedOutput,
@@ -1211,7 +1211,7 @@ const deserializeAws_json1_0DeprecateActivityTypeCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -1267,7 +1267,7 @@ const deserializeAws_json1_0DeprecateDomainCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DomainDeprecatedFault":
-    case "com.amazonaws.swf.base.model#DomainDeprecatedFault":
+    case "com.amazonaws.swf#DomainDeprecatedFault":
       response = {
         ...(await deserializeAws_json1_0DomainDeprecatedFaultResponse(
           parsedOutput,
@@ -1278,7 +1278,7 @@ const deserializeAws_json1_0DeprecateDomainCommandError = async (
       };
       break;
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -1289,7 +1289,7 @@ const deserializeAws_json1_0DeprecateDomainCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -1348,7 +1348,7 @@ const deserializeAws_json1_0DeprecateWorkflowTypeCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -1359,7 +1359,7 @@ const deserializeAws_json1_0DeprecateWorkflowTypeCommandError = async (
       };
       break;
     case "TypeDeprecatedFault":
-    case "com.amazonaws.swf.base.model#TypeDeprecatedFault":
+    case "com.amazonaws.swf#TypeDeprecatedFault":
       response = {
         ...(await deserializeAws_json1_0TypeDeprecatedFaultResponse(
           parsedOutput,
@@ -1370,7 +1370,7 @@ const deserializeAws_json1_0DeprecateWorkflowTypeCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -1433,7 +1433,7 @@ const deserializeAws_json1_0DescribeActivityTypeCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -1444,7 +1444,7 @@ const deserializeAws_json1_0DescribeActivityTypeCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -1504,7 +1504,7 @@ const deserializeAws_json1_0DescribeDomainCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -1515,7 +1515,7 @@ const deserializeAws_json1_0DescribeDomainCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -1578,7 +1578,7 @@ const deserializeAws_json1_0DescribeWorkflowExecutionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -1589,7 +1589,7 @@ const deserializeAws_json1_0DescribeWorkflowExecutionCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -1652,7 +1652,7 @@ const deserializeAws_json1_0DescribeWorkflowTypeCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -1663,7 +1663,7 @@ const deserializeAws_json1_0DescribeWorkflowTypeCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -1726,7 +1726,7 @@ const deserializeAws_json1_0GetWorkflowExecutionHistoryCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -1737,7 +1737,7 @@ const deserializeAws_json1_0GetWorkflowExecutionHistoryCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -1797,7 +1797,7 @@ const deserializeAws_json1_0ListActivityTypesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -1808,7 +1808,7 @@ const deserializeAws_json1_0ListActivityTypesCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -1871,7 +1871,7 @@ const deserializeAws_json1_0ListClosedWorkflowExecutionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -1882,7 +1882,7 @@ const deserializeAws_json1_0ListClosedWorkflowExecutionsCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -1942,7 +1942,7 @@ const deserializeAws_json1_0ListDomainsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -2005,7 +2005,7 @@ const deserializeAws_json1_0ListOpenWorkflowExecutionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -2016,7 +2016,7 @@ const deserializeAws_json1_0ListOpenWorkflowExecutionsCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -2079,7 +2079,7 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededFault":
-    case "com.amazonaws.swf.base.model#LimitExceededFault":
+    case "com.amazonaws.swf#LimitExceededFault":
       response = {
         ...(await deserializeAws_json1_0LimitExceededFaultResponse(
           parsedOutput,
@@ -2090,7 +2090,7 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
       };
       break;
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -2101,7 +2101,7 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -2161,7 +2161,7 @@ const deserializeAws_json1_0ListWorkflowTypesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -2172,7 +2172,7 @@ const deserializeAws_json1_0ListWorkflowTypesCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -2235,7 +2235,7 @@ const deserializeAws_json1_0PollForActivityTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededFault":
-    case "com.amazonaws.swf.base.model#LimitExceededFault":
+    case "com.amazonaws.swf#LimitExceededFault":
       response = {
         ...(await deserializeAws_json1_0LimitExceededFaultResponse(
           parsedOutput,
@@ -2246,7 +2246,7 @@ const deserializeAws_json1_0PollForActivityTaskCommandError = async (
       };
       break;
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -2257,7 +2257,7 @@ const deserializeAws_json1_0PollForActivityTaskCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -2320,7 +2320,7 @@ const deserializeAws_json1_0PollForDecisionTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededFault":
-    case "com.amazonaws.swf.base.model#LimitExceededFault":
+    case "com.amazonaws.swf#LimitExceededFault":
       response = {
         ...(await deserializeAws_json1_0LimitExceededFaultResponse(
           parsedOutput,
@@ -2331,7 +2331,7 @@ const deserializeAws_json1_0PollForDecisionTaskCommandError = async (
       };
       break;
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -2342,7 +2342,7 @@ const deserializeAws_json1_0PollForDecisionTaskCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -2405,7 +2405,7 @@ const deserializeAws_json1_0RecordActivityTaskHeartbeatCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -2416,7 +2416,7 @@ const deserializeAws_json1_0RecordActivityTaskHeartbeatCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -2475,7 +2475,7 @@ const deserializeAws_json1_0RegisterActivityTypeCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededFault":
-    case "com.amazonaws.swf.base.model#LimitExceededFault":
+    case "com.amazonaws.swf#LimitExceededFault":
       response = {
         ...(await deserializeAws_json1_0LimitExceededFaultResponse(
           parsedOutput,
@@ -2486,7 +2486,7 @@ const deserializeAws_json1_0RegisterActivityTypeCommandError = async (
       };
       break;
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -2497,7 +2497,7 @@ const deserializeAws_json1_0RegisterActivityTypeCommandError = async (
       };
       break;
     case "TypeAlreadyExistsFault":
-    case "com.amazonaws.swf.base.model#TypeAlreadyExistsFault":
+    case "com.amazonaws.swf#TypeAlreadyExistsFault":
       response = {
         ...(await deserializeAws_json1_0TypeAlreadyExistsFaultResponse(
           parsedOutput,
@@ -2508,7 +2508,7 @@ const deserializeAws_json1_0RegisterActivityTypeCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -2564,7 +2564,7 @@ const deserializeAws_json1_0RegisterDomainCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DomainAlreadyExistsFault":
-    case "com.amazonaws.swf.base.model#DomainAlreadyExistsFault":
+    case "com.amazonaws.swf#DomainAlreadyExistsFault":
       response = {
         ...(await deserializeAws_json1_0DomainAlreadyExistsFaultResponse(
           parsedOutput,
@@ -2575,7 +2575,7 @@ const deserializeAws_json1_0RegisterDomainCommandError = async (
       };
       break;
     case "LimitExceededFault":
-    case "com.amazonaws.swf.base.model#LimitExceededFault":
+    case "com.amazonaws.swf#LimitExceededFault":
       response = {
         ...(await deserializeAws_json1_0LimitExceededFaultResponse(
           parsedOutput,
@@ -2586,7 +2586,7 @@ const deserializeAws_json1_0RegisterDomainCommandError = async (
       };
       break;
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -2597,7 +2597,7 @@ const deserializeAws_json1_0RegisterDomainCommandError = async (
       };
       break;
     case "TooManyTagsFault":
-    case "com.amazonaws.swf.base.model#TooManyTagsFault":
+    case "com.amazonaws.swf#TooManyTagsFault":
       response = {
         ...(await deserializeAws_json1_0TooManyTagsFaultResponse(
           parsedOutput,
@@ -2656,7 +2656,7 @@ const deserializeAws_json1_0RegisterWorkflowTypeCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededFault":
-    case "com.amazonaws.swf.base.model#LimitExceededFault":
+    case "com.amazonaws.swf#LimitExceededFault":
       response = {
         ...(await deserializeAws_json1_0LimitExceededFaultResponse(
           parsedOutput,
@@ -2667,7 +2667,7 @@ const deserializeAws_json1_0RegisterWorkflowTypeCommandError = async (
       };
       break;
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -2678,7 +2678,7 @@ const deserializeAws_json1_0RegisterWorkflowTypeCommandError = async (
       };
       break;
     case "TypeAlreadyExistsFault":
-    case "com.amazonaws.swf.base.model#TypeAlreadyExistsFault":
+    case "com.amazonaws.swf#TypeAlreadyExistsFault":
       response = {
         ...(await deserializeAws_json1_0TypeAlreadyExistsFaultResponse(
           parsedOutput,
@@ -2689,7 +2689,7 @@ const deserializeAws_json1_0RegisterWorkflowTypeCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -2748,7 +2748,7 @@ const deserializeAws_json1_0RequestCancelWorkflowExecutionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -2759,7 +2759,7 @@ const deserializeAws_json1_0RequestCancelWorkflowExecutionCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -2818,7 +2818,7 @@ const deserializeAws_json1_0RespondActivityTaskCanceledCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -2829,7 +2829,7 @@ const deserializeAws_json1_0RespondActivityTaskCanceledCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -2888,7 +2888,7 @@ const deserializeAws_json1_0RespondActivityTaskCompletedCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -2899,7 +2899,7 @@ const deserializeAws_json1_0RespondActivityTaskCompletedCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -2958,7 +2958,7 @@ const deserializeAws_json1_0RespondActivityTaskFailedCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -2969,7 +2969,7 @@ const deserializeAws_json1_0RespondActivityTaskFailedCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -3028,7 +3028,7 @@ const deserializeAws_json1_0RespondDecisionTaskCompletedCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -3039,7 +3039,7 @@ const deserializeAws_json1_0RespondDecisionTaskCompletedCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -3098,7 +3098,7 @@ const deserializeAws_json1_0SignalWorkflowExecutionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -3109,7 +3109,7 @@ const deserializeAws_json1_0SignalWorkflowExecutionCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -3172,7 +3172,7 @@ const deserializeAws_json1_0StartWorkflowExecutionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DefaultUndefinedFault":
-    case "com.amazonaws.swf.base.model#DefaultUndefinedFault":
+    case "com.amazonaws.swf#DefaultUndefinedFault":
       response = {
         ...(await deserializeAws_json1_0DefaultUndefinedFaultResponse(
           parsedOutput,
@@ -3183,7 +3183,7 @@ const deserializeAws_json1_0StartWorkflowExecutionCommandError = async (
       };
       break;
     case "LimitExceededFault":
-    case "com.amazonaws.swf.base.model#LimitExceededFault":
+    case "com.amazonaws.swf#LimitExceededFault":
       response = {
         ...(await deserializeAws_json1_0LimitExceededFaultResponse(
           parsedOutput,
@@ -3194,7 +3194,7 @@ const deserializeAws_json1_0StartWorkflowExecutionCommandError = async (
       };
       break;
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -3205,7 +3205,7 @@ const deserializeAws_json1_0StartWorkflowExecutionCommandError = async (
       };
       break;
     case "TypeDeprecatedFault":
-    case "com.amazonaws.swf.base.model#TypeDeprecatedFault":
+    case "com.amazonaws.swf#TypeDeprecatedFault":
       response = {
         ...(await deserializeAws_json1_0TypeDeprecatedFaultResponse(
           parsedOutput,
@@ -3216,7 +3216,7 @@ const deserializeAws_json1_0StartWorkflowExecutionCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -3227,7 +3227,7 @@ const deserializeAws_json1_0StartWorkflowExecutionCommandError = async (
       };
       break;
     case "WorkflowExecutionAlreadyStartedFault":
-    case "com.amazonaws.swf.base.model#WorkflowExecutionAlreadyStartedFault":
+    case "com.amazonaws.swf#WorkflowExecutionAlreadyStartedFault":
       response = {
         ...(await deserializeAws_json1_0WorkflowExecutionAlreadyStartedFaultResponse(
           parsedOutput,
@@ -3283,7 +3283,7 @@ const deserializeAws_json1_0TagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededFault":
-    case "com.amazonaws.swf.base.model#LimitExceededFault":
+    case "com.amazonaws.swf#LimitExceededFault":
       response = {
         ...(await deserializeAws_json1_0LimitExceededFaultResponse(
           parsedOutput,
@@ -3294,7 +3294,7 @@ const deserializeAws_json1_0TagResourceCommandError = async (
       };
       break;
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -3305,7 +3305,7 @@ const deserializeAws_json1_0TagResourceCommandError = async (
       };
       break;
     case "TooManyTagsFault":
-    case "com.amazonaws.swf.base.model#TooManyTagsFault":
+    case "com.amazonaws.swf#TooManyTagsFault":
       response = {
         ...(await deserializeAws_json1_0TooManyTagsFaultResponse(
           parsedOutput,
@@ -3316,7 +3316,7 @@ const deserializeAws_json1_0TagResourceCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -3375,7 +3375,7 @@ const deserializeAws_json1_0TerminateWorkflowExecutionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -3386,7 +3386,7 @@ const deserializeAws_json1_0TerminateWorkflowExecutionCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -3445,7 +3445,7 @@ const deserializeAws_json1_0UndeprecateActivityTypeCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -3456,7 +3456,7 @@ const deserializeAws_json1_0UndeprecateActivityTypeCommandError = async (
       };
       break;
     case "TypeAlreadyExistsFault":
-    case "com.amazonaws.swf.base.model#TypeAlreadyExistsFault":
+    case "com.amazonaws.swf#TypeAlreadyExistsFault":
       response = {
         ...(await deserializeAws_json1_0TypeAlreadyExistsFaultResponse(
           parsedOutput,
@@ -3467,7 +3467,7 @@ const deserializeAws_json1_0UndeprecateActivityTypeCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -3523,7 +3523,7 @@ const deserializeAws_json1_0UndeprecateDomainCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DomainAlreadyExistsFault":
-    case "com.amazonaws.swf.base.model#DomainAlreadyExistsFault":
+    case "com.amazonaws.swf#DomainAlreadyExistsFault":
       response = {
         ...(await deserializeAws_json1_0DomainAlreadyExistsFaultResponse(
           parsedOutput,
@@ -3534,7 +3534,7 @@ const deserializeAws_json1_0UndeprecateDomainCommandError = async (
       };
       break;
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -3545,7 +3545,7 @@ const deserializeAws_json1_0UndeprecateDomainCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -3604,7 +3604,7 @@ const deserializeAws_json1_0UndeprecateWorkflowTypeCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -3615,7 +3615,7 @@ const deserializeAws_json1_0UndeprecateWorkflowTypeCommandError = async (
       };
       break;
     case "TypeAlreadyExistsFault":
-    case "com.amazonaws.swf.base.model#TypeAlreadyExistsFault":
+    case "com.amazonaws.swf#TypeAlreadyExistsFault":
       response = {
         ...(await deserializeAws_json1_0TypeAlreadyExistsFaultResponse(
           parsedOutput,
@@ -3626,7 +3626,7 @@ const deserializeAws_json1_0UndeprecateWorkflowTypeCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -3682,7 +3682,7 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededFault":
-    case "com.amazonaws.swf.base.model#LimitExceededFault":
+    case "com.amazonaws.swf#LimitExceededFault":
       response = {
         ...(await deserializeAws_json1_0LimitExceededFaultResponse(
           parsedOutput,
@@ -3693,7 +3693,7 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
       };
       break;
     case "OperationNotPermittedFault":
-    case "com.amazonaws.swf.base.model#OperationNotPermittedFault":
+    case "com.amazonaws.swf#OperationNotPermittedFault":
       response = {
         ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(
           parsedOutput,
@@ -3704,7 +3704,7 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
       };
       break;
     case "UnknownResourceFault":
-    case "com.amazonaws.swf.base.model#UnknownResourceFault":
+    case "com.amazonaws.swf#UnknownResourceFault":
       response = {
         ...(await deserializeAws_json1_0UnknownResourceFaultResponse(
           parsedOutput,
@@ -3986,6 +3986,102 @@ const serializeAws_json1_0ContinueAsNewWorkflowExecutionDecisionAttributes = (
   };
 };
 
+const serializeAws_json1_0CountClosedWorkflowExecutionsInput = (
+  input: CountClosedWorkflowExecutionsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.closeStatusFilter !== undefined && {
+      closeStatusFilter: serializeAws_json1_0CloseStatusFilter(
+        input.closeStatusFilter,
+        context
+      )
+    }),
+    ...(input.closeTimeFilter !== undefined && {
+      closeTimeFilter: serializeAws_json1_0ExecutionTimeFilter(
+        input.closeTimeFilter,
+        context
+      )
+    }),
+    ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.executionFilter !== undefined && {
+      executionFilter: serializeAws_json1_0WorkflowExecutionFilter(
+        input.executionFilter,
+        context
+      )
+    }),
+    ...(input.startTimeFilter !== undefined && {
+      startTimeFilter: serializeAws_json1_0ExecutionTimeFilter(
+        input.startTimeFilter,
+        context
+      )
+    }),
+    ...(input.tagFilter !== undefined && {
+      tagFilter: serializeAws_json1_0TagFilter(input.tagFilter, context)
+    }),
+    ...(input.typeFilter !== undefined && {
+      typeFilter: serializeAws_json1_0WorkflowTypeFilter(
+        input.typeFilter,
+        context
+      )
+    })
+  };
+};
+
+const serializeAws_json1_0CountOpenWorkflowExecutionsInput = (
+  input: CountOpenWorkflowExecutionsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.executionFilter !== undefined && {
+      executionFilter: serializeAws_json1_0WorkflowExecutionFilter(
+        input.executionFilter,
+        context
+      )
+    }),
+    ...(input.startTimeFilter !== undefined && {
+      startTimeFilter: serializeAws_json1_0ExecutionTimeFilter(
+        input.startTimeFilter,
+        context
+      )
+    }),
+    ...(input.tagFilter !== undefined && {
+      tagFilter: serializeAws_json1_0TagFilter(input.tagFilter, context)
+    }),
+    ...(input.typeFilter !== undefined && {
+      typeFilter: serializeAws_json1_0WorkflowTypeFilter(
+        input.typeFilter,
+        context
+      )
+    })
+  };
+};
+
+const serializeAws_json1_0CountPendingActivityTasksInput = (
+  input: CountPendingActivityTasksInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.taskList !== undefined && {
+      taskList: serializeAws_json1_0TaskList(input.taskList, context)
+    })
+  };
+};
+
+const serializeAws_json1_0CountPendingDecisionTasksInput = (
+  input: CountPendingDecisionTasksInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.taskList !== undefined && {
+      taskList: serializeAws_json1_0TaskList(input.taskList, context)
+    })
+  };
+};
+
 const serializeAws_json1_0Decision = (
   input: Decision,
   context: __SerdeContext
@@ -4085,354 +4181,6 @@ const serializeAws_json1_0DecisionList = (
   return input.map(entry => serializeAws_json1_0Decision(entry, context));
 };
 
-const serializeAws_json1_0ExecutionTimeFilter = (
-  input: ExecutionTimeFilter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.latestDate !== undefined && {
-      latestDate: Math.round(input.latestDate.getTime() / 1000)
-    }),
-    ...(input.oldestDate !== undefined && {
-      oldestDate: Math.round(input.oldestDate.getTime() / 1000)
-    })
-  };
-};
-
-const serializeAws_json1_0FailWorkflowExecutionDecisionAttributes = (
-  input: FailWorkflowExecutionDecisionAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.details !== undefined && { details: input.details }),
-    ...(input.reason !== undefined && { reason: input.reason })
-  };
-};
-
-const serializeAws_json1_0RecordMarkerDecisionAttributes = (
-  input: RecordMarkerDecisionAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.details !== undefined && { details: input.details }),
-    ...(input.markerName !== undefined && { markerName: input.markerName })
-  };
-};
-
-const serializeAws_json1_0RequestCancelActivityTaskDecisionAttributes = (
-  input: RequestCancelActivityTaskDecisionAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.activityId !== undefined && { activityId: input.activityId })
-  };
-};
-
-const serializeAws_json1_0RequestCancelExternalWorkflowExecutionDecisionAttributes = (
-  input: RequestCancelExternalWorkflowExecutionDecisionAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.control !== undefined && { control: input.control }),
-    ...(input.runId !== undefined && { runId: input.runId }),
-    ...(input.workflowId !== undefined && { workflowId: input.workflowId })
-  };
-};
-
-const serializeAws_json1_0ResourceTag = (
-  input: ResourceTag,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.key !== undefined && { key: input.key }),
-    ...(input.value !== undefined && { value: input.value })
-  };
-};
-
-const serializeAws_json1_0ResourceTagKeyList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
-const serializeAws_json1_0ResourceTagList = (
-  input: ResourceTag[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_json1_0ResourceTag(entry, context));
-};
-
-const serializeAws_json1_0ScheduleActivityTaskDecisionAttributes = (
-  input: ScheduleActivityTaskDecisionAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.activityId !== undefined && { activityId: input.activityId }),
-    ...(input.activityType !== undefined && {
-      activityType: serializeAws_json1_0ActivityType(
-        input.activityType,
-        context
-      )
-    }),
-    ...(input.control !== undefined && { control: input.control }),
-    ...(input.heartbeatTimeout !== undefined && {
-      heartbeatTimeout: input.heartbeatTimeout
-    }),
-    ...(input.input !== undefined && { input: input.input }),
-    ...(input.scheduleToCloseTimeout !== undefined && {
-      scheduleToCloseTimeout: input.scheduleToCloseTimeout
-    }),
-    ...(input.scheduleToStartTimeout !== undefined && {
-      scheduleToStartTimeout: input.scheduleToStartTimeout
-    }),
-    ...(input.startToCloseTimeout !== undefined && {
-      startToCloseTimeout: input.startToCloseTimeout
-    }),
-    ...(input.taskList !== undefined && {
-      taskList: serializeAws_json1_0TaskList(input.taskList, context)
-    }),
-    ...(input.taskPriority !== undefined && {
-      taskPriority: input.taskPriority
-    })
-  };
-};
-
-const serializeAws_json1_0ScheduleLambdaFunctionDecisionAttributes = (
-  input: ScheduleLambdaFunctionDecisionAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.control !== undefined && { control: input.control }),
-    ...(input.id !== undefined && { id: input.id }),
-    ...(input.input !== undefined && { input: input.input }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.startToCloseTimeout !== undefined && {
-      startToCloseTimeout: input.startToCloseTimeout
-    })
-  };
-};
-
-const serializeAws_json1_0SignalExternalWorkflowExecutionDecisionAttributes = (
-  input: SignalExternalWorkflowExecutionDecisionAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.control !== undefined && { control: input.control }),
-    ...(input.input !== undefined && { input: input.input }),
-    ...(input.runId !== undefined && { runId: input.runId }),
-    ...(input.signalName !== undefined && { signalName: input.signalName }),
-    ...(input.workflowId !== undefined && { workflowId: input.workflowId })
-  };
-};
-
-const serializeAws_json1_0StartChildWorkflowExecutionDecisionAttributes = (
-  input: StartChildWorkflowExecutionDecisionAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.childPolicy !== undefined && { childPolicy: input.childPolicy }),
-    ...(input.control !== undefined && { control: input.control }),
-    ...(input.executionStartToCloseTimeout !== undefined && {
-      executionStartToCloseTimeout: input.executionStartToCloseTimeout
-    }),
-    ...(input.input !== undefined && { input: input.input }),
-    ...(input.lambdaRole !== undefined && { lambdaRole: input.lambdaRole }),
-    ...(input.tagList !== undefined && {
-      tagList: serializeAws_json1_0TagList(input.tagList, context)
-    }),
-    ...(input.taskList !== undefined && {
-      taskList: serializeAws_json1_0TaskList(input.taskList, context)
-    }),
-    ...(input.taskPriority !== undefined && {
-      taskPriority: input.taskPriority
-    }),
-    ...(input.taskStartToCloseTimeout !== undefined && {
-      taskStartToCloseTimeout: input.taskStartToCloseTimeout
-    }),
-    ...(input.workflowId !== undefined && { workflowId: input.workflowId }),
-    ...(input.workflowType !== undefined && {
-      workflowType: serializeAws_json1_0WorkflowType(
-        input.workflowType,
-        context
-      )
-    })
-  };
-};
-
-const serializeAws_json1_0StartTimerDecisionAttributes = (
-  input: StartTimerDecisionAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.control !== undefined && { control: input.control }),
-    ...(input.startToFireTimeout !== undefined && {
-      startToFireTimeout: input.startToFireTimeout
-    }),
-    ...(input.timerId !== undefined && { timerId: input.timerId })
-  };
-};
-
-const serializeAws_json1_0TagFilter = (
-  input: TagFilter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.tag !== undefined && { tag: input.tag })
-  };
-};
-
-const serializeAws_json1_0TagList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
-const serializeAws_json1_0TaskList = (
-  input: TaskList,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.name !== undefined && { name: input.name })
-  };
-};
-
-const serializeAws_json1_0WorkflowExecution = (
-  input: WorkflowExecution,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.runId !== undefined && { runId: input.runId }),
-    ...(input.workflowId !== undefined && { workflowId: input.workflowId })
-  };
-};
-
-const serializeAws_json1_0WorkflowExecutionFilter = (
-  input: WorkflowExecutionFilter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.workflowId !== undefined && { workflowId: input.workflowId })
-  };
-};
-
-const serializeAws_json1_0WorkflowType = (
-  input: WorkflowType,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.version !== undefined && { version: input.version })
-  };
-};
-
-const serializeAws_json1_0WorkflowTypeFilter = (
-  input: WorkflowTypeFilter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.version !== undefined && { version: input.version })
-  };
-};
-
-const serializeAws_json1_0CountClosedWorkflowExecutionsInput = (
-  input: CountClosedWorkflowExecutionsInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.closeStatusFilter !== undefined && {
-      closeStatusFilter: serializeAws_json1_0CloseStatusFilter(
-        input.closeStatusFilter,
-        context
-      )
-    }),
-    ...(input.closeTimeFilter !== undefined && {
-      closeTimeFilter: serializeAws_json1_0ExecutionTimeFilter(
-        input.closeTimeFilter,
-        context
-      )
-    }),
-    ...(input.domain !== undefined && { domain: input.domain }),
-    ...(input.executionFilter !== undefined && {
-      executionFilter: serializeAws_json1_0WorkflowExecutionFilter(
-        input.executionFilter,
-        context
-      )
-    }),
-    ...(input.startTimeFilter !== undefined && {
-      startTimeFilter: serializeAws_json1_0ExecutionTimeFilter(
-        input.startTimeFilter,
-        context
-      )
-    }),
-    ...(input.tagFilter !== undefined && {
-      tagFilter: serializeAws_json1_0TagFilter(input.tagFilter, context)
-    }),
-    ...(input.typeFilter !== undefined && {
-      typeFilter: serializeAws_json1_0WorkflowTypeFilter(
-        input.typeFilter,
-        context
-      )
-    })
-  };
-};
-
-const serializeAws_json1_0CountOpenWorkflowExecutionsInput = (
-  input: CountOpenWorkflowExecutionsInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.domain !== undefined && { domain: input.domain }),
-    ...(input.executionFilter !== undefined && {
-      executionFilter: serializeAws_json1_0WorkflowExecutionFilter(
-        input.executionFilter,
-        context
-      )
-    }),
-    ...(input.startTimeFilter !== undefined && {
-      startTimeFilter: serializeAws_json1_0ExecutionTimeFilter(
-        input.startTimeFilter,
-        context
-      )
-    }),
-    ...(input.tagFilter !== undefined && {
-      tagFilter: serializeAws_json1_0TagFilter(input.tagFilter, context)
-    }),
-    ...(input.typeFilter !== undefined && {
-      typeFilter: serializeAws_json1_0WorkflowTypeFilter(
-        input.typeFilter,
-        context
-      )
-    })
-  };
-};
-
-const serializeAws_json1_0CountPendingActivityTasksInput = (
-  input: CountPendingActivityTasksInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.domain !== undefined && { domain: input.domain }),
-    ...(input.taskList !== undefined && {
-      taskList: serializeAws_json1_0TaskList(input.taskList, context)
-    })
-  };
-};
-
-const serializeAws_json1_0CountPendingDecisionTasksInput = (
-  input: CountPendingDecisionTasksInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.domain !== undefined && { domain: input.domain }),
-    ...(input.taskList !== undefined && {
-      taskList: serializeAws_json1_0TaskList(input.taskList, context)
-    })
-  };
-};
-
 const serializeAws_json1_0DeprecateActivityTypeInput = (
   input: DeprecateActivityTypeInput,
   context: __SerdeContext
@@ -4520,6 +4268,30 @@ const serializeAws_json1_0DescribeWorkflowTypeInput = (
         context
       )
     })
+  };
+};
+
+const serializeAws_json1_0ExecutionTimeFilter = (
+  input: ExecutionTimeFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.latestDate !== undefined && {
+      latestDate: Math.round(input.latestDate.getTime() / 1000)
+    }),
+    ...(input.oldestDate !== undefined && {
+      oldestDate: Math.round(input.oldestDate.getTime() / 1000)
+    })
+  };
+};
+
+const serializeAws_json1_0FailWorkflowExecutionDecisionAttributes = (
+  input: FailWorkflowExecutionDecisionAttributes,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.details !== undefined && { details: input.details }),
+    ...(input.reason !== undefined && { reason: input.reason })
   };
 };
 
@@ -4752,6 +4524,16 @@ const serializeAws_json1_0RecordActivityTaskHeartbeatInput = (
   };
 };
 
+const serializeAws_json1_0RecordMarkerDecisionAttributes = (
+  input: RecordMarkerDecisionAttributes,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.details !== undefined && { details: input.details }),
+    ...(input.markerName !== undefined && { markerName: input.markerName })
+  };
+};
+
 const serializeAws_json1_0RegisterActivityTypeInput = (
   input: RegisterActivityTypeInput,
   context: __SerdeContext
@@ -4836,6 +4618,26 @@ const serializeAws_json1_0RegisterWorkflowTypeInput = (
   };
 };
 
+const serializeAws_json1_0RequestCancelActivityTaskDecisionAttributes = (
+  input: RequestCancelActivityTaskDecisionAttributes,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.activityId !== undefined && { activityId: input.activityId })
+  };
+};
+
+const serializeAws_json1_0RequestCancelExternalWorkflowExecutionDecisionAttributes = (
+  input: RequestCancelExternalWorkflowExecutionDecisionAttributes,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.control !== undefined && { control: input.control }),
+    ...(input.runId !== undefined && { runId: input.runId }),
+    ...(input.workflowId !== undefined && { workflowId: input.workflowId })
+  };
+};
+
 const serializeAws_json1_0RequestCancelWorkflowExecutionInput = (
   input: RequestCancelWorkflowExecutionInput,
   context: __SerdeContext
@@ -4845,6 +4647,30 @@ const serializeAws_json1_0RequestCancelWorkflowExecutionInput = (
     ...(input.runId !== undefined && { runId: input.runId }),
     ...(input.workflowId !== undefined && { workflowId: input.workflowId })
   };
+};
+
+const serializeAws_json1_0ResourceTag = (
+  input: ResourceTag,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.key !== undefined && { key: input.key }),
+    ...(input.value !== undefined && { value: input.value })
+  };
+};
+
+const serializeAws_json1_0ResourceTagKeyList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
+};
+
+const serializeAws_json1_0ResourceTagList = (
+  input: ResourceTag[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => serializeAws_json1_0ResourceTag(entry, context));
 };
 
 const serializeAws_json1_0RespondActivityTaskCanceledInput = (
@@ -4893,6 +4719,69 @@ const serializeAws_json1_0RespondDecisionTaskCompletedInput = (
   };
 };
 
+const serializeAws_json1_0ScheduleActivityTaskDecisionAttributes = (
+  input: ScheduleActivityTaskDecisionAttributes,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.activityId !== undefined && { activityId: input.activityId }),
+    ...(input.activityType !== undefined && {
+      activityType: serializeAws_json1_0ActivityType(
+        input.activityType,
+        context
+      )
+    }),
+    ...(input.control !== undefined && { control: input.control }),
+    ...(input.heartbeatTimeout !== undefined && {
+      heartbeatTimeout: input.heartbeatTimeout
+    }),
+    ...(input.input !== undefined && { input: input.input }),
+    ...(input.scheduleToCloseTimeout !== undefined && {
+      scheduleToCloseTimeout: input.scheduleToCloseTimeout
+    }),
+    ...(input.scheduleToStartTimeout !== undefined && {
+      scheduleToStartTimeout: input.scheduleToStartTimeout
+    }),
+    ...(input.startToCloseTimeout !== undefined && {
+      startToCloseTimeout: input.startToCloseTimeout
+    }),
+    ...(input.taskList !== undefined && {
+      taskList: serializeAws_json1_0TaskList(input.taskList, context)
+    }),
+    ...(input.taskPriority !== undefined && {
+      taskPriority: input.taskPriority
+    })
+  };
+};
+
+const serializeAws_json1_0ScheduleLambdaFunctionDecisionAttributes = (
+  input: ScheduleLambdaFunctionDecisionAttributes,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.control !== undefined && { control: input.control }),
+    ...(input.id !== undefined && { id: input.id }),
+    ...(input.input !== undefined && { input: input.input }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.startToCloseTimeout !== undefined && {
+      startToCloseTimeout: input.startToCloseTimeout
+    })
+  };
+};
+
+const serializeAws_json1_0SignalExternalWorkflowExecutionDecisionAttributes = (
+  input: SignalExternalWorkflowExecutionDecisionAttributes,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.control !== undefined && { control: input.control }),
+    ...(input.input !== undefined && { input: input.input }),
+    ...(input.runId !== undefined && { runId: input.runId }),
+    ...(input.signalName !== undefined && { signalName: input.signalName }),
+    ...(input.workflowId !== undefined && { workflowId: input.workflowId })
+  };
+};
+
 const serializeAws_json1_0SignalWorkflowExecutionInput = (
   input: SignalWorkflowExecutionInput,
   context: __SerdeContext
@@ -4903,6 +4792,53 @@ const serializeAws_json1_0SignalWorkflowExecutionInput = (
     ...(input.runId !== undefined && { runId: input.runId }),
     ...(input.signalName !== undefined && { signalName: input.signalName }),
     ...(input.workflowId !== undefined && { workflowId: input.workflowId })
+  };
+};
+
+const serializeAws_json1_0StartChildWorkflowExecutionDecisionAttributes = (
+  input: StartChildWorkflowExecutionDecisionAttributes,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.childPolicy !== undefined && { childPolicy: input.childPolicy }),
+    ...(input.control !== undefined && { control: input.control }),
+    ...(input.executionStartToCloseTimeout !== undefined && {
+      executionStartToCloseTimeout: input.executionStartToCloseTimeout
+    }),
+    ...(input.input !== undefined && { input: input.input }),
+    ...(input.lambdaRole !== undefined && { lambdaRole: input.lambdaRole }),
+    ...(input.tagList !== undefined && {
+      tagList: serializeAws_json1_0TagList(input.tagList, context)
+    }),
+    ...(input.taskList !== undefined && {
+      taskList: serializeAws_json1_0TaskList(input.taskList, context)
+    }),
+    ...(input.taskPriority !== undefined && {
+      taskPriority: input.taskPriority
+    }),
+    ...(input.taskStartToCloseTimeout !== undefined && {
+      taskStartToCloseTimeout: input.taskStartToCloseTimeout
+    }),
+    ...(input.workflowId !== undefined && { workflowId: input.workflowId }),
+    ...(input.workflowType !== undefined && {
+      workflowType: serializeAws_json1_0WorkflowType(
+        input.workflowType,
+        context
+      )
+    })
+  };
+};
+
+const serializeAws_json1_0StartTimerDecisionAttributes = (
+  input: StartTimerDecisionAttributes,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.control !== undefined && { control: input.control }),
+    ...(input.startToFireTimeout !== undefined && {
+      startToFireTimeout: input.startToFireTimeout
+    }),
+    ...(input.timerId !== undefined && { timerId: input.timerId })
   };
 };
 
@@ -4940,6 +4876,22 @@ const serializeAws_json1_0StartWorkflowExecutionInput = (
   };
 };
 
+const serializeAws_json1_0TagFilter = (
+  input: TagFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.tag !== undefined && { tag: input.tag })
+  };
+};
+
+const serializeAws_json1_0TagList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
+};
+
 const serializeAws_json1_0TagResourceInput = (
   input: TagResourceInput,
   context: __SerdeContext
@@ -4949,6 +4901,15 @@ const serializeAws_json1_0TagResourceInput = (
     ...(input.tags !== undefined && {
       tags: serializeAws_json1_0ResourceTagList(input.tags, context)
     })
+  };
+};
+
+const serializeAws_json1_0TaskList = (
+  input: TaskList,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.name !== undefined && { name: input.name })
   };
 };
 
@@ -5017,6 +4978,45 @@ const serializeAws_json1_0UntagResourceInput = (
   };
 };
 
+const serializeAws_json1_0WorkflowExecution = (
+  input: WorkflowExecution,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.runId !== undefined && { runId: input.runId }),
+    ...(input.workflowId !== undefined && { workflowId: input.workflowId })
+  };
+};
+
+const serializeAws_json1_0WorkflowExecutionFilter = (
+  input: WorkflowExecutionFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.workflowId !== undefined && { workflowId: input.workflowId })
+  };
+};
+
+const serializeAws_json1_0WorkflowType = (
+  input: WorkflowType,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.version !== undefined && { version: input.version })
+  };
+};
+
+const serializeAws_json1_0WorkflowTypeFilter = (
+  input: WorkflowTypeFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.version !== undefined && { version: input.version })
+  };
+};
+
 const deserializeAws_json1_0ActivityTask = (
   output: any,
   context: __SerdeContext
@@ -5054,24 +5054,6 @@ const deserializeAws_json1_0ActivityTask = (
   } as any;
 };
 
-const deserializeAws_json1_0ActivityTaskCancelRequestedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): ActivityTaskCancelRequestedEventAttributes => {
-  return {
-    __type: "ActivityTaskCancelRequestedEventAttributes",
-    activityId:
-      output.activityId !== undefined && output.activityId !== null
-        ? output.activityId
-        : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined &&
-      output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_0ActivityTaskCanceledEventAttributes = (
   output: any,
   context: __SerdeContext
@@ -5094,6 +5076,24 @@ const deserializeAws_json1_0ActivityTaskCanceledEventAttributes = (
     startedEventId:
       output.startedEventId !== undefined && output.startedEventId !== null
         ? output.startedEventId
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_0ActivityTaskCancelRequestedEventAttributes = (
+  output: any,
+  context: __SerdeContext
+): ActivityTaskCancelRequestedEventAttributes => {
+  return {
+    __type: "ActivityTaskCancelRequestedEventAttributes",
+    activityId:
+      output.activityId !== undefined && output.activityId !== null
+        ? output.activityId
+        : undefined,
+    decisionTaskCompletedEventId:
+      output.decisionTaskCompletedEventId !== undefined &&
+      output.decisionTaskCompletedEventId !== null
+        ? output.decisionTaskCompletedEventId
         : undefined
   } as any;
 };
@@ -6570,6 +6570,19 @@ const deserializeAws_json1_0LimitExceededFault = (
   } as any;
 };
 
+const deserializeAws_json1_0ListTagsForResourceOutput = (
+  output: any,
+  context: __SerdeContext
+): ListTagsForResourceOutput => {
+  return {
+    __type: "ListTagsForResourceOutput",
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_json1_0ResourceTagList(output.tags, context)
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_0MarkerRecordedEventAttributes = (
   output: any,
   context: __SerdeContext
@@ -6748,6 +6761,19 @@ const deserializeAws_json1_0ResourceTagList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ResourceTag(entry, context)
   );
+};
+
+const deserializeAws_json1_0Run = (
+  output: any,
+  context: __SerdeContext
+): Run => {
+  return {
+    __type: "Run",
+    runId:
+      output.runId !== undefined && output.runId !== null
+        ? output.runId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0ScheduleActivityTaskFailedEventAttributes = (
@@ -7172,6 +7198,24 @@ const deserializeAws_json1_0WorkflowExecutionAlreadyStartedFault = (
   } as any;
 };
 
+const deserializeAws_json1_0WorkflowExecutionCanceledEventAttributes = (
+  output: any,
+  context: __SerdeContext
+): WorkflowExecutionCanceledEventAttributes => {
+  return {
+    __type: "WorkflowExecutionCanceledEventAttributes",
+    decisionTaskCompletedEventId:
+      output.decisionTaskCompletedEventId !== undefined &&
+      output.decisionTaskCompletedEventId !== null
+        ? output.decisionTaskCompletedEventId
+        : undefined,
+    details:
+      output.details !== undefined && output.details !== null
+        ? output.details
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_0WorkflowExecutionCancelRequestedEventAttributes = (
   output: any,
   context: __SerdeContext
@@ -7194,24 +7238,6 @@ const deserializeAws_json1_0WorkflowExecutionCancelRequestedEventAttributes = (
             output.externalWorkflowExecution,
             context
           )
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_0WorkflowExecutionCanceledEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): WorkflowExecutionCanceledEventAttributes => {
-  return {
-    __type: "WorkflowExecutionCanceledEventAttributes",
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined &&
-      output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
-    details:
-      output.details !== undefined && output.details !== null
-        ? output.details
         : undefined
   } as any;
 };
@@ -7776,32 +7802,6 @@ const deserializeAws_json1_0WorkflowTypeInfos = (
     typeInfos:
       output.typeInfos !== undefined && output.typeInfos !== null
         ? deserializeAws_json1_0WorkflowTypeInfoList(output.typeInfos, context)
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_0ListTagsForResourceOutput = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceOutput => {
-  return {
-    __type: "ListTagsForResourceOutput",
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_json1_0ResourceTagList(output.tags, context)
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_0Run = (
-  output: any,
-  context: __SerdeContext
-): Run => {
-  return {
-    __type: "Run",
-    runId:
-      output.runId !== undefined && output.runId !== null
-        ? output.runId
         : undefined
   } as any;
 };

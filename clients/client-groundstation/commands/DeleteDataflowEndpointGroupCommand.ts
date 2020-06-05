@@ -8,9 +8,9 @@ import {
   DeleteDataflowEndpointGroupRequest
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteDataflowEndpointGroupCommand,
-  serializeAws_restJson1_1DeleteDataflowEndpointGroupCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteDataflowEndpointGroupCommand,
+  serializeAws_restJson1DeleteDataflowEndpointGroupCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DeleteDataflowEndpointGroupCommand extends $Command<
     input: DeleteDataflowEndpointGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDataflowEndpointGroupCommand(
+    return serializeAws_restJson1DeleteDataflowEndpointGroupCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DeleteDataflowEndpointGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDataflowEndpointGroupCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDataflowEndpointGroupCommand(
+    return deserializeAws_restJson1DeleteDataflowEndpointGroupCommand(
       output,
       context
     );

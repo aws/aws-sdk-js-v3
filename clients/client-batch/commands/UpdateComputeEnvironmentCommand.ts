@@ -8,9 +8,9 @@ import {
   UpdateComputeEnvironmentResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateComputeEnvironmentCommand,
-  serializeAws_restJson1_1UpdateComputeEnvironmentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateComputeEnvironmentCommand,
+  serializeAws_restJson1UpdateComputeEnvironmentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdateComputeEnvironmentCommand extends $Command<
     input: UpdateComputeEnvironmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateComputeEnvironmentCommand(
+    return serializeAws_restJson1UpdateComputeEnvironmentCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdateComputeEnvironmentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateComputeEnvironmentCommandOutput> {
-    return deserializeAws_restJson1_1UpdateComputeEnvironmentCommand(
+    return deserializeAws_restJson1UpdateComputeEnvironmentCommand(
       output,
       context
     );

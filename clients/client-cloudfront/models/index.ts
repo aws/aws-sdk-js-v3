@@ -6,6 +6,22 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
+ * <p>Access denied.</p>
+ */
+export interface AccessDenied extends __SmithyException, $MetadataBearer {
+  name: "AccessDenied";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace AccessDenied {
+  export const filterSensitiveLog = (obj: AccessDenied): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AccessDenied => __isa(o, "AccessDenied");
+}
+
+/**
  * <p>A complex type that lists the AWS accounts, if any, that you included in the
  * 				<code>TrustedSigners</code> complex type for this distribution. These are the accounts that
  * 			you want to allow to create signed URLs for private content.</p>
@@ -44,6 +60,32 @@ export namespace ActiveTrustedSigners {
   });
   export const isa = (o: any): o is ActiveTrustedSigners =>
     __isa(o, "ActiveTrustedSigners");
+}
+
+/**
+ * <p>A complex type that contains information about CNAMEs (alternate domain names), if any,
+ * 			for this distribution. </p>
+ */
+export interface Aliases {
+  __type?: "Aliases";
+  /**
+   * <p>A complex type that contains the CNAME aliases, if any, that you want to associate with
+   * 			this distribution.</p>
+   */
+  Items?: string[];
+
+  /**
+   * <p>The number of CNAME aliases, if any, that you want to associate with this
+   * 			distribution.</p>
+   */
+  Quantity: number | undefined;
+}
+
+export namespace Aliases {
+  export const filterSensitiveLog = (obj: Aliases): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Aliases => __isa(o, "Aliases");
 }
 
 /**
@@ -94,32 +136,6 @@ export namespace AliasICPRecordal {
   });
   export const isa = (o: any): o is AliasICPRecordal =>
     __isa(o, "AliasICPRecordal");
-}
-
-/**
- * <p>A complex type that contains information about CNAMEs (alternate domain names), if any,
- * 			for this distribution. </p>
- */
-export interface Aliases {
-  __type?: "Aliases";
-  /**
-   * <p>A complex type that contains the CNAME aliases, if any, that you want to associate with
-   * 			this distribution.</p>
-   */
-  Items?: string[];
-
-  /**
-   * <p>The number of CNAME aliases, if any, that you want to associate with this
-   * 			distribution.</p>
-   */
-  Quantity: number | undefined;
-}
-
-export namespace Aliases {
-  export const filterSensitiveLog = (obj: Aliases): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Aliases => __isa(o, "Aliases");
 }
 
 /**
@@ -184,6 +200,22 @@ export namespace AllowedMethods {
   });
   export const isa = (o: any): o is AllowedMethods =>
     __isa(o, "AllowedMethods");
+}
+
+/**
+ * <p>Invalidation batch specified is too large.</p>
+ */
+export interface BatchTooLarge extends __SmithyException, $MetadataBearer {
+  name: "BatchTooLarge";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace BatchTooLarge {
+  export const filterSensitiveLog = (obj: BatchTooLarge): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is BatchTooLarge => __isa(o, "BatchTooLarge");
 }
 
 /**
@@ -452,6 +484,27 @@ export namespace CachedMethods {
   export const isa = (o: any): o is CachedMethods => __isa(o, "CachedMethods");
 }
 
+/**
+ * <p>You can't change the value of a public key.</p>
+ */
+export interface CannotChangeImmutablePublicKeyFields
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CannotChangeImmutablePublicKeyFields";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace CannotChangeImmutablePublicKeyFields {
+  export const filterSensitiveLog = (
+    obj: CannotChangeImmutablePublicKeyFields
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CannotChangeImmutablePublicKeyFields =>
+    __isa(o, "CannotChangeImmutablePublicKeyFields");
+}
+
 export type CertificateSource = "acm" | "cloudfront" | "iam";
 
 /**
@@ -485,6 +538,31 @@ export namespace CloudFrontOriginAccessIdentity {
   });
   export const isa = (o: any): o is CloudFrontOriginAccessIdentity =>
     __isa(o, "CloudFrontOriginAccessIdentity");
+}
+
+/**
+ * <p>If the <code>CallerReference</code> is a value you already sent in a previous request to create an identity but the content
+ * 			of the <code>CloudFrontOriginAccessIdentityConfig</code> is different from the original request, CloudFront returns a
+ * 			<code>CloudFrontOriginAccessIdentityAlreadyExists</code> error. </p>
+ */
+export interface CloudFrontOriginAccessIdentityAlreadyExists
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CloudFrontOriginAccessIdentityAlreadyExists";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace CloudFrontOriginAccessIdentityAlreadyExists {
+  export const filterSensitiveLog = (
+    obj: CloudFrontOriginAccessIdentityAlreadyExists
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is CloudFrontOriginAccessIdentityAlreadyExists =>
+    __isa(o, "CloudFrontOriginAccessIdentityAlreadyExists");
 }
 
 /**
@@ -524,6 +602,27 @@ export namespace CloudFrontOriginAccessIdentityConfig {
   });
   export const isa = (o: any): o is CloudFrontOriginAccessIdentityConfig =>
     __isa(o, "CloudFrontOriginAccessIdentityConfig");
+}
+
+/**
+ * <p>The Origin Access Identity specified is already in use.</p>
+ */
+export interface CloudFrontOriginAccessIdentityInUse
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CloudFrontOriginAccessIdentityInUse";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace CloudFrontOriginAccessIdentityInUse {
+  export const filterSensitiveLog = (
+    obj: CloudFrontOriginAccessIdentityInUse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CloudFrontOriginAccessIdentityInUse =>
+    __isa(o, "CloudFrontOriginAccessIdentityInUse");
 }
 
 /**
@@ -622,6 +721,23 @@ export namespace CloudFrontOriginAccessIdentitySummary {
   });
   export const isa = (o: any): o is CloudFrontOriginAccessIdentitySummary =>
     __isa(o, "CloudFrontOriginAccessIdentitySummary");
+}
+
+/**
+ * <p>The CNAME specified is already defined for CloudFront.</p>
+ */
+export interface CNAMEAlreadyExists extends __SmithyException, $MetadataBearer {
+  name: "CNAMEAlreadyExists";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace CNAMEAlreadyExists {
+  export const filterSensitiveLog = (obj: CNAMEAlreadyExists): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CNAMEAlreadyExists =>
+    __isa(o, "CNAMEAlreadyExists");
 }
 
 /**
@@ -1908,6 +2024,25 @@ export namespace Distribution {
 }
 
 /**
+ * <p>The caller reference you attempted to create the distribution with is associated with another distribution.</p>
+ */
+export interface DistributionAlreadyExists
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DistributionAlreadyExists";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace DistributionAlreadyExists {
+  export const filterSensitiveLog = (obj: DistributionAlreadyExists): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DistributionAlreadyExists =>
+    __isa(o, "DistributionAlreadyExists");
+}
+
+/**
  * <p>A distribution configuration.</p>
  */
 export interface DistributionConfig {
@@ -2196,6 +2331,26 @@ export namespace DistributionList {
 }
 
 /**
+ * <p>The specified CloudFront distribution is not disabled. You must disable
+ * 			the distribution before you can delete it.</p>
+ */
+export interface DistributionNotDisabled
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DistributionNotDisabled";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace DistributionNotDisabled {
+  export const filterSensitiveLog = (obj: DistributionNotDisabled): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DistributionNotDisabled =>
+    __isa(o, "DistributionNotDisabled");
+}
+
+/**
  * <p>A summary of the information about a CloudFront distribution.</p>
  */
 export interface DistributionSummary {
@@ -2461,6 +2616,48 @@ export namespace FieldLevelEncryptionConfig {
 }
 
 /**
+ * <p>The specified configuration for field-level encryption already exists.</p>
+ */
+export interface FieldLevelEncryptionConfigAlreadyExists
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "FieldLevelEncryptionConfigAlreadyExists";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace FieldLevelEncryptionConfigAlreadyExists {
+  export const filterSensitiveLog = (
+    obj: FieldLevelEncryptionConfigAlreadyExists
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is FieldLevelEncryptionConfigAlreadyExists =>
+    __isa(o, "FieldLevelEncryptionConfigAlreadyExists");
+}
+
+/**
+ * <p>The specified configuration for field-level encryption is in use.</p>
+ */
+export interface FieldLevelEncryptionConfigInUse
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "FieldLevelEncryptionConfigInUse";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace FieldLevelEncryptionConfigInUse {
+  export const filterSensitiveLog = (
+    obj: FieldLevelEncryptionConfigInUse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is FieldLevelEncryptionConfigInUse =>
+    __isa(o, "FieldLevelEncryptionConfigInUse");
+}
+
+/**
  * <p>List of field-level encrpytion configurations.</p>
  */
 export interface FieldLevelEncryptionList {
@@ -2531,6 +2728,27 @@ export namespace FieldLevelEncryptionProfile {
 }
 
 /**
+ * <p>The specified profile for field-level encryption already exists.</p>
+ */
+export interface FieldLevelEncryptionProfileAlreadyExists
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "FieldLevelEncryptionProfileAlreadyExists";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace FieldLevelEncryptionProfileAlreadyExists {
+  export const filterSensitiveLog = (
+    obj: FieldLevelEncryptionProfileAlreadyExists
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is FieldLevelEncryptionProfileAlreadyExists =>
+    __isa(o, "FieldLevelEncryptionProfileAlreadyExists");
+}
+
+/**
  * <p>A complex data type of profiles for the field-level encryption.</p>
  */
 export interface FieldLevelEncryptionProfileConfig {
@@ -2565,6 +2783,27 @@ export namespace FieldLevelEncryptionProfileConfig {
   });
   export const isa = (o: any): o is FieldLevelEncryptionProfileConfig =>
     __isa(o, "FieldLevelEncryptionProfileConfig");
+}
+
+/**
+ * <p>The specified profile for field-level encryption is in use.</p>
+ */
+export interface FieldLevelEncryptionProfileInUse
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "FieldLevelEncryptionProfileInUse";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace FieldLevelEncryptionProfileInUse {
+  export const filterSensitiveLog = (
+    obj: FieldLevelEncryptionProfileInUse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is FieldLevelEncryptionProfileInUse =>
+    __isa(o, "FieldLevelEncryptionProfileInUse");
 }
 
 /**
@@ -2603,6 +2842,27 @@ export namespace FieldLevelEncryptionProfileList {
   });
   export const isa = (o: any): o is FieldLevelEncryptionProfileList =>
     __isa(o, "FieldLevelEncryptionProfileList");
+}
+
+/**
+ * <p>The maximum size of a profile for field-level encryption was exceeded.</p>
+ */
+export interface FieldLevelEncryptionProfileSizeExceeded
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "FieldLevelEncryptionProfileSizeExceeded";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace FieldLevelEncryptionProfileSizeExceeded {
+  export const filterSensitiveLog = (
+    obj: FieldLevelEncryptionProfileSizeExceeded
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is FieldLevelEncryptionProfileSizeExceeded =>
+    __isa(o, "FieldLevelEncryptionProfileSizeExceeded");
 }
 
 /**
@@ -3493,6 +3753,81 @@ export type HttpVersion = "http1.1" | "http2";
 export type ICPRecordalStatus = "APPROVED" | "PENDING" | "SUSPENDED";
 
 /**
+ * <p>The specified configuration for field-level encryption can't be associated with the specified cache behavior.</p>
+ */
+export interface IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior {
+  export const filterSensitiveLog = (
+    obj: IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior =>
+    __isa(o, "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior");
+}
+
+/**
+ * <p>Origin and <code>CallerReference</code> cannot be updated. </p>
+ */
+export interface IllegalUpdate extends __SmithyException, $MetadataBearer {
+  name: "IllegalUpdate";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace IllegalUpdate {
+  export const filterSensitiveLog = (obj: IllegalUpdate): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is IllegalUpdate => __isa(o, "IllegalUpdate");
+}
+
+/**
+ * <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+ */
+export interface InconsistentQuantities
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InconsistentQuantities";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InconsistentQuantities {
+  export const filterSensitiveLog = (obj: InconsistentQuantities): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InconsistentQuantities =>
+    __isa(o, "InconsistentQuantities");
+}
+
+/**
+ * <p>The argument is invalid.</p>
+ */
+export interface InvalidArgument extends __SmithyException, $MetadataBearer {
+  name: "InvalidArgument";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidArgument {
+  export const filterSensitiveLog = (obj: InvalidArgument): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidArgument =>
+    __isa(o, "InvalidArgument");
+}
+
+/**
  * <p>An invalidation. </p>
  */
 export interface Invalidation {
@@ -3645,6 +3980,432 @@ export namespace InvalidationSummary {
   });
   export const isa = (o: any): o is InvalidationSummary =>
     __isa(o, "InvalidationSummary");
+}
+
+/**
+ * <p>The default root object file name is too big or contains an invalid character.</p>
+ */
+export interface InvalidDefaultRootObject
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidDefaultRootObject";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidDefaultRootObject {
+  export const filterSensitiveLog = (obj: InvalidDefaultRootObject): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidDefaultRootObject =>
+    __isa(o, "InvalidDefaultRootObject");
+}
+
+/**
+ * <p>An invalid error code was specified.</p>
+ */
+export interface InvalidErrorCode extends __SmithyException, $MetadataBearer {
+  name: "InvalidErrorCode";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidErrorCode {
+  export const filterSensitiveLog = (obj: InvalidErrorCode): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidErrorCode =>
+    __isa(o, "InvalidErrorCode");
+}
+
+/**
+ * <p>Your request contains forward cookies option which doesn't match with the expectation for the <code>whitelisted</code>
+ * 			list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.</p>
+ */
+export interface InvalidForwardCookies
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidForwardCookies";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidForwardCookies {
+  export const filterSensitiveLog = (obj: InvalidForwardCookies): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidForwardCookies =>
+    __isa(o, "InvalidForwardCookies");
+}
+
+/**
+ * <p>The specified geo restriction parameter is not valid.</p>
+ */
+export interface InvalidGeoRestrictionParameter
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidGeoRestrictionParameter";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidGeoRestrictionParameter {
+  export const filterSensitiveLog = (
+    obj: InvalidGeoRestrictionParameter
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidGeoRestrictionParameter =>
+    __isa(o, "InvalidGeoRestrictionParameter");
+}
+
+/**
+ * <p>The headers specified are not valid for an Amazon S3 origin.</p>
+ */
+export interface InvalidHeadersForS3Origin
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidHeadersForS3Origin";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidHeadersForS3Origin {
+  export const filterSensitiveLog = (obj: InvalidHeadersForS3Origin): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidHeadersForS3Origin =>
+    __isa(o, "InvalidHeadersForS3Origin");
+}
+
+/**
+ * <p>The <code>If-Match</code> version is missing or not valid for the distribution.</p>
+ */
+export interface InvalidIfMatchVersion
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidIfMatchVersion";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidIfMatchVersion {
+  export const filterSensitiveLog = (obj: InvalidIfMatchVersion): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidIfMatchVersion =>
+    __isa(o, "InvalidIfMatchVersion");
+}
+
+/**
+ * <p>The specified Lambda function association is invalid.</p>
+ */
+export interface InvalidLambdaFunctionAssociation
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidLambdaFunctionAssociation";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidLambdaFunctionAssociation {
+  export const filterSensitiveLog = (
+    obj: InvalidLambdaFunctionAssociation
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidLambdaFunctionAssociation =>
+    __isa(o, "InvalidLambdaFunctionAssociation");
+}
+
+/**
+ * <p>The location code specified is not valid.</p>
+ */
+export interface InvalidLocationCode
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidLocationCode";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidLocationCode {
+  export const filterSensitiveLog = (obj: InvalidLocationCode): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidLocationCode =>
+    __isa(o, "InvalidLocationCode");
+}
+
+/**
+ * <p>The minimum protocol version specified is not valid.</p>
+ */
+export interface InvalidMinimumProtocolVersion
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidMinimumProtocolVersion";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidMinimumProtocolVersion {
+  export const filterSensitiveLog = (
+    obj: InvalidMinimumProtocolVersion
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidMinimumProtocolVersion =>
+    __isa(o, "InvalidMinimumProtocolVersion");
+}
+
+/**
+ * <p>The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.</p>
+ */
+export interface InvalidOrigin extends __SmithyException, $MetadataBearer {
+  name: "InvalidOrigin";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidOrigin {
+  export const filterSensitiveLog = (obj: InvalidOrigin): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidOrigin => __isa(o, "InvalidOrigin");
+}
+
+/**
+ * <p>The origin access identity is not valid or doesn't exist.</p>
+ */
+export interface InvalidOriginAccessIdentity
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidOriginAccessIdentity";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidOriginAccessIdentity {
+  export const filterSensitiveLog = (
+    obj: InvalidOriginAccessIdentity
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidOriginAccessIdentity =>
+    __isa(o, "InvalidOriginAccessIdentity");
+}
+
+/**
+ * <p>The keep alive timeout specified for the origin is not valid.</p>
+ */
+export interface InvalidOriginKeepaliveTimeout
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidOriginKeepaliveTimeout";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidOriginKeepaliveTimeout {
+  export const filterSensitiveLog = (
+    obj: InvalidOriginKeepaliveTimeout
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidOriginKeepaliveTimeout =>
+    __isa(o, "InvalidOriginKeepaliveTimeout");
+}
+
+/**
+ * <p>The read timeout specified for the origin is not valid.</p>
+ */
+export interface InvalidOriginReadTimeout
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidOriginReadTimeout";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidOriginReadTimeout {
+  export const filterSensitiveLog = (obj: InvalidOriginReadTimeout): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidOriginReadTimeout =>
+    __isa(o, "InvalidOriginReadTimeout");
+}
+
+/**
+ * <p>You cannot specify SSLv3 as the minimum protocol version if you only want to support only clients that support
+ * 			Server Name Indication (SNI).</p>
+ */
+export interface InvalidProtocolSettings
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidProtocolSettings";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidProtocolSettings {
+  export const filterSensitiveLog = (obj: InvalidProtocolSettings): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidProtocolSettings =>
+    __isa(o, "InvalidProtocolSettings");
+}
+
+/**
+ * <p>Query string parameters specified in the response body are not valid.</p>
+ */
+export interface InvalidQueryStringParameters
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidQueryStringParameters";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidQueryStringParameters {
+  export const filterSensitiveLog = (
+    obj: InvalidQueryStringParameters
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidQueryStringParameters =>
+    __isa(o, "InvalidQueryStringParameters");
+}
+
+/**
+ * <p>The relative path is too big, is not URL-encoded, or does not begin with a slash (/).</p>
+ */
+export interface InvalidRelativePath
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidRelativePath";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidRelativePath {
+  export const filterSensitiveLog = (obj: InvalidRelativePath): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidRelativePath =>
+    __isa(o, "InvalidRelativePath");
+}
+
+/**
+ * <p>This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the
+ * 			<code>RequiredProtocols</code> element from your distribution configuration.</p>
+ */
+export interface InvalidRequiredProtocol
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidRequiredProtocol";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidRequiredProtocol {
+  export const filterSensitiveLog = (obj: InvalidRequiredProtocol): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidRequiredProtocol =>
+    __isa(o, "InvalidRequiredProtocol");
+}
+
+/**
+ * <p>A response code specified in the response body is not valid.</p>
+ */
+export interface InvalidResponseCode
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidResponseCode";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidResponseCode {
+  export const filterSensitiveLog = (obj: InvalidResponseCode): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidResponseCode =>
+    __isa(o, "InvalidResponseCode");
+}
+
+/**
+ * <p>Tagging specified in the response body is not valid.</p>
+ */
+export interface InvalidTagging extends __SmithyException, $MetadataBearer {
+  name: "InvalidTagging";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidTagging {
+  export const filterSensitiveLog = (obj: InvalidTagging): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidTagging =>
+    __isa(o, "InvalidTagging");
+}
+
+/**
+ * <p>TTL order specified in the response body is not valid.</p>
+ */
+export interface InvalidTTLOrder extends __SmithyException, $MetadataBearer {
+  name: "InvalidTTLOrder";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidTTLOrder {
+  export const filterSensitiveLog = (obj: InvalidTTLOrder): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidTTLOrder =>
+    __isa(o, "InvalidTTLOrder");
+}
+
+/**
+ * <p>A viewer certificate specified in the response body is not valid.</p>
+ */
+export interface InvalidViewerCertificate
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidViewerCertificate";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidViewerCertificate {
+  export const filterSensitiveLog = (obj: InvalidViewerCertificate): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidViewerCertificate =>
+    __isa(o, "InvalidViewerCertificate");
+}
+
+/**
+ * <p>A web ACL ID specified in the response body is not valid. To specify a web ACL created
+ * 			using the latest version of AWS WAF, use the ACL ARN, for example
+ * 			<code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
+ * 			To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example
+ * 			<code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
+ */
+export interface InvalidWebACLId extends __SmithyException, $MetadataBearer {
+  name: "InvalidWebACLId";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidWebACLId {
+  export const filterSensitiveLog = (obj: InvalidWebACLId): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidWebACLId =>
+    __isa(o, "InvalidWebACLId");
 }
 
 export type ItemSelection = "all" | "none" | "whitelist";
@@ -4264,6 +5025,190 @@ export type MinimumProtocolVersion =
   | "TLSv1_2016";
 
 /**
+ * <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
+ */
+export interface MissingBody extends __SmithyException, $MetadataBearer {
+  name: "MissingBody";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace MissingBody {
+  export const filterSensitiveLog = (obj: MissingBody): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is MissingBody => __isa(o, "MissingBody");
+}
+
+/**
+ * <p>The specified origin access identity does not exist.</p>
+ */
+export interface NoSuchCloudFrontOriginAccessIdentity
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "NoSuchCloudFrontOriginAccessIdentity";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchCloudFrontOriginAccessIdentity {
+  export const filterSensitiveLog = (
+    obj: NoSuchCloudFrontOriginAccessIdentity
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NoSuchCloudFrontOriginAccessIdentity =>
+    __isa(o, "NoSuchCloudFrontOriginAccessIdentity");
+}
+
+/**
+ * <p>The specified distribution does not exist.</p>
+ */
+export interface NoSuchDistribution extends __SmithyException, $MetadataBearer {
+  name: "NoSuchDistribution";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchDistribution {
+  export const filterSensitiveLog = (obj: NoSuchDistribution): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NoSuchDistribution =>
+    __isa(o, "NoSuchDistribution");
+}
+
+/**
+ * <p>The specified configuration for field-level encryption doesn't exist.</p>
+ */
+export interface NoSuchFieldLevelEncryptionConfig
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "NoSuchFieldLevelEncryptionConfig";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchFieldLevelEncryptionConfig {
+  export const filterSensitiveLog = (
+    obj: NoSuchFieldLevelEncryptionConfig
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NoSuchFieldLevelEncryptionConfig =>
+    __isa(o, "NoSuchFieldLevelEncryptionConfig");
+}
+
+/**
+ * <p>The specified profile for field-level encryption doesn't exist.</p>
+ */
+export interface NoSuchFieldLevelEncryptionProfile
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "NoSuchFieldLevelEncryptionProfile";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchFieldLevelEncryptionProfile {
+  export const filterSensitiveLog = (
+    obj: NoSuchFieldLevelEncryptionProfile
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NoSuchFieldLevelEncryptionProfile =>
+    __isa(o, "NoSuchFieldLevelEncryptionProfile");
+}
+
+/**
+ * <p>The specified invalidation does not exist.</p>
+ */
+export interface NoSuchInvalidation extends __SmithyException, $MetadataBearer {
+  name: "NoSuchInvalidation";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchInvalidation {
+  export const filterSensitiveLog = (obj: NoSuchInvalidation): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NoSuchInvalidation =>
+    __isa(o, "NoSuchInvalidation");
+}
+
+/**
+ * <p>No origin exists with the specified <code>Origin Id</code>. </p>
+ */
+export interface NoSuchOrigin extends __SmithyException, $MetadataBearer {
+  name: "NoSuchOrigin";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchOrigin {
+  export const filterSensitiveLog = (obj: NoSuchOrigin): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NoSuchOrigin => __isa(o, "NoSuchOrigin");
+}
+
+/**
+ * <p>The specified public key doesn't exist.</p>
+ */
+export interface NoSuchPublicKey extends __SmithyException, $MetadataBearer {
+  name: "NoSuchPublicKey";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchPublicKey {
+  export const filterSensitiveLog = (obj: NoSuchPublicKey): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NoSuchPublicKey =>
+    __isa(o, "NoSuchPublicKey");
+}
+
+/**
+ * <p>A resource that was specified is not valid.</p>
+ */
+export interface NoSuchResource extends __SmithyException, $MetadataBearer {
+  name: "NoSuchResource";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchResource {
+  export const filterSensitiveLog = (obj: NoSuchResource): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NoSuchResource =>
+    __isa(o, "NoSuchResource");
+}
+
+/**
+ * <p>The specified streaming distribution does not exist.</p>
+ */
+export interface NoSuchStreamingDistribution
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "NoSuchStreamingDistribution";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchStreamingDistribution {
+  export const filterSensitiveLog = (
+    obj: NoSuchStreamingDistribution
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NoSuchStreamingDistribution =>
+    __isa(o, "NoSuchStreamingDistribution");
+}
+
+/**
  * <p>A complex type that describes the Amazon S3 bucket, HTTP server (for example, a web
  * 			server), Amazon MediaStore, or other server from which CloudFront gets your files. This can
  * 			also be an origin group, if you've created an origin group. You must specify at
@@ -4539,6 +5484,30 @@ export namespace OriginGroups {
 export type OriginProtocolPolicy = "http-only" | "https-only" | "match-viewer";
 
 /**
+ * <p>A complex type that contains information about origins and origin groups for this distribution.
+ * 		</p>
+ */
+export interface Origins {
+  __type?: "Origins";
+  /**
+   * <p>A complex type that contains origins or origin groups for this distribution.</p>
+   */
+  Items: Origin[] | undefined;
+
+  /**
+   * <p>The number of origins or origin groups for this distribution.</p>
+   */
+  Quantity: number | undefined;
+}
+
+export namespace Origins {
+  export const filterSensitiveLog = (obj: Origins): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Origins => __isa(o, "Origins");
+}
+
+/**
  * <p>A complex type that contains information about the SSL/TLS protocols that CloudFront can use
  * 			when establishing an HTTPS connection with your origin. </p>
  */
@@ -4565,30 +5534,6 @@ export namespace OriginSslProtocols {
 }
 
 /**
- * <p>A complex type that contains information about origins and origin groups for this distribution.
- * 		</p>
- */
-export interface Origins {
-  __type?: "Origins";
-  /**
-   * <p>A complex type that contains origins or origin groups for this distribution.</p>
-   */
-  Items: Origin[] | undefined;
-
-  /**
-   * <p>The number of origins or origin groups for this distribution.</p>
-   */
-  Quantity: number | undefined;
-}
-
-export namespace Origins {
-  export const filterSensitiveLog = (obj: Origins): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Origins => __isa(o, "Origins");
-}
-
-/**
  * <p>A complex type that contains information about the objects that you want to invalidate.
  * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#invalidation-specifying-objects">Specifying the Objects
  * 				to Invalidate</a> in the <i>Amazon CloudFront Developer Guide</i>. </p>
@@ -4611,6 +5556,23 @@ export namespace Paths {
     ...obj
   });
   export const isa = (o: any): o is Paths => __isa(o, "Paths");
+}
+
+/**
+ * <p>The precondition given in one or more of the request-header fields evaluated to <code>false</code>. </p>
+ */
+export interface PreconditionFailed extends __SmithyException, $MetadataBearer {
+  name: "PreconditionFailed";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace PreconditionFailed {
+  export const filterSensitiveLog = (obj: PreconditionFailed): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is PreconditionFailed =>
+    __isa(o, "PreconditionFailed");
 }
 
 export type PriceClass = "PriceClass_100" | "PriceClass_200" | "PriceClass_All";
@@ -4641,6 +5603,25 @@ export namespace PublicKey {
     ...obj
   });
   export const isa = (o: any): o is PublicKey => __isa(o, "PublicKey");
+}
+
+/**
+ * <p>The specified public key already exists.</p>
+ */
+export interface PublicKeyAlreadyExists
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "PublicKeyAlreadyExists";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace PublicKeyAlreadyExists {
+  export const filterSensitiveLog = (obj: PublicKeyAlreadyExists): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is PublicKeyAlreadyExists =>
+    __isa(o, "PublicKeyAlreadyExists");
 }
 
 /**
@@ -4675,6 +5656,23 @@ export namespace PublicKeyConfig {
   });
   export const isa = (o: any): o is PublicKeyConfig =>
     __isa(o, "PublicKeyConfig");
+}
+
+/**
+ * <p>The specified public key is in use. </p>
+ */
+export interface PublicKeyInUse extends __SmithyException, $MetadataBearer {
+  name: "PublicKeyInUse";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace PublicKeyInUse {
+  export const filterSensitiveLog = (obj: PublicKeyInUse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is PublicKeyInUse =>
+    __isa(o, "PublicKeyInUse");
 }
 
 /**
@@ -4810,6 +5808,25 @@ export namespace QueryArgProfileConfig {
   });
   export const isa = (o: any): o is QueryArgProfileConfig =>
     __isa(o, "QueryArgProfileConfig");
+}
+
+/**
+ * <p>No profile specified for the field-level encryption query argument.</p>
+ */
+export interface QueryArgProfileEmpty
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "QueryArgProfileEmpty";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace QueryArgProfileEmpty {
+  export const filterSensitiveLog = (obj: QueryArgProfileEmpty): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is QueryArgProfileEmpty =>
+    __isa(o, "QueryArgProfileEmpty");
 }
 
 /**
@@ -4959,8 +5976,6 @@ export namespace S3OriginConfig {
     __isa(o, "S3OriginConfig");
 }
 
-export type SSLSupportMethod = "sni-only" | "vip";
-
 /**
  * <p>A complex type that lists the AWS accounts that were included in the
  * 				<code>TrustedSigners</code> complex type, as well as their active CloudFront key pair IDs, if any.
@@ -4997,6 +6012,8 @@ export namespace Signer {
 }
 
 export type SslProtocol = "SSLv3" | "TLSv1" | "TLSv1.1" | "TLSv1.2";
+
+export type SSLSupportMethod = "sni-only" | "vip";
 
 /**
  * <p>A complex data type for the status codes that you specify that, when returned by a primary origin, trigger
@@ -5083,6 +6100,28 @@ export namespace StreamingDistribution {
   });
   export const isa = (o: any): o is StreamingDistribution =>
     __isa(o, "StreamingDistribution");
+}
+
+/**
+ * <p>The caller reference you attempted to create the streaming distribution with
+ * 			is associated with another distribution</p>
+ */
+export interface StreamingDistributionAlreadyExists
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "StreamingDistributionAlreadyExists";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace StreamingDistributionAlreadyExists {
+  export const filterSensitiveLog = (
+    obj: StreamingDistributionAlreadyExists
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StreamingDistributionAlreadyExists =>
+    __isa(o, "StreamingDistributionAlreadyExists");
 }
 
 /**
@@ -5230,6 +6269,28 @@ export namespace StreamingDistributionList {
   });
   export const isa = (o: any): o is StreamingDistributionList =>
     __isa(o, "StreamingDistributionList");
+}
+
+/**
+ * <p>The specified CloudFront distribution is not disabled. You must disable
+ * 			the distribution before you can delete it.</p>
+ */
+export interface StreamingDistributionNotDisabled
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "StreamingDistributionNotDisabled";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace StreamingDistributionNotDisabled {
+  export const filterSensitiveLog = (
+    obj: StreamingDistributionNotDisabled
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StreamingDistributionNotDisabled =>
+    __isa(o, "StreamingDistributionNotDisabled");
 }
 
 /**
@@ -5446,6 +6507,541 @@ export namespace Tags {
     ...obj
   });
   export const isa = (o: any): o is Tags => __isa(o, "Tags");
+}
+
+/**
+ * <p>You cannot create more cache behaviors for the distribution.</p>
+ */
+export interface TooManyCacheBehaviors
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyCacheBehaviors";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyCacheBehaviors {
+  export const filterSensitiveLog = (obj: TooManyCacheBehaviors): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyCacheBehaviors =>
+    __isa(o, "TooManyCacheBehaviors");
+}
+
+/**
+ * <p>You cannot create anymore custom SSL/TLS certificates.</p>
+ */
+export interface TooManyCertificates
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyCertificates";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyCertificates {
+  export const filterSensitiveLog = (obj: TooManyCertificates): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyCertificates =>
+    __isa(o, "TooManyCertificates");
+}
+
+/**
+ * <p>Processing your request would cause you to exceed the maximum number of origin access identities allowed.</p>
+ */
+export interface TooManyCloudFrontOriginAccessIdentities
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyCloudFrontOriginAccessIdentities";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyCloudFrontOriginAccessIdentities {
+  export const filterSensitiveLog = (
+    obj: TooManyCloudFrontOriginAccessIdentities
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyCloudFrontOriginAccessIdentities =>
+    __isa(o, "TooManyCloudFrontOriginAccessIdentities");
+}
+
+/**
+ * <p>Your request contains more cookie names in the whitelist than are allowed per cache behavior.</p>
+ */
+export interface TooManyCookieNamesInWhiteList
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyCookieNamesInWhiteList";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyCookieNamesInWhiteList {
+  export const filterSensitiveLog = (
+    obj: TooManyCookieNamesInWhiteList
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyCookieNamesInWhiteList =>
+    __isa(o, "TooManyCookieNamesInWhiteList");
+}
+
+/**
+ * <p>Your request contains more CNAMEs than are allowed per distribution.</p>
+ */
+export interface TooManyDistributionCNAMEs
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyDistributionCNAMEs";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyDistributionCNAMEs {
+  export const filterSensitiveLog = (obj: TooManyDistributionCNAMEs): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyDistributionCNAMEs =>
+    __isa(o, "TooManyDistributionCNAMEs");
+}
+
+/**
+ * <p>Processing your request would cause you to exceed the maximum number of distributions allowed.</p>
+ */
+export interface TooManyDistributions
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyDistributions";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyDistributions {
+  export const filterSensitiveLog = (obj: TooManyDistributions): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyDistributions =>
+    __isa(o, "TooManyDistributions");
+}
+
+/**
+ * <p>The maximum number of distributions have been associated with the specified configuration for field-level encryption.</p>
+ */
+export interface TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyDistributionsAssociatedToFieldLevelEncryptionConfig {
+  export const filterSensitiveLog = (
+    obj: TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is TooManyDistributionsAssociatedToFieldLevelEncryptionConfig =>
+    __isa(o, "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig");
+}
+
+/**
+ * <p>Processing your request would cause the maximum number of distributions with Lambda function associations per owner
+ * 			to be exceeded.</p>
+ */
+export interface TooManyDistributionsWithLambdaAssociations
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyDistributionsWithLambdaAssociations";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyDistributionsWithLambdaAssociations {
+  export const filterSensitiveLog = (
+    obj: TooManyDistributionsWithLambdaAssociations
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is TooManyDistributionsWithLambdaAssociations =>
+    __isa(o, "TooManyDistributionsWithLambdaAssociations");
+}
+
+/**
+ * <p>The maximum number of configurations for field-level encryption have been created.</p>
+ */
+export interface TooManyFieldLevelEncryptionConfigs
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyFieldLevelEncryptionConfigs";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyFieldLevelEncryptionConfigs {
+  export const filterSensitiveLog = (
+    obj: TooManyFieldLevelEncryptionConfigs
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyFieldLevelEncryptionConfigs =>
+    __isa(o, "TooManyFieldLevelEncryptionConfigs");
+}
+
+/**
+ * <p>The maximum number of content type profiles for field-level encryption have been created.</p>
+ */
+export interface TooManyFieldLevelEncryptionContentTypeProfiles
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyFieldLevelEncryptionContentTypeProfiles";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyFieldLevelEncryptionContentTypeProfiles {
+  export const filterSensitiveLog = (
+    obj: TooManyFieldLevelEncryptionContentTypeProfiles
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is TooManyFieldLevelEncryptionContentTypeProfiles =>
+    __isa(o, "TooManyFieldLevelEncryptionContentTypeProfiles");
+}
+
+/**
+ * <p>The maximum number of encryption entities for field-level encryption have been created.</p>
+ */
+export interface TooManyFieldLevelEncryptionEncryptionEntities
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyFieldLevelEncryptionEncryptionEntities";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyFieldLevelEncryptionEncryptionEntities {
+  export const filterSensitiveLog = (
+    obj: TooManyFieldLevelEncryptionEncryptionEntities
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is TooManyFieldLevelEncryptionEncryptionEntities =>
+    __isa(o, "TooManyFieldLevelEncryptionEncryptionEntities");
+}
+
+/**
+ * <p>The maximum number of field patterns for field-level encryption have been created.</p>
+ */
+export interface TooManyFieldLevelEncryptionFieldPatterns
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyFieldLevelEncryptionFieldPatterns";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyFieldLevelEncryptionFieldPatterns {
+  export const filterSensitiveLog = (
+    obj: TooManyFieldLevelEncryptionFieldPatterns
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyFieldLevelEncryptionFieldPatterns =>
+    __isa(o, "TooManyFieldLevelEncryptionFieldPatterns");
+}
+
+/**
+ * <p>The maximum number of profiles for field-level encryption have been created.</p>
+ */
+export interface TooManyFieldLevelEncryptionProfiles
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyFieldLevelEncryptionProfiles";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyFieldLevelEncryptionProfiles {
+  export const filterSensitiveLog = (
+    obj: TooManyFieldLevelEncryptionProfiles
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyFieldLevelEncryptionProfiles =>
+    __isa(o, "TooManyFieldLevelEncryptionProfiles");
+}
+
+/**
+ * <p>The maximum number of query arg profiles for field-level encryption have been created.</p>
+ */
+export interface TooManyFieldLevelEncryptionQueryArgProfiles
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyFieldLevelEncryptionQueryArgProfiles";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyFieldLevelEncryptionQueryArgProfiles {
+  export const filterSensitiveLog = (
+    obj: TooManyFieldLevelEncryptionQueryArgProfiles
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is TooManyFieldLevelEncryptionQueryArgProfiles =>
+    __isa(o, "TooManyFieldLevelEncryptionQueryArgProfiles");
+}
+
+/**
+ * <p>Your request contains too many headers in forwarded values.</p>
+ */
+export interface TooManyHeadersInForwardedValues
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyHeadersInForwardedValues";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyHeadersInForwardedValues {
+  export const filterSensitiveLog = (
+    obj: TooManyHeadersInForwardedValues
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyHeadersInForwardedValues =>
+    __isa(o, "TooManyHeadersInForwardedValues");
+}
+
+/**
+ * <p>You have exceeded the maximum number of allowable InProgress invalidation batch requests, or invalidation objects.</p>
+ */
+export interface TooManyInvalidationsInProgress
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyInvalidationsInProgress";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyInvalidationsInProgress {
+  export const filterSensitiveLog = (
+    obj: TooManyInvalidationsInProgress
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyInvalidationsInProgress =>
+    __isa(o, "TooManyInvalidationsInProgress");
+}
+
+/**
+ * <p>Your request contains more Lambda function associations than are allowed per distribution.</p>
+ */
+export interface TooManyLambdaFunctionAssociations
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyLambdaFunctionAssociations";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyLambdaFunctionAssociations {
+  export const filterSensitiveLog = (
+    obj: TooManyLambdaFunctionAssociations
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyLambdaFunctionAssociations =>
+    __isa(o, "TooManyLambdaFunctionAssociations");
+}
+
+/**
+ * <p>Your request contains too many origin custom headers.</p>
+ */
+export interface TooManyOriginCustomHeaders
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyOriginCustomHeaders";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyOriginCustomHeaders {
+  export const filterSensitiveLog = (obj: TooManyOriginCustomHeaders): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyOriginCustomHeaders =>
+    __isa(o, "TooManyOriginCustomHeaders");
+}
+
+/**
+ * <p>Processing your request would cause you to exceed the maximum number of origin groups allowed.</p>
+ */
+export interface TooManyOriginGroupsPerDistribution
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyOriginGroupsPerDistribution";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyOriginGroupsPerDistribution {
+  export const filterSensitiveLog = (
+    obj: TooManyOriginGroupsPerDistribution
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyOriginGroupsPerDistribution =>
+    __isa(o, "TooManyOriginGroupsPerDistribution");
+}
+
+/**
+ * <p>You cannot create more origins for the distribution.</p>
+ */
+export interface TooManyOrigins extends __SmithyException, $MetadataBearer {
+  name: "TooManyOrigins";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyOrigins {
+  export const filterSensitiveLog = (obj: TooManyOrigins): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyOrigins =>
+    __isa(o, "TooManyOrigins");
+}
+
+/**
+ * <p>The maximum number of public keys for field-level encryption have been created. To create a new public key, delete one of the existing keys.</p>
+ */
+export interface TooManyPublicKeys extends __SmithyException, $MetadataBearer {
+  name: "TooManyPublicKeys";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyPublicKeys {
+  export const filterSensitiveLog = (obj: TooManyPublicKeys): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyPublicKeys =>
+    __isa(o, "TooManyPublicKeys");
+}
+
+/**
+ * <p>Your request contains too many query string parameters.</p>
+ */
+export interface TooManyQueryStringParameters
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyQueryStringParameters";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyQueryStringParameters {
+  export const filterSensitiveLog = (
+    obj: TooManyQueryStringParameters
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyQueryStringParameters =>
+    __isa(o, "TooManyQueryStringParameters");
+}
+
+/**
+ * <p>Your request contains more CNAMEs than are allowed per distribution.</p>
+ */
+export interface TooManyStreamingDistributionCNAMEs
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyStreamingDistributionCNAMEs";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyStreamingDistributionCNAMEs {
+  export const filterSensitiveLog = (
+    obj: TooManyStreamingDistributionCNAMEs
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyStreamingDistributionCNAMEs =>
+    __isa(o, "TooManyStreamingDistributionCNAMEs");
+}
+
+/**
+ * <p>Processing your request would cause you to exceed the maximum number of streaming distributions allowed.</p>
+ */
+export interface TooManyStreamingDistributions
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyStreamingDistributions";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyStreamingDistributions {
+  export const filterSensitiveLog = (
+    obj: TooManyStreamingDistributions
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyStreamingDistributions =>
+    __isa(o, "TooManyStreamingDistributions");
+}
+
+/**
+ * <p>Your request contains more trusted signers than are allowed per distribution.</p>
+ */
+export interface TooManyTrustedSigners
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyTrustedSigners";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyTrustedSigners {
+  export const filterSensitiveLog = (obj: TooManyTrustedSigners): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyTrustedSigners =>
+    __isa(o, "TooManyTrustedSigners");
+}
+
+/**
+ * <p>One or more of your trusted signers don't exist.</p>
+ */
+export interface TrustedSignerDoesNotExist
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TrustedSignerDoesNotExist";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TrustedSignerDoesNotExist {
+  export const filterSensitiveLog = (obj: TrustedSignerDoesNotExist): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TrustedSignerDoesNotExist =>
+    __isa(o, "TrustedSignerDoesNotExist");
 }
 
 /**
@@ -6061,1599 +7657,3 @@ export type ViewerProtocolPolicy =
   | "allow-all"
   | "https-only"
   | "redirect-to-https";
-
-/**
- * <p>Access denied.</p>
- */
-export interface AccessDenied extends __SmithyException, $MetadataBearer {
-  name: "AccessDenied";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace AccessDenied {
-  export const filterSensitiveLog = (obj: AccessDenied): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AccessDenied => __isa(o, "AccessDenied");
-}
-
-/**
- * <p>Invalidation batch specified is too large.</p>
- */
-export interface BatchTooLarge extends __SmithyException, $MetadataBearer {
-  name: "BatchTooLarge";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace BatchTooLarge {
-  export const filterSensitiveLog = (obj: BatchTooLarge): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is BatchTooLarge => __isa(o, "BatchTooLarge");
-}
-
-/**
- * <p>The CNAME specified is already defined for CloudFront.</p>
- */
-export interface CNAMEAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "CNAMEAlreadyExists";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace CNAMEAlreadyExists {
-  export const filterSensitiveLog = (obj: CNAMEAlreadyExists): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CNAMEAlreadyExists =>
-    __isa(o, "CNAMEAlreadyExists");
-}
-
-/**
- * <p>You can't change the value of a public key.</p>
- */
-export interface CannotChangeImmutablePublicKeyFields
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CannotChangeImmutablePublicKeyFields";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace CannotChangeImmutablePublicKeyFields {
-  export const filterSensitiveLog = (
-    obj: CannotChangeImmutablePublicKeyFields
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CannotChangeImmutablePublicKeyFields =>
-    __isa(o, "CannotChangeImmutablePublicKeyFields");
-}
-
-/**
- * <p>If the <code>CallerReference</code> is a value you already sent in a previous request to create an identity but the content
- * 			of the <code>CloudFrontOriginAccessIdentityConfig</code> is different from the original request, CloudFront returns a
- * 			<code>CloudFrontOriginAccessIdentityAlreadyExists</code> error. </p>
- */
-export interface CloudFrontOriginAccessIdentityAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CloudFrontOriginAccessIdentityAlreadyExists";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace CloudFrontOriginAccessIdentityAlreadyExists {
-  export const filterSensitiveLog = (
-    obj: CloudFrontOriginAccessIdentityAlreadyExists
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is CloudFrontOriginAccessIdentityAlreadyExists =>
-    __isa(o, "CloudFrontOriginAccessIdentityAlreadyExists");
-}
-
-/**
- * <p>The Origin Access Identity specified is already in use.</p>
- */
-export interface CloudFrontOriginAccessIdentityInUse
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CloudFrontOriginAccessIdentityInUse";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace CloudFrontOriginAccessIdentityInUse {
-  export const filterSensitiveLog = (
-    obj: CloudFrontOriginAccessIdentityInUse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CloudFrontOriginAccessIdentityInUse =>
-    __isa(o, "CloudFrontOriginAccessIdentityInUse");
-}
-
-/**
- * <p>The caller reference you attempted to create the distribution with is associated with another distribution.</p>
- */
-export interface DistributionAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DistributionAlreadyExists";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace DistributionAlreadyExists {
-  export const filterSensitiveLog = (obj: DistributionAlreadyExists): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DistributionAlreadyExists =>
-    __isa(o, "DistributionAlreadyExists");
-}
-
-/**
- * <p>The specified CloudFront distribution is not disabled. You must disable
- * 			the distribution before you can delete it.</p>
- */
-export interface DistributionNotDisabled
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DistributionNotDisabled";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace DistributionNotDisabled {
-  export const filterSensitiveLog = (obj: DistributionNotDisabled): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DistributionNotDisabled =>
-    __isa(o, "DistributionNotDisabled");
-}
-
-/**
- * <p>The specified configuration for field-level encryption already exists.</p>
- */
-export interface FieldLevelEncryptionConfigAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "FieldLevelEncryptionConfigAlreadyExists";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace FieldLevelEncryptionConfigAlreadyExists {
-  export const filterSensitiveLog = (
-    obj: FieldLevelEncryptionConfigAlreadyExists
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is FieldLevelEncryptionConfigAlreadyExists =>
-    __isa(o, "FieldLevelEncryptionConfigAlreadyExists");
-}
-
-/**
- * <p>The specified configuration for field-level encryption is in use.</p>
- */
-export interface FieldLevelEncryptionConfigInUse
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "FieldLevelEncryptionConfigInUse";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace FieldLevelEncryptionConfigInUse {
-  export const filterSensitiveLog = (
-    obj: FieldLevelEncryptionConfigInUse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is FieldLevelEncryptionConfigInUse =>
-    __isa(o, "FieldLevelEncryptionConfigInUse");
-}
-
-/**
- * <p>The specified profile for field-level encryption already exists.</p>
- */
-export interface FieldLevelEncryptionProfileAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "FieldLevelEncryptionProfileAlreadyExists";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace FieldLevelEncryptionProfileAlreadyExists {
-  export const filterSensitiveLog = (
-    obj: FieldLevelEncryptionProfileAlreadyExists
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is FieldLevelEncryptionProfileAlreadyExists =>
-    __isa(o, "FieldLevelEncryptionProfileAlreadyExists");
-}
-
-/**
- * <p>The specified profile for field-level encryption is in use.</p>
- */
-export interface FieldLevelEncryptionProfileInUse
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "FieldLevelEncryptionProfileInUse";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace FieldLevelEncryptionProfileInUse {
-  export const filterSensitiveLog = (
-    obj: FieldLevelEncryptionProfileInUse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is FieldLevelEncryptionProfileInUse =>
-    __isa(o, "FieldLevelEncryptionProfileInUse");
-}
-
-/**
- * <p>The maximum size of a profile for field-level encryption was exceeded.</p>
- */
-export interface FieldLevelEncryptionProfileSizeExceeded
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "FieldLevelEncryptionProfileSizeExceeded";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace FieldLevelEncryptionProfileSizeExceeded {
-  export const filterSensitiveLog = (
-    obj: FieldLevelEncryptionProfileSizeExceeded
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is FieldLevelEncryptionProfileSizeExceeded =>
-    __isa(o, "FieldLevelEncryptionProfileSizeExceeded");
-}
-
-/**
- * <p>The specified configuration for field-level encryption can't be associated with the specified cache behavior.</p>
- */
-export interface IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior {
-  export const filterSensitiveLog = (
-    obj: IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior =>
-    __isa(o, "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior");
-}
-
-/**
- * <p>Origin and <code>CallerReference</code> cannot be updated. </p>
- */
-export interface IllegalUpdate extends __SmithyException, $MetadataBearer {
-  name: "IllegalUpdate";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace IllegalUpdate {
-  export const filterSensitiveLog = (obj: IllegalUpdate): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is IllegalUpdate => __isa(o, "IllegalUpdate");
-}
-
-/**
- * <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
- */
-export interface InconsistentQuantities
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InconsistentQuantities";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InconsistentQuantities {
-  export const filterSensitiveLog = (obj: InconsistentQuantities): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InconsistentQuantities =>
-    __isa(o, "InconsistentQuantities");
-}
-
-/**
- * <p>The argument is invalid.</p>
- */
-export interface InvalidArgument extends __SmithyException, $MetadataBearer {
-  name: "InvalidArgument";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidArgument {
-  export const filterSensitiveLog = (obj: InvalidArgument): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidArgument =>
-    __isa(o, "InvalidArgument");
-}
-
-/**
- * <p>The default root object file name is too big or contains an invalid character.</p>
- */
-export interface InvalidDefaultRootObject
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidDefaultRootObject";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidDefaultRootObject {
-  export const filterSensitiveLog = (obj: InvalidDefaultRootObject): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidDefaultRootObject =>
-    __isa(o, "InvalidDefaultRootObject");
-}
-
-/**
- * <p>An invalid error code was specified.</p>
- */
-export interface InvalidErrorCode extends __SmithyException, $MetadataBearer {
-  name: "InvalidErrorCode";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidErrorCode {
-  export const filterSensitiveLog = (obj: InvalidErrorCode): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidErrorCode =>
-    __isa(o, "InvalidErrorCode");
-}
-
-/**
- * <p>Your request contains forward cookies option which doesn't match with the expectation for the <code>whitelisted</code>
- * 			list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.</p>
- */
-export interface InvalidForwardCookies
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidForwardCookies";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidForwardCookies {
-  export const filterSensitiveLog = (obj: InvalidForwardCookies): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidForwardCookies =>
-    __isa(o, "InvalidForwardCookies");
-}
-
-/**
- * <p>The specified geo restriction parameter is not valid.</p>
- */
-export interface InvalidGeoRestrictionParameter
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidGeoRestrictionParameter";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidGeoRestrictionParameter {
-  export const filterSensitiveLog = (
-    obj: InvalidGeoRestrictionParameter
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidGeoRestrictionParameter =>
-    __isa(o, "InvalidGeoRestrictionParameter");
-}
-
-/**
- * <p>The headers specified are not valid for an Amazon S3 origin.</p>
- */
-export interface InvalidHeadersForS3Origin
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidHeadersForS3Origin";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidHeadersForS3Origin {
-  export const filterSensitiveLog = (obj: InvalidHeadersForS3Origin): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidHeadersForS3Origin =>
-    __isa(o, "InvalidHeadersForS3Origin");
-}
-
-/**
- * <p>The <code>If-Match</code> version is missing or not valid for the distribution.</p>
- */
-export interface InvalidIfMatchVersion
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidIfMatchVersion";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidIfMatchVersion {
-  export const filterSensitiveLog = (obj: InvalidIfMatchVersion): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidIfMatchVersion =>
-    __isa(o, "InvalidIfMatchVersion");
-}
-
-/**
- * <p>The specified Lambda function association is invalid.</p>
- */
-export interface InvalidLambdaFunctionAssociation
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidLambdaFunctionAssociation";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidLambdaFunctionAssociation {
-  export const filterSensitiveLog = (
-    obj: InvalidLambdaFunctionAssociation
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidLambdaFunctionAssociation =>
-    __isa(o, "InvalidLambdaFunctionAssociation");
-}
-
-/**
- * <p>The location code specified is not valid.</p>
- */
-export interface InvalidLocationCode
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidLocationCode";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidLocationCode {
-  export const filterSensitiveLog = (obj: InvalidLocationCode): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidLocationCode =>
-    __isa(o, "InvalidLocationCode");
-}
-
-/**
- * <p>The minimum protocol version specified is not valid.</p>
- */
-export interface InvalidMinimumProtocolVersion
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidMinimumProtocolVersion";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidMinimumProtocolVersion {
-  export const filterSensitiveLog = (
-    obj: InvalidMinimumProtocolVersion
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidMinimumProtocolVersion =>
-    __isa(o, "InvalidMinimumProtocolVersion");
-}
-
-/**
- * <p>The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.</p>
- */
-export interface InvalidOrigin extends __SmithyException, $MetadataBearer {
-  name: "InvalidOrigin";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidOrigin {
-  export const filterSensitiveLog = (obj: InvalidOrigin): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidOrigin => __isa(o, "InvalidOrigin");
-}
-
-/**
- * <p>The origin access identity is not valid or doesn't exist.</p>
- */
-export interface InvalidOriginAccessIdentity
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidOriginAccessIdentity";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidOriginAccessIdentity {
-  export const filterSensitiveLog = (
-    obj: InvalidOriginAccessIdentity
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidOriginAccessIdentity =>
-    __isa(o, "InvalidOriginAccessIdentity");
-}
-
-/**
- * <p>The keep alive timeout specified for the origin is not valid.</p>
- */
-export interface InvalidOriginKeepaliveTimeout
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidOriginKeepaliveTimeout";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidOriginKeepaliveTimeout {
-  export const filterSensitiveLog = (
-    obj: InvalidOriginKeepaliveTimeout
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidOriginKeepaliveTimeout =>
-    __isa(o, "InvalidOriginKeepaliveTimeout");
-}
-
-/**
- * <p>The read timeout specified for the origin is not valid.</p>
- */
-export interface InvalidOriginReadTimeout
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidOriginReadTimeout";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidOriginReadTimeout {
-  export const filterSensitiveLog = (obj: InvalidOriginReadTimeout): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidOriginReadTimeout =>
-    __isa(o, "InvalidOriginReadTimeout");
-}
-
-/**
- * <p>You cannot specify SSLv3 as the minimum protocol version if you only want to support only clients that support
- * 			Server Name Indication (SNI).</p>
- */
-export interface InvalidProtocolSettings
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidProtocolSettings";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidProtocolSettings {
-  export const filterSensitiveLog = (obj: InvalidProtocolSettings): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidProtocolSettings =>
-    __isa(o, "InvalidProtocolSettings");
-}
-
-/**
- * <p>Query string parameters specified in the response body are not valid.</p>
- */
-export interface InvalidQueryStringParameters
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidQueryStringParameters";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidQueryStringParameters {
-  export const filterSensitiveLog = (
-    obj: InvalidQueryStringParameters
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidQueryStringParameters =>
-    __isa(o, "InvalidQueryStringParameters");
-}
-
-/**
- * <p>The relative path is too big, is not URL-encoded, or does not begin with a slash (/).</p>
- */
-export interface InvalidRelativePath
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidRelativePath";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidRelativePath {
-  export const filterSensitiveLog = (obj: InvalidRelativePath): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidRelativePath =>
-    __isa(o, "InvalidRelativePath");
-}
-
-/**
- * <p>This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the
- * 			<code>RequiredProtocols</code> element from your distribution configuration.</p>
- */
-export interface InvalidRequiredProtocol
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidRequiredProtocol";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidRequiredProtocol {
-  export const filterSensitiveLog = (obj: InvalidRequiredProtocol): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidRequiredProtocol =>
-    __isa(o, "InvalidRequiredProtocol");
-}
-
-/**
- * <p>A response code specified in the response body is not valid.</p>
- */
-export interface InvalidResponseCode
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidResponseCode";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidResponseCode {
-  export const filterSensitiveLog = (obj: InvalidResponseCode): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidResponseCode =>
-    __isa(o, "InvalidResponseCode");
-}
-
-/**
- * <p>TTL order specified in the response body is not valid.</p>
- */
-export interface InvalidTTLOrder extends __SmithyException, $MetadataBearer {
-  name: "InvalidTTLOrder";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidTTLOrder {
-  export const filterSensitiveLog = (obj: InvalidTTLOrder): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidTTLOrder =>
-    __isa(o, "InvalidTTLOrder");
-}
-
-/**
- * <p>Tagging specified in the response body is not valid.</p>
- */
-export interface InvalidTagging extends __SmithyException, $MetadataBearer {
-  name: "InvalidTagging";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidTagging {
-  export const filterSensitiveLog = (obj: InvalidTagging): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidTagging =>
-    __isa(o, "InvalidTagging");
-}
-
-/**
- * <p>A viewer certificate specified in the response body is not valid.</p>
- */
-export interface InvalidViewerCertificate
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidViewerCertificate";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidViewerCertificate {
-  export const filterSensitiveLog = (obj: InvalidViewerCertificate): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidViewerCertificate =>
-    __isa(o, "InvalidViewerCertificate");
-}
-
-/**
- * <p>A web ACL ID specified in the response body is not valid. To specify a web ACL created
- * 			using the latest version of AWS WAF, use the ACL ARN, for example
- * 			<code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
- * 			To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example
- * 			<code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
- */
-export interface InvalidWebACLId extends __SmithyException, $MetadataBearer {
-  name: "InvalidWebACLId";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidWebACLId {
-  export const filterSensitiveLog = (obj: InvalidWebACLId): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidWebACLId =>
-    __isa(o, "InvalidWebACLId");
-}
-
-/**
- * <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
- */
-export interface MissingBody extends __SmithyException, $MetadataBearer {
-  name: "MissingBody";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace MissingBody {
-  export const filterSensitiveLog = (obj: MissingBody): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is MissingBody => __isa(o, "MissingBody");
-}
-
-/**
- * <p>The specified origin access identity does not exist.</p>
- */
-export interface NoSuchCloudFrontOriginAccessIdentity
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "NoSuchCloudFrontOriginAccessIdentity";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchCloudFrontOriginAccessIdentity {
-  export const filterSensitiveLog = (
-    obj: NoSuchCloudFrontOriginAccessIdentity
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NoSuchCloudFrontOriginAccessIdentity =>
-    __isa(o, "NoSuchCloudFrontOriginAccessIdentity");
-}
-
-/**
- * <p>The specified distribution does not exist.</p>
- */
-export interface NoSuchDistribution extends __SmithyException, $MetadataBearer {
-  name: "NoSuchDistribution";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchDistribution {
-  export const filterSensitiveLog = (obj: NoSuchDistribution): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NoSuchDistribution =>
-    __isa(o, "NoSuchDistribution");
-}
-
-/**
- * <p>The specified configuration for field-level encryption doesn't exist.</p>
- */
-export interface NoSuchFieldLevelEncryptionConfig
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "NoSuchFieldLevelEncryptionConfig";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchFieldLevelEncryptionConfig {
-  export const filterSensitiveLog = (
-    obj: NoSuchFieldLevelEncryptionConfig
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NoSuchFieldLevelEncryptionConfig =>
-    __isa(o, "NoSuchFieldLevelEncryptionConfig");
-}
-
-/**
- * <p>The specified profile for field-level encryption doesn't exist.</p>
- */
-export interface NoSuchFieldLevelEncryptionProfile
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "NoSuchFieldLevelEncryptionProfile";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchFieldLevelEncryptionProfile {
-  export const filterSensitiveLog = (
-    obj: NoSuchFieldLevelEncryptionProfile
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NoSuchFieldLevelEncryptionProfile =>
-    __isa(o, "NoSuchFieldLevelEncryptionProfile");
-}
-
-/**
- * <p>The specified invalidation does not exist.</p>
- */
-export interface NoSuchInvalidation extends __SmithyException, $MetadataBearer {
-  name: "NoSuchInvalidation";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchInvalidation {
-  export const filterSensitiveLog = (obj: NoSuchInvalidation): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NoSuchInvalidation =>
-    __isa(o, "NoSuchInvalidation");
-}
-
-/**
- * <p>No origin exists with the specified <code>Origin Id</code>. </p>
- */
-export interface NoSuchOrigin extends __SmithyException, $MetadataBearer {
-  name: "NoSuchOrigin";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchOrigin {
-  export const filterSensitiveLog = (obj: NoSuchOrigin): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NoSuchOrigin => __isa(o, "NoSuchOrigin");
-}
-
-/**
- * <p>The specified public key doesn't exist.</p>
- */
-export interface NoSuchPublicKey extends __SmithyException, $MetadataBearer {
-  name: "NoSuchPublicKey";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchPublicKey {
-  export const filterSensitiveLog = (obj: NoSuchPublicKey): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NoSuchPublicKey =>
-    __isa(o, "NoSuchPublicKey");
-}
-
-/**
- * <p>A resource that was specified is not valid.</p>
- */
-export interface NoSuchResource extends __SmithyException, $MetadataBearer {
-  name: "NoSuchResource";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchResource {
-  export const filterSensitiveLog = (obj: NoSuchResource): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NoSuchResource =>
-    __isa(o, "NoSuchResource");
-}
-
-/**
- * <p>The specified streaming distribution does not exist.</p>
- */
-export interface NoSuchStreamingDistribution
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "NoSuchStreamingDistribution";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchStreamingDistribution {
-  export const filterSensitiveLog = (
-    obj: NoSuchStreamingDistribution
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NoSuchStreamingDistribution =>
-    __isa(o, "NoSuchStreamingDistribution");
-}
-
-/**
- * <p>The precondition given in one or more of the request-header fields evaluated to <code>false</code>. </p>
- */
-export interface PreconditionFailed extends __SmithyException, $MetadataBearer {
-  name: "PreconditionFailed";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace PreconditionFailed {
-  export const filterSensitiveLog = (obj: PreconditionFailed): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is PreconditionFailed =>
-    __isa(o, "PreconditionFailed");
-}
-
-/**
- * <p>The specified public key already exists.</p>
- */
-export interface PublicKeyAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "PublicKeyAlreadyExists";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace PublicKeyAlreadyExists {
-  export const filterSensitiveLog = (obj: PublicKeyAlreadyExists): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is PublicKeyAlreadyExists =>
-    __isa(o, "PublicKeyAlreadyExists");
-}
-
-/**
- * <p>The specified public key is in use. </p>
- */
-export interface PublicKeyInUse extends __SmithyException, $MetadataBearer {
-  name: "PublicKeyInUse";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace PublicKeyInUse {
-  export const filterSensitiveLog = (obj: PublicKeyInUse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is PublicKeyInUse =>
-    __isa(o, "PublicKeyInUse");
-}
-
-/**
- * <p>No profile specified for the field-level encryption query argument.</p>
- */
-export interface QueryArgProfileEmpty
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "QueryArgProfileEmpty";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace QueryArgProfileEmpty {
-  export const filterSensitiveLog = (obj: QueryArgProfileEmpty): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is QueryArgProfileEmpty =>
-    __isa(o, "QueryArgProfileEmpty");
-}
-
-/**
- * <p>The caller reference you attempted to create the streaming distribution with
- * 			is associated with another distribution</p>
- */
-export interface StreamingDistributionAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "StreamingDistributionAlreadyExists";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace StreamingDistributionAlreadyExists {
-  export const filterSensitiveLog = (
-    obj: StreamingDistributionAlreadyExists
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StreamingDistributionAlreadyExists =>
-    __isa(o, "StreamingDistributionAlreadyExists");
-}
-
-/**
- * <p>The specified CloudFront distribution is not disabled. You must disable
- * 			the distribution before you can delete it.</p>
- */
-export interface StreamingDistributionNotDisabled
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "StreamingDistributionNotDisabled";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace StreamingDistributionNotDisabled {
-  export const filterSensitiveLog = (
-    obj: StreamingDistributionNotDisabled
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StreamingDistributionNotDisabled =>
-    __isa(o, "StreamingDistributionNotDisabled");
-}
-
-/**
- * <p>You cannot create more cache behaviors for the distribution.</p>
- */
-export interface TooManyCacheBehaviors
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyCacheBehaviors";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyCacheBehaviors {
-  export const filterSensitiveLog = (obj: TooManyCacheBehaviors): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyCacheBehaviors =>
-    __isa(o, "TooManyCacheBehaviors");
-}
-
-/**
- * <p>You cannot create anymore custom SSL/TLS certificates.</p>
- */
-export interface TooManyCertificates
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyCertificates";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyCertificates {
-  export const filterSensitiveLog = (obj: TooManyCertificates): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyCertificates =>
-    __isa(o, "TooManyCertificates");
-}
-
-/**
- * <p>Processing your request would cause you to exceed the maximum number of origin access identities allowed.</p>
- */
-export interface TooManyCloudFrontOriginAccessIdentities
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyCloudFrontOriginAccessIdentities";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyCloudFrontOriginAccessIdentities {
-  export const filterSensitiveLog = (
-    obj: TooManyCloudFrontOriginAccessIdentities
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyCloudFrontOriginAccessIdentities =>
-    __isa(o, "TooManyCloudFrontOriginAccessIdentities");
-}
-
-/**
- * <p>Your request contains more cookie names in the whitelist than are allowed per cache behavior.</p>
- */
-export interface TooManyCookieNamesInWhiteList
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyCookieNamesInWhiteList";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyCookieNamesInWhiteList {
-  export const filterSensitiveLog = (
-    obj: TooManyCookieNamesInWhiteList
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyCookieNamesInWhiteList =>
-    __isa(o, "TooManyCookieNamesInWhiteList");
-}
-
-/**
- * <p>Your request contains more CNAMEs than are allowed per distribution.</p>
- */
-export interface TooManyDistributionCNAMEs
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyDistributionCNAMEs";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyDistributionCNAMEs {
-  export const filterSensitiveLog = (obj: TooManyDistributionCNAMEs): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyDistributionCNAMEs =>
-    __isa(o, "TooManyDistributionCNAMEs");
-}
-
-/**
- * <p>Processing your request would cause you to exceed the maximum number of distributions allowed.</p>
- */
-export interface TooManyDistributions
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyDistributions";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyDistributions {
-  export const filterSensitiveLog = (obj: TooManyDistributions): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyDistributions =>
-    __isa(o, "TooManyDistributions");
-}
-
-/**
- * <p>The maximum number of distributions have been associated with the specified configuration for field-level encryption.</p>
- */
-export interface TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyDistributionsAssociatedToFieldLevelEncryptionConfig {
-  export const filterSensitiveLog = (
-    obj: TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is TooManyDistributionsAssociatedToFieldLevelEncryptionConfig =>
-    __isa(o, "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig");
-}
-
-/**
- * <p>Processing your request would cause the maximum number of distributions with Lambda function associations per owner
- * 			to be exceeded.</p>
- */
-export interface TooManyDistributionsWithLambdaAssociations
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyDistributionsWithLambdaAssociations";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyDistributionsWithLambdaAssociations {
-  export const filterSensitiveLog = (
-    obj: TooManyDistributionsWithLambdaAssociations
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is TooManyDistributionsWithLambdaAssociations =>
-    __isa(o, "TooManyDistributionsWithLambdaAssociations");
-}
-
-/**
- * <p>The maximum number of configurations for field-level encryption have been created.</p>
- */
-export interface TooManyFieldLevelEncryptionConfigs
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyFieldLevelEncryptionConfigs";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyFieldLevelEncryptionConfigs {
-  export const filterSensitiveLog = (
-    obj: TooManyFieldLevelEncryptionConfigs
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyFieldLevelEncryptionConfigs =>
-    __isa(o, "TooManyFieldLevelEncryptionConfigs");
-}
-
-/**
- * <p>The maximum number of content type profiles for field-level encryption have been created.</p>
- */
-export interface TooManyFieldLevelEncryptionContentTypeProfiles
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyFieldLevelEncryptionContentTypeProfiles";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyFieldLevelEncryptionContentTypeProfiles {
-  export const filterSensitiveLog = (
-    obj: TooManyFieldLevelEncryptionContentTypeProfiles
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is TooManyFieldLevelEncryptionContentTypeProfiles =>
-    __isa(o, "TooManyFieldLevelEncryptionContentTypeProfiles");
-}
-
-/**
- * <p>The maximum number of encryption entities for field-level encryption have been created.</p>
- */
-export interface TooManyFieldLevelEncryptionEncryptionEntities
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyFieldLevelEncryptionEncryptionEntities";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyFieldLevelEncryptionEncryptionEntities {
-  export const filterSensitiveLog = (
-    obj: TooManyFieldLevelEncryptionEncryptionEntities
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is TooManyFieldLevelEncryptionEncryptionEntities =>
-    __isa(o, "TooManyFieldLevelEncryptionEncryptionEntities");
-}
-
-/**
- * <p>The maximum number of field patterns for field-level encryption have been created.</p>
- */
-export interface TooManyFieldLevelEncryptionFieldPatterns
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyFieldLevelEncryptionFieldPatterns";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyFieldLevelEncryptionFieldPatterns {
-  export const filterSensitiveLog = (
-    obj: TooManyFieldLevelEncryptionFieldPatterns
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyFieldLevelEncryptionFieldPatterns =>
-    __isa(o, "TooManyFieldLevelEncryptionFieldPatterns");
-}
-
-/**
- * <p>The maximum number of profiles for field-level encryption have been created.</p>
- */
-export interface TooManyFieldLevelEncryptionProfiles
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyFieldLevelEncryptionProfiles";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyFieldLevelEncryptionProfiles {
-  export const filterSensitiveLog = (
-    obj: TooManyFieldLevelEncryptionProfiles
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyFieldLevelEncryptionProfiles =>
-    __isa(o, "TooManyFieldLevelEncryptionProfiles");
-}
-
-/**
- * <p>The maximum number of query arg profiles for field-level encryption have been created.</p>
- */
-export interface TooManyFieldLevelEncryptionQueryArgProfiles
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyFieldLevelEncryptionQueryArgProfiles";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyFieldLevelEncryptionQueryArgProfiles {
-  export const filterSensitiveLog = (
-    obj: TooManyFieldLevelEncryptionQueryArgProfiles
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is TooManyFieldLevelEncryptionQueryArgProfiles =>
-    __isa(o, "TooManyFieldLevelEncryptionQueryArgProfiles");
-}
-
-/**
- * <p>Your request contains too many headers in forwarded values.</p>
- */
-export interface TooManyHeadersInForwardedValues
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyHeadersInForwardedValues";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyHeadersInForwardedValues {
-  export const filterSensitiveLog = (
-    obj: TooManyHeadersInForwardedValues
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyHeadersInForwardedValues =>
-    __isa(o, "TooManyHeadersInForwardedValues");
-}
-
-/**
- * <p>You have exceeded the maximum number of allowable InProgress invalidation batch requests, or invalidation objects.</p>
- */
-export interface TooManyInvalidationsInProgress
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyInvalidationsInProgress";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyInvalidationsInProgress {
-  export const filterSensitiveLog = (
-    obj: TooManyInvalidationsInProgress
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyInvalidationsInProgress =>
-    __isa(o, "TooManyInvalidationsInProgress");
-}
-
-/**
- * <p>Your request contains more Lambda function associations than are allowed per distribution.</p>
- */
-export interface TooManyLambdaFunctionAssociations
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyLambdaFunctionAssociations";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyLambdaFunctionAssociations {
-  export const filterSensitiveLog = (
-    obj: TooManyLambdaFunctionAssociations
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyLambdaFunctionAssociations =>
-    __isa(o, "TooManyLambdaFunctionAssociations");
-}
-
-/**
- * <p>Your request contains too many origin custom headers.</p>
- */
-export interface TooManyOriginCustomHeaders
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyOriginCustomHeaders";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyOriginCustomHeaders {
-  export const filterSensitiveLog = (obj: TooManyOriginCustomHeaders): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyOriginCustomHeaders =>
-    __isa(o, "TooManyOriginCustomHeaders");
-}
-
-/**
- * <p>Processing your request would cause you to exceed the maximum number of origin groups allowed.</p>
- */
-export interface TooManyOriginGroupsPerDistribution
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyOriginGroupsPerDistribution";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyOriginGroupsPerDistribution {
-  export const filterSensitiveLog = (
-    obj: TooManyOriginGroupsPerDistribution
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyOriginGroupsPerDistribution =>
-    __isa(o, "TooManyOriginGroupsPerDistribution");
-}
-
-/**
- * <p>You cannot create more origins for the distribution.</p>
- */
-export interface TooManyOrigins extends __SmithyException, $MetadataBearer {
-  name: "TooManyOrigins";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyOrigins {
-  export const filterSensitiveLog = (obj: TooManyOrigins): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyOrigins =>
-    __isa(o, "TooManyOrigins");
-}
-
-/**
- * <p>The maximum number of public keys for field-level encryption have been created. To create a new public key, delete one of the existing keys.</p>
- */
-export interface TooManyPublicKeys extends __SmithyException, $MetadataBearer {
-  name: "TooManyPublicKeys";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyPublicKeys {
-  export const filterSensitiveLog = (obj: TooManyPublicKeys): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyPublicKeys =>
-    __isa(o, "TooManyPublicKeys");
-}
-
-/**
- * <p>Your request contains too many query string parameters.</p>
- */
-export interface TooManyQueryStringParameters
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyQueryStringParameters";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyQueryStringParameters {
-  export const filterSensitiveLog = (
-    obj: TooManyQueryStringParameters
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyQueryStringParameters =>
-    __isa(o, "TooManyQueryStringParameters");
-}
-
-/**
- * <p>Your request contains more CNAMEs than are allowed per distribution.</p>
- */
-export interface TooManyStreamingDistributionCNAMEs
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyStreamingDistributionCNAMEs";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyStreamingDistributionCNAMEs {
-  export const filterSensitiveLog = (
-    obj: TooManyStreamingDistributionCNAMEs
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyStreamingDistributionCNAMEs =>
-    __isa(o, "TooManyStreamingDistributionCNAMEs");
-}
-
-/**
- * <p>Processing your request would cause you to exceed the maximum number of streaming distributions allowed.</p>
- */
-export interface TooManyStreamingDistributions
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyStreamingDistributions";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyStreamingDistributions {
-  export const filterSensitiveLog = (
-    obj: TooManyStreamingDistributions
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyStreamingDistributions =>
-    __isa(o, "TooManyStreamingDistributions");
-}
-
-/**
- * <p>Your request contains more trusted signers than are allowed per distribution.</p>
- */
-export interface TooManyTrustedSigners
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyTrustedSigners";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyTrustedSigners {
-  export const filterSensitiveLog = (obj: TooManyTrustedSigners): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyTrustedSigners =>
-    __isa(o, "TooManyTrustedSigners");
-}
-
-/**
- * <p>One or more of your trusted signers don't exist.</p>
- */
-export interface TrustedSignerDoesNotExist
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TrustedSignerDoesNotExist";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TrustedSignerDoesNotExist {
-  export const filterSensitiveLog = (obj: TrustedSignerDoesNotExist): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TrustedSignerDoesNotExist =>
-    __isa(o, "TrustedSignerDoesNotExist");
-}

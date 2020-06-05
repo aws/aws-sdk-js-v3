@@ -8,9 +8,9 @@ import {
   GetDataflowEndpointGroupResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetDataflowEndpointGroupCommand,
-  serializeAws_restJson1_1GetDataflowEndpointGroupCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetDataflowEndpointGroupCommand,
+  serializeAws_restJson1GetDataflowEndpointGroupCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetDataflowEndpointGroupCommand extends $Command<
     input: GetDataflowEndpointGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDataflowEndpointGroupCommand(
+    return serializeAws_restJson1GetDataflowEndpointGroupCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetDataflowEndpointGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDataflowEndpointGroupCommandOutput> {
-    return deserializeAws_restJson1_1GetDataflowEndpointGroupCommand(
+    return deserializeAws_restJson1GetDataflowEndpointGroupCommand(
       output,
       context
     );

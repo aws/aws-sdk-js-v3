@@ -5,9 +5,9 @@ import {
 } from "../RoboMakerClient";
 import { CreateRobotRequest, CreateRobotResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateRobotCommand,
-  serializeAws_restJson1_1CreateRobotCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateRobotCommand,
+  serializeAws_restJson1CreateRobotCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateRobotCommand extends $Command<
     input: CreateRobotCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateRobotCommand(input, context);
+    return serializeAws_restJson1CreateRobotCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateRobotCommandOutput> {
-    return deserializeAws_restJson1_1CreateRobotCommand(output, context);
+    return deserializeAws_restJson1CreateRobotCommand(output, context);
   }
 
   // Start section: command_body_extra

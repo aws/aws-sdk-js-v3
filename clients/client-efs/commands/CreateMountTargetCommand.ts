@@ -8,9 +8,9 @@ import {
   MountTargetDescription
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateMountTargetCommand,
-  serializeAws_restJson1_1CreateMountTargetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateMountTargetCommand,
+  serializeAws_restJson1CreateMountTargetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class CreateMountTargetCommand extends $Command<
     input: CreateMountTargetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateMountTargetCommand(input, context);
+    return serializeAws_restJson1CreateMountTargetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMountTargetCommandOutput> {
-    return deserializeAws_restJson1_1CreateMountTargetCommand(output, context);
+    return deserializeAws_restJson1CreateMountTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -8,9 +8,9 @@ import {
   GetDASHStreamingSessionURLOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetDASHStreamingSessionURLCommand,
-  serializeAws_restJson1_1GetDASHStreamingSessionURLCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetDASHStreamingSessionURLCommand,
+  serializeAws_restJson1GetDASHStreamingSessionURLCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetDASHStreamingSessionURLCommand extends $Command<
     input: GetDASHStreamingSessionURLCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDASHStreamingSessionURLCommand(
+    return serializeAws_restJson1GetDASHStreamingSessionURLCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetDASHStreamingSessionURLCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDASHStreamingSessionURLCommandOutput> {
-    return deserializeAws_restJson1_1GetDASHStreamingSessionURLCommand(
+    return deserializeAws_restJson1GetDASHStreamingSessionURLCommand(
       output,
       context
     );

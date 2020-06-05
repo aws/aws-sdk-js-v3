@@ -5,9 +5,9 @@ import {
 } from "../AppConfigClient";
 import { Deployment, StopDeploymentRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1StopDeploymentCommand,
-  serializeAws_restJson1_1StopDeploymentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1StopDeploymentCommand,
+  serializeAws_restJson1StopDeploymentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class StopDeploymentCommand extends $Command<
     input: StopDeploymentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StopDeploymentCommand(input, context);
+    return serializeAws_restJson1StopDeploymentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopDeploymentCommandOutput> {
-    return deserializeAws_restJson1_1StopDeploymentCommand(output, context);
+    return deserializeAws_restJson1StopDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

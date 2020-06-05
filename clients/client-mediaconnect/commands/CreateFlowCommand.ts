@@ -5,9 +5,9 @@ import {
 } from "../MediaConnectClient";
 import { CreateFlowRequest, CreateFlowResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateFlowCommand,
-  serializeAws_restJson1_1CreateFlowCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateFlowCommand,
+  serializeAws_restJson1CreateFlowCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateFlowCommand extends $Command<
     input: CreateFlowCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateFlowCommand(input, context);
+    return serializeAws_restJson1CreateFlowCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateFlowCommandOutput> {
-    return deserializeAws_restJson1_1CreateFlowCommand(output, context);
+    return deserializeAws_restJson1CreateFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

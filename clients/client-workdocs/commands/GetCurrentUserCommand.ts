@@ -5,9 +5,9 @@ import {
 } from "../WorkDocsClient";
 import { GetCurrentUserRequest, GetCurrentUserResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetCurrentUserCommand,
-  serializeAws_restJson1_1GetCurrentUserCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetCurrentUserCommand,
+  serializeAws_restJson1GetCurrentUserCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetCurrentUserCommand extends $Command<
     input: GetCurrentUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetCurrentUserCommand(input, context);
+    return serializeAws_restJson1GetCurrentUserCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCurrentUserCommandOutput> {
-    return deserializeAws_restJson1_1GetCurrentUserCommand(output, context);
+    return deserializeAws_restJson1GetCurrentUserCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,9 +5,9 @@ import {
 } from "../CognitoSyncClient";
 import { RegisterDeviceRequest, RegisterDeviceResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1RegisterDeviceCommand,
-  serializeAws_restJson1_1RegisterDeviceCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1RegisterDeviceCommand,
+  serializeAws_restJson1RegisterDeviceCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class RegisterDeviceCommand extends $Command<
     input: RegisterDeviceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RegisterDeviceCommand(input, context);
+    return serializeAws_restJson1RegisterDeviceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterDeviceCommandOutput> {
-    return deserializeAws_restJson1_1RegisterDeviceCommand(output, context);
+    return deserializeAws_restJson1RegisterDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

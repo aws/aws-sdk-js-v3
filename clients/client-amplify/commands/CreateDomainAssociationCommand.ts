@@ -8,9 +8,9 @@ import {
   CreateDomainAssociationResult
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateDomainAssociationCommand,
-  serializeAws_restJson1_1CreateDomainAssociationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateDomainAssociationCommand,
+  serializeAws_restJson1CreateDomainAssociationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class CreateDomainAssociationCommand extends $Command<
     input: CreateDomainAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateDomainAssociationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1CreateDomainAssociationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDomainAssociationCommandOutput> {
-    return deserializeAws_restJson1_1CreateDomainAssociationCommand(
+    return deserializeAws_restJson1CreateDomainAssociationCommand(
       output,
       context
     );

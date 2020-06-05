@@ -425,7 +425,7 @@ const deserializeAws_json1_1CreateLicenseConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -436,7 +436,7 @@ const deserializeAws_json1_1CreateLicenseConfigurationCommandError = async (
       };
       break;
     case "AuthorizationException":
-    case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
           parsedOutput,
@@ -447,7 +447,7 @@ const deserializeAws_json1_1CreateLicenseConfigurationCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -458,7 +458,7 @@ const deserializeAws_json1_1CreateLicenseConfigurationCommandError = async (
       };
       break;
     case "RateLimitExceededException":
-    case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
           parsedOutput,
@@ -469,7 +469,7 @@ const deserializeAws_json1_1CreateLicenseConfigurationCommandError = async (
       };
       break;
     case "ResourceLimitExceededException":
-    case "com.amazonaws.license.manager.V2018_08_01#ResourceLimitExceededException":
+    case "com.amazonaws.licensemanager#ResourceLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
           parsedOutput,
@@ -480,7 +480,7 @@ const deserializeAws_json1_1CreateLicenseConfigurationCommandError = async (
       };
       break;
     case "ServerInternalException":
-    case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
           parsedOutput,
@@ -546,7 +546,7 @@ const deserializeAws_json1_1DeleteLicenseConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -557,7 +557,7 @@ const deserializeAws_json1_1DeleteLicenseConfigurationCommandError = async (
       };
       break;
     case "AuthorizationException":
-    case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
           parsedOutput,
@@ -568,7 +568,7 @@ const deserializeAws_json1_1DeleteLicenseConfigurationCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -579,7 +579,7 @@ const deserializeAws_json1_1DeleteLicenseConfigurationCommandError = async (
       };
       break;
     case "RateLimitExceededException":
-    case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
           parsedOutput,
@@ -590,7 +590,7 @@ const deserializeAws_json1_1DeleteLicenseConfigurationCommandError = async (
       };
       break;
     case "ServerInternalException":
-    case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
           parsedOutput,
@@ -656,7 +656,7 @@ const deserializeAws_json1_1GetLicenseConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -667,7 +667,7 @@ const deserializeAws_json1_1GetLicenseConfigurationCommandError = async (
       };
       break;
     case "AuthorizationException":
-    case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
           parsedOutput,
@@ -678,7 +678,7 @@ const deserializeAws_json1_1GetLicenseConfigurationCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -689,7 +689,7 @@ const deserializeAws_json1_1GetLicenseConfigurationCommandError = async (
       };
       break;
     case "RateLimitExceededException":
-    case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
           parsedOutput,
@@ -700,7 +700,7 @@ const deserializeAws_json1_1GetLicenseConfigurationCommandError = async (
       };
       break;
     case "ServerInternalException":
-    case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
           parsedOutput,
@@ -763,7 +763,7 @@ const deserializeAws_json1_1GetServiceSettingsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -774,7 +774,7 @@ const deserializeAws_json1_1GetServiceSettingsCommandError = async (
       };
       break;
     case "AuthorizationException":
-    case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
           parsedOutput,
@@ -785,7 +785,7 @@ const deserializeAws_json1_1GetServiceSettingsCommandError = async (
       };
       break;
     case "RateLimitExceededException":
-    case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
           parsedOutput,
@@ -796,7 +796,7 @@ const deserializeAws_json1_1GetServiceSettingsCommandError = async (
       };
       break;
     case "ServerInternalException":
-    case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
           parsedOutput,
@@ -862,7 +862,7 @@ const deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommandError 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -873,7 +873,7 @@ const deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommandError 
       };
       break;
     case "AuthorizationException":
-    case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
           parsedOutput,
@@ -884,7 +884,7 @@ const deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommandError 
       };
       break;
     case "FilterLimitExceededException":
-    case "com.amazonaws.license.manager.V2018_08_01#FilterLimitExceededException":
+    case "com.amazonaws.licensemanager#FilterLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1FilterLimitExceededExceptionResponse(
           parsedOutput,
@@ -895,7 +895,7 @@ const deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommandError 
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -906,7 +906,7 @@ const deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommandError 
       };
       break;
     case "RateLimitExceededException":
-    case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
           parsedOutput,
@@ -917,7 +917,7 @@ const deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommandError 
       };
       break;
     case "ServerInternalException":
-    case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
           parsedOutput,
@@ -983,7 +983,7 @@ const deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -994,7 +994,7 @@ const deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand
       };
       break;
     case "AuthorizationException":
-    case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
           parsedOutput,
@@ -1005,7 +1005,7 @@ const deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1016,7 +1016,7 @@ const deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand
       };
       break;
     case "RateLimitExceededException":
-    case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
           parsedOutput,
@@ -1027,7 +1027,7 @@ const deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand
       };
       break;
     case "ServerInternalException":
-    case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
           parsedOutput,
@@ -1093,7 +1093,7 @@ const deserializeAws_json1_1ListLicenseConfigurationsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1104,7 +1104,7 @@ const deserializeAws_json1_1ListLicenseConfigurationsCommandError = async (
       };
       break;
     case "AuthorizationException":
-    case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
           parsedOutput,
@@ -1115,7 +1115,7 @@ const deserializeAws_json1_1ListLicenseConfigurationsCommandError = async (
       };
       break;
     case "FilterLimitExceededException":
-    case "com.amazonaws.license.manager.V2018_08_01#FilterLimitExceededException":
+    case "com.amazonaws.licensemanager#FilterLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1FilterLimitExceededExceptionResponse(
           parsedOutput,
@@ -1126,7 +1126,7 @@ const deserializeAws_json1_1ListLicenseConfigurationsCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1137,7 +1137,7 @@ const deserializeAws_json1_1ListLicenseConfigurationsCommandError = async (
       };
       break;
     case "RateLimitExceededException":
-    case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
           parsedOutput,
@@ -1148,7 +1148,7 @@ const deserializeAws_json1_1ListLicenseConfigurationsCommandError = async (
       };
       break;
     case "ServerInternalException":
-    case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
           parsedOutput,
@@ -1214,7 +1214,7 @@ const deserializeAws_json1_1ListLicenseSpecificationsForResourceCommandError = a
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1225,7 +1225,7 @@ const deserializeAws_json1_1ListLicenseSpecificationsForResourceCommandError = a
       };
       break;
     case "AuthorizationException":
-    case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
           parsedOutput,
@@ -1236,7 +1236,7 @@ const deserializeAws_json1_1ListLicenseSpecificationsForResourceCommandError = a
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1247,7 +1247,7 @@ const deserializeAws_json1_1ListLicenseSpecificationsForResourceCommandError = a
       };
       break;
     case "RateLimitExceededException":
-    case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
           parsedOutput,
@@ -1258,7 +1258,7 @@ const deserializeAws_json1_1ListLicenseSpecificationsForResourceCommandError = a
       };
       break;
     case "ServerInternalException":
-    case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
           parsedOutput,
@@ -1321,7 +1321,7 @@ const deserializeAws_json1_1ListResourceInventoryCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1332,7 +1332,7 @@ const deserializeAws_json1_1ListResourceInventoryCommandError = async (
       };
       break;
     case "AuthorizationException":
-    case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
           parsedOutput,
@@ -1343,7 +1343,7 @@ const deserializeAws_json1_1ListResourceInventoryCommandError = async (
       };
       break;
     case "FailedDependencyException":
-    case "com.amazonaws.license.manager.V2018_08_01#FailedDependencyException":
+    case "com.amazonaws.licensemanager#FailedDependencyException":
       response = {
         ...(await deserializeAws_json1_1FailedDependencyExceptionResponse(
           parsedOutput,
@@ -1354,7 +1354,7 @@ const deserializeAws_json1_1ListResourceInventoryCommandError = async (
       };
       break;
     case "FilterLimitExceededException":
-    case "com.amazonaws.license.manager.V2018_08_01#FilterLimitExceededException":
+    case "com.amazonaws.licensemanager#FilterLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1FilterLimitExceededExceptionResponse(
           parsedOutput,
@@ -1365,7 +1365,7 @@ const deserializeAws_json1_1ListResourceInventoryCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1376,7 +1376,7 @@ const deserializeAws_json1_1ListResourceInventoryCommandError = async (
       };
       break;
     case "RateLimitExceededException":
-    case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
           parsedOutput,
@@ -1387,7 +1387,7 @@ const deserializeAws_json1_1ListResourceInventoryCommandError = async (
       };
       break;
     case "ServerInternalException":
-    case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
           parsedOutput,
@@ -1450,7 +1450,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1461,7 +1461,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "AuthorizationException":
-    case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
           parsedOutput,
@@ -1472,7 +1472,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1483,7 +1483,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "RateLimitExceededException":
-    case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
           parsedOutput,
@@ -1494,7 +1494,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "ServerInternalException":
-    case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
           parsedOutput,
@@ -1560,7 +1560,7 @@ const deserializeAws_json1_1ListUsageForLicenseConfigurationCommandError = async
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1571,7 +1571,7 @@ const deserializeAws_json1_1ListUsageForLicenseConfigurationCommandError = async
       };
       break;
     case "AuthorizationException":
-    case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
           parsedOutput,
@@ -1582,7 +1582,7 @@ const deserializeAws_json1_1ListUsageForLicenseConfigurationCommandError = async
       };
       break;
     case "FilterLimitExceededException":
-    case "com.amazonaws.license.manager.V2018_08_01#FilterLimitExceededException":
+    case "com.amazonaws.licensemanager#FilterLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1FilterLimitExceededExceptionResponse(
           parsedOutput,
@@ -1593,7 +1593,7 @@ const deserializeAws_json1_1ListUsageForLicenseConfigurationCommandError = async
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1604,7 +1604,7 @@ const deserializeAws_json1_1ListUsageForLicenseConfigurationCommandError = async
       };
       break;
     case "RateLimitExceededException":
-    case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
           parsedOutput,
@@ -1615,7 +1615,7 @@ const deserializeAws_json1_1ListUsageForLicenseConfigurationCommandError = async
       };
       break;
     case "ServerInternalException":
-    case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
           parsedOutput,
@@ -1675,7 +1675,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1686,7 +1686,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "AuthorizationException":
-    case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
           parsedOutput,
@@ -1697,7 +1697,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1708,7 +1708,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "RateLimitExceededException":
-    case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
           parsedOutput,
@@ -1719,7 +1719,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "ServerInternalException":
-    case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
           parsedOutput,
@@ -1779,7 +1779,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1790,7 +1790,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "AuthorizationException":
-    case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
           parsedOutput,
@@ -1801,7 +1801,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1812,7 +1812,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "RateLimitExceededException":
-    case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
           parsedOutput,
@@ -1823,7 +1823,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "ServerInternalException":
-    case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
           parsedOutput,
@@ -1889,7 +1889,7 @@ const deserializeAws_json1_1UpdateLicenseConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1900,7 +1900,7 @@ const deserializeAws_json1_1UpdateLicenseConfigurationCommandError = async (
       };
       break;
     case "AuthorizationException":
-    case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
           parsedOutput,
@@ -1911,7 +1911,7 @@ const deserializeAws_json1_1UpdateLicenseConfigurationCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1922,7 +1922,7 @@ const deserializeAws_json1_1UpdateLicenseConfigurationCommandError = async (
       };
       break;
     case "RateLimitExceededException":
-    case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
           parsedOutput,
@@ -1933,7 +1933,7 @@ const deserializeAws_json1_1UpdateLicenseConfigurationCommandError = async (
       };
       break;
     case "ServerInternalException":
-    case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
           parsedOutput,
@@ -1999,7 +1999,7 @@ const deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommandError =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -2010,7 +2010,7 @@ const deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommandError =
       };
       break;
     case "AuthorizationException":
-    case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
           parsedOutput,
@@ -2021,7 +2021,7 @@ const deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommandError =
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -2032,7 +2032,7 @@ const deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommandError =
       };
       break;
     case "InvalidResourceStateException":
-    case "com.amazonaws.license.manager.V2018_08_01#InvalidResourceStateException":
+    case "com.amazonaws.licensemanager#InvalidResourceStateException":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateExceptionResponse(
           parsedOutput,
@@ -2043,7 +2043,7 @@ const deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommandError =
       };
       break;
     case "LicenseUsageException":
-    case "com.amazonaws.license.manager.V2018_08_01#LicenseUsageException":
+    case "com.amazonaws.licensemanager#LicenseUsageException":
       response = {
         ...(await deserializeAws_json1_1LicenseUsageExceptionResponse(
           parsedOutput,
@@ -2054,7 +2054,7 @@ const deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommandError =
       };
       break;
     case "RateLimitExceededException":
-    case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
           parsedOutput,
@@ -2065,7 +2065,7 @@ const deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommandError =
       };
       break;
     case "ServerInternalException":
-    case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
           parsedOutput,
@@ -2128,7 +2128,7 @@ const deserializeAws_json1_1UpdateServiceSettingsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -2139,7 +2139,7 @@ const deserializeAws_json1_1UpdateServiceSettingsCommandError = async (
       };
       break;
     case "AuthorizationException":
-    case "com.amazonaws.license.manager.V2018_08_01#AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationExceptionResponse(
           parsedOutput,
@@ -2150,7 +2150,7 @@ const deserializeAws_json1_1UpdateServiceSettingsCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -2161,7 +2161,7 @@ const deserializeAws_json1_1UpdateServiceSettingsCommandError = async (
       };
       break;
     case "RateLimitExceededException":
-    case "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(
           parsedOutput,
@@ -2172,7 +2172,7 @@ const deserializeAws_json1_1UpdateServiceSettingsCommandError = async (
       };
       break;
     case "ServerInternalException":
-    case "com.amazonaws.license.manager.V2018_08_01#ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalExceptionResponse(
           parsedOutput,
@@ -2433,18 +2433,18 @@ const serializeAws_json1_1Filter = (
   };
 };
 
-const serializeAws_json1_1FilterValues = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
 const serializeAws_json1_1Filters = (
   input: Filter[],
   context: __SerdeContext
 ): any => {
   return input.map(entry => serializeAws_json1_1Filter(entry, context));
+};
+
+const serializeAws_json1_1FilterValues = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1GetLicenseConfigurationRequest = (
@@ -3180,6 +3180,15 @@ const deserializeAws_json1_1LicenseConfigurationAssociations = (
   );
 };
 
+const deserializeAws_json1_1LicenseConfigurations = (
+  output: any,
+  context: __SerdeContext
+): LicenseConfiguration[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1LicenseConfiguration(entry, context)
+  );
+};
+
 const deserializeAws_json1_1LicenseConfigurationUsage = (
   output: any,
   context: __SerdeContext
@@ -3219,15 +3228,6 @@ const deserializeAws_json1_1LicenseConfigurationUsageList = (
 ): LicenseConfigurationUsage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LicenseConfigurationUsage(entry, context)
-  );
-};
-
-const deserializeAws_json1_1LicenseConfigurations = (
-  output: any,
-  context: __SerdeContext
-): LicenseConfiguration[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1LicenseConfiguration(entry, context)
   );
 };
 

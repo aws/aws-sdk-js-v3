@@ -8,9 +8,9 @@ import {
   ListAuditFindingsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListAuditFindingsCommand,
-  serializeAws_restJson1_1ListAuditFindingsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListAuditFindingsCommand,
+  serializeAws_restJson1ListAuditFindingsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ListAuditFindingsCommand extends $Command<
     input: ListAuditFindingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListAuditFindingsCommand(input, context);
+    return serializeAws_restJson1ListAuditFindingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAuditFindingsCommandOutput> {
-    return deserializeAws_restJson1_1ListAuditFindingsCommand(output, context);
+    return deserializeAws_restJson1ListAuditFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

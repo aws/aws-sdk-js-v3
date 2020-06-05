@@ -8,9 +8,9 @@ import {
   ConfirmTopicRuleDestinationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ConfirmTopicRuleDestinationCommand,
-  serializeAws_restJson1_1ConfirmTopicRuleDestinationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ConfirmTopicRuleDestinationCommand,
+  serializeAws_restJson1ConfirmTopicRuleDestinationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ConfirmTopicRuleDestinationCommand extends $Command<
     input: ConfirmTopicRuleDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ConfirmTopicRuleDestinationCommand(
+    return serializeAws_restJson1ConfirmTopicRuleDestinationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ConfirmTopicRuleDestinationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ConfirmTopicRuleDestinationCommandOutput> {
-    return deserializeAws_restJson1_1ConfirmTopicRuleDestinationCommand(
+    return deserializeAws_restJson1ConfirmTopicRuleDestinationCommand(
       output,
       context
     );

@@ -8,9 +8,9 @@ import {
   DeleteProfilingGroupResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteProfilingGroupCommand,
-  serializeAws_restJson1_1DeleteProfilingGroupCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteProfilingGroupCommand,
+  serializeAws_restJson1DeleteProfilingGroupCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteProfilingGroupCommand extends $Command<
     input: DeleteProfilingGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteProfilingGroupCommand(input, context);
+    return serializeAws_restJson1DeleteProfilingGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteProfilingGroupCommandOutput> {
-    return deserializeAws_restJson1_1DeleteProfilingGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteProfilingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

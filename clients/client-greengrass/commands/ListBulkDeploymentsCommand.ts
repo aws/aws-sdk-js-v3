@@ -8,9 +8,9 @@ import {
   ListBulkDeploymentsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListBulkDeploymentsCommand,
-  serializeAws_restJson1_1ListBulkDeploymentsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListBulkDeploymentsCommand,
+  serializeAws_restJson1ListBulkDeploymentsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListBulkDeploymentsCommand extends $Command<
     input: ListBulkDeploymentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListBulkDeploymentsCommand(input, context);
+    return serializeAws_restJson1ListBulkDeploymentsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBulkDeploymentsCommandOutput> {
-    return deserializeAws_restJson1_1ListBulkDeploymentsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListBulkDeploymentsCommand(output, context);
   }
 
   // Start section: command_body_extra

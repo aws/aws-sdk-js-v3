@@ -8,9 +8,9 @@ import {
   CreateImportJobResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateImportJobCommand,
-  serializeAws_restJson1_1CreateImportJobCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateImportJobCommand,
+  serializeAws_restJson1CreateImportJobCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class CreateImportJobCommand extends $Command<
     input: CreateImportJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateImportJobCommand(input, context);
+    return serializeAws_restJson1CreateImportJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateImportJobCommandOutput> {
-    return deserializeAws_restJson1_1CreateImportJobCommand(output, context);
+    return deserializeAws_restJson1CreateImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

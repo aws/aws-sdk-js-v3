@@ -903,21 +903,6 @@ export const serializeAws_json1_1CreateDomainEntryCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateInstanceSnapshotCommand = async (
-  input: CreateInstanceSnapshotCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateInstanceSnapshot"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateInstanceSnapshotRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1CreateInstancesCommand = async (
   input: CreateInstancesCommandInput,
   context: __SerdeContext
@@ -944,6 +929,21 @@ export const serializeAws_json1_1CreateInstancesFromSnapshotCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateInstancesFromSnapshotRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateInstanceSnapshotCommand = async (
+  input: CreateInstanceSnapshotCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.CreateInstanceSnapshot"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1CreateInstanceSnapshotRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1421,6 +1421,19 @@ export const serializeAws_json1_1GetDiskCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetDisksCommand = async (
+  input: GetDisksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.GetDisks"
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetDisksRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetDiskSnapshotCommand = async (
   input: GetDiskSnapshotCommandInput,
   context: __SerdeContext
@@ -1448,19 +1461,6 @@ export const serializeAws_json1_1GetDiskSnapshotsCommand = async (
   body = JSON.stringify(
     serializeAws_json1_1GetDiskSnapshotsRequest(input, context)
   );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1GetDisksCommand = async (
-  input: GetDisksCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetDisks"
-  };
-  let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetDisksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1563,6 +1563,21 @@ export const serializeAws_json1_1GetInstancePortStatesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetInstancesCommand = async (
+  input: GetInstancesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.GetInstances"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1GetInstancesRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetInstanceSnapshotCommand = async (
   input: GetInstanceSnapshotCommandInput,
   context: __SerdeContext
@@ -1604,21 +1619,6 @@ export const serializeAws_json1_1GetInstanceStateCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetInstanceStateRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1GetInstancesCommand = async (
-  input: GetInstancesCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetInstances"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetInstancesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1679,21 +1679,6 @@ export const serializeAws_json1_1GetLoadBalancerMetricDataCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetLoadBalancerTlsCertificatesCommand = async (
-  input: GetLoadBalancerTlsCertificatesCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetLoadBalancerTlsCertificates"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetLoadBalancerTlsCertificatesRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1GetLoadBalancersCommand = async (
   input: GetLoadBalancersCommandInput,
   context: __SerdeContext
@@ -1705,6 +1690,21 @@ export const serializeAws_json1_1GetLoadBalancersCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetLoadBalancersRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetLoadBalancerTlsCertificatesCommand = async (
+  input: GetLoadBalancerTlsCertificatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.GetLoadBalancerTlsCertificates"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1GetLoadBalancerTlsCertificatesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1905,6 +1905,21 @@ export const serializeAws_json1_1GetRelationalDatabaseParametersCommand = async 
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetRelationalDatabasesCommand = async (
+  input: GetRelationalDatabasesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.GetRelationalDatabases"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1GetRelationalDatabasesRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetRelationalDatabaseSnapshotCommand = async (
   input: GetRelationalDatabaseSnapshotCommandInput,
   context: __SerdeContext
@@ -1931,21 +1946,6 @@ export const serializeAws_json1_1GetRelationalDatabaseSnapshotsCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRelationalDatabaseSnapshotsRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1GetRelationalDatabasesCommand = async (
-  input: GetRelationalDatabasesCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetRelationalDatabases"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetRelationalDatabasesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3926,135 +3926,6 @@ const deserializeAws_json1_1CreateDomainEntryCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1CreateInstanceSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateInstanceSnapshotCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateInstanceSnapshotCommandError(
-      output,
-      context
-    );
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1CreateInstanceSnapshotResult(data, context);
-  const response: CreateInstanceSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "CreateInstanceSnapshotResult",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1CreateInstanceSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateInstanceSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = {
-        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      response = {
-        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
 export const deserializeAws_json1_1CreateInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4209,6 +4080,135 @@ const deserializeAws_json1_1CreateInstancesFromSnapshotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateInstancesFromSnapshotCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "AccountSetupInProgressException":
+    case "com.amazonaws.lightsail#AccountSetupInProgressException":
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateInstanceSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInstanceSnapshotCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1CreateInstanceSnapshotCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateInstanceSnapshotResult(data, context);
+  const response: CreateInstanceSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateInstanceSnapshotResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateInstanceSnapshotCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInstanceSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8376,6 +8376,132 @@ const deserializeAws_json1_1GetDiskCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GetDisksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDisksCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetDisksCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetDisksResult(data, context);
+  const response: GetDisksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetDisksResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetDisksCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDisksCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "AccountSetupInProgressException":
+    case "com.amazonaws.lightsail#AccountSetupInProgressException":
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1GetDiskSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -8524,132 +8650,6 @@ const deserializeAws_json1_1GetDiskSnapshotsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDiskSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = {
-        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      response = {
-        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1GetDisksCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDisksCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetDisksCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1GetDisksResult(data, context);
-  const response: GetDisksCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "GetDisksResult",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1GetDisksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDisksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9654,6 +9654,132 @@ const deserializeAws_json1_1GetInstancePortStatesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GetInstancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInstancesCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetInstancesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetInstancesResult(data, context);
+  const response: GetInstancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetInstancesResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetInstancesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInstancesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "AccountSetupInProgressException":
+    case "com.amazonaws.lightsail#AccountSetupInProgressException":
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1GetInstanceSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -9934,132 +10060,6 @@ const deserializeAws_json1_1GetInstanceStateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInstanceStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = {
-        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      response = {
-        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1GetInstancesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInstancesCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetInstancesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1GetInstancesResult(data, context);
-  const response: GetInstancesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "GetInstancesResult",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1GetInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10674,34 +10674,28 @@ const deserializeAws_json1_1GetLoadBalancerMetricDataCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1GetLoadBalancerTlsCertificatesCommand = async (
+export const deserializeAws_json1_1GetLoadBalancersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLoadBalancerTlsCertificatesCommandOutput> => {
+): Promise<GetLoadBalancersCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetLoadBalancerTlsCertificatesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetLoadBalancersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetLoadBalancerTlsCertificatesResult(
-    data,
-    context
-  );
-  const response: GetLoadBalancerTlsCertificatesCommandOutput = {
+  contents = deserializeAws_json1_1GetLoadBalancersResult(data, context);
+  const response: GetLoadBalancersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLoadBalancerTlsCertificatesResult",
+    __type: "GetLoadBalancersResult",
     ...contents
   };
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetLoadBalancerTlsCertificatesCommandError = async (
+const deserializeAws_json1_1GetLoadBalancersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLoadBalancerTlsCertificatesCommandOutput> => {
+): Promise<GetLoadBalancersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10806,28 +10800,34 @@ const deserializeAws_json1_1GetLoadBalancerTlsCertificatesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1GetLoadBalancersCommand = async (
+export const deserializeAws_json1_1GetLoadBalancerTlsCertificatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLoadBalancersCommandOutput> => {
+): Promise<GetLoadBalancerTlsCertificatesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetLoadBalancersCommandError(output, context);
+    return deserializeAws_json1_1GetLoadBalancerTlsCertificatesCommandError(
+      output,
+      context
+    );
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetLoadBalancersResult(data, context);
-  const response: GetLoadBalancersCommandOutput = {
+  contents = deserializeAws_json1_1GetLoadBalancerTlsCertificatesResult(
+    data,
+    context
+  );
+  const response: GetLoadBalancerTlsCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLoadBalancersResult",
+    __type: "GetLoadBalancerTlsCertificatesResult",
     ...contents
   };
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetLoadBalancersCommandError = async (
+const deserializeAws_json1_1GetLoadBalancerTlsCertificatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLoadBalancersCommandOutput> => {
+): Promise<GetLoadBalancerTlsCertificatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -12627,6 +12627,135 @@ const deserializeAws_json1_1GetRelationalDatabaseParametersCommandError = async 
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GetRelationalDatabasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRelationalDatabasesCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetRelationalDatabasesCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetRelationalDatabasesResult(data, context);
+  const response: GetRelationalDatabasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetRelationalDatabasesResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetRelationalDatabasesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRelationalDatabasesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "AccountSetupInProgressException":
+    case "com.amazonaws.lightsail#AccountSetupInProgressException":
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1GetRelationalDatabaseSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -12787,135 +12916,6 @@ const deserializeAws_json1_1GetRelationalDatabaseSnapshotsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRelationalDatabaseSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = {
-        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      response = {
-        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1GetRelationalDatabasesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRelationalDatabasesCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetRelationalDatabasesCommandError(
-      output,
-      context
-    );
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1GetRelationalDatabasesResult(data, context);
-  const response: GetRelationalDatabasesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "GetRelationalDatabasesResult",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1GetRelationalDatabasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRelationalDatabasesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -15874,6 +15874,19 @@ const serializeAws_json1_1AttachDiskRequest = (
   };
 };
 
+const serializeAws_json1_1AttachedDiskMap = (
+  input: { [key: string]: DiskMap[] },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: DiskMap[] }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_json1_1DiskMapList(value, context)
+    }),
+    {}
+  );
+};
+
 const serializeAws_json1_1AttachInstancesToLoadBalancerRequest = (
   input: AttachInstancesToLoadBalancerRequest,
   context: __SerdeContext
@@ -15917,19 +15930,6 @@ const serializeAws_json1_1AttachStaticIpRequest = (
       staticIpName: input.staticIpName
     })
   };
-};
-
-const serializeAws_json1_1AttachedDiskMap = (
-  input: { [key: string]: DiskMap[] },
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: DiskMap[] }, [key, value]: [string, any]) => ({
-      ...acc,
-      [key]: serializeAws_json1_1DiskMapList(value, context)
-    }),
-    {}
-  );
 };
 
 const serializeAws_json1_1AutoSnapshotAddOnRequest = (
@@ -16082,23 +16082,6 @@ const serializeAws_json1_1CreateDomainRequest = (
   };
 };
 
-const serializeAws_json1_1CreateInstanceSnapshotRequest = (
-  input: CreateInstanceSnapshotRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.instanceName !== undefined && {
-      instanceName: input.instanceName
-    }),
-    ...(input.instanceSnapshotName !== undefined && {
-      instanceSnapshotName: input.instanceSnapshotName
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context)
-    })
-  };
-};
-
 const serializeAws_json1_1CreateInstancesFromSnapshotRequest = (
   input: CreateInstancesFromSnapshotRequest,
   context: __SerdeContext
@@ -16138,6 +16121,23 @@ const serializeAws_json1_1CreateInstancesFromSnapshotRequest = (
       useLatestRestorableAutoSnapshot: input.useLatestRestorableAutoSnapshot
     }),
     ...(input.userData !== undefined && { userData: input.userData })
+  };
+};
+
+const serializeAws_json1_1CreateInstanceSnapshotRequest = (
+  input: CreateInstanceSnapshotRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.instanceName !== undefined && {
+      instanceName: input.instanceName
+    }),
+    ...(input.instanceSnapshotName !== undefined && {
+      instanceSnapshotName: input.instanceSnapshotName
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_json1_1TagList(input.tags, context)
+    })
   };
 };
 
@@ -16827,6 +16827,15 @@ const serializeAws_json1_1GetInstanceSnapshotsRequest = (
   };
 };
 
+const serializeAws_json1_1GetInstancesRequest = (
+  input: GetInstancesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.pageToken !== undefined && { pageToken: input.pageToken })
+  };
+};
+
 const serializeAws_json1_1GetInstanceStateRequest = (
   input: GetInstanceStateRequest,
   context: __SerdeContext
@@ -16835,15 +16844,6 @@ const serializeAws_json1_1GetInstanceStateRequest = (
     ...(input.instanceName !== undefined && {
       instanceName: input.instanceName
     })
-  };
-};
-
-const serializeAws_json1_1GetInstancesRequest = (
-  input: GetInstancesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.pageToken !== undefined && { pageToken: input.pageToken })
   };
 };
 
@@ -16902,6 +16902,15 @@ const serializeAws_json1_1GetLoadBalancerRequest = (
   };
 };
 
+const serializeAws_json1_1GetLoadBalancersRequest = (
+  input: GetLoadBalancersRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.pageToken !== undefined && { pageToken: input.pageToken })
+  };
+};
+
 const serializeAws_json1_1GetLoadBalancerTlsCertificatesRequest = (
   input: GetLoadBalancerTlsCertificatesRequest,
   context: __SerdeContext
@@ -16910,15 +16919,6 @@ const serializeAws_json1_1GetLoadBalancerTlsCertificatesRequest = (
     ...(input.loadBalancerName !== undefined && {
       loadBalancerName: input.loadBalancerName
     })
-  };
-};
-
-const serializeAws_json1_1GetLoadBalancersRequest = (
-  input: GetLoadBalancersRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.pageToken !== undefined && { pageToken: input.pageToken })
   };
 };
 
@@ -17630,6 +17630,32 @@ const deserializeAws_json1_1AttachDiskResult = (
   } as any;
 };
 
+const deserializeAws_json1_1AttachedDisk = (
+  output: any,
+  context: __SerdeContext
+): AttachedDisk => {
+  return {
+    __type: "AttachedDisk",
+    path:
+      output.path !== undefined && output.path !== null
+        ? output.path
+        : undefined,
+    sizeInGb:
+      output.sizeInGb !== undefined && output.sizeInGb !== null
+        ? output.sizeInGb
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1AttachedDiskList = (
+  output: any,
+  context: __SerdeContext
+): AttachedDisk[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1AttachedDisk(entry, context)
+  );
+};
+
 const deserializeAws_json1_1AttachInstancesToLoadBalancerResult = (
   output: any,
   context: __SerdeContext
@@ -17667,32 +17693,6 @@ const deserializeAws_json1_1AttachStaticIpResult = (
         ? deserializeAws_json1_1OperationList(output.operations, context)
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1AttachedDisk = (
-  output: any,
-  context: __SerdeContext
-): AttachedDisk => {
-  return {
-    __type: "AttachedDisk",
-    path:
-      output.path !== undefined && output.path !== null
-        ? output.path
-        : undefined,
-    sizeInGb:
-      output.sizeInGb !== undefined && output.sizeInGb !== null
-        ? output.sizeInGb
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1AttachedDiskList = (
-  output: any,
-  context: __SerdeContext
-): AttachedDisk[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1AttachedDisk(entry, context)
-  );
 };
 
 const deserializeAws_json1_1AutoSnapshotDetails = (
@@ -18075,12 +18075,12 @@ const deserializeAws_json1_1CreateDomainResult = (
   } as any;
 };
 
-const deserializeAws_json1_1CreateInstanceSnapshotResult = (
+const deserializeAws_json1_1CreateInstancesFromSnapshotResult = (
   output: any,
   context: __SerdeContext
-): CreateInstanceSnapshotResult => {
+): CreateInstancesFromSnapshotResult => {
   return {
-    __type: "CreateInstanceSnapshotResult",
+    __type: "CreateInstancesFromSnapshotResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -18088,12 +18088,12 @@ const deserializeAws_json1_1CreateInstanceSnapshotResult = (
   } as any;
 };
 
-const deserializeAws_json1_1CreateInstancesFromSnapshotResult = (
+const deserializeAws_json1_1CreateInstanceSnapshotResult = (
   output: any,
   context: __SerdeContext
-): CreateInstancesFromSnapshotResult => {
+): CreateInstanceSnapshotResult => {
   return {
-    __type: "CreateInstancesFromSnapshotResult",
+    __type: "CreateInstanceSnapshotResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -19193,19 +19193,6 @@ const deserializeAws_json1_1GetInstanceSnapshotsResult = (
   } as any;
 };
 
-const deserializeAws_json1_1GetInstanceStateResult = (
-  output: any,
-  context: __SerdeContext
-): GetInstanceStateResult => {
-  return {
-    __type: "GetInstanceStateResult",
-    state:
-      output.state !== undefined && output.state !== null
-        ? deserializeAws_json1_1InstanceState(output.state, context)
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1GetInstancesResult = (
   output: any,
   context: __SerdeContext
@@ -19219,6 +19206,19 @@ const deserializeAws_json1_1GetInstancesResult = (
     nextPageToken:
       output.nextPageToken !== undefined && output.nextPageToken !== null
         ? output.nextPageToken
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1GetInstanceStateResult = (
+  output: any,
+  context: __SerdeContext
+): GetInstanceStateResult => {
+  return {
+    __type: "GetInstanceStateResult",
+    state:
+      output.state !== undefined && output.state !== null
+        ? deserializeAws_json1_1InstanceState(output.state, context)
         : undefined
   } as any;
 };
@@ -19283,22 +19283,6 @@ const deserializeAws_json1_1GetLoadBalancerResult = (
   } as any;
 };
 
-const deserializeAws_json1_1GetLoadBalancerTlsCertificatesResult = (
-  output: any,
-  context: __SerdeContext
-): GetLoadBalancerTlsCertificatesResult => {
-  return {
-    __type: "GetLoadBalancerTlsCertificatesResult",
-    tlsCertificates:
-      output.tlsCertificates !== undefined && output.tlsCertificates !== null
-        ? deserializeAws_json1_1LoadBalancerTlsCertificateList(
-            output.tlsCertificates,
-            context
-          )
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1GetLoadBalancersResult = (
   output: any,
   context: __SerdeContext
@@ -19312,6 +19296,22 @@ const deserializeAws_json1_1GetLoadBalancersResult = (
     nextPageToken:
       output.nextPageToken !== undefined && output.nextPageToken !== null
         ? output.nextPageToken
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1GetLoadBalancerTlsCertificatesResult = (
+  output: any,
+  context: __SerdeContext
+): GetLoadBalancerTlsCertificatesResult => {
+  return {
+    __type: "GetLoadBalancerTlsCertificatesResult",
+    tlsCertificates:
+      output.tlsCertificates !== undefined && output.tlsCertificates !== null
+        ? deserializeAws_json1_1LoadBalancerTlsCertificateList(
+            output.tlsCertificates,
+            context
+          )
         : undefined
   } as any;
 };

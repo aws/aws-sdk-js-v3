@@ -8,9 +8,9 @@ import {
   ListRecoveryPointsByResourceOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListRecoveryPointsByResourceCommand,
-  serializeAws_restJson1_1ListRecoveryPointsByResourceCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListRecoveryPointsByResourceCommand,
+  serializeAws_restJson1ListRecoveryPointsByResourceCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListRecoveryPointsByResourceCommand extends $Command<
     input: ListRecoveryPointsByResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListRecoveryPointsByResourceCommand(
+    return serializeAws_restJson1ListRecoveryPointsByResourceCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListRecoveryPointsByResourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRecoveryPointsByResourceCommandOutput> {
-    return deserializeAws_restJson1_1ListRecoveryPointsByResourceCommand(
+    return deserializeAws_restJson1ListRecoveryPointsByResourceCommand(
       output,
       context
     );

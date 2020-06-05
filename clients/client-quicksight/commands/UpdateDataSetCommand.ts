@@ -5,9 +5,9 @@ import {
 } from "../QuickSightClient";
 import { UpdateDataSetRequest, UpdateDataSetResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateDataSetCommand,
-  serializeAws_restJson1_1UpdateDataSetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateDataSetCommand,
+  serializeAws_restJson1UpdateDataSetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class UpdateDataSetCommand extends $Command<
     input: UpdateDataSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDataSetCommand(input, context);
+    return serializeAws_restJson1UpdateDataSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDataSetCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDataSetCommand(output, context);
+    return deserializeAws_restJson1UpdateDataSetCommand(output, context);
   }
 
   // Start section: command_body_extra

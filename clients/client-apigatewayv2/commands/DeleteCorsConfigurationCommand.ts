@@ -5,9 +5,9 @@ import {
 } from "../ApiGatewayV2Client";
 import { DeleteCorsConfigurationRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteCorsConfigurationCommand,
-  serializeAws_restJson1_1DeleteCorsConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteCorsConfigurationCommand,
+  serializeAws_restJson1DeleteCorsConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,17 +70,14 @@ export class DeleteCorsConfigurationCommand extends $Command<
     input: DeleteCorsConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteCorsConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DeleteCorsConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCorsConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteCorsConfigurationCommand(
+    return deserializeAws_restJson1DeleteCorsConfigurationCommand(
       output,
       context
     );

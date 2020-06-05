@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { UpdateThingRequest, UpdateThingResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateThingCommand,
-  serializeAws_restJson1_1UpdateThingCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateThingCommand,
+  serializeAws_restJson1UpdateThingCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class UpdateThingCommand extends $Command<
     input: UpdateThingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateThingCommand(input, context);
+    return serializeAws_restJson1UpdateThingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateThingCommandOutput> {
-    return deserializeAws_restJson1_1UpdateThingCommand(output, context);
+    return deserializeAws_restJson1UpdateThingCommand(output, context);
   }
 
   // Start section: command_body_extra

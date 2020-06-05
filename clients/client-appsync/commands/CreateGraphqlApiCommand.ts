@@ -8,9 +8,9 @@ import {
   CreateGraphqlApiResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateGraphqlApiCommand,
-  serializeAws_restJson1_1CreateGraphqlApiCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateGraphqlApiCommand,
+  serializeAws_restJson1CreateGraphqlApiCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class CreateGraphqlApiCommand extends $Command<
     input: CreateGraphqlApiCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateGraphqlApiCommand(input, context);
+    return serializeAws_restJson1CreateGraphqlApiCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateGraphqlApiCommandOutput> {
-    return deserializeAws_restJson1_1CreateGraphqlApiCommand(output, context);
+    return deserializeAws_restJson1CreateGraphqlApiCommand(output, context);
   }
 
   // Start section: command_body_extra

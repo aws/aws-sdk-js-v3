@@ -417,19 +417,8 @@ const deserializeAws_json1_1CreateServerCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "ServiceUnavailableException":
-    case "com.amazon.coral.service#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServiceError":
-    case "com.amazonaws.necco.coral#InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -440,7 +429,7 @@ const deserializeAws_json1_1CreateServerCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.necco.coral#InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -451,9 +440,20 @@ const deserializeAws_json1_1CreateServerCommandError = async (
       };
       break;
     case "ResourceExistsException":
-    case "com.amazonaws.necco.coral#ResourceExistsException":
+    case "com.amazonaws.transfer#ResourceExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
           context
         )),
@@ -510,19 +510,8 @@ const deserializeAws_json1_1CreateUserCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "ServiceUnavailableException":
-    case "com.amazon.coral.service#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServiceError":
-    case "com.amazonaws.necco.coral#InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -533,7 +522,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.necco.coral#InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -544,7 +533,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
       };
       break;
     case "ResourceExistsException":
-    case "com.amazonaws.necco.coral#ResourceExistsException":
+    case "com.amazonaws.transfer#ResourceExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceExistsExceptionResponse(
           parsedOutput,
@@ -555,9 +544,20 @@ const deserializeAws_json1_1CreateUserCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.necco.coral#ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
           context
         )),
@@ -610,19 +610,8 @@ const deserializeAws_json1_1DeleteServerCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "ServiceUnavailableException":
-    case "com.amazon.coral.service#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServiceError":
-    case "com.amazonaws.necco.coral#InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -633,7 +622,7 @@ const deserializeAws_json1_1DeleteServerCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.necco.coral#InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -644,9 +633,20 @@ const deserializeAws_json1_1DeleteServerCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.necco.coral#ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
           context
         )),
@@ -702,19 +702,8 @@ const deserializeAws_json1_1DeleteSshPublicKeyCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "ServiceUnavailableException":
-    case "com.amazon.coral.service#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServiceError":
-    case "com.amazonaws.necco.coral#InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -725,7 +714,7 @@ const deserializeAws_json1_1DeleteSshPublicKeyCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.necco.coral#InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -736,7 +725,7 @@ const deserializeAws_json1_1DeleteSshPublicKeyCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.necco.coral#ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -746,8 +735,19 @@ const deserializeAws_json1_1DeleteSshPublicKeyCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ThrottlingException":
-    case "com.amazonaws.necco.coral#ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -802,19 +802,8 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "ServiceUnavailableException":
-    case "com.amazon.coral.service#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServiceError":
-    case "com.amazonaws.necco.coral#InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -825,7 +814,7 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.necco.coral#InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -836,9 +825,20 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.necco.coral#ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
           context
         )),
@@ -895,19 +895,8 @@ const deserializeAws_json1_1DescribeServerCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "ServiceUnavailableException":
-    case "com.amazon.coral.service#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServiceError":
-    case "com.amazonaws.necco.coral#InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -918,7 +907,7 @@ const deserializeAws_json1_1DescribeServerCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.necco.coral#InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -929,9 +918,20 @@ const deserializeAws_json1_1DescribeServerCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.necco.coral#ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
           context
         )),
@@ -988,19 +988,8 @@ const deserializeAws_json1_1DescribeUserCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "ServiceUnavailableException":
-    case "com.amazon.coral.service#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServiceError":
-    case "com.amazonaws.necco.coral#InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -1011,7 +1000,7 @@ const deserializeAws_json1_1DescribeUserCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.necco.coral#InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1022,9 +1011,20 @@ const deserializeAws_json1_1DescribeUserCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.necco.coral#ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
           context
         )),
@@ -1084,19 +1084,8 @@ const deserializeAws_json1_1ImportSshPublicKeyCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "ServiceUnavailableException":
-    case "com.amazon.coral.service#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServiceError":
-    case "com.amazonaws.necco.coral#InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -1107,7 +1096,7 @@ const deserializeAws_json1_1ImportSshPublicKeyCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.necco.coral#InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1118,7 +1107,7 @@ const deserializeAws_json1_1ImportSshPublicKeyCommandError = async (
       };
       break;
     case "ResourceExistsException":
-    case "com.amazonaws.necco.coral#ResourceExistsException":
+    case "com.amazonaws.transfer#ResourceExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceExistsExceptionResponse(
           parsedOutput,
@@ -1129,7 +1118,7 @@ const deserializeAws_json1_1ImportSshPublicKeyCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.necco.coral#ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1139,8 +1128,19 @@ const deserializeAws_json1_1ImportSshPublicKeyCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ThrottlingException":
-    case "com.amazonaws.necco.coral#ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1199,19 +1199,8 @@ const deserializeAws_json1_1ListServersCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "ServiceUnavailableException":
-    case "com.amazon.coral.service#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServiceError":
-    case "com.amazonaws.necco.coral#InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -1222,7 +1211,7 @@ const deserializeAws_json1_1ListServersCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.necco.coral#InvalidNextTokenException":
+    case "com.amazonaws.transfer#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1233,9 +1222,20 @@ const deserializeAws_json1_1ListServersCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.necco.coral#InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
           context
         )),
@@ -1295,19 +1295,8 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "ServiceUnavailableException":
-    case "com.amazon.coral.service#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServiceError":
-    case "com.amazonaws.necco.coral#InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -1318,7 +1307,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.necco.coral#InvalidNextTokenException":
+    case "com.amazonaws.transfer#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1329,9 +1318,20 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.necco.coral#InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
           context
         )),
@@ -1388,19 +1388,8 @@ const deserializeAws_json1_1ListUsersCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "ServiceUnavailableException":
-    case "com.amazon.coral.service#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServiceError":
-    case "com.amazonaws.necco.coral#InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -1411,7 +1400,7 @@ const deserializeAws_json1_1ListUsersCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.necco.coral#InvalidNextTokenException":
+    case "com.amazonaws.transfer#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1422,7 +1411,7 @@ const deserializeAws_json1_1ListUsersCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.necco.coral#InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1433,9 +1422,20 @@ const deserializeAws_json1_1ListUsersCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.necco.coral#ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
           context
         )),
@@ -1488,19 +1488,8 @@ const deserializeAws_json1_1StartServerCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "ServiceUnavailableException":
-    case "com.amazon.coral.service#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServiceError":
-    case "com.amazonaws.necco.coral#InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -1511,7 +1500,7 @@ const deserializeAws_json1_1StartServerCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.necco.coral#InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1522,7 +1511,7 @@ const deserializeAws_json1_1StartServerCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.necco.coral#ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1532,8 +1521,19 @@ const deserializeAws_json1_1StartServerCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ThrottlingException":
-    case "com.amazonaws.necco.coral#ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1588,19 +1588,8 @@ const deserializeAws_json1_1StopServerCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "ServiceUnavailableException":
-    case "com.amazon.coral.service#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServiceError":
-    case "com.amazonaws.necco.coral#InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -1611,7 +1600,7 @@ const deserializeAws_json1_1StopServerCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.necco.coral#InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1622,7 +1611,7 @@ const deserializeAws_json1_1StopServerCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.necco.coral#ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1632,8 +1621,19 @@ const deserializeAws_json1_1StopServerCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ThrottlingException":
-    case "com.amazonaws.necco.coral#ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1688,19 +1688,8 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "ServiceUnavailableException":
-    case "com.amazon.coral.service#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServiceError":
-    case "com.amazonaws.necco.coral#InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -1711,7 +1700,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.necco.coral#InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1722,9 +1711,20 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.necco.coral#ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
           context
         )),
@@ -1784,19 +1784,8 @@ const deserializeAws_json1_1TestIdentityProviderCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "ServiceUnavailableException":
-    case "com.amazon.coral.service#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServiceError":
-    case "com.amazonaws.necco.coral#InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -1807,7 +1796,7 @@ const deserializeAws_json1_1TestIdentityProviderCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.necco.coral#InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1818,9 +1807,20 @@ const deserializeAws_json1_1TestIdentityProviderCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.necco.coral#ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
           context
         )),
@@ -1873,19 +1873,8 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "ServiceUnavailableException":
-    case "com.amazon.coral.service#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServiceError":
-    case "com.amazonaws.necco.coral#InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -1896,7 +1885,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.necco.coral#InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1907,9 +1896,20 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.necco.coral#ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
           context
         )),
@@ -1966,19 +1966,8 @@ const deserializeAws_json1_1UpdateServerCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "ServiceUnavailableException":
-    case "com.amazon.coral.service#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "ConflictException":
-    case "com.amazonaws.necco.coral#ConflictException":
+    case "com.amazonaws.transfer#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -1989,7 +1978,7 @@ const deserializeAws_json1_1UpdateServerCommandError = async (
       };
       break;
     case "InternalServiceError":
-    case "com.amazonaws.necco.coral#InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -2000,7 +1989,7 @@ const deserializeAws_json1_1UpdateServerCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.necco.coral#InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2011,7 +2000,7 @@ const deserializeAws_json1_1UpdateServerCommandError = async (
       };
       break;
     case "ResourceExistsException":
-    case "com.amazonaws.necco.coral#ResourceExistsException":
+    case "com.amazonaws.transfer#ResourceExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceExistsExceptionResponse(
           parsedOutput,
@@ -2022,7 +2011,7 @@ const deserializeAws_json1_1UpdateServerCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.necco.coral#ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2032,8 +2021,19 @@ const deserializeAws_json1_1UpdateServerCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ThrottlingException":
-    case "com.amazonaws.necco.coral#ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2092,19 +2092,8 @@ const deserializeAws_json1_1UpdateUserCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "ServiceUnavailableException":
-    case "com.amazon.coral.service#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServiceError":
-    case "com.amazonaws.necco.coral#InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -2115,7 +2104,7 @@ const deserializeAws_json1_1UpdateUserCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.necco.coral#InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2126,7 +2115,7 @@ const deserializeAws_json1_1UpdateUserCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.necco.coral#ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2136,8 +2125,19 @@ const deserializeAws_json1_1UpdateUserCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ThrottlingException":
-    case "com.amazonaws.necco.coral#ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2162,24 +2162,6 @@ const deserializeAws_json1_1UpdateUserCommandError = async (
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-};
-
-const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ServiceUnavailableException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(
-    body,
-    context
-  );
-  const contents: ServiceUnavailableException = {
-    name: "ServiceUnavailableException",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
 };
 
 const deserializeAws_json1_1ConflictExceptionResponse = async (
@@ -2284,6 +2266,24 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceUnavailableException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(
+    body,
+    context
+  );
+  const contents: ServiceUnavailableException = {
+    name: "ServiceUnavailableException",
+    $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
@@ -2657,19 +2657,6 @@ const serializeAws_json1_1UpdateUserRequest = (
   };
 };
 
-const deserializeAws_json1_1ServiceUnavailableException = (
-  output: any,
-  context: __SerdeContext
-): ServiceUnavailableException => {
-  return {
-    __type: "ServiceUnavailableException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1AddressAllocationIds = (
   output: any,
   context: __SerdeContext
@@ -2716,36 +2703,6 @@ const deserializeAws_json1_1CreateUserResponse = (
     UserName:
       output.UserName !== undefined && output.UserName !== null
         ? output.UserName
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeServerResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeServerResponse => {
-  return {
-    __type: "DescribeServerResponse",
-    Server:
-      output.Server !== undefined && output.Server !== null
-        ? deserializeAws_json1_1DescribedServer(output.Server, context)
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeUserResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeUserResponse => {
-  return {
-    __type: "DescribeUserResponse",
-    ServerId:
-      output.ServerId !== undefined && output.ServerId !== null
-        ? output.ServerId
-        : undefined,
-    User:
-      output.User !== undefined && output.User !== null
-        ? deserializeAws_json1_1DescribedUser(output.User, context)
         : undefined
   } as any;
 };
@@ -2851,6 +2808,36 @@ const deserializeAws_json1_1DescribedUser = (
     UserName:
       output.UserName !== undefined && output.UserName !== null
         ? output.UserName
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeServerResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeServerResponse => {
+  return {
+    __type: "DescribeServerResponse",
+    Server:
+      output.Server !== undefined && output.Server !== null
+        ? deserializeAws_json1_1DescribedServer(output.Server, context)
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeUserResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeUserResponse => {
+  return {
+    __type: "DescribeUserResponse",
+    ServerId:
+      output.ServerId !== undefined && output.ServerId !== null
+        ? output.ServerId
+        : undefined,
+    User:
+      output.User !== undefined && output.User !== null
+        ? deserializeAws_json1_1DescribedUser(output.User, context)
         : undefined
   } as any;
 };
@@ -2985,63 +2972,6 @@ const deserializeAws_json1_1InvalidRequestException = (
   } as any;
 };
 
-const deserializeAws_json1_1ListServersResponse = (
-  output: any,
-  context: __SerdeContext
-): ListServersResponse => {
-  return {
-    __type: "ListServersResponse",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
-    Servers:
-      output.Servers !== undefined && output.Servers !== null
-        ? deserializeAws_json1_1ListedServers(output.Servers, context)
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
-  return {
-    __type: "ListTagsForResourceResponse",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_1Tags(output.Tags, context)
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ListUsersResponse = (
-  output: any,
-  context: __SerdeContext
-): ListUsersResponse => {
-  return {
-    __type: "ListUsersResponse",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
-    ServerId:
-      output.ServerId !== undefined && output.ServerId !== null
-        ? output.ServerId
-        : undefined,
-    Users:
-      output.Users !== undefined && output.Users !== null
-        ? deserializeAws_json1_1ListedUsers(output.Users, context)
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1ListedServer = (
   output: any,
   context: __SerdeContext
@@ -3129,6 +3059,63 @@ const deserializeAws_json1_1ListedUsers = (
   );
 };
 
+const deserializeAws_json1_1ListServersResponse = (
+  output: any,
+  context: __SerdeContext
+): ListServersResponse => {
+  return {
+    __type: "ListServersResponse",
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Servers:
+      output.Servers !== undefined && output.Servers !== null
+        ? deserializeAws_json1_1ListedServers(output.Servers, context)
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ListTagsForResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): ListTagsForResourceResponse => {
+  return {
+    __type: "ListTagsForResourceResponse",
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1Tags(output.Tags, context)
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ListUsersResponse = (
+  output: any,
+  context: __SerdeContext
+): ListUsersResponse => {
+  return {
+    __type: "ListUsersResponse",
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    ServerId:
+      output.ServerId !== undefined && output.ServerId !== null
+        ? output.ServerId
+        : undefined,
+    Users:
+      output.Users !== undefined && output.Users !== null
+        ? deserializeAws_json1_1ListedUsers(output.Users, context)
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1ResourceExistsException = (
   output: any,
   context: __SerdeContext
@@ -3167,6 +3154,19 @@ const deserializeAws_json1_1ResourceNotFoundException = (
     ResourceType:
       output.ResourceType !== undefined && output.ResourceType !== null
         ? output.ResourceType
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ServiceUnavailableException = (
+  output: any,
+  context: __SerdeContext
+): ServiceUnavailableException => {
+  return {
+    __type: "ServiceUnavailableException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
         : undefined
   } as any;
 };

@@ -8,9 +8,9 @@ import {
   GetFederationTokenResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetFederationTokenCommand,
-  serializeAws_restJson1_1GetFederationTokenCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetFederationTokenCommand,
+  serializeAws_restJson1GetFederationTokenCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetFederationTokenCommand extends $Command<
     input: GetFederationTokenCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetFederationTokenCommand(input, context);
+    return serializeAws_restJson1GetFederationTokenCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFederationTokenCommandOutput> {
-    return deserializeAws_restJson1_1GetFederationTokenCommand(output, context);
+    return deserializeAws_restJson1GetFederationTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

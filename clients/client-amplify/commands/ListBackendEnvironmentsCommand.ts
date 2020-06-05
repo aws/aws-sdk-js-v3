@@ -8,9 +8,9 @@ import {
   ListBackendEnvironmentsResult
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListBackendEnvironmentsCommand,
-  serializeAws_restJson1_1ListBackendEnvironmentsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListBackendEnvironmentsCommand,
+  serializeAws_restJson1ListBackendEnvironmentsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListBackendEnvironmentsCommand extends $Command<
     input: ListBackendEnvironmentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListBackendEnvironmentsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1ListBackendEnvironmentsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBackendEnvironmentsCommandOutput> {
-    return deserializeAws_restJson1_1ListBackendEnvironmentsCommand(
+    return deserializeAws_restJson1ListBackendEnvironmentsCommand(
       output,
       context
     );

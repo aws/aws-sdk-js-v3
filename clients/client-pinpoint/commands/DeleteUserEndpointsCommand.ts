@@ -8,9 +8,9 @@ import {
   DeleteUserEndpointsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteUserEndpointsCommand,
-  serializeAws_restJson1_1DeleteUserEndpointsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteUserEndpointsCommand,
+  serializeAws_restJson1DeleteUserEndpointsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteUserEndpointsCommand extends $Command<
     input: DeleteUserEndpointsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteUserEndpointsCommand(input, context);
+    return serializeAws_restJson1DeleteUserEndpointsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteUserEndpointsCommandOutput> {
-    return deserializeAws_restJson1_1DeleteUserEndpointsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteUserEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

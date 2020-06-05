@@ -8,9 +8,9 @@ import {
   CreateSimulationApplicationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateSimulationApplicationCommand,
-  serializeAws_restJson1_1CreateSimulationApplicationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateSimulationApplicationCommand,
+  serializeAws_restJson1CreateSimulationApplicationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CreateSimulationApplicationCommand extends $Command<
     input: CreateSimulationApplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateSimulationApplicationCommand(
+    return serializeAws_restJson1CreateSimulationApplicationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CreateSimulationApplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSimulationApplicationCommandOutput> {
-    return deserializeAws_restJson1_1CreateSimulationApplicationCommand(
+    return deserializeAws_restJson1CreateSimulationApplicationCommand(
       output,
       context
     );

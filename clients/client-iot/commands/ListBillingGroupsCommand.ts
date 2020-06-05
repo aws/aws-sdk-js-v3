@@ -8,9 +8,9 @@ import {
   ListBillingGroupsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListBillingGroupsCommand,
-  serializeAws_restJson1_1ListBillingGroupsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListBillingGroupsCommand,
+  serializeAws_restJson1ListBillingGroupsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ListBillingGroupsCommand extends $Command<
     input: ListBillingGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListBillingGroupsCommand(input, context);
+    return serializeAws_restJson1ListBillingGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBillingGroupsCommandOutput> {
-    return deserializeAws_restJson1_1ListBillingGroupsCommand(output, context);
+    return deserializeAws_restJson1ListBillingGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,9 +5,9 @@ import {
 } from "../BackupClient";
 import { UpdateBackupPlanInput, UpdateBackupPlanOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateBackupPlanCommand,
-  serializeAws_restJson1_1UpdateBackupPlanCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateBackupPlanCommand,
+  serializeAws_restJson1UpdateBackupPlanCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class UpdateBackupPlanCommand extends $Command<
     input: UpdateBackupPlanCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateBackupPlanCommand(input, context);
+    return serializeAws_restJson1UpdateBackupPlanCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateBackupPlanCommandOutput> {
-    return deserializeAws_restJson1_1UpdateBackupPlanCommand(output, context);
+    return deserializeAws_restJson1UpdateBackupPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

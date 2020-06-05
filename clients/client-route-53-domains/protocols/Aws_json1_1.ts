@@ -565,7 +565,7 @@ const deserializeAws_json1_1CheckDomainAvailabilityCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -576,7 +576,7 @@ const deserializeAws_json1_1CheckDomainAvailabilityCommandError = async (
       };
       break;
     case "UnsupportedTLD":
-    case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
       response = {
         ...(await deserializeAws_json1_1UnsupportedTLDResponse(
           parsedOutput,
@@ -642,7 +642,7 @@ const deserializeAws_json1_1CheckDomainTransferabilityCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -653,7 +653,7 @@ const deserializeAws_json1_1CheckDomainTransferabilityCommandError = async (
       };
       break;
     case "UnsupportedTLD":
-    case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
       response = {
         ...(await deserializeAws_json1_1UnsupportedTLDResponse(
           parsedOutput,
@@ -716,7 +716,7 @@ const deserializeAws_json1_1DeleteTagsForDomainCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -727,7 +727,7 @@ const deserializeAws_json1_1DeleteTagsForDomainCommandError = async (
       };
       break;
     case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
+    case "com.amazonaws.route53domains#OperationLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1OperationLimitExceededResponse(
           parsedOutput,
@@ -738,7 +738,7 @@ const deserializeAws_json1_1DeleteTagsForDomainCommandError = async (
       };
       break;
     case "UnsupportedTLD":
-    case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
       response = {
         ...(await deserializeAws_json1_1UnsupportedTLDResponse(
           parsedOutput,
@@ -804,7 +804,7 @@ const deserializeAws_json1_1DisableDomainAutoRenewCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -815,7 +815,7 @@ const deserializeAws_json1_1DisableDomainAutoRenewCommandError = async (
       };
       break;
     case "UnsupportedTLD":
-    case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
       response = {
         ...(await deserializeAws_json1_1UnsupportedTLDResponse(
           parsedOutput,
@@ -881,7 +881,7 @@ const deserializeAws_json1_1DisableDomainTransferLockCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateRequest":
-    case "com.amazonaws.route53domains.v20140515#DuplicateRequest":
+    case "com.amazonaws.route53domains#DuplicateRequest":
       response = {
         ...(await deserializeAws_json1_1DuplicateRequestResponse(
           parsedOutput,
@@ -892,7 +892,7 @@ const deserializeAws_json1_1DisableDomainTransferLockCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -903,7 +903,7 @@ const deserializeAws_json1_1DisableDomainTransferLockCommandError = async (
       };
       break;
     case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
+    case "com.amazonaws.route53domains#OperationLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1OperationLimitExceededResponse(
           parsedOutput,
@@ -914,7 +914,7 @@ const deserializeAws_json1_1DisableDomainTransferLockCommandError = async (
       };
       break;
     case "TLDRulesViolation":
-    case "com.amazonaws.route53domains.v20140515#TLDRulesViolation":
+    case "com.amazonaws.route53domains#TLDRulesViolation":
       response = {
         ...(await deserializeAws_json1_1TLDRulesViolationResponse(
           parsedOutput,
@@ -925,7 +925,7 @@ const deserializeAws_json1_1DisableDomainTransferLockCommandError = async (
       };
       break;
     case "UnsupportedTLD":
-    case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
       response = {
         ...(await deserializeAws_json1_1UnsupportedTLDResponse(
           parsedOutput,
@@ -988,7 +988,7 @@ const deserializeAws_json1_1EnableDomainAutoRenewCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -999,7 +999,7 @@ const deserializeAws_json1_1EnableDomainAutoRenewCommandError = async (
       };
       break;
     case "TLDRulesViolation":
-    case "com.amazonaws.route53domains.v20140515#TLDRulesViolation":
+    case "com.amazonaws.route53domains#TLDRulesViolation":
       response = {
         ...(await deserializeAws_json1_1TLDRulesViolationResponse(
           parsedOutput,
@@ -1010,7 +1010,7 @@ const deserializeAws_json1_1EnableDomainAutoRenewCommandError = async (
       };
       break;
     case "UnsupportedTLD":
-    case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
       response = {
         ...(await deserializeAws_json1_1UnsupportedTLDResponse(
           parsedOutput,
@@ -1076,7 +1076,7 @@ const deserializeAws_json1_1EnableDomainTransferLockCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateRequest":
-    case "com.amazonaws.route53domains.v20140515#DuplicateRequest":
+    case "com.amazonaws.route53domains#DuplicateRequest":
       response = {
         ...(await deserializeAws_json1_1DuplicateRequestResponse(
           parsedOutput,
@@ -1087,7 +1087,7 @@ const deserializeAws_json1_1EnableDomainTransferLockCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -1098,7 +1098,7 @@ const deserializeAws_json1_1EnableDomainTransferLockCommandError = async (
       };
       break;
     case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
+    case "com.amazonaws.route53domains#OperationLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1OperationLimitExceededResponse(
           parsedOutput,
@@ -1109,7 +1109,7 @@ const deserializeAws_json1_1EnableDomainTransferLockCommandError = async (
       };
       break;
     case "TLDRulesViolation":
-    case "com.amazonaws.route53domains.v20140515#TLDRulesViolation":
+    case "com.amazonaws.route53domains#TLDRulesViolation":
       response = {
         ...(await deserializeAws_json1_1TLDRulesViolationResponse(
           parsedOutput,
@@ -1120,7 +1120,7 @@ const deserializeAws_json1_1EnableDomainTransferLockCommandError = async (
       };
       break;
     case "UnsupportedTLD":
-    case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
       response = {
         ...(await deserializeAws_json1_1UnsupportedTLDResponse(
           parsedOutput,
@@ -1186,7 +1186,7 @@ const deserializeAws_json1_1GetContactReachabilityStatusCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -1197,7 +1197,7 @@ const deserializeAws_json1_1GetContactReachabilityStatusCommandError = async (
       };
       break;
     case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
+    case "com.amazonaws.route53domains#OperationLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1OperationLimitExceededResponse(
           parsedOutput,
@@ -1208,7 +1208,7 @@ const deserializeAws_json1_1GetContactReachabilityStatusCommandError = async (
       };
       break;
     case "UnsupportedTLD":
-    case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
       response = {
         ...(await deserializeAws_json1_1UnsupportedTLDResponse(
           parsedOutput,
@@ -1268,7 +1268,7 @@ const deserializeAws_json1_1GetDomainDetailCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -1279,7 +1279,7 @@ const deserializeAws_json1_1GetDomainDetailCommandError = async (
       };
       break;
     case "UnsupportedTLD":
-    case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
       response = {
         ...(await deserializeAws_json1_1UnsupportedTLDResponse(
           parsedOutput,
@@ -1342,7 +1342,7 @@ const deserializeAws_json1_1GetDomainSuggestionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -1353,7 +1353,7 @@ const deserializeAws_json1_1GetDomainSuggestionsCommandError = async (
       };
       break;
     case "UnsupportedTLD":
-    case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
       response = {
         ...(await deserializeAws_json1_1UnsupportedTLDResponse(
           parsedOutput,
@@ -1416,7 +1416,7 @@ const deserializeAws_json1_1GetOperationDetailCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -1476,7 +1476,7 @@ const deserializeAws_json1_1ListDomainsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -1536,7 +1536,7 @@ const deserializeAws_json1_1ListOperationsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -1596,7 +1596,7 @@ const deserializeAws_json1_1ListTagsForDomainCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -1607,7 +1607,7 @@ const deserializeAws_json1_1ListTagsForDomainCommandError = async (
       };
       break;
     case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
+    case "com.amazonaws.route53domains#OperationLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1OperationLimitExceededResponse(
           parsedOutput,
@@ -1618,7 +1618,7 @@ const deserializeAws_json1_1ListTagsForDomainCommandError = async (
       };
       break;
     case "UnsupportedTLD":
-    case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
       response = {
         ...(await deserializeAws_json1_1UnsupportedTLDResponse(
           parsedOutput,
@@ -1678,7 +1678,7 @@ const deserializeAws_json1_1RegisterDomainCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DomainLimitExceeded":
-    case "com.amazonaws.route53domains.v20140515#DomainLimitExceeded":
+    case "com.amazonaws.route53domains#DomainLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1DomainLimitExceededResponse(
           parsedOutput,
@@ -1689,7 +1689,7 @@ const deserializeAws_json1_1RegisterDomainCommandError = async (
       };
       break;
     case "DuplicateRequest":
-    case "com.amazonaws.route53domains.v20140515#DuplicateRequest":
+    case "com.amazonaws.route53domains#DuplicateRequest":
       response = {
         ...(await deserializeAws_json1_1DuplicateRequestResponse(
           parsedOutput,
@@ -1700,7 +1700,7 @@ const deserializeAws_json1_1RegisterDomainCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -1711,7 +1711,7 @@ const deserializeAws_json1_1RegisterDomainCommandError = async (
       };
       break;
     case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
+    case "com.amazonaws.route53domains#OperationLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1OperationLimitExceededResponse(
           parsedOutput,
@@ -1722,7 +1722,7 @@ const deserializeAws_json1_1RegisterDomainCommandError = async (
       };
       break;
     case "TLDRulesViolation":
-    case "com.amazonaws.route53domains.v20140515#TLDRulesViolation":
+    case "com.amazonaws.route53domains#TLDRulesViolation":
       response = {
         ...(await deserializeAws_json1_1TLDRulesViolationResponse(
           parsedOutput,
@@ -1733,7 +1733,7 @@ const deserializeAws_json1_1RegisterDomainCommandError = async (
       };
       break;
     case "UnsupportedTLD":
-    case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
       response = {
         ...(await deserializeAws_json1_1UnsupportedTLDResponse(
           parsedOutput,
@@ -1793,7 +1793,7 @@ const deserializeAws_json1_1RenewDomainCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateRequest":
-    case "com.amazonaws.route53domains.v20140515#DuplicateRequest":
+    case "com.amazonaws.route53domains#DuplicateRequest":
       response = {
         ...(await deserializeAws_json1_1DuplicateRequestResponse(
           parsedOutput,
@@ -1804,7 +1804,7 @@ const deserializeAws_json1_1RenewDomainCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -1815,7 +1815,7 @@ const deserializeAws_json1_1RenewDomainCommandError = async (
       };
       break;
     case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
+    case "com.amazonaws.route53domains#OperationLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1OperationLimitExceededResponse(
           parsedOutput,
@@ -1826,7 +1826,7 @@ const deserializeAws_json1_1RenewDomainCommandError = async (
       };
       break;
     case "TLDRulesViolation":
-    case "com.amazonaws.route53domains.v20140515#TLDRulesViolation":
+    case "com.amazonaws.route53domains#TLDRulesViolation":
       response = {
         ...(await deserializeAws_json1_1TLDRulesViolationResponse(
           parsedOutput,
@@ -1837,7 +1837,7 @@ const deserializeAws_json1_1RenewDomainCommandError = async (
       };
       break;
     case "UnsupportedTLD":
-    case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
       response = {
         ...(await deserializeAws_json1_1UnsupportedTLDResponse(
           parsedOutput,
@@ -1903,7 +1903,7 @@ const deserializeAws_json1_1ResendContactReachabilityEmailCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -1914,7 +1914,7 @@ const deserializeAws_json1_1ResendContactReachabilityEmailCommandError = async (
       };
       break;
     case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
+    case "com.amazonaws.route53domains#OperationLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1OperationLimitExceededResponse(
           parsedOutput,
@@ -1925,7 +1925,7 @@ const deserializeAws_json1_1ResendContactReachabilityEmailCommandError = async (
       };
       break;
     case "UnsupportedTLD":
-    case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
       response = {
         ...(await deserializeAws_json1_1UnsupportedTLDResponse(
           parsedOutput,
@@ -1991,7 +1991,7 @@ const deserializeAws_json1_1RetrieveDomainAuthCodeCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -2002,7 +2002,7 @@ const deserializeAws_json1_1RetrieveDomainAuthCodeCommandError = async (
       };
       break;
     case "UnsupportedTLD":
-    case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
       response = {
         ...(await deserializeAws_json1_1UnsupportedTLDResponse(
           parsedOutput,
@@ -2062,7 +2062,7 @@ const deserializeAws_json1_1TransferDomainCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DomainLimitExceeded":
-    case "com.amazonaws.route53domains.v20140515#DomainLimitExceeded":
+    case "com.amazonaws.route53domains#DomainLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1DomainLimitExceededResponse(
           parsedOutput,
@@ -2073,7 +2073,7 @@ const deserializeAws_json1_1TransferDomainCommandError = async (
       };
       break;
     case "DuplicateRequest":
-    case "com.amazonaws.route53domains.v20140515#DuplicateRequest":
+    case "com.amazonaws.route53domains#DuplicateRequest":
       response = {
         ...(await deserializeAws_json1_1DuplicateRequestResponse(
           parsedOutput,
@@ -2084,7 +2084,7 @@ const deserializeAws_json1_1TransferDomainCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -2095,7 +2095,7 @@ const deserializeAws_json1_1TransferDomainCommandError = async (
       };
       break;
     case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
+    case "com.amazonaws.route53domains#OperationLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1OperationLimitExceededResponse(
           parsedOutput,
@@ -2106,7 +2106,7 @@ const deserializeAws_json1_1TransferDomainCommandError = async (
       };
       break;
     case "TLDRulesViolation":
-    case "com.amazonaws.route53domains.v20140515#TLDRulesViolation":
+    case "com.amazonaws.route53domains#TLDRulesViolation":
       response = {
         ...(await deserializeAws_json1_1TLDRulesViolationResponse(
           parsedOutput,
@@ -2117,7 +2117,7 @@ const deserializeAws_json1_1TransferDomainCommandError = async (
       };
       break;
     case "UnsupportedTLD":
-    case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
       response = {
         ...(await deserializeAws_json1_1UnsupportedTLDResponse(
           parsedOutput,
@@ -2180,7 +2180,7 @@ const deserializeAws_json1_1UpdateDomainContactCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateRequest":
-    case "com.amazonaws.route53domains.v20140515#DuplicateRequest":
+    case "com.amazonaws.route53domains#DuplicateRequest":
       response = {
         ...(await deserializeAws_json1_1DuplicateRequestResponse(
           parsedOutput,
@@ -2191,7 +2191,7 @@ const deserializeAws_json1_1UpdateDomainContactCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -2202,7 +2202,7 @@ const deserializeAws_json1_1UpdateDomainContactCommandError = async (
       };
       break;
     case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
+    case "com.amazonaws.route53domains#OperationLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1OperationLimitExceededResponse(
           parsedOutput,
@@ -2213,7 +2213,7 @@ const deserializeAws_json1_1UpdateDomainContactCommandError = async (
       };
       break;
     case "TLDRulesViolation":
-    case "com.amazonaws.route53domains.v20140515#TLDRulesViolation":
+    case "com.amazonaws.route53domains#TLDRulesViolation":
       response = {
         ...(await deserializeAws_json1_1TLDRulesViolationResponse(
           parsedOutput,
@@ -2224,7 +2224,7 @@ const deserializeAws_json1_1UpdateDomainContactCommandError = async (
       };
       break;
     case "UnsupportedTLD":
-    case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
       response = {
         ...(await deserializeAws_json1_1UnsupportedTLDResponse(
           parsedOutput,
@@ -2290,7 +2290,7 @@ const deserializeAws_json1_1UpdateDomainContactPrivacyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateRequest":
-    case "com.amazonaws.route53domains.v20140515#DuplicateRequest":
+    case "com.amazonaws.route53domains#DuplicateRequest":
       response = {
         ...(await deserializeAws_json1_1DuplicateRequestResponse(
           parsedOutput,
@@ -2301,7 +2301,7 @@ const deserializeAws_json1_1UpdateDomainContactPrivacyCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -2312,7 +2312,7 @@ const deserializeAws_json1_1UpdateDomainContactPrivacyCommandError = async (
       };
       break;
     case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
+    case "com.amazonaws.route53domains#OperationLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1OperationLimitExceededResponse(
           parsedOutput,
@@ -2323,7 +2323,7 @@ const deserializeAws_json1_1UpdateDomainContactPrivacyCommandError = async (
       };
       break;
     case "TLDRulesViolation":
-    case "com.amazonaws.route53domains.v20140515#TLDRulesViolation":
+    case "com.amazonaws.route53domains#TLDRulesViolation":
       response = {
         ...(await deserializeAws_json1_1TLDRulesViolationResponse(
           parsedOutput,
@@ -2334,7 +2334,7 @@ const deserializeAws_json1_1UpdateDomainContactPrivacyCommandError = async (
       };
       break;
     case "UnsupportedTLD":
-    case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
       response = {
         ...(await deserializeAws_json1_1UnsupportedTLDResponse(
           parsedOutput,
@@ -2400,7 +2400,7 @@ const deserializeAws_json1_1UpdateDomainNameserversCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateRequest":
-    case "com.amazonaws.route53domains.v20140515#DuplicateRequest":
+    case "com.amazonaws.route53domains#DuplicateRequest":
       response = {
         ...(await deserializeAws_json1_1DuplicateRequestResponse(
           parsedOutput,
@@ -2411,7 +2411,7 @@ const deserializeAws_json1_1UpdateDomainNameserversCommandError = async (
       };
       break;
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -2422,7 +2422,7 @@ const deserializeAws_json1_1UpdateDomainNameserversCommandError = async (
       };
       break;
     case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
+    case "com.amazonaws.route53domains#OperationLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1OperationLimitExceededResponse(
           parsedOutput,
@@ -2433,7 +2433,7 @@ const deserializeAws_json1_1UpdateDomainNameserversCommandError = async (
       };
       break;
     case "TLDRulesViolation":
-    case "com.amazonaws.route53domains.v20140515#TLDRulesViolation":
+    case "com.amazonaws.route53domains#TLDRulesViolation":
       response = {
         ...(await deserializeAws_json1_1TLDRulesViolationResponse(
           parsedOutput,
@@ -2444,7 +2444,7 @@ const deserializeAws_json1_1UpdateDomainNameserversCommandError = async (
       };
       break;
     case "UnsupportedTLD":
-    case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
       response = {
         ...(await deserializeAws_json1_1UnsupportedTLDResponse(
           parsedOutput,
@@ -2507,7 +2507,7 @@ const deserializeAws_json1_1UpdateTagsForDomainCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -2518,7 +2518,7 @@ const deserializeAws_json1_1UpdateTagsForDomainCommandError = async (
       };
       break;
     case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
+    case "com.amazonaws.route53domains#OperationLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1OperationLimitExceededResponse(
           parsedOutput,
@@ -2529,7 +2529,7 @@ const deserializeAws_json1_1UpdateTagsForDomainCommandError = async (
       };
       break;
     case "UnsupportedTLD":
-    case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
       response = {
         ...(await deserializeAws_json1_1UnsupportedTLDResponse(
           parsedOutput,
@@ -2589,7 +2589,7 @@ const deserializeAws_json1_1ViewBillingCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
-    case "com.amazonaws.route53domains.v20140515#InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
       response = {
         ...(await deserializeAws_json1_1InvalidInputResponse(
           parsedOutput,
@@ -3836,19 +3836,6 @@ const deserializeAws_json1_1RetrieveDomainAuthCodeResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1TLDRulesViolation = (
-  output: any,
-  context: __SerdeContext
-): TLDRulesViolation => {
-  return {
-    __type: "TLDRulesViolation",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
@@ -3871,6 +3858,19 @@ const deserializeAws_json1_1TagList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
+};
+
+const deserializeAws_json1_1TLDRulesViolation = (
+  output: any,
+  context: __SerdeContext
+): TLDRulesViolation => {
+  return {
+    __type: "TLDRulesViolation",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TransferDomainResponse = (

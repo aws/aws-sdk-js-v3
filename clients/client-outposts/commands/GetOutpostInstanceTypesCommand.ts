@@ -8,9 +8,9 @@ import {
   GetOutpostInstanceTypesOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetOutpostInstanceTypesCommand,
-  serializeAws_restJson1_1GetOutpostInstanceTypesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetOutpostInstanceTypesCommand,
+  serializeAws_restJson1GetOutpostInstanceTypesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetOutpostInstanceTypesCommand extends $Command<
     input: GetOutpostInstanceTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetOutpostInstanceTypesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1GetOutpostInstanceTypesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetOutpostInstanceTypesCommandOutput> {
-    return deserializeAws_restJson1_1GetOutpostInstanceTypesCommand(
+    return deserializeAws_restJson1GetOutpostInstanceTypesCommand(
       output,
       context
     );

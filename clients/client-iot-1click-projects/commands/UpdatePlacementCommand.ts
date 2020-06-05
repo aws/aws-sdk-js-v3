@@ -8,9 +8,9 @@ import {
   UpdatePlacementResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdatePlacementCommand,
-  serializeAws_restJson1_1UpdatePlacementCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdatePlacementCommand,
+  serializeAws_restJson1UpdatePlacementCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class UpdatePlacementCommand extends $Command<
     input: UpdatePlacementCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdatePlacementCommand(input, context);
+    return serializeAws_restJson1UpdatePlacementCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePlacementCommandOutput> {
-    return deserializeAws_restJson1_1UpdatePlacementCommand(output, context);
+    return deserializeAws_restJson1UpdatePlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

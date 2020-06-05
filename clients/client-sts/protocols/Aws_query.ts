@@ -241,7 +241,7 @@ const deserializeAws_queryAssumeRoleCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "MalformedPolicyDocumentException":
-    case "com.amazon.its#MalformedPolicyDocumentException":
+    case "com.amazonaws.sts#MalformedPolicyDocumentException":
       response = {
         ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
           parsedOutput,
@@ -252,7 +252,7 @@ const deserializeAws_queryAssumeRoleCommandError = async (
       };
       break;
     case "PackedPolicyTooLargeException":
-    case "com.amazon.its#PackedPolicyTooLargeException":
+    case "com.amazonaws.sts#PackedPolicyTooLargeException":
       response = {
         ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(
           parsedOutput,
@@ -263,7 +263,7 @@ const deserializeAws_queryAssumeRoleCommandError = async (
       };
       break;
     case "RegionDisabledException":
-    case "com.amazon.its#RegionDisabledException":
+    case "com.amazonaws.sts#RegionDisabledException":
       response = {
         ...(await deserializeAws_queryRegionDisabledExceptionResponse(
           parsedOutput,
@@ -325,7 +325,7 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExpiredTokenException":
-    case "com.amazon.its#ExpiredTokenException":
+    case "com.amazonaws.sts#ExpiredTokenException":
       response = {
         ...(await deserializeAws_queryExpiredTokenExceptionResponse(
           parsedOutput,
@@ -336,7 +336,7 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (
       };
       break;
     case "IDPRejectedClaimException":
-    case "com.amazon.its#IDPRejectedClaimException":
+    case "com.amazonaws.sts#IDPRejectedClaimException":
       response = {
         ...(await deserializeAws_queryIDPRejectedClaimExceptionResponse(
           parsedOutput,
@@ -347,7 +347,7 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (
       };
       break;
     case "InvalidIdentityTokenException":
-    case "com.amazon.its#InvalidIdentityTokenException":
+    case "com.amazonaws.sts#InvalidIdentityTokenException":
       response = {
         ...(await deserializeAws_queryInvalidIdentityTokenExceptionResponse(
           parsedOutput,
@@ -358,7 +358,7 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (
       };
       break;
     case "MalformedPolicyDocumentException":
-    case "com.amazon.its#MalformedPolicyDocumentException":
+    case "com.amazonaws.sts#MalformedPolicyDocumentException":
       response = {
         ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
           parsedOutput,
@@ -369,7 +369,7 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (
       };
       break;
     case "PackedPolicyTooLargeException":
-    case "com.amazon.its#PackedPolicyTooLargeException":
+    case "com.amazonaws.sts#PackedPolicyTooLargeException":
       response = {
         ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(
           parsedOutput,
@@ -380,7 +380,7 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (
       };
       break;
     case "RegionDisabledException":
-    case "com.amazon.its#RegionDisabledException":
+    case "com.amazonaws.sts#RegionDisabledException":
       response = {
         ...(await deserializeAws_queryRegionDisabledExceptionResponse(
           parsedOutput,
@@ -445,7 +445,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExpiredTokenException":
-    case "com.amazon.its#ExpiredTokenException":
+    case "com.amazonaws.sts#ExpiredTokenException":
       response = {
         ...(await deserializeAws_queryExpiredTokenExceptionResponse(
           parsedOutput,
@@ -456,7 +456,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (
       };
       break;
     case "IDPCommunicationErrorException":
-    case "com.amazon.its#IDPCommunicationErrorException":
+    case "com.amazonaws.sts#IDPCommunicationErrorException":
       response = {
         ...(await deserializeAws_queryIDPCommunicationErrorExceptionResponse(
           parsedOutput,
@@ -467,7 +467,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (
       };
       break;
     case "IDPRejectedClaimException":
-    case "com.amazon.its#IDPRejectedClaimException":
+    case "com.amazonaws.sts#IDPRejectedClaimException":
       response = {
         ...(await deserializeAws_queryIDPRejectedClaimExceptionResponse(
           parsedOutput,
@@ -478,7 +478,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (
       };
       break;
     case "InvalidIdentityTokenException":
-    case "com.amazon.its#InvalidIdentityTokenException":
+    case "com.amazonaws.sts#InvalidIdentityTokenException":
       response = {
         ...(await deserializeAws_queryInvalidIdentityTokenExceptionResponse(
           parsedOutput,
@@ -489,7 +489,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (
       };
       break;
     case "MalformedPolicyDocumentException":
-    case "com.amazon.its#MalformedPolicyDocumentException":
+    case "com.amazonaws.sts#MalformedPolicyDocumentException":
       response = {
         ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
           parsedOutput,
@@ -500,7 +500,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (
       };
       break;
     case "PackedPolicyTooLargeException":
-    case "com.amazon.its#PackedPolicyTooLargeException":
+    case "com.amazonaws.sts#PackedPolicyTooLargeException":
       response = {
         ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(
           parsedOutput,
@@ -511,7 +511,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (
       };
       break;
     case "RegionDisabledException":
-    case "com.amazon.its#RegionDisabledException":
+    case "com.amazonaws.sts#RegionDisabledException":
       response = {
         ...(await deserializeAws_queryRegionDisabledExceptionResponse(
           parsedOutput,
@@ -576,7 +576,7 @@ const deserializeAws_queryDecodeAuthorizationMessageCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidAuthorizationMessageException":
-    case "com.amazon.its#InvalidAuthorizationMessageException":
+    case "com.amazonaws.sts#InvalidAuthorizationMessageException":
       response = {
         ...(await deserializeAws_queryInvalidAuthorizationMessageExceptionResponse(
           parsedOutput,
@@ -740,7 +740,7 @@ const deserializeAws_queryGetFederationTokenCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "MalformedPolicyDocumentException":
-    case "com.amazon.its#MalformedPolicyDocumentException":
+    case "com.amazonaws.sts#MalformedPolicyDocumentException":
       response = {
         ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
           parsedOutput,
@@ -751,7 +751,7 @@ const deserializeAws_queryGetFederationTokenCommandError = async (
       };
       break;
     case "PackedPolicyTooLargeException":
-    case "com.amazon.its#PackedPolicyTooLargeException":
+    case "com.amazonaws.sts#PackedPolicyTooLargeException":
       response = {
         ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(
           parsedOutput,
@@ -762,7 +762,7 @@ const deserializeAws_queryGetFederationTokenCommandError = async (
       };
       break;
     case "RegionDisabledException":
-    case "com.amazon.its#RegionDisabledException":
+    case "com.amazonaws.sts#RegionDisabledException":
       response = {
         ...(await deserializeAws_queryRegionDisabledExceptionResponse(
           parsedOutput,
@@ -824,7 +824,7 @@ const deserializeAws_queryGetSessionTokenCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RegionDisabledException":
-    case "com.amazon.its#RegionDisabledException":
+    case "com.amazonaws.sts#RegionDisabledException":
       response = {
         ...(await deserializeAws_queryRegionDisabledExceptionResponse(
           parsedOutput,
@@ -1202,6 +1202,25 @@ const serializeAws_queryGetSessionTokenRequest = (
   return entries;
 };
 
+const serializeAws_querypolicyDescriptorListType = (
+  input: PolicyDescriptorType[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    const memberEntries = serializeAws_queryPolicyDescriptorType(
+      entry,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_queryPolicyDescriptorType = (
   input: PolicyDescriptorType,
   context: __SerdeContext
@@ -1220,25 +1239,6 @@ const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   }
   if (input.Value !== undefined) {
     entries["Value"] = input.Value;
-  }
-  return entries;
-};
-
-const serializeAws_querypolicyDescriptorListType = (
-  input: PolicyDescriptorType[],
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  let counter = 1;
-  for (let entry of input) {
-    const memberEntries = serializeAws_queryPolicyDescriptorType(
-      entry,
-      context
-    );
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      entries[`member.${counter}.${key}`] = value;
-    });
-    counter++;
   }
   return entries;
 };
@@ -1270,6 +1270,24 @@ const serializeAws_querytagListType = (
     counter++;
   }
   return entries;
+};
+
+const deserializeAws_queryAssumedRoleUser = (
+  output: any,
+  context: __SerdeContext
+): AssumedRoleUser => {
+  let contents: any = {
+    __type: "AssumedRoleUser",
+    Arn: undefined,
+    AssumedRoleId: undefined
+  };
+  if (output["Arn"] !== undefined) {
+    contents.Arn = output["Arn"];
+  }
+  if (output["AssumedRoleId"] !== undefined) {
+    contents.AssumedRoleId = output["AssumedRoleId"];
+  }
+  return contents;
 };
 
 const deserializeAws_queryAssumeRoleResponse = (
@@ -1385,24 +1403,6 @@ const deserializeAws_queryAssumeRoleWithWebIdentityResponse = (
   if (output["SubjectFromWebIdentityToken"] !== undefined) {
     contents.SubjectFromWebIdentityToken =
       output["SubjectFromWebIdentityToken"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryAssumedRoleUser = (
-  output: any,
-  context: __SerdeContext
-): AssumedRoleUser => {
-  let contents: any = {
-    __type: "AssumedRoleUser",
-    Arn: undefined,
-    AssumedRoleId: undefined
-  };
-  if (output["Arn"] !== undefined) {
-    contents.Arn = output["Arn"];
-  }
-  if (output["AssumedRoleId"] !== undefined) {
-    contents.AssumedRoleId = output["AssumedRoleId"];
   }
   return contents;
 };

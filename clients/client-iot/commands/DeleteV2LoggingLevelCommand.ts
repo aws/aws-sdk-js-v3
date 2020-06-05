@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { DeleteV2LoggingLevelRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteV2LoggingLevelCommand,
-  serializeAws_restJson1_1DeleteV2LoggingLevelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteV2LoggingLevelCommand,
+  serializeAws_restJson1DeleteV2LoggingLevelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,17 +70,14 @@ export class DeleteV2LoggingLevelCommand extends $Command<
     input: DeleteV2LoggingLevelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteV2LoggingLevelCommand(input, context);
+    return serializeAws_restJson1DeleteV2LoggingLevelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteV2LoggingLevelCommandOutput> {
-    return deserializeAws_restJson1_1DeleteV2LoggingLevelCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteV2LoggingLevelCommand(output, context);
   }
 
   // Start section: command_body_extra

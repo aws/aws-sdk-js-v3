@@ -318,21 +318,6 @@ export const serializeAws_json1_1DescribeIndexCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDataSourceSyncJobsCommand = async (
-  input: ListDataSourceSyncJobsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSKendraFrontendService.ListDataSourceSyncJobs"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListDataSourceSyncJobsRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1ListDataSourcesCommand = async (
   input: ListDataSourcesCommandInput,
   context: __SerdeContext
@@ -344,6 +329,21 @@ export const serializeAws_json1_1ListDataSourcesCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDataSourcesRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListDataSourceSyncJobsCommand = async (
+  input: ListDataSourceSyncJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.ListDataSourceSyncJobs"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1ListDataSourceSyncJobsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1619,34 +1619,28 @@ const deserializeAws_json1_1DescribeIndexCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListDataSourceSyncJobsCommand = async (
+export const deserializeAws_json1_1ListDataSourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDataSourceSyncJobsCommandOutput> => {
+): Promise<ListDataSourcesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListDataSourceSyncJobsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListDataSourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDataSourceSyncJobsResponse(
-    data,
-    context
-  );
-  const response: ListDataSourceSyncJobsCommandOutput = {
+  contents = deserializeAws_json1_1ListDataSourcesResponse(data, context);
+  const response: ListDataSourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDataSourceSyncJobsResponse",
+    __type: "ListDataSourcesResponse",
     ...contents
   };
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListDataSourceSyncJobsCommandError = async (
+const deserializeAws_json1_1ListDataSourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDataSourceSyncJobsCommandOutput> => {
+): Promise<ListDataSourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1661,17 +1655,6 @@ const deserializeAws_json1_1ListDataSourceSyncJobsCommandError = async (
     case "com.amazonaws.kendra#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ConflictException":
-    case "com.amazonaws.kendra#ConflictException":
-      response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
           context
         )),
@@ -1740,28 +1723,34 @@ const deserializeAws_json1_1ListDataSourceSyncJobsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListDataSourcesCommand = async (
+export const deserializeAws_json1_1ListDataSourceSyncJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDataSourcesCommandOutput> => {
+): Promise<ListDataSourceSyncJobsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListDataSourcesCommandError(output, context);
+    return deserializeAws_json1_1ListDataSourceSyncJobsCommandError(
+      output,
+      context
+    );
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDataSourcesResponse(data, context);
-  const response: ListDataSourcesCommandOutput = {
+  contents = deserializeAws_json1_1ListDataSourceSyncJobsResponse(
+    data,
+    context
+  );
+  const response: ListDataSourceSyncJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDataSourcesResponse",
+    __type: "ListDataSourceSyncJobsResponse",
     ...contents
   };
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListDataSourcesCommandError = async (
+const deserializeAws_json1_1ListDataSourceSyncJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDataSourcesCommandOutput> => {
+): Promise<ListDataSourceSyncJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1776,6 +1765,17 @@ const deserializeAws_json1_1ListDataSourcesCommandError = async (
     case "com.amazonaws.kendra#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.kendra#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
           context
         )),
@@ -3146,6 +3146,41 @@ const serializeAws_json1_1CreateIndexRequest = (
   };
 };
 
+const serializeAws_json1_1DatabaseConfiguration = (
+  input: DatabaseConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AclConfiguration !== undefined && {
+      AclConfiguration: serializeAws_json1_1AclConfiguration(
+        input.AclConfiguration,
+        context
+      )
+    }),
+    ...(input.ColumnConfiguration !== undefined && {
+      ColumnConfiguration: serializeAws_json1_1ColumnConfiguration(
+        input.ColumnConfiguration,
+        context
+      )
+    }),
+    ...(input.ConnectionConfiguration !== undefined && {
+      ConnectionConfiguration: serializeAws_json1_1ConnectionConfiguration(
+        input.ConnectionConfiguration,
+        context
+      )
+    }),
+    ...(input.DatabaseEngineType !== undefined && {
+      DatabaseEngineType: input.DatabaseEngineType
+    }),
+    ...(input.VpcConfiguration !== undefined && {
+      VpcConfiguration: serializeAws_json1_1DataSourceVpcConfiguration(
+        input.VpcConfiguration,
+        context
+      )
+    })
+  };
+};
+
 const serializeAws_json1_1DataSourceConfiguration = (
   input: DataSourceConfiguration,
   context: __SerdeContext
@@ -3218,41 +3253,6 @@ const serializeAws_json1_1DataSourceVpcConfiguration = (
     }),
     ...(input.SubnetIds !== undefined && {
       SubnetIds: serializeAws_json1_1SubnetIdList(input.SubnetIds, context)
-    })
-  };
-};
-
-const serializeAws_json1_1DatabaseConfiguration = (
-  input: DatabaseConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AclConfiguration !== undefined && {
-      AclConfiguration: serializeAws_json1_1AclConfiguration(
-        input.AclConfiguration,
-        context
-      )
-    }),
-    ...(input.ColumnConfiguration !== undefined && {
-      ColumnConfiguration: serializeAws_json1_1ColumnConfiguration(
-        input.ColumnConfiguration,
-        context
-      )
-    }),
-    ...(input.ConnectionConfiguration !== undefined && {
-      ConnectionConfiguration: serializeAws_json1_1ConnectionConfiguration(
-        input.ConnectionConfiguration,
-        context
-      )
-    }),
-    ...(input.DatabaseEngineType !== undefined && {
-      DatabaseEngineType: input.DatabaseEngineType
-    }),
-    ...(input.VpcConfiguration !== undefined && {
-      VpcConfiguration: serializeAws_json1_1DataSourceVpcConfiguration(
-        input.VpcConfiguration,
-        context
-      )
     })
   };
 };
@@ -3454,6 +3454,17 @@ const serializeAws_json1_1FacetList = (
   return input.map(entry => serializeAws_json1_1Facet(entry, context));
 };
 
+const serializeAws_json1_1ListDataSourcesRequest = (
+  input: ListDataSourcesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
+};
+
 const serializeAws_json1_1ListDataSourceSyncJobsRequest = (
   input: ListDataSourceSyncJobsRequest,
   context: __SerdeContext
@@ -3472,17 +3483,6 @@ const serializeAws_json1_1ListDataSourceSyncJobsRequest = (
     ...(input.StatusFilter !== undefined && {
       StatusFilter: input.StatusFilter
     })
-  };
-};
-
-const serializeAws_json1_1ListDataSourcesRequest = (
-  input: ListDataSourcesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
   };
 };
 
@@ -4113,6 +4113,50 @@ const deserializeAws_json1_1CreateIndexResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DatabaseConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DatabaseConfiguration => {
+  return {
+    __type: "DatabaseConfiguration",
+    AclConfiguration:
+      output.AclConfiguration !== undefined && output.AclConfiguration !== null
+        ? deserializeAws_json1_1AclConfiguration(
+            output.AclConfiguration,
+            context
+          )
+        : undefined,
+    ColumnConfiguration:
+      output.ColumnConfiguration !== undefined &&
+      output.ColumnConfiguration !== null
+        ? deserializeAws_json1_1ColumnConfiguration(
+            output.ColumnConfiguration,
+            context
+          )
+        : undefined,
+    ConnectionConfiguration:
+      output.ConnectionConfiguration !== undefined &&
+      output.ConnectionConfiguration !== null
+        ? deserializeAws_json1_1ConnectionConfiguration(
+            output.ConnectionConfiguration,
+            context
+          )
+        : undefined,
+    DatabaseEngineType:
+      output.DatabaseEngineType !== undefined &&
+      output.DatabaseEngineType !== null
+        ? output.DatabaseEngineType
+        : undefined,
+    VpcConfiguration:
+      output.VpcConfiguration !== undefined && output.VpcConfiguration !== null
+        ? deserializeAws_json1_1DataSourceVpcConfiguration(
+            output.VpcConfiguration,
+            context
+          )
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1DataSourceConfiguration = (
   output: any,
   context: __SerdeContext
@@ -4285,50 +4329,6 @@ const deserializeAws_json1_1DataSourceVpcConfiguration = (
     SubnetIds:
       output.SubnetIds !== undefined && output.SubnetIds !== null
         ? deserializeAws_json1_1SubnetIdList(output.SubnetIds, context)
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1DatabaseConfiguration = (
-  output: any,
-  context: __SerdeContext
-): DatabaseConfiguration => {
-  return {
-    __type: "DatabaseConfiguration",
-    AclConfiguration:
-      output.AclConfiguration !== undefined && output.AclConfiguration !== null
-        ? deserializeAws_json1_1AclConfiguration(
-            output.AclConfiguration,
-            context
-          )
-        : undefined,
-    ColumnConfiguration:
-      output.ColumnConfiguration !== undefined &&
-      output.ColumnConfiguration !== null
-        ? deserializeAws_json1_1ColumnConfiguration(
-            output.ColumnConfiguration,
-            context
-          )
-        : undefined,
-    ConnectionConfiguration:
-      output.ConnectionConfiguration !== undefined &&
-      output.ConnectionConfiguration !== null
-        ? deserializeAws_json1_1ConnectionConfiguration(
-            output.ConnectionConfiguration,
-            context
-          )
-        : undefined,
-    DatabaseEngineType:
-      output.DatabaseEngineType !== undefined &&
-      output.DatabaseEngineType !== null
-        ? output.DatabaseEngineType
-        : undefined,
-    VpcConfiguration:
-      output.VpcConfiguration !== undefined && output.VpcConfiguration !== null
-        ? deserializeAws_json1_1DataSourceVpcConfiguration(
-            output.VpcConfiguration,
-            context
-          )
         : undefined
   } as any;
 };
@@ -4809,26 +4809,6 @@ const deserializeAws_json1_1InternalServerException = (
   } as any;
 };
 
-const deserializeAws_json1_1ListDataSourceSyncJobsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListDataSourceSyncJobsResponse => {
-  return {
-    __type: "ListDataSourceSyncJobsResponse",
-    History:
-      output.History !== undefined && output.History !== null
-        ? deserializeAws_json1_1DataSourceSyncJobHistoryList(
-            output.History,
-            context
-          )
-        : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1ListDataSourcesResponse = (
   output: any,
   context: __SerdeContext
@@ -4845,6 +4825,26 @@ const deserializeAws_json1_1ListDataSourcesResponse = (
             output.SummaryItems,
             context
           )
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ListDataSourceSyncJobsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListDataSourceSyncJobsResponse => {
+  return {
+    __type: "ListDataSourceSyncJobsResponse",
+    History:
+      output.History !== undefined && output.History !== null
+        ? deserializeAws_json1_1DataSourceSyncJobHistoryList(
+            output.History,
+            context
+          )
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
         : undefined
   } as any;
 };

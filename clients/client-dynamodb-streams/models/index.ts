@@ -6,6 +6,71 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
+ * <p>Represents the data for an attribute. You can set one, and only one, of the elements.</p>
+ *          <p>Each attribute in an item is a name-value pair. An attribute can be single-valued or multi-valued set. For example, a book item can have title and authors attributes. Each book has one title but can have many authors. The multi-valued attribute is a set; duplicate values are not allowed.</p>
+ */
+export interface AttributeValue {
+  __type?: "AttributeValue";
+  /**
+   * <p>A Binary data type.</p>
+   */
+  B?: Uint8Array;
+
+  /**
+   * <p>A Boolean data type.</p>
+   */
+  BOOL?: boolean;
+
+  /**
+   * <p>A Binary Set data type.</p>
+   */
+  BS?: Uint8Array[];
+
+  /**
+   * <p>A List data type.</p>
+   */
+  L?: AttributeValue[];
+
+  /**
+   * <p>A Map data type.</p>
+   */
+  M?: { [key: string]: AttributeValue };
+
+  /**
+   * <p>A Number data type.</p>
+   */
+  N?: string;
+
+  /**
+   * <p>A Number Set data type.</p>
+   */
+  NS?: string[];
+
+  /**
+   * <p>A Null data type.</p>
+   */
+  NULL?: boolean;
+
+  /**
+   * <p>A String data type.</p>
+   */
+  S?: string;
+
+  /**
+   * <p>A String Set data type.</p>
+   */
+  SS?: string[];
+}
+
+export namespace AttributeValue {
+  export const filterSensitiveLog = (obj: AttributeValue): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AttributeValue =>
+    __isa(o, "AttributeValue");
+}
+
+/**
  * <p>Represents the input of a <code>DescribeStream</code> operation.</p>
  */
 export interface DescribeStreamInput {
@@ -230,6 +295,92 @@ export namespace Identity {
 }
 
 /**
+ * <p>An error occurred on the server side.</p>
+ */
+export interface InternalServerError
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InternalServerError";
+  $fault: "server";
+  /**
+   * <p>The server encountered an internal error trying to fulfill the request.</p>
+   */
+  message?: string;
+}
+
+export namespace InternalServerError {
+  export const filterSensitiveLog = (obj: InternalServerError): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InternalServerError =>
+    __isa(o, "InternalServerError");
+}
+
+/**
+ * <p>Represents <i>a single element</i> of a key schema. A key schema specifies the attributes
+ *       that make up the primary key of a table, or the key attributes of an index.</p>
+ *          <p>A <code>KeySchemaElement</code> represents exactly one attribute of the primary key. For example, a
+ *       simple primary key (partition key)  would be represented by one <code>KeySchemaElement</code>. A composite primary key (partition key and sort key) would require one <code>KeySchemaElement</code> for the partition key, and another
+ *       <code>KeySchemaElement</code> for the sort key.</p>
+ *          <note>
+ *             <p>The partition key of an item is also known as its <i>hash attribute</i>.  The
+ *         term "hash attribute" derives from DynamoDB's usage of an internal hash function to
+ *         evenly distribute data items across partitions, based on their partition key values.</p>
+ *             <p>The sort key of an item is also known as its <i>range attribute</i>.
+ *         The term "range attribute" derives from the way DynamoDB stores items with the same
+ *         partition key physically close together, in sorted order by the sort key value.</p>
+ *          </note>
+ */
+export interface KeySchemaElement {
+  __type?: "KeySchemaElement";
+  /**
+   * <p>The name of a key attribute.</p>
+   */
+  AttributeName: string | undefined;
+
+  /**
+   * <p>The attribute data, consisting of the data type and the attribute value itself.</p>
+   */
+  KeyType: KeyType | string | undefined;
+}
+
+export namespace KeySchemaElement {
+  export const filterSensitiveLog = (obj: KeySchemaElement): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is KeySchemaElement =>
+    __isa(o, "KeySchemaElement");
+}
+
+export type KeyType = "HASH" | "RANGE";
+
+/**
+ * <p>Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests that
+ *       receive this exception. Your request is eventually successful, unless your retry queue is too
+ *       large to finish. Reduce the frequency of requests and use exponential backoff. For more
+ *       information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#APIRetries">Error Retries and Exponential
+ *         Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ */
+export interface LimitExceededException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  /**
+   * <p>Too many operations for a given subscriber.</p>
+   */
+  message?: string;
+}
+
+export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
+}
+
+/**
  * <p>Represents the input of a <code>ListStreams</code> operation.</p>
  */
 export interface ListStreamsInput {
@@ -364,6 +515,28 @@ export namespace _Record {
     ...obj
   });
   export const isa = (o: any): o is _Record => __isa(o, "Record");
+}
+
+/**
+ * <p>The operation tried to access a nonexistent stream.</p>
+ */
+export interface ResourceNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  /**
+   * <p>The resource which is being requested does not exist.</p>
+   */
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -650,6 +823,12 @@ export namespace StreamRecord {
 
 export type StreamStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
 
+export type StreamViewType =
+  | "KEYS_ONLY"
+  | "NEW_AND_OLD_IMAGES"
+  | "NEW_IMAGE"
+  | "OLD_IMAGE";
+
 /**
  * <p>The operation attempted to read past the oldest stream record in a shard.</p>
  *          <p>In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records whose age exceeds this limit are subject to removal (trimming) from the stream. You might receive a TrimmedDataAccessException if:</p>
@@ -682,182 +861,3 @@ export namespace TrimmedDataAccessException {
   export const isa = (o: any): o is TrimmedDataAccessException =>
     __isa(o, "TrimmedDataAccessException");
 }
-
-/**
- * <p>Represents the data for an attribute. You can set one, and only one, of the elements.</p>
- *          <p>Each attribute in an item is a name-value pair. An attribute can be single-valued or multi-valued set. For example, a book item can have title and authors attributes. Each book has one title but can have many authors. The multi-valued attribute is a set; duplicate values are not allowed.</p>
- */
-export interface AttributeValue {
-  __type?: "AttributeValue";
-  /**
-   * <p>A Binary data type.</p>
-   */
-  B?: Uint8Array;
-
-  /**
-   * <p>A Boolean data type.</p>
-   */
-  BOOL?: boolean;
-
-  /**
-   * <p>A Binary Set data type.</p>
-   */
-  BS?: Uint8Array[];
-
-  /**
-   * <p>A List data type.</p>
-   */
-  L?: AttributeValue[];
-
-  /**
-   * <p>A Map data type.</p>
-   */
-  M?: { [key: string]: AttributeValue };
-
-  /**
-   * <p>A Number data type.</p>
-   */
-  N?: string;
-
-  /**
-   * <p>A Number Set data type.</p>
-   */
-  NS?: string[];
-
-  /**
-   * <p>A Null data type.</p>
-   */
-  NULL?: boolean;
-
-  /**
-   * <p>A String data type.</p>
-   */
-  S?: string;
-
-  /**
-   * <p>A String Set data type.</p>
-   */
-  SS?: string[];
-}
-
-export namespace AttributeValue {
-  export const filterSensitiveLog = (obj: AttributeValue): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AttributeValue =>
-    __isa(o, "AttributeValue");
-}
-
-/**
- * <p>An error occurred on the server side.</p>
- */
-export interface InternalServerError
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InternalServerError";
-  $fault: "server";
-  /**
-   * <p>The server encountered an internal error trying to fulfill the request.</p>
-   */
-  message?: string;
-}
-
-export namespace InternalServerError {
-  export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InternalServerError =>
-    __isa(o, "InternalServerError");
-}
-
-/**
- * <p>Represents <i>a single element</i> of a key schema. A key schema specifies the attributes
- *       that make up the primary key of a table, or the key attributes of an index.</p>
- *          <p>A <code>KeySchemaElement</code> represents exactly one attribute of the primary key. For example, a
- *       simple primary key (partition key)  would be represented by one <code>KeySchemaElement</code>. A composite primary key (partition key and sort key) would require one <code>KeySchemaElement</code> for the partition key, and another
- *       <code>KeySchemaElement</code> for the sort key.</p>
- *          <note>
- *             <p>The partition key of an item is also known as its <i>hash attribute</i>.  The
- *         term "hash attribute" derives from DynamoDB's usage of an internal hash function to
- *         evenly distribute data items across partitions, based on their partition key values.</p>
- *             <p>The sort key of an item is also known as its <i>range attribute</i>.
- *         The term "range attribute" derives from the way DynamoDB stores items with the same
- *         partition key physically close together, in sorted order by the sort key value.</p>
- *          </note>
- */
-export interface KeySchemaElement {
-  __type?: "KeySchemaElement";
-  /**
-   * <p>The name of a key attribute.</p>
-   */
-  AttributeName: string | undefined;
-
-  /**
-   * <p>The attribute data, consisting of the data type and the attribute value itself.</p>
-   */
-  KeyType: KeyType | string | undefined;
-}
-
-export namespace KeySchemaElement {
-  export const filterSensitiveLog = (obj: KeySchemaElement): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is KeySchemaElement =>
-    __isa(o, "KeySchemaElement");
-}
-
-export type KeyType = "HASH" | "RANGE";
-
-/**
- * <p>Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests that
- *       receive this exception. Your request is eventually successful, unless your retry queue is too
- *       large to finish. Reduce the frequency of requests and use exponential backoff. For more
- *       information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#APIRetries">Error Retries and Exponential
- *         Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
- */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  /**
-   * <p>Too many operations for a given subscriber.</p>
-   */
-  message?: string;
-}
-
-export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
-}
-
-/**
- * <p>The operation tried to access a nonexistent stream.</p>
- */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  /**
-   * <p>The resource which is being requested does not exist.</p>
-   */
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
-}
-
-export type StreamViewType =
-  | "KEYS_ONLY"
-  | "NEW_AND_OLD_IMAGES"
-  | "NEW_IMAGE"
-  | "OLD_IMAGE";

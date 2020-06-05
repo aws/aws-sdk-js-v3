@@ -8,9 +8,9 @@ import {
   GetBackupSelectionOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetBackupSelectionCommand,
-  serializeAws_restJson1_1GetBackupSelectionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetBackupSelectionCommand,
+  serializeAws_restJson1GetBackupSelectionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetBackupSelectionCommand extends $Command<
     input: GetBackupSelectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetBackupSelectionCommand(input, context);
+    return serializeAws_restJson1GetBackupSelectionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBackupSelectionCommandOutput> {
-    return deserializeAws_restJson1_1GetBackupSelectionCommand(output, context);
+    return deserializeAws_restJson1GetBackupSelectionCommand(output, context);
   }
 
   // Start section: command_body_extra

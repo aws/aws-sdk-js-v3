@@ -5,9 +5,9 @@ import {
 } from "../IoT1ClickProjectsClient";
 import { DeleteProjectRequest, DeleteProjectResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteProjectCommand,
-  serializeAws_restJson1_1DeleteProjectCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteProjectCommand,
+  serializeAws_restJson1DeleteProjectCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class DeleteProjectCommand extends $Command<
     input: DeleteProjectCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteProjectCommand(input, context);
+    return serializeAws_restJson1DeleteProjectCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteProjectCommandOutput> {
-    return deserializeAws_restJson1_1DeleteProjectCommand(output, context);
+    return deserializeAws_restJson1DeleteProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

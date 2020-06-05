@@ -2146,15 +2146,6 @@ const serializeAws_json1_1CreateJobRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeAddressRequest = (
-  input: DescribeAddressRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AddressId !== undefined && { AddressId: input.AddressId })
-  };
-};
-
 const serializeAws_json1_1DescribeAddressesRequest = (
   input: DescribeAddressesRequest,
   context: __SerdeContext
@@ -2162,6 +2153,15 @@ const serializeAws_json1_1DescribeAddressesRequest = (
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
+};
+
+const serializeAws_json1_1DescribeAddressRequest = (
+  input: DescribeAddressRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AddressId !== undefined && { AddressId: input.AddressId })
   };
 };
 
@@ -2747,19 +2747,6 @@ const deserializeAws_json1_1DataTransfer = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeAddressResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeAddressResult => {
-  return {
-    __type: "DescribeAddressResult",
-    Address:
-      output.Address !== undefined && output.Address !== null
-        ? deserializeAws_json1_1Address(output.Address, context)
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1DescribeAddressesResult = (
   output: any,
   context: __SerdeContext
@@ -2773,6 +2760,19 @@ const deserializeAws_json1_1DescribeAddressesResult = (
     NextToken:
       output.NextToken !== undefined && output.NextToken !== null
         ? output.NextToken
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeAddressResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeAddressResult => {
+  return {
+    __type: "DescribeAddressResult",
+    Address:
+      output.Address !== undefined && output.Address !== null
+        ? deserializeAws_json1_1Address(output.Address, context)
         : undefined
   } as any;
 };
@@ -3187,19 +3187,6 @@ const deserializeAws_json1_1JobStateList = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1KMSRequestFailedException = (
-  output: any,
-  context: __SerdeContext
-): KMSRequestFailedException => {
-  return {
-    __type: "KMSRequestFailedException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1KeyRange = (
   output: any,
   context: __SerdeContext
@@ -3213,6 +3200,19 @@ const deserializeAws_json1_1KeyRange = (
     EndMarker:
       output.EndMarker !== undefined && output.EndMarker !== null
         ? output.EndMarker
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1KMSRequestFailedException = (
+  output: any,
+  context: __SerdeContext
+): KMSRequestFailedException => {
+  return {
+    __type: "KMSRequestFailedException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
         : undefined
   } as any;
 };

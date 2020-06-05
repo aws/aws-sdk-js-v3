@@ -5,9 +5,9 @@ import {
 } from "../MobileClient";
 import { ListProjectsRequest, ListProjectsResult } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListProjectsCommand,
-  serializeAws_restJson1_1ListProjectsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListProjectsCommand,
+  serializeAws_restJson1ListProjectsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListProjectsCommand extends $Command<
     input: ListProjectsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListProjectsCommand(input, context);
+    return serializeAws_restJson1ListProjectsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProjectsCommandOutput> {
-    return deserializeAws_restJson1_1ListProjectsCommand(output, context);
+    return deserializeAws_restJson1ListProjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

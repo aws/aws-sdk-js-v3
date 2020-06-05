@@ -865,41 +865,6 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Describes the snapshots for the specified WorkSpace.</p>
-   */
-  public describeWorkspaceSnapshots(
-    args: DescribeWorkspaceSnapshotsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeWorkspaceSnapshotsCommandOutput>;
-  public describeWorkspaceSnapshots(
-    args: DescribeWorkspaceSnapshotsCommandInput,
-    cb: (err: any, data?: DescribeWorkspaceSnapshotsCommandOutput) => void
-  ): void;
-  public describeWorkspaceSnapshots(
-    args: DescribeWorkspaceSnapshotsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeWorkspaceSnapshotsCommandOutput) => void
-  ): void;
-  public describeWorkspaceSnapshots(
-    args: DescribeWorkspaceSnapshotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeWorkspaceSnapshotsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeWorkspaceSnapshotsCommandOutput) => void
-  ): Promise<DescribeWorkspaceSnapshotsCommandOutput> | void {
-    const command = new DescribeWorkspaceSnapshotsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Describes the specified WorkSpaces.</p>
    *          <p>You can filter the results by using the bundle identifier, directory identifier, or
    *          owner, but you can specify only one filter at a time.</p>
@@ -972,6 +937,41 @@ export class WorkSpaces extends WorkSpacesClient {
     ) => void
   ): Promise<DescribeWorkspacesConnectionStatusCommandOutput> | void {
     const command = new DescribeWorkspacesConnectionStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the snapshots for the specified WorkSpace.</p>
+   */
+  public describeWorkspaceSnapshots(
+    args: DescribeWorkspaceSnapshotsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWorkspaceSnapshotsCommandOutput>;
+  public describeWorkspaceSnapshots(
+    args: DescribeWorkspaceSnapshotsCommandInput,
+    cb: (err: any, data?: DescribeWorkspaceSnapshotsCommandOutput) => void
+  ): void;
+  public describeWorkspaceSnapshots(
+    args: DescribeWorkspaceSnapshotsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWorkspaceSnapshotsCommandOutput) => void
+  ): void;
+  public describeWorkspaceSnapshots(
+    args: DescribeWorkspaceSnapshotsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeWorkspaceSnapshotsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeWorkspaceSnapshotsCommandOutput) => void
+  ): Promise<DescribeWorkspaceSnapshotsCommandOutput> | void {
+    const command = new DescribeWorkspaceSnapshotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

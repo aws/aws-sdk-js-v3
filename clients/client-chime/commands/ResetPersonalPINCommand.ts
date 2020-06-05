@@ -8,9 +8,9 @@ import {
   ResetPersonalPINResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ResetPersonalPINCommand,
-  serializeAws_restJson1_1ResetPersonalPINCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ResetPersonalPINCommand,
+  serializeAws_restJson1ResetPersonalPINCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ResetPersonalPINCommand extends $Command<
     input: ResetPersonalPINCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ResetPersonalPINCommand(input, context);
+    return serializeAws_restJson1ResetPersonalPINCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResetPersonalPINCommandOutput> {
-    return deserializeAws_restJson1_1ResetPersonalPINCommand(output, context);
+    return deserializeAws_restJson1ResetPersonalPINCommand(output, context);
   }
 
   // Start section: command_body_extra

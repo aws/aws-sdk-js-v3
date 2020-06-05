@@ -1061,41 +1061,6 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
-   * Produces a list of Input Security Groups for an account
-   */
-  public listInputSecurityGroups(
-    args: ListInputSecurityGroupsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListInputSecurityGroupsCommandOutput>;
-  public listInputSecurityGroups(
-    args: ListInputSecurityGroupsCommandInput,
-    cb: (err: any, data?: ListInputSecurityGroupsCommandOutput) => void
-  ): void;
-  public listInputSecurityGroups(
-    args: ListInputSecurityGroupsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListInputSecurityGroupsCommandOutput) => void
-  ): void;
-  public listInputSecurityGroups(
-    args: ListInputSecurityGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListInputSecurityGroupsCommandOutput) => void),
-    cb?: (err: any, data?: ListInputSecurityGroupsCommandOutput) => void
-  ): Promise<ListInputSecurityGroupsCommandOutput> | void {
-    const command = new ListInputSecurityGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * Produces list of inputs that have been created
    */
   public listInputs(
@@ -1131,29 +1096,29 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
-   * List the programs that currently exist for a specific multiplex.
+   * Produces a list of Input Security Groups for an account
    */
-  public listMultiplexPrograms(
-    args: ListMultiplexProgramsCommandInput,
+  public listInputSecurityGroups(
+    args: ListInputSecurityGroupsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListMultiplexProgramsCommandOutput>;
-  public listMultiplexPrograms(
-    args: ListMultiplexProgramsCommandInput,
-    cb: (err: any, data?: ListMultiplexProgramsCommandOutput) => void
+  ): Promise<ListInputSecurityGroupsCommandOutput>;
+  public listInputSecurityGroups(
+    args: ListInputSecurityGroupsCommandInput,
+    cb: (err: any, data?: ListInputSecurityGroupsCommandOutput) => void
   ): void;
-  public listMultiplexPrograms(
-    args: ListMultiplexProgramsCommandInput,
+  public listInputSecurityGroups(
+    args: ListInputSecurityGroupsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListMultiplexProgramsCommandOutput) => void
+    cb: (err: any, data?: ListInputSecurityGroupsCommandOutput) => void
   ): void;
-  public listMultiplexPrograms(
-    args: ListMultiplexProgramsCommandInput,
+  public listInputSecurityGroups(
+    args: ListInputSecurityGroupsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListMultiplexProgramsCommandOutput) => void),
-    cb?: (err: any, data?: ListMultiplexProgramsCommandOutput) => void
-  ): Promise<ListMultiplexProgramsCommandOutput> | void {
-    const command = new ListMultiplexProgramsCommand(args);
+      | ((err: any, data?: ListInputSecurityGroupsCommandOutput) => void),
+    cb?: (err: any, data?: ListInputSecurityGroupsCommandOutput) => void
+  ): Promise<ListInputSecurityGroupsCommandOutput> | void {
+    const command = new ListInputSecurityGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1189,6 +1154,41 @@ export class MediaLive extends MediaLiveClient {
     cb?: (err: any, data?: ListMultiplexesCommandOutput) => void
   ): Promise<ListMultiplexesCommandOutput> | void {
     const command = new ListMultiplexesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * List the programs that currently exist for a specific multiplex.
+   */
+  public listMultiplexPrograms(
+    args: ListMultiplexProgramsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMultiplexProgramsCommandOutput>;
+  public listMultiplexPrograms(
+    args: ListMultiplexProgramsCommandInput,
+    cb: (err: any, data?: ListMultiplexProgramsCommandOutput) => void
+  ): void;
+  public listMultiplexPrograms(
+    args: ListMultiplexProgramsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMultiplexProgramsCommandOutput) => void
+  ): void;
+  public listMultiplexPrograms(
+    args: ListMultiplexProgramsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListMultiplexProgramsCommandOutput) => void),
+    cb?: (err: any, data?: ListMultiplexProgramsCommandOutput) => void
+  ): Promise<ListMultiplexProgramsCommandOutput> | void {
+    const command = new ListMultiplexProgramsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

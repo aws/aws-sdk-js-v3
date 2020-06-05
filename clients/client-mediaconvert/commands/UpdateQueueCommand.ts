@@ -5,9 +5,9 @@ import {
 } from "../MediaConvertClient";
 import { UpdateQueueRequest, UpdateQueueResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateQueueCommand,
-  serializeAws_restJson1_1UpdateQueueCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateQueueCommand,
+  serializeAws_restJson1UpdateQueueCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class UpdateQueueCommand extends $Command<
     input: UpdateQueueCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateQueueCommand(input, context);
+    return serializeAws_restJson1UpdateQueueCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateQueueCommandOutput> {
-    return deserializeAws_restJson1_1UpdateQueueCommand(output, context);
+    return deserializeAws_restJson1UpdateQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

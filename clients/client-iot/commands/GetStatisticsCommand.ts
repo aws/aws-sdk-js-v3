@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { GetStatisticsRequest, GetStatisticsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetStatisticsCommand,
-  serializeAws_restJson1_1GetStatisticsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetStatisticsCommand,
+  serializeAws_restJson1GetStatisticsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetStatisticsCommand extends $Command<
     input: GetStatisticsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetStatisticsCommand(input, context);
+    return serializeAws_restJson1GetStatisticsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetStatisticsCommandOutput> {
-    return deserializeAws_restJson1_1GetStatisticsCommand(output, context);
+    return deserializeAws_restJson1GetStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

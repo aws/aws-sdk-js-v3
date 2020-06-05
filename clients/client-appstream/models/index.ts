@@ -1800,6 +1800,56 @@ export namespace DescribeUsageReportSubscriptionsResult {
     __isa(o, "DescribeUsageReportSubscriptionsResult");
 }
 
+export interface DescribeUsersRequest {
+  __type?: "DescribeUsersRequest";
+  /**
+   * <p>The authentication type for the users in the user pool to describe. You must specify USERPOOL.</p>
+   */
+  AuthenticationType: AuthenticationType | string | undefined;
+
+  /**
+   * <p>The maximum size of each page of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeUsersRequest {
+  export const filterSensitiveLog = (obj: DescribeUsersRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeUsersRequest =>
+    __isa(o, "DescribeUsersRequest");
+}
+
+export interface DescribeUsersResult {
+  __type?: "DescribeUsersResult";
+  /**
+   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about users in the user pool.</p>
+   */
+  Users?: User[];
+}
+
+export namespace DescribeUsersResult {
+  export const filterSensitiveLog = (obj: DescribeUsersResult): any => ({
+    ...obj,
+    ...(obj.Users && {
+      Users: obj.Users.map(item => User.filterSensitiveLog(item))
+    })
+  });
+  export const isa = (o: any): o is DescribeUsersResult =>
+    __isa(o, "DescribeUsersResult");
+}
+
 export interface DescribeUserStackAssociationsRequest {
   __type?: "DescribeUserStackAssociationsRequest";
   /**
@@ -1869,56 +1919,6 @@ export namespace DescribeUserStackAssociationsResult {
   });
   export const isa = (o: any): o is DescribeUserStackAssociationsResult =>
     __isa(o, "DescribeUserStackAssociationsResult");
-}
-
-export interface DescribeUsersRequest {
-  __type?: "DescribeUsersRequest";
-  /**
-   * <p>The authentication type for the users in the user pool to describe. You must specify USERPOOL.</p>
-   */
-  AuthenticationType: AuthenticationType | string | undefined;
-
-  /**
-   * <p>The maximum size of each page of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeUsersRequest {
-  export const filterSensitiveLog = (obj: DescribeUsersRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeUsersRequest =>
-    __isa(o, "DescribeUsersRequest");
-}
-
-export interface DescribeUsersResult {
-  __type?: "DescribeUsersResult";
-  /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about users in the user pool.</p>
-   */
-  Users?: User[];
-}
-
-export namespace DescribeUsersResult {
-  export const filterSensitiveLog = (obj: DescribeUsersResult): any => ({
-    ...obj,
-    ...(obj.Users && {
-      Users: obj.Users.map(item => User.filterSensitiveLog(item))
-    })
-  });
-  export const isa = (o: any): o is DescribeUsersResult =>
-    __isa(o, "DescribeUsersResult");
 }
 
 /**

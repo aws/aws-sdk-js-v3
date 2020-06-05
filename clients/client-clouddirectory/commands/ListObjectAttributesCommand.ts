@@ -8,9 +8,9 @@ import {
   ListObjectAttributesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListObjectAttributesCommand,
-  serializeAws_restJson1_1ListObjectAttributesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListObjectAttributesCommand,
+  serializeAws_restJson1ListObjectAttributesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListObjectAttributesCommand extends $Command<
     input: ListObjectAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListObjectAttributesCommand(input, context);
+    return serializeAws_restJson1ListObjectAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListObjectAttributesCommandOutput> {
-    return deserializeAws_restJson1_1ListObjectAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListObjectAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

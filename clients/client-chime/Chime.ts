@@ -512,41 +512,6 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class Chime extends ChimeClient {
   /**
-   * <p>Associates a phone number with the specified Amazon Chime user.</p>
-   */
-  public associatePhoneNumberWithUser(
-    args: AssociatePhoneNumberWithUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AssociatePhoneNumberWithUserCommandOutput>;
-  public associatePhoneNumberWithUser(
-    args: AssociatePhoneNumberWithUserCommandInput,
-    cb: (err: any, data?: AssociatePhoneNumberWithUserCommandOutput) => void
-  ): void;
-  public associatePhoneNumberWithUser(
-    args: AssociatePhoneNumberWithUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssociatePhoneNumberWithUserCommandOutput) => void
-  ): void;
-  public associatePhoneNumberWithUser(
-    args: AssociatePhoneNumberWithUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociatePhoneNumberWithUserCommandOutput) => void),
-    cb?: (err: any, data?: AssociatePhoneNumberWithUserCommandOutput) => void
-  ): Promise<AssociatePhoneNumberWithUserCommandOutput> | void {
-    const command = new AssociatePhoneNumberWithUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Associates phone numbers with the specified Amazon Chime Voice Connector.</p>
    */
   public associatePhoneNumbersWithVoiceConnector(
@@ -631,6 +596,41 @@ export class Chime extends ChimeClient {
     const command = new AssociatePhoneNumbersWithVoiceConnectorGroupCommand(
       args
     );
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates a phone number with the specified Amazon Chime user.</p>
+   */
+  public associatePhoneNumberWithUser(
+    args: AssociatePhoneNumberWithUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociatePhoneNumberWithUserCommandOutput>;
+  public associatePhoneNumberWithUser(
+    args: AssociatePhoneNumberWithUserCommandInput,
+    cb: (err: any, data?: AssociatePhoneNumberWithUserCommandOutput) => void
+  ): void;
+  public associatePhoneNumberWithUser(
+    args: AssociatePhoneNumberWithUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociatePhoneNumberWithUserCommandOutput) => void
+  ): void;
+  public associatePhoneNumberWithUser(
+    args: AssociatePhoneNumberWithUserCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AssociatePhoneNumberWithUserCommandOutput) => void),
+    cb?: (err: any, data?: AssociatePhoneNumberWithUserCommandOutput) => void
+  ): Promise<AssociatePhoneNumberWithUserCommandOutput> | void {
+    const command = new AssociatePhoneNumberWithUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3152,6 +3152,41 @@ export class Chime extends ChimeClient {
   }
 
   /**
+   * <p>Lists the Amazon Chime Voice Connectors for the administrator's AWS account.</p>
+   */
+  public listVoiceConnectors(
+    args: ListVoiceConnectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVoiceConnectorsCommandOutput>;
+  public listVoiceConnectors(
+    args: ListVoiceConnectorsCommandInput,
+    cb: (err: any, data?: ListVoiceConnectorsCommandOutput) => void
+  ): void;
+  public listVoiceConnectors(
+    args: ListVoiceConnectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVoiceConnectorsCommandOutput) => void
+  ): void;
+  public listVoiceConnectors(
+    args: ListVoiceConnectorsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListVoiceConnectorsCommandOutput) => void),
+    cb?: (err: any, data?: ListVoiceConnectorsCommandOutput) => void
+  ): Promise<ListVoiceConnectorsCommandOutput> | void {
+    const command = new ListVoiceConnectorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the SIP credentials for the specified Amazon Chime Voice Connector.</p>
    */
   public listVoiceConnectorTerminationCredentials(
@@ -3187,41 +3222,6 @@ export class Chime extends ChimeClient {
     ) => void
   ): Promise<ListVoiceConnectorTerminationCredentialsCommandOutput> | void {
     const command = new ListVoiceConnectorTerminationCredentialsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the Amazon Chime Voice Connectors for the administrator's AWS account.</p>
-   */
-  public listVoiceConnectors(
-    args: ListVoiceConnectorsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListVoiceConnectorsCommandOutput>;
-  public listVoiceConnectors(
-    args: ListVoiceConnectorsCommandInput,
-    cb: (err: any, data?: ListVoiceConnectorsCommandOutput) => void
-  ): void;
-  public listVoiceConnectors(
-    args: ListVoiceConnectorsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListVoiceConnectorsCommandOutput) => void
-  ): void;
-  public listVoiceConnectors(
-    args: ListVoiceConnectorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListVoiceConnectorsCommandOutput) => void),
-    cb?: (err: any, data?: ListVoiceConnectorsCommandOutput) => void
-  ): Promise<ListVoiceConnectorsCommandOutput> | void {
-    const command = new ListVoiceConnectorsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

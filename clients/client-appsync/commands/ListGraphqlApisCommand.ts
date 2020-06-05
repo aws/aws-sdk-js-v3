@@ -8,9 +8,9 @@ import {
   ListGraphqlApisResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListGraphqlApisCommand,
-  serializeAws_restJson1_1ListGraphqlApisCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListGraphqlApisCommand,
+  serializeAws_restJson1ListGraphqlApisCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ListGraphqlApisCommand extends $Command<
     input: ListGraphqlApisCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListGraphqlApisCommand(input, context);
+    return serializeAws_restJson1ListGraphqlApisCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListGraphqlApisCommandOutput> {
-    return deserializeAws_restJson1_1ListGraphqlApisCommand(output, context);
+    return deserializeAws_restJson1ListGraphqlApisCommand(output, context);
   }
 
   // Start section: command_body_extra

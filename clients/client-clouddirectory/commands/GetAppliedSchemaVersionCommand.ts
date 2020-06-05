@@ -8,9 +8,9 @@ import {
   GetAppliedSchemaVersionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetAppliedSchemaVersionCommand,
-  serializeAws_restJson1_1GetAppliedSchemaVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetAppliedSchemaVersionCommand,
+  serializeAws_restJson1GetAppliedSchemaVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetAppliedSchemaVersionCommand extends $Command<
     input: GetAppliedSchemaVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetAppliedSchemaVersionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1GetAppliedSchemaVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAppliedSchemaVersionCommandOutput> {
-    return deserializeAws_restJson1_1GetAppliedSchemaVersionCommand(
+    return deserializeAws_restJson1GetAppliedSchemaVersionCommand(
       output,
       context
     );

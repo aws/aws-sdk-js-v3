@@ -8,9 +8,9 @@ import {
   DeleteSubscriptionDefinitionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteSubscriptionDefinitionCommand,
-  serializeAws_restJson1_1DeleteSubscriptionDefinitionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteSubscriptionDefinitionCommand,
+  serializeAws_restJson1DeleteSubscriptionDefinitionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DeleteSubscriptionDefinitionCommand extends $Command<
     input: DeleteSubscriptionDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteSubscriptionDefinitionCommand(
+    return serializeAws_restJson1DeleteSubscriptionDefinitionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DeleteSubscriptionDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSubscriptionDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteSubscriptionDefinitionCommand(
+    return deserializeAws_restJson1DeleteSubscriptionDefinitionCommand(
       output,
       context
     );

@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { SetV2LoggingLevelRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1SetV2LoggingLevelCommand,
-  serializeAws_restJson1_1SetV2LoggingLevelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1SetV2LoggingLevelCommand,
+  serializeAws_restJson1SetV2LoggingLevelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class SetV2LoggingLevelCommand extends $Command<
     input: SetV2LoggingLevelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1SetV2LoggingLevelCommand(input, context);
+    return serializeAws_restJson1SetV2LoggingLevelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetV2LoggingLevelCommandOutput> {
-    return deserializeAws_restJson1_1SetV2LoggingLevelCommand(output, context);
+    return deserializeAws_restJson1SetV2LoggingLevelCommand(output, context);
   }
 
   // Start section: command_body_extra

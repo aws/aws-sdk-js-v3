@@ -8,9 +8,9 @@ import {
   CreateConnectorDefinitionVersionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateConnectorDefinitionVersionCommand,
-  serializeAws_restJson1_1CreateConnectorDefinitionVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateConnectorDefinitionVersionCommand,
+  serializeAws_restJson1CreateConnectorDefinitionVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CreateConnectorDefinitionVersionCommand extends $Command<
     input: CreateConnectorDefinitionVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateConnectorDefinitionVersionCommand(
+    return serializeAws_restJson1CreateConnectorDefinitionVersionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CreateConnectorDefinitionVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateConnectorDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1_1CreateConnectorDefinitionVersionCommand(
+    return deserializeAws_restJson1CreateConnectorDefinitionVersionCommand(
       output,
       context
     );

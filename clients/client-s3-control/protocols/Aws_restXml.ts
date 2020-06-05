@@ -846,7 +846,7 @@ const deserializeAws_restXmlCreateJobCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
-    case "com.amazonaws.awss3control.v20180820#BadRequestException":
+    case "com.amazonaws.s3control#BadRequestException":
       response = {
         ...(await deserializeAws_restXmlBadRequestExceptionResponse(
           parsedOutput,
@@ -857,7 +857,7 @@ const deserializeAws_restXmlCreateJobCommandError = async (
       };
       break;
     case "IdempotencyException":
-    case "com.amazonaws.awss3control.v20180820#IdempotencyException":
+    case "com.amazonaws.s3control#IdempotencyException":
       response = {
         ...(await deserializeAws_restXmlIdempotencyExceptionResponse(
           parsedOutput,
@@ -868,7 +868,7 @@ const deserializeAws_restXmlCreateJobCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.awss3control.v20180820#InternalServiceException":
+    case "com.amazonaws.s3control#InternalServiceException":
       response = {
         ...(await deserializeAws_restXmlInternalServiceExceptionResponse(
           parsedOutput,
@@ -879,7 +879,7 @@ const deserializeAws_restXmlCreateJobCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.awss3control.v20180820#TooManyRequestsException":
+    case "com.amazonaws.s3control#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restXmlTooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1077,7 +1077,7 @@ const deserializeAws_restXmlDescribeJobCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
-    case "com.amazonaws.awss3control.v20180820#BadRequestException":
+    case "com.amazonaws.s3control#BadRequestException":
       response = {
         ...(await deserializeAws_restXmlBadRequestExceptionResponse(
           parsedOutput,
@@ -1088,7 +1088,7 @@ const deserializeAws_restXmlDescribeJobCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.awss3control.v20180820#InternalServiceException":
+    case "com.amazonaws.s3control#InternalServiceException":
       response = {
         ...(await deserializeAws_restXmlInternalServiceExceptionResponse(
           parsedOutput,
@@ -1099,7 +1099,7 @@ const deserializeAws_restXmlDescribeJobCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.awss3control.v20180820#NotFoundException":
+    case "com.amazonaws.s3control#NotFoundException":
       response = {
         ...(await deserializeAws_restXmlNotFoundExceptionResponse(
           parsedOutput,
@@ -1110,7 +1110,7 @@ const deserializeAws_restXmlDescribeJobCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.awss3control.v20180820#TooManyRequestsException":
+    case "com.amazonaws.s3control#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restXmlTooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1356,7 +1356,7 @@ const deserializeAws_restXmlGetPublicAccessBlockCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchPublicAccessBlockConfiguration":
-    case "com.amazonaws.awss3control.v20180820#NoSuchPublicAccessBlockConfiguration":
+    case "com.amazonaws.s3control#NoSuchPublicAccessBlockConfiguration":
       response = {
         ...(await deserializeAws_restXmlNoSuchPublicAccessBlockConfigurationResponse(
           parsedOutput,
@@ -1488,7 +1488,7 @@ const deserializeAws_restXmlListJobsCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.awss3control.v20180820#InternalServiceException":
+    case "com.amazonaws.s3control#InternalServiceException":
       response = {
         ...(await deserializeAws_restXmlInternalServiceExceptionResponse(
           parsedOutput,
@@ -1499,7 +1499,7 @@ const deserializeAws_restXmlListJobsCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.awss3control.v20180820#InvalidNextTokenException":
+    case "com.amazonaws.s3control#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restXmlInvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1510,7 +1510,7 @@ const deserializeAws_restXmlListJobsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.awss3control.v20180820#InvalidRequestException":
+    case "com.amazonaws.s3control#InvalidRequestException":
       response = {
         ...(await deserializeAws_restXmlInvalidRequestExceptionResponse(
           parsedOutput,
@@ -1668,7 +1668,7 @@ const deserializeAws_restXmlUpdateJobPriorityCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
-    case "com.amazonaws.awss3control.v20180820#BadRequestException":
+    case "com.amazonaws.s3control#BadRequestException":
       response = {
         ...(await deserializeAws_restXmlBadRequestExceptionResponse(
           parsedOutput,
@@ -1679,7 +1679,7 @@ const deserializeAws_restXmlUpdateJobPriorityCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.awss3control.v20180820#InternalServiceException":
+    case "com.amazonaws.s3control#InternalServiceException":
       response = {
         ...(await deserializeAws_restXmlInternalServiceExceptionResponse(
           parsedOutput,
@@ -1690,7 +1690,7 @@ const deserializeAws_restXmlUpdateJobPriorityCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.awss3control.v20180820#NotFoundException":
+    case "com.amazonaws.s3control#NotFoundException":
       response = {
         ...(await deserializeAws_restXmlNotFoundExceptionResponse(
           parsedOutput,
@@ -1701,7 +1701,7 @@ const deserializeAws_restXmlUpdateJobPriorityCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.awss3control.v20180820#TooManyRequestsException":
+    case "com.amazonaws.s3control#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restXmlTooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1769,7 +1769,7 @@ const deserializeAws_restXmlUpdateJobStatusCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
-    case "com.amazonaws.awss3control.v20180820#BadRequestException":
+    case "com.amazonaws.s3control#BadRequestException":
       response = {
         ...(await deserializeAws_restXmlBadRequestExceptionResponse(
           parsedOutput,
@@ -1780,7 +1780,7 @@ const deserializeAws_restXmlUpdateJobStatusCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.awss3control.v20180820#InternalServiceException":
+    case "com.amazonaws.s3control#InternalServiceException":
       response = {
         ...(await deserializeAws_restXmlInternalServiceExceptionResponse(
           parsedOutput,
@@ -1791,7 +1791,7 @@ const deserializeAws_restXmlUpdateJobStatusCommandError = async (
       };
       break;
     case "JobStatusException":
-    case "com.amazonaws.awss3control.v20180820#JobStatusException":
+    case "com.amazonaws.s3control#JobStatusException":
       response = {
         ...(await deserializeAws_restXmlJobStatusExceptionResponse(
           parsedOutput,
@@ -1802,7 +1802,7 @@ const deserializeAws_restXmlUpdateJobStatusCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.awss3control.v20180820#NotFoundException":
+    case "com.amazonaws.s3control#NotFoundException":
       response = {
         ...(await deserializeAws_restXmlNotFoundExceptionResponse(
           parsedOutput,
@@ -1813,7 +1813,7 @@ const deserializeAws_restXmlUpdateJobStatusCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.awss3control.v20180820#TooManyRequestsException":
+    case "com.amazonaws.s3control#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restXmlTooManyRequestsExceptionResponse(
           parsedOutput,
@@ -2394,16 +2394,6 @@ const serializeAws_restXmlS3Grant = (
   return bodyNode;
 };
 
-const serializeAws_restXmlS3GrantList = (
-  input: S3Grant[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => {
-    const node = serializeAws_restXmlS3Grant(entry, context);
-    return node.withName("member");
-  });
-};
-
 const serializeAws_restXmlS3Grantee = (
   input: S3Grantee,
   context: __SerdeContext
@@ -2428,6 +2418,16 @@ const serializeAws_restXmlS3Grantee = (
     bodyNode.addChildNode(node);
   }
   return bodyNode;
+};
+
+const serializeAws_restXmlS3GrantList = (
+  input: S3Grant[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => {
+    const node = serializeAws_restXmlS3Grant(entry, context);
+    return node.withName("member");
+  });
 };
 
 const serializeAws_restXmlS3InitiateRestoreObjectOperation = (
@@ -3268,15 +3268,6 @@ const deserializeAws_restXmlS3Grant = (
   return contents;
 };
 
-const deserializeAws_restXmlS3GrantList = (
-  output: any,
-  context: __SerdeContext
-): S3Grant[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restXmlS3Grant(entry, context)
-  );
-};
-
 const deserializeAws_restXmlS3Grantee = (
   output: any,
   context: __SerdeContext
@@ -3297,6 +3288,15 @@ const deserializeAws_restXmlS3Grantee = (
     contents.TypeIdentifier = output["TypeIdentifier"];
   }
   return contents;
+};
+
+const deserializeAws_restXmlS3GrantList = (
+  output: any,
+  context: __SerdeContext
+): S3Grant[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlS3Grant(entry, context)
+  );
 };
 
 const deserializeAws_restXmlS3InitiateRestoreObjectOperation = (

@@ -5,9 +5,9 @@ import {
 } from "../IoTAnalyticsClient";
 import { ListDatastoresRequest, ListDatastoresResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListDatastoresCommand,
-  serializeAws_restJson1_1ListDatastoresCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListDatastoresCommand,
+  serializeAws_restJson1ListDatastoresCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class ListDatastoresCommand extends $Command<
     input: ListDatastoresCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListDatastoresCommand(input, context);
+    return serializeAws_restJson1ListDatastoresCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDatastoresCommandOutput> {
-    return deserializeAws_restJson1_1ListDatastoresCommand(output, context);
+    return deserializeAws_restJson1ListDatastoresCommand(output, context);
   }
 
   // Start section: command_body_extra

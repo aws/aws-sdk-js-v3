@@ -8,9 +8,9 @@ import {
   UpdateEmailTemplateResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateEmailTemplateCommand,
-  serializeAws_restJson1_1UpdateEmailTemplateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateEmailTemplateCommand,
+  serializeAws_restJson1UpdateEmailTemplateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class UpdateEmailTemplateCommand extends $Command<
     input: UpdateEmailTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateEmailTemplateCommand(input, context);
+    return serializeAws_restJson1UpdateEmailTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEmailTemplateCommandOutput> {
-    return deserializeAws_restJson1_1UpdateEmailTemplateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateEmailTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

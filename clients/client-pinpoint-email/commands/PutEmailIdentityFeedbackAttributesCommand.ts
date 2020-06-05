@@ -8,9 +8,9 @@ import {
   PutEmailIdentityFeedbackAttributesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutEmailIdentityFeedbackAttributesCommand,
-  serializeAws_restJson1_1PutEmailIdentityFeedbackAttributesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand,
+  serializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class PutEmailIdentityFeedbackAttributesCommand extends $Command<
     input: PutEmailIdentityFeedbackAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutEmailIdentityFeedbackAttributesCommand(
+    return serializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class PutEmailIdentityFeedbackAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutEmailIdentityFeedbackAttributesCommandOutput> {
-    return deserializeAws_restJson1_1PutEmailIdentityFeedbackAttributesCommand(
+    return deserializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand(
       output,
       context
     );

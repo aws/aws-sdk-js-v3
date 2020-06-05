@@ -749,6 +749,25 @@ export type ArchitectureType = "arm64" | "i386" | "x86_64";
 
 export type ArchitectureValues = "arm64" | "i386" | "x86_64";
 
+/**
+ * <p>Describes the private IP addresses assigned to a network interface.</p>
+ */
+export interface AssignedPrivateIpAddress {
+  __type?: "AssignedPrivateIpAddress";
+  /**
+   * <p>The private IP address assigned to the network interface.</p>
+   */
+  PrivateIpAddress?: string;
+}
+
+export namespace AssignedPrivateIpAddress {
+  export const filterSensitiveLog = (obj: AssignedPrivateIpAddress): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AssignedPrivateIpAddress =>
+    __isa(o, "AssignedPrivateIpAddress");
+}
+
 export interface AssignIpv6AddressesRequest {
   __type?: "AssignIpv6AddressesRequest";
   /**
@@ -856,25 +875,6 @@ export namespace AssignPrivateIpAddressesResult {
   });
   export const isa = (o: any): o is AssignPrivateIpAddressesResult =>
     __isa(o, "AssignPrivateIpAddressesResult");
-}
-
-/**
- * <p>Describes the private IP addresses assigned to a network interface.</p>
- */
-export interface AssignedPrivateIpAddress {
-  __type?: "AssignedPrivateIpAddress";
-  /**
-   * <p>The private IP address assigned to the network interface.</p>
-   */
-  PrivateIpAddress?: string;
-}
-
-export namespace AssignedPrivateIpAddress {
-  export const filterSensitiveLog = (obj: AssignedPrivateIpAddress): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AssignedPrivateIpAddress =>
-    __isa(o, "AssignedPrivateIpAddress");
 }
 
 export interface AssociateAddressRequest {
@@ -1027,6 +1027,32 @@ export namespace AssociateDhcpOptionsRequest {
   });
   export const isa = (o: any): o is AssociateDhcpOptionsRequest =>
     __isa(o, "AssociateDhcpOptionsRequest");
+}
+
+export type AssociatedNetworkType = "vpc";
+
+/**
+ * <p>Describes a target network that is associated with a Client VPN endpoint. A target network is a subnet in a VPC.</p>
+ */
+export interface AssociatedTargetNetwork {
+  __type?: "AssociatedTargetNetwork";
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  NetworkId?: string;
+
+  /**
+   * <p>The target network type.</p>
+   */
+  NetworkType?: AssociatedNetworkType | string;
+}
+
+export namespace AssociatedTargetNetwork {
+  export const filterSensitiveLog = (obj: AssociatedTargetNetwork): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AssociatedTargetNetwork =>
+    __isa(o, "AssociatedTargetNetwork");
 }
 
 export interface AssociateIamInstanceProfileRequest {
@@ -1351,32 +1377,6 @@ export namespace AssociateVpcCidrBlockResult {
     __isa(o, "AssociateVpcCidrBlockResult");
 }
 
-export type AssociatedNetworkType = "vpc";
-
-/**
- * <p>Describes a target network that is associated with a Client VPN endpoint. A target network is a subnet in a VPC.</p>
- */
-export interface AssociatedTargetNetwork {
-  __type?: "AssociatedTargetNetwork";
-  /**
-   * <p>The ID of the subnet.</p>
-   */
-  NetworkId?: string;
-
-  /**
-   * <p>The target network type.</p>
-   */
-  NetworkType?: AssociatedNetworkType | string;
-}
-
-export namespace AssociatedTargetNetwork {
-  export const filterSensitiveLog = (obj: AssociatedTargetNetwork): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AssociatedTargetNetwork =>
-    __isa(o, "AssociatedTargetNetwork");
-}
-
 /**
  * <p>Describes the state of a target network association.</p>
  */
@@ -1488,6 +1488,12 @@ export namespace AttachInternetGatewayRequest {
   export const isa = (o: any): o is AttachInternetGatewayRequest =>
     __isa(o, "AttachInternetGatewayRequest");
 }
+
+export type AttachmentStatus =
+  | "attached"
+  | "attaching"
+  | "detached"
+  | "detaching";
 
 /**
  * <p>Contains the parameters for AttachNetworkInterface.</p>
@@ -1631,12 +1637,6 @@ export namespace AttachVpnGatewayResult {
   export const isa = (o: any): o is AttachVpnGatewayResult =>
     __isa(o, "AttachVpnGatewayResult");
 }
-
-export type AttachmentStatus =
-  | "attached"
-  | "attaching"
-  | "detached"
-  | "detaching";
 
 /**
  * <p>Describes a value for a resource attribute that is a Boolean value.</p>
@@ -2502,6 +2502,32 @@ export namespace CancelImportTaskResult {
 }
 
 /**
+ * <p>Describes a request to cancel a Spot Instance.</p>
+ */
+export interface CancelledSpotInstanceRequest {
+  __type?: "CancelledSpotInstanceRequest";
+  /**
+   * <p>The ID of the Spot Instance request.</p>
+   */
+  SpotInstanceRequestId?: string;
+
+  /**
+   * <p>The state of the Spot Instance request.</p>
+   */
+  State?: CancelSpotInstanceRequestState | string;
+}
+
+export namespace CancelledSpotInstanceRequest {
+  export const filterSensitiveLog = (
+    obj: CancelledSpotInstanceRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CancelledSpotInstanceRequest =>
+    __isa(o, "CancelledSpotInstanceRequest");
+}
+
+/**
  * <p>Contains the parameters for CancelReservedInstancesListing.</p>
  */
 export interface CancelReservedInstancesListingRequest {
@@ -2685,13 +2711,6 @@ export namespace CancelSpotFleetRequestsSuccessItem {
     __isa(o, "CancelSpotFleetRequestsSuccessItem");
 }
 
-export type CancelSpotInstanceRequestState =
-  | "active"
-  | "cancelled"
-  | "closed"
-  | "completed"
-  | "open";
-
 /**
  * <p>Contains the parameters for CancelSpotInstanceRequests.</p>
  */
@@ -2741,31 +2760,12 @@ export namespace CancelSpotInstanceRequestsResult {
     __isa(o, "CancelSpotInstanceRequestsResult");
 }
 
-/**
- * <p>Describes a request to cancel a Spot Instance.</p>
- */
-export interface CancelledSpotInstanceRequest {
-  __type?: "CancelledSpotInstanceRequest";
-  /**
-   * <p>The ID of the Spot Instance request.</p>
-   */
-  SpotInstanceRequestId?: string;
-
-  /**
-   * <p>The state of the Spot Instance request.</p>
-   */
-  State?: CancelSpotInstanceRequestState | string;
-}
-
-export namespace CancelledSpotInstanceRequest {
-  export const filterSensitiveLog = (
-    obj: CancelledSpotInstanceRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CancelledSpotInstanceRequest =>
-    __isa(o, "CancelledSpotInstanceRequest");
-}
+export type CancelSpotInstanceRequestState =
+  | "active"
+  | "cancelled"
+  | "closed"
+  | "completed"
+  | "open";
 
 /**
  * <p>Describes a Capacity Reservation.</p>
@@ -8518,35 +8518,6 @@ export namespace DeleteFleetErrorItem {
     __isa(o, "DeleteFleetErrorItem");
 }
 
-/**
- * <p>Describes an EC2 Fleet that was successfully deleted.</p>
- */
-export interface DeleteFleetSuccessItem {
-  __type?: "DeleteFleetSuccessItem";
-  /**
-   * <p>The current state of the EC2 Fleet.</p>
-   */
-  CurrentFleetState?: FleetStateCode | string;
-
-  /**
-   * <p>The ID of the EC2 Fleet.</p>
-   */
-  FleetId?: string;
-
-  /**
-   * <p>The previous state of the EC2 Fleet.</p>
-   */
-  PreviousFleetState?: FleetStateCode | string;
-}
-
-export namespace DeleteFleetSuccessItem {
-  export const filterSensitiveLog = (obj: DeleteFleetSuccessItem): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteFleetSuccessItem =>
-    __isa(o, "DeleteFleetSuccessItem");
-}
-
 export interface DeleteFleetsRequest {
   __type?: "DeleteFleetsRequest";
   /**
@@ -8595,6 +8566,35 @@ export namespace DeleteFleetsResult {
   });
   export const isa = (o: any): o is DeleteFleetsResult =>
     __isa(o, "DeleteFleetsResult");
+}
+
+/**
+ * <p>Describes an EC2 Fleet that was successfully deleted.</p>
+ */
+export interface DeleteFleetSuccessItem {
+  __type?: "DeleteFleetSuccessItem";
+  /**
+   * <p>The current state of the EC2 Fleet.</p>
+   */
+  CurrentFleetState?: FleetStateCode | string;
+
+  /**
+   * <p>The ID of the EC2 Fleet.</p>
+   */
+  FleetId?: string;
+
+  /**
+   * <p>The previous state of the EC2 Fleet.</p>
+   */
+  PreviousFleetState?: FleetStateCode | string;
+}
+
+export namespace DeleteFleetSuccessItem {
+  export const filterSensitiveLog = (obj: DeleteFleetSuccessItem): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteFleetSuccessItem =>
+    __isa(o, "DeleteFleetSuccessItem");
 }
 
 export interface DeleteFlowLogsRequest {
@@ -11913,6 +11913,88 @@ export namespace DescribeExportTasksResult {
     __isa(o, "DescribeExportTasksResult");
 }
 
+export interface DescribeFastSnapshotRestoresRequest {
+  __type?: "DescribeFastSnapshotRestoresRequest";
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code>: The Availability Zone of the snapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code>: The ID of the AWS account that owns the snapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>snapshot-id</code>: The ID of the snapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code>: The state of fast snapshot restores for the snapshot
+   *          (<code>enabling</code> |
+   *           <code>optimizing</code> |
+   *           <code>enabled</code> |
+   *           <code>disabling</code> |
+   *           <code>disabled</code>).</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeFastSnapshotRestoresRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeFastSnapshotRestoresRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeFastSnapshotRestoresRequest =>
+    __isa(o, "DescribeFastSnapshotRestoresRequest");
+}
+
+export interface DescribeFastSnapshotRestoresResult {
+  __type?: "DescribeFastSnapshotRestoresResult";
+  /**
+   * <p>Information about the state of fast snapshot restores.</p>
+   */
+  FastSnapshotRestores?: DescribeFastSnapshotRestoreSuccessItem[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeFastSnapshotRestoresResult {
+  export const filterSensitiveLog = (
+    obj: DescribeFastSnapshotRestoresResult
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeFastSnapshotRestoresResult =>
+    __isa(o, "DescribeFastSnapshotRestoresResult");
+}
+
 /**
  * <p>Describes fast snapshot restores for a snapshot.</p>
  */
@@ -11994,88 +12076,6 @@ export namespace DescribeFastSnapshotRestoreSuccessItem {
   });
   export const isa = (o: any): o is DescribeFastSnapshotRestoreSuccessItem =>
     __isa(o, "DescribeFastSnapshotRestoreSuccessItem");
-}
-
-export interface DescribeFastSnapshotRestoresRequest {
-  __type?: "DescribeFastSnapshotRestoresRequest";
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code>: The Availability Zone of the snapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code>: The ID of the AWS account that owns the snapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>snapshot-id</code>: The ID of the snapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code>: The state of fast snapshot restores for the snapshot
-   *          (<code>enabling</code> |
-   *           <code>optimizing</code> |
-   *           <code>enabled</code> |
-   *           <code>disabling</code> |
-   *           <code>disabled</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeFastSnapshotRestoresRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeFastSnapshotRestoresRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeFastSnapshotRestoresRequest =>
-    __isa(o, "DescribeFastSnapshotRestoresRequest");
-}
-
-export interface DescribeFastSnapshotRestoresResult {
-  __type?: "DescribeFastSnapshotRestoresResult";
-  /**
-   * <p>Information about the state of fast snapshot restores.</p>
-   */
-  FastSnapshotRestores?: DescribeFastSnapshotRestoreSuccessItem[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeFastSnapshotRestoresResult {
-  export const filterSensitiveLog = (
-    obj: DescribeFastSnapshotRestoresResult
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeFastSnapshotRestoresResult =>
-    __isa(o, "DescribeFastSnapshotRestoresResult");
 }
 
 /**
@@ -12996,51 +12996,6 @@ export namespace DescribeIamInstanceProfileAssociationsResult {
     __isa(o, "DescribeIamInstanceProfileAssociationsResult");
 }
 
-export interface DescribeIdFormatRequest {
-  __type?: "DescribeIdFormatRequest";
-  /**
-   * <p>The type of resource: <code>bundle</code> |
-   *            <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
-   *            <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
-   *            <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
-   *            <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> |
-   *            <code>network-acl</code> | <code>network-acl-association</code> |
-   *            <code>network-interface</code> | <code>network-interface-attachment</code> |
-   *            <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> |
-   *            <code>route-table-association</code> | <code>security-group</code> |
-   *            <code>snapshot</code> | <code>subnet</code> |
-   *            <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code>
-   *            | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> |
-   *            <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>
-   *          </p>
-   */
-  Resource?: string;
-}
-
-export namespace DescribeIdFormatRequest {
-  export const filterSensitiveLog = (obj: DescribeIdFormatRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeIdFormatRequest =>
-    __isa(o, "DescribeIdFormatRequest");
-}
-
-export interface DescribeIdFormatResult {
-  __type?: "DescribeIdFormatResult";
-  /**
-   * <p>Information about the ID format for the resource.</p>
-   */
-  Statuses?: IdFormat[];
-}
-
-export namespace DescribeIdFormatResult {
-  export const filterSensitiveLog = (obj: DescribeIdFormatResult): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeIdFormatResult =>
-    __isa(o, "DescribeIdFormatResult");
-}
-
 export interface DescribeIdentityIdFormatRequest {
   __type?: "DescribeIdentityIdFormatRequest";
   /**
@@ -13093,6 +13048,51 @@ export namespace DescribeIdentityIdFormatResult {
   });
   export const isa = (o: any): o is DescribeIdentityIdFormatResult =>
     __isa(o, "DescribeIdentityIdFormatResult");
+}
+
+export interface DescribeIdFormatRequest {
+  __type?: "DescribeIdFormatRequest";
+  /**
+   * <p>The type of resource: <code>bundle</code> |
+   *            <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
+   *            <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
+   *            <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
+   *            <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> |
+   *            <code>network-acl</code> | <code>network-acl-association</code> |
+   *            <code>network-interface</code> | <code>network-interface-attachment</code> |
+   *            <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> |
+   *            <code>route-table-association</code> | <code>security-group</code> |
+   *            <code>snapshot</code> | <code>subnet</code> |
+   *            <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code>
+   *            | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> |
+   *            <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>
+   *          </p>
+   */
+  Resource?: string;
+}
+
+export namespace DescribeIdFormatRequest {
+  export const filterSensitiveLog = (obj: DescribeIdFormatRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeIdFormatRequest =>
+    __isa(o, "DescribeIdFormatRequest");
+}
+
+export interface DescribeIdFormatResult {
+  __type?: "DescribeIdFormatResult";
+  /**
+   * <p>Information about the ID format for the resource.</p>
+   */
+  Statuses?: IdFormat[];
+}
+
+export namespace DescribeIdFormatResult {
+  export const filterSensitiveLog = (obj: DescribeIdFormatResult): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeIdFormatResult =>
+    __isa(o, "DescribeIdFormatResult");
 }
 
 /**
@@ -13579,417 +13579,6 @@ export namespace DescribeInstanceCreditSpecificationsResult {
     o: any
   ): o is DescribeInstanceCreditSpecificationsResult =>
     __isa(o, "DescribeInstanceCreditSpecificationsResult");
-}
-
-export interface DescribeInstanceStatusRequest {
-  __type?: "DescribeInstanceStatusRequest";
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>availability-zone</code> - The Availability Zone of the instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>event.code</code> - The code for the scheduled event
-   *                         (<code>instance-reboot</code> | <code>system-reboot</code> |
-   *                         <code>system-maintenance</code> | <code>instance-retirement</code> |
-   *                         <code>instance-stop</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>event.description</code> - A description of the event.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>event.instance-event-id</code> - The ID of the event whose date and time
-   *                     you are modifying.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>event.not-after</code> - The latest end time for the scheduled event
-   *                     (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>event.not-before</code> - The earliest start time for the scheduled
-   *                     event (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>event.not-before-deadline</code> - The deadline for starting the event
-   *                     (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-state-code</code> - The code for the instance state, as a
-   *                     16-bit unsigned integer. The high byte is used for internal purposes and should
-   *                     be ignored. The low byte is set based on the state represented. The valid values
-   *                     are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64
-   *                     (stopping), and 80 (stopped).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-state-name</code> - The state of the instance
-   *                         (<code>pending</code> | <code>running</code> | <code>shutting-down</code> |
-   *                         <code>terminated</code> | <code>stopping</code> |
-   *                     <code>stopped</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-status.reachability</code> - Filters on instance status where
-   *                     the name is <code>reachability</code> (<code>passed</code> | <code>failed</code>
-   *                     | <code>initializing</code> | <code>insufficient-data</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-status.status</code> - The status of the instance
-   *                         (<code>ok</code> | <code>impaired</code> | <code>initializing</code> |
-   *                         <code>insufficient-data</code> | <code>not-applicable</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>system-status.reachability</code> - Filters on system status where the
-   *                     name is <code>reachability</code> (<code>passed</code> | <code>failed</code> |
-   *                         <code>initializing</code> | <code>insufficient-data</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>system-status.status</code> - The system status of the instance
-   *                         (<code>ok</code> | <code>impaired</code> | <code>initializing</code> |
-   *                         <code>insufficient-data</code> | <code>not-applicable</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>When <code>true</code>, includes the health status for all instances. When
-   *                 <code>false</code>, includes the health status for running instances only.</p>
-   *         <p>Default: <code>false</code>
-   *         </p>
-   */
-  IncludeAllInstances?: boolean;
-
-  /**
-   * <p>The instance IDs.</p>
-   *         <p>Default: Describes all your instances.</p>
-   *         <p>Constraints: Maximum 100 explicitly specified instance IDs.</p>
-   */
-  InstanceIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 5 and 1000. You cannot specify this parameter and the instance IDs
-   *             parameter in the same call.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstanceStatusRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeInstanceStatusRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeInstanceStatusRequest =>
-    __isa(o, "DescribeInstanceStatusRequest");
-}
-
-export interface DescribeInstanceStatusResult {
-  __type?: "DescribeInstanceStatusResult";
-  /**
-   * <p>Information about the status of the instances.</p>
-   */
-  InstanceStatuses?: InstanceStatus[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *             when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstanceStatusResult {
-  export const filterSensitiveLog = (
-    obj: DescribeInstanceStatusResult
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeInstanceStatusResult =>
-    __isa(o, "DescribeInstanceStatusResult");
-}
-
-export interface DescribeInstanceTypeOfferingsRequest {
-  __type?: "DescribeInstanceTypeOfferingsRequest";
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *          and provides an error response. If you have the required permissions, the error response is
-   *          <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>location</code> - This depends on the location type. For example, if the location type is
-   *       <code>region</code> (default), the location is the Region code (for example, <code>us-east-2</code>.)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The location type.</p>
-   */
-  LocationType?: LocationType | string;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results
-   *          can be seen by sending another request with the next token value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstanceTypeOfferingsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeInstanceTypeOfferingsRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeInstanceTypeOfferingsRequest =>
-    __isa(o, "DescribeInstanceTypeOfferingsRequest");
-}
-
-export interface DescribeInstanceTypeOfferingsResult {
-  __type?: "DescribeInstanceTypeOfferingsResult";
-  /**
-   * <p>The instance types offered.</p>
-   */
-  InstanceTypeOfferings?: InstanceTypeOffering[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there
-   *          are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstanceTypeOfferingsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeInstanceTypeOfferingsResult
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeInstanceTypeOfferingsResult =>
-    __isa(o, "DescribeInstanceTypeOfferingsResult");
-}
-
-export interface DescribeInstanceTypesRequest {
-  __type?: "DescribeInstanceTypesRequest";
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *          and provides an error response. If you have the required permissions, the error response is
-   *          <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>auto-recovery-supported</code> - Indicates whether auto recovery is supported. (<code>true</code> | <code>false</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>bare-metal</code> - Indicates whether it is a bare metal instance type. (<code>true</code> | <code>false</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>burstable-performance-supported</code> - Indicates whether it is a burstable performance instance
-   *      type. (<code>true</code> | <code>false</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>current-generation</code> - Indicates whether this instance type is the latest generation instance type
-   *      of an instance family. (<code>true</code> | <code>false</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ebs-info.ebs-optimized-support</code> - Indicates whether the instance type is
-   *      EBS-optimized. (<code>true</code> | <code>false</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ebs-info.encryption-support</code> - Indicates whether EBS encryption is supported. (<code>true</code> | <code>false</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>free-tier-eligible</code> - Indicates whether the instance type is eligible to use in the free
-   *      tier. (<code>true</code> | <code>false</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported. (<code>true</code> | <code>false</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>hypervisor</code> - The hypervisor used. (<code>nitro</code> | <code>xen</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-storage-info.disk.count</code> - The number of local disks.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-storage-info.disk.size-in-gb</code> - The storage size of each instance storage disk, in
-   *      GB.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-storage-info.disk.type</code> - The storage technology for the local instance storage disks.
-   *       (<code>hdd</code> | <code>ssd</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-storage-info.total-size-in-gb</code> - The total amount of storage available from all local
-   *      instance storage, in GB.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-storage-supported</code> - Indicates whether the instance type has local instance
-   *      storage. (<code>true</code> | <code>false</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>memory-info.size-in-mib</code> - The memory size.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter (ENA) is supported or
-   *      required. (<code>required</code> | <code>supported</code> | <code>unsupported</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private IPv4 addresses per
-   *      network interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.ipv6-addresses-per-interface</code> - The maximum number of private IPv6 addresses per
-   *      network interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.ipv6-supported</code> - Indicates whether the instance type supports IPv6. (<code>true</code> | <code>false</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.maximum-network-interfaces</code> - The maximum number of network interfaces per
-   *      instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.network-performance</code> - Describes the network performance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in GHz.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vcpu-info.default-cores</code> - The default number of cores for the instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vcpu-info.default-threads-per-core</code> - The default number of threads per core for the instance
-   *      type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vcpu-info.default-vcpus</code> - The default number of vCPUs for the instance type.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The instance types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute
-   *     Cloud User Guide</i>.</p>
-   */
-  InstanceTypes?: (_InstanceType | string)[];
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results
-   *          can be seen by sending another request with the next token value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstanceTypesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeInstanceTypesRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeInstanceTypesRequest =>
-    __isa(o, "DescribeInstanceTypesRequest");
-}
-
-export interface DescribeInstanceTypesResult {
-  __type?: "DescribeInstanceTypesResult";
-  /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute
-   *     Cloud User Guide</i>.</p>
-   */
-  InstanceTypes?: InstanceTypeInfo[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there
-   *          are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstanceTypesResult {
-  export const filterSensitiveLog = (
-    obj: DescribeInstanceTypesResult
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeInstanceTypesResult =>
-    __isa(o, "DescribeInstanceTypesResult");
 }
 
 export interface DescribeInstancesRequest {
@@ -14506,6 +14095,417 @@ export namespace DescribeInstancesResult {
     __isa(o, "DescribeInstancesResult");
 }
 
+export interface DescribeInstanceStatusRequest {
+  __type?: "DescribeInstanceStatusRequest";
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The filters.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>availability-zone</code> - The Availability Zone of the instance.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>event.code</code> - The code for the scheduled event
+   *                         (<code>instance-reboot</code> | <code>system-reboot</code> |
+   *                         <code>system-maintenance</code> | <code>instance-retirement</code> |
+   *                         <code>instance-stop</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>event.description</code> - A description of the event.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>event.instance-event-id</code> - The ID of the event whose date and time
+   *                     you are modifying.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>event.not-after</code> - The latest end time for the scheduled event
+   *                     (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>event.not-before</code> - The earliest start time for the scheduled
+   *                     event (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>event.not-before-deadline</code> - The deadline for starting the event
+   *                     (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>instance-state-code</code> - The code for the instance state, as a
+   *                     16-bit unsigned integer. The high byte is used for internal purposes and should
+   *                     be ignored. The low byte is set based on the state represented. The valid values
+   *                     are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64
+   *                     (stopping), and 80 (stopped).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>instance-state-name</code> - The state of the instance
+   *                         (<code>pending</code> | <code>running</code> | <code>shutting-down</code> |
+   *                         <code>terminated</code> | <code>stopping</code> |
+   *                     <code>stopped</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>instance-status.reachability</code> - Filters on instance status where
+   *                     the name is <code>reachability</code> (<code>passed</code> | <code>failed</code>
+   *                     | <code>initializing</code> | <code>insufficient-data</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>instance-status.status</code> - The status of the instance
+   *                         (<code>ok</code> | <code>impaired</code> | <code>initializing</code> |
+   *                         <code>insufficient-data</code> | <code>not-applicable</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>system-status.reachability</code> - Filters on system status where the
+   *                     name is <code>reachability</code> (<code>passed</code> | <code>failed</code> |
+   *                         <code>initializing</code> | <code>insufficient-data</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>system-status.status</code> - The system status of the instance
+   *                         (<code>ok</code> | <code>impaired</code> | <code>initializing</code> |
+   *                         <code>insufficient-data</code> | <code>not-applicable</code>).</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>When <code>true</code>, includes the health status for all instances. When
+   *                 <code>false</code>, includes the health status for running instances only.</p>
+   *         <p>Default: <code>false</code>
+   *         </p>
+   */
+  IncludeAllInstances?: boolean;
+
+  /**
+   * <p>The instance IDs.</p>
+   *         <p>Default: Describes all your instances.</p>
+   *         <p>Constraints: Maximum 100 explicitly specified instance IDs.</p>
+   */
+  InstanceIds?: string[];
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *             results, make another call with the returned <code>NextToken</code> value. This value
+   *             can be between 5 and 1000. You cannot specify this parameter and the instance IDs
+   *             parameter in the same call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeInstanceStatusRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeInstanceStatusRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeInstanceStatusRequest =>
+    __isa(o, "DescribeInstanceStatusRequest");
+}
+
+export interface DescribeInstanceStatusResult {
+  __type?: "DescribeInstanceStatusResult";
+  /**
+   * <p>Information about the status of the instances.</p>
+   */
+  InstanceStatuses?: InstanceStatus[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
+   *             when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeInstanceStatusResult {
+  export const filterSensitiveLog = (
+    obj: DescribeInstanceStatusResult
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeInstanceStatusResult =>
+    __isa(o, "DescribeInstanceStatusResult");
+}
+
+export interface DescribeInstanceTypeOfferingsRequest {
+  __type?: "DescribeInstanceTypeOfferingsRequest";
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *          and provides an error response. If you have the required permissions, the error response is
+   *          <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>location</code> - This depends on the location type. For example, if the location type is
+   *       <code>region</code> (default), the location is the Region code (for example, <code>us-east-2</code>.)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The location type.</p>
+   */
+  LocationType?: LocationType | string;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results
+   *          can be seen by sending another request with the next token value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeInstanceTypeOfferingsRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeInstanceTypeOfferingsRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeInstanceTypeOfferingsRequest =>
+    __isa(o, "DescribeInstanceTypeOfferingsRequest");
+}
+
+export interface DescribeInstanceTypeOfferingsResult {
+  __type?: "DescribeInstanceTypeOfferingsResult";
+  /**
+   * <p>The instance types offered.</p>
+   */
+  InstanceTypeOfferings?: InstanceTypeOffering[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there
+   *          are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeInstanceTypeOfferingsResult {
+  export const filterSensitiveLog = (
+    obj: DescribeInstanceTypeOfferingsResult
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeInstanceTypeOfferingsResult =>
+    __isa(o, "DescribeInstanceTypeOfferingsResult");
+}
+
+export interface DescribeInstanceTypesRequest {
+  __type?: "DescribeInstanceTypesRequest";
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *          and provides an error response. If you have the required permissions, the error response is
+   *          <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>auto-recovery-supported</code> - Indicates whether auto recovery is supported. (<code>true</code> | <code>false</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bare-metal</code> - Indicates whether it is a bare metal instance type. (<code>true</code> | <code>false</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>burstable-performance-supported</code> - Indicates whether it is a burstable performance instance
+   *      type. (<code>true</code> | <code>false</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>current-generation</code> - Indicates whether this instance type is the latest generation instance type
+   *      of an instance family. (<code>true</code> | <code>false</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-support</code> - Indicates whether the instance type is
+   *      EBS-optimized. (<code>true</code> | <code>false</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.encryption-support</code> - Indicates whether EBS encryption is supported. (<code>true</code> | <code>false</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>free-tier-eligible</code> - Indicates whether the instance type is eligible to use in the free
+   *      tier. (<code>true</code> | <code>false</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported. (<code>true</code> | <code>false</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hypervisor</code> - The hypervisor used. (<code>nitro</code> | <code>xen</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.disk.count</code> - The number of local disks.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.disk.size-in-gb</code> - The storage size of each instance storage disk, in
+   *      GB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.disk.type</code> - The storage technology for the local instance storage disks.
+   *       (<code>hdd</code> | <code>ssd</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.total-size-in-gb</code> - The total amount of storage available from all local
+   *      instance storage, in GB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-supported</code> - Indicates whether the instance type has local instance
+   *      storage. (<code>true</code> | <code>false</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>memory-info.size-in-mib</code> - The memory size.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter (ENA) is supported or
+   *      required. (<code>required</code> | <code>supported</code> | <code>unsupported</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private IPv4 addresses per
+   *      network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.ipv6-addresses-per-interface</code> - The maximum number of private IPv6 addresses per
+   *      network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.ipv6-supported</code> - Indicates whether the instance type supports IPv6. (<code>true</code> | <code>false</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.maximum-network-interfaces</code> - The maximum number of network interfaces per
+   *      instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.network-performance</code> - Describes the network performance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in GHz.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.default-cores</code> - The default number of cores for the instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.default-threads-per-core</code> - The default number of threads per core for the instance
+   *      type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.default-vcpus</code> - The default number of vCPUs for the instance type.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The instance types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute
+   *     Cloud User Guide</i>.</p>
+   */
+  InstanceTypes?: (_InstanceType | string)[];
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results
+   *          can be seen by sending another request with the next token value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeInstanceTypesRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeInstanceTypesRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeInstanceTypesRequest =>
+    __isa(o, "DescribeInstanceTypesRequest");
+}
+
+export interface DescribeInstanceTypesResult {
+  __type?: "DescribeInstanceTypesResult";
+  /**
+   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute
+   *     Cloud User Guide</i>.</p>
+   */
+  InstanceTypes?: InstanceTypeInfo[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there
+   *          are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeInstanceTypesResult {
+  export const filterSensitiveLog = (
+    obj: DescribeInstanceTypesResult
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeInstanceTypesResult =>
+    __isa(o, "DescribeInstanceTypesResult");
+}
+
 export interface DescribeInternetGatewaysRequest {
   __type?: "DescribeInternetGatewaysRequest";
   /**
@@ -14730,6 +14730,97 @@ export namespace DescribeKeyPairsResult {
     __isa(o, "DescribeKeyPairsResult");
 }
 
+export interface DescribeLaunchTemplatesRequest {
+  __type?: "DescribeLaunchTemplatesRequest";
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more filters.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>create-time</code> - The time the launch template was created.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>launch-template-name</code> - The name of the launch template.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>One or more launch template IDs.</p>
+   */
+  LaunchTemplateIds?: string[];
+
+  /**
+   * <p>One or more launch template names.</p>
+   */
+  LaunchTemplateNames?: string[];
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *             results, make another call with the returned <code>NextToken</code> value. This value
+   *             can be between 1 and 200.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeLaunchTemplatesRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeLaunchTemplatesRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeLaunchTemplatesRequest =>
+    __isa(o, "DescribeLaunchTemplatesRequest");
+}
+
+export interface DescribeLaunchTemplatesResult {
+  __type?: "DescribeLaunchTemplatesResult";
+  /**
+   * <p>Information about the launch templates.</p>
+   */
+  LaunchTemplates?: LaunchTemplate[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is
+   *                 <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeLaunchTemplatesResult {
+  export const filterSensitiveLog = (
+    obj: DescribeLaunchTemplatesResult
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeLaunchTemplatesResult =>
+    __isa(o, "DescribeLaunchTemplatesResult");
+}
+
 export interface DescribeLaunchTemplateVersionsRequest {
   __type?: "DescribeLaunchTemplateVersionsRequest";
   /**
@@ -14856,95 +14947,68 @@ export namespace DescribeLaunchTemplateVersionsResult {
     __isa(o, "DescribeLaunchTemplateVersionsResult");
 }
 
-export interface DescribeLaunchTemplatesRequest {
-  __type?: "DescribeLaunchTemplatesRequest";
+export interface DescribeLocalGatewayRouteTablesRequest {
+  __type?: "DescribeLocalGatewayRouteTablesRequest";
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
   /**
    * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>create-time</code> - The time the launch template was created.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>launch-template-name</code> - The name of the launch template.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
    */
   Filters?: Filter[];
 
   /**
-   * <p>One or more launch template IDs.</p>
+   * <p>The IDs of the local gateway route tables.</p>
    */
-  LaunchTemplateIds?: string[];
+  LocalGatewayRouteTableIds?: string[];
 
   /**
-   * <p>One or more launch template names.</p>
-   */
-  LaunchTemplateNames?: string[];
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 1 and 200.</p>
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
 }
 
-export namespace DescribeLaunchTemplatesRequest {
+export namespace DescribeLocalGatewayRouteTablesRequest {
   export const filterSensitiveLog = (
-    obj: DescribeLaunchTemplatesRequest
+    obj: DescribeLocalGatewayRouteTablesRequest
   ): any => ({
     ...obj
   });
-  export const isa = (o: any): o is DescribeLaunchTemplatesRequest =>
-    __isa(o, "DescribeLaunchTemplatesRequest");
+  export const isa = (o: any): o is DescribeLocalGatewayRouteTablesRequest =>
+    __isa(o, "DescribeLocalGatewayRouteTablesRequest");
 }
 
-export interface DescribeLaunchTemplatesResult {
-  __type?: "DescribeLaunchTemplatesResult";
+export interface DescribeLocalGatewayRouteTablesResult {
+  __type?: "DescribeLocalGatewayRouteTablesResult";
   /**
-   * <p>Information about the launch templates.</p>
+   * <p>Information about the local gateway route tables.</p>
    */
-  LaunchTemplates?: LaunchTemplate[];
+  LocalGatewayRouteTables?: LocalGatewayRouteTable[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is
-   *                 <code>null</code> when there are no more results to return.</p>
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
 }
 
-export namespace DescribeLaunchTemplatesResult {
+export namespace DescribeLocalGatewayRouteTablesResult {
   export const filterSensitiveLog = (
-    obj: DescribeLaunchTemplatesResult
+    obj: DescribeLocalGatewayRouteTablesResult
   ): any => ({
     ...obj
   });
-  export const isa = (o: any): o is DescribeLaunchTemplatesResult =>
-    __isa(o, "DescribeLaunchTemplatesResult");
+  export const isa = (o: any): o is DescribeLocalGatewayRouteTablesResult =>
+    __isa(o, "DescribeLocalGatewayRouteTablesResult");
 }
 
 export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest {
@@ -15089,8 +15153,8 @@ export namespace DescribeLocalGatewayRouteTableVpcAssociationsResult {
     __isa(o, "DescribeLocalGatewayRouteTableVpcAssociationsResult");
 }
 
-export interface DescribeLocalGatewayRouteTablesRequest {
-  __type?: "DescribeLocalGatewayRouteTablesRequest";
+export interface DescribeLocalGatewaysRequest {
+  __type?: "DescribeLocalGatewaysRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -15104,9 +15168,9 @@ export interface DescribeLocalGatewayRouteTablesRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The IDs of the local gateway route tables.</p>
+   * <p>The IDs of the local gateways.</p>
    */
-  LocalGatewayRouteTableIds?: string[];
+  LocalGatewayIds?: string[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -15120,22 +15184,22 @@ export interface DescribeLocalGatewayRouteTablesRequest {
   NextToken?: string;
 }
 
-export namespace DescribeLocalGatewayRouteTablesRequest {
+export namespace DescribeLocalGatewaysRequest {
   export const filterSensitiveLog = (
-    obj: DescribeLocalGatewayRouteTablesRequest
+    obj: DescribeLocalGatewaysRequest
   ): any => ({
     ...obj
   });
-  export const isa = (o: any): o is DescribeLocalGatewayRouteTablesRequest =>
-    __isa(o, "DescribeLocalGatewayRouteTablesRequest");
+  export const isa = (o: any): o is DescribeLocalGatewaysRequest =>
+    __isa(o, "DescribeLocalGatewaysRequest");
 }
 
-export interface DescribeLocalGatewayRouteTablesResult {
-  __type?: "DescribeLocalGatewayRouteTablesResult";
+export interface DescribeLocalGatewaysResult {
+  __type?: "DescribeLocalGatewaysResult";
   /**
-   * <p>Information about the local gateway route tables.</p>
+   * <p>Information about the local gateways.</p>
    */
-  LocalGatewayRouteTables?: LocalGatewayRouteTable[];
+  LocalGateways?: LocalGateway[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -15143,14 +15207,14 @@ export interface DescribeLocalGatewayRouteTablesResult {
   NextToken?: string;
 }
 
-export namespace DescribeLocalGatewayRouteTablesResult {
+export namespace DescribeLocalGatewaysResult {
   export const filterSensitiveLog = (
-    obj: DescribeLocalGatewayRouteTablesResult
+    obj: DescribeLocalGatewaysResult
   ): any => ({
     ...obj
   });
-  export const isa = (o: any): o is DescribeLocalGatewayRouteTablesResult =>
-    __isa(o, "DescribeLocalGatewayRouteTablesResult");
+  export const isa = (o: any): o is DescribeLocalGatewaysResult =>
+    __isa(o, "DescribeLocalGatewaysResult");
 }
 
 export interface DescribeLocalGatewayVirtualInterfaceGroupsRequest {
@@ -15287,70 +15351,6 @@ export namespace DescribeLocalGatewayVirtualInterfacesResult {
     o: any
   ): o is DescribeLocalGatewayVirtualInterfacesResult =>
     __isa(o, "DescribeLocalGatewayVirtualInterfacesResult");
-}
-
-export interface DescribeLocalGatewaysRequest {
-  __type?: "DescribeLocalGatewaysRequest";
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more filters.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The IDs of the local gateways.</p>
-   */
-  LocalGatewayIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeLocalGatewaysRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeLocalGatewaysRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeLocalGatewaysRequest =>
-    __isa(o, "DescribeLocalGatewaysRequest");
-}
-
-export interface DescribeLocalGatewaysResult {
-  __type?: "DescribeLocalGatewaysResult";
-  /**
-   * <p>Information about the local gateways.</p>
-   */
-  LocalGateways?: LocalGateway[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeLocalGatewaysResult {
-  export const filterSensitiveLog = (
-    obj: DescribeLocalGatewaysResult
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeLocalGatewaysResult =>
-    __isa(o, "DescribeLocalGatewaysResult");
 }
 
 export interface DescribeMovingAddressesRequest {
@@ -19231,92 +19231,6 @@ export namespace DescribeTransitGatewayRouteTablesResult {
     __isa(o, "DescribeTransitGatewayRouteTablesResult");
 }
 
-export interface DescribeTransitGatewayVpcAttachmentsRequest {
-  __type?: "DescribeTransitGatewayVpcAttachmentsRequest";
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the attachment (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The IDs of the attachments.</p>
-   */
-  TransitGatewayAttachmentIds?: string[];
-}
-
-export namespace DescribeTransitGatewayVpcAttachmentsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeTransitGatewayVpcAttachmentsRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is DescribeTransitGatewayVpcAttachmentsRequest =>
-    __isa(o, "DescribeTransitGatewayVpcAttachmentsRequest");
-}
-
-export interface DescribeTransitGatewayVpcAttachmentsResult {
-  __type?: "DescribeTransitGatewayVpcAttachmentsResult";
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the VPC attachments.</p>
-   */
-  TransitGatewayVpcAttachments?: TransitGatewayVpcAttachment[];
-}
-
-export namespace DescribeTransitGatewayVpcAttachmentsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeTransitGatewayVpcAttachmentsResult
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is DescribeTransitGatewayVpcAttachmentsResult =>
-    __isa(o, "DescribeTransitGatewayVpcAttachmentsResult");
-}
-
 export interface DescribeTransitGatewaysRequest {
   __type?: "DescribeTransitGatewaysRequest";
   /**
@@ -19429,6 +19343,92 @@ export namespace DescribeTransitGatewaysResult {
     __isa(o, "DescribeTransitGatewaysResult");
 }
 
+export interface DescribeTransitGatewayVpcAttachmentsRequest {
+  __type?: "DescribeTransitGatewayVpcAttachmentsRequest";
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the attachment (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-id</code> - The ID of the VPC.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The IDs of the attachments.</p>
+   */
+  TransitGatewayAttachmentIds?: string[];
+}
+
+export namespace DescribeTransitGatewayVpcAttachmentsRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeTransitGatewayVpcAttachmentsRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is DescribeTransitGatewayVpcAttachmentsRequest =>
+    __isa(o, "DescribeTransitGatewayVpcAttachmentsRequest");
+}
+
+export interface DescribeTransitGatewayVpcAttachmentsResult {
+  __type?: "DescribeTransitGatewayVpcAttachmentsResult";
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the VPC attachments.</p>
+   */
+  TransitGatewayVpcAttachments?: TransitGatewayVpcAttachment[];
+}
+
+export namespace DescribeTransitGatewayVpcAttachmentsResult {
+  export const filterSensitiveLog = (
+    obj: DescribeTransitGatewayVpcAttachmentsResult
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is DescribeTransitGatewayVpcAttachmentsResult =>
+    __isa(o, "DescribeTransitGatewayVpcAttachmentsResult");
+}
+
 export interface DescribeVolumeAttributeRequest {
   __type?: "DescribeVolumeAttributeRequest";
   /**
@@ -19485,140 +19485,6 @@ export namespace DescribeVolumeAttributeResult {
   });
   export const isa = (o: any): o is DescribeVolumeAttributeResult =>
     __isa(o, "DescribeVolumeAttributeResult");
-}
-
-export interface DescribeVolumeStatusRequest {
-  __type?: "DescribeVolumeStatusRequest";
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>action.code</code> - The action code for the event (for example,
-   *             <code>enable-volume-io</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>action.description</code> - A description of the action.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>action.event-id</code> - The event ID associated with the action.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone of the instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.description</code> - A description of the event.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.event-id</code> - The event ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.event-type</code> - The event type (for <code>io-enabled</code>:
-   *             <code>passed</code> | <code>failed</code>; for <code>io-performance</code>:
-   *             <code>io-performance:degraded</code> | <code>io-performance:severely-degraded</code> |
-   *             <code>io-performance:stalled</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.not-after</code> - The latest end time for the event.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.not-before</code> - The earliest start time for the event.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-status.details-name</code> - The cause for
-   *             <code>volume-status.status</code> (<code>io-enabled</code> |
-   *           <code>io-performance</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-status.details-status</code> - The status of
-   *             <code>volume-status.details-name</code> (for <code>io-enabled</code>:
-   *             <code>passed</code> | <code>failed</code>; for <code>io-performance</code>:
-   *             <code>normal</code> | <code>degraded</code> | <code>severely-degraded</code> |
-   *             <code>stalled</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-status.status</code> - The status of the volume (<code>ok</code> |
-   *             <code>impaired</code> | <code>warning</code> | <code>insufficient-data</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of volume results returned by <code>DescribeVolumeStatus</code> in
-   *       paginated output. When this parameter is used, the request only returns
-   *         <code>MaxResults</code> results in a single page along with a <code>NextToken</code>
-   *       response element. The remaining results of the initial request can be seen by sending another
-   *       request with the returned <code>NextToken</code> value. This value can be between 5 and 1000;
-   *       if <code>MaxResults</code> is given a value larger than 1000, only 1000 results are returned.
-   *       If this parameter is not used, then <code>DescribeVolumeStatus</code> returns all results. You
-   *       cannot specify this parameter and the volume IDs parameter in the same request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The <code>NextToken</code> value to include in a future <code>DescribeVolumeStatus</code>
-   *       request. When the results of the request exceed <code>MaxResults</code>, this value can be
-   *       used to retrieve the next page of results. This value is <code>null</code> when there are no
-   *       more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The IDs of the volumes.</p>
-   *          <p>Default: Describes all your volumes.</p>
-   */
-  VolumeIds?: string[];
-}
-
-export namespace DescribeVolumeStatusRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeVolumeStatusRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeVolumeStatusRequest =>
-    __isa(o, "DescribeVolumeStatusRequest");
-}
-
-export interface DescribeVolumeStatusResult {
-  __type?: "DescribeVolumeStatusResult";
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *       when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the status of the volumes.</p>
-   */
-  VolumeStatuses?: VolumeStatusItem[];
-}
-
-export namespace DescribeVolumeStatusResult {
-  export const filterSensitiveLog = (obj: DescribeVolumeStatusResult): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeVolumeStatusResult =>
-    __isa(o, "DescribeVolumeStatusResult");
 }
 
 export interface DescribeVolumesModificationsRequest {
@@ -19834,6 +19700,140 @@ export namespace DescribeVolumesResult {
   });
   export const isa = (o: any): o is DescribeVolumesResult =>
     __isa(o, "DescribeVolumesResult");
+}
+
+export interface DescribeVolumeStatusRequest {
+  __type?: "DescribeVolumeStatusRequest";
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>action.code</code> - The action code for the event (for example,
+   *             <code>enable-volume-io</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>action.description</code> - A description of the action.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>action.event-id</code> - The event ID associated with the action.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone of the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.description</code> - A description of the event.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.event-id</code> - The event ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.event-type</code> - The event type (for <code>io-enabled</code>:
+   *             <code>passed</code> | <code>failed</code>; for <code>io-performance</code>:
+   *             <code>io-performance:degraded</code> | <code>io-performance:severely-degraded</code> |
+   *             <code>io-performance:stalled</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.not-after</code> - The latest end time for the event.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.not-before</code> - The earliest start time for the event.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-status.details-name</code> - The cause for
+   *             <code>volume-status.status</code> (<code>io-enabled</code> |
+   *           <code>io-performance</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-status.details-status</code> - The status of
+   *             <code>volume-status.details-name</code> (for <code>io-enabled</code>:
+   *             <code>passed</code> | <code>failed</code>; for <code>io-performance</code>:
+   *             <code>normal</code> | <code>degraded</code> | <code>severely-degraded</code> |
+   *             <code>stalled</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-status.status</code> - The status of the volume (<code>ok</code> |
+   *             <code>impaired</code> | <code>warning</code> | <code>insufficient-data</code>).</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of volume results returned by <code>DescribeVolumeStatus</code> in
+   *       paginated output. When this parameter is used, the request only returns
+   *         <code>MaxResults</code> results in a single page along with a <code>NextToken</code>
+   *       response element. The remaining results of the initial request can be seen by sending another
+   *       request with the returned <code>NextToken</code> value. This value can be between 5 and 1000;
+   *       if <code>MaxResults</code> is given a value larger than 1000, only 1000 results are returned.
+   *       If this parameter is not used, then <code>DescribeVolumeStatus</code> returns all results. You
+   *       cannot specify this parameter and the volume IDs parameter in the same request.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The <code>NextToken</code> value to include in a future <code>DescribeVolumeStatus</code>
+   *       request. When the results of the request exceed <code>MaxResults</code>, this value can be
+   *       used to retrieve the next page of results. This value is <code>null</code> when there are no
+   *       more results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The IDs of the volumes.</p>
+   *          <p>Default: Describes all your volumes.</p>
+   */
+  VolumeIds?: string[];
+}
+
+export namespace DescribeVolumeStatusRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeVolumeStatusRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeVolumeStatusRequest =>
+    __isa(o, "DescribeVolumeStatusRequest");
+}
+
+export interface DescribeVolumeStatusResult {
+  __type?: "DescribeVolumeStatusResult";
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
+   *       when there are no more results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the status of the volumes.</p>
+   */
+  VolumeStatuses?: VolumeStatusItem[];
+}
+
+export namespace DescribeVolumeStatusResult {
+  export const filterSensitiveLog = (obj: DescribeVolumeStatusResult): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeVolumeStatusResult =>
+    __isa(o, "DescribeVolumeStatusResult");
 }
 
 export interface DescribeVpcAttributeRequest {
@@ -21380,6 +21380,59 @@ export namespace DisableFastSnapshotRestoreErrorItem {
     __isa(o, "DisableFastSnapshotRestoreErrorItem");
 }
 
+export interface DisableFastSnapshotRestoresRequest {
+  __type?: "DisableFastSnapshotRestoresRequest";
+  /**
+   * <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p>
+   */
+  AvailabilityZones: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>.</p>
+   */
+  SourceSnapshotIds: string[] | undefined;
+}
+
+export namespace DisableFastSnapshotRestoresRequest {
+  export const filterSensitiveLog = (
+    obj: DisableFastSnapshotRestoresRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DisableFastSnapshotRestoresRequest =>
+    __isa(o, "DisableFastSnapshotRestoresRequest");
+}
+
+export interface DisableFastSnapshotRestoresResult {
+  __type?: "DisableFastSnapshotRestoresResult";
+  /**
+   * <p>Information about the snapshots for which fast snapshot restores were successfully disabled.</p>
+   */
+  Successful?: DisableFastSnapshotRestoreSuccessItem[];
+
+  /**
+   * <p>Information about the snapshots for which fast snapshot restores could not be disabled.</p>
+   */
+  Unsuccessful?: DisableFastSnapshotRestoreErrorItem[];
+}
+
+export namespace DisableFastSnapshotRestoresResult {
+  export const filterSensitiveLog = (
+    obj: DisableFastSnapshotRestoresResult
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DisableFastSnapshotRestoresResult =>
+    __isa(o, "DisableFastSnapshotRestoresResult");
+}
+
 /**
  * <p>Describes an error that occurred when disabling fast snapshot restores.</p>
  */
@@ -21513,59 +21566,6 @@ export namespace DisableFastSnapshotRestoreSuccessItem {
   });
   export const isa = (o: any): o is DisableFastSnapshotRestoreSuccessItem =>
     __isa(o, "DisableFastSnapshotRestoreSuccessItem");
-}
-
-export interface DisableFastSnapshotRestoresRequest {
-  __type?: "DisableFastSnapshotRestoresRequest";
-  /**
-   * <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p>
-   */
-  AvailabilityZones: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>.</p>
-   */
-  SourceSnapshotIds: string[] | undefined;
-}
-
-export namespace DisableFastSnapshotRestoresRequest {
-  export const filterSensitiveLog = (
-    obj: DisableFastSnapshotRestoresRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DisableFastSnapshotRestoresRequest =>
-    __isa(o, "DisableFastSnapshotRestoresRequest");
-}
-
-export interface DisableFastSnapshotRestoresResult {
-  __type?: "DisableFastSnapshotRestoresResult";
-  /**
-   * <p>Information about the snapshots for which fast snapshot restores were successfully disabled.</p>
-   */
-  Successful?: DisableFastSnapshotRestoreSuccessItem[];
-
-  /**
-   * <p>Information about the snapshots for which fast snapshot restores could not be disabled.</p>
-   */
-  Unsuccessful?: DisableFastSnapshotRestoreErrorItem[];
-}
-
-export namespace DisableFastSnapshotRestoresResult {
-  export const filterSensitiveLog = (
-    obj: DisableFastSnapshotRestoresResult
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DisableFastSnapshotRestoresResult =>
-    __isa(o, "DisableFastSnapshotRestoresResult");
 }
 
 export interface DisableTransitGatewayRouteTablePropagationRequest {
@@ -22540,6 +22540,54 @@ export namespace ElasticGpuHealth {
 }
 
 /**
+ * <p>Describes an Elastic Graphics accelerator.</p>
+ */
+export interface ElasticGpus {
+  __type?: "ElasticGpus";
+  /**
+   * <p>The Availability Zone in the which the Elastic Graphics accelerator resides.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The status of the Elastic Graphics accelerator.</p>
+   */
+  ElasticGpuHealth?: ElasticGpuHealth;
+
+  /**
+   * <p>The ID of the Elastic Graphics accelerator.</p>
+   */
+  ElasticGpuId?: string;
+
+  /**
+   * <p>The state of the Elastic Graphics accelerator.</p>
+   */
+  ElasticGpuState?: ElasticGpuState | string;
+
+  /**
+   * <p>The type of Elastic Graphics accelerator.</p>
+   */
+  ElasticGpuType?: string;
+
+  /**
+   * <p>The ID of the instance to which the Elastic Graphics accelerator is attached.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The tags assigned to the Elastic Graphics accelerator.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ElasticGpus {
+  export const filterSensitiveLog = (obj: ElasticGpus): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ElasticGpus => __isa(o, "ElasticGpus");
+}
+
+/**
  * <p>A specification for an Elastic Graphics accelerator.</p>
  */
 export interface ElasticGpuSpecification {
@@ -22588,54 +22636,6 @@ export enum ElasticGpuState {
 export enum ElasticGpuStatus {
   Impaired = "IMPAIRED",
   Ok = "OK"
-}
-
-/**
- * <p>Describes an Elastic Graphics accelerator.</p>
- */
-export interface ElasticGpus {
-  __type?: "ElasticGpus";
-  /**
-   * <p>The Availability Zone in the which the Elastic Graphics accelerator resides.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The status of the Elastic Graphics accelerator.</p>
-   */
-  ElasticGpuHealth?: ElasticGpuHealth;
-
-  /**
-   * <p>The ID of the Elastic Graphics accelerator.</p>
-   */
-  ElasticGpuId?: string;
-
-  /**
-   * <p>The state of the Elastic Graphics accelerator.</p>
-   */
-  ElasticGpuState?: ElasticGpuState | string;
-
-  /**
-   * <p>The type of Elastic Graphics accelerator.</p>
-   */
-  ElasticGpuType?: string;
-
-  /**
-   * <p>The ID of the instance to which the Elastic Graphics accelerator is attached.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The tags assigned to the Elastic Graphics accelerator.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace ElasticGpus {
-  export const filterSensitiveLog = (obj: ElasticGpus): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ElasticGpus => __isa(o, "ElasticGpus");
 }
 
 /**
@@ -22717,8 +22717,6 @@ export namespace ElasticInferenceAcceleratorAssociation {
     __isa(o, "ElasticInferenceAcceleratorAssociation");
 }
 
-export type EnaSupport = "required" | "supported" | "unsupported";
-
 export interface EnableEbsEncryptionByDefaultRequest {
   __type?: "EnableEbsEncryptionByDefaultRequest";
   /**
@@ -22781,6 +22779,60 @@ export namespace EnableFastSnapshotRestoreErrorItem {
   });
   export const isa = (o: any): o is EnableFastSnapshotRestoreErrorItem =>
     __isa(o, "EnableFastSnapshotRestoreErrorItem");
+}
+
+export interface EnableFastSnapshotRestoresRequest {
+  __type?: "EnableFastSnapshotRestoresRequest";
+  /**
+   * <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p>
+   */
+  AvailabilityZones: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>. You can specify
+   *       a snapshot that was shared with you from another AWS account.</p>
+   */
+  SourceSnapshotIds: string[] | undefined;
+}
+
+export namespace EnableFastSnapshotRestoresRequest {
+  export const filterSensitiveLog = (
+    obj: EnableFastSnapshotRestoresRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is EnableFastSnapshotRestoresRequest =>
+    __isa(o, "EnableFastSnapshotRestoresRequest");
+}
+
+export interface EnableFastSnapshotRestoresResult {
+  __type?: "EnableFastSnapshotRestoresResult";
+  /**
+   * <p>Information about the snapshots for which fast snapshot restores were successfully enabled.</p>
+   */
+  Successful?: EnableFastSnapshotRestoreSuccessItem[];
+
+  /**
+   * <p>Information about the snapshots for which fast snapshot restores could not be enabled.</p>
+   */
+  Unsuccessful?: EnableFastSnapshotRestoreErrorItem[];
+}
+
+export namespace EnableFastSnapshotRestoresResult {
+  export const filterSensitiveLog = (
+    obj: EnableFastSnapshotRestoresResult
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is EnableFastSnapshotRestoresResult =>
+    __isa(o, "EnableFastSnapshotRestoresResult");
 }
 
 /**
@@ -22916,60 +22968,6 @@ export namespace EnableFastSnapshotRestoreSuccessItem {
   });
   export const isa = (o: any): o is EnableFastSnapshotRestoreSuccessItem =>
     __isa(o, "EnableFastSnapshotRestoreSuccessItem");
-}
-
-export interface EnableFastSnapshotRestoresRequest {
-  __type?: "EnableFastSnapshotRestoresRequest";
-  /**
-   * <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p>
-   */
-  AvailabilityZones: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>. You can specify
-   *       a snapshot that was shared with you from another AWS account.</p>
-   */
-  SourceSnapshotIds: string[] | undefined;
-}
-
-export namespace EnableFastSnapshotRestoresRequest {
-  export const filterSensitiveLog = (
-    obj: EnableFastSnapshotRestoresRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is EnableFastSnapshotRestoresRequest =>
-    __isa(o, "EnableFastSnapshotRestoresRequest");
-}
-
-export interface EnableFastSnapshotRestoresResult {
-  __type?: "EnableFastSnapshotRestoresResult";
-  /**
-   * <p>Information about the snapshots for which fast snapshot restores were successfully enabled.</p>
-   */
-  Successful?: EnableFastSnapshotRestoreSuccessItem[];
-
-  /**
-   * <p>Information about the snapshots for which fast snapshot restores could not be enabled.</p>
-   */
-  Unsuccessful?: EnableFastSnapshotRestoreErrorItem[];
-}
-
-export namespace EnableFastSnapshotRestoresResult {
-  export const filterSensitiveLog = (
-    obj: EnableFastSnapshotRestoresResult
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is EnableFastSnapshotRestoresResult =>
-    __isa(o, "EnableFastSnapshotRestoresResult");
 }
 
 export interface EnableTransitGatewayRouteTablePropagationRequest {
@@ -23149,6 +23147,8 @@ export namespace EnableVpcClassicLinkResult {
   export const isa = (o: any): o is EnableVpcClassicLinkResult =>
     __isa(o, "EnableVpcClassicLinkResult");
 }
+
+export type EnaSupport = "required" | "supported" | "unsupported";
 
 export type EndDateType = "limited" | "unlimited";
 
@@ -26307,46 +26307,6 @@ export enum HttpTokensState {
 export type HypervisorType = "ovm" | "xen";
 
 /**
- * <p>The internet key exchange (IKE) version permitted for the VPN tunnel.</p>
- */
-export interface IKEVersionsListValue {
-  __type?: "IKEVersionsListValue";
-  /**
-   * <p>The IKE version.</p>
-   */
-  Value?: string;
-}
-
-export namespace IKEVersionsListValue {
-  export const filterSensitiveLog = (obj: IKEVersionsListValue): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is IKEVersionsListValue =>
-    __isa(o, "IKEVersionsListValue");
-}
-
-/**
- * <p>The IKE version that is permitted for the VPN tunnel.</p>
- */
-export interface IKEVersionsRequestListValue {
-  __type?: "IKEVersionsRequestListValue";
-  /**
-   * <p>The IKE version.</p>
-   */
-  Value?: string;
-}
-
-export namespace IKEVersionsRequestListValue {
-  export const filterSensitiveLog = (
-    obj: IKEVersionsRequestListValue
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is IKEVersionsRequestListValue =>
-    __isa(o, "IKEVersionsRequestListValue");
-}
-
-/**
  * <p>Describes an IAM instance profile.</p>
  */
 export interface IamInstanceProfile {
@@ -26493,6 +26453,46 @@ export namespace IdFormat {
     ...obj
   });
   export const isa = (o: any): o is IdFormat => __isa(o, "IdFormat");
+}
+
+/**
+ * <p>The internet key exchange (IKE) version permitted for the VPN tunnel.</p>
+ */
+export interface IKEVersionsListValue {
+  __type?: "IKEVersionsListValue";
+  /**
+   * <p>The IKE version.</p>
+   */
+  Value?: string;
+}
+
+export namespace IKEVersionsListValue {
+  export const filterSensitiveLog = (obj: IKEVersionsListValue): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is IKEVersionsListValue =>
+    __isa(o, "IKEVersionsListValue");
+}
+
+/**
+ * <p>The IKE version that is permitted for the VPN tunnel.</p>
+ */
+export interface IKEVersionsRequestListValue {
+  __type?: "IKEVersionsRequestListValue";
+  /**
+   * <p>The IKE version.</p>
+   */
+  Value?: string;
+}
+
+export namespace IKEVersionsRequestListValue {
+  export const filterSensitiveLog = (
+    obj: IKEVersionsRequestListValue
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is IKEVersionsRequestListValue =>
+    __isa(o, "IKEVersionsRequestListValue");
 }
 
 /**
@@ -31174,6 +31174,47 @@ export namespace LaunchTemplatePlacementRequest {
 }
 
 /**
+ * <p>Describes the monitoring for the instance.</p>
+ */
+export interface LaunchTemplatesMonitoring {
+  __type?: "LaunchTemplatesMonitoring";
+  /**
+   * <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
+   *             enabled.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace LaunchTemplatesMonitoring {
+  export const filterSensitiveLog = (obj: LaunchTemplatesMonitoring): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is LaunchTemplatesMonitoring =>
+    __isa(o, "LaunchTemplatesMonitoring");
+}
+
+/**
+ * <p>Describes the monitoring for the instance.</p>
+ */
+export interface LaunchTemplatesMonitoringRequest {
+  __type?: "LaunchTemplatesMonitoringRequest";
+  /**
+   * <p>Specify <code>true</code> to enable detailed monitoring. Otherwise, basic monitoring is enabled.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace LaunchTemplatesMonitoringRequest {
+  export const filterSensitiveLog = (
+    obj: LaunchTemplatesMonitoringRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is LaunchTemplatesMonitoringRequest =>
+    __isa(o, "LaunchTemplatesMonitoringRequest");
+}
+
+/**
  * <p>The launch template to use. You must specify either the launch template ID or
  *             launch template name in the request, but not both.</p>
  */
@@ -31397,47 +31438,6 @@ export namespace LaunchTemplateVersion {
   });
   export const isa = (o: any): o is LaunchTemplateVersion =>
     __isa(o, "LaunchTemplateVersion");
-}
-
-/**
- * <p>Describes the monitoring for the instance.</p>
- */
-export interface LaunchTemplatesMonitoring {
-  __type?: "LaunchTemplatesMonitoring";
-  /**
-   * <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
-   *             enabled.</p>
-   */
-  Enabled?: boolean;
-}
-
-export namespace LaunchTemplatesMonitoring {
-  export const filterSensitiveLog = (obj: LaunchTemplatesMonitoring): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is LaunchTemplatesMonitoring =>
-    __isa(o, "LaunchTemplatesMonitoring");
-}
-
-/**
- * <p>Describes the monitoring for the instance.</p>
- */
-export interface LaunchTemplatesMonitoringRequest {
-  __type?: "LaunchTemplatesMonitoringRequest";
-  /**
-   * <p>Specify <code>true</code> to enable detailed monitoring. Otherwise, basic monitoring is enabled.</p>
-   */
-  Enabled?: boolean;
-}
-
-export namespace LaunchTemplatesMonitoringRequest {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplatesMonitoringRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is LaunchTemplatesMonitoringRequest =>
-    __isa(o, "LaunchTemplatesMonitoringRequest");
 }
 
 /**
@@ -32416,38 +32416,6 @@ export namespace ModifyHostsResult {
     __isa(o, "ModifyHostsResult");
 }
 
-export interface ModifyIdFormatRequest {
-  __type?: "ModifyIdFormatRequest";
-  /**
-   * <p>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
-   *            <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
-   *            <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
-   *            <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code>
-   *            | <code>network-acl-association</code> | <code>network-interface</code> |
-   *            <code>network-interface-attachment</code> | <code>prefix-list</code> |
-   *            <code>route-table</code> | <code>route-table-association</code> |
-   *            <code>security-group</code> | <code>subnet</code> |
-   *            <code>subnet-cidr-block-association</code> | <code>vpc</code> |
-   *            <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>
-   *          <p>Alternatively, use the <code>all-current</code> option to include all resource types that are
-   *        currently within their opt-in period for longer IDs.</p>
-   */
-  Resource: string | undefined;
-
-  /**
-   * <p>Indicate whether the resource should use longer IDs (17-character IDs).</p>
-   */
-  UseLongIds: boolean | undefined;
-}
-
-export namespace ModifyIdFormatRequest {
-  export const filterSensitiveLog = (obj: ModifyIdFormatRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ModifyIdFormatRequest =>
-    __isa(o, "ModifyIdFormatRequest");
-}
-
 export interface ModifyIdentityIdFormatRequest {
   __type?: "ModifyIdentityIdFormatRequest";
   /**
@@ -32487,6 +32455,38 @@ export namespace ModifyIdentityIdFormatRequest {
   });
   export const isa = (o: any): o is ModifyIdentityIdFormatRequest =>
     __isa(o, "ModifyIdentityIdFormatRequest");
+}
+
+export interface ModifyIdFormatRequest {
+  __type?: "ModifyIdFormatRequest";
+  /**
+   * <p>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
+   *            <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
+   *            <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
+   *            <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code>
+   *            | <code>network-acl-association</code> | <code>network-interface</code> |
+   *            <code>network-interface-attachment</code> | <code>prefix-list</code> |
+   *            <code>route-table</code> | <code>route-table-association</code> |
+   *            <code>security-group</code> | <code>subnet</code> |
+   *            <code>subnet-cidr-block-association</code> | <code>vpc</code> |
+   *            <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>
+   *          <p>Alternatively, use the <code>all-current</code> option to include all resource types that are
+   *        currently within their opt-in period for longer IDs.</p>
+   */
+  Resource: string | undefined;
+
+  /**
+   * <p>Indicate whether the resource should use longer IDs (17-character IDs).</p>
+   */
+  UseLongIds: boolean | undefined;
+}
+
+export namespace ModifyIdFormatRequest {
+  export const filterSensitiveLog = (obj: ModifyIdFormatRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ModifyIdFormatRequest =>
+    __isa(o, "ModifyIdFormatRequest");
 }
 
 /**
@@ -34463,6 +34463,27 @@ export namespace ModifyVpnTunnelOptionsSpecification {
     __isa(o, "ModifyVpnTunnelOptionsSpecification");
 }
 
+/**
+ * <p>Describes the monitoring of an instance.</p>
+ */
+export interface Monitoring {
+  __type?: "Monitoring";
+  /**
+   * <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
+   *             enabled.</p>
+   */
+  State?: MonitoringState | string;
+}
+
+export namespace Monitoring {
+  export const filterSensitiveLog = (obj: Monitoring): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Monitoring => __isa(o, "Monitoring");
+}
+
+export type MonitoringState = "disabled" | "disabling" | "enabled" | "pending";
+
 export interface MonitorInstancesRequest {
   __type?: "MonitorInstancesRequest";
   /**
@@ -34501,27 +34522,6 @@ export namespace MonitorInstancesResult {
   export const isa = (o: any): o is MonitorInstancesResult =>
     __isa(o, "MonitorInstancesResult");
 }
-
-/**
- * <p>Describes the monitoring of an instance.</p>
- */
-export interface Monitoring {
-  __type?: "Monitoring";
-  /**
-   * <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
-   *             enabled.</p>
-   */
-  State?: MonitoringState | string;
-}
-
-export namespace Monitoring {
-  export const filterSensitiveLog = (obj: Monitoring): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Monitoring => __isa(o, "Monitoring");
-}
-
-export type MonitoringState = "disabled" | "disabling" | "enabled" | "pending";
 
 export interface MoveAddressToVpcRequest {
   __type?: "MoveAddressToVpcRequest";
@@ -36840,12 +36840,6 @@ export namespace PurchaseScheduledInstancesResult {
     __isa(o, "PurchaseScheduledInstancesResult");
 }
 
-export type RIProductDescription =
-  | "Linux/UNIX"
-  | "Linux/UNIX (Amazon VPC)"
-  | "Windows"
-  | "Windows (Amazon VPC)";
-
 export interface RebootInstancesRequest {
   __type?: "RebootInstancesRequest";
   /**
@@ -38453,14 +38447,6 @@ export namespace ReservedInstanceReservationValue {
     __isa(o, "ReservedInstanceReservationValue");
 }
 
-export type ReservedInstanceState =
-  | "active"
-  | "payment-failed"
-  | "payment-pending"
-  | "queued"
-  | "queued-deleted"
-  | "retired";
-
 /**
  * <p>Describes a Reserved Instance.</p>
  */
@@ -38877,6 +38863,14 @@ export namespace ReservedInstancesOffering {
   export const isa = (o: any): o is ReservedInstancesOffering =>
     __isa(o, "ReservedInstancesOffering");
 }
+
+export type ReservedInstanceState =
+  | "active"
+  | "payment-failed"
+  | "payment-pending"
+  | "queued"
+  | "queued-deleted"
+  | "retired";
 
 export interface ResetEbsDefaultKmsKeyIdRequest {
   __type?: "ResetEbsDefaultKmsKeyIdRequest";
@@ -39550,6 +39544,12 @@ export namespace RevokeSecurityGroupIngressRequest {
   export const isa = (o: any): o is RevokeSecurityGroupIngressRequest =>
     __isa(o, "RevokeSecurityGroupIngressRequest");
 }
+
+export type RIProductDescription =
+  | "Linux/UNIX"
+  | "Linux/UNIX (Amazon VPC)"
+  | "Windows"
+  | "Windows (Amazon VPC)";
 
 export type RootDeviceType = "ebs" | "instance-store";
 
@@ -40855,6 +40855,11 @@ export namespace ScheduledInstancesPrivateIpAddressConfig {
   });
   export const isa = (o: any): o is ScheduledInstancesPrivateIpAddressConfig =>
     __isa(o, "ScheduledInstancesPrivateIpAddressConfig");
+}
+
+export enum Scope {
+  AVAILABILITY_ZONE = "Availability Zone",
+  REGIONAL = "Region"
 }
 
 export interface SearchLocalGatewayRoutesRequest {
@@ -47222,9 +47227,4 @@ export namespace WithdrawByoipCidrResult {
   });
   export const isa = (o: any): o is WithdrawByoipCidrResult =>
     __isa(o, "WithdrawByoipCidrResult");
-}
-
-export enum Scope {
-  AVAILABILITY_ZONE = "Availability Zone",
-  REGIONAL = "Region"
 }

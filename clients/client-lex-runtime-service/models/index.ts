@@ -8,6 +8,26 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
 /**
+ * <p>Either the Amazon Lex bot is still building, or one of the dependent services (Amazon Polly,
+ *       AWS Lambda) failed with an internal service error.</p>
+ */
+export interface BadGatewayException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "BadGatewayException";
+  $fault: "server";
+  Message?: string;
+}
+
+export namespace BadGatewayException {
+  export const filterSensitiveLog = (obj: BadGatewayException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is BadGatewayException =>
+    __isa(o, "BadGatewayException");
+}
+
+/**
  * <p> Request validation failed, there is no usable message in the context, or the bot build
  *       failed, is still in progress, or contains unbuilt changes. </p>
  */
@@ -28,6 +48,36 @@ export namespace BadRequestException {
 }
 
 /**
+ * <p>Represents an option to be shown on the client platform (Facebook, Slack, etc.)</p>
+ */
+export interface Button {
+  __type?: "Button";
+  /**
+   * <p>Text that is visible to the user on the button.</p>
+   */
+  text: string | undefined;
+
+  /**
+   * <p>The value sent to Amazon Lex when a user chooses the button. For example, consider button
+   *       text "NYC." When the user chooses the button, the value sent can be "New York City."</p>
+   */
+  value: string | undefined;
+}
+
+export namespace Button {
+  export const filterSensitiveLog = (obj: Button): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Button => __isa(o, "Button");
+}
+
+export enum ConfirmationStatus {
+  CONFIRMED = "Confirmed",
+  DENIED = "Denied",
+  NONE = "None"
+}
+
+/**
  * <p> Two clients are using the same AWS account, Amazon Lex bot, and user ID. </p>
  */
 export interface ConflictException extends __SmithyException, $MetadataBearer {
@@ -44,146 +94,8 @@ export namespace ConflictException {
     __isa(o, "ConflictException");
 }
 
-/**
- * <p>Internal service error. Retry the call.</p>
- */
-export interface InternalFailureException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InternalFailureException";
-  $fault: "server";
-  message?: string;
-}
-
-export namespace InternalFailureException {
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InternalFailureException =>
-    __isa(o, "InternalFailureException");
-}
-
-/**
- * <p>Exceeded a limit.</p>
- */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
-  retryAfterSeconds?: string;
-}
-
-export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
-}
-
-/**
- * <p>The accept header in the request does not have a valid value.</p>
- */
-export interface NotAcceptableException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "NotAcceptableException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NotAcceptableException {
-  export const filterSensitiveLog = (obj: NotAcceptableException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NotAcceptableException =>
-    __isa(o, "NotAcceptableException");
-}
-
-/**
- * <p>The resource (such as the Amazon Lex bot or an alias) that is referred to is not
- *       found.</p>
- */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NotFoundException {
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
-}
-
-/**
- * <p>The input speech is too long.</p>
- */
-export interface RequestTimeoutException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "RequestTimeoutException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace RequestTimeoutException {
-  export const filterSensitiveLog = (obj: RequestTimeoutException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RequestTimeoutException =>
-    __isa(o, "RequestTimeoutException");
-}
-
-/**
- * <p>The Content-Type header (<code>PostContent</code> API) has an invalid value. </p>
- */
-export interface UnsupportedMediaTypeException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "UnsupportedMediaTypeException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace UnsupportedMediaTypeException {
-  export const filterSensitiveLog = (
-    obj: UnsupportedMediaTypeException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UnsupportedMediaTypeException =>
-    __isa(o, "UnsupportedMediaTypeException");
-}
-
-/**
- * <p>Either the Amazon Lex bot is still building, or one of the dependent services (Amazon Polly,
- *       AWS Lambda) failed with an internal service error.</p>
- */
-export interface BadGatewayException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "BadGatewayException";
-  $fault: "server";
-  Message?: string;
-}
-
-export namespace BadGatewayException {
-  export const filterSensitiveLog = (obj: BadGatewayException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is BadGatewayException =>
-    __isa(o, "BadGatewayException");
-}
-
-export enum ConfirmationStatus {
-  CONFIRMED = "Confirmed",
-  DENIED = "Denied",
-  NONE = "None"
+export enum ContentType {
+  GENERIC = "application/vnd.amazonaws.card.generic"
 }
 
 export interface DeleteSessionRequest {
@@ -416,6 +328,46 @@ export enum FulfillmentState {
   READY_FOR_FULFILLMENT = "ReadyForFulfillment"
 }
 
+/**
+ * <p>Represents an option rendered to the user when a prompt is shown. It could be an image, a
+ *       button, a link, or text. </p>
+ */
+export interface GenericAttachment {
+  __type?: "GenericAttachment";
+  /**
+   * <p>The URL of an attachment to the response card.</p>
+   */
+  attachmentLinkUrl?: string;
+
+  /**
+   * <p>The list of options to show to the user.</p>
+   */
+  buttons?: Button[];
+
+  /**
+   * <p>The URL of an image that is displayed to the user.</p>
+   */
+  imageUrl?: string;
+
+  /**
+   * <p>The subtitle shown below the title.</p>
+   */
+  subTitle?: string;
+
+  /**
+   * <p>The title of the option.</p>
+   */
+  title?: string;
+}
+
+export namespace GenericAttachment {
+  export const filterSensitiveLog = (obj: GenericAttachment): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GenericAttachment =>
+    __isa(o, "GenericAttachment");
+}
+
 export interface GetSessionRequest {
   __type?: "GetSessionRequest";
   /**
@@ -614,6 +566,45 @@ export namespace IntentSummary {
 }
 
 /**
+ * <p>Internal service error. Retry the call.</p>
+ */
+export interface InternalFailureException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InternalFailureException";
+  $fault: "server";
+  message?: string;
+}
+
+export namespace InternalFailureException {
+  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InternalFailureException =>
+    __isa(o, "InternalFailureException");
+}
+
+/**
+ * <p>Exceeded a limit.</p>
+ */
+export interface LimitExceededException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  message?: string;
+  retryAfterSeconds?: string;
+}
+
+export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
+}
+
+/**
  * <p>This exception is not used.</p>
  */
 export interface LoopDetectedException
@@ -637,6 +628,43 @@ export enum MessageFormatType {
   CUSTOM_PAYLOAD = "CustomPayload",
   PLAIN_TEXT = "PlainText",
   SSML = "SSML"
+}
+
+/**
+ * <p>The accept header in the request does not have a valid value.</p>
+ */
+export interface NotAcceptableException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "NotAcceptableException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NotAcceptableException {
+  export const filterSensitiveLog = (obj: NotAcceptableException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NotAcceptableException =>
+    __isa(o, "NotAcceptableException");
+}
+
+/**
+ * <p>The resource (such as the Amazon Lex bot or an alias) that is referred to is not
+ *       found.</p>
+ */
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
+  name: "NotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NotFoundException {
+  export const filterSensitiveLog = (obj: NotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NotFoundException =>
+    __isa(o, "NotFoundException");
 }
 
 export interface PostContentRequest {
@@ -1463,97 +1491,22 @@ export namespace PutSessionResponse {
 }
 
 /**
- * <p>The sentiment expressed in an utterance.</p>
- *          <p>When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis,
- *       this field structure contains the result of the analysis.</p>
+ * <p>The input speech is too long.</p>
  */
-export interface SentimentResponse {
-  __type?: "SentimentResponse";
-  /**
-   * <p>The inferred sentiment that Amazon Comprehend has the highest confidence in.</p>
-   */
-  sentimentLabel?: string;
-
-  /**
-   * <p>The likelihood that the sentiment was correctly inferred.</p>
-   */
-  sentimentScore?: string;
+export interface RequestTimeoutException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "RequestTimeoutException";
+  $fault: "client";
+  message?: string;
 }
 
-export namespace SentimentResponse {
-  export const filterSensitiveLog = (obj: SentimentResponse): any => ({
+export namespace RequestTimeoutException {
+  export const filterSensitiveLog = (obj: RequestTimeoutException): any => ({
     ...obj
   });
-  export const isa = (o: any): o is SentimentResponse =>
-    __isa(o, "SentimentResponse");
-}
-
-/**
- * <p>Represents an option to be shown on the client platform (Facebook, Slack, etc.)</p>
- */
-export interface Button {
-  __type?: "Button";
-  /**
-   * <p>Text that is visible to the user on the button.</p>
-   */
-  text: string | undefined;
-
-  /**
-   * <p>The value sent to Amazon Lex when a user chooses the button. For example, consider button
-   *       text "NYC." When the user chooses the button, the value sent can be "New York City."</p>
-   */
-  value: string | undefined;
-}
-
-export namespace Button {
-  export const filterSensitiveLog = (obj: Button): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Button => __isa(o, "Button");
-}
-
-export enum ContentType {
-  GENERIC = "application/vnd.amazonaws.card.generic"
-}
-
-/**
- * <p>Represents an option rendered to the user when a prompt is shown. It could be an image, a
- *       button, a link, or text. </p>
- */
-export interface GenericAttachment {
-  __type?: "GenericAttachment";
-  /**
-   * <p>The URL of an attachment to the response card.</p>
-   */
-  attachmentLinkUrl?: string;
-
-  /**
-   * <p>The list of options to show to the user.</p>
-   */
-  buttons?: Button[];
-
-  /**
-   * <p>The URL of an image that is displayed to the user.</p>
-   */
-  imageUrl?: string;
-
-  /**
-   * <p>The subtitle shown below the title.</p>
-   */
-  subTitle?: string;
-
-  /**
-   * <p>The title of the option.</p>
-   */
-  title?: string;
-}
-
-export namespace GenericAttachment {
-  export const filterSensitiveLog = (obj: GenericAttachment): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GenericAttachment =>
-    __isa(o, "GenericAttachment");
+  export const isa = (o: any): o is RequestTimeoutException =>
+    __isa(o, "RequestTimeoutException");
 }
 
 /**
@@ -1585,4 +1538,51 @@ export namespace ResponseCard {
     ...obj
   });
   export const isa = (o: any): o is ResponseCard => __isa(o, "ResponseCard");
+}
+
+/**
+ * <p>The sentiment expressed in an utterance.</p>
+ *          <p>When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis,
+ *       this field structure contains the result of the analysis.</p>
+ */
+export interface SentimentResponse {
+  __type?: "SentimentResponse";
+  /**
+   * <p>The inferred sentiment that Amazon Comprehend has the highest confidence in.</p>
+   */
+  sentimentLabel?: string;
+
+  /**
+   * <p>The likelihood that the sentiment was correctly inferred.</p>
+   */
+  sentimentScore?: string;
+}
+
+export namespace SentimentResponse {
+  export const filterSensitiveLog = (obj: SentimentResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SentimentResponse =>
+    __isa(o, "SentimentResponse");
+}
+
+/**
+ * <p>The Content-Type header (<code>PostContent</code> API) has an invalid value. </p>
+ */
+export interface UnsupportedMediaTypeException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "UnsupportedMediaTypeException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace UnsupportedMediaTypeException {
+  export const filterSensitiveLog = (
+    obj: UnsupportedMediaTypeException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UnsupportedMediaTypeException =>
+    __isa(o, "UnsupportedMediaTypeException");
 }

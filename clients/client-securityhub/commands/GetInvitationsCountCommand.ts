@@ -8,9 +8,9 @@ import {
   GetInvitationsCountResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetInvitationsCountCommand,
-  serializeAws_restJson1_1GetInvitationsCountCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetInvitationsCountCommand,
+  serializeAws_restJson1GetInvitationsCountCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetInvitationsCountCommand extends $Command<
     input: GetInvitationsCountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetInvitationsCountCommand(input, context);
+    return serializeAws_restJson1GetInvitationsCountCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetInvitationsCountCommandOutput> {
-    return deserializeAws_restJson1_1GetInvitationsCountCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetInvitationsCountCommand(output, context);
   }
 
   // Start section: command_body_extra

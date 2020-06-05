@@ -86,7 +86,7 @@ const deserializeAws_json1_0SendCommandCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
-    case "com.amazonaws.qldb.session#BadRequestException":
+    case "com.amazonaws.qldbsession#BadRequestException":
       response = {
         ...(await deserializeAws_json1_0BadRequestExceptionResponse(
           parsedOutput,
@@ -97,7 +97,7 @@ const deserializeAws_json1_0SendCommandCommandError = async (
       };
       break;
     case "InvalidSessionException":
-    case "com.amazonaws.qldb.session#InvalidSessionException":
+    case "com.amazonaws.qldbsession#InvalidSessionException":
       response = {
         ...(await deserializeAws_json1_0InvalidSessionExceptionResponse(
           parsedOutput,
@@ -108,7 +108,7 @@ const deserializeAws_json1_0SendCommandCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.qldb.session#LimitExceededException":
+    case "com.amazonaws.qldbsession#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
           parsedOutput,
@@ -119,7 +119,7 @@ const deserializeAws_json1_0SendCommandCommandError = async (
       };
       break;
     case "OccConflictException":
-    case "com.amazonaws.qldb.session#OccConflictException":
+    case "com.amazonaws.qldbsession#OccConflictException":
       response = {
         ...(await deserializeAws_json1_0OccConflictExceptionResponse(
           parsedOutput,
@@ -130,7 +130,7 @@ const deserializeAws_json1_0SendCommandCommandError = async (
       };
       break;
     case "RateExceededException":
-    case "com.amazonaws.qldb.session#RateExceededException":
+    case "com.amazonaws.qldbsession#RateExceededException":
       response = {
         ...(await deserializeAws_json1_0RateExceededExceptionResponse(
           parsedOutput,

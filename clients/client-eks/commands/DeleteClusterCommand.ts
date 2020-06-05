@@ -5,9 +5,9 @@ import {
 } from "../EKSClient";
 import { DeleteClusterRequest, DeleteClusterResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteClusterCommand,
-  serializeAws_restJson1_1DeleteClusterCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteClusterCommand,
+  serializeAws_restJson1DeleteClusterCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class DeleteClusterCommand extends $Command<
     input: DeleteClusterCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteClusterCommand(input, context);
+    return serializeAws_restJson1DeleteClusterCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteClusterCommandOutput> {
-    return deserializeAws_restJson1_1DeleteClusterCommand(output, context);
+    return deserializeAws_restJson1DeleteClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

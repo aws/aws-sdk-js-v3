@@ -3138,25 +3138,6 @@ export namespace RulePriorityPair {
     __isa(o, "RulePriorityPair");
 }
 
-/**
- * <p>The specified SSL policy does not exist.</p>
- */
-export interface SSLPolicyNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "SSLPolicyNotFoundException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace SSLPolicyNotFoundException {
-  export const filterSensitiveLog = (obj: SSLPolicyNotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SSLPolicyNotFoundException =>
-    __isa(o, "SSLPolicyNotFoundException");
-}
-
 export interface SetIpAddressTypeInput {
   __type?: "SetIpAddressTypeInput";
   /**
@@ -3368,6 +3349,25 @@ export namespace SslPolicy {
     ...obj
   });
   export const isa = (o: any): o is SslPolicy => __isa(o, "SslPolicy");
+}
+
+/**
+ * <p>The specified SSL policy does not exist.</p>
+ */
+export interface SSLPolicyNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "SSLPolicyNotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace SSLPolicyNotFoundException {
+  export const filterSensitiveLog = (obj: SSLPolicyNotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SSLPolicyNotFoundException =>
+    __isa(o, "SSLPolicyNotFoundException");
 }
 
 /**

@@ -5,9 +5,9 @@ import {
 } from "../GuardDutyClient";
 import { DeleteIPSetRequest, DeleteIPSetResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteIPSetCommand,
-  serializeAws_restJson1_1DeleteIPSetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteIPSetCommand,
+  serializeAws_restJson1DeleteIPSetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteIPSetCommand extends $Command<
     input: DeleteIPSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteIPSetCommand(input, context);
+    return serializeAws_restJson1DeleteIPSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteIPSetCommandOutput> {
-    return deserializeAws_restJson1_1DeleteIPSetCommand(output, context);
+    return deserializeAws_restJson1DeleteIPSetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -421,7 +421,7 @@ const deserializeAws_json1_1CreateAcceleratorCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
           parsedOutput,
@@ -432,7 +432,7 @@ const deserializeAws_json1_1CreateAcceleratorCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -443,7 +443,7 @@ const deserializeAws_json1_1CreateAcceleratorCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.globalaccelerator.v20180706#LimitExceededException":
+    case "com.amazonaws.globalaccelerator#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -506,7 +506,7 @@ const deserializeAws_json1_1CreateEndpointGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
       response = {
         ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
           parsedOutput,
@@ -517,7 +517,7 @@ const deserializeAws_json1_1CreateEndpointGroupCommandError = async (
       };
       break;
     case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator.v20180706#AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -528,7 +528,7 @@ const deserializeAws_json1_1CreateEndpointGroupCommandError = async (
       };
       break;
     case "EndpointGroupAlreadyExistsException":
-    case "com.amazonaws.globalaccelerator.v20180706#EndpointGroupAlreadyExistsException":
+    case "com.amazonaws.globalaccelerator#EndpointGroupAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1EndpointGroupAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -539,7 +539,7 @@ const deserializeAws_json1_1CreateEndpointGroupCommandError = async (
       };
       break;
     case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
           parsedOutput,
@@ -550,7 +550,7 @@ const deserializeAws_json1_1CreateEndpointGroupCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -561,7 +561,7 @@ const deserializeAws_json1_1CreateEndpointGroupCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.globalaccelerator.v20180706#LimitExceededException":
+    case "com.amazonaws.globalaccelerator#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -572,7 +572,7 @@ const deserializeAws_json1_1CreateEndpointGroupCommandError = async (
       };
       break;
     case "ListenerNotFoundException":
-    case "com.amazonaws.globalaccelerator.v20180706#ListenerNotFoundException":
+    case "com.amazonaws.globalaccelerator#ListenerNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ListenerNotFoundExceptionResponse(
           parsedOutput,
@@ -632,7 +632,7 @@ const deserializeAws_json1_1CreateListenerCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
       response = {
         ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
           parsedOutput,
@@ -643,7 +643,7 @@ const deserializeAws_json1_1CreateListenerCommandError = async (
       };
       break;
     case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
           parsedOutput,
@@ -654,7 +654,7 @@ const deserializeAws_json1_1CreateListenerCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -665,7 +665,7 @@ const deserializeAws_json1_1CreateListenerCommandError = async (
       };
       break;
     case "InvalidPortRangeException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidPortRangeException":
+    case "com.amazonaws.globalaccelerator#InvalidPortRangeException":
       response = {
         ...(await deserializeAws_json1_1InvalidPortRangeExceptionResponse(
           parsedOutput,
@@ -676,7 +676,7 @@ const deserializeAws_json1_1CreateListenerCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.globalaccelerator.v20180706#LimitExceededException":
+    case "com.amazonaws.globalaccelerator#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -732,7 +732,7 @@ const deserializeAws_json1_1DeleteAcceleratorCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotDisabledException":
-    case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotDisabledException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotDisabledException":
       response = {
         ...(await deserializeAws_json1_1AcceleratorNotDisabledExceptionResponse(
           parsedOutput,
@@ -743,7 +743,7 @@ const deserializeAws_json1_1DeleteAcceleratorCommandError = async (
       };
       break;
     case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
       response = {
         ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
           parsedOutput,
@@ -754,7 +754,7 @@ const deserializeAws_json1_1DeleteAcceleratorCommandError = async (
       };
       break;
     case "AssociatedListenerFoundException":
-    case "com.amazonaws.globalaccelerator.v20180706#AssociatedListenerFoundException":
+    case "com.amazonaws.globalaccelerator#AssociatedListenerFoundException":
       response = {
         ...(await deserializeAws_json1_1AssociatedListenerFoundExceptionResponse(
           parsedOutput,
@@ -765,7 +765,7 @@ const deserializeAws_json1_1DeleteAcceleratorCommandError = async (
       };
       break;
     case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
           parsedOutput,
@@ -776,7 +776,7 @@ const deserializeAws_json1_1DeleteAcceleratorCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -835,7 +835,7 @@ const deserializeAws_json1_1DeleteEndpointGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EndpointGroupNotFoundException":
-    case "com.amazonaws.globalaccelerator.v20180706#EndpointGroupNotFoundException":
+    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(
           parsedOutput,
@@ -846,7 +846,7 @@ const deserializeAws_json1_1DeleteEndpointGroupCommandError = async (
       };
       break;
     case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
           parsedOutput,
@@ -857,7 +857,7 @@ const deserializeAws_json1_1DeleteEndpointGroupCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -913,7 +913,7 @@ const deserializeAws_json1_1DeleteListenerCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AssociatedEndpointGroupFoundException":
-    case "com.amazonaws.globalaccelerator.v20180706#AssociatedEndpointGroupFoundException":
+    case "com.amazonaws.globalaccelerator#AssociatedEndpointGroupFoundException":
       response = {
         ...(await deserializeAws_json1_1AssociatedEndpointGroupFoundExceptionResponse(
           parsedOutput,
@@ -924,7 +924,7 @@ const deserializeAws_json1_1DeleteListenerCommandError = async (
       };
       break;
     case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
           parsedOutput,
@@ -935,7 +935,7 @@ const deserializeAws_json1_1DeleteListenerCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -946,7 +946,7 @@ const deserializeAws_json1_1DeleteListenerCommandError = async (
       };
       break;
     case "ListenerNotFoundException":
-    case "com.amazonaws.globalaccelerator.v20180706#ListenerNotFoundException":
+    case "com.amazonaws.globalaccelerator#ListenerNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ListenerNotFoundExceptionResponse(
           parsedOutput,
@@ -1009,7 +1009,7 @@ const deserializeAws_json1_1DescribeAcceleratorCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
       response = {
         ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
           parsedOutput,
@@ -1020,7 +1020,7 @@ const deserializeAws_json1_1DescribeAcceleratorCommandError = async (
       };
       break;
     case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
           parsedOutput,
@@ -1031,7 +1031,7 @@ const deserializeAws_json1_1DescribeAcceleratorCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1097,7 +1097,7 @@ const deserializeAws_json1_1DescribeAcceleratorAttributesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
       response = {
         ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
           parsedOutput,
@@ -1108,7 +1108,7 @@ const deserializeAws_json1_1DescribeAcceleratorAttributesCommandError = async (
       };
       break;
     case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
           parsedOutput,
@@ -1119,7 +1119,7 @@ const deserializeAws_json1_1DescribeAcceleratorAttributesCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1182,7 +1182,7 @@ const deserializeAws_json1_1DescribeEndpointGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EndpointGroupNotFoundException":
-    case "com.amazonaws.globalaccelerator.v20180706#EndpointGroupNotFoundException":
+    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(
           parsedOutput,
@@ -1193,7 +1193,7 @@ const deserializeAws_json1_1DescribeEndpointGroupCommandError = async (
       };
       break;
     case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
           parsedOutput,
@@ -1204,7 +1204,7 @@ const deserializeAws_json1_1DescribeEndpointGroupCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1264,7 +1264,7 @@ const deserializeAws_json1_1DescribeListenerCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
           parsedOutput,
@@ -1275,7 +1275,7 @@ const deserializeAws_json1_1DescribeListenerCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1286,7 +1286,7 @@ const deserializeAws_json1_1DescribeListenerCommandError = async (
       };
       break;
     case "ListenerNotFoundException":
-    case "com.amazonaws.globalaccelerator.v20180706#ListenerNotFoundException":
+    case "com.amazonaws.globalaccelerator#ListenerNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ListenerNotFoundExceptionResponse(
           parsedOutput,
@@ -1346,7 +1346,7 @@ const deserializeAws_json1_1ListAcceleratorsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
           parsedOutput,
@@ -1357,7 +1357,7 @@ const deserializeAws_json1_1ListAcceleratorsCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1368,7 +1368,7 @@ const deserializeAws_json1_1ListAcceleratorsCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidNextTokenException":
+    case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1431,7 +1431,7 @@ const deserializeAws_json1_1ListEndpointGroupsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
           parsedOutput,
@@ -1442,7 +1442,7 @@ const deserializeAws_json1_1ListEndpointGroupsCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1453,7 +1453,7 @@ const deserializeAws_json1_1ListEndpointGroupsCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidNextTokenException":
+    case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1464,7 +1464,7 @@ const deserializeAws_json1_1ListEndpointGroupsCommandError = async (
       };
       break;
     case "ListenerNotFoundException":
-    case "com.amazonaws.globalaccelerator.v20180706#ListenerNotFoundException":
+    case "com.amazonaws.globalaccelerator#ListenerNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ListenerNotFoundExceptionResponse(
           parsedOutput,
@@ -1524,7 +1524,7 @@ const deserializeAws_json1_1ListListenersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
       response = {
         ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
           parsedOutput,
@@ -1535,7 +1535,7 @@ const deserializeAws_json1_1ListListenersCommandError = async (
       };
       break;
     case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
           parsedOutput,
@@ -1546,7 +1546,7 @@ const deserializeAws_json1_1ListListenersCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1557,7 +1557,7 @@ const deserializeAws_json1_1ListListenersCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidNextTokenException":
+    case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1617,7 +1617,7 @@ const deserializeAws_json1_1UpdateAcceleratorCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
       response = {
         ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
           parsedOutput,
@@ -1628,7 +1628,7 @@ const deserializeAws_json1_1UpdateAcceleratorCommandError = async (
       };
       break;
     case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
           parsedOutput,
@@ -1639,7 +1639,7 @@ const deserializeAws_json1_1UpdateAcceleratorCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1705,7 +1705,7 @@ const deserializeAws_json1_1UpdateAcceleratorAttributesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
       response = {
         ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
           parsedOutput,
@@ -1716,7 +1716,7 @@ const deserializeAws_json1_1UpdateAcceleratorAttributesCommandError = async (
       };
       break;
     case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator.v20180706#AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1727,7 +1727,7 @@ const deserializeAws_json1_1UpdateAcceleratorAttributesCommandError = async (
       };
       break;
     case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
           parsedOutput,
@@ -1738,7 +1738,7 @@ const deserializeAws_json1_1UpdateAcceleratorAttributesCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1801,7 +1801,7 @@ const deserializeAws_json1_1UpdateEndpointGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator.v20180706#AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1812,7 +1812,7 @@ const deserializeAws_json1_1UpdateEndpointGroupCommandError = async (
       };
       break;
     case "EndpointGroupNotFoundException":
-    case "com.amazonaws.globalaccelerator.v20180706#EndpointGroupNotFoundException":
+    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(
           parsedOutput,
@@ -1823,7 +1823,7 @@ const deserializeAws_json1_1UpdateEndpointGroupCommandError = async (
       };
       break;
     case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
           parsedOutput,
@@ -1834,7 +1834,7 @@ const deserializeAws_json1_1UpdateEndpointGroupCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1845,7 +1845,7 @@ const deserializeAws_json1_1UpdateEndpointGroupCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.globalaccelerator.v20180706#LimitExceededException":
+    case "com.amazonaws.globalaccelerator#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1905,7 +1905,7 @@ const deserializeAws_json1_1UpdateListenerCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
           parsedOutput,
@@ -1916,7 +1916,7 @@ const deserializeAws_json1_1UpdateListenerCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1927,7 +1927,7 @@ const deserializeAws_json1_1UpdateListenerCommandError = async (
       };
       break;
     case "InvalidPortRangeException":
-    case "com.amazonaws.globalaccelerator.v20180706#InvalidPortRangeException":
+    case "com.amazonaws.globalaccelerator#InvalidPortRangeException":
       response = {
         ...(await deserializeAws_json1_1InvalidPortRangeExceptionResponse(
           parsedOutput,
@@ -1938,7 +1938,7 @@ const deserializeAws_json1_1UpdateListenerCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.globalaccelerator.v20180706#LimitExceededException":
+    case "com.amazonaws.globalaccelerator#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1949,7 +1949,7 @@ const deserializeAws_json1_1UpdateListenerCommandError = async (
       };
       break;
     case "ListenerNotFoundException":
-    case "com.amazonaws.globalaccelerator.v20180706#ListenerNotFoundException":
+    case "com.amazonaws.globalaccelerator#ListenerNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ListenerNotFoundExceptionResponse(
           parsedOutput,
@@ -3013,23 +3013,6 @@ const deserializeAws_json1_1ListEndpointGroupsResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1ListListenersResponse = (
-  output: any,
-  context: __SerdeContext
-): ListListenersResponse => {
-  return {
-    __type: "ListListenersResponse",
-    Listeners:
-      output.Listeners !== undefined && output.Listeners !== null
-        ? deserializeAws_json1_1Listeners(output.Listeners, context)
-        : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1Listener = (
   output: any,
   context: __SerdeContext
@@ -3075,6 +3058,23 @@ const deserializeAws_json1_1Listeners = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Listener(entry, context)
   );
+};
+
+const deserializeAws_json1_1ListListenersResponse = (
+  output: any,
+  context: __SerdeContext
+): ListListenersResponse => {
+  return {
+    __type: "ListListenersResponse",
+    Listeners:
+      output.Listeners !== undefined && output.Listeners !== null
+        ? deserializeAws_json1_1Listeners(output.Listeners, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PortRange = (

@@ -8,9 +8,9 @@ import {
   AssociateDeviceWithPlacementResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1AssociateDeviceWithPlacementCommand,
-  serializeAws_restJson1_1AssociateDeviceWithPlacementCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AssociateDeviceWithPlacementCommand,
+  serializeAws_restJson1AssociateDeviceWithPlacementCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class AssociateDeviceWithPlacementCommand extends $Command<
     input: AssociateDeviceWithPlacementCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AssociateDeviceWithPlacementCommand(
+    return serializeAws_restJson1AssociateDeviceWithPlacementCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class AssociateDeviceWithPlacementCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateDeviceWithPlacementCommandOutput> {
-    return deserializeAws_restJson1_1AssociateDeviceWithPlacementCommand(
+    return deserializeAws_restJson1AssociateDeviceWithPlacementCommand(
       output,
       context
     );

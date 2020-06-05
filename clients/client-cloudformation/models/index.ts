@@ -6,6 +6,84 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
+ * <p>Structure that contains the results of the account gate function which AWS
+ *          CloudFormation invokes, if present, before proceeding with a stack set operation in an
+ *          account and region.</p>
+ *          <p>For each account and region, AWS CloudFormation lets you specify a Lamdba function
+ *          that encapsulates any requirements that must be met before CloudFormation can proceed with
+ *          a stack set operation in that account and region. CloudFormation invokes the function each
+ *          time a stack set operation is requested for that account and region; if the function
+ *          returns <code>FAILED</code>, CloudFormation cancels the operation in that account and
+ *          region, and sets the stack set operation result status for that account and region to
+ *             <code>FAILED</code>. </p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-account-gating.html">Configuring a
+ *             target account gate</a>.</p>
+ */
+export interface AccountGateResult {
+  __type?: "AccountGateResult";
+  /**
+   * <p>The status of the account gate function.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code>: The account gate function has determined that the
+   *                account and region passes any requirements for a stack set operation to occur. AWS
+   *                CloudFormation proceeds with the stack operation in that account and region.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>: The account gate function has determined that the account
+   *                and region does not meet the requirements for a stack set operation to occur. AWS
+   *                CloudFormation cancels the stack set operation in that account and region, and sets
+   *                the stack set operation result status for that account and region to
+   *                   <code>FAILED</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SKIPPED</code>: AWS CloudFormation has skipped calling the account gate
+   *                function for this account and region, for one of the following reasons:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>An account gate function has not been specified for the account and
+   *                      region. AWS CloudFormation proceeds with the stack set operation in this
+   *                      account and region.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>The <code>AWSCloudFormationStackSetExecutionRole</code> of the stack set
+   *                      adminstration account lacks permissions to invoke the function. AWS
+   *                      CloudFormation proceeds with the stack set operation in this account and
+   *                      region.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Either no action is necessary, or no action is possible, on the stack.
+   *                      AWS CloudFormation skips the stack set operation in this account and
+   *                      region.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   */
+  Status?: AccountGateStatus | string;
+
+  /**
+   * <p>The reason for the account gate status assigned to this account and region for the
+   *          stack set operation.</p>
+   */
+  StatusReason?: string;
+}
+
+export namespace AccountGateResult {
+  export const filterSensitiveLog = (obj: AccountGateResult): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AccountGateResult =>
+    __isa(o, "AccountGateResult");
+}
+
+export type AccountGateStatus = "FAILED" | "SKIPPED" | "SUCCEEDED";
+
+/**
  * <p>The AccountLimit data type. </p>
  *          <p>CloudFormation has the following limits per account:</p>
  *          <ul>
@@ -66,25 +144,6 @@ export namespace AlreadyExistsException {
 }
 
 /**
- * <p>An error occurred during a CloudFormation registry operation.</p>
- */
-export interface CFNRegistryException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CFNRegistryException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace CFNRegistryException {
-  export const filterSensitiveLog = (obj: CFNRegistryException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CFNRegistryException =>
-    __isa(o, "CFNRegistryException");
-}
-
-/**
  * <p>The input for the <a>CancelUpdateStack</a> action.</p>
  */
 export interface CancelUpdateStackInput {
@@ -116,6 +175,25 @@ export enum Capability {
   CAPABILITY_AUTO_EXPAND = "CAPABILITY_AUTO_EXPAND",
   CAPABILITY_IAM = "CAPABILITY_IAM",
   CAPABILITY_NAMED_IAM = "CAPABILITY_NAMED_IAM"
+}
+
+/**
+ * <p>An error occurred during a CloudFormation registry operation.</p>
+ */
+export interface CFNRegistryException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CFNRegistryException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace CFNRegistryException {
+  export const filterSensitiveLog = (obj: CFNRegistryException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CFNRegistryException =>
+    __isa(o, "CFNRegistryException");
 }
 
 /**
@@ -634,6 +712,27 @@ export namespace CreateChangeSetOutput {
 }
 
 /**
+ * <p>The specified resource exists, but has been changed.</p>
+ */
+export interface CreatedButModifiedException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CreatedButModifiedException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace CreatedButModifiedException {
+  export const filterSensitiveLog = (
+    obj: CreatedButModifiedException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CreatedButModifiedException =>
+    __isa(o, "CreatedButModifiedException");
+}
+
+/**
  * <p>The input for <a>CreateStack</a> action.</p>
  */
 export interface CreateStackInput {
@@ -913,6 +1012,109 @@ export namespace CreateStackInput {
     __isa(o, "CreateStackInput");
 }
 
+export interface CreateStackInstancesInput {
+  __type?: "CreateStackInstancesInput";
+  /**
+   * <p>The names of one or more AWS accounts that you want to create stack instances in the
+   *          specified region(s) for.</p>
+   */
+  Accounts: string[] | undefined;
+
+  /**
+   * <p>The unique identifier for this stack set operation. </p>
+   *          <p>The operation ID also functions as an idempotency token, to ensure that AWS
+   *          CloudFormation performs the stack set operation only once, even if you retry the request
+   *          multiple times. You might retry stack set operation requests to ensure that AWS
+   *          CloudFormation successfully received them.</p>
+   *          <p>If you don't specify an operation ID, the SDK generates one automatically. </p>
+   *          <p>Repeating this stack set operation with a new operation ID retries all stack
+   *          instances whose status is <code>OUTDATED</code>. </p>
+   */
+  OperationId?: string;
+
+  /**
+   * <p>Preferences for how AWS CloudFormation performs this stack set operation.</p>
+   */
+  OperationPreferences?: StackSetOperationPreferences;
+
+  /**
+   * <p>A list of stack set parameters whose values you want to override in the selected
+   *          stack instances.</p>
+   *          <p>Any overridden parameter values will be applied to all stack instances in the
+   *          specified accounts and regions. When specifying parameters and their values, be aware of
+   *          how AWS CloudFormation sets parameter values during stack instance operations:</p>
+   *          <ul>
+   *             <li>
+   *                <p>To override the current value for a parameter, include the parameter and
+   *                specify its value.</p>
+   *             </li>
+   *             <li>
+   *                <p>To leave a parameter set to its present value, you can do one of the
+   *                following:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Do not include the parameter in the list.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Include the parameter and specify <code>UsePreviousValue</code> as
+   *                         <code>true</code>. (You cannot specify both a value and set
+   *                         <code>UsePreviousValue</code> to <code>true</code>.)</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>To set all overridden parameter back to the values specified in the stack set,
+   *                specify a parameter list but do not include any parameters.</p>
+   *             </li>
+   *             <li>
+   *                <p>To leave all parameters set to their present values, do not specify this
+   *                property at all.</p>
+   *             </li>
+   *          </ul>
+   *          <p>During stack set updates, any parameter values overridden for a stack instance are
+   *          not updated, but retain their overridden value.</p>
+   *          <p>You can only override the parameter <i>values</i> that are specified in
+   *          the stack set; to add or delete a parameter itself, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a> to update the stack set template.</p>
+   */
+  ParameterOverrides?: Parameter[];
+
+  /**
+   * <p>The names of one or more regions where you want to create stack instances using the
+   *          specified AWS account(s). </p>
+   */
+  Regions: string[] | undefined;
+
+  /**
+   * <p>The name or unique ID of the stack set that you want to create stack instances
+   *          from.</p>
+   */
+  StackSetName: string | undefined;
+}
+
+export namespace CreateStackInstancesInput {
+  export const filterSensitiveLog = (obj: CreateStackInstancesInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CreateStackInstancesInput =>
+    __isa(o, "CreateStackInstancesInput");
+}
+
+export interface CreateStackInstancesOutput {
+  __type?: "CreateStackInstancesOutput";
+  /**
+   * <p>The unique identifier for this stack set operation.</p>
+   */
+  OperationId?: string;
+}
+
+export namespace CreateStackInstancesOutput {
+  export const filterSensitiveLog = (obj: CreateStackInstancesOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CreateStackInstancesOutput =>
+    __isa(o, "CreateStackInstancesOutput");
+}
+
 /**
  * <p>The output for a <a>CreateStack</a> action.</p>
  */
@@ -930,6 +1132,214 @@ export namespace CreateStackOutput {
   });
   export const isa = (o: any): o is CreateStackOutput =>
     __isa(o, "CreateStackOutput");
+}
+
+export interface CreateStackSetInput {
+  __type?: "CreateStackSetInput";
+  /**
+   * <p>The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. </p>
+   *          <p>Specify an IAM role only if you are using customized administrator roles to control
+   *          which users or groups can manage specific stack sets within the same administrator account.
+   *          For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Prerequisites:
+   *             Granting Permissions for Stack Set Operations</a> in the
+   *             <i>AWS CloudFormation User Guide</i>.</p>
+   */
+  AdministrationRoleARN?: string;
+
+  /**
+   * <p>In some cases, you must explicitly acknowledge that your stack set template contains
+   *          certain capabilities in order for AWS CloudFormation to create the stack set and related stack
+   *          instances.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CAPABILITY_IAM</code> and <code>CAPABILITY_NAMED_IAM</code>
+   *                </p>
+   *                <p>Some stack templates might include resources that can affect permissions in
+   *                your AWS account; for example, by creating new AWS Identity and Access Management
+   *                (IAM) users. For those stack sets, you must explicitly acknowledge this by specifying
+   *                one of these capabilities.</p>
+   *                <p>The following IAM resources require you to specify either the
+   *                   <code>CAPABILITY_IAM</code> or <code>CAPABILITY_NAMED_IAM</code>
+   *                capability.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>If you have IAM resources, you can specify either capability. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>If you have IAM resources with custom names, you <i>must</i>
+   *                      specify <code>CAPABILITY_NAMED_IAM</code>. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>If you don't specify either of these capabilities, AWS CloudFormation returns an
+   *                         <code>InsufficientCapabilities</code> error.</p>
+   *                   </li>
+   *                </ul>
+   *                <p>If your stack template contains these resources, we recommend that you review
+   *                all permissions associated with them and edit their permissions if
+   *                necessary.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
+   *                         AWS::IAM::AccessKey</a>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
+   *                         AWS::IAM::Group</a>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html"> AWS::IAM::InstanceProfile</a>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html">
+   *                         AWS::IAM::Policy</a>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">
+   *                         AWS::IAM::Role</a>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html">
+   *                         AWS::IAM::User</a>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html"> AWS::IAM::UserToGroupAddition</a>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM
+   *                   Resources in AWS CloudFormation Templates</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CAPABILITY_AUTO_EXPAND</code>
+   *                </p>
+   *                <p>Some templates contain macros. If your stack template contains one or more macros,
+   *                and you choose to create a stack directly from the processed template, without first
+   *                reviewing the resulting changes in a change set, you must acknowledge this
+   *                capability. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using AWS CloudFormation Macros to Perform Custom Processing on
+   *                Templates</a>.</p>
+   *                <note>
+   *                   <p>Stack sets do not currently support macros in stack templates. (This includes
+   *                   the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a>
+   *                   transforms, which are macros hosted by AWS CloudFormation.) Even if you specify this
+   *                   capability, if you include a macro in your template the stack set operation will
+   *                   fail.</p>
+   *                </note>
+   *             </li>
+   *          </ul>
+   */
+  Capabilities?: (Capability | string)[];
+
+  /**
+   * <p>A unique identifier for this <code>CreateStackSet</code> request. Specify this token
+   *          if you plan to retry requests so that AWS CloudFormation knows that you're not attempting
+   *          to create another stack set with the same name. You might retry <code>CreateStackSet</code>
+   *          requests to ensure that AWS CloudFormation successfully received them.</p>
+   *          <p>If you don't specify an operation ID, the SDK generates one automatically.
+   *       </p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>A description of the stack set. You can use the description to identify the stack
+   *          set's purpose or other important information.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The name of the IAM execution role to use to create the stack set. If you do not specify
+   *          an execution role, AWS CloudFormation uses the <code>AWSCloudFormationStackSetExecutionRole</code> role
+   *          for the stack set operation.</p>
+   *          <p>Specify an IAM role only if you are using customized execution roles to control which
+   *          stack resources users and groups can include in their stack sets.
+   *
+   *       </p>
+   */
+  ExecutionRoleName?: string;
+
+  /**
+   * <p>The input parameters for the stack set template. </p>
+   */
+  Parameters?: Parameter[];
+
+  /**
+   * <p>The name to associate with the stack set. The name must be unique in the region where
+   *          you create your stack set.</p>
+   *          <note>
+   *             <p>A stack name can contain only alphanumeric characters (case-sensitive) and
+   *             hyphens. It must start with an alphabetic character and can't be longer than 128
+   *             characters.</p>
+   *          </note>
+   */
+  StackSetName: string | undefined;
+
+  /**
+   * <p>The key-value pairs to associate with this stack set and the stacks created from it.
+   *          AWS CloudFormation also propagates these tags to supported resources that are created in
+   *          the stacks. A maximum number of 50 tags can be specified.</p>
+   *          <p>If you specify tags as part of a <code>CreateStackSet</code> action, AWS
+   *          CloudFormation checks to see if you have the required IAM permission to tag resources. If
+   *          you don't, the entire <code>CreateStackSet</code> action fails with an <code>access
+   *             denied</code> error, and the stack set is not created.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The structure that contains the template body, with a minimum length of 1 byte and a
+   *          maximum length of 51,200 bytes. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
+   *          in the AWS CloudFormation User Guide.</p>
+   *          <p>Conditional: You must specify either the TemplateBody or the TemplateURL parameter,
+   *          but not both.</p>
+   */
+  TemplateBody?: string;
+
+  /**
+   * <p>The location of the file that contains the template body. The URL must point to a
+   *          template (maximum size: 460,800 bytes) that's located in an Amazon S3 bucket. For more
+   *          information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
+   *          in the AWS CloudFormation User Guide.</p>
+   *          <p>Conditional: You must specify either the TemplateBody or the TemplateURL parameter,
+   *          but not both.</p>
+   */
+  TemplateURL?: string;
+}
+
+export namespace CreateStackSetInput {
+  export const filterSensitiveLog = (obj: CreateStackSetInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CreateStackSetInput =>
+    __isa(o, "CreateStackSetInput");
+}
+
+export interface CreateStackSetOutput {
+  __type?: "CreateStackSetOutput";
+  /**
+   * <p>The ID of the stack set that you're creating.</p>
+   */
+  StackSetId?: string;
+}
+
+export namespace CreateStackSetOutput {
+  export const filterSensitiveLog = (obj: CreateStackSetOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CreateStackSetOutput =>
+    __isa(o, "CreateStackSetOutput");
 }
 
 /**
@@ -1028,6 +1438,103 @@ export namespace DeleteStackInput {
   });
   export const isa = (o: any): o is DeleteStackInput =>
     __isa(o, "DeleteStackInput");
+}
+
+export interface DeleteStackInstancesInput {
+  __type?: "DeleteStackInstancesInput";
+  /**
+   * <p>The names of the AWS accounts that you want to delete stack instances for.</p>
+   */
+  Accounts: string[] | undefined;
+
+  /**
+   * <p>The unique identifier for this stack set operation. </p>
+   *          <p>If you don't specify an operation ID, the SDK generates one automatically. </p>
+   *          <p>The operation ID also functions as an idempotency token, to ensure that AWS
+   *          CloudFormation performs the stack set operation only once, even if you retry the request
+   *          multiple times. You can retry stack set operation requests to ensure that AWS
+   *          CloudFormation successfully received them.</p>
+   *          <p>Repeating this stack set operation with a new operation ID retries all stack
+   *          instances whose status is <code>OUTDATED</code>. </p>
+   */
+  OperationId?: string;
+
+  /**
+   * <p>Preferences for how AWS CloudFormation performs this stack set operation.</p>
+   */
+  OperationPreferences?: StackSetOperationPreferences;
+
+  /**
+   * <p>The regions where you want to delete stack set instances. </p>
+   */
+  Regions: string[] | undefined;
+
+  /**
+   * <p>Removes the stack instances from the specified stack set, but doesn't delete the
+   *          stacks. You can't reassociate a retained stack or add an existing, saved stack to a new
+   *          stack set.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a>.</p>
+   */
+  RetainStacks: boolean | undefined;
+
+  /**
+   * <p>The name or unique ID of the stack set that you want to delete stack instances
+   *          for.</p>
+   */
+  StackSetName: string | undefined;
+}
+
+export namespace DeleteStackInstancesInput {
+  export const filterSensitiveLog = (obj: DeleteStackInstancesInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteStackInstancesInput =>
+    __isa(o, "DeleteStackInstancesInput");
+}
+
+export interface DeleteStackInstancesOutput {
+  __type?: "DeleteStackInstancesOutput";
+  /**
+   * <p>The unique identifier for this stack set operation.</p>
+   */
+  OperationId?: string;
+}
+
+export namespace DeleteStackInstancesOutput {
+  export const filterSensitiveLog = (obj: DeleteStackInstancesOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteStackInstancesOutput =>
+    __isa(o, "DeleteStackInstancesOutput");
+}
+
+export interface DeleteStackSetInput {
+  __type?: "DeleteStackSetInput";
+  /**
+   * <p>The name or unique ID of the stack set that you're deleting. You can obtain this
+   *          value by running <a>ListStackSets</a>.</p>
+   */
+  StackSetName: string | undefined;
+}
+
+export namespace DeleteStackSetInput {
+  export const filterSensitiveLog = (obj: DeleteStackSetInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteStackSetInput =>
+    __isa(o, "DeleteStackSetInput");
+}
+
+export interface DeleteStackSetOutput {
+  __type?: "DeleteStackSetOutput";
+}
+
+export namespace DeleteStackSetOutput {
+  export const filterSensitiveLog = (obj: DeleteStackSetOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteStackSetOutput =>
+    __isa(o, "DeleteStackSetOutput");
 }
 
 export type DeprecatedStatus = "DEPRECATED" | "LIVE";
@@ -1442,6 +1949,51 @@ export namespace DescribeStackEventsOutput {
     __isa(o, "DescribeStackEventsOutput");
 }
 
+export interface DescribeStackInstanceInput {
+  __type?: "DescribeStackInstanceInput";
+  /**
+   * <p>The ID of an AWS account that's associated with this stack instance.</p>
+   */
+  StackInstanceAccount: string | undefined;
+
+  /**
+   * <p>The name of a region that's associated with this stack instance.</p>
+   */
+  StackInstanceRegion: string | undefined;
+
+  /**
+   * <p>The name or the unique stack ID of the stack set that you want to get stack instance
+   *          information for.</p>
+   */
+  StackSetName: string | undefined;
+}
+
+export namespace DescribeStackInstanceInput {
+  export const filterSensitiveLog = (obj: DescribeStackInstanceInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeStackInstanceInput =>
+    __isa(o, "DescribeStackInstanceInput");
+}
+
+export interface DescribeStackInstanceOutput {
+  __type?: "DescribeStackInstanceOutput";
+  /**
+   * <p>The stack instance that matches the specified request parameters.</p>
+   */
+  StackInstance?: StackInstance;
+}
+
+export namespace DescribeStackInstanceOutput {
+  export const filterSensitiveLog = (
+    obj: DescribeStackInstanceOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeStackInstanceOutput =>
+    __isa(o, "DescribeStackInstanceOutput");
+}
+
 export interface DescribeStackResourceDriftsInput {
   __type?: "DescribeStackResourceDriftsInput";
   /**
@@ -1664,6 +2216,79 @@ export namespace DescribeStackResourcesOutput {
   });
   export const isa = (o: any): o is DescribeStackResourcesOutput =>
     __isa(o, "DescribeStackResourcesOutput");
+}
+
+export interface DescribeStackSetInput {
+  __type?: "DescribeStackSetInput";
+  /**
+   * <p>The name or unique ID of the stack set whose description you want.</p>
+   */
+  StackSetName: string | undefined;
+}
+
+export namespace DescribeStackSetInput {
+  export const filterSensitiveLog = (obj: DescribeStackSetInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeStackSetInput =>
+    __isa(o, "DescribeStackSetInput");
+}
+
+export interface DescribeStackSetOperationInput {
+  __type?: "DescribeStackSetOperationInput";
+  /**
+   * <p>The unique ID of the stack set operation. </p>
+   */
+  OperationId: string | undefined;
+
+  /**
+   * <p>The name or the unique stack ID of the stack set for the stack operation.</p>
+   */
+  StackSetName: string | undefined;
+}
+
+export namespace DescribeStackSetOperationInput {
+  export const filterSensitiveLog = (
+    obj: DescribeStackSetOperationInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeStackSetOperationInput =>
+    __isa(o, "DescribeStackSetOperationInput");
+}
+
+export interface DescribeStackSetOperationOutput {
+  __type?: "DescribeStackSetOperationOutput";
+  /**
+   * <p>The specified stack set operation.</p>
+   */
+  StackSetOperation?: StackSetOperation;
+}
+
+export namespace DescribeStackSetOperationOutput {
+  export const filterSensitiveLog = (
+    obj: DescribeStackSetOperationOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeStackSetOperationOutput =>
+    __isa(o, "DescribeStackSetOperationOutput");
+}
+
+export interface DescribeStackSetOutput {
+  __type?: "DescribeStackSetOutput";
+  /**
+   * <p>The specified stack set.</p>
+   */
+  StackSet?: StackSet;
+}
+
+export namespace DescribeStackSetOutput {
+  export const filterSensitiveLog = (obj: DescribeStackSetOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeStackSetOutput =>
+    __isa(o, "DescribeStackSetOutput");
 }
 
 /**
@@ -2044,6 +2669,55 @@ export namespace DetectStackResourceDriftOutput {
   });
   export const isa = (o: any): o is DetectStackResourceDriftOutput =>
     __isa(o, "DetectStackResourceDriftOutput");
+}
+
+export interface DetectStackSetDriftInput {
+  __type?: "DetectStackSetDriftInput";
+  /**
+   * <p>
+   *             <i>The ID of the stack set operation.</i>
+   *          </p>
+   */
+  OperationId?: string;
+
+  /**
+   * <p>The user-specified preferences for how AWS CloudFormation performs a stack set
+   *          operation. </p>
+   *          <p>For more information on maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a>.</p>
+   */
+  OperationPreferences?: StackSetOperationPreferences;
+
+  /**
+   * <p>The name of the stack set on which to perform the drift detection operation.</p>
+   */
+  StackSetName: string | undefined;
+}
+
+export namespace DetectStackSetDriftInput {
+  export const filterSensitiveLog = (obj: DetectStackSetDriftInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DetectStackSetDriftInput =>
+    __isa(o, "DetectStackSetDriftInput");
+}
+
+export interface DetectStackSetDriftOutput {
+  __type?: "DetectStackSetDriftOutput";
+  /**
+   * <p>The ID of the drift detection stack set operation. </p>
+   *          <p>you can use this operation id with <code>
+   *                <a>DescribeStackSetOperation</a>
+   *             </code> to monitor the progress of the drift detection operation. </p>
+   */
+  OperationId?: string;
+}
+
+export namespace DetectStackSetDriftOutput {
+  export const filterSensitiveLog = (obj: DetectStackSetDriftOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DetectStackSetDriftOutput =>
+    __isa(o, "DetectStackSetDriftOutput");
 }
 
 export enum DifferenceType {
@@ -2513,6 +3187,25 @@ export namespace InvalidChangeSetStatusException {
 }
 
 /**
+ * <p>The specified operation isn't valid.</p>
+ */
+export interface InvalidOperationException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidOperationException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidOperationException {
+  export const filterSensitiveLog = (obj: InvalidOperationException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidOperationException =>
+    __isa(o, "InvalidOperationException");
+}
+
+/**
  * <p>Error reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. CloudFormation does not return this error to users.</p>
  */
 export interface InvalidStateTransitionException
@@ -2692,6 +3385,76 @@ export namespace ListImportsOutput {
     __isa(o, "ListImportsOutput");
 }
 
+export interface ListStackInstancesInput {
+  __type?: "ListStackInstancesInput";
+  /**
+   * <p>The maximum number of results to be returned with a single call. If the number of
+   *          available results exceeds this maximum, the response includes a <code>NextToken</code>
+   *          value that you can assign to the <code>NextToken</code> request parameter to get the next
+   *          set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous request didn't return all of the remaining results, the response's
+   *             <code>NextToken</code> parameter value is set to a token. To retrieve the next set of
+   *          results, call <code>ListStackInstances</code> again and assign that token to the request
+   *          object's <code>NextToken</code> parameter. If there are no remaining results, the previous
+   *          response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The name of the AWS account that you want to list stack instances for.</p>
+   */
+  StackInstanceAccount?: string;
+
+  /**
+   * <p>The name of the region where you want to list stack instances. </p>
+   */
+  StackInstanceRegion?: string;
+
+  /**
+   * <p>The name or unique ID of the stack set that you want to list stack instances
+   *          for.</p>
+   */
+  StackSetName: string | undefined;
+}
+
+export namespace ListStackInstancesInput {
+  export const filterSensitiveLog = (obj: ListStackInstancesInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListStackInstancesInput =>
+    __isa(o, "ListStackInstancesInput");
+}
+
+export interface ListStackInstancesOutput {
+  __type?: "ListStackInstancesOutput";
+  /**
+   * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is
+   *          set to a token. To retrieve the next set of results, call <code>ListStackInstances</code>
+   *          again and assign that token to the request object's <code>NextToken</code> parameter. If
+   *          the request returns all results, <code>NextToken</code> is set to
+   *          <code>null</code>.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of <code>StackInstanceSummary</code> structures that contain information about
+   *          the specified stack instances.</p>
+   */
+  Summaries?: StackInstanceSummary[];
+}
+
+export namespace ListStackInstancesOutput {
+  export const filterSensitiveLog = (obj: ListStackInstancesOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListStackInstancesOutput =>
+    __isa(o, "ListStackInstancesOutput");
+}
+
 /**
  * <p>The input for the <a>ListStackResource</a> action.</p>
  */
@@ -2751,6 +3514,201 @@ export namespace ListStackResourcesOutput {
   });
   export const isa = (o: any): o is ListStackResourcesOutput =>
     __isa(o, "ListStackResourcesOutput");
+}
+
+export interface ListStackSetOperationResultsInput {
+  __type?: "ListStackSetOperationResultsInput";
+  /**
+   * <p>The maximum number of results to be returned with a single call. If the number of
+   *          available results exceeds this maximum, the response includes a <code>NextToken</code>
+   *          value that you can assign to the <code>NextToken</code> request parameter to get the next
+   *          set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous request didn't return all of the remaining results, the response
+   *          object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set
+   *          of results, call <code>ListStackSetOperationResults</code> again and assign that token to
+   *          the request object's <code>NextToken</code> parameter. If there are no remaining results,
+   *          the previous response object's <code>NextToken</code> parameter is set to
+   *          <code>null</code>.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The ID of the stack set operation.</p>
+   */
+  OperationId: string | undefined;
+
+  /**
+   * <p>The name or unique ID of the stack set that you want to get operation results
+   *          for.</p>
+   */
+  StackSetName: string | undefined;
+}
+
+export namespace ListStackSetOperationResultsInput {
+  export const filterSensitiveLog = (
+    obj: ListStackSetOperationResultsInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListStackSetOperationResultsInput =>
+    __isa(o, "ListStackSetOperationResultsInput");
+}
+
+export interface ListStackSetOperationResultsOutput {
+  __type?: "ListStackSetOperationResultsOutput";
+  /**
+   * <p>If the request doesn't return all results, <code>NextToken</code> is set to a token.
+   *          To retrieve the next set of results, call <code>ListOperationResults</code> again and
+   *          assign that token to the request object's <code>NextToken</code> parameter. If there are no
+   *          remaining results, <code>NextToken</code> is set to <code>null</code>.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of <code>StackSetOperationResultSummary</code> structures that contain
+   *          information about the specified operation results, for accounts and regions that are
+   *          included in the operation.</p>
+   */
+  Summaries?: StackSetOperationResultSummary[];
+}
+
+export namespace ListStackSetOperationResultsOutput {
+  export const filterSensitiveLog = (
+    obj: ListStackSetOperationResultsOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListStackSetOperationResultsOutput =>
+    __isa(o, "ListStackSetOperationResultsOutput");
+}
+
+export interface ListStackSetOperationsInput {
+  __type?: "ListStackSetOperationsInput";
+  /**
+   * <p>The maximum number of results to be returned with a single call. If the number of
+   *          available results exceeds this maximum, the response includes a <code>NextToken</code>
+   *          value that you can assign to the <code>NextToken</code> request parameter to get the next
+   *          set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous paginated request didn't return all of the remaining results, the
+   *          response object's <code>NextToken</code> parameter value is set to a token. To retrieve the
+   *          next set of results, call <code>ListStackSetOperations</code> again and assign that token
+   *          to the request object's <code>NextToken</code> parameter. If there are no remaining
+   *          results, the previous response object's <code>NextToken</code> parameter is set to
+   *             <code>null</code>.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The name or unique ID of the stack set that you want to get operation summaries
+   *          for.</p>
+   */
+  StackSetName: string | undefined;
+}
+
+export namespace ListStackSetOperationsInput {
+  export const filterSensitiveLog = (
+    obj: ListStackSetOperationsInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListStackSetOperationsInput =>
+    __isa(o, "ListStackSetOperationsInput");
+}
+
+export interface ListStackSetOperationsOutput {
+  __type?: "ListStackSetOperationsOutput";
+  /**
+   * <p>If the request doesn't return all results, <code>NextToken</code> is set to a token.
+   *          To retrieve the next set of results, call <code>ListOperationResults</code> again and
+   *          assign that token to the request object's <code>NextToken</code> parameter. If there are no
+   *          remaining results, <code>NextToken</code> is set to <code>null</code>.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of <code>StackSetOperationSummary</code> structures that contain summary
+   *          information about operations for the specified stack set.</p>
+   */
+  Summaries?: StackSetOperationSummary[];
+}
+
+export namespace ListStackSetOperationsOutput {
+  export const filterSensitiveLog = (
+    obj: ListStackSetOperationsOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListStackSetOperationsOutput =>
+    __isa(o, "ListStackSetOperationsOutput");
+}
+
+export interface ListStackSetsInput {
+  __type?: "ListStackSetsInput";
+  /**
+   * <p>The maximum number of results to be returned with a single call. If the number of
+   *          available results exceeds this maximum, the response includes a <code>NextToken</code>
+   *          value that you can assign to the <code>NextToken</code> request parameter to get the next
+   *          set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous paginated request didn't return all of the remaining results, the
+   *          response object's <code>NextToken</code> parameter value is set to a token. To retrieve the
+   *          next set of results, call <code>ListStackSets</code> again and assign that token to the
+   *          request object's <code>NextToken</code> parameter. If there are no remaining results, the
+   *          previous response object's <code>NextToken</code> parameter is set to
+   *          <code>null</code>.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The status of the stack sets that you want to get summary information
+   *          about.</p>
+   */
+  Status?: StackSetStatus | string;
+}
+
+export namespace ListStackSetsInput {
+  export const filterSensitiveLog = (obj: ListStackSetsInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListStackSetsInput =>
+    __isa(o, "ListStackSetsInput");
+}
+
+export interface ListStackSetsOutput {
+  __type?: "ListStackSetsOutput";
+  /**
+   * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is
+   *          set to a token. To retrieve the next set of results, call <code>ListStackInstances</code>
+   *          again and assign that token to the request object's <code>NextToken</code> parameter. If
+   *          the request returns all results, <code>NextToken</code> is set to
+   *          <code>null</code>.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of <code>StackSetSummary</code> structures that contain information about the
+   *          user's stack sets.</p>
+   */
+  Summaries?: StackSetSummary[];
+}
+
+export namespace ListStackSetsOutput {
+  export const filterSensitiveLog = (obj: ListStackSetsOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListStackSetsOutput =>
+    __isa(o, "ListStackSetsOutput");
 }
 
 /**
@@ -2875,82 +3833,6 @@ export namespace ListTypeRegistrationsOutput {
     __isa(o, "ListTypeRegistrationsOutput");
 }
 
-export interface ListTypeVersionsInput {
-  __type?: "ListTypeVersionsInput";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the type for which you want version summary information.</p>
-   *          <p>Conditional: You must specify <code>TypeName</code> or <code>Arn</code>.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The deprecation status of the type versions that you want to get summary information about.</p>
-   *          <p>Valid values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>LIVE</code>: The type version is registered and can be used in CloudFormation operations, dependent on its provisioning behavior and visibility scope.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DEPRECATED</code>: The type version has been deregistered and can no longer be used in CloudFormation operations. </p>
-   *             </li>
-   *          </ul>
-   */
-  DeprecatedStatus?: DeprecatedStatus | string;
-
-  /**
-   * <p>The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The kind of the type.</p>
-   *          <p>Currently the only valid value is <code>RESOURCE</code>.</p>
-   */
-  Type?: RegistryType | string;
-
-  /**
-   * <p>The name of the type for which you want version summary information.</p>
-   *          <p>Conditional: You must specify <code>TypeName</code> or <code>Arn</code>.</p>
-   */
-  TypeName?: string;
-}
-
-export namespace ListTypeVersionsInput {
-  export const filterSensitiveLog = (obj: ListTypeVersionsInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListTypeVersionsInput =>
-    __isa(o, "ListTypeVersionsInput");
-}
-
-export interface ListTypeVersionsOutput {
-  __type?: "ListTypeVersionsOutput";
-  /**
-   * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to <code>null</code>.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A list of <code>TypeVersionSummary</code> structures that contain information about the specified type's versions.</p>
-   */
-  TypeVersionSummaries?: TypeVersionSummary[];
-}
-
-export namespace ListTypeVersionsOutput {
-  export const filterSensitiveLog = (obj: ListTypeVersionsOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListTypeVersionsOutput =>
-    __isa(o, "ListTypeVersionsOutput");
-}
-
 export interface ListTypesInput {
   __type?: "ListTypesInput";
   /**
@@ -3045,6 +3927,82 @@ export namespace ListTypesOutput {
     __isa(o, "ListTypesOutput");
 }
 
+export interface ListTypeVersionsInput {
+  __type?: "ListTypeVersionsInput";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the type for which you want version summary information.</p>
+   *          <p>Conditional: You must specify <code>TypeName</code> or <code>Arn</code>.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The deprecation status of the type versions that you want to get summary information about.</p>
+   *          <p>Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LIVE</code>: The type version is registered and can be used in CloudFormation operations, dependent on its provisioning behavior and visibility scope.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DEPRECATED</code>: The type version has been deregistered and can no longer be used in CloudFormation operations. </p>
+   *             </li>
+   *          </ul>
+   */
+  DeprecatedStatus?: DeprecatedStatus | string;
+
+  /**
+   * <p>The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The kind of the type.</p>
+   *          <p>Currently the only valid value is <code>RESOURCE</code>.</p>
+   */
+  Type?: RegistryType | string;
+
+  /**
+   * <p>The name of the type for which you want version summary information.</p>
+   *          <p>Conditional: You must specify <code>TypeName</code> or <code>Arn</code>.</p>
+   */
+  TypeName?: string;
+}
+
+export namespace ListTypeVersionsInput {
+  export const filterSensitiveLog = (obj: ListTypeVersionsInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListTypeVersionsInput =>
+    __isa(o, "ListTypeVersionsInput");
+}
+
+export interface ListTypeVersionsOutput {
+  __type?: "ListTypeVersionsOutput";
+  /**
+   * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to <code>null</code>.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of <code>TypeVersionSummary</code> structures that contain information about the specified type's versions.</p>
+   */
+  TypeVersionSummaries?: TypeVersionSummary[];
+}
+
+export namespace ListTypeVersionsOutput {
+  export const filterSensitiveLog = (obj: ListTypeVersionsOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListTypeVersionsOutput =>
+    __isa(o, "ListTypeVersionsOutput");
+}
+
 /**
  * <p>Contains logging configuration information for a type.</p>
  */
@@ -3068,10 +4026,91 @@ export namespace LoggingConfig {
   export const isa = (o: any): o is LoggingConfig => __isa(o, "LoggingConfig");
 }
 
+/**
+ * <p>The specified name is already in use.</p>
+ */
+export interface NameAlreadyExistsException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "NameAlreadyExistsException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NameAlreadyExistsException {
+  export const filterSensitiveLog = (obj: NameAlreadyExistsException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NameAlreadyExistsException =>
+    __isa(o, "NameAlreadyExistsException");
+}
+
 export enum OnFailure {
   DELETE = "DELETE",
   DO_NOTHING = "DO_NOTHING",
   ROLLBACK = "ROLLBACK"
+}
+
+/**
+ * <p>The specified operation ID already exists.</p>
+ */
+export interface OperationIdAlreadyExistsException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "OperationIdAlreadyExistsException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace OperationIdAlreadyExistsException {
+  export const filterSensitiveLog = (
+    obj: OperationIdAlreadyExistsException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is OperationIdAlreadyExistsException =>
+    __isa(o, "OperationIdAlreadyExistsException");
+}
+
+/**
+ * <p>Another operation is currently in progress for this stack set. Only one operation can
+ *          be performed for a stack set at a given time.</p>
+ */
+export interface OperationInProgressException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "OperationInProgressException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace OperationInProgressException {
+  export const filterSensitiveLog = (
+    obj: OperationInProgressException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is OperationInProgressException =>
+    __isa(o, "OperationInProgressException");
+}
+
+/**
+ * <p>The specified ID refers to an operation that doesn't exist.</p>
+ */
+export interface OperationNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "OperationNotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace OperationNotFoundException {
+  export const filterSensitiveLog = (obj: OperationNotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is OperationNotFoundException =>
+    __isa(o, "OperationNotFoundException");
 }
 
 export enum OperationStatus {
@@ -4374,6 +5413,269 @@ export namespace StackEvent {
 }
 
 /**
+ * <p>An AWS CloudFormation stack, in a specific account and region, that's part of a stack
+ *          set operation. A stack instance is a reference to an attempted or actual stack in a given
+ *          account within a given region. A stack instance can exist without a stack—for example, if
+ *          the stack couldn't be created for some reason. A stack instance is associated with only one
+ *          stack set. Each stack instance contains the ID of its associated stack set, as well as the
+ *          ID of the actual stack and the stack status.</p>
+ */
+export interface StackInstance {
+  __type?: "StackInstance";
+  /**
+   * <p>The name of the AWS account that the stack instance is associated with.</p>
+   */
+  Account?: string;
+
+  /**
+   * <p>Status of the stack instance's actual configuration compared to the expected template
+   *          and parameter configuration of the stack set to which it belongs. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DRIFTED</code>: The stack differs from the expected template and parameter
+   *                configuration of the stack set to which it belongs. A stack instance is considered to
+   *                have drifted if one or more of the resources in the associated stack have
+   *                drifted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_CHECKED</code>: AWS CloudFormation has not checked if the stack instance differs from
+   *                its expected stack set configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_SYNC</code>: The stack instance's actual configuration matches its
+   *                expected stack set configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNKNOWN</code>: This value is reserved for future use.</p>
+   *             </li>
+   *          </ul>
+   */
+  DriftStatus?: StackDriftStatus | string;
+
+  /**
+   * <p>Most recent time when CloudFormation performed a drift detection operation on the stack
+   *          instance. This value will be <code>NULL</code> for any stack instance on which drift
+   *          detection has not yet been performed.</p>
+   */
+  LastDriftCheckTimestamp?: Date;
+
+  /**
+   * <p>A list of parameters from the stack set template whose values have been overridden in
+   *          this stack instance.</p>
+   */
+  ParameterOverrides?: Parameter[];
+
+  /**
+   * <p>The name of the AWS region that the stack instance is associated with.</p>
+   */
+  Region?: string;
+
+  /**
+   * <p>The ID of the stack instance.</p>
+   */
+  StackId?: string;
+
+  /**
+   * <p>The name or unique ID of the stack set that the stack instance is associated
+   *          with.</p>
+   */
+  StackSetId?: string;
+
+  /**
+   * <p>The status of the stack instance, in terms of its synchronization with its associated
+   *          stack set.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INOPERABLE</code>: A <code>DeleteStackInstances</code> operation has
+   *                failed and left the stack in an unstable state. Stacks in this state are excluded
+   *                from further <code>UpdateStackSet</code> operations. You might need to perform a
+   *                   <code>DeleteStackInstances</code> operation, with <code>RetainStacks</code> set to
+   *                   <code>true</code>, to delete the stack instance, and then delete the stack
+   *                manually.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OUTDATED</code>: The stack isn't currently up to date with the stack set
+   *                because:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>The associated stack failed during a <code>CreateStackSet</code> or
+   *                         <code>UpdateStackSet</code> operation. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>The stack was part of a <code>CreateStackSet</code> or
+   *                         <code>UpdateStackSet</code> operation that failed or was stopped before the
+   *                      stack was created or updated. </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CURRENT</code>: The stack is currently up to date with the stack
+   *                set.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: StackInstanceStatus | string;
+
+  /**
+   * <p>The explanation for the specific status code that is assigned to this stack
+   *          instance.</p>
+   */
+  StatusReason?: string;
+}
+
+export namespace StackInstance {
+  export const filterSensitiveLog = (obj: StackInstance): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StackInstance => __isa(o, "StackInstance");
+}
+
+/**
+ * <p>The specified stack instance doesn't exist.</p>
+ */
+export interface StackInstanceNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "StackInstanceNotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace StackInstanceNotFoundException {
+  export const filterSensitiveLog = (
+    obj: StackInstanceNotFoundException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StackInstanceNotFoundException =>
+    __isa(o, "StackInstanceNotFoundException");
+}
+
+export type StackInstanceStatus = "CURRENT" | "INOPERABLE" | "OUTDATED";
+
+/**
+ * <p>The structure that contains summary information about a stack instance.</p>
+ */
+export interface StackInstanceSummary {
+  __type?: "StackInstanceSummary";
+  /**
+   * <p>The name of the AWS account that the stack instance is associated with.</p>
+   */
+  Account?: string;
+
+  /**
+   * <p>Status of the stack instance's actual configuration compared to the expected template
+   *          and parameter configuration of the stack set to which it belongs. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DRIFTED</code>: The stack differs from the expected template and parameter
+   *                configuration of the stack set to which it belongs. A stack instance is considered to
+   *                have drifted if one or more of the resources in the associated stack have
+   *                drifted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_CHECKED</code>: AWS CloudFormation has not checked if the stack instance differs from
+   *                its expected stack set configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_SYNC</code>: The stack instance's actual configuration matches its
+   *                expected stack set configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNKNOWN</code>: This value is reserved for future use.</p>
+   *             </li>
+   *          </ul>
+   */
+  DriftStatus?: StackDriftStatus | string;
+
+  /**
+   * <p>Most recent time when CloudFormation performed a drift detection operation on the stack
+   *          instance. This value will be <code>NULL</code> for any stack instance on which drift
+   *          detection has not yet been performed.</p>
+   */
+  LastDriftCheckTimestamp?: Date;
+
+  /**
+   * <p>The name of the AWS region that the stack instance is associated with.</p>
+   */
+  Region?: string;
+
+  /**
+   * <p>The ID of the stack instance.</p>
+   */
+  StackId?: string;
+
+  /**
+   * <p>The name or unique ID of the stack set that the stack instance is associated
+   *          with.</p>
+   */
+  StackSetId?: string;
+
+  /**
+   * <p>The status of the stack instance, in terms of its synchronization with its associated
+   *          stack set.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INOPERABLE</code>: A <code>DeleteStackInstances</code> operation has
+   *                failed and left the stack in an unstable state. Stacks in this state are excluded
+   *                from further <code>UpdateStackSet</code> operations. You might need to perform a
+   *                   <code>DeleteStackInstances</code> operation, with <code>RetainStacks</code> set to
+   *                   <code>true</code>, to delete the stack instance, and then delete the stack
+   *                manually.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OUTDATED</code>: The stack isn't currently up to date with the stack set
+   *                because:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>The associated stack failed during a <code>CreateStackSet</code> or
+   *                         <code>UpdateStackSet</code> operation. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>The stack was part of a <code>CreateStackSet</code> or
+   *                         <code>UpdateStackSet</code> operation that failed or was stopped before the
+   *                      stack was created or updated. </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CURRENT</code>: The stack is currently up to date with the stack
+   *                set.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: StackInstanceStatus | string;
+
+  /**
+   * <p>The explanation for the specific status code assigned to this stack
+   *          instance.</p>
+   */
+  StatusReason?: string;
+}
+
+export namespace StackInstanceSummary {
+  export const filterSensitiveLog = (obj: StackInstanceSummary): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StackInstanceSummary =>
+    __isa(o, "StackInstanceSummary");
+}
+
+/**
  * <p>The StackResource data type.</p>
  */
 export interface StackResource {
@@ -4797,6 +6099,265 @@ export namespace StackResourceSummary {
 }
 
 /**
+ * <p>A structure that contains information about a stack set. A stack set enables you to
+ *          provision stacks into AWS accounts and across regions by using a single CloudFormation
+ *          template. In the stack set, you specify the template to use, as well as any parameters and
+ *          capabilities that the template requires. </p>
+ */
+export interface StackSet {
+  __type?: "StackSet";
+  /**
+   * <p>The Amazon Resource Number (ARN) of the IAM role used to create or update the stack
+   *          set.</p>
+   *          <p>Use customized administrator roles to control which users or groups can manage specific
+   *          stack sets within the same administrator account. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Prerequisites: Granting Permissions for Stack
+   *             Set Operations</a> in the <i>AWS CloudFormation User Guide</i>.</p>
+   */
+  AdministrationRoleARN?: string;
+
+  /**
+   * <p>The capabilities that are allowed in the stack set. Some stack set templates might
+   *          include resources that can affect permissions in your AWS account—for example, by creating
+   *          new AWS Identity and Access Management (IAM) users. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in AWS CloudFormation Templates.</a>
+   *          </p>
+   */
+  Capabilities?: (Capability | string)[];
+
+  /**
+   * <p>A description of the stack set that you specify when the stack set is created or
+   *          updated.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The name of the IAM execution role used to create or update the stack set. </p>
+   *          <p>Use customized execution roles to control which stack resources users and groups can
+   *          include in their stack sets.
+   *
+   *       </p>
+   */
+  ExecutionRoleName?: string;
+
+  /**
+   * <p>A list of input parameters for a stack set.</p>
+   */
+  Parameters?: Parameter[];
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the stack set.</p>
+   */
+  StackSetARN?: string;
+
+  /**
+   * <p>Detailed information about the drift status of the stack set.</p>
+   *          <p>For stack sets, contains information about the last <i>completed</i> drift
+   *          operation performed on the stack set. Information about drift operations currently in
+   *          progress is not included.</p>
+   */
+  StackSetDriftDetectionDetails?: StackSetDriftDetectionDetails;
+
+  /**
+   * <p>The ID of the stack set.</p>
+   */
+  StackSetId?: string;
+
+  /**
+   * <p>The name that's associated with the stack set.</p>
+   */
+  StackSetName?: string;
+
+  /**
+   * <p>The status of the stack set.</p>
+   */
+  Status?: StackSetStatus | string;
+
+  /**
+   * <p>A list of tags that specify information about the stack set. A maximum number of 50
+   *          tags can be specified.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The structure that contains the body of the template that was used to create or
+   *          update the stack set.</p>
+   */
+  TemplateBody?: string;
+}
+
+export namespace StackSet {
+  export const filterSensitiveLog = (obj: StackSet): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StackSet => __isa(o, "StackSet");
+}
+
+/**
+ * <p>Detailed information about the drift status of the stack set.</p>
+ *          <p>For stack sets, contains information about the last <i>completed</i> drift
+ *          operation performed on the stack set. Information about drift operations in-progress is not
+ *          included. </p>
+ *          <p>For stack set operations, includes information about drift operations currently being
+ *          performed on the stack set.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting Unmanaged
+ *             Changes in Stack Sets</a> in the <i>AWS CloudFormation User Guide</i>.</p>
+ */
+export interface StackSetDriftDetectionDetails {
+  __type?: "StackSetDriftDetectionDetails";
+  /**
+   * <p>The status of the stack set drift detection operation.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code>: The drift detection operation completed without failing on
+   *                any stack instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>: The drift detection operation exceeded the specified failure
+   *                tolerance. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PARTIAL_SUCCESS</code>: The drift detection operation completed without
+   *                exceeding the failure tolerance for the operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code>: The drift detection operation is currently being
+   *                performed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STOPPED</code>: The user has cancelled the drift detection operation.</p>
+   *             </li>
+   *          </ul>
+   */
+  DriftDetectionStatus?: StackSetDriftDetectionStatus | string;
+
+  /**
+   * <p>Status of the stack set's actual configuration compared to its expected template and
+   *          parameter configuration. A stack set is considered to have drifted if one or more of its
+   *          stack instances have drifted from their expected template and parameter
+   *          configuration.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DRIFTED</code>: One or more of the stack instances belonging to the stack
+   *                set stack differs from the expected template and parameter configuration. A stack
+   *                instance is considered to have drifted if one or more of the resources in the
+   *                associated stack have drifted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_CHECKED</code>: AWS CloudFormation has not checked the stack set for drift.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_SYNC</code>: All of the stack instances belonging to the stack set stack
+   *                match from the expected template and parameter configuration.</p>
+   *             </li>
+   *          </ul>
+   */
+  DriftStatus?: StackSetDriftStatus | string;
+
+  /**
+   * <p>The number of stack instances that have drifted from the expected template and parameter
+   *          configuration of the stack set. A stack instance is considered to have drifted if one or
+   *          more of the resources in the associated stack do not match their expected
+   *          configuration.</p>
+   */
+  DriftedStackInstancesCount?: number;
+
+  /**
+   * <p>The number of stack instances for which the drift detection operation failed.</p>
+   */
+  FailedStackInstancesCount?: number;
+
+  /**
+   * <p>The number of stack instances that are currently being checked for drift.</p>
+   */
+  InProgressStackInstancesCount?: number;
+
+  /**
+   * <p>The number of stack instances which match the expected template and parameter
+   *          configuration of the stack set.</p>
+   */
+  InSyncStackInstancesCount?: number;
+
+  /**
+   * <p>Most recent time when CloudFormation performed a drift detection operation on the stack
+   *          set. This value will be <code>NULL</code> for any stack set on which drift detection has
+   *          not yet been performed.</p>
+   */
+  LastDriftCheckTimestamp?: Date;
+
+  /**
+   * <p>The total number of stack instances belonging to this stack set. </p>
+   *          <p>The total number of stack instances is equal to the total of:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Stack instances that match the stack set configuration. </p>
+   *             </li>
+   *             <li>
+   *                <p>Stack instances that have drifted from the stack set configuration. </p>
+   *             </li>
+   *             <li>
+   *                <p>Stack instances where the drift detection operation has failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>Stack instances currently being checked for drift.</p>
+   *             </li>
+   *          </ul>
+   */
+  TotalStackInstancesCount?: number;
+}
+
+export namespace StackSetDriftDetectionDetails {
+  export const filterSensitiveLog = (
+    obj: StackSetDriftDetectionDetails
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StackSetDriftDetectionDetails =>
+    __isa(o, "StackSetDriftDetectionDetails");
+}
+
+export enum StackSetDriftDetectionStatus {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  PARTIAL_SUCCESS = "PARTIAL_SUCCESS",
+  STOPPED = "STOPPED"
+}
+
+export enum StackSetDriftStatus {
+  DRIFTED = "DRIFTED",
+  IN_SYNC = "IN_SYNC",
+  NOT_CHECKED = "NOT_CHECKED"
+}
+
+/**
+ * <p>You can't yet delete this stack set, because it still contains one or more stack
+ *          instances. Delete all stack instances from the stack set before deleting the stack
+ *          set.</p>
+ */
+export interface StackSetNotEmptyException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "StackSetNotEmptyException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace StackSetNotEmptyException {
+  export const filterSensitiveLog = (obj: StackSetNotEmptyException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StackSetNotEmptyException =>
+    __isa(o, "StackSetNotEmptyException");
+}
+
+/**
  * <p>The specified stack set doesn't exist.</p>
  */
 export interface StackSetNotFoundException
@@ -4813,6 +6374,455 @@ export namespace StackSetNotFoundException {
   });
   export const isa = (o: any): o is StackSetNotFoundException =>
     __isa(o, "StackSetNotFoundException");
+}
+
+/**
+ * <p>The structure that contains information about a stack set operation. </p>
+ */
+export interface StackSetOperation {
+  __type?: "StackSetOperation";
+  /**
+   * <p>The type of stack set operation: <code>CREATE</code>, <code>UPDATE</code>, or
+   *             <code>DELETE</code>. Create and delete operations affect only the specified stack set
+   *          instances that are associated with the specified stack set. Update operations affect both
+   *          the stack set itself, as well as <i>all</i> associated stack set
+   *          instances.</p>
+   */
+  Action?: StackSetOperationAction | string;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the IAM role used to perform this stack set
+   *          operation. </p>
+   *          <p>Use customized administrator roles to control which users or groups can manage specific
+   *          stack sets within the same administrator account. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Define Permissions for Multiple
+   *             Administrators</a> in the <i>AWS CloudFormation User Guide</i>.</p>
+   */
+  AdministrationRoleARN?: string;
+
+  /**
+   * <p>The time at which the operation was initiated. Note that the creation times for the
+   *          stack set operation might differ from the creation time of the individual stacks
+   *          themselves. This is because AWS CloudFormation needs to perform preparatory work for the
+   *          operation, such as dispatching the work to the requested regions, before actually creating
+   *          the first stacks.</p>
+   */
+  CreationTimestamp?: Date;
+
+  /**
+   * <p>The time at which the stack set operation ended, across all accounts and regions
+   *          specified. Note that this doesn't necessarily mean that the stack set operation was
+   *          successful, or even attempted, in each account or region.</p>
+   */
+  EndTimestamp?: Date;
+
+  /**
+   * <p>The name of the IAM execution role used to create or update the stack set.</p>
+   *          <p>Use customized execution roles to control which stack resources users and groups can
+   *          include in their stack sets.
+   *
+   *       </p>
+   */
+  ExecutionRoleName?: string;
+
+  /**
+   * <p>The unique ID of a stack set operation.</p>
+   */
+  OperationId?: string;
+
+  /**
+   * <p>The preferences for how AWS CloudFormation performs this stack set
+   *          operation.</p>
+   */
+  OperationPreferences?: StackSetOperationPreferences;
+
+  /**
+   * <p>For stack set operations of action type <code>DELETE</code>, specifies whether to
+   *          remove the stack instances from the specified stack set, but doesn't delete the stacks. You
+   *          can't reassociate a retained stack, or add an existing, saved stack to a new stack
+   *          set.</p>
+   */
+  RetainStacks?: boolean;
+
+  /**
+   * <p>Detailed information about the drift status of the stack set. This includes information
+   *          about drift operations currently being performed on the stack set.</p>
+   *          <p>this information will only be present for stack set operations whose <code>Action</code>
+   *          type is <code>DETECT_DRIFT</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting Unmanaged
+   *             Changes in Stack Sets</a> in the AWS CloudFormation User Guide.</p>
+   */
+  StackSetDriftDetectionDetails?: StackSetDriftDetectionDetails;
+
+  /**
+   * <p>The ID of the stack set.</p>
+   */
+  StackSetId?: string;
+
+  /**
+   * <p>The status of the operation. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>: The operation exceeded the specified failure tolerance.
+   *                The failure tolerance value that you've set for an operation is applied for each
+   *                region during stack create and update operations. If the number of failed stacks
+   *                within a region exceeds the failure tolerance, the status of the operation in the
+   *                region is set to <code>FAILED</code>. This in turn sets the status of the operation
+   *                as a whole to <code>FAILED</code>, and AWS CloudFormation cancels the operation in
+   *                any remaining regions.</p>
+   *
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RUNNING</code>: The operation is currently being performed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STOPPED</code>: The user has cancelled the operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STOPPING</code>: The operation is in the process of stopping, at user
+   *                request. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code>: The operation completed creating or updating all the
+   *                specified stacks without exceeding the failure tolerance for the operation.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: StackSetOperationStatus | string;
+}
+
+export namespace StackSetOperation {
+  export const filterSensitiveLog = (obj: StackSetOperation): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StackSetOperation =>
+    __isa(o, "StackSetOperation");
+}
+
+export type StackSetOperationAction =
+  | "CREATE"
+  | "DELETE"
+  | "DETECT_DRIFT"
+  | "UPDATE";
+
+/**
+ * <p>The user-specified preferences for how AWS CloudFormation performs a stack set
+ *          operation. </p>
+ *          <p>For more information on maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a>.</p>
+ */
+export interface StackSetOperationPreferences {
+  __type?: "StackSetOperationPreferences";
+  /**
+   * <p>The number of accounts, per region, for which this operation can fail before AWS
+   *          CloudFormation stops the operation in that region. If the operation is stopped in a region,
+   *          AWS CloudFormation doesn't attempt the operation in any subsequent regions.</p>
+   *          <p>Conditional: You must specify either <code>FailureToleranceCount</code> or
+   *             <code>FailureTolerancePercentage</code> (but not both).</p>
+   */
+  FailureToleranceCount?: number;
+
+  /**
+   * <p>The percentage of accounts, per region, for which this stack operation can fail
+   *          before AWS CloudFormation stops the operation in that region. If the operation is stopped
+   *          in a region, AWS CloudFormation doesn't attempt the operation in any subsequent
+   *          regions.</p>
+   *          <p>When calculating the number of accounts based on the specified percentage, AWS
+   *          CloudFormation rounds <i>down</i> to the next whole number.</p>
+   *          <p>Conditional: You must specify either <code>FailureToleranceCount</code> or
+   *             <code>FailureTolerancePercentage</code>, but not both.</p>
+   */
+  FailureTolerancePercentage?: number;
+
+  /**
+   * <p>The maximum number of accounts in which to perform this operation at one time. This
+   *          is dependent on the value of
+   *             <code>FailureToleranceCount</code>—<code>MaxConcurrentCount</code> is at most one more
+   *          than the <code>FailureToleranceCount</code> .</p>
+   *          <p>Note that this setting lets you specify the <i>maximum</i> for
+   *          operations. For large deployments, under certain circumstances the actual number of
+   *          accounts acted upon concurrently may be lower due to service throttling.</p>
+   *          <p>Conditional: You must specify either <code>MaxConcurrentCount</code> or
+   *             <code>MaxConcurrentPercentage</code>, but not both.</p>
+   */
+  MaxConcurrentCount?: number;
+
+  /**
+   * <p>The maximum percentage of accounts in which to perform this operation at one
+   *          time.</p>
+   *          <p>When calculating the number of accounts based on the specified percentage, AWS
+   *          CloudFormation rounds down to the next whole number. This is true except in cases where
+   *          rounding down would result is zero. In this case, CloudFormation sets the number as one
+   *          instead.</p>
+   *          <p>Note that this setting lets you specify the <i>maximum</i> for
+   *          operations. For large deployments, under certain circumstances the actual number of
+   *          accounts acted upon concurrently may be lower due to service throttling.</p>
+   *          <p>Conditional: You must specify either <code>MaxConcurrentCount</code> or
+   *             <code>MaxConcurrentPercentage</code>, but not both.</p>
+   */
+  MaxConcurrentPercentage?: number;
+
+  /**
+   * <p>The order of the regions in where you want to perform the stack operation.</p>
+   */
+  RegionOrder?: string[];
+}
+
+export namespace StackSetOperationPreferences {
+  export const filterSensitiveLog = (
+    obj: StackSetOperationPreferences
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StackSetOperationPreferences =>
+    __isa(o, "StackSetOperationPreferences");
+}
+
+export type StackSetOperationResultStatus =
+  | "CANCELLED"
+  | "FAILED"
+  | "PENDING"
+  | "RUNNING"
+  | "SUCCEEDED";
+
+/**
+ * <p>The structure that contains information about a specified operation's results for a
+ *          given account in a given region.</p>
+ */
+export interface StackSetOperationResultSummary {
+  __type?: "StackSetOperationResultSummary";
+  /**
+   * <p>The name of the AWS account for this operation result.</p>
+   */
+  Account?: string;
+
+  /**
+   * <p>The results of the account gate function AWS CloudFormation invokes, if present,
+   *          before proceeding with stack set operations in an account</p>
+   */
+  AccountGateResult?: AccountGateResult;
+
+  /**
+   * <p>The name of the AWS region for this operation result.</p>
+   */
+  Region?: string;
+
+  /**
+   * <p>The result status of the stack set operation for the given account in the given
+   *          region.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CANCELLED</code>: The operation in the specified account and region has
+   *                been cancelled. This is either because a user has stopped the stack set operation, or
+   *                because the failure tolerance of the stack set operation has been exceeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>: The operation in the specified account and region failed. </p>
+   *                <p>If the stack set operation fails in enough accounts within a region, the
+   *                failure tolerance for the stack set operation as a whole might be exceeded.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RUNNING</code>: The operation in the specified account and region is
+   *                currently in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code>: The operation in the specified account and region has yet
+   *                to start. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code>: The operation in the specified account and region
+   *                completed successfully.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: StackSetOperationResultStatus | string;
+
+  /**
+   * <p>The reason for the assigned result status.</p>
+   */
+  StatusReason?: string;
+}
+
+export namespace StackSetOperationResultSummary {
+  export const filterSensitiveLog = (
+    obj: StackSetOperationResultSummary
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StackSetOperationResultSummary =>
+    __isa(o, "StackSetOperationResultSummary");
+}
+
+export type StackSetOperationStatus =
+  | "FAILED"
+  | "RUNNING"
+  | "STOPPED"
+  | "STOPPING"
+  | "SUCCEEDED";
+
+/**
+ * <p>The structures that contain summary information about the specified
+ *          operation.</p>
+ */
+export interface StackSetOperationSummary {
+  __type?: "StackSetOperationSummary";
+  /**
+   * <p>The type of operation: <code>CREATE</code>, <code>UPDATE</code>, or
+   *             <code>DELETE</code>. Create and delete operations affect only the specified stack
+   *          instances that are associated with the specified stack set. Update operations affect both
+   *          the stack set itself as well as <i>all</i> associated stack set
+   *          instances.</p>
+   */
+  Action?: StackSetOperationAction | string;
+
+  /**
+   * <p>The time at which the operation was initiated. Note that the creation times for the
+   *          stack set operation might differ from the creation time of the individual stacks
+   *          themselves. This is because AWS CloudFormation needs to perform preparatory work for the
+   *          operation, such as dispatching the work to the requested regions, before actually creating
+   *          the first stacks.</p>
+   */
+  CreationTimestamp?: Date;
+
+  /**
+   * <p>The time at which the stack set operation ended, across all accounts and regions
+   *          specified. Note that this doesn't necessarily mean that the stack set operation was
+   *          successful, or even attempted, in each account or region.</p>
+   */
+  EndTimestamp?: Date;
+
+  /**
+   * <p>The unique ID of the stack set operation.</p>
+   */
+  OperationId?: string;
+
+  /**
+   * <p>The overall status of the operation.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>: The operation exceeded the specified failure tolerance.
+   *                The failure tolerance value that you've set for an operation is applied for each
+   *                region during stack create and update operations. If the number of failed stacks
+   *                within a region exceeds the failure tolerance, the status of the operation in the
+   *                region is set to <code>FAILED</code>. This in turn sets the status of the operation
+   *                as a whole to <code>FAILED</code>, and AWS CloudFormation cancels the operation in
+   *                any remaining regions.</p>
+   *
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RUNNING</code>: The operation is currently being performed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STOPPED</code>: The user has cancelled the operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STOPPING</code>: The operation is in the process of stopping, at user
+   *                request. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code>: The operation completed creating or updating all the
+   *                specified stacks without exceeding the failure tolerance for the operation.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: StackSetOperationStatus | string;
+}
+
+export namespace StackSetOperationSummary {
+  export const filterSensitiveLog = (obj: StackSetOperationSummary): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StackSetOperationSummary =>
+    __isa(o, "StackSetOperationSummary");
+}
+
+export type StackSetStatus = "ACTIVE" | "DELETED";
+
+/**
+ * <p>The structures that contain summary information about the specified stack
+ *          set.</p>
+ */
+export interface StackSetSummary {
+  __type?: "StackSetSummary";
+  /**
+   * <p>A description of the stack set that you specify when the stack set is created or
+   *          updated.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Status of the stack set's actual configuration compared to its expected template and
+   *          parameter configuration. A stack set is considered to have drifted if one or more of its
+   *          stack instances have drifted from their expected template and parameter
+   *          configuration.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DRIFTED</code>: One or more of the stack instances belonging to the stack
+   *                set stack differs from the expected template and parameter configuration. A stack
+   *                instance is considered to have drifted if one or more of the resources in the
+   *                associated stack have drifted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_CHECKED</code>: AWS CloudFormation has not checked the stack set for drift.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_SYNC</code>: All of the stack instances belonging to the stack set stack
+   *                match from the expected template and parameter configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNKNOWN</code>: This value is reserved for future use.</p>
+   *             </li>
+   *          </ul>
+   */
+  DriftStatus?: StackDriftStatus | string;
+
+  /**
+   * <p>Most recent time when CloudFormation performed a drift detection operation on the stack
+   *          set. This value will be <code>NULL</code> for any stack set on which drift detection has
+   *          not yet been performed.</p>
+   */
+  LastDriftCheckTimestamp?: Date;
+
+  /**
+   * <p>The ID of the stack set.</p>
+   */
+  StackSetId?: string;
+
+  /**
+   * <p>The name of the stack set.</p>
+   */
+  StackSetName?: string;
+
+  /**
+   * <p>The status of the stack set.</p>
+   */
+  Status?: StackSetStatus | string;
+}
+
+export namespace StackSetSummary {
+  export const filterSensitiveLog = (obj: StackSetSummary): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StackSetSummary =>
+    __isa(o, "StackSetSummary");
 }
 
 export enum StackStatus {
@@ -4917,6 +6927,62 @@ export namespace StackSummary {
     ...obj
   });
   export const isa = (o: any): o is StackSummary => __isa(o, "StackSummary");
+}
+
+/**
+ * <p>Another operation has been performed on this stack set since the specified operation
+ *          was performed. </p>
+ */
+export interface StaleRequestException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "StaleRequestException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace StaleRequestException {
+  export const filterSensitiveLog = (obj: StaleRequestException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StaleRequestException =>
+    __isa(o, "StaleRequestException");
+}
+
+export interface StopStackSetOperationInput {
+  __type?: "StopStackSetOperationInput";
+  /**
+   * <p>The ID of the stack operation. </p>
+   */
+  OperationId: string | undefined;
+
+  /**
+   * <p>The name or unique ID of the stack set that you want to stop the operation
+   *          for.</p>
+   */
+  StackSetName: string | undefined;
+}
+
+export namespace StopStackSetOperationInput {
+  export const filterSensitiveLog = (obj: StopStackSetOperationInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StopStackSetOperationInput =>
+    __isa(o, "StopStackSetOperationInput");
+}
+
+export interface StopStackSetOperationOutput {
+  __type?: "StopStackSetOperationOutput";
+}
+
+export namespace StopStackSetOperationOutput {
+  export const filterSensitiveLog = (
+    obj: StopStackSetOperationOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StopStackSetOperationOutput =>
+    __isa(o, "StopStackSetOperationOutput");
 }
 
 /**
@@ -5387,2212 +7453,6 @@ export namespace UpdateStackInput {
     __isa(o, "UpdateStackInput");
 }
 
-/**
- * <p>The output for an <a>UpdateStack</a> action.</p>
- */
-export interface UpdateStackOutput {
-  __type?: "UpdateStackOutput";
-  /**
-   * <p>Unique identifier of the stack.</p>
-   */
-  StackId?: string;
-}
-
-export namespace UpdateStackOutput {
-  export const filterSensitiveLog = (obj: UpdateStackOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateStackOutput =>
-    __isa(o, "UpdateStackOutput");
-}
-
-export interface UpdateTerminationProtectionInput {
-  __type?: "UpdateTerminationProtectionInput";
-  /**
-   * <p>Whether to enable termination protection on the specified stack.</p>
-   */
-  EnableTerminationProtection: boolean | undefined;
-
-  /**
-   * <p>The name or unique ID of the stack for which you want to set termination
-   *          protection.</p>
-   */
-  StackName: string | undefined;
-}
-
-export namespace UpdateTerminationProtectionInput {
-  export const filterSensitiveLog = (
-    obj: UpdateTerminationProtectionInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateTerminationProtectionInput =>
-    __isa(o, "UpdateTerminationProtectionInput");
-}
-
-export interface UpdateTerminationProtectionOutput {
-  __type?: "UpdateTerminationProtectionOutput";
-  /**
-   * <p>The unique ID of the stack.</p>
-   */
-  StackId?: string;
-}
-
-export namespace UpdateTerminationProtectionOutput {
-  export const filterSensitiveLog = (
-    obj: UpdateTerminationProtectionOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateTerminationProtectionOutput =>
-    __isa(o, "UpdateTerminationProtectionOutput");
-}
-
-/**
- * <p>The input for <a>ValidateTemplate</a> action.</p>
- */
-export interface ValidateTemplateInput {
-  __type?: "ValidateTemplateInput";
-  /**
-   * <p>Structure containing the template body with a minimum length of 1 byte and a maximum
-   *          length of 51,200 bytes. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
-   *          in the AWS CloudFormation User Guide.</p>
-   *          <p>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>. If
-   *          both are passed, only <code>TemplateBody</code> is used.</p>
-   */
-  TemplateBody?: string;
-
-  /**
-   * <p>Location of file containing the template body. The URL must point to a template (max
-   *          size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, go to
-   *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
-   *          in the AWS CloudFormation User Guide.</p>
-   *          <p>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>. If
-   *          both are passed, only <code>TemplateBody</code> is used.</p>
-   */
-  TemplateURL?: string;
-}
-
-export namespace ValidateTemplateInput {
-  export const filterSensitiveLog = (obj: ValidateTemplateInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ValidateTemplateInput =>
-    __isa(o, "ValidateTemplateInput");
-}
-
-/**
- * <p>The output for <a>ValidateTemplate</a> action.</p>
- */
-export interface ValidateTemplateOutput {
-  __type?: "ValidateTemplateOutput";
-  /**
-   * <p>The capabilities found within the template. If your template contains IAM resources,
-   *          you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when
-   *          you use the <a>CreateStack</a> or <a>UpdateStack</a> actions with
-   *          your template; otherwise, those actions return an InsufficientCapabilities error.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in AWS CloudFormation Templates</a>.</p>
-   */
-  Capabilities?: (Capability | string)[];
-
-  /**
-   * <p>The list of resources that generated the values in the <code>Capabilities</code>
-   *          response element.</p>
-   */
-  CapabilitiesReason?: string;
-
-  /**
-   * <p>A list of the transforms that are declared in the template.</p>
-   */
-  DeclaredTransforms?: string[];
-
-  /**
-   * <p>The description found within the template.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A list of <code>TemplateParameter</code> structures.</p>
-   */
-  Parameters?: TemplateParameter[];
-}
-
-export namespace ValidateTemplateOutput {
-  export const filterSensitiveLog = (obj: ValidateTemplateOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ValidateTemplateOutput =>
-    __isa(o, "ValidateTemplateOutput");
-}
-
-export type Visibility = "PRIVATE" | "PUBLIC";
-
-/**
- * <p>Structure that contains the results of the account gate function which AWS
- *          CloudFormation invokes, if present, before proceeding with a stack set operation in an
- *          account and region.</p>
- *          <p>For each account and region, AWS CloudFormation lets you specify a Lamdba function
- *          that encapsulates any requirements that must be met before CloudFormation can proceed with
- *          a stack set operation in that account and region. CloudFormation invokes the function each
- *          time a stack set operation is requested for that account and region; if the function
- *          returns <code>FAILED</code>, CloudFormation cancels the operation in that account and
- *          region, and sets the stack set operation result status for that account and region to
- *             <code>FAILED</code>. </p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-account-gating.html">Configuring a
- *             target account gate</a>.</p>
- */
-export interface AccountGateResult {
-  __type?: "AccountGateResult";
-  /**
-   * <p>The status of the account gate function.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCEEDED</code>: The account gate function has determined that the
-   *                account and region passes any requirements for a stack set operation to occur. AWS
-   *                CloudFormation proceeds with the stack operation in that account and region.
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code>: The account gate function has determined that the account
-   *                and region does not meet the requirements for a stack set operation to occur. AWS
-   *                CloudFormation cancels the stack set operation in that account and region, and sets
-   *                the stack set operation result status for that account and region to
-   *                   <code>FAILED</code>. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SKIPPED</code>: AWS CloudFormation has skipped calling the account gate
-   *                function for this account and region, for one of the following reasons:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>An account gate function has not been specified for the account and
-   *                      region. AWS CloudFormation proceeds with the stack set operation in this
-   *                      account and region.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The <code>AWSCloudFormationStackSetExecutionRole</code> of the stack set
-   *                      adminstration account lacks permissions to invoke the function. AWS
-   *                      CloudFormation proceeds with the stack set operation in this account and
-   *                      region.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Either no action is necessary, or no action is possible, on the stack.
-   *                      AWS CloudFormation skips the stack set operation in this account and
-   *                      region.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
-   */
-  Status?: AccountGateStatus | string;
-
-  /**
-   * <p>The reason for the account gate status assigned to this account and region for the
-   *          stack set operation.</p>
-   */
-  StatusReason?: string;
-}
-
-export namespace AccountGateResult {
-  export const filterSensitiveLog = (obj: AccountGateResult): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AccountGateResult =>
-    __isa(o, "AccountGateResult");
-}
-
-export type AccountGateStatus = "FAILED" | "SKIPPED" | "SUCCEEDED";
-
-export interface CreateStackInstancesInput {
-  __type?: "CreateStackInstancesInput";
-  /**
-   * <p>The names of one or more AWS accounts that you want to create stack instances in the
-   *          specified region(s) for.</p>
-   */
-  Accounts: string[] | undefined;
-
-  /**
-   * <p>The unique identifier for this stack set operation. </p>
-   *          <p>The operation ID also functions as an idempotency token, to ensure that AWS
-   *          CloudFormation performs the stack set operation only once, even if you retry the request
-   *          multiple times. You might retry stack set operation requests to ensure that AWS
-   *          CloudFormation successfully received them.</p>
-   *          <p>If you don't specify an operation ID, the SDK generates one automatically. </p>
-   *          <p>Repeating this stack set operation with a new operation ID retries all stack
-   *          instances whose status is <code>OUTDATED</code>. </p>
-   */
-  OperationId?: string;
-
-  /**
-   * <p>Preferences for how AWS CloudFormation performs this stack set operation.</p>
-   */
-  OperationPreferences?: StackSetOperationPreferences;
-
-  /**
-   * <p>A list of stack set parameters whose values you want to override in the selected
-   *          stack instances.</p>
-   *          <p>Any overridden parameter values will be applied to all stack instances in the
-   *          specified accounts and regions. When specifying parameters and their values, be aware of
-   *          how AWS CloudFormation sets parameter values during stack instance operations:</p>
-   *          <ul>
-   *             <li>
-   *                <p>To override the current value for a parameter, include the parameter and
-   *                specify its value.</p>
-   *             </li>
-   *             <li>
-   *                <p>To leave a parameter set to its present value, you can do one of the
-   *                following:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Do not include the parameter in the list.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Include the parameter and specify <code>UsePreviousValue</code> as
-   *                         <code>true</code>. (You cannot specify both a value and set
-   *                         <code>UsePreviousValue</code> to <code>true</code>.)</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>To set all overridden parameter back to the values specified in the stack set,
-   *                specify a parameter list but do not include any parameters.</p>
-   *             </li>
-   *             <li>
-   *                <p>To leave all parameters set to their present values, do not specify this
-   *                property at all.</p>
-   *             </li>
-   *          </ul>
-   *          <p>During stack set updates, any parameter values overridden for a stack instance are
-   *          not updated, but retain their overridden value.</p>
-   *          <p>You can only override the parameter <i>values</i> that are specified in
-   *          the stack set; to add or delete a parameter itself, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a> to update the stack set template.</p>
-   */
-  ParameterOverrides?: Parameter[];
-
-  /**
-   * <p>The names of one or more regions where you want to create stack instances using the
-   *          specified AWS account(s). </p>
-   */
-  Regions: string[] | undefined;
-
-  /**
-   * <p>The name or unique ID of the stack set that you want to create stack instances
-   *          from.</p>
-   */
-  StackSetName: string | undefined;
-}
-
-export namespace CreateStackInstancesInput {
-  export const filterSensitiveLog = (obj: CreateStackInstancesInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CreateStackInstancesInput =>
-    __isa(o, "CreateStackInstancesInput");
-}
-
-export interface CreateStackInstancesOutput {
-  __type?: "CreateStackInstancesOutput";
-  /**
-   * <p>The unique identifier for this stack set operation.</p>
-   */
-  OperationId?: string;
-}
-
-export namespace CreateStackInstancesOutput {
-  export const filterSensitiveLog = (obj: CreateStackInstancesOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CreateStackInstancesOutput =>
-    __isa(o, "CreateStackInstancesOutput");
-}
-
-export interface CreateStackSetInput {
-  __type?: "CreateStackSetInput";
-  /**
-   * <p>The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. </p>
-   *          <p>Specify an IAM role only if you are using customized administrator roles to control
-   *          which users or groups can manage specific stack sets within the same administrator account.
-   *          For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Prerequisites:
-   *             Granting Permissions for Stack Set Operations</a> in the
-   *             <i>AWS CloudFormation User Guide</i>.</p>
-   */
-  AdministrationRoleARN?: string;
-
-  /**
-   * <p>In some cases, you must explicitly acknowledge that your stack set template contains
-   *          certain capabilities in order for AWS CloudFormation to create the stack set and related stack
-   *          instances.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CAPABILITY_IAM</code> and <code>CAPABILITY_NAMED_IAM</code>
-   *                </p>
-   *                <p>Some stack templates might include resources that can affect permissions in
-   *                your AWS account; for example, by creating new AWS Identity and Access Management
-   *                (IAM) users. For those stack sets, you must explicitly acknowledge this by specifying
-   *                one of these capabilities.</p>
-   *                <p>The following IAM resources require you to specify either the
-   *                   <code>CAPABILITY_IAM</code> or <code>CAPABILITY_NAMED_IAM</code>
-   *                capability.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>If you have IAM resources, you can specify either capability. </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>If you have IAM resources with custom names, you <i>must</i>
-   *                      specify <code>CAPABILITY_NAMED_IAM</code>. </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>If you don't specify either of these capabilities, AWS CloudFormation returns an
-   *                         <code>InsufficientCapabilities</code> error.</p>
-   *                   </li>
-   *                </ul>
-   *                <p>If your stack template contains these resources, we recommend that you review
-   *                all permissions associated with them and edit their permissions if
-   *                necessary.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
-   *                         AWS::IAM::AccessKey</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
-   *                         AWS::IAM::Group</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html"> AWS::IAM::InstanceProfile</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html">
-   *                         AWS::IAM::Policy</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">
-   *                         AWS::IAM::Role</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html">
-   *                         AWS::IAM::User</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html"> AWS::IAM::UserToGroupAddition</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM
-   *                   Resources in AWS CloudFormation Templates</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CAPABILITY_AUTO_EXPAND</code>
-   *                </p>
-   *                <p>Some templates contain macros. If your stack template contains one or more macros,
-   *                and you choose to create a stack directly from the processed template, without first
-   *                reviewing the resulting changes in a change set, you must acknowledge this
-   *                capability. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using AWS CloudFormation Macros to Perform Custom Processing on
-   *                Templates</a>.</p>
-   *                <note>
-   *                   <p>Stack sets do not currently support macros in stack templates. (This includes
-   *                   the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a>
-   *                   transforms, which are macros hosted by AWS CloudFormation.) Even if you specify this
-   *                   capability, if you include a macro in your template the stack set operation will
-   *                   fail.</p>
-   *                </note>
-   *             </li>
-   *          </ul>
-   */
-  Capabilities?: (Capability | string)[];
-
-  /**
-   * <p>A unique identifier for this <code>CreateStackSet</code> request. Specify this token
-   *          if you plan to retry requests so that AWS CloudFormation knows that you're not attempting
-   *          to create another stack set with the same name. You might retry <code>CreateStackSet</code>
-   *          requests to ensure that AWS CloudFormation successfully received them.</p>
-   *          <p>If you don't specify an operation ID, the SDK generates one automatically.
-   *       </p>
-   */
-  ClientRequestToken?: string;
-
-  /**
-   * <p>A description of the stack set. You can use the description to identify the stack
-   *          set's purpose or other important information.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The name of the IAM execution role to use to create the stack set. If you do not specify
-   *          an execution role, AWS CloudFormation uses the <code>AWSCloudFormationStackSetExecutionRole</code> role
-   *          for the stack set operation.</p>
-   *          <p>Specify an IAM role only if you are using customized execution roles to control which
-   *          stack resources users and groups can include in their stack sets.
-   *
-   *       </p>
-   */
-  ExecutionRoleName?: string;
-
-  /**
-   * <p>The input parameters for the stack set template. </p>
-   */
-  Parameters?: Parameter[];
-
-  /**
-   * <p>The name to associate with the stack set. The name must be unique in the region where
-   *          you create your stack set.</p>
-   *          <note>
-   *             <p>A stack name can contain only alphanumeric characters (case-sensitive) and
-   *             hyphens. It must start with an alphabetic character and can't be longer than 128
-   *             characters.</p>
-   *          </note>
-   */
-  StackSetName: string | undefined;
-
-  /**
-   * <p>The key-value pairs to associate with this stack set and the stacks created from it.
-   *          AWS CloudFormation also propagates these tags to supported resources that are created in
-   *          the stacks. A maximum number of 50 tags can be specified.</p>
-   *          <p>If you specify tags as part of a <code>CreateStackSet</code> action, AWS
-   *          CloudFormation checks to see if you have the required IAM permission to tag resources. If
-   *          you don't, the entire <code>CreateStackSet</code> action fails with an <code>access
-   *             denied</code> error, and the stack set is not created.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The structure that contains the template body, with a minimum length of 1 byte and a
-   *          maximum length of 51,200 bytes. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
-   *          in the AWS CloudFormation User Guide.</p>
-   *          <p>Conditional: You must specify either the TemplateBody or the TemplateURL parameter,
-   *          but not both.</p>
-   */
-  TemplateBody?: string;
-
-  /**
-   * <p>The location of the file that contains the template body. The URL must point to a
-   *          template (maximum size: 460,800 bytes) that's located in an Amazon S3 bucket. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
-   *          in the AWS CloudFormation User Guide.</p>
-   *          <p>Conditional: You must specify either the TemplateBody or the TemplateURL parameter,
-   *          but not both.</p>
-   */
-  TemplateURL?: string;
-}
-
-export namespace CreateStackSetInput {
-  export const filterSensitiveLog = (obj: CreateStackSetInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CreateStackSetInput =>
-    __isa(o, "CreateStackSetInput");
-}
-
-export interface CreateStackSetOutput {
-  __type?: "CreateStackSetOutput";
-  /**
-   * <p>The ID of the stack set that you're creating.</p>
-   */
-  StackSetId?: string;
-}
-
-export namespace CreateStackSetOutput {
-  export const filterSensitiveLog = (obj: CreateStackSetOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CreateStackSetOutput =>
-    __isa(o, "CreateStackSetOutput");
-}
-
-/**
- * <p>The specified resource exists, but has been changed.</p>
- */
-export interface CreatedButModifiedException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CreatedButModifiedException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace CreatedButModifiedException {
-  export const filterSensitiveLog = (
-    obj: CreatedButModifiedException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CreatedButModifiedException =>
-    __isa(o, "CreatedButModifiedException");
-}
-
-export interface DeleteStackInstancesInput {
-  __type?: "DeleteStackInstancesInput";
-  /**
-   * <p>The names of the AWS accounts that you want to delete stack instances for.</p>
-   */
-  Accounts: string[] | undefined;
-
-  /**
-   * <p>The unique identifier for this stack set operation. </p>
-   *          <p>If you don't specify an operation ID, the SDK generates one automatically. </p>
-   *          <p>The operation ID also functions as an idempotency token, to ensure that AWS
-   *          CloudFormation performs the stack set operation only once, even if you retry the request
-   *          multiple times. You can retry stack set operation requests to ensure that AWS
-   *          CloudFormation successfully received them.</p>
-   *          <p>Repeating this stack set operation with a new operation ID retries all stack
-   *          instances whose status is <code>OUTDATED</code>. </p>
-   */
-  OperationId?: string;
-
-  /**
-   * <p>Preferences for how AWS CloudFormation performs this stack set operation.</p>
-   */
-  OperationPreferences?: StackSetOperationPreferences;
-
-  /**
-   * <p>The regions where you want to delete stack set instances. </p>
-   */
-  Regions: string[] | undefined;
-
-  /**
-   * <p>Removes the stack instances from the specified stack set, but doesn't delete the
-   *          stacks. You can't reassociate a retained stack or add an existing, saved stack to a new
-   *          stack set.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a>.</p>
-   */
-  RetainStacks: boolean | undefined;
-
-  /**
-   * <p>The name or unique ID of the stack set that you want to delete stack instances
-   *          for.</p>
-   */
-  StackSetName: string | undefined;
-}
-
-export namespace DeleteStackInstancesInput {
-  export const filterSensitiveLog = (obj: DeleteStackInstancesInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteStackInstancesInput =>
-    __isa(o, "DeleteStackInstancesInput");
-}
-
-export interface DeleteStackInstancesOutput {
-  __type?: "DeleteStackInstancesOutput";
-  /**
-   * <p>The unique identifier for this stack set operation.</p>
-   */
-  OperationId?: string;
-}
-
-export namespace DeleteStackInstancesOutput {
-  export const filterSensitiveLog = (obj: DeleteStackInstancesOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteStackInstancesOutput =>
-    __isa(o, "DeleteStackInstancesOutput");
-}
-
-export interface DeleteStackSetInput {
-  __type?: "DeleteStackSetInput";
-  /**
-   * <p>The name or unique ID of the stack set that you're deleting. You can obtain this
-   *          value by running <a>ListStackSets</a>.</p>
-   */
-  StackSetName: string | undefined;
-}
-
-export namespace DeleteStackSetInput {
-  export const filterSensitiveLog = (obj: DeleteStackSetInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteStackSetInput =>
-    __isa(o, "DeleteStackSetInput");
-}
-
-export interface DeleteStackSetOutput {
-  __type?: "DeleteStackSetOutput";
-}
-
-export namespace DeleteStackSetOutput {
-  export const filterSensitiveLog = (obj: DeleteStackSetOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteStackSetOutput =>
-    __isa(o, "DeleteStackSetOutput");
-}
-
-export interface DescribeStackInstanceInput {
-  __type?: "DescribeStackInstanceInput";
-  /**
-   * <p>The ID of an AWS account that's associated with this stack instance.</p>
-   */
-  StackInstanceAccount: string | undefined;
-
-  /**
-   * <p>The name of a region that's associated with this stack instance.</p>
-   */
-  StackInstanceRegion: string | undefined;
-
-  /**
-   * <p>The name or the unique stack ID of the stack set that you want to get stack instance
-   *          information for.</p>
-   */
-  StackSetName: string | undefined;
-}
-
-export namespace DescribeStackInstanceInput {
-  export const filterSensitiveLog = (obj: DescribeStackInstanceInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeStackInstanceInput =>
-    __isa(o, "DescribeStackInstanceInput");
-}
-
-export interface DescribeStackInstanceOutput {
-  __type?: "DescribeStackInstanceOutput";
-  /**
-   * <p>The stack instance that matches the specified request parameters.</p>
-   */
-  StackInstance?: StackInstance;
-}
-
-export namespace DescribeStackInstanceOutput {
-  export const filterSensitiveLog = (
-    obj: DescribeStackInstanceOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeStackInstanceOutput =>
-    __isa(o, "DescribeStackInstanceOutput");
-}
-
-export interface DescribeStackSetInput {
-  __type?: "DescribeStackSetInput";
-  /**
-   * <p>The name or unique ID of the stack set whose description you want.</p>
-   */
-  StackSetName: string | undefined;
-}
-
-export namespace DescribeStackSetInput {
-  export const filterSensitiveLog = (obj: DescribeStackSetInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeStackSetInput =>
-    __isa(o, "DescribeStackSetInput");
-}
-
-export interface DescribeStackSetOperationInput {
-  __type?: "DescribeStackSetOperationInput";
-  /**
-   * <p>The unique ID of the stack set operation. </p>
-   */
-  OperationId: string | undefined;
-
-  /**
-   * <p>The name or the unique stack ID of the stack set for the stack operation.</p>
-   */
-  StackSetName: string | undefined;
-}
-
-export namespace DescribeStackSetOperationInput {
-  export const filterSensitiveLog = (
-    obj: DescribeStackSetOperationInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeStackSetOperationInput =>
-    __isa(o, "DescribeStackSetOperationInput");
-}
-
-export interface DescribeStackSetOperationOutput {
-  __type?: "DescribeStackSetOperationOutput";
-  /**
-   * <p>The specified stack set operation.</p>
-   */
-  StackSetOperation?: StackSetOperation;
-}
-
-export namespace DescribeStackSetOperationOutput {
-  export const filterSensitiveLog = (
-    obj: DescribeStackSetOperationOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeStackSetOperationOutput =>
-    __isa(o, "DescribeStackSetOperationOutput");
-}
-
-export interface DescribeStackSetOutput {
-  __type?: "DescribeStackSetOutput";
-  /**
-   * <p>The specified stack set.</p>
-   */
-  StackSet?: StackSet;
-}
-
-export namespace DescribeStackSetOutput {
-  export const filterSensitiveLog = (obj: DescribeStackSetOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeStackSetOutput =>
-    __isa(o, "DescribeStackSetOutput");
-}
-
-export interface DetectStackSetDriftInput {
-  __type?: "DetectStackSetDriftInput";
-  /**
-   * <p>
-   *             <i>The ID of the stack set operation.</i>
-   *          </p>
-   */
-  OperationId?: string;
-
-  /**
-   * <p>The user-specified preferences for how AWS CloudFormation performs a stack set
-   *          operation. </p>
-   *          <p>For more information on maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a>.</p>
-   */
-  OperationPreferences?: StackSetOperationPreferences;
-
-  /**
-   * <p>The name of the stack set on which to perform the drift detection operation.</p>
-   */
-  StackSetName: string | undefined;
-}
-
-export namespace DetectStackSetDriftInput {
-  export const filterSensitiveLog = (obj: DetectStackSetDriftInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DetectStackSetDriftInput =>
-    __isa(o, "DetectStackSetDriftInput");
-}
-
-export interface DetectStackSetDriftOutput {
-  __type?: "DetectStackSetDriftOutput";
-  /**
-   * <p>The ID of the drift detection stack set operation. </p>
-   *          <p>you can use this operation id with <code>
-   *                <a>DescribeStackSetOperation</a>
-   *             </code> to monitor the progress of the drift detection operation. </p>
-   */
-  OperationId?: string;
-}
-
-export namespace DetectStackSetDriftOutput {
-  export const filterSensitiveLog = (obj: DetectStackSetDriftOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DetectStackSetDriftOutput =>
-    __isa(o, "DetectStackSetDriftOutput");
-}
-
-/**
- * <p>The specified operation isn't valid.</p>
- */
-export interface InvalidOperationException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidOperationException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidOperationException {
-  export const filterSensitiveLog = (obj: InvalidOperationException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidOperationException =>
-    __isa(o, "InvalidOperationException");
-}
-
-export interface ListStackInstancesInput {
-  __type?: "ListStackInstancesInput";
-  /**
-   * <p>The maximum number of results to be returned with a single call. If the number of
-   *          available results exceeds this maximum, the response includes a <code>NextToken</code>
-   *          value that you can assign to the <code>NextToken</code> request parameter to get the next
-   *          set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>If the previous request didn't return all of the remaining results, the response's
-   *             <code>NextToken</code> parameter value is set to a token. To retrieve the next set of
-   *          results, call <code>ListStackInstances</code> again and assign that token to the request
-   *          object's <code>NextToken</code> parameter. If there are no remaining results, the previous
-   *          response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The name of the AWS account that you want to list stack instances for.</p>
-   */
-  StackInstanceAccount?: string;
-
-  /**
-   * <p>The name of the region where you want to list stack instances. </p>
-   */
-  StackInstanceRegion?: string;
-
-  /**
-   * <p>The name or unique ID of the stack set that you want to list stack instances
-   *          for.</p>
-   */
-  StackSetName: string | undefined;
-}
-
-export namespace ListStackInstancesInput {
-  export const filterSensitiveLog = (obj: ListStackInstancesInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListStackInstancesInput =>
-    __isa(o, "ListStackInstancesInput");
-}
-
-export interface ListStackInstancesOutput {
-  __type?: "ListStackInstancesOutput";
-  /**
-   * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is
-   *          set to a token. To retrieve the next set of results, call <code>ListStackInstances</code>
-   *          again and assign that token to the request object's <code>NextToken</code> parameter. If
-   *          the request returns all results, <code>NextToken</code> is set to
-   *          <code>null</code>.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A list of <code>StackInstanceSummary</code> structures that contain information about
-   *          the specified stack instances.</p>
-   */
-  Summaries?: StackInstanceSummary[];
-}
-
-export namespace ListStackInstancesOutput {
-  export const filterSensitiveLog = (obj: ListStackInstancesOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListStackInstancesOutput =>
-    __isa(o, "ListStackInstancesOutput");
-}
-
-export interface ListStackSetOperationResultsInput {
-  __type?: "ListStackSetOperationResultsInput";
-  /**
-   * <p>The maximum number of results to be returned with a single call. If the number of
-   *          available results exceeds this maximum, the response includes a <code>NextToken</code>
-   *          value that you can assign to the <code>NextToken</code> request parameter to get the next
-   *          set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>If the previous request didn't return all of the remaining results, the response
-   *          object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set
-   *          of results, call <code>ListStackSetOperationResults</code> again and assign that token to
-   *          the request object's <code>NextToken</code> parameter. If there are no remaining results,
-   *          the previous response object's <code>NextToken</code> parameter is set to
-   *          <code>null</code>.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The ID of the stack set operation.</p>
-   */
-  OperationId: string | undefined;
-
-  /**
-   * <p>The name or unique ID of the stack set that you want to get operation results
-   *          for.</p>
-   */
-  StackSetName: string | undefined;
-}
-
-export namespace ListStackSetOperationResultsInput {
-  export const filterSensitiveLog = (
-    obj: ListStackSetOperationResultsInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListStackSetOperationResultsInput =>
-    __isa(o, "ListStackSetOperationResultsInput");
-}
-
-export interface ListStackSetOperationResultsOutput {
-  __type?: "ListStackSetOperationResultsOutput";
-  /**
-   * <p>If the request doesn't return all results, <code>NextToken</code> is set to a token.
-   *          To retrieve the next set of results, call <code>ListOperationResults</code> again and
-   *          assign that token to the request object's <code>NextToken</code> parameter. If there are no
-   *          remaining results, <code>NextToken</code> is set to <code>null</code>.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A list of <code>StackSetOperationResultSummary</code> structures that contain
-   *          information about the specified operation results, for accounts and regions that are
-   *          included in the operation.</p>
-   */
-  Summaries?: StackSetOperationResultSummary[];
-}
-
-export namespace ListStackSetOperationResultsOutput {
-  export const filterSensitiveLog = (
-    obj: ListStackSetOperationResultsOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListStackSetOperationResultsOutput =>
-    __isa(o, "ListStackSetOperationResultsOutput");
-}
-
-export interface ListStackSetOperationsInput {
-  __type?: "ListStackSetOperationsInput";
-  /**
-   * <p>The maximum number of results to be returned with a single call. If the number of
-   *          available results exceeds this maximum, the response includes a <code>NextToken</code>
-   *          value that you can assign to the <code>NextToken</code> request parameter to get the next
-   *          set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>If the previous paginated request didn't return all of the remaining results, the
-   *          response object's <code>NextToken</code> parameter value is set to a token. To retrieve the
-   *          next set of results, call <code>ListStackSetOperations</code> again and assign that token
-   *          to the request object's <code>NextToken</code> parameter. If there are no remaining
-   *          results, the previous response object's <code>NextToken</code> parameter is set to
-   *             <code>null</code>.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The name or unique ID of the stack set that you want to get operation summaries
-   *          for.</p>
-   */
-  StackSetName: string | undefined;
-}
-
-export namespace ListStackSetOperationsInput {
-  export const filterSensitiveLog = (
-    obj: ListStackSetOperationsInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListStackSetOperationsInput =>
-    __isa(o, "ListStackSetOperationsInput");
-}
-
-export interface ListStackSetOperationsOutput {
-  __type?: "ListStackSetOperationsOutput";
-  /**
-   * <p>If the request doesn't return all results, <code>NextToken</code> is set to a token.
-   *          To retrieve the next set of results, call <code>ListOperationResults</code> again and
-   *          assign that token to the request object's <code>NextToken</code> parameter. If there are no
-   *          remaining results, <code>NextToken</code> is set to <code>null</code>.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A list of <code>StackSetOperationSummary</code> structures that contain summary
-   *          information about operations for the specified stack set.</p>
-   */
-  Summaries?: StackSetOperationSummary[];
-}
-
-export namespace ListStackSetOperationsOutput {
-  export const filterSensitiveLog = (
-    obj: ListStackSetOperationsOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListStackSetOperationsOutput =>
-    __isa(o, "ListStackSetOperationsOutput");
-}
-
-export interface ListStackSetsInput {
-  __type?: "ListStackSetsInput";
-  /**
-   * <p>The maximum number of results to be returned with a single call. If the number of
-   *          available results exceeds this maximum, the response includes a <code>NextToken</code>
-   *          value that you can assign to the <code>NextToken</code> request parameter to get the next
-   *          set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>If the previous paginated request didn't return all of the remaining results, the
-   *          response object's <code>NextToken</code> parameter value is set to a token. To retrieve the
-   *          next set of results, call <code>ListStackSets</code> again and assign that token to the
-   *          request object's <code>NextToken</code> parameter. If there are no remaining results, the
-   *          previous response object's <code>NextToken</code> parameter is set to
-   *          <code>null</code>.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The status of the stack sets that you want to get summary information
-   *          about.</p>
-   */
-  Status?: StackSetStatus | string;
-}
-
-export namespace ListStackSetsInput {
-  export const filterSensitiveLog = (obj: ListStackSetsInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListStackSetsInput =>
-    __isa(o, "ListStackSetsInput");
-}
-
-export interface ListStackSetsOutput {
-  __type?: "ListStackSetsOutput";
-  /**
-   * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is
-   *          set to a token. To retrieve the next set of results, call <code>ListStackInstances</code>
-   *          again and assign that token to the request object's <code>NextToken</code> parameter. If
-   *          the request returns all results, <code>NextToken</code> is set to
-   *          <code>null</code>.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A list of <code>StackSetSummary</code> structures that contain information about the
-   *          user's stack sets.</p>
-   */
-  Summaries?: StackSetSummary[];
-}
-
-export namespace ListStackSetsOutput {
-  export const filterSensitiveLog = (obj: ListStackSetsOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListStackSetsOutput =>
-    __isa(o, "ListStackSetsOutput");
-}
-
-/**
- * <p>The specified name is already in use.</p>
- */
-export interface NameAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "NameAlreadyExistsException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NameAlreadyExistsException {
-  export const filterSensitiveLog = (obj: NameAlreadyExistsException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NameAlreadyExistsException =>
-    __isa(o, "NameAlreadyExistsException");
-}
-
-/**
- * <p>The specified operation ID already exists.</p>
- */
-export interface OperationIdAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "OperationIdAlreadyExistsException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace OperationIdAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: OperationIdAlreadyExistsException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is OperationIdAlreadyExistsException =>
-    __isa(o, "OperationIdAlreadyExistsException");
-}
-
-/**
- * <p>Another operation is currently in progress for this stack set. Only one operation can
- *          be performed for a stack set at a given time.</p>
- */
-export interface OperationInProgressException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "OperationInProgressException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace OperationInProgressException {
-  export const filterSensitiveLog = (
-    obj: OperationInProgressException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is OperationInProgressException =>
-    __isa(o, "OperationInProgressException");
-}
-
-/**
- * <p>The specified ID refers to an operation that doesn't exist.</p>
- */
-export interface OperationNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "OperationNotFoundException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace OperationNotFoundException {
-  export const filterSensitiveLog = (obj: OperationNotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is OperationNotFoundException =>
-    __isa(o, "OperationNotFoundException");
-}
-
-/**
- * <p>An AWS CloudFormation stack, in a specific account and region, that's part of a stack
- *          set operation. A stack instance is a reference to an attempted or actual stack in a given
- *          account within a given region. A stack instance can exist without a stack—for example, if
- *          the stack couldn't be created for some reason. A stack instance is associated with only one
- *          stack set. Each stack instance contains the ID of its associated stack set, as well as the
- *          ID of the actual stack and the stack status.</p>
- */
-export interface StackInstance {
-  __type?: "StackInstance";
-  /**
-   * <p>The name of the AWS account that the stack instance is associated with.</p>
-   */
-  Account?: string;
-
-  /**
-   * <p>Status of the stack instance's actual configuration compared to the expected template
-   *          and parameter configuration of the stack set to which it belongs. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DRIFTED</code>: The stack differs from the expected template and parameter
-   *                configuration of the stack set to which it belongs. A stack instance is considered to
-   *                have drifted if one or more of the resources in the associated stack have
-   *                drifted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOT_CHECKED</code>: AWS CloudFormation has not checked if the stack instance differs from
-   *                its expected stack set configuration.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_SYNC</code>: The stack instance's actual configuration matches its
-   *                expected stack set configuration.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNKNOWN</code>: This value is reserved for future use.</p>
-   *             </li>
-   *          </ul>
-   */
-  DriftStatus?: StackDriftStatus | string;
-
-  /**
-   * <p>Most recent time when CloudFormation performed a drift detection operation on the stack
-   *          instance. This value will be <code>NULL</code> for any stack instance on which drift
-   *          detection has not yet been performed.</p>
-   */
-  LastDriftCheckTimestamp?: Date;
-
-  /**
-   * <p>A list of parameters from the stack set template whose values have been overridden in
-   *          this stack instance.</p>
-   */
-  ParameterOverrides?: Parameter[];
-
-  /**
-   * <p>The name of the AWS region that the stack instance is associated with.</p>
-   */
-  Region?: string;
-
-  /**
-   * <p>The ID of the stack instance.</p>
-   */
-  StackId?: string;
-
-  /**
-   * <p>The name or unique ID of the stack set that the stack instance is associated
-   *          with.</p>
-   */
-  StackSetId?: string;
-
-  /**
-   * <p>The status of the stack instance, in terms of its synchronization with its associated
-   *          stack set.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INOPERABLE</code>: A <code>DeleteStackInstances</code> operation has
-   *                failed and left the stack in an unstable state. Stacks in this state are excluded
-   *                from further <code>UpdateStackSet</code> operations. You might need to perform a
-   *                   <code>DeleteStackInstances</code> operation, with <code>RetainStacks</code> set to
-   *                   <code>true</code>, to delete the stack instance, and then delete the stack
-   *                manually.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OUTDATED</code>: The stack isn't currently up to date with the stack set
-   *                because:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>The associated stack failed during a <code>CreateStackSet</code> or
-   *                         <code>UpdateStackSet</code> operation. </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The stack was part of a <code>CreateStackSet</code> or
-   *                         <code>UpdateStackSet</code> operation that failed or was stopped before the
-   *                      stack was created or updated. </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CURRENT</code>: The stack is currently up to date with the stack
-   *                set.</p>
-   *             </li>
-   *          </ul>
-   */
-  Status?: StackInstanceStatus | string;
-
-  /**
-   * <p>The explanation for the specific status code that is assigned to this stack
-   *          instance.</p>
-   */
-  StatusReason?: string;
-}
-
-export namespace StackInstance {
-  export const filterSensitiveLog = (obj: StackInstance): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StackInstance => __isa(o, "StackInstance");
-}
-
-/**
- * <p>The specified stack instance doesn't exist.</p>
- */
-export interface StackInstanceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "StackInstanceNotFoundException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace StackInstanceNotFoundException {
-  export const filterSensitiveLog = (
-    obj: StackInstanceNotFoundException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StackInstanceNotFoundException =>
-    __isa(o, "StackInstanceNotFoundException");
-}
-
-export type StackInstanceStatus = "CURRENT" | "INOPERABLE" | "OUTDATED";
-
-/**
- * <p>The structure that contains summary information about a stack instance.</p>
- */
-export interface StackInstanceSummary {
-  __type?: "StackInstanceSummary";
-  /**
-   * <p>The name of the AWS account that the stack instance is associated with.</p>
-   */
-  Account?: string;
-
-  /**
-   * <p>Status of the stack instance's actual configuration compared to the expected template
-   *          and parameter configuration of the stack set to which it belongs. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DRIFTED</code>: The stack differs from the expected template and parameter
-   *                configuration of the stack set to which it belongs. A stack instance is considered to
-   *                have drifted if one or more of the resources in the associated stack have
-   *                drifted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOT_CHECKED</code>: AWS CloudFormation has not checked if the stack instance differs from
-   *                its expected stack set configuration.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_SYNC</code>: The stack instance's actual configuration matches its
-   *                expected stack set configuration.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNKNOWN</code>: This value is reserved for future use.</p>
-   *             </li>
-   *          </ul>
-   */
-  DriftStatus?: StackDriftStatus | string;
-
-  /**
-   * <p>Most recent time when CloudFormation performed a drift detection operation on the stack
-   *          instance. This value will be <code>NULL</code> for any stack instance on which drift
-   *          detection has not yet been performed.</p>
-   */
-  LastDriftCheckTimestamp?: Date;
-
-  /**
-   * <p>The name of the AWS region that the stack instance is associated with.</p>
-   */
-  Region?: string;
-
-  /**
-   * <p>The ID of the stack instance.</p>
-   */
-  StackId?: string;
-
-  /**
-   * <p>The name or unique ID of the stack set that the stack instance is associated
-   *          with.</p>
-   */
-  StackSetId?: string;
-
-  /**
-   * <p>The status of the stack instance, in terms of its synchronization with its associated
-   *          stack set.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INOPERABLE</code>: A <code>DeleteStackInstances</code> operation has
-   *                failed and left the stack in an unstable state. Stacks in this state are excluded
-   *                from further <code>UpdateStackSet</code> operations. You might need to perform a
-   *                   <code>DeleteStackInstances</code> operation, with <code>RetainStacks</code> set to
-   *                   <code>true</code>, to delete the stack instance, and then delete the stack
-   *                manually.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OUTDATED</code>: The stack isn't currently up to date with the stack set
-   *                because:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>The associated stack failed during a <code>CreateStackSet</code> or
-   *                         <code>UpdateStackSet</code> operation. </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The stack was part of a <code>CreateStackSet</code> or
-   *                         <code>UpdateStackSet</code> operation that failed or was stopped before the
-   *                      stack was created or updated. </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CURRENT</code>: The stack is currently up to date with the stack
-   *                set.</p>
-   *             </li>
-   *          </ul>
-   */
-  Status?: StackInstanceStatus | string;
-
-  /**
-   * <p>The explanation for the specific status code assigned to this stack
-   *          instance.</p>
-   */
-  StatusReason?: string;
-}
-
-export namespace StackInstanceSummary {
-  export const filterSensitiveLog = (obj: StackInstanceSummary): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StackInstanceSummary =>
-    __isa(o, "StackInstanceSummary");
-}
-
-/**
- * <p>A structure that contains information about a stack set. A stack set enables you to
- *          provision stacks into AWS accounts and across regions by using a single CloudFormation
- *          template. In the stack set, you specify the template to use, as well as any parameters and
- *          capabilities that the template requires. </p>
- */
-export interface StackSet {
-  __type?: "StackSet";
-  /**
-   * <p>The Amazon Resource Number (ARN) of the IAM role used to create or update the stack
-   *          set.</p>
-   *          <p>Use customized administrator roles to control which users or groups can manage specific
-   *          stack sets within the same administrator account. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Prerequisites: Granting Permissions for Stack
-   *             Set Operations</a> in the <i>AWS CloudFormation User Guide</i>.</p>
-   */
-  AdministrationRoleARN?: string;
-
-  /**
-   * <p>The capabilities that are allowed in the stack set. Some stack set templates might
-   *          include resources that can affect permissions in your AWS account—for example, by creating
-   *          new AWS Identity and Access Management (IAM) users. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in AWS CloudFormation Templates.</a>
-   *          </p>
-   */
-  Capabilities?: (Capability | string)[];
-
-  /**
-   * <p>A description of the stack set that you specify when the stack set is created or
-   *          updated.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The name of the IAM execution role used to create or update the stack set. </p>
-   *          <p>Use customized execution roles to control which stack resources users and groups can
-   *          include in their stack sets.
-   *
-   *       </p>
-   */
-  ExecutionRoleName?: string;
-
-  /**
-   * <p>A list of input parameters for a stack set.</p>
-   */
-  Parameters?: Parameter[];
-
-  /**
-   * <p>The Amazon Resource Number (ARN) of the stack set.</p>
-   */
-  StackSetARN?: string;
-
-  /**
-   * <p>Detailed information about the drift status of the stack set.</p>
-   *          <p>For stack sets, contains information about the last <i>completed</i> drift
-   *          operation performed on the stack set. Information about drift operations currently in
-   *          progress is not included.</p>
-   */
-  StackSetDriftDetectionDetails?: StackSetDriftDetectionDetails;
-
-  /**
-   * <p>The ID of the stack set.</p>
-   */
-  StackSetId?: string;
-
-  /**
-   * <p>The name that's associated with the stack set.</p>
-   */
-  StackSetName?: string;
-
-  /**
-   * <p>The status of the stack set.</p>
-   */
-  Status?: StackSetStatus | string;
-
-  /**
-   * <p>A list of tags that specify information about the stack set. A maximum number of 50
-   *          tags can be specified.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The structure that contains the body of the template that was used to create or
-   *          update the stack set.</p>
-   */
-  TemplateBody?: string;
-}
-
-export namespace StackSet {
-  export const filterSensitiveLog = (obj: StackSet): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StackSet => __isa(o, "StackSet");
-}
-
-/**
- * <p>Detailed information about the drift status of the stack set.</p>
- *          <p>For stack sets, contains information about the last <i>completed</i> drift
- *          operation performed on the stack set. Information about drift operations in-progress is not
- *          included. </p>
- *          <p>For stack set operations, includes information about drift operations currently being
- *          performed on the stack set.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting Unmanaged
- *             Changes in Stack Sets</a> in the <i>AWS CloudFormation User Guide</i>.</p>
- */
-export interface StackSetDriftDetectionDetails {
-  __type?: "StackSetDriftDetectionDetails";
-  /**
-   * <p>The status of the stack set drift detection operation.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>COMPLETED</code>: The drift detection operation completed without failing on
-   *                any stack instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code>: The drift detection operation exceeded the specified failure
-   *                tolerance. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PARTIAL_SUCCESS</code>: The drift detection operation completed without
-   *                exceeding the failure tolerance for the operation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_PROGRESS</code>: The drift detection operation is currently being
-   *                performed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOPPED</code>: The user has cancelled the drift detection operation.</p>
-   *             </li>
-   *          </ul>
-   */
-  DriftDetectionStatus?: StackSetDriftDetectionStatus | string;
-
-  /**
-   * <p>Status of the stack set's actual configuration compared to its expected template and
-   *          parameter configuration. A stack set is considered to have drifted if one or more of its
-   *          stack instances have drifted from their expected template and parameter
-   *          configuration.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DRIFTED</code>: One or more of the stack instances belonging to the stack
-   *                set stack differs from the expected template and parameter configuration. A stack
-   *                instance is considered to have drifted if one or more of the resources in the
-   *                associated stack have drifted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOT_CHECKED</code>: AWS CloudFormation has not checked the stack set for drift.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_SYNC</code>: All of the stack instances belonging to the stack set stack
-   *                match from the expected template and parameter configuration.</p>
-   *             </li>
-   *          </ul>
-   */
-  DriftStatus?: StackSetDriftStatus | string;
-
-  /**
-   * <p>The number of stack instances that have drifted from the expected template and parameter
-   *          configuration of the stack set. A stack instance is considered to have drifted if one or
-   *          more of the resources in the associated stack do not match their expected
-   *          configuration.</p>
-   */
-  DriftedStackInstancesCount?: number;
-
-  /**
-   * <p>The number of stack instances for which the drift detection operation failed.</p>
-   */
-  FailedStackInstancesCount?: number;
-
-  /**
-   * <p>The number of stack instances that are currently being checked for drift.</p>
-   */
-  InProgressStackInstancesCount?: number;
-
-  /**
-   * <p>The number of stack instances which match the expected template and parameter
-   *          configuration of the stack set.</p>
-   */
-  InSyncStackInstancesCount?: number;
-
-  /**
-   * <p>Most recent time when CloudFormation performed a drift detection operation on the stack
-   *          set. This value will be <code>NULL</code> for any stack set on which drift detection has
-   *          not yet been performed.</p>
-   */
-  LastDriftCheckTimestamp?: Date;
-
-  /**
-   * <p>The total number of stack instances belonging to this stack set. </p>
-   *          <p>The total number of stack instances is equal to the total of:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Stack instances that match the stack set configuration. </p>
-   *             </li>
-   *             <li>
-   *                <p>Stack instances that have drifted from the stack set configuration. </p>
-   *             </li>
-   *             <li>
-   *                <p>Stack instances where the drift detection operation has failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>Stack instances currently being checked for drift.</p>
-   *             </li>
-   *          </ul>
-   */
-  TotalStackInstancesCount?: number;
-}
-
-export namespace StackSetDriftDetectionDetails {
-  export const filterSensitiveLog = (
-    obj: StackSetDriftDetectionDetails
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StackSetDriftDetectionDetails =>
-    __isa(o, "StackSetDriftDetectionDetails");
-}
-
-export enum StackSetDriftDetectionStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PARTIAL_SUCCESS = "PARTIAL_SUCCESS",
-  STOPPED = "STOPPED"
-}
-
-export enum StackSetDriftStatus {
-  DRIFTED = "DRIFTED",
-  IN_SYNC = "IN_SYNC",
-  NOT_CHECKED = "NOT_CHECKED"
-}
-
-/**
- * <p>You can't yet delete this stack set, because it still contains one or more stack
- *          instances. Delete all stack instances from the stack set before deleting the stack
- *          set.</p>
- */
-export interface StackSetNotEmptyException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "StackSetNotEmptyException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace StackSetNotEmptyException {
-  export const filterSensitiveLog = (obj: StackSetNotEmptyException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StackSetNotEmptyException =>
-    __isa(o, "StackSetNotEmptyException");
-}
-
-/**
- * <p>The structure that contains information about a stack set operation. </p>
- */
-export interface StackSetOperation {
-  __type?: "StackSetOperation";
-  /**
-   * <p>The type of stack set operation: <code>CREATE</code>, <code>UPDATE</code>, or
-   *             <code>DELETE</code>. Create and delete operations affect only the specified stack set
-   *          instances that are associated with the specified stack set. Update operations affect both
-   *          the stack set itself, as well as <i>all</i> associated stack set
-   *          instances.</p>
-   */
-  Action?: StackSetOperationAction | string;
-
-  /**
-   * <p>The Amazon Resource Number (ARN) of the IAM role used to perform this stack set
-   *          operation. </p>
-   *          <p>Use customized administrator roles to control which users or groups can manage specific
-   *          stack sets within the same administrator account. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Define Permissions for Multiple
-   *             Administrators</a> in the <i>AWS CloudFormation User Guide</i>.</p>
-   */
-  AdministrationRoleARN?: string;
-
-  /**
-   * <p>The time at which the operation was initiated. Note that the creation times for the
-   *          stack set operation might differ from the creation time of the individual stacks
-   *          themselves. This is because AWS CloudFormation needs to perform preparatory work for the
-   *          operation, such as dispatching the work to the requested regions, before actually creating
-   *          the first stacks.</p>
-   */
-  CreationTimestamp?: Date;
-
-  /**
-   * <p>The time at which the stack set operation ended, across all accounts and regions
-   *          specified. Note that this doesn't necessarily mean that the stack set operation was
-   *          successful, or even attempted, in each account or region.</p>
-   */
-  EndTimestamp?: Date;
-
-  /**
-   * <p>The name of the IAM execution role used to create or update the stack set.</p>
-   *          <p>Use customized execution roles to control which stack resources users and groups can
-   *          include in their stack sets.
-   *
-   *       </p>
-   */
-  ExecutionRoleName?: string;
-
-  /**
-   * <p>The unique ID of a stack set operation.</p>
-   */
-  OperationId?: string;
-
-  /**
-   * <p>The preferences for how AWS CloudFormation performs this stack set
-   *          operation.</p>
-   */
-  OperationPreferences?: StackSetOperationPreferences;
-
-  /**
-   * <p>For stack set operations of action type <code>DELETE</code>, specifies whether to
-   *          remove the stack instances from the specified stack set, but doesn't delete the stacks. You
-   *          can't reassociate a retained stack, or add an existing, saved stack to a new stack
-   *          set.</p>
-   */
-  RetainStacks?: boolean;
-
-  /**
-   * <p>Detailed information about the drift status of the stack set. This includes information
-   *          about drift operations currently being performed on the stack set.</p>
-   *          <p>this information will only be present for stack set operations whose <code>Action</code>
-   *          type is <code>DETECT_DRIFT</code>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting Unmanaged
-   *             Changes in Stack Sets</a> in the AWS CloudFormation User Guide.</p>
-   */
-  StackSetDriftDetectionDetails?: StackSetDriftDetectionDetails;
-
-  /**
-   * <p>The ID of the stack set.</p>
-   */
-  StackSetId?: string;
-
-  /**
-   * <p>The status of the operation. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code>: The operation exceeded the specified failure tolerance.
-   *                The failure tolerance value that you've set for an operation is applied for each
-   *                region during stack create and update operations. If the number of failed stacks
-   *                within a region exceeds the failure tolerance, the status of the operation in the
-   *                region is set to <code>FAILED</code>. This in turn sets the status of the operation
-   *                as a whole to <code>FAILED</code>, and AWS CloudFormation cancels the operation in
-   *                any remaining regions.</p>
-   *
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RUNNING</code>: The operation is currently being performed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOPPED</code>: The user has cancelled the operation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOPPING</code>: The operation is in the process of stopping, at user
-   *                request. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCEEDED</code>: The operation completed creating or updating all the
-   *                specified stacks without exceeding the failure tolerance for the operation.</p>
-   *             </li>
-   *          </ul>
-   */
-  Status?: StackSetOperationStatus | string;
-}
-
-export namespace StackSetOperation {
-  export const filterSensitiveLog = (obj: StackSetOperation): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StackSetOperation =>
-    __isa(o, "StackSetOperation");
-}
-
-export type StackSetOperationAction =
-  | "CREATE"
-  | "DELETE"
-  | "DETECT_DRIFT"
-  | "UPDATE";
-
-/**
- * <p>The user-specified preferences for how AWS CloudFormation performs a stack set
- *          operation. </p>
- *          <p>For more information on maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a>.</p>
- */
-export interface StackSetOperationPreferences {
-  __type?: "StackSetOperationPreferences";
-  /**
-   * <p>The number of accounts, per region, for which this operation can fail before AWS
-   *          CloudFormation stops the operation in that region. If the operation is stopped in a region,
-   *          AWS CloudFormation doesn't attempt the operation in any subsequent regions.</p>
-   *          <p>Conditional: You must specify either <code>FailureToleranceCount</code> or
-   *             <code>FailureTolerancePercentage</code> (but not both).</p>
-   */
-  FailureToleranceCount?: number;
-
-  /**
-   * <p>The percentage of accounts, per region, for which this stack operation can fail
-   *          before AWS CloudFormation stops the operation in that region. If the operation is stopped
-   *          in a region, AWS CloudFormation doesn't attempt the operation in any subsequent
-   *          regions.</p>
-   *          <p>When calculating the number of accounts based on the specified percentage, AWS
-   *          CloudFormation rounds <i>down</i> to the next whole number.</p>
-   *          <p>Conditional: You must specify either <code>FailureToleranceCount</code> or
-   *             <code>FailureTolerancePercentage</code>, but not both.</p>
-   */
-  FailureTolerancePercentage?: number;
-
-  /**
-   * <p>The maximum number of accounts in which to perform this operation at one time. This
-   *          is dependent on the value of
-   *             <code>FailureToleranceCount</code>—<code>MaxConcurrentCount</code> is at most one more
-   *          than the <code>FailureToleranceCount</code> .</p>
-   *          <p>Note that this setting lets you specify the <i>maximum</i> for
-   *          operations. For large deployments, under certain circumstances the actual number of
-   *          accounts acted upon concurrently may be lower due to service throttling.</p>
-   *          <p>Conditional: You must specify either <code>MaxConcurrentCount</code> or
-   *             <code>MaxConcurrentPercentage</code>, but not both.</p>
-   */
-  MaxConcurrentCount?: number;
-
-  /**
-   * <p>The maximum percentage of accounts in which to perform this operation at one
-   *          time.</p>
-   *          <p>When calculating the number of accounts based on the specified percentage, AWS
-   *          CloudFormation rounds down to the next whole number. This is true except in cases where
-   *          rounding down would result is zero. In this case, CloudFormation sets the number as one
-   *          instead.</p>
-   *          <p>Note that this setting lets you specify the <i>maximum</i> for
-   *          operations. For large deployments, under certain circumstances the actual number of
-   *          accounts acted upon concurrently may be lower due to service throttling.</p>
-   *          <p>Conditional: You must specify either <code>MaxConcurrentCount</code> or
-   *             <code>MaxConcurrentPercentage</code>, but not both.</p>
-   */
-  MaxConcurrentPercentage?: number;
-
-  /**
-   * <p>The order of the regions in where you want to perform the stack operation.</p>
-   */
-  RegionOrder?: string[];
-}
-
-export namespace StackSetOperationPreferences {
-  export const filterSensitiveLog = (
-    obj: StackSetOperationPreferences
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StackSetOperationPreferences =>
-    __isa(o, "StackSetOperationPreferences");
-}
-
-export type StackSetOperationResultStatus =
-  | "CANCELLED"
-  | "FAILED"
-  | "PENDING"
-  | "RUNNING"
-  | "SUCCEEDED";
-
-/**
- * <p>The structure that contains information about a specified operation's results for a
- *          given account in a given region.</p>
- */
-export interface StackSetOperationResultSummary {
-  __type?: "StackSetOperationResultSummary";
-  /**
-   * <p>The name of the AWS account for this operation result.</p>
-   */
-  Account?: string;
-
-  /**
-   * <p>The results of the account gate function AWS CloudFormation invokes, if present,
-   *          before proceeding with stack set operations in an account</p>
-   */
-  AccountGateResult?: AccountGateResult;
-
-  /**
-   * <p>The name of the AWS region for this operation result.</p>
-   */
-  Region?: string;
-
-  /**
-   * <p>The result status of the stack set operation for the given account in the given
-   *          region.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CANCELLED</code>: The operation in the specified account and region has
-   *                been cancelled. This is either because a user has stopped the stack set operation, or
-   *                because the failure tolerance of the stack set operation has been exceeded.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code>: The operation in the specified account and region failed. </p>
-   *                <p>If the stack set operation fails in enough accounts within a region, the
-   *                failure tolerance for the stack set operation as a whole might be exceeded.
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RUNNING</code>: The operation in the specified account and region is
-   *                currently in progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code>: The operation in the specified account and region has yet
-   *                to start. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCEEDED</code>: The operation in the specified account and region
-   *                completed successfully.</p>
-   *             </li>
-   *          </ul>
-   */
-  Status?: StackSetOperationResultStatus | string;
-
-  /**
-   * <p>The reason for the assigned result status.</p>
-   */
-  StatusReason?: string;
-}
-
-export namespace StackSetOperationResultSummary {
-  export const filterSensitiveLog = (
-    obj: StackSetOperationResultSummary
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StackSetOperationResultSummary =>
-    __isa(o, "StackSetOperationResultSummary");
-}
-
-export type StackSetOperationStatus =
-  | "FAILED"
-  | "RUNNING"
-  | "STOPPED"
-  | "STOPPING"
-  | "SUCCEEDED";
-
-/**
- * <p>The structures that contain summary information about the specified
- *          operation.</p>
- */
-export interface StackSetOperationSummary {
-  __type?: "StackSetOperationSummary";
-  /**
-   * <p>The type of operation: <code>CREATE</code>, <code>UPDATE</code>, or
-   *             <code>DELETE</code>. Create and delete operations affect only the specified stack
-   *          instances that are associated with the specified stack set. Update operations affect both
-   *          the stack set itself as well as <i>all</i> associated stack set
-   *          instances.</p>
-   */
-  Action?: StackSetOperationAction | string;
-
-  /**
-   * <p>The time at which the operation was initiated. Note that the creation times for the
-   *          stack set operation might differ from the creation time of the individual stacks
-   *          themselves. This is because AWS CloudFormation needs to perform preparatory work for the
-   *          operation, such as dispatching the work to the requested regions, before actually creating
-   *          the first stacks.</p>
-   */
-  CreationTimestamp?: Date;
-
-  /**
-   * <p>The time at which the stack set operation ended, across all accounts and regions
-   *          specified. Note that this doesn't necessarily mean that the stack set operation was
-   *          successful, or even attempted, in each account or region.</p>
-   */
-  EndTimestamp?: Date;
-
-  /**
-   * <p>The unique ID of the stack set operation.</p>
-   */
-  OperationId?: string;
-
-  /**
-   * <p>The overall status of the operation.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code>: The operation exceeded the specified failure tolerance.
-   *                The failure tolerance value that you've set for an operation is applied for each
-   *                region during stack create and update operations. If the number of failed stacks
-   *                within a region exceeds the failure tolerance, the status of the operation in the
-   *                region is set to <code>FAILED</code>. This in turn sets the status of the operation
-   *                as a whole to <code>FAILED</code>, and AWS CloudFormation cancels the operation in
-   *                any remaining regions.</p>
-   *
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RUNNING</code>: The operation is currently being performed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOPPED</code>: The user has cancelled the operation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOPPING</code>: The operation is in the process of stopping, at user
-   *                request. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCEEDED</code>: The operation completed creating or updating all the
-   *                specified stacks without exceeding the failure tolerance for the operation.</p>
-   *             </li>
-   *          </ul>
-   */
-  Status?: StackSetOperationStatus | string;
-}
-
-export namespace StackSetOperationSummary {
-  export const filterSensitiveLog = (obj: StackSetOperationSummary): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StackSetOperationSummary =>
-    __isa(o, "StackSetOperationSummary");
-}
-
-export type StackSetStatus = "ACTIVE" | "DELETED";
-
-/**
- * <p>The structures that contain summary information about the specified stack
- *          set.</p>
- */
-export interface StackSetSummary {
-  __type?: "StackSetSummary";
-  /**
-   * <p>A description of the stack set that you specify when the stack set is created or
-   *          updated.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Status of the stack set's actual configuration compared to its expected template and
-   *          parameter configuration. A stack set is considered to have drifted if one or more of its
-   *          stack instances have drifted from their expected template and parameter
-   *          configuration.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DRIFTED</code>: One or more of the stack instances belonging to the stack
-   *                set stack differs from the expected template and parameter configuration. A stack
-   *                instance is considered to have drifted if one or more of the resources in the
-   *                associated stack have drifted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOT_CHECKED</code>: AWS CloudFormation has not checked the stack set for drift.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_SYNC</code>: All of the stack instances belonging to the stack set stack
-   *                match from the expected template and parameter configuration.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNKNOWN</code>: This value is reserved for future use.</p>
-   *             </li>
-   *          </ul>
-   */
-  DriftStatus?: StackDriftStatus | string;
-
-  /**
-   * <p>Most recent time when CloudFormation performed a drift detection operation on the stack
-   *          set. This value will be <code>NULL</code> for any stack set on which drift detection has
-   *          not yet been performed.</p>
-   */
-  LastDriftCheckTimestamp?: Date;
-
-  /**
-   * <p>The ID of the stack set.</p>
-   */
-  StackSetId?: string;
-
-  /**
-   * <p>The name of the stack set.</p>
-   */
-  StackSetName?: string;
-
-  /**
-   * <p>The status of the stack set.</p>
-   */
-  Status?: StackSetStatus | string;
-}
-
-export namespace StackSetSummary {
-  export const filterSensitiveLog = (obj: StackSetSummary): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StackSetSummary =>
-    __isa(o, "StackSetSummary");
-}
-
-/**
- * <p>Another operation has been performed on this stack set since the specified operation
- *          was performed. </p>
- */
-export interface StaleRequestException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "StaleRequestException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace StaleRequestException {
-  export const filterSensitiveLog = (obj: StaleRequestException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StaleRequestException =>
-    __isa(o, "StaleRequestException");
-}
-
-export interface StopStackSetOperationInput {
-  __type?: "StopStackSetOperationInput";
-  /**
-   * <p>The ID of the stack operation. </p>
-   */
-  OperationId: string | undefined;
-
-  /**
-   * <p>The name or unique ID of the stack set that you want to stop the operation
-   *          for.</p>
-   */
-  StackSetName: string | undefined;
-}
-
-export namespace StopStackSetOperationInput {
-  export const filterSensitiveLog = (obj: StopStackSetOperationInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StopStackSetOperationInput =>
-    __isa(o, "StopStackSetOperationInput");
-}
-
-export interface StopStackSetOperationOutput {
-  __type?: "StopStackSetOperationOutput";
-}
-
-export namespace StopStackSetOperationOutput {
-  export const filterSensitiveLog = (
-    obj: StopStackSetOperationOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StopStackSetOperationOutput =>
-    __isa(o, "StopStackSetOperationOutput");
-}
-
 export interface UpdateStackInstancesInput {
   __type?: "UpdateStackInstancesInput";
   /**
@@ -7700,6 +7560,25 @@ export namespace UpdateStackInstancesOutput {
   });
   export const isa = (o: any): o is UpdateStackInstancesOutput =>
     __isa(o, "UpdateStackInstancesOutput");
+}
+
+/**
+ * <p>The output for an <a>UpdateStack</a> action.</p>
+ */
+export interface UpdateStackOutput {
+  __type?: "UpdateStackOutput";
+  /**
+   * <p>Unique identifier of the stack.</p>
+   */
+  StackId?: string;
+}
+
+export namespace UpdateStackOutput {
+  export const filterSensitiveLog = (obj: UpdateStackOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateStackOutput =>
+    __isa(o, "UpdateStackOutput");
 }
 
 export interface UpdateStackSetInput {
@@ -7981,3 +7860,124 @@ export namespace UpdateStackSetOutput {
   export const isa = (o: any): o is UpdateStackSetOutput =>
     __isa(o, "UpdateStackSetOutput");
 }
+
+export interface UpdateTerminationProtectionInput {
+  __type?: "UpdateTerminationProtectionInput";
+  /**
+   * <p>Whether to enable termination protection on the specified stack.</p>
+   */
+  EnableTerminationProtection: boolean | undefined;
+
+  /**
+   * <p>The name or unique ID of the stack for which you want to set termination
+   *          protection.</p>
+   */
+  StackName: string | undefined;
+}
+
+export namespace UpdateTerminationProtectionInput {
+  export const filterSensitiveLog = (
+    obj: UpdateTerminationProtectionInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateTerminationProtectionInput =>
+    __isa(o, "UpdateTerminationProtectionInput");
+}
+
+export interface UpdateTerminationProtectionOutput {
+  __type?: "UpdateTerminationProtectionOutput";
+  /**
+   * <p>The unique ID of the stack.</p>
+   */
+  StackId?: string;
+}
+
+export namespace UpdateTerminationProtectionOutput {
+  export const filterSensitiveLog = (
+    obj: UpdateTerminationProtectionOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateTerminationProtectionOutput =>
+    __isa(o, "UpdateTerminationProtectionOutput");
+}
+
+/**
+ * <p>The input for <a>ValidateTemplate</a> action.</p>
+ */
+export interface ValidateTemplateInput {
+  __type?: "ValidateTemplateInput";
+  /**
+   * <p>Structure containing the template body with a minimum length of 1 byte and a maximum
+   *          length of 51,200 bytes. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
+   *          in the AWS CloudFormation User Guide.</p>
+   *          <p>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>. If
+   *          both are passed, only <code>TemplateBody</code> is used.</p>
+   */
+  TemplateBody?: string;
+
+  /**
+   * <p>Location of file containing the template body. The URL must point to a template (max
+   *          size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, go to
+   *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
+   *          in the AWS CloudFormation User Guide.</p>
+   *          <p>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>. If
+   *          both are passed, only <code>TemplateBody</code> is used.</p>
+   */
+  TemplateURL?: string;
+}
+
+export namespace ValidateTemplateInput {
+  export const filterSensitiveLog = (obj: ValidateTemplateInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ValidateTemplateInput =>
+    __isa(o, "ValidateTemplateInput");
+}
+
+/**
+ * <p>The output for <a>ValidateTemplate</a> action.</p>
+ */
+export interface ValidateTemplateOutput {
+  __type?: "ValidateTemplateOutput";
+  /**
+   * <p>The capabilities found within the template. If your template contains IAM resources,
+   *          you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when
+   *          you use the <a>CreateStack</a> or <a>UpdateStack</a> actions with
+   *          your template; otherwise, those actions return an InsufficientCapabilities error.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in AWS CloudFormation Templates</a>.</p>
+   */
+  Capabilities?: (Capability | string)[];
+
+  /**
+   * <p>The list of resources that generated the values in the <code>Capabilities</code>
+   *          response element.</p>
+   */
+  CapabilitiesReason?: string;
+
+  /**
+   * <p>A list of the transforms that are declared in the template.</p>
+   */
+  DeclaredTransforms?: string[];
+
+  /**
+   * <p>The description found within the template.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A list of <code>TemplateParameter</code> structures.</p>
+   */
+  Parameters?: TemplateParameter[];
+}
+
+export namespace ValidateTemplateOutput {
+  export const filterSensitiveLog = (obj: ValidateTemplateOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ValidateTemplateOutput =>
+    __isa(o, "ValidateTemplateOutput");
+}
+
+export type Visibility = "PRIVATE" | "PUBLIC";

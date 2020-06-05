@@ -5,9 +5,9 @@ import {
 } from "../GlacierClient";
 import { SetDataRetrievalPolicyInput } from "../models/index";
 import {
-  deserializeAws_restJson1_1SetDataRetrievalPolicyCommand,
-  serializeAws_restJson1_1SetDataRetrievalPolicyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1SetDataRetrievalPolicyCommand,
+  serializeAws_restJson1SetDataRetrievalPolicyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,17 +70,14 @@ export class SetDataRetrievalPolicyCommand extends $Command<
     input: SetDataRetrievalPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1SetDataRetrievalPolicyCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1SetDataRetrievalPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetDataRetrievalPolicyCommandOutput> {
-    return deserializeAws_restJson1_1SetDataRetrievalPolicyCommand(
+    return deserializeAws_restJson1SetDataRetrievalPolicyCommand(
       output,
       context
     );

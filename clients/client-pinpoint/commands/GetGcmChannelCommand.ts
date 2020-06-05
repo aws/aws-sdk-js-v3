@@ -5,9 +5,9 @@ import {
 } from "../PinpointClient";
 import { GetGcmChannelRequest, GetGcmChannelResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetGcmChannelCommand,
-  serializeAws_restJson1_1GetGcmChannelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetGcmChannelCommand,
+  serializeAws_restJson1GetGcmChannelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetGcmChannelCommand extends $Command<
     input: GetGcmChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetGcmChannelCommand(input, context);
+    return serializeAws_restJson1GetGcmChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetGcmChannelCommandOutput> {
-    return deserializeAws_restJson1_1GetGcmChannelCommand(output, context);
+    return deserializeAws_restJson1GetGcmChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

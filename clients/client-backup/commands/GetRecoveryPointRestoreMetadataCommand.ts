@@ -8,9 +8,9 @@ import {
   GetRecoveryPointRestoreMetadataOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommand,
-  serializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetRecoveryPointRestoreMetadataCommand,
+  serializeAws_restJson1GetRecoveryPointRestoreMetadataCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
     input: GetRecoveryPointRestoreMetadataCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommand(
+    return serializeAws_restJson1GetRecoveryPointRestoreMetadataCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRecoveryPointRestoreMetadataCommandOutput> {
-    return deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommand(
+    return deserializeAws_restJson1GetRecoveryPointRestoreMetadataCommand(
       output,
       context
     );

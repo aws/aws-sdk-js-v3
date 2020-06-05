@@ -5,9 +5,9 @@ import {
 } from "../NetworkManagerClient";
 import { CreateDeviceRequest, CreateDeviceResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateDeviceCommand,
-  serializeAws_restJson1_1CreateDeviceCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateDeviceCommand,
+  serializeAws_restJson1CreateDeviceCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateDeviceCommand extends $Command<
     input: CreateDeviceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateDeviceCommand(input, context);
+    return serializeAws_restJson1CreateDeviceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDeviceCommandOutput> {
-    return deserializeAws_restJson1_1CreateDeviceCommand(output, context);
+    return deserializeAws_restJson1CreateDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

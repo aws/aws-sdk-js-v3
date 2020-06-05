@@ -8,9 +8,9 @@ import {
   UpdateLifecyclePolicyResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateLifecyclePolicyCommand,
-  serializeAws_restJson1_1UpdateLifecyclePolicyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateLifecyclePolicyCommand,
+  serializeAws_restJson1UpdateLifecyclePolicyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class UpdateLifecyclePolicyCommand extends $Command<
     input: UpdateLifecyclePolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateLifecyclePolicyCommand(input, context);
+    return serializeAws_restJson1UpdateLifecyclePolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLifecyclePolicyCommandOutput> {
-    return deserializeAws_restJson1_1UpdateLifecyclePolicyCommand(
+    return deserializeAws_restJson1UpdateLifecyclePolicyCommand(
       output,
       context
     );

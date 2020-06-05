@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { Authorizer, CreateAuthorizerRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateAuthorizerCommand,
-  serializeAws_restJson1_1CreateAuthorizerCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateAuthorizerCommand,
+  serializeAws_restJson1CreateAuthorizerCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateAuthorizerCommand extends $Command<
     input: CreateAuthorizerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateAuthorizerCommand(input, context);
+    return serializeAws_restJson1CreateAuthorizerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateAuthorizerCommandOutput> {
-    return deserializeAws_restJson1_1CreateAuthorizerCommand(output, context);
+    return deserializeAws_restJson1CreateAuthorizerCommand(output, context);
   }
 
   // Start section: command_body_extra

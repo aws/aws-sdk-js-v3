@@ -704,41 +704,6 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Deletes the IPSet specified by the <code>ipSetId</code>. IPSets are called Trusted IP lists in the console user interface.</p>
-   */
-  public deleteIPSet(
-    args: DeleteIPSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteIPSetCommandOutput>;
-  public deleteIPSet(
-    args: DeleteIPSetCommandInput,
-    cb: (err: any, data?: DeleteIPSetCommandOutput) => void
-  ): void;
-  public deleteIPSet(
-    args: DeleteIPSetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteIPSetCommandOutput) => void
-  ): void;
-  public deleteIPSet(
-    args: DeleteIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteIPSetCommandOutput) => void),
-    cb?: (err: any, data?: DeleteIPSetCommandOutput) => void
-  ): Promise<DeleteIPSetCommandOutput> | void {
-    const command = new DeleteIPSetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Deletes invitations sent to the current member account by AWS accounts specified by their
    *       account IDs.</p>
    */
@@ -763,6 +728,41 @@ export class GuardDuty extends GuardDutyClient {
     cb?: (err: any, data?: DeleteInvitationsCommandOutput) => void
   ): Promise<DeleteInvitationsCommandOutput> | void {
     const command = new DeleteInvitationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the IPSet specified by the <code>ipSetId</code>. IPSets are called Trusted IP lists in the console user interface.</p>
+   */
+  public deleteIPSet(
+    args: DeleteIPSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIPSetCommandOutput>;
+  public deleteIPSet(
+    args: DeleteIPSetCommandInput,
+    cb: (err: any, data?: DeleteIPSetCommandOutput) => void
+  ): void;
+  public deleteIPSet(
+    args: DeleteIPSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIPSetCommandOutput) => void
+  ): void;
+  public deleteIPSet(
+    args: DeleteIPSetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteIPSetCommandOutput) => void),
+    cb?: (err: any, data?: DeleteIPSetCommandOutput) => void
+  ): Promise<DeleteIPSetCommandOutput> | void {
+    const command = new DeleteIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1128,41 +1128,6 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Retrieves the IPSet specified by the <code>ipSetId</code>.</p>
-   */
-  public getIPSet(
-    args: GetIPSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetIPSetCommandOutput>;
-  public getIPSet(
-    args: GetIPSetCommandInput,
-    cb: (err: any, data?: GetIPSetCommandOutput) => void
-  ): void;
-  public getIPSet(
-    args: GetIPSetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetIPSetCommandOutput) => void
-  ): void;
-  public getIPSet(
-    args: GetIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIPSetCommandOutput) => void),
-    cb?: (err: any, data?: GetIPSetCommandOutput) => void
-  ): Promise<GetIPSetCommandOutput> | void {
-    const command = new GetIPSetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Returns the count of all GuardDuty membership invitations that were sent to the current
    *       member account except the currently accepted invitation.</p>
    */
@@ -1187,6 +1152,41 @@ export class GuardDuty extends GuardDutyClient {
     cb?: (err: any, data?: GetInvitationsCountCommandOutput) => void
   ): Promise<GetInvitationsCountCommandOutput> | void {
     const command = new GetInvitationsCountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the IPSet specified by the <code>ipSetId</code>.</p>
+   */
+  public getIPSet(
+    args: GetIPSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIPSetCommandOutput>;
+  public getIPSet(
+    args: GetIPSetCommandInput,
+    cb: (err: any, data?: GetIPSetCommandOutput) => void
+  ): void;
+  public getIPSet(
+    args: GetIPSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIPSetCommandOutput) => void
+  ): void;
+  public getIPSet(
+    args: GetIPSetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetIPSetCommandOutput) => void),
+    cb?: (err: any, data?: GetIPSetCommandOutput) => void
+  ): Promise<GetIPSetCommandOutput> | void {
+    const command = new GetIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1448,42 +1448,6 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Lists the IPSets of the GuardDuty service specified by the detector ID. If you use this operation
-   *       from a member account, the IPSets returned are the IPSets from the associated master account.</p>
-   */
-  public listIPSets(
-    args: ListIPSetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListIPSetsCommandOutput>;
-  public listIPSets(
-    args: ListIPSetsCommandInput,
-    cb: (err: any, data?: ListIPSetsCommandOutput) => void
-  ): void;
-  public listIPSets(
-    args: ListIPSetsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListIPSetsCommandOutput) => void
-  ): void;
-  public listIPSets(
-    args: ListIPSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIPSetsCommandOutput) => void),
-    cb?: (err: any, data?: ListIPSetsCommandOutput) => void
-  ): Promise<ListIPSetsCommandOutput> | void {
-    const command = new ListIPSetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Lists all GuardDuty membership invitations that were sent to the current AWS
    *       account.</p>
    */
@@ -1508,6 +1472,42 @@ export class GuardDuty extends GuardDutyClient {
     cb?: (err: any, data?: ListInvitationsCommandOutput) => void
   ): Promise<ListInvitationsCommandOutput> | void {
     const command = new ListInvitationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the IPSets of the GuardDuty service specified by the detector ID. If you use this operation
+   *       from a member account, the IPSets returned are the IPSets from the associated master account.</p>
+   */
+  public listIPSets(
+    args: ListIPSetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIPSetsCommandOutput>;
+  public listIPSets(
+    args: ListIPSetsCommandInput,
+    cb: (err: any, data?: ListIPSetsCommandOutput) => void
+  ): void;
+  public listIPSets(
+    args: ListIPSetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIPSetsCommandOutput) => void
+  ): void;
+  public listIPSets(
+    args: ListIPSetsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListIPSetsCommandOutput) => void),
+    cb?: (err: any, data?: ListIPSetsCommandOutput) => void
+  ): Promise<ListIPSetsCommandOutput> | void {
+    const command = new ListIPSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

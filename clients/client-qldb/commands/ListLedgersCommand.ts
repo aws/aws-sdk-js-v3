@@ -5,9 +5,9 @@ import {
 } from "../QLDBClient";
 import { ListLedgersRequest, ListLedgersResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListLedgersCommand,
-  serializeAws_restJson1_1ListLedgersCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListLedgersCommand,
+  serializeAws_restJson1ListLedgersCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListLedgersCommand extends $Command<
     input: ListLedgersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListLedgersCommand(input, context);
+    return serializeAws_restJson1ListLedgersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLedgersCommandOutput> {
-    return deserializeAws_restJson1_1ListLedgersCommand(output, context);
+    return deserializeAws_restJson1ListLedgersCommand(output, context);
   }
 
   // Start section: command_body_extra

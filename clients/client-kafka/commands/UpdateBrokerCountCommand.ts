@@ -8,9 +8,9 @@ import {
   UpdateBrokerCountResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateBrokerCountCommand,
-  serializeAws_restJson1_1UpdateBrokerCountCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateBrokerCountCommand,
+  serializeAws_restJson1UpdateBrokerCountCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class UpdateBrokerCountCommand extends $Command<
     input: UpdateBrokerCountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateBrokerCountCommand(input, context);
+    return serializeAws_restJson1UpdateBrokerCountCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateBrokerCountCommandOutput> {
-    return deserializeAws_restJson1_1UpdateBrokerCountCommand(output, context);
+    return deserializeAws_restJson1UpdateBrokerCountCommand(output, context);
   }
 
   // Start section: command_body_extra

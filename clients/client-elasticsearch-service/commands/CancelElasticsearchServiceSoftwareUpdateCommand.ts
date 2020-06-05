@@ -8,9 +8,9 @@ import {
   CancelElasticsearchServiceSoftwareUpdateResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCommand,
-  serializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateCommand,
+  serializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -76,7 +76,7 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command<
     input: CancelElasticsearchServiceSoftwareUpdateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCommand(
+    return serializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateCommand(
       input,
       context
     );
@@ -86,7 +86,7 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelElasticsearchServiceSoftwareUpdateCommandOutput> {
-    return deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCommand(
+    return deserializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateCommand(
       output,
       context
     );

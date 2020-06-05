@@ -6,67 +6,6 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- * <p>The request failed due to an unknown error.</p>
- */
-export interface InternalServiceError
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InternalServiceError";
-  $fault: "server";
-  Message?: string;
-}
-
-export namespace InternalServiceError {
-  export const filterSensitiveLog = (obj: InternalServiceError): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InternalServiceError =>
-    __isa(o, "InternalServiceError");
-}
-
-/**
- * <p>One of the arguments provided is invalid for this request.</p>
- */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidArgumentException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidArgumentException {
-  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidArgumentException =>
-    __isa(o, "InvalidArgumentException");
-}
-
-/**
- * <p>The user is not authorized to perform this request.</p>
- */
-export interface NotAuthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "NotAuthorizedException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NotAuthorizedException {
-  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NotAuthorizedException =>
-    __isa(o, "NotAuthorizedException");
-}
-
-export enum ServiceType {
-  RDS = "RDS"
-}
-
-/**
  * <p>A timestamp, and a single numerical value, which together represent a measurement at a particular point in time.</p>
  */
 export interface DataPoint {
@@ -565,6 +504,44 @@ export namespace GetResourceMetricsResponse {
 }
 
 /**
+ * <p>The request failed due to an unknown error.</p>
+ */
+export interface InternalServiceError
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InternalServiceError";
+  $fault: "server";
+  Message?: string;
+}
+
+export namespace InternalServiceError {
+  export const filterSensitiveLog = (obj: InternalServiceError): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InternalServiceError =>
+    __isa(o, "InternalServiceError");
+}
+
+/**
+ * <p>One of the arguments provided is invalid for this request.</p>
+ */
+export interface InvalidArgumentException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidArgumentException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidArgumentException {
+  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidArgumentException =>
+    __isa(o, "InvalidArgumentException");
+}
+
+/**
  * <p>A time-ordered series of data points, correpsonding to a dimension of a Performance Insights
  *       metric.</p>
  */
@@ -646,6 +623,25 @@ export namespace MetricQuery {
 }
 
 /**
+ * <p>The user is not authorized to perform this request.</p>
+ */
+export interface NotAuthorizedException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "NotAuthorizedException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NotAuthorizedException {
+  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NotAuthorizedException =>
+    __isa(o, "NotAuthorizedException");
+}
+
+/**
  * <p>If <code>PartitionBy</code> was specified in a <code>DescribeDimensionKeys</code>
  *       request, the dimensions are returned in an array. Each element in the array specifies one
  *       dimension. </p>
@@ -702,4 +698,8 @@ export namespace ResponseResourceMetricKey {
   });
   export const isa = (o: any): o is ResponseResourceMetricKey =>
     __isa(o, "ResponseResourceMetricKey");
+}
+
+export enum ServiceType {
+  RDS = "RDS"
 }

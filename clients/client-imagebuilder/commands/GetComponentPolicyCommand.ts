@@ -8,9 +8,9 @@ import {
   GetComponentPolicyResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetComponentPolicyCommand,
-  serializeAws_restJson1_1GetComponentPolicyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetComponentPolicyCommand,
+  serializeAws_restJson1GetComponentPolicyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetComponentPolicyCommand extends $Command<
     input: GetComponentPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetComponentPolicyCommand(input, context);
+    return serializeAws_restJson1GetComponentPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetComponentPolicyCommandOutput> {
-    return deserializeAws_restJson1_1GetComponentPolicyCommand(output, context);
+    return deserializeAws_restJson1GetComponentPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

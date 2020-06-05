@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { DeleteStreamRequest, DeleteStreamResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteStreamCommand,
-  serializeAws_restJson1_1DeleteStreamCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteStreamCommand,
+  serializeAws_restJson1DeleteStreamCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteStreamCommand extends $Command<
     input: DeleteStreamCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteStreamCommand(input, context);
+    return serializeAws_restJson1DeleteStreamCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteStreamCommandOutput> {
-    return deserializeAws_restJson1_1DeleteStreamCommand(output, context);
+    return deserializeAws_restJson1DeleteStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

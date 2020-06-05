@@ -5,9 +5,9 @@ import {
 } from "../MobileClient";
 import { UpdateProjectRequest, UpdateProjectResult } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateProjectCommand,
-  serializeAws_restJson1_1UpdateProjectCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateProjectCommand,
+  serializeAws_restJson1UpdateProjectCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class UpdateProjectCommand extends $Command<
     input: UpdateProjectCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateProjectCommand(input, context);
+    return serializeAws_restJson1UpdateProjectCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateProjectCommandOutput> {
-    return deserializeAws_restJson1_1UpdateProjectCommand(output, context);
+    return deserializeAws_restJson1UpdateProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

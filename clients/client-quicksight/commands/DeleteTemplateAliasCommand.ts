@@ -8,9 +8,9 @@ import {
   DeleteTemplateAliasResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteTemplateAliasCommand,
-  serializeAws_restJson1_1DeleteTemplateAliasCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteTemplateAliasCommand,
+  serializeAws_restJson1DeleteTemplateAliasCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteTemplateAliasCommand extends $Command<
     input: DeleteTemplateAliasCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteTemplateAliasCommand(input, context);
+    return serializeAws_restJson1DeleteTemplateAliasCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTemplateAliasCommandOutput> {
-    return deserializeAws_restJson1_1DeleteTemplateAliasCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteTemplateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

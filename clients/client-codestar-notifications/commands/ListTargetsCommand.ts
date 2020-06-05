@@ -5,9 +5,9 @@ import {
 } from "../codestarnotificationsClient";
 import { ListTargetsRequest, ListTargetsResult } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListTargetsCommand,
-  serializeAws_restJson1_1ListTargetsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListTargetsCommand,
+  serializeAws_restJson1ListTargetsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListTargetsCommand extends $Command<
     input: ListTargetsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListTargetsCommand(input, context);
+    return serializeAws_restJson1ListTargetsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTargetsCommandOutput> {
-    return deserializeAws_restJson1_1ListTargetsCommand(output, context);
+    return deserializeAws_restJson1ListTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

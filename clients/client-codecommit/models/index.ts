@@ -3518,12 +3518,6 @@ export namespace FileModeRequiredException {
     __isa(o, "FileModeRequiredException");
 }
 
-export enum FileModeTypeEnum {
-  EXECUTABLE = "EXECUTABLE",
-  NORMAL = "NORMAL",
-  SYMLINK = "SYMLINK"
-}
-
 /**
  * <p>Information about file modes in a merge or pull request.</p>
  */
@@ -3550,6 +3544,12 @@ export namespace FileModes {
     ...obj
   });
   export const isa = (o: any): o is FileModes => __isa(o, "FileModes");
+}
+
+export enum FileModeTypeEnum {
+  EXECUTABLE = "EXECUTABLE",
+  NORMAL = "NORMAL",
+  SYMLINK = "SYMLINK"
 }
 
 /**
@@ -7684,30 +7684,6 @@ export namespace NoChangeException {
 }
 
 /**
- * <p>The maximum number of approval rule templates has been exceeded for this AWS Region. </p>
- */
-export interface NumberOfRuleTemplatesExceededException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "NumberOfRuleTemplatesExceededException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace NumberOfRuleTemplatesExceededException {
-  export const filterSensitiveLog = (
-    obj: NumberOfRuleTemplatesExceededException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NumberOfRuleTemplatesExceededException =>
-    __isa(o, "NumberOfRuleTemplatesExceededException");
-}
-
-/**
  * <p>The approval rule cannot be added. The pull request has the maximum number of approval rules associated with it.</p>
  */
 export interface NumberOfRulesExceededException
@@ -7729,6 +7705,30 @@ export namespace NumberOfRulesExceededException {
   });
   export const isa = (o: any): o is NumberOfRulesExceededException =>
     __isa(o, "NumberOfRulesExceededException");
+}
+
+/**
+ * <p>The maximum number of approval rule templates has been exceeded for this AWS Region. </p>
+ */
+export interface NumberOfRuleTemplatesExceededException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "NumberOfRuleTemplatesExceededException";
+  $fault: "client";
+  /**
+   * <p>Any message associated with the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace NumberOfRuleTemplatesExceededException {
+  export const filterSensitiveLog = (
+    obj: NumberOfRuleTemplatesExceededException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NumberOfRuleTemplatesExceededException =>
+    __isa(o, "NumberOfRuleTemplatesExceededException");
 }
 
 export enum ObjectTypeEnum {

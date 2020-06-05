@@ -5,436 +5,6 @@ import {
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export interface AssociateTagOptionWithResourceInput {
-  __type?: "AssociateTagOptionWithResourceInput";
-  /**
-   * <p>The resource identifier.</p>
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The TagOption identifier.</p>
-   */
-  TagOptionId: string | undefined;
-}
-
-export namespace AssociateTagOptionWithResourceInput {
-  export const filterSensitiveLog = (
-    obj: AssociateTagOptionWithResourceInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AssociateTagOptionWithResourceInput =>
-    __isa(o, "AssociateTagOptionWithResourceInput");
-}
-
-export interface AssociateTagOptionWithResourceOutput {
-  __type?: "AssociateTagOptionWithResourceOutput";
-}
-
-export namespace AssociateTagOptionWithResourceOutput {
-  export const filterSensitiveLog = (
-    obj: AssociateTagOptionWithResourceOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AssociateTagOptionWithResourceOutput =>
-    __isa(o, "AssociateTagOptionWithResourceOutput");
-}
-
-export interface CreateTagOptionInput {
-  __type?: "CreateTagOptionInput";
-  /**
-   * <p>The TagOption key.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The TagOption value.</p>
-   */
-  Value: string | undefined;
-}
-
-export namespace CreateTagOptionInput {
-  export const filterSensitiveLog = (obj: CreateTagOptionInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CreateTagOptionInput =>
-    __isa(o, "CreateTagOptionInput");
-}
-
-export interface CreateTagOptionOutput {
-  __type?: "CreateTagOptionOutput";
-  /**
-   * <p>Information about the TagOption.</p>
-   */
-  TagOptionDetail?: TagOptionDetail;
-}
-
-export namespace CreateTagOptionOutput {
-  export const filterSensitiveLog = (obj: CreateTagOptionOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CreateTagOptionOutput =>
-    __isa(o, "CreateTagOptionOutput");
-}
-
-export interface DeleteTagOptionInput {
-  __type?: "DeleteTagOptionInput";
-  /**
-   * <p>The TagOption identifier.</p>
-   */
-  Id: string | undefined;
-}
-
-export namespace DeleteTagOptionInput {
-  export const filterSensitiveLog = (obj: DeleteTagOptionInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteTagOptionInput =>
-    __isa(o, "DeleteTagOptionInput");
-}
-
-export interface DeleteTagOptionOutput {
-  __type?: "DeleteTagOptionOutput";
-}
-
-export namespace DeleteTagOptionOutput {
-  export const filterSensitiveLog = (obj: DeleteTagOptionOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteTagOptionOutput =>
-    __isa(o, "DeleteTagOptionOutput");
-}
-
-export interface DescribeTagOptionInput {
-  __type?: "DescribeTagOptionInput";
-  /**
-   * <p>The TagOption identifier.</p>
-   */
-  Id: string | undefined;
-}
-
-export namespace DescribeTagOptionInput {
-  export const filterSensitiveLog = (obj: DescribeTagOptionInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeTagOptionInput =>
-    __isa(o, "DescribeTagOptionInput");
-}
-
-export interface DescribeTagOptionOutput {
-  __type?: "DescribeTagOptionOutput";
-  /**
-   * <p>Information about the TagOption.</p>
-   */
-  TagOptionDetail?: TagOptionDetail;
-}
-
-export namespace DescribeTagOptionOutput {
-  export const filterSensitiveLog = (obj: DescribeTagOptionOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeTagOptionOutput =>
-    __isa(o, "DescribeTagOptionOutput");
-}
-
-export interface DisassociateTagOptionFromResourceInput {
-  __type?: "DisassociateTagOptionFromResourceInput";
-  /**
-   * <p>The resource identifier.</p>
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The TagOption identifier.</p>
-   */
-  TagOptionId: string | undefined;
-}
-
-export namespace DisassociateTagOptionFromResourceInput {
-  export const filterSensitiveLog = (
-    obj: DisassociateTagOptionFromResourceInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DisassociateTagOptionFromResourceInput =>
-    __isa(o, "DisassociateTagOptionFromResourceInput");
-}
-
-export interface DisassociateTagOptionFromResourceOutput {
-  __type?: "DisassociateTagOptionFromResourceOutput";
-}
-
-export namespace DisassociateTagOptionFromResourceOutput {
-  export const filterSensitiveLog = (
-    obj: DisassociateTagOptionFromResourceOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DisassociateTagOptionFromResourceOutput =>
-    __isa(o, "DisassociateTagOptionFromResourceOutput");
-}
-
-export interface ListResourcesForTagOptionInput {
-  __type?: "ListResourcesForTagOptionInput";
-  /**
-   * <p>The maximum number of items to return with this call.</p>
-   */
-  PageSize?: number;
-
-  /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-   */
-  PageToken?: string;
-
-  /**
-   * <p>The resource type.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Portfolio</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Product</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  ResourceType?: string;
-
-  /**
-   * <p>The TagOption identifier.</p>
-   */
-  TagOptionId: string | undefined;
-}
-
-export namespace ListResourcesForTagOptionInput {
-  export const filterSensitiveLog = (
-    obj: ListResourcesForTagOptionInput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListResourcesForTagOptionInput =>
-    __isa(o, "ListResourcesForTagOptionInput");
-}
-
-export interface ListResourcesForTagOptionOutput {
-  __type?: "ListResourcesForTagOptionOutput";
-  /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-   */
-  PageToken?: string;
-
-  /**
-   * <p>Information about the resources.</p>
-   */
-  ResourceDetails?: ResourceDetail[];
-}
-
-export namespace ListResourcesForTagOptionOutput {
-  export const filterSensitiveLog = (
-    obj: ListResourcesForTagOptionOutput
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListResourcesForTagOptionOutput =>
-    __isa(o, "ListResourcesForTagOptionOutput");
-}
-
-/**
- * <p>Filters to use when listing TagOptions.</p>
- */
-export interface ListTagOptionsFilters {
-  __type?: "ListTagOptionsFilters";
-  /**
-   * <p>The active state.</p>
-   */
-  Active?: boolean;
-
-  /**
-   * <p>The TagOption key.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>The TagOption value.</p>
-   */
-  Value?: string;
-}
-
-export namespace ListTagOptionsFilters {
-  export const filterSensitiveLog = (obj: ListTagOptionsFilters): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListTagOptionsFilters =>
-    __isa(o, "ListTagOptionsFilters");
-}
-
-export interface ListTagOptionsInput {
-  __type?: "ListTagOptionsInput";
-  /**
-   * <p>The search filters. If no search filters are specified, the output includes all TagOptions.</p>
-   */
-  Filters?: ListTagOptionsFilters;
-
-  /**
-   * <p>The maximum number of items to return with this call.</p>
-   */
-  PageSize?: number;
-
-  /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-   */
-  PageToken?: string;
-}
-
-export namespace ListTagOptionsInput {
-  export const filterSensitiveLog = (obj: ListTagOptionsInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListTagOptionsInput =>
-    __isa(o, "ListTagOptionsInput");
-}
-
-export interface ListTagOptionsOutput {
-  __type?: "ListTagOptionsOutput";
-  /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-   */
-  PageToken?: string;
-
-  /**
-   * <p>Information about the TagOptions.</p>
-   */
-  TagOptionDetails?: TagOptionDetail[];
-}
-
-export namespace ListTagOptionsOutput {
-  export const filterSensitiveLog = (obj: ListTagOptionsOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListTagOptionsOutput =>
-    __isa(o, "ListTagOptionsOutput");
-}
-
-/**
- * <p>Information about a resource.</p>
- */
-export interface ResourceDetail {
-  __type?: "ResourceDetail";
-  /**
-   * <p>The ARN of the resource.</p>
-   */
-  ARN?: string;
-
-  /**
-   * <p>The creation time of the resource.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The description of the resource.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The identifier of the resource.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The name of the resource.</p>
-   */
-  Name?: string;
-}
-
-export namespace ResourceDetail {
-  export const filterSensitiveLog = (obj: ResourceDetail): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceDetail =>
-    __isa(o, "ResourceDetail");
-}
-
-/**
- * <p>Information about a TagOption.</p>
- */
-export interface TagOptionDetail {
-  __type?: "TagOptionDetail";
-  /**
-   * <p>The TagOption active state.</p>
-   */
-  Active?: boolean;
-
-  /**
-   * <p>The TagOption identifier.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The TagOption key.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>The TagOption value.</p>
-   */
-  Value?: string;
-}
-
-export namespace TagOptionDetail {
-  export const filterSensitiveLog = (obj: TagOptionDetail): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TagOptionDetail =>
-    __isa(o, "TagOptionDetail");
-}
-
-export interface UpdateTagOptionInput {
-  __type?: "UpdateTagOptionInput";
-  /**
-   * <p>The updated active state.</p>
-   */
-  Active?: boolean;
-
-  /**
-   * <p>The TagOption identifier.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The updated value.</p>
-   */
-  Value?: string;
-}
-
-export namespace UpdateTagOptionInput {
-  export const filterSensitiveLog = (obj: UpdateTagOptionInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateTagOptionInput =>
-    __isa(o, "UpdateTagOptionInput");
-}
-
-export interface UpdateTagOptionOutput {
-  __type?: "UpdateTagOptionOutput";
-  /**
-   * <p>Information about the TagOption.</p>
-   */
-  TagOptionDetail?: TagOptionDetail;
-}
-
-export namespace UpdateTagOptionOutput {
-  export const filterSensitiveLog = (obj: UpdateTagOptionOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateTagOptionOutput =>
-    __isa(o, "UpdateTagOptionOutput");
-}
-
 export interface AcceptPortfolioShareInput {
   __type?: "AcceptPortfolioShareInput";
   /**
@@ -775,6 +345,43 @@ export namespace AssociateServiceActionWithProvisioningArtifactOutput {
     o: any
   ): o is AssociateServiceActionWithProvisioningArtifactOutput =>
     __isa(o, "AssociateServiceActionWithProvisioningArtifactOutput");
+}
+
+export interface AssociateTagOptionWithResourceInput {
+  __type?: "AssociateTagOptionWithResourceInput";
+  /**
+   * <p>The resource identifier.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The TagOption identifier.</p>
+   */
+  TagOptionId: string | undefined;
+}
+
+export namespace AssociateTagOptionWithResourceInput {
+  export const filterSensitiveLog = (
+    obj: AssociateTagOptionWithResourceInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AssociateTagOptionWithResourceInput =>
+    __isa(o, "AssociateTagOptionWithResourceInput");
+}
+
+export interface AssociateTagOptionWithResourceOutput {
+  __type?: "AssociateTagOptionWithResourceOutput";
+}
+
+export namespace AssociateTagOptionWithResourceOutput {
+  export const filterSensitiveLog = (
+    obj: AssociateTagOptionWithResourceOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AssociateTagOptionWithResourceOutput =>
+    __isa(o, "AssociateTagOptionWithResourceOutput");
 }
 
 export interface BatchAssociateServiceActionWithProvisioningArtifactInput {
@@ -1826,6 +1433,43 @@ export namespace CreateServiceActionOutput {
     __isa(o, "CreateServiceActionOutput");
 }
 
+export interface CreateTagOptionInput {
+  __type?: "CreateTagOptionInput";
+  /**
+   * <p>The TagOption key.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The TagOption value.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace CreateTagOptionInput {
+  export const filterSensitiveLog = (obj: CreateTagOptionInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CreateTagOptionInput =>
+    __isa(o, "CreateTagOptionInput");
+}
+
+export interface CreateTagOptionOutput {
+  __type?: "CreateTagOptionOutput";
+  /**
+   * <p>Information about the TagOption.</p>
+   */
+  TagOptionDetail?: TagOptionDetail;
+}
+
+export namespace CreateTagOptionOutput {
+  export const filterSensitiveLog = (obj: CreateTagOptionOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CreateTagOptionOutput =>
+    __isa(o, "CreateTagOptionOutput");
+}
+
 export interface DeleteConstraintInput {
   __type?: "DeleteConstraintInput";
   /**
@@ -2186,6 +1830,34 @@ export namespace DeleteServiceActionOutput {
   });
   export const isa = (o: any): o is DeleteServiceActionOutput =>
     __isa(o, "DeleteServiceActionOutput");
+}
+
+export interface DeleteTagOptionInput {
+  __type?: "DeleteTagOptionInput";
+  /**
+   * <p>The TagOption identifier.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace DeleteTagOptionInput {
+  export const filterSensitiveLog = (obj: DeleteTagOptionInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteTagOptionInput =>
+    __isa(o, "DeleteTagOptionInput");
+}
+
+export interface DeleteTagOptionOutput {
+  __type?: "DeleteTagOptionOutput";
+}
+
+export namespace DeleteTagOptionOutput {
+  export const filterSensitiveLog = (obj: DeleteTagOptionOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteTagOptionOutput =>
+    __isa(o, "DeleteTagOptionOutput");
 }
 
 export interface DescribeConstraintInput {
@@ -3088,6 +2760,38 @@ export namespace DescribeServiceActionOutput {
     __isa(o, "DescribeServiceActionOutput");
 }
 
+export interface DescribeTagOptionInput {
+  __type?: "DescribeTagOptionInput";
+  /**
+   * <p>The TagOption identifier.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace DescribeTagOptionInput {
+  export const filterSensitiveLog = (obj: DescribeTagOptionInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeTagOptionInput =>
+    __isa(o, "DescribeTagOptionInput");
+}
+
+export interface DescribeTagOptionOutput {
+  __type?: "DescribeTagOptionOutput";
+  /**
+   * <p>Information about the TagOption.</p>
+   */
+  TagOptionDetail?: TagOptionDetail;
+}
+
+export namespace DescribeTagOptionOutput {
+  export const filterSensitiveLog = (obj: DescribeTagOptionOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeTagOptionOutput =>
+    __isa(o, "DescribeTagOptionOutput");
+}
+
 export interface DisableAWSOrganizationsAccessInput {
   __type?: "DisableAWSOrganizationsAccessInput";
 }
@@ -3328,6 +3032,43 @@ export namespace DisassociateServiceActionFromProvisioningArtifactOutput {
     o: any
   ): o is DisassociateServiceActionFromProvisioningArtifactOutput =>
     __isa(o, "DisassociateServiceActionFromProvisioningArtifactOutput");
+}
+
+export interface DisassociateTagOptionFromResourceInput {
+  __type?: "DisassociateTagOptionFromResourceInput";
+  /**
+   * <p>The resource identifier.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The TagOption identifier.</p>
+   */
+  TagOptionId: string | undefined;
+}
+
+export namespace DisassociateTagOptionFromResourceInput {
+  export const filterSensitiveLog = (
+    obj: DisassociateTagOptionFromResourceInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DisassociateTagOptionFromResourceInput =>
+    __isa(o, "DisassociateTagOptionFromResourceInput");
+}
+
+export interface DisassociateTagOptionFromResourceOutput {
+  __type?: "DisassociateTagOptionFromResourceOutput";
+}
+
+export namespace DisassociateTagOptionFromResourceOutput {
+  export const filterSensitiveLog = (
+    obj: DisassociateTagOptionFromResourceOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DisassociateTagOptionFromResourceOutput =>
+    __isa(o, "DisassociateTagOptionFromResourceOutput");
 }
 
 /**
@@ -4651,6 +4392,74 @@ export namespace ListRecordHistorySearchFilter {
     __isa(o, "ListRecordHistorySearchFilter");
 }
 
+export interface ListResourcesForTagOptionInput {
+  __type?: "ListResourcesForTagOptionInput";
+  /**
+   * <p>The maximum number of items to return with this call.</p>
+   */
+  PageSize?: number;
+
+  /**
+   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   */
+  PageToken?: string;
+
+  /**
+   * <p>The resource type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Portfolio</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Product</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>The TagOption identifier.</p>
+   */
+  TagOptionId: string | undefined;
+}
+
+export namespace ListResourcesForTagOptionInput {
+  export const filterSensitiveLog = (
+    obj: ListResourcesForTagOptionInput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListResourcesForTagOptionInput =>
+    __isa(o, "ListResourcesForTagOptionInput");
+}
+
+export interface ListResourcesForTagOptionOutput {
+  __type?: "ListResourcesForTagOptionOutput";
+  /**
+   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   */
+  PageToken?: string;
+
+  /**
+   * <p>Information about the resources.</p>
+   */
+  ResourceDetails?: ResourceDetail[];
+}
+
+export namespace ListResourcesForTagOptionOutput {
+  export const filterSensitiveLog = (
+    obj: ListResourcesForTagOptionOutput
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListResourcesForTagOptionOutput =>
+    __isa(o, "ListResourcesForTagOptionOutput");
+}
+
 export interface ListServiceActionsForProvisioningArtifactInput {
   __type?: "ListServiceActionsForProvisioningArtifactInput";
   /**
@@ -4863,6 +4672,82 @@ export namespace ListStackInstancesForProvisionedProductOutput {
     o: any
   ): o is ListStackInstancesForProvisionedProductOutput =>
     __isa(o, "ListStackInstancesForProvisionedProductOutput");
+}
+
+/**
+ * <p>Filters to use when listing TagOptions.</p>
+ */
+export interface ListTagOptionsFilters {
+  __type?: "ListTagOptionsFilters";
+  /**
+   * <p>The active state.</p>
+   */
+  Active?: boolean;
+
+  /**
+   * <p>The TagOption key.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The TagOption value.</p>
+   */
+  Value?: string;
+}
+
+export namespace ListTagOptionsFilters {
+  export const filterSensitiveLog = (obj: ListTagOptionsFilters): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListTagOptionsFilters =>
+    __isa(o, "ListTagOptionsFilters");
+}
+
+export interface ListTagOptionsInput {
+  __type?: "ListTagOptionsInput";
+  /**
+   * <p>The search filters. If no search filters are specified, the output includes all TagOptions.</p>
+   */
+  Filters?: ListTagOptionsFilters;
+
+  /**
+   * <p>The maximum number of items to return with this call.</p>
+   */
+  PageSize?: number;
+
+  /**
+   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   */
+  PageToken?: string;
+}
+
+export namespace ListTagOptionsInput {
+  export const filterSensitiveLog = (obj: ListTagOptionsInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListTagOptionsInput =>
+    __isa(o, "ListTagOptionsInput");
+}
+
+export interface ListTagOptionsOutput {
+  __type?: "ListTagOptionsOutput";
+  /**
+   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   */
+  PageToken?: string;
+
+  /**
+   * <p>Information about the TagOptions.</p>
+   */
+  TagOptionDetails?: TagOptionDetail[];
+}
+
+export namespace ListTagOptionsOutput {
+  export const filterSensitiveLog = (obj: ListTagOptionsOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListTagOptionsOutput =>
+    __isa(o, "ListTagOptionsOutput");
 }
 
 /**
@@ -5188,102 +5073,6 @@ export namespace ProductViewSummary {
 
 export enum PropertyKey {
   Owner = "OWNER"
-}
-
-export interface ProvisionProductInput {
-  __type?: "ProvisionProductInput";
-  /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
-   */
-  AcceptLanguage?: string;
-
-  /**
-   * <p>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related
-   *          events.</p>
-   */
-  NotificationArns?: string[];
-
-  /**
-   * <p>The path identifier of the product. This value is optional if the product
-   *          has a default path, and required if the product has more than one path.
-   *          To list the paths for a product, use <a>ListLaunchPaths</a>.</p>
-   */
-  PathId?: string;
-
-  /**
-   * <p>The product identifier.</p>
-   */
-  ProductId: string | undefined;
-
-  /**
-   * <p>An idempotency token that uniquely identifies the provisioning request.</p>
-   */
-  ProvisionToken?: string;
-
-  /**
-   * <p>A user-friendly name for the provisioned product. This value must be
-   *          unique for the AWS account and cannot be updated after the product is provisioned.</p>
-   */
-  ProvisionedProductName: string | undefined;
-
-  /**
-   * <p>The identifier of the provisioning artifact.</p>
-   */
-  ProvisioningArtifactId: string | undefined;
-
-  /**
-   * <p>Parameters specified by the administrator that are required for provisioning the
-   *          product.</p>
-   */
-  ProvisioningParameters?: ProvisioningParameter[];
-
-  /**
-   * <p>An object that contains information about the provisioning preferences for a stack set.</p>
-   */
-  ProvisioningPreferences?: ProvisioningPreferences;
-
-  /**
-   * <p>One or more tags.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace ProvisionProductInput {
-  export const filterSensitiveLog = (obj: ProvisionProductInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ProvisionProductInput =>
-    __isa(o, "ProvisionProductInput");
-}
-
-export interface ProvisionProductOutput {
-  __type?: "ProvisionProductOutput";
-  /**
-   * <p>Information about the result of provisioning the product.</p>
-   */
-  RecordDetail?: RecordDetail;
-}
-
-export namespace ProvisionProductOutput {
-  export const filterSensitiveLog = (obj: ProvisionProductOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ProvisionProductOutput =>
-    __isa(o, "ProvisionProductOutput");
 }
 
 /**
@@ -6073,6 +5862,102 @@ export namespace ProvisioningPreferences {
     __isa(o, "ProvisioningPreferences");
 }
 
+export interface ProvisionProductInput {
+  __type?: "ProvisionProductInput";
+  /**
+   * <p>The language code.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>en</code> - English (default)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>jp</code> - Japanese</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>zh</code> - Chinese</p>
+   *             </li>
+   *          </ul>
+   */
+  AcceptLanguage?: string;
+
+  /**
+   * <p>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related
+   *          events.</p>
+   */
+  NotificationArns?: string[];
+
+  /**
+   * <p>The path identifier of the product. This value is optional if the product
+   *          has a default path, and required if the product has more than one path.
+   *          To list the paths for a product, use <a>ListLaunchPaths</a>.</p>
+   */
+  PathId?: string;
+
+  /**
+   * <p>The product identifier.</p>
+   */
+  ProductId: string | undefined;
+
+  /**
+   * <p>An idempotency token that uniquely identifies the provisioning request.</p>
+   */
+  ProvisionToken?: string;
+
+  /**
+   * <p>A user-friendly name for the provisioned product. This value must be
+   *          unique for the AWS account and cannot be updated after the product is provisioned.</p>
+   */
+  ProvisionedProductName: string | undefined;
+
+  /**
+   * <p>The identifier of the provisioning artifact.</p>
+   */
+  ProvisioningArtifactId: string | undefined;
+
+  /**
+   * <p>Parameters specified by the administrator that are required for provisioning the
+   *          product.</p>
+   */
+  ProvisioningParameters?: ProvisioningParameter[];
+
+  /**
+   * <p>An object that contains information about the provisioning preferences for a stack set.</p>
+   */
+  ProvisioningPreferences?: ProvisioningPreferences;
+
+  /**
+   * <p>One or more tags.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ProvisionProductInput {
+  export const filterSensitiveLog = (obj: ProvisionProductInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ProvisionProductInput =>
+    __isa(o, "ProvisionProductInput");
+}
+
+export interface ProvisionProductOutput {
+  __type?: "ProvisionProductOutput";
+  /**
+   * <p>Information about the result of provisioning the product.</p>
+   */
+  RecordDetail?: RecordDetail;
+}
+
+export namespace ProvisionProductOutput {
+  export const filterSensitiveLog = (obj: ProvisionProductOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ProvisionProductOutput =>
+    __isa(o, "ProvisionProductOutput");
+}
+
 /**
  * <p>Information about a request operation.</p>
  */
@@ -6442,6 +6327,45 @@ export namespace ResourceChangeDetail {
   });
   export const isa = (o: any): o is ResourceChangeDetail =>
     __isa(o, "ResourceChangeDetail");
+}
+
+/**
+ * <p>Information about a resource.</p>
+ */
+export interface ResourceDetail {
+  __type?: "ResourceDetail";
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  ARN?: string;
+
+  /**
+   * <p>The creation time of the resource.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The description of the resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The identifier of the resource.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The name of the resource.</p>
+   */
+  Name?: string;
+}
+
+export namespace ResourceDetail {
+  export const filterSensitiveLog = (obj: ResourceDetail): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceDetail =>
+    __isa(o, "ResourceDetail");
 }
 
 /**
@@ -7102,6 +7026,40 @@ export namespace Tag {
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
+}
+
+/**
+ * <p>Information about a TagOption.</p>
+ */
+export interface TagOptionDetail {
+  __type?: "TagOptionDetail";
+  /**
+   * <p>The TagOption active state.</p>
+   */
+  Active?: boolean;
+
+  /**
+   * <p>The TagOption identifier.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The TagOption key.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The TagOption value.</p>
+   */
+  Value?: string;
+}
+
+export namespace TagOptionDetail {
+  export const filterSensitiveLog = (obj: TagOptionDetail): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TagOptionDetail =>
+    __isa(o, "TagOptionDetail");
 }
 
 /**
@@ -7983,6 +7941,48 @@ export namespace UpdateServiceActionOutput {
   });
   export const isa = (o: any): o is UpdateServiceActionOutput =>
     __isa(o, "UpdateServiceActionOutput");
+}
+
+export interface UpdateTagOptionInput {
+  __type?: "UpdateTagOptionInput";
+  /**
+   * <p>The updated active state.</p>
+   */
+  Active?: boolean;
+
+  /**
+   * <p>The TagOption identifier.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The updated value.</p>
+   */
+  Value?: string;
+}
+
+export namespace UpdateTagOptionInput {
+  export const filterSensitiveLog = (obj: UpdateTagOptionInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateTagOptionInput =>
+    __isa(o, "UpdateTagOptionInput");
+}
+
+export interface UpdateTagOptionOutput {
+  __type?: "UpdateTagOptionOutput";
+  /**
+   * <p>Information about the TagOption.</p>
+   */
+  TagOptionDetail?: TagOptionDetail;
+}
+
+export namespace UpdateTagOptionOutput {
+  export const filterSensitiveLog = (obj: UpdateTagOptionOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateTagOptionOutput =>
+    __isa(o, "UpdateTagOptionOutput");
 }
 
 /**

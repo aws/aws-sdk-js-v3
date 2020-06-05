@@ -141,6 +141,19 @@ export interface BatchExecuteStatementRequest {
 
   /**
    * <p>The parameter set for the batch operation.</p>
+   *         <p>The SQL statement is executed as many times as the number of parameter sets provided.
+   *           To execute a SQL statement with no parameters, use one of the following options:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Specify one or more empty parameter sets.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Use the <code>ExecuteStatement</code> operation instead of the <code>BatchExecuteStatement</code> operation.</p>
+   *             </li>
+   *          </ul>
+   *         <note>
+   *             <p>Array parameters are not supported.</p>
+   *         </note>
    */
   parameterSets?: SqlParameter[][];
 
@@ -393,6 +406,11 @@ export namespace CommitTransactionResponse {
     __isa(o, "CommitTransactionResponse");
 }
 
+export enum DecimalReturnType {
+  DOUBLE_OR_LONG = "DOUBLE_OR_LONG",
+  STRING = "STRING"
+}
+
 /**
  * <p>The request parameters represent the input of a request to run one or more SQL
  *             statements.</p>
@@ -486,6 +504,9 @@ export interface ExecuteStatementRequest {
 
   /**
    * <p>The parameters for the SQL statement.</p>
+   *         <note>
+   *             <p>Array parameters are not supported.</p>
+   *         </note>
    */
   parameters?: SqlParameter[];
 
@@ -495,7 +516,15 @@ export interface ExecuteStatementRequest {
   resourceArn: string | undefined;
 
   /**
+   * <p>Options that control how the result set is returned.</p>
+   */
+  resultSetOptions?: ResultSetOptions;
+
+  /**
    * <p>The name of the database schema.</p>
+   *         <note>
+   *             <p>Currently, the <code>schema</code> parameter isn't supported.</p>
+   *         </note>
    */
   schema?: string;
 
@@ -539,6 +568,13 @@ export interface ExecuteStatementResponse {
 
   /**
    * <p>Values for fields generated during the request.</p>
+   *
+   *         <note>
+   *             <p>The <code>generatedFields</code> data isn't supported by Aurora PostgreSQL.
+   *                 To get the values of generated fields, use the <code>RETURNING</code> clause. For
+   *                 more information, see <a href="https://www.postgresql.org/docs/10/dml-returning.html">Returning Data From
+   *                     Modified Rows</a> in the PostgreSQL documentation.</p>
+   *         </note>
    */
   generatedFields?: Field[];
 
@@ -833,6 +869,33 @@ export namespace ResultSetMetadata {
 }
 
 /**
+ * <p>Options that control how the result set is returned.</p>
+ */
+export interface ResultSetOptions {
+  __type?: "ResultSetOptions";
+  /**
+   * <p>A value that indicates how a field of <code>DECIMAL</code> type is represented
+   *             in the response. The value of <code>STRING</code>, the default, specifies that
+   *             it is converted to a String value. The value of <code>DOUBLE_OR_LONG</code>
+   *             specifies that it is converted to a Long value if its scale is 0, or to a Double
+   *             value otherwise.</p>
+   *         <important>
+   *             <p>Conversion to Double or Long can result in roundoff errors due to precision loss.
+   *                 We recommend converting to String, especially when working with currency values.</p>
+   *         </important>
+   */
+  decimalReturnType?: DecimalReturnType | string;
+}
+
+export namespace ResultSetOptions {
+  export const filterSensitiveLog = (obj: ResultSetOptions): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResultSetOptions =>
+    __isa(o, "ResultSetOptions");
+}
+
+/**
  * <p>The request parameters represent the input of a request to perform a rollback of a
  *             transaction.</p>
  */
@@ -914,6 +977,36 @@ export interface SqlParameter {
   name?: string;
 
   /**
+   * <p>A hint that specifies the correct object type for data type mapping.</p>
+   *         <p>
+   *             <b>Values:</b>
+   *          </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>DECIMAL</code> - The corresponding <code>String</code> parameter value is sent as an object
+   *                     of <code>DECIMAL</code> type to the database.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>TIMESTAMP</code> - The corresponding <code>String</code> parameter value is sent as an object
+   *                     of <code>TIMESTAMP</code> type to the database. The accepted format is <code>YYYY-MM-DD HH:MM:SS[.FFF]</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>TIME</code> - The corresponding <code>String</code> parameter value is sent as an object
+   *                     of <code>TIME</code> type to the database. The accepted format is <code>HH:MM:SS[.FFF]</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DATE</code> - The corresponding <code>String</code> parameter value is sent as an object
+   *                     of <code>DATE</code> type to the database. The accepted format is <code>YYYY-MM-DD</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  typeHint?: TypeHint | string;
+
+  /**
    * <p>The value of the parameter.</p>
    */
   value?: Field;
@@ -928,6 +1021,10 @@ export namespace SqlParameter {
 
 /**
  * <p>The result of a SQL statement.</p>
+ *
+ *         <important>
+ *             <p>This data type is deprecated.</p>
+ *         </important>
  */
 export interface SqlStatementResult {
   __type?: "SqlStatementResult";
@@ -995,6 +1092,13 @@ export namespace StructValue {
   export const isa = (o: any): o is StructValue => __isa(o, "StructValue");
 }
 
+export enum TypeHint {
+  DATE = "DATE",
+  DECIMAL = "DECIMAL",
+  TIME = "TIME",
+  TIMESTAMP = "TIMESTAMP"
+}
+
 /**
  * <p>The response elements represent the results of an update.</p>
  */
@@ -1015,6 +1119,10 @@ export namespace UpdateResult {
 
 /**
  * <p>Contains the value of a column.</p>
+ *
+ *         <important>
+ *             <p>This data type is deprecated.</p>
+ *         </important>
  */
 export type Value =
   | Value.ArrayValuesMember

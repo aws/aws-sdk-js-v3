@@ -8,9 +8,9 @@ import {
   CancelPipelineReprocessingResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CancelPipelineReprocessingCommand,
-  serializeAws_restJson1_1CancelPipelineReprocessingCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CancelPipelineReprocessingCommand,
+  serializeAws_restJson1CancelPipelineReprocessingCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CancelPipelineReprocessingCommand extends $Command<
     input: CancelPipelineReprocessingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CancelPipelineReprocessingCommand(
+    return serializeAws_restJson1CancelPipelineReprocessingCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CancelPipelineReprocessingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelPipelineReprocessingCommandOutput> {
-    return deserializeAws_restJson1_1CancelPipelineReprocessingCommand(
+    return deserializeAws_restJson1CancelPipelineReprocessingCommand(
       output,
       context
     );

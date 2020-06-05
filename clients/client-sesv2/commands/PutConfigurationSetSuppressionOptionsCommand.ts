@@ -8,9 +8,9 @@ import {
   PutConfigurationSetSuppressionOptionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutConfigurationSetSuppressionOptionsCommand,
-  serializeAws_restJson1_1PutConfigurationSetSuppressionOptionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutConfigurationSetSuppressionOptionsCommand,
+  serializeAws_restJson1PutConfigurationSetSuppressionOptionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -76,7 +76,7 @@ export class PutConfigurationSetSuppressionOptionsCommand extends $Command<
     input: PutConfigurationSetSuppressionOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutConfigurationSetSuppressionOptionsCommand(
+    return serializeAws_restJson1PutConfigurationSetSuppressionOptionsCommand(
       input,
       context
     );
@@ -86,7 +86,7 @@ export class PutConfigurationSetSuppressionOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationSetSuppressionOptionsCommandOutput> {
-    return deserializeAws_restJson1_1PutConfigurationSetSuppressionOptionsCommand(
+    return deserializeAws_restJson1PutConfigurationSetSuppressionOptionsCommand(
       output,
       context
     );

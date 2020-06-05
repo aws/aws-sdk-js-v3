@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { AttachPolicyRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1AttachPolicyCommand,
-  serializeAws_restJson1_1AttachPolicyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AttachPolicyCommand,
+  serializeAws_restJson1AttachPolicyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class AttachPolicyCommand extends $Command<
     input: AttachPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AttachPolicyCommand(input, context);
+    return serializeAws_restJson1AttachPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachPolicyCommandOutput> {
-    return deserializeAws_restJson1_1AttachPolicyCommand(output, context);
+    return deserializeAws_restJson1AttachPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

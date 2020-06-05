@@ -8,9 +8,9 @@ import {
   UpdateThingGroupsForThingResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateThingGroupsForThingCommand,
-  serializeAws_restJson1_1UpdateThingGroupsForThingCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateThingGroupsForThingCommand,
+  serializeAws_restJson1UpdateThingGroupsForThingCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdateThingGroupsForThingCommand extends $Command<
     input: UpdateThingGroupsForThingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateThingGroupsForThingCommand(
+    return serializeAws_restJson1UpdateThingGroupsForThingCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdateThingGroupsForThingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateThingGroupsForThingCommandOutput> {
-    return deserializeAws_restJson1_1UpdateThingGroupsForThingCommand(
+    return deserializeAws_restJson1UpdateThingGroupsForThingCommand(
       output,
       context
     );

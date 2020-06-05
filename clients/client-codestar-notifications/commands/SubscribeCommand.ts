@@ -5,9 +5,9 @@ import {
 } from "../codestarnotificationsClient";
 import { SubscribeRequest, SubscribeResult } from "../models/index";
 import {
-  deserializeAws_restJson1_1SubscribeCommand,
-  serializeAws_restJson1_1SubscribeCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1SubscribeCommand,
+  serializeAws_restJson1SubscribeCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class SubscribeCommand extends $Command<
     input: SubscribeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1SubscribeCommand(input, context);
+    return serializeAws_restJson1SubscribeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SubscribeCommandOutput> {
-    return deserializeAws_restJson1_1SubscribeCommand(output, context);
+    return deserializeAws_restJson1SubscribeCommand(output, context);
   }
 
   // Start section: command_body_extra

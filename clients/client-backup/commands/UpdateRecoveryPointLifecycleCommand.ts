@@ -8,9 +8,9 @@ import {
   UpdateRecoveryPointLifecycleOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommand,
-  serializeAws_restJson1_1UpdateRecoveryPointLifecycleCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateRecoveryPointLifecycleCommand,
+  serializeAws_restJson1UpdateRecoveryPointLifecycleCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdateRecoveryPointLifecycleCommand extends $Command<
     input: UpdateRecoveryPointLifecycleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateRecoveryPointLifecycleCommand(
+    return serializeAws_restJson1UpdateRecoveryPointLifecycleCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdateRecoveryPointLifecycleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRecoveryPointLifecycleCommandOutput> {
-    return deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommand(
+    return deserializeAws_restJson1UpdateRecoveryPointLifecycleCommand(
       output,
       context
     );

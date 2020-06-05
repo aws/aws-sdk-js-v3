@@ -20,6 +20,11 @@ import {
   DescribeProfilingGroupCommandOutput
 } from "./commands/DescribeProfilingGroupCommand";
 import {
+  GetPolicyCommand,
+  GetPolicyCommandInput,
+  GetPolicyCommandOutput
+} from "./commands/GetPolicyCommand";
+import {
   GetProfileCommand,
   GetProfileCommandInput,
   GetProfileCommandOutput
@@ -40,6 +45,21 @@ import {
   PostAgentProfileCommandOutput
 } from "./commands/PostAgentProfileCommand";
 import {
+  PutPermissionCommand,
+  PutPermissionCommandInput,
+  PutPermissionCommandOutput
+} from "./commands/PutPermissionCommand";
+import {
+  RemovePermissionCommand,
+  RemovePermissionCommandInput,
+  RemovePermissionCommandOutput
+} from "./commands/RemovePermissionCommand";
+import {
+  RetrieveTimeSeriesCommand,
+  RetrieveTimeSeriesCommandInput,
+  RetrieveTimeSeriesCommandOutput
+} from "./commands/RetrieveTimeSeriesCommand";
+import {
   UpdateProfilingGroupCommand,
   UpdateProfilingGroupCommandInput,
   UpdateProfilingGroupCommandOutput
@@ -47,11 +67,11 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>Example service documentation.</p>
+ * <p>This section provides documentation for the Amazon CodeGuru Profiler API operations.</p>
  */
 export class CodeGuruProfiler extends CodeGuruProfilerClient {
   /**
-   * Provides the configuration to use for an agent of the profiling group.
+   * <p/>
    */
   public configureAgent(
     args: ConfigureAgentCommandInput,
@@ -86,7 +106,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
-   * Create a profiling group.
+   * <p>Creates a profiling group.</p>
    */
   public createProfilingGroup(
     args: CreateProfilingGroupCommandInput,
@@ -121,7 +141,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
-   * Delete a profiling group.
+   * <p>Deletes a profiling group.</p>
    */
   public deleteProfilingGroup(
     args: DeleteProfilingGroupCommandInput,
@@ -156,7 +176,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
-   * Describe a profiling group.
+   * <p>Describes a profiling group.</p>
    */
   public describeProfilingGroup(
     args: DescribeProfilingGroupCommandInput,
@@ -191,7 +211,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
-   * List profiling groups in the account.
+   * <p>Lists profiling groups.</p>
    */
   public listProfilingGroups(
     args: ListProfilingGroupsCommandInput,
@@ -226,7 +246,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
-   * Update a profiling group.
+   * <p>Updates a profiling group.</p>
    */
   public updateProfilingGroup(
     args: UpdateProfilingGroupCommandInput,
@@ -261,10 +281,123 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
-   * Get the aggregated profile of a profiling group for the specified time range.
-   *   If the requested time range does not align with the available aggregated profiles, it will be expanded to attain alignment.
-   *   If aggregated profiles are available only for part of the period requested, the profile is returned from the earliest available to the latest within the requested time range.
-   *   For instance, if the requested time range is from 00:00 to 00:20 and the available profiles are from 00:15 to 00:25, then the returned profile will be from 00:15 to 00:20.
+   * <p>Gets the profiling group policy.</p>
+   */
+  public getPolicy(
+    args: GetPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPolicyCommandOutput>;
+  public getPolicy(
+    args: GetPolicyCommandInput,
+    cb: (err: any, data?: GetPolicyCommandOutput) => void
+  ): void;
+  public getPolicy(
+    args: GetPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPolicyCommandOutput) => void
+  ): void;
+  public getPolicy(
+    args: GetPolicyCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetPolicyCommandOutput) => void
+  ): Promise<GetPolicyCommandOutput> | void {
+    const command = new GetPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides permission to the principals. This overwrites the existing permissions, and
+   *             is not additive.</p>
+   */
+  public putPermission(
+    args: PutPermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutPermissionCommandOutput>;
+  public putPermission(
+    args: PutPermissionCommandInput,
+    cb: (err: any, data?: PutPermissionCommandOutput) => void
+  ): void;
+  public putPermission(
+    args: PutPermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutPermissionCommandOutput) => void
+  ): void;
+  public putPermission(
+    args: PutPermissionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutPermissionCommandOutput) => void),
+    cb?: (err: any, data?: PutPermissionCommandOutput) => void
+  ): Promise<PutPermissionCommandOutput> | void {
+    const command = new PutPermissionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes statement for the provided action group from the policy.</p>
+   */
+  public removePermission(
+    args: RemovePermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemovePermissionCommandOutput>;
+  public removePermission(
+    args: RemovePermissionCommandInput,
+    cb: (err: any, data?: RemovePermissionCommandOutput) => void
+  ): void;
+  public removePermission(
+    args: RemovePermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemovePermissionCommandOutput) => void
+  ): void;
+  public removePermission(
+    args: RemovePermissionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RemovePermissionCommandOutput) => void),
+    cb?: (err: any, data?: RemovePermissionCommandOutput) => void
+  ): Promise<RemovePermissionCommandOutput> | void {
+    const command = new RemovePermissionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the aggregated profile of a profiling group for the specified time range.
+   *         If the requested time range does not align with the available aggregated profiles, it is expanded to
+   *         attain alignment. If aggregated profiles are available only for part of the period requested, the
+   *         profile is returned from the earliest available to the latest within the requested time range.
+   *       </p>
+   *          <p>For example, if the requested time range is from 00:00 to 00:20 and the available profiles are
+   *         from 00:15 to 00:25, the returned profile will be from 00:15 to 00:20.
+   *       </p>
+   *          <p>You must specify exactly two of the following parameters:
+   *         <code>startTime</code>, <code>period</code>, and <code>endTime</code>.
+   *       </p>
    */
   public getProfile(
     args: GetProfileCommandInput,
@@ -299,7 +432,8 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
-   * List the start times of the available aggregated profiles of a profiling group for an aggregation period within the specified time range.
+   * <p>List the start times of the available aggregated profiles of a profiling group
+   *         for an aggregation period within the specified time range.</p>
    */
   public listProfileTimes(
     args: ListProfileTimesCommandInput,
@@ -334,7 +468,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
-   * Submit profile collected by an agent belonging to a profiling group for aggregation.
+   * <p/>
    */
   public postAgentProfile(
     args: PostAgentProfileCommandInput,
@@ -357,6 +491,38 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
     cb?: (err: any, data?: PostAgentProfileCommandOutput) => void
   ): Promise<PostAgentProfileCommandOutput> | void {
     const command = new PostAgentProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public retrieveTimeSeries(
+    args: RetrieveTimeSeriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RetrieveTimeSeriesCommandOutput>;
+  public retrieveTimeSeries(
+    args: RetrieveTimeSeriesCommandInput,
+    cb: (err: any, data?: RetrieveTimeSeriesCommandOutput) => void
+  ): void;
+  public retrieveTimeSeries(
+    args: RetrieveTimeSeriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RetrieveTimeSeriesCommandOutput) => void
+  ): void;
+  public retrieveTimeSeries(
+    args: RetrieveTimeSeriesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RetrieveTimeSeriesCommandOutput) => void),
+    cb?: (err: any, data?: RetrieveTimeSeriesCommandOutput) => void
+  ): Promise<RetrieveTimeSeriesCommandOutput> | void {
+    const command = new RetrieveTimeSeriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -8,9 +8,9 @@ import {
   UpgradePublishedSchemaResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpgradePublishedSchemaCommand,
-  serializeAws_restJson1_1UpgradePublishedSchemaCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpgradePublishedSchemaCommand,
+  serializeAws_restJson1UpgradePublishedSchemaCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class UpgradePublishedSchemaCommand extends $Command<
     input: UpgradePublishedSchemaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpgradePublishedSchemaCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1UpgradePublishedSchemaCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpgradePublishedSchemaCommandOutput> {
-    return deserializeAws_restJson1_1UpgradePublishedSchemaCommand(
+    return deserializeAws_restJson1UpgradePublishedSchemaCommand(
       output,
       context
     );

@@ -8,9 +8,9 @@ import {
   CreateConfigurationSetEventDestinationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateConfigurationSetEventDestinationCommand,
-  serializeAws_restJson1_1CreateConfigurationSetEventDestinationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateConfigurationSetEventDestinationCommand,
+  serializeAws_restJson1CreateConfigurationSetEventDestinationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -76,7 +76,7 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command<
     input: CreateConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateConfigurationSetEventDestinationCommand(
+    return serializeAws_restJson1CreateConfigurationSetEventDestinationCommand(
       input,
       context
     );
@@ -86,7 +86,7 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateConfigurationSetEventDestinationCommandOutput> {
-    return deserializeAws_restJson1_1CreateConfigurationSetEventDestinationCommand(
+    return deserializeAws_restJson1CreateConfigurationSetEventDestinationCommand(
       output,
       context
     );

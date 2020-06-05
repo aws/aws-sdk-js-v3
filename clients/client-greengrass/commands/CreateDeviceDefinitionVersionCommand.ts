@@ -8,9 +8,9 @@ import {
   CreateDeviceDefinitionVersionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateDeviceDefinitionVersionCommand,
-  serializeAws_restJson1_1CreateDeviceDefinitionVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateDeviceDefinitionVersionCommand,
+  serializeAws_restJson1CreateDeviceDefinitionVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CreateDeviceDefinitionVersionCommand extends $Command<
     input: CreateDeviceDefinitionVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateDeviceDefinitionVersionCommand(
+    return serializeAws_restJson1CreateDeviceDefinitionVersionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CreateDeviceDefinitionVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDeviceDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1_1CreateDeviceDefinitionVersionCommand(
+    return deserializeAws_restJson1CreateDeviceDefinitionVersionCommand(
       output,
       context
     );

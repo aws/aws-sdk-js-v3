@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { GatewayResponses, GetGatewayResponsesRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetGatewayResponsesCommand,
-  serializeAws_restJson1_1GetGatewayResponsesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetGatewayResponsesCommand,
+  serializeAws_restJson1GetGatewayResponsesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,17 +71,14 @@ export class GetGatewayResponsesCommand extends $Command<
     input: GetGatewayResponsesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetGatewayResponsesCommand(input, context);
+    return serializeAws_restJson1GetGatewayResponsesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetGatewayResponsesCommandOutput> {
-    return deserializeAws_restJson1_1GetGatewayResponsesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetGatewayResponsesCommand(output, context);
   }
 
   // Start section: command_body_extra

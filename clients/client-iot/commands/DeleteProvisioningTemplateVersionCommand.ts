@@ -8,9 +8,9 @@ import {
   DeleteProvisioningTemplateVersionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteProvisioningTemplateVersionCommand,
-  serializeAws_restJson1_1DeleteProvisioningTemplateVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteProvisioningTemplateVersionCommand,
+  serializeAws_restJson1DeleteProvisioningTemplateVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DeleteProvisioningTemplateVersionCommand extends $Command<
     input: DeleteProvisioningTemplateVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteProvisioningTemplateVersionCommand(
+    return serializeAws_restJson1DeleteProvisioningTemplateVersionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DeleteProvisioningTemplateVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteProvisioningTemplateVersionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteProvisioningTemplateVersionCommand(
+    return deserializeAws_restJson1DeleteProvisioningTemplateVersionCommand(
       output,
       context
     );

@@ -5,9 +5,9 @@ import {
 } from "../AppSyncClient";
 import { GetDataSourceRequest, GetDataSourceResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetDataSourceCommand,
-  serializeAws_restJson1_1GetDataSourceCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetDataSourceCommand,
+  serializeAws_restJson1GetDataSourceCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetDataSourceCommand extends $Command<
     input: GetDataSourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDataSourceCommand(input, context);
+    return serializeAws_restJson1GetDataSourceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDataSourceCommandOutput> {
-    return deserializeAws_restJson1_1GetDataSourceCommand(output, context);
+    return deserializeAws_restJson1GetDataSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

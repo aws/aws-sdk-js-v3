@@ -737,7 +737,7 @@ const deserializeAws_json1_1AddInstanceFleetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "elasticmapreduce.webservice#InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -748,7 +748,7 @@ const deserializeAws_json1_1AddInstanceFleetCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "elasticmapreduce.webservice#InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -808,7 +808,7 @@ const deserializeAws_json1_1AddInstanceGroupsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "elasticmapreduce.webservice#InternalServerError":
+    case "com.amazonaws.emr#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -868,7 +868,7 @@ const deserializeAws_json1_1AddJobFlowStepsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "elasticmapreduce.webservice#InternalServerError":
+    case "com.amazonaws.emr#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -928,7 +928,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "elasticmapreduce.webservice#InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -939,7 +939,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "elasticmapreduce.webservice#InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -999,7 +999,7 @@ const deserializeAws_json1_1CancelStepsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "elasticmapreduce.webservice#InternalServerError":
+    case "com.amazonaws.emr#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -1010,7 +1010,7 @@ const deserializeAws_json1_1CancelStepsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "elasticmapreduce.webservice#InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1076,7 +1076,7 @@ const deserializeAws_json1_1CreateSecurityConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "elasticmapreduce.webservice#InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1087,7 +1087,7 @@ const deserializeAws_json1_1CreateSecurityConfigurationCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "elasticmapreduce.webservice#InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1153,7 +1153,7 @@ const deserializeAws_json1_1DeleteSecurityConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "elasticmapreduce.webservice#InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1164,7 +1164,7 @@ const deserializeAws_json1_1DeleteSecurityConfigurationCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "elasticmapreduce.webservice#InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1224,7 +1224,7 @@ const deserializeAws_json1_1DescribeClusterCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "elasticmapreduce.webservice#InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1235,7 +1235,7 @@ const deserializeAws_json1_1DescribeClusterCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "elasticmapreduce.webservice#InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1295,7 +1295,7 @@ const deserializeAws_json1_1DescribeJobFlowsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "elasticmapreduce.webservice#InternalServerError":
+    case "com.amazonaws.emr#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -1361,7 +1361,7 @@ const deserializeAws_json1_1DescribeSecurityConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "elasticmapreduce.webservice#InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1372,7 +1372,7 @@ const deserializeAws_json1_1DescribeSecurityConfigurationCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "elasticmapreduce.webservice#InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1432,7 +1432,7 @@ const deserializeAws_json1_1DescribeStepCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "elasticmapreduce.webservice#InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1443,7 +1443,7 @@ const deserializeAws_json1_1DescribeStepCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "elasticmapreduce.webservice#InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1509,7 +1509,7 @@ const deserializeAws_json1_1GetBlockPublicAccessConfigurationCommandError = asyn
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "elasticmapreduce.webservice#InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1520,7 +1520,7 @@ const deserializeAws_json1_1GetBlockPublicAccessConfigurationCommandError = asyn
       };
       break;
     case "InvalidRequestException":
-    case "elasticmapreduce.webservice#InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1583,7 +1583,7 @@ const deserializeAws_json1_1ListBootstrapActionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "elasticmapreduce.webservice#InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1594,7 +1594,7 @@ const deserializeAws_json1_1ListBootstrapActionsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "elasticmapreduce.webservice#InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1654,7 +1654,7 @@ const deserializeAws_json1_1ListClustersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "elasticmapreduce.webservice#InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1665,7 +1665,7 @@ const deserializeAws_json1_1ListClustersCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "elasticmapreduce.webservice#InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1728,7 +1728,7 @@ const deserializeAws_json1_1ListInstanceFleetsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "elasticmapreduce.webservice#InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1739,7 +1739,7 @@ const deserializeAws_json1_1ListInstanceFleetsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "elasticmapreduce.webservice#InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1802,7 +1802,7 @@ const deserializeAws_json1_1ListInstanceGroupsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "elasticmapreduce.webservice#InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1813,7 +1813,7 @@ const deserializeAws_json1_1ListInstanceGroupsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "elasticmapreduce.webservice#InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1873,7 +1873,7 @@ const deserializeAws_json1_1ListInstancesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "elasticmapreduce.webservice#InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1884,7 +1884,7 @@ const deserializeAws_json1_1ListInstancesCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "elasticmapreduce.webservice#InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1950,7 +1950,7 @@ const deserializeAws_json1_1ListSecurityConfigurationsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "elasticmapreduce.webservice#InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1961,7 +1961,7 @@ const deserializeAws_json1_1ListSecurityConfigurationsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "elasticmapreduce.webservice#InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2021,7 +2021,7 @@ const deserializeAws_json1_1ListStepsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "elasticmapreduce.webservice#InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2032,7 +2032,7 @@ const deserializeAws_json1_1ListStepsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "elasticmapreduce.webservice#InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2092,7 +2092,7 @@ const deserializeAws_json1_1ModifyClusterCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "elasticmapreduce.webservice#InternalServerError":
+    case "com.amazonaws.emr#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -2103,7 +2103,7 @@ const deserializeAws_json1_1ModifyClusterCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "elasticmapreduce.webservice#InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2162,7 +2162,7 @@ const deserializeAws_json1_1ModifyInstanceFleetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "elasticmapreduce.webservice#InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2173,7 +2173,7 @@ const deserializeAws_json1_1ModifyInstanceFleetCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "elasticmapreduce.webservice#InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2232,7 +2232,7 @@ const deserializeAws_json1_1ModifyInstanceGroupsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "elasticmapreduce.webservice#InternalServerError":
+    case "com.amazonaws.emr#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -2350,7 +2350,7 @@ const deserializeAws_json1_1PutBlockPublicAccessConfigurationCommandError = asyn
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "elasticmapreduce.webservice#InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2361,7 +2361,7 @@ const deserializeAws_json1_1PutBlockPublicAccessConfigurationCommandError = asyn
       };
       break;
     case "InvalidRequestException":
-    case "elasticmapreduce.webservice#InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2473,7 +2473,7 @@ const deserializeAws_json1_1RemoveTagsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "elasticmapreduce.webservice#InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2484,7 +2484,7 @@ const deserializeAws_json1_1RemoveTagsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "elasticmapreduce.webservice#InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2544,7 +2544,7 @@ const deserializeAws_json1_1RunJobFlowCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "elasticmapreduce.webservice#InternalServerError":
+    case "com.amazonaws.emr#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -2603,7 +2603,7 @@ const deserializeAws_json1_1SetTerminationProtectionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "elasticmapreduce.webservice#InternalServerError":
+    case "com.amazonaws.emr#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -2662,7 +2662,7 @@ const deserializeAws_json1_1SetVisibleToAllUsersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "elasticmapreduce.webservice#InternalServerError":
+    case "com.amazonaws.emr#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -2718,7 +2718,7 @@ const deserializeAws_json1_1TerminateJobFlowsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "elasticmapreduce.webservice#InternalServerError":
+    case "com.amazonaws.emr#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -3096,20 +3096,6 @@ const serializeAws_json1_1DescribeStepInput = (
   };
 };
 
-const serializeAws_json1_1EC2InstanceIdsList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
-const serializeAws_json1_1EC2InstanceIdsToTerminateList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
 const serializeAws_json1_1EbsBlockDeviceConfig = (
   input: EbsBlockDeviceConfig,
   context: __SerdeContext
@@ -3151,6 +3137,20 @@ const serializeAws_json1_1EbsConfiguration = (
       EbsOptimized: input.EbsOptimized
     })
   };
+};
+
+const serializeAws_json1_1EC2InstanceIdsList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
+};
+
+const serializeAws_json1_1EC2InstanceIdsToTerminateList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1GetBlockPublicAccessConfigurationInput = (
@@ -4917,13 +4917,6 @@ const deserializeAws_json1_1DescribeStepOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1EC2InstanceIdsList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
 const deserializeAws_json1_1EbsBlockDevice = (
   output: any,
   context: __SerdeContext
@@ -5052,6 +5045,13 @@ const deserializeAws_json1_1Ec2InstanceAttributes = (
         ? output.ServiceAccessSecurityGroup
         : undefined
   } as any;
+};
+
+const deserializeAws_json1_1EC2InstanceIdsList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1FailureDetails = (

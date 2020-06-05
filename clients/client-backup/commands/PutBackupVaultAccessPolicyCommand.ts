@@ -5,9 +5,9 @@ import {
 } from "../BackupClient";
 import { PutBackupVaultAccessPolicyInput } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutBackupVaultAccessPolicyCommand,
-  serializeAws_restJson1_1PutBackupVaultAccessPolicyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutBackupVaultAccessPolicyCommand,
+  serializeAws_restJson1PutBackupVaultAccessPolicyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class PutBackupVaultAccessPolicyCommand extends $Command<
     input: PutBackupVaultAccessPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutBackupVaultAccessPolicyCommand(
+    return serializeAws_restJson1PutBackupVaultAccessPolicyCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class PutBackupVaultAccessPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBackupVaultAccessPolicyCommandOutput> {
-    return deserializeAws_restJson1_1PutBackupVaultAccessPolicyCommand(
+    return deserializeAws_restJson1PutBackupVaultAccessPolicyCommand(
       output,
       context
     );

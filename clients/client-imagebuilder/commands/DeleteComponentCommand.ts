@@ -8,9 +8,9 @@ import {
   DeleteComponentResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteComponentCommand,
-  serializeAws_restJson1_1DeleteComponentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteComponentCommand,
+  serializeAws_restJson1DeleteComponentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DeleteComponentCommand extends $Command<
     input: DeleteComponentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteComponentCommand(input, context);
+    return serializeAws_restJson1DeleteComponentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteComponentCommandOutput> {
-    return deserializeAws_restJson1_1DeleteComponentCommand(output, context);
+    return deserializeAws_restJson1DeleteComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

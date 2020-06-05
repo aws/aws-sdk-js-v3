@@ -8,9 +8,9 @@ import {
   DescribePackagingConfigurationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribePackagingConfigurationCommand,
-  serializeAws_restJson1_1DescribePackagingConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribePackagingConfigurationCommand,
+  serializeAws_restJson1DescribePackagingConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribePackagingConfigurationCommand extends $Command<
     input: DescribePackagingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribePackagingConfigurationCommand(
+    return serializeAws_restJson1DescribePackagingConfigurationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribePackagingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePackagingConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DescribePackagingConfigurationCommand(
+    return deserializeAws_restJson1DescribePackagingConfigurationCommand(
       output,
       context
     );

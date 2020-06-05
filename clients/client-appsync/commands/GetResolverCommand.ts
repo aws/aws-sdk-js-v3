@@ -5,9 +5,9 @@ import {
 } from "../AppSyncClient";
 import { GetResolverRequest, GetResolverResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetResolverCommand,
-  serializeAws_restJson1_1GetResolverCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetResolverCommand,
+  serializeAws_restJson1GetResolverCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetResolverCommand extends $Command<
     input: GetResolverCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetResolverCommand(input, context);
+    return serializeAws_restJson1GetResolverCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetResolverCommandOutput> {
-    return deserializeAws_restJson1_1GetResolverCommand(output, context);
+    return deserializeAws_restJson1GetResolverCommand(output, context);
   }
 
   // Start section: command_body_extra

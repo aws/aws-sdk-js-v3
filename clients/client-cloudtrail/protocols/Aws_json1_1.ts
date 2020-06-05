@@ -459,7 +459,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudTrailARNInvalidException":
-    case "com.amazonaws.cloudtrail.v20131101#CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
       response = {
         ...(await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(
           parsedOutput,
@@ -470,7 +470,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
       };
       break;
     case "InvalidTagParameterException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTagParameterException":
+    case "com.amazonaws.cloudtrail#InvalidTagParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidTagParameterExceptionResponse(
           parsedOutput,
@@ -481,7 +481,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
       };
       break;
     case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTrailNameException":
+    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(
           parsedOutput,
@@ -492,7 +492,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
       };
       break;
     case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail.v20131101#NotOrganizationMasterAccountException":
+    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       response = {
         ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(
           parsedOutput,
@@ -503,7 +503,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail.v20131101#OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -514,7 +514,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cloudtrail.v20131101#ResourceNotFoundException":
+    case "com.amazonaws.cloudtrail#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -525,7 +525,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
       };
       break;
     case "ResourceTypeNotSupportedException":
-    case "com.amazonaws.cloudtrail.v20131101#ResourceTypeNotSupportedException":
+    case "com.amazonaws.cloudtrail#ResourceTypeNotSupportedException":
       response = {
         ...(await deserializeAws_json1_1ResourceTypeNotSupportedExceptionResponse(
           parsedOutput,
@@ -536,7 +536,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
       };
       break;
     case "TagsLimitExceededException":
-    case "com.amazonaws.cloudtrail.v20131101#TagsLimitExceededException":
+    case "com.amazonaws.cloudtrail#TagsLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1TagsLimitExceededExceptionResponse(
           parsedOutput,
@@ -547,7 +547,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail.v20131101#UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -607,7 +607,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudTrailAccessNotEnabledException":
-    case "com.amazonaws.cloudtrail.v20131101#CloudTrailAccessNotEnabledException":
+    case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
       response = {
         ...(await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(
           parsedOutput,
@@ -618,7 +618,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "CloudWatchLogsDeliveryUnavailableException":
-    case "com.amazonaws.cloudtrail.v20131101#CloudWatchLogsDeliveryUnavailableException":
+    case "com.amazonaws.cloudtrail#CloudWatchLogsDeliveryUnavailableException":
       response = {
         ...(await deserializeAws_json1_1CloudWatchLogsDeliveryUnavailableExceptionResponse(
           parsedOutput,
@@ -629,7 +629,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "InsufficientDependencyServiceAccessPermissionException":
-    case "com.amazonaws.cloudtrail.v20131101#InsufficientDependencyServiceAccessPermissionException":
+    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       response = {
         ...(await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
           parsedOutput,
@@ -640,7 +640,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "InsufficientEncryptionPolicyException":
-    case "com.amazonaws.cloudtrail.v20131101#InsufficientEncryptionPolicyException":
+    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
       response = {
         ...(await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(
           parsedOutput,
@@ -651,7 +651,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "InsufficientS3BucketPolicyException":
-    case "com.amazonaws.cloudtrail.v20131101#InsufficientS3BucketPolicyException":
+    case "com.amazonaws.cloudtrail#InsufficientS3BucketPolicyException":
       response = {
         ...(await deserializeAws_json1_1InsufficientS3BucketPolicyExceptionResponse(
           parsedOutput,
@@ -662,7 +662,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "InsufficientSnsTopicPolicyException":
-    case "com.amazonaws.cloudtrail.v20131101#InsufficientSnsTopicPolicyException":
+    case "com.amazonaws.cloudtrail#InsufficientSnsTopicPolicyException":
       response = {
         ...(await deserializeAws_json1_1InsufficientSnsTopicPolicyExceptionResponse(
           parsedOutput,
@@ -673,7 +673,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "InvalidCloudWatchLogsLogGroupArnException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidCloudWatchLogsLogGroupArnException":
+    case "com.amazonaws.cloudtrail#InvalidCloudWatchLogsLogGroupArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidCloudWatchLogsLogGroupArnExceptionResponse(
           parsedOutput,
@@ -684,7 +684,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "InvalidCloudWatchLogsRoleArnException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidCloudWatchLogsRoleArnException":
+    case "com.amazonaws.cloudtrail#InvalidCloudWatchLogsRoleArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidCloudWatchLogsRoleArnExceptionResponse(
           parsedOutput,
@@ -695,7 +695,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "InvalidKmsKeyIdException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidKmsKeyIdException":
+    case "com.amazonaws.cloudtrail#InvalidKmsKeyIdException":
       response = {
         ...(await deserializeAws_json1_1InvalidKmsKeyIdExceptionResponse(
           parsedOutput,
@@ -706,7 +706,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "InvalidParameterCombinationException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidParameterCombinationException":
+    case "com.amazonaws.cloudtrail#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
           parsedOutput,
@@ -717,7 +717,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "InvalidS3BucketNameException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidS3BucketNameException":
+    case "com.amazonaws.cloudtrail#InvalidS3BucketNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidS3BucketNameExceptionResponse(
           parsedOutput,
@@ -728,7 +728,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "InvalidS3PrefixException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidS3PrefixException":
+    case "com.amazonaws.cloudtrail#InvalidS3PrefixException":
       response = {
         ...(await deserializeAws_json1_1InvalidS3PrefixExceptionResponse(
           parsedOutput,
@@ -739,7 +739,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "InvalidSnsTopicNameException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidSnsTopicNameException":
+    case "com.amazonaws.cloudtrail#InvalidSnsTopicNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidSnsTopicNameExceptionResponse(
           parsedOutput,
@@ -750,7 +750,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "InvalidTagParameterException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTagParameterException":
+    case "com.amazonaws.cloudtrail#InvalidTagParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidTagParameterExceptionResponse(
           parsedOutput,
@@ -761,7 +761,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTrailNameException":
+    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(
           parsedOutput,
@@ -772,7 +772,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "KmsException":
-    case "com.amazonaws.cloudtrail.v20131101#KmsException":
+    case "com.amazonaws.cloudtrail#KmsException":
       response = {
         ...(await deserializeAws_json1_1KmsExceptionResponse(
           parsedOutput,
@@ -783,7 +783,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "KmsKeyDisabledException":
-    case "com.amazonaws.cloudtrail.v20131101#KmsKeyDisabledException":
+    case "com.amazonaws.cloudtrail#KmsKeyDisabledException":
       response = {
         ...(await deserializeAws_json1_1KmsKeyDisabledExceptionResponse(
           parsedOutput,
@@ -794,7 +794,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "KmsKeyNotFoundException":
-    case "com.amazonaws.cloudtrail.v20131101#KmsKeyNotFoundException":
+    case "com.amazonaws.cloudtrail#KmsKeyNotFoundException":
       response = {
         ...(await deserializeAws_json1_1KmsKeyNotFoundExceptionResponse(
           parsedOutput,
@@ -805,7 +805,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "MaximumNumberOfTrailsExceededException":
-    case "com.amazonaws.cloudtrail.v20131101#MaximumNumberOfTrailsExceededException":
+    case "com.amazonaws.cloudtrail#MaximumNumberOfTrailsExceededException":
       response = {
         ...(await deserializeAws_json1_1MaximumNumberOfTrailsExceededExceptionResponse(
           parsedOutput,
@@ -816,7 +816,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail.v20131101#NotOrganizationMasterAccountException":
+    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       response = {
         ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(
           parsedOutput,
@@ -827,7 +827,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail.v20131101#OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -838,7 +838,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "OrganizationNotInAllFeaturesModeException":
-    case "com.amazonaws.cloudtrail.v20131101#OrganizationNotInAllFeaturesModeException":
+    case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse(
           parsedOutput,
@@ -849,7 +849,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "OrganizationsNotInUseException":
-    case "com.amazonaws.cloudtrail.v20131101#OrganizationsNotInUseException":
+    case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1OrganizationsNotInUseExceptionResponse(
           parsedOutput,
@@ -860,7 +860,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "S3BucketDoesNotExistException":
-    case "com.amazonaws.cloudtrail.v20131101#S3BucketDoesNotExistException":
+    case "com.amazonaws.cloudtrail#S3BucketDoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1S3BucketDoesNotExistExceptionResponse(
           parsedOutput,
@@ -871,7 +871,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "TrailAlreadyExistsException":
-    case "com.amazonaws.cloudtrail.v20131101#TrailAlreadyExistsException":
+    case "com.amazonaws.cloudtrail#TrailAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1TrailAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -882,7 +882,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "TrailNotProvidedException":
-    case "com.amazonaws.cloudtrail.v20131101#TrailNotProvidedException":
+    case "com.amazonaws.cloudtrail#TrailNotProvidedException":
       response = {
         ...(await deserializeAws_json1_1TrailNotProvidedExceptionResponse(
           parsedOutput,
@@ -893,7 +893,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail.v20131101#UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -953,7 +953,7 @@ const deserializeAws_json1_1DeleteTrailCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InsufficientDependencyServiceAccessPermissionException":
-    case "com.amazonaws.cloudtrail.v20131101#InsufficientDependencyServiceAccessPermissionException":
+    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       response = {
         ...(await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
           parsedOutput,
@@ -964,7 +964,7 @@ const deserializeAws_json1_1DeleteTrailCommandError = async (
       };
       break;
     case "InvalidHomeRegionException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidHomeRegionException":
+    case "com.amazonaws.cloudtrail#InvalidHomeRegionException":
       response = {
         ...(await deserializeAws_json1_1InvalidHomeRegionExceptionResponse(
           parsedOutput,
@@ -975,7 +975,7 @@ const deserializeAws_json1_1DeleteTrailCommandError = async (
       };
       break;
     case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTrailNameException":
+    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(
           parsedOutput,
@@ -986,7 +986,7 @@ const deserializeAws_json1_1DeleteTrailCommandError = async (
       };
       break;
     case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail.v20131101#NotOrganizationMasterAccountException":
+    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       response = {
         ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(
           parsedOutput,
@@ -997,7 +997,7 @@ const deserializeAws_json1_1DeleteTrailCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail.v20131101#OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1008,7 +1008,7 @@ const deserializeAws_json1_1DeleteTrailCommandError = async (
       };
       break;
     case "TrailNotFoundException":
-    case "com.amazonaws.cloudtrail.v20131101#TrailNotFoundException":
+    case "com.amazonaws.cloudtrail#TrailNotFoundException":
       response = {
         ...(await deserializeAws_json1_1TrailNotFoundExceptionResponse(
           parsedOutput,
@@ -1019,7 +1019,7 @@ const deserializeAws_json1_1DeleteTrailCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail.v20131101#UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -1079,7 +1079,7 @@ const deserializeAws_json1_1DescribeTrailsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTrailNameException":
+    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(
           parsedOutput,
@@ -1090,7 +1090,7 @@ const deserializeAws_json1_1DescribeTrailsCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail.v20131101#OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1101,7 +1101,7 @@ const deserializeAws_json1_1DescribeTrailsCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail.v20131101#UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -1161,7 +1161,7 @@ const deserializeAws_json1_1GetEventSelectorsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTrailNameException":
+    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(
           parsedOutput,
@@ -1172,7 +1172,7 @@ const deserializeAws_json1_1GetEventSelectorsCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail.v20131101#OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1183,7 +1183,7 @@ const deserializeAws_json1_1GetEventSelectorsCommandError = async (
       };
       break;
     case "TrailNotFoundException":
-    case "com.amazonaws.cloudtrail.v20131101#TrailNotFoundException":
+    case "com.amazonaws.cloudtrail#TrailNotFoundException":
       response = {
         ...(await deserializeAws_json1_1TrailNotFoundExceptionResponse(
           parsedOutput,
@@ -1194,7 +1194,7 @@ const deserializeAws_json1_1GetEventSelectorsCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail.v20131101#UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -1257,7 +1257,7 @@ const deserializeAws_json1_1GetInsightSelectorsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InsightNotEnabledException":
-    case "com.amazonaws.cloudtrail.v20131101#InsightNotEnabledException":
+    case "com.amazonaws.cloudtrail#InsightNotEnabledException":
       response = {
         ...(await deserializeAws_json1_1InsightNotEnabledExceptionResponse(
           parsedOutput,
@@ -1268,7 +1268,7 @@ const deserializeAws_json1_1GetInsightSelectorsCommandError = async (
       };
       break;
     case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTrailNameException":
+    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(
           parsedOutput,
@@ -1279,7 +1279,7 @@ const deserializeAws_json1_1GetInsightSelectorsCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail.v20131101#OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1290,7 +1290,7 @@ const deserializeAws_json1_1GetInsightSelectorsCommandError = async (
       };
       break;
     case "TrailNotFoundException":
-    case "com.amazonaws.cloudtrail.v20131101#TrailNotFoundException":
+    case "com.amazonaws.cloudtrail#TrailNotFoundException":
       response = {
         ...(await deserializeAws_json1_1TrailNotFoundExceptionResponse(
           parsedOutput,
@@ -1301,7 +1301,7 @@ const deserializeAws_json1_1GetInsightSelectorsCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail.v20131101#UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -1361,7 +1361,7 @@ const deserializeAws_json1_1GetTrailCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTrailNameException":
+    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(
           parsedOutput,
@@ -1372,7 +1372,7 @@ const deserializeAws_json1_1GetTrailCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail.v20131101#OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1383,7 +1383,7 @@ const deserializeAws_json1_1GetTrailCommandError = async (
       };
       break;
     case "TrailNotFoundException":
-    case "com.amazonaws.cloudtrail.v20131101#TrailNotFoundException":
+    case "com.amazonaws.cloudtrail#TrailNotFoundException":
       response = {
         ...(await deserializeAws_json1_1TrailNotFoundExceptionResponse(
           parsedOutput,
@@ -1394,7 +1394,7 @@ const deserializeAws_json1_1GetTrailCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail.v20131101#UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -1454,7 +1454,7 @@ const deserializeAws_json1_1GetTrailStatusCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTrailNameException":
+    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(
           parsedOutput,
@@ -1465,7 +1465,7 @@ const deserializeAws_json1_1GetTrailStatusCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail.v20131101#OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1476,7 +1476,7 @@ const deserializeAws_json1_1GetTrailStatusCommandError = async (
       };
       break;
     case "TrailNotFoundException":
-    case "com.amazonaws.cloudtrail.v20131101#TrailNotFoundException":
+    case "com.amazonaws.cloudtrail#TrailNotFoundException":
       response = {
         ...(await deserializeAws_json1_1TrailNotFoundExceptionResponse(
           parsedOutput,
@@ -1487,7 +1487,7 @@ const deserializeAws_json1_1GetTrailStatusCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail.v20131101#UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -1547,7 +1547,7 @@ const deserializeAws_json1_1ListPublicKeysCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidTimeRangeException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTimeRangeException":
+    case "com.amazonaws.cloudtrail#InvalidTimeRangeException":
       response = {
         ...(await deserializeAws_json1_1InvalidTimeRangeExceptionResponse(
           parsedOutput,
@@ -1558,7 +1558,7 @@ const deserializeAws_json1_1ListPublicKeysCommandError = async (
       };
       break;
     case "InvalidTokenException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTokenException":
+    case "com.amazonaws.cloudtrail#InvalidTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidTokenExceptionResponse(
           parsedOutput,
@@ -1569,7 +1569,7 @@ const deserializeAws_json1_1ListPublicKeysCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail.v20131101#OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1580,7 +1580,7 @@ const deserializeAws_json1_1ListPublicKeysCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail.v20131101#UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -1640,7 +1640,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudTrailARNInvalidException":
-    case "com.amazonaws.cloudtrail.v20131101#CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
       response = {
         ...(await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(
           parsedOutput,
@@ -1651,7 +1651,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
       };
       break;
     case "InvalidTokenException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTokenException":
+    case "com.amazonaws.cloudtrail#InvalidTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidTokenExceptionResponse(
           parsedOutput,
@@ -1662,7 +1662,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
       };
       break;
     case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTrailNameException":
+    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(
           parsedOutput,
@@ -1673,7 +1673,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail.v20131101#OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1684,7 +1684,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cloudtrail.v20131101#ResourceNotFoundException":
+    case "com.amazonaws.cloudtrail#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1695,7 +1695,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
       };
       break;
     case "ResourceTypeNotSupportedException":
-    case "com.amazonaws.cloudtrail.v20131101#ResourceTypeNotSupportedException":
+    case "com.amazonaws.cloudtrail#ResourceTypeNotSupportedException":
       response = {
         ...(await deserializeAws_json1_1ResourceTypeNotSupportedExceptionResponse(
           parsedOutput,
@@ -1706,7 +1706,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail.v20131101#UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -1766,7 +1766,7 @@ const deserializeAws_json1_1ListTrailsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail.v20131101#OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1777,7 +1777,7 @@ const deserializeAws_json1_1ListTrailsCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail.v20131101#UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -1837,7 +1837,7 @@ const deserializeAws_json1_1LookupEventsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEventCategoryException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidEventCategoryException":
+    case "com.amazonaws.cloudtrail#InvalidEventCategoryException":
       response = {
         ...(await deserializeAws_json1_1InvalidEventCategoryExceptionResponse(
           parsedOutput,
@@ -1848,7 +1848,7 @@ const deserializeAws_json1_1LookupEventsCommandError = async (
       };
       break;
     case "InvalidLookupAttributesException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidLookupAttributesException":
+    case "com.amazonaws.cloudtrail#InvalidLookupAttributesException":
       response = {
         ...(await deserializeAws_json1_1InvalidLookupAttributesExceptionResponse(
           parsedOutput,
@@ -1859,7 +1859,7 @@ const deserializeAws_json1_1LookupEventsCommandError = async (
       };
       break;
     case "InvalidMaxResultsException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidMaxResultsException":
+    case "com.amazonaws.cloudtrail#InvalidMaxResultsException":
       response = {
         ...(await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(
           parsedOutput,
@@ -1870,7 +1870,7 @@ const deserializeAws_json1_1LookupEventsCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidNextTokenException":
+    case "com.amazonaws.cloudtrail#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1881,7 +1881,7 @@ const deserializeAws_json1_1LookupEventsCommandError = async (
       };
       break;
     case "InvalidTimeRangeException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTimeRangeException":
+    case "com.amazonaws.cloudtrail#InvalidTimeRangeException":
       response = {
         ...(await deserializeAws_json1_1InvalidTimeRangeExceptionResponse(
           parsedOutput,
@@ -1892,7 +1892,7 @@ const deserializeAws_json1_1LookupEventsCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail.v20131101#OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1903,7 +1903,7 @@ const deserializeAws_json1_1LookupEventsCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail.v20131101#UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -1963,7 +1963,7 @@ const deserializeAws_json1_1PutEventSelectorsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InsufficientDependencyServiceAccessPermissionException":
-    case "com.amazonaws.cloudtrail.v20131101#InsufficientDependencyServiceAccessPermissionException":
+    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       response = {
         ...(await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
           parsedOutput,
@@ -1974,7 +1974,7 @@ const deserializeAws_json1_1PutEventSelectorsCommandError = async (
       };
       break;
     case "InvalidEventSelectorsException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidEventSelectorsException":
+    case "com.amazonaws.cloudtrail#InvalidEventSelectorsException":
       response = {
         ...(await deserializeAws_json1_1InvalidEventSelectorsExceptionResponse(
           parsedOutput,
@@ -1985,7 +1985,7 @@ const deserializeAws_json1_1PutEventSelectorsCommandError = async (
       };
       break;
     case "InvalidHomeRegionException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidHomeRegionException":
+    case "com.amazonaws.cloudtrail#InvalidHomeRegionException":
       response = {
         ...(await deserializeAws_json1_1InvalidHomeRegionExceptionResponse(
           parsedOutput,
@@ -1996,7 +1996,7 @@ const deserializeAws_json1_1PutEventSelectorsCommandError = async (
       };
       break;
     case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTrailNameException":
+    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(
           parsedOutput,
@@ -2007,7 +2007,7 @@ const deserializeAws_json1_1PutEventSelectorsCommandError = async (
       };
       break;
     case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail.v20131101#NotOrganizationMasterAccountException":
+    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       response = {
         ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(
           parsedOutput,
@@ -2018,7 +2018,7 @@ const deserializeAws_json1_1PutEventSelectorsCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail.v20131101#OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -2029,7 +2029,7 @@ const deserializeAws_json1_1PutEventSelectorsCommandError = async (
       };
       break;
     case "TrailNotFoundException":
-    case "com.amazonaws.cloudtrail.v20131101#TrailNotFoundException":
+    case "com.amazonaws.cloudtrail#TrailNotFoundException":
       response = {
         ...(await deserializeAws_json1_1TrailNotFoundExceptionResponse(
           parsedOutput,
@@ -2040,7 +2040,7 @@ const deserializeAws_json1_1PutEventSelectorsCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail.v20131101#UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -2103,7 +2103,7 @@ const deserializeAws_json1_1PutInsightSelectorsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InsufficientEncryptionPolicyException":
-    case "com.amazonaws.cloudtrail.v20131101#InsufficientEncryptionPolicyException":
+    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
       response = {
         ...(await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(
           parsedOutput,
@@ -2114,7 +2114,7 @@ const deserializeAws_json1_1PutInsightSelectorsCommandError = async (
       };
       break;
     case "InsufficientS3BucketPolicyException":
-    case "com.amazonaws.cloudtrail.v20131101#InsufficientS3BucketPolicyException":
+    case "com.amazonaws.cloudtrail#InsufficientS3BucketPolicyException":
       response = {
         ...(await deserializeAws_json1_1InsufficientS3BucketPolicyExceptionResponse(
           parsedOutput,
@@ -2125,7 +2125,7 @@ const deserializeAws_json1_1PutInsightSelectorsCommandError = async (
       };
       break;
     case "InvalidHomeRegionException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidHomeRegionException":
+    case "com.amazonaws.cloudtrail#InvalidHomeRegionException":
       response = {
         ...(await deserializeAws_json1_1InvalidHomeRegionExceptionResponse(
           parsedOutput,
@@ -2136,7 +2136,7 @@ const deserializeAws_json1_1PutInsightSelectorsCommandError = async (
       };
       break;
     case "InvalidInsightSelectorsException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidInsightSelectorsException":
+    case "com.amazonaws.cloudtrail#InvalidInsightSelectorsException":
       response = {
         ...(await deserializeAws_json1_1InvalidInsightSelectorsExceptionResponse(
           parsedOutput,
@@ -2147,7 +2147,7 @@ const deserializeAws_json1_1PutInsightSelectorsCommandError = async (
       };
       break;
     case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTrailNameException":
+    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(
           parsedOutput,
@@ -2158,7 +2158,7 @@ const deserializeAws_json1_1PutInsightSelectorsCommandError = async (
       };
       break;
     case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail.v20131101#NotOrganizationMasterAccountException":
+    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       response = {
         ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(
           parsedOutput,
@@ -2169,7 +2169,7 @@ const deserializeAws_json1_1PutInsightSelectorsCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail.v20131101#OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -2180,7 +2180,7 @@ const deserializeAws_json1_1PutInsightSelectorsCommandError = async (
       };
       break;
     case "TrailNotFoundException":
-    case "com.amazonaws.cloudtrail.v20131101#TrailNotFoundException":
+    case "com.amazonaws.cloudtrail#TrailNotFoundException":
       response = {
         ...(await deserializeAws_json1_1TrailNotFoundExceptionResponse(
           parsedOutput,
@@ -2191,7 +2191,7 @@ const deserializeAws_json1_1PutInsightSelectorsCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail.v20131101#UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -2251,7 +2251,7 @@ const deserializeAws_json1_1RemoveTagsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudTrailARNInvalidException":
-    case "com.amazonaws.cloudtrail.v20131101#CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
       response = {
         ...(await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(
           parsedOutput,
@@ -2262,7 +2262,7 @@ const deserializeAws_json1_1RemoveTagsCommandError = async (
       };
       break;
     case "InvalidTagParameterException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTagParameterException":
+    case "com.amazonaws.cloudtrail#InvalidTagParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidTagParameterExceptionResponse(
           parsedOutput,
@@ -2273,7 +2273,7 @@ const deserializeAws_json1_1RemoveTagsCommandError = async (
       };
       break;
     case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTrailNameException":
+    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(
           parsedOutput,
@@ -2284,7 +2284,7 @@ const deserializeAws_json1_1RemoveTagsCommandError = async (
       };
       break;
     case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail.v20131101#NotOrganizationMasterAccountException":
+    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       response = {
         ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(
           parsedOutput,
@@ -2295,7 +2295,7 @@ const deserializeAws_json1_1RemoveTagsCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail.v20131101#OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -2306,7 +2306,7 @@ const deserializeAws_json1_1RemoveTagsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cloudtrail.v20131101#ResourceNotFoundException":
+    case "com.amazonaws.cloudtrail#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2317,7 +2317,7 @@ const deserializeAws_json1_1RemoveTagsCommandError = async (
       };
       break;
     case "ResourceTypeNotSupportedException":
-    case "com.amazonaws.cloudtrail.v20131101#ResourceTypeNotSupportedException":
+    case "com.amazonaws.cloudtrail#ResourceTypeNotSupportedException":
       response = {
         ...(await deserializeAws_json1_1ResourceTypeNotSupportedExceptionResponse(
           parsedOutput,
@@ -2328,7 +2328,7 @@ const deserializeAws_json1_1RemoveTagsCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail.v20131101#UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -2388,7 +2388,7 @@ const deserializeAws_json1_1StartLoggingCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InsufficientDependencyServiceAccessPermissionException":
-    case "com.amazonaws.cloudtrail.v20131101#InsufficientDependencyServiceAccessPermissionException":
+    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       response = {
         ...(await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
           parsedOutput,
@@ -2399,7 +2399,7 @@ const deserializeAws_json1_1StartLoggingCommandError = async (
       };
       break;
     case "InvalidHomeRegionException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidHomeRegionException":
+    case "com.amazonaws.cloudtrail#InvalidHomeRegionException":
       response = {
         ...(await deserializeAws_json1_1InvalidHomeRegionExceptionResponse(
           parsedOutput,
@@ -2410,7 +2410,7 @@ const deserializeAws_json1_1StartLoggingCommandError = async (
       };
       break;
     case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTrailNameException":
+    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(
           parsedOutput,
@@ -2421,7 +2421,7 @@ const deserializeAws_json1_1StartLoggingCommandError = async (
       };
       break;
     case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail.v20131101#NotOrganizationMasterAccountException":
+    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       response = {
         ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(
           parsedOutput,
@@ -2432,7 +2432,7 @@ const deserializeAws_json1_1StartLoggingCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail.v20131101#OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -2443,7 +2443,7 @@ const deserializeAws_json1_1StartLoggingCommandError = async (
       };
       break;
     case "TrailNotFoundException":
-    case "com.amazonaws.cloudtrail.v20131101#TrailNotFoundException":
+    case "com.amazonaws.cloudtrail#TrailNotFoundException":
       response = {
         ...(await deserializeAws_json1_1TrailNotFoundExceptionResponse(
           parsedOutput,
@@ -2454,7 +2454,7 @@ const deserializeAws_json1_1StartLoggingCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail.v20131101#UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -2514,7 +2514,7 @@ const deserializeAws_json1_1StopLoggingCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InsufficientDependencyServiceAccessPermissionException":
-    case "com.amazonaws.cloudtrail.v20131101#InsufficientDependencyServiceAccessPermissionException":
+    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       response = {
         ...(await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
           parsedOutput,
@@ -2525,7 +2525,7 @@ const deserializeAws_json1_1StopLoggingCommandError = async (
       };
       break;
     case "InvalidHomeRegionException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidHomeRegionException":
+    case "com.amazonaws.cloudtrail#InvalidHomeRegionException":
       response = {
         ...(await deserializeAws_json1_1InvalidHomeRegionExceptionResponse(
           parsedOutput,
@@ -2536,7 +2536,7 @@ const deserializeAws_json1_1StopLoggingCommandError = async (
       };
       break;
     case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTrailNameException":
+    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(
           parsedOutput,
@@ -2547,7 +2547,7 @@ const deserializeAws_json1_1StopLoggingCommandError = async (
       };
       break;
     case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail.v20131101#NotOrganizationMasterAccountException":
+    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       response = {
         ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(
           parsedOutput,
@@ -2558,7 +2558,7 @@ const deserializeAws_json1_1StopLoggingCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail.v20131101#OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -2569,7 +2569,7 @@ const deserializeAws_json1_1StopLoggingCommandError = async (
       };
       break;
     case "TrailNotFoundException":
-    case "com.amazonaws.cloudtrail.v20131101#TrailNotFoundException":
+    case "com.amazonaws.cloudtrail#TrailNotFoundException":
       response = {
         ...(await deserializeAws_json1_1TrailNotFoundExceptionResponse(
           parsedOutput,
@@ -2580,7 +2580,7 @@ const deserializeAws_json1_1StopLoggingCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail.v20131101#UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -2640,7 +2640,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudTrailAccessNotEnabledException":
-    case "com.amazonaws.cloudtrail.v20131101#CloudTrailAccessNotEnabledException":
+    case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
       response = {
         ...(await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(
           parsedOutput,
@@ -2651,7 +2651,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "CloudWatchLogsDeliveryUnavailableException":
-    case "com.amazonaws.cloudtrail.v20131101#CloudWatchLogsDeliveryUnavailableException":
+    case "com.amazonaws.cloudtrail#CloudWatchLogsDeliveryUnavailableException":
       response = {
         ...(await deserializeAws_json1_1CloudWatchLogsDeliveryUnavailableExceptionResponse(
           parsedOutput,
@@ -2662,7 +2662,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "InsufficientDependencyServiceAccessPermissionException":
-    case "com.amazonaws.cloudtrail.v20131101#InsufficientDependencyServiceAccessPermissionException":
+    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       response = {
         ...(await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
           parsedOutput,
@@ -2673,7 +2673,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "InsufficientEncryptionPolicyException":
-    case "com.amazonaws.cloudtrail.v20131101#InsufficientEncryptionPolicyException":
+    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
       response = {
         ...(await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(
           parsedOutput,
@@ -2684,7 +2684,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "InsufficientS3BucketPolicyException":
-    case "com.amazonaws.cloudtrail.v20131101#InsufficientS3BucketPolicyException":
+    case "com.amazonaws.cloudtrail#InsufficientS3BucketPolicyException":
       response = {
         ...(await deserializeAws_json1_1InsufficientS3BucketPolicyExceptionResponse(
           parsedOutput,
@@ -2695,7 +2695,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "InsufficientSnsTopicPolicyException":
-    case "com.amazonaws.cloudtrail.v20131101#InsufficientSnsTopicPolicyException":
+    case "com.amazonaws.cloudtrail#InsufficientSnsTopicPolicyException":
       response = {
         ...(await deserializeAws_json1_1InsufficientSnsTopicPolicyExceptionResponse(
           parsedOutput,
@@ -2706,7 +2706,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "InvalidCloudWatchLogsLogGroupArnException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidCloudWatchLogsLogGroupArnException":
+    case "com.amazonaws.cloudtrail#InvalidCloudWatchLogsLogGroupArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidCloudWatchLogsLogGroupArnExceptionResponse(
           parsedOutput,
@@ -2717,7 +2717,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "InvalidCloudWatchLogsRoleArnException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidCloudWatchLogsRoleArnException":
+    case "com.amazonaws.cloudtrail#InvalidCloudWatchLogsRoleArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidCloudWatchLogsRoleArnExceptionResponse(
           parsedOutput,
@@ -2728,7 +2728,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "InvalidEventSelectorsException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidEventSelectorsException":
+    case "com.amazonaws.cloudtrail#InvalidEventSelectorsException":
       response = {
         ...(await deserializeAws_json1_1InvalidEventSelectorsExceptionResponse(
           parsedOutput,
@@ -2739,7 +2739,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "InvalidHomeRegionException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidHomeRegionException":
+    case "com.amazonaws.cloudtrail#InvalidHomeRegionException":
       response = {
         ...(await deserializeAws_json1_1InvalidHomeRegionExceptionResponse(
           parsedOutput,
@@ -2750,7 +2750,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "InvalidKmsKeyIdException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidKmsKeyIdException":
+    case "com.amazonaws.cloudtrail#InvalidKmsKeyIdException":
       response = {
         ...(await deserializeAws_json1_1InvalidKmsKeyIdExceptionResponse(
           parsedOutput,
@@ -2761,7 +2761,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "InvalidParameterCombinationException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidParameterCombinationException":
+    case "com.amazonaws.cloudtrail#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
           parsedOutput,
@@ -2772,7 +2772,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "InvalidS3BucketNameException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidS3BucketNameException":
+    case "com.amazonaws.cloudtrail#InvalidS3BucketNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidS3BucketNameExceptionResponse(
           parsedOutput,
@@ -2783,7 +2783,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "InvalidS3PrefixException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidS3PrefixException":
+    case "com.amazonaws.cloudtrail#InvalidS3PrefixException":
       response = {
         ...(await deserializeAws_json1_1InvalidS3PrefixExceptionResponse(
           parsedOutput,
@@ -2794,7 +2794,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "InvalidSnsTopicNameException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidSnsTopicNameException":
+    case "com.amazonaws.cloudtrail#InvalidSnsTopicNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidSnsTopicNameExceptionResponse(
           parsedOutput,
@@ -2805,7 +2805,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail.v20131101#InvalidTrailNameException":
+    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(
           parsedOutput,
@@ -2816,7 +2816,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "KmsException":
-    case "com.amazonaws.cloudtrail.v20131101#KmsException":
+    case "com.amazonaws.cloudtrail#KmsException":
       response = {
         ...(await deserializeAws_json1_1KmsExceptionResponse(
           parsedOutput,
@@ -2827,7 +2827,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "KmsKeyDisabledException":
-    case "com.amazonaws.cloudtrail.v20131101#KmsKeyDisabledException":
+    case "com.amazonaws.cloudtrail#KmsKeyDisabledException":
       response = {
         ...(await deserializeAws_json1_1KmsKeyDisabledExceptionResponse(
           parsedOutput,
@@ -2838,7 +2838,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "KmsKeyNotFoundException":
-    case "com.amazonaws.cloudtrail.v20131101#KmsKeyNotFoundException":
+    case "com.amazonaws.cloudtrail#KmsKeyNotFoundException":
       response = {
         ...(await deserializeAws_json1_1KmsKeyNotFoundExceptionResponse(
           parsedOutput,
@@ -2849,7 +2849,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail.v20131101#NotOrganizationMasterAccountException":
+    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       response = {
         ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(
           parsedOutput,
@@ -2860,7 +2860,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail.v20131101#OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -2871,7 +2871,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "OrganizationNotInAllFeaturesModeException":
-    case "com.amazonaws.cloudtrail.v20131101#OrganizationNotInAllFeaturesModeException":
+    case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse(
           parsedOutput,
@@ -2882,7 +2882,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "OrganizationsNotInUseException":
-    case "com.amazonaws.cloudtrail.v20131101#OrganizationsNotInUseException":
+    case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1OrganizationsNotInUseExceptionResponse(
           parsedOutput,
@@ -2893,7 +2893,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "S3BucketDoesNotExistException":
-    case "com.amazonaws.cloudtrail.v20131101#S3BucketDoesNotExistException":
+    case "com.amazonaws.cloudtrail#S3BucketDoesNotExistException":
       response = {
         ...(await deserializeAws_json1_1S3BucketDoesNotExistExceptionResponse(
           parsedOutput,
@@ -2904,7 +2904,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "TrailNotFoundException":
-    case "com.amazonaws.cloudtrail.v20131101#TrailNotFoundException":
+    case "com.amazonaws.cloudtrail#TrailNotFoundException":
       response = {
         ...(await deserializeAws_json1_1TrailNotFoundExceptionResponse(
           parsedOutput,
@@ -2915,7 +2915,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "TrailNotProvidedException":
-    case "com.amazonaws.cloudtrail.v20131101#TrailNotProvidedException":
+    case "com.amazonaws.cloudtrail#TrailNotProvidedException":
       response = {
         ...(await deserializeAws_json1_1TrailNotProvidedExceptionResponse(
           parsedOutput,
@@ -2926,7 +2926,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail.v20131101#UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -2953,24 +2953,6 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-const deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<CloudTrailARNInvalidException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CloudTrailARNInvalidException(
-    body,
-    context
-  );
-  const contents: CloudTrailARNInvalidException = {
-    name: "CloudTrailARNInvalidException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
 const deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2982,6 +2964,24 @@ const deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse = async 
   );
   const contents: CloudTrailAccessNotEnabledException = {
     name: "CloudTrailAccessNotEnabledException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CloudTrailARNInvalidException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1CloudTrailARNInvalidException(
+    body,
+    context
+  );
+  const contents: CloudTrailARNInvalidException = {
+    name: "CloudTrailARNInvalidException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3768,18 +3768,18 @@ const serializeAws_json1_1DataResource = (
   };
 };
 
-const serializeAws_json1_1DataResourceValues = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
 const serializeAws_json1_1DataResources = (
   input: DataResource[],
   context: __SerdeContext
 ): any => {
   return input.map(entry => serializeAws_json1_1DataResource(entry, context));
+};
+
+const serializeAws_json1_1DataResourceValues = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1DeleteTrailRequest = (
@@ -4121,12 +4121,12 @@ const deserializeAws_json1_1AddTagsResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1CloudTrailARNInvalidException = (
+const deserializeAws_json1_1CloudTrailAccessNotEnabledException = (
   output: any,
   context: __SerdeContext
-): CloudTrailARNInvalidException => {
+): CloudTrailAccessNotEnabledException => {
   return {
-    __type: "CloudTrailARNInvalidException",
+    __type: "CloudTrailAccessNotEnabledException",
     Message:
       output.Message !== undefined && output.Message !== null
         ? output.Message
@@ -4134,12 +4134,12 @@ const deserializeAws_json1_1CloudTrailARNInvalidException = (
   } as any;
 };
 
-const deserializeAws_json1_1CloudTrailAccessNotEnabledException = (
+const deserializeAws_json1_1CloudTrailARNInvalidException = (
   output: any,
   context: __SerdeContext
-): CloudTrailAccessNotEnabledException => {
+): CloudTrailARNInvalidException => {
   return {
-    __type: "CloudTrailAccessNotEnabledException",
+    __type: "CloudTrailARNInvalidException",
     Message:
       output.Message !== undefined && output.Message !== null
         ? output.Message
@@ -4244,13 +4244,6 @@ const deserializeAws_json1_1DataResource = (
   } as any;
 };
 
-const deserializeAws_json1_1DataResourceValues = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
 const deserializeAws_json1_1DataResources = (
   output: any,
   context: __SerdeContext
@@ -4258,6 +4251,13 @@ const deserializeAws_json1_1DataResources = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DataResource(entry, context)
   );
+};
+
+const deserializeAws_json1_1DataResourceValues = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1DeleteTrailResponse = (

@@ -5,9 +5,9 @@ import {
 } from "../ConnectClient";
 import { UpdateUserIdentityInfoRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateUserIdentityInfoCommand,
-  serializeAws_restJson1_1UpdateUserIdentityInfoCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateUserIdentityInfoCommand,
+  serializeAws_restJson1UpdateUserIdentityInfoCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,17 +70,14 @@ export class UpdateUserIdentityInfoCommand extends $Command<
     input: UpdateUserIdentityInfoCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateUserIdentityInfoCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1UpdateUserIdentityInfoCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateUserIdentityInfoCommandOutput> {
-    return deserializeAws_restJson1_1UpdateUserIdentityInfoCommand(
+    return deserializeAws_restJson1UpdateUserIdentityInfoCommand(
       output,
       context
     );

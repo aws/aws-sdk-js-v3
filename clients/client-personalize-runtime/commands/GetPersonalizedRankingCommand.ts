@@ -8,9 +8,9 @@ import {
   GetPersonalizedRankingResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetPersonalizedRankingCommand,
-  serializeAws_restJson1_1GetPersonalizedRankingCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetPersonalizedRankingCommand,
+  serializeAws_restJson1GetPersonalizedRankingCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetPersonalizedRankingCommand extends $Command<
     input: GetPersonalizedRankingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetPersonalizedRankingCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1GetPersonalizedRankingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPersonalizedRankingCommandOutput> {
-    return deserializeAws_restJson1_1GetPersonalizedRankingCommand(
+    return deserializeAws_restJson1GetPersonalizedRankingCommand(
       output,
       context
     );

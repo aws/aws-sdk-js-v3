@@ -5,9 +5,9 @@ import {
 } from "../WorkDocsClient";
 import { GetResourcesRequest, GetResourcesResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetResourcesCommand,
-  serializeAws_restJson1_1GetResourcesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetResourcesCommand,
+  serializeAws_restJson1GetResourcesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetResourcesCommand extends $Command<
     input: GetResourcesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetResourcesCommand(input, context);
+    return serializeAws_restJson1GetResourcesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetResourcesCommandOutput> {
-    return deserializeAws_restJson1_1GetResourcesCommand(output, context);
+    return deserializeAws_restJson1GetResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra
