@@ -5,7 +5,7 @@ import {
 import { retryMiddleware } from "./retryMiddleware";
 import { resolveRetryConfig } from "./configurations";
 import * as delayDeciderModule from "./delayDecider";
-import { ExponentialBackOffStrategy, RetryDecider } from "./defaultStrategy";
+import { StandardRetryStrategy, RetryDecider } from "./defaultStrategy";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { SdkError } from "@aws-sdk/smithy-client";
 
@@ -75,7 +75,7 @@ describe("retryMiddleware", () => {
       "defaultDelayDecider"
     );
     const retryDecider: RetryDecider = (error: SdkError) => true;
-    const strategy = new ExponentialBackOffStrategy(maxAttempts, retryDecider);
+    const strategy = new StandardRetryStrategy(maxAttempts, retryDecider);
     const retryHandler = retryMiddleware({
       maxAttempts,
       retryStrategy: strategy
