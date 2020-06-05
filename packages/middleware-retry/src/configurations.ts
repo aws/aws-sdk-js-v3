@@ -1,5 +1,5 @@
 import { RetryStrategy } from "@aws-sdk/types";
-import { ExponentialBackOffStrategy } from "./defaultStrategy";
+import { StandardRetryStrategy } from "./defaultStrategy";
 
 export interface RetryInputConfig {
   /**
@@ -11,10 +11,12 @@ export interface RetryInputConfig {
    */
   retryStrategy?: RetryStrategy;
 }
+
 export interface RetryResolvedConfig {
   maxAttempts: number;
   retryStrategy: RetryStrategy;
 }
+
 export function resolveRetryConfig<T>(
   input: T & RetryInputConfig
 ): T & RetryResolvedConfig {
@@ -22,7 +24,6 @@ export function resolveRetryConfig<T>(
   return {
     ...input,
     maxAttempts,
-    retryStrategy:
-      input.retryStrategy || new ExponentialBackOffStrategy(maxAttempts)
+    retryStrategy: input.retryStrategy || new StandardRetryStrategy(maxAttempts)
   };
 }

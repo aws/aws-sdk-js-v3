@@ -33,7 +33,7 @@ export interface DelayDecider {
   (delayBase: number, attempts: number): number;
 }
 
-export class ExponentialBackOffStrategy implements RetryStrategy {
+export class StandardRetryStrategy implements RetryStrategy {
   constructor(
     public readonly maxAttempts: number,
     private retryDecider: RetryDecider = defaultRetryDecider,
