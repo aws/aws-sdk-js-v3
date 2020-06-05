@@ -12,35 +12,50 @@ describe("defaultDelayDecider", () => {
     Math.random = mathDotRandom;
   });
 
-  it("should return a value that increases exponentially with the number of retries", () => {
-    for (const [retryCount, expectedDelay] of [
-      [0, 100],
-      [1, 200],
-      [2, 400],
-      [3, 800],
-      [7, 12800]
-    ]) {
-      expect(defaultDelayDecider(100, retryCount)).toBe(expectedDelay);
-    }
+  describe(`retry delay increases exponentially with attempt number`, () => {
+    [0, 1, 2, 3].forEach(attempts => {
+      const mockDelayBase = 100;
+      const expectedDelay = Math.floor(2 ** attempts * mockDelayBase);
+      it(`(${mockDelayBase}, ${attempts}) returns ${expectedDelay}`, () => {
+        expect(defaultDelayDecider(mockDelayBase, attempts)).toBe(
+          expectedDelay
+        );
+      });
+    });
   });
 
-  it("should cap the retry delay at 20 seconds", () => {
-    for (const retryCount of [10, 100, 100000]) {
-      expect(defaultDelayDecider(100, retryCount)).toBe(MAXIMUM_RETRY_DELAY);
-    }
+  describe(`caps retry delay at ${MAXIMUM_RETRY_DELAY / 1000} seconds`, () => {
+    it("when value exceeded because of high delayBase", () => {
+      expect(defaultDelayDecider(MAXIMUM_RETRY_DELAY + 1, 0)).toBe(
+        MAXIMUM_RETRY_DELAY
+      );
+      expect(defaultDelayDecider(MAXIMUM_RETRY_DELAY + 2, 0)).toBe(
+        MAXIMUM_RETRY_DELAY
+      );
+    });
+
+    it("when value exceeded because of high attempts number", () => {
+      const largeAttemptsNumber = Math.ceil(Math.log2(MAXIMUM_RETRY_DELAY));
+      expect(defaultDelayDecider(1, largeAttemptsNumber)).toBe(
+        MAXIMUM_RETRY_DELAY
+      );
+      expect(defaultDelayDecider(1, largeAttemptsNumber + 1)).toBe(
+        MAXIMUM_RETRY_DELAY
+      );
+    });
   });
 
-  it("should randomize the delay value", () => {
-    Math.random = jest.fn().mockReturnValueOnce(0.25);
-    expect(defaultDelayDecider(100, 0)).toBe(25);
-
-    Math.random = jest.fn().mockReturnValueOnce(0.5);
-    expect(defaultDelayDecider(100, 0)).toBe(50);
-
-    Math.random = jest.fn().mockReturnValueOnce(0.75);
-    expect(defaultDelayDecider(100, 0)).toBe(75);
-
-    Math.random = jest.fn().mockReturnValueOnce(1);
-    expect(defaultDelayDecider(100, 0)).toBe(100);
+  describe("randomizes the retry delay value", () => {
+    Array.from({ length: 3 }, () => Math.random()).forEach(mockRandomValue => {
+      const attempts = 0;
+      const delayBase = 100;
+      const expectedDelay = Math.floor(
+        mockRandomValue * 2 ** attempts * delayBase
+      );
+      it(`(${delayBase}, ${attempts}) with mock Math.random=${mockRandomValue} returns ${expectedDelay}`, () => {
+        Math.random = jest.fn().mockReturnValue(mockRandomValue);
+        expect(defaultDelayDecider(delayBase, attempts)).toBe(expectedDelay);
+      });
+    });
   });
 });
