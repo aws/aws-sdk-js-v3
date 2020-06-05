@@ -1654,6 +1654,7 @@ export interface InternalServerErrorException
     $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
+  $retryable: {};
   message?: string;
 }
 
@@ -2549,6 +2550,7 @@ export interface ServiceUnavailableException
     $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
+  $retryable: {};
   message?: string;
 }
 
