@@ -19,7 +19,7 @@ describe("retryMiddleware", () => {
     const {
       output: { $metadata }
     } = await retryHandler({ input: {}, request: new HttpRequest({}) });
-    expect($metadata.retries).toBe(0);
+    expect($metadata.attempts).toBe(1);
     expect($metadata.totalRetryDelay).toBe(0);
 
     expect(next.mock.calls.length).toBe(1);

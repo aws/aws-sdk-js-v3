@@ -52,7 +52,7 @@ export class ExponentialBackOffStrategy implements RetryStrategy {
     while (true) {
       try {
         const { response, output } = await next(args);
-        output.$metadata.retries = attempts;
+        output.$metadata.attempts = attempts + 1;
         output.$metadata.totalRetryDelay = totalDelay;
 
         return { response, output };
@@ -75,7 +75,7 @@ export class ExponentialBackOffStrategy implements RetryStrategy {
           err.$metadata = {};
         }
 
-        err.$metadata.retries = attempts;
+        err.$metadata.attempts = attempts;
         err.$metadata.totalRetryDelay = totalDelay;
         throw err;
       }
