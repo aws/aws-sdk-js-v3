@@ -33,12 +33,26 @@ export interface DelayDecider {
   (delayBase: number, attempts: number): number;
 }
 
+/**
+ * Strategy options to be passed to StandardRetryStrategy
+ */
+export interface StandardRetryStrategyOptions {
+  retryDecider?: RetryDecider;
+  delayDecider?: DelayDecider;
+}
+
 export class StandardRetryStrategy implements RetryStrategy {
+  private retryDecider: RetryDecider;
+  private delayDecider: DelayDecider;
+
   constructor(
     public readonly maxAttempts: number,
-    private retryDecider: RetryDecider = defaultRetryDecider,
-    private delayDecider: DelayDecider = defaultDelayDecider
-  ) {}
+    options?: StandardRetryStrategyOptions
+  ) {
+    this.retryDecider = options?.retryDecider ?? defaultRetryDecider;
+    this.delayDecider = options?.delayDecider ?? defaultDelayDecider;
+  }
+
   private shouldRetry(error: SdkError, attempts: number) {
     return attempts < this.maxAttempts && this.retryDecider(error);
   }

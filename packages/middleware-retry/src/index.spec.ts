@@ -75,7 +75,7 @@ describe("retryMiddleware", () => {
       "defaultDelayDecider"
     );
     const retryDecider: RetryDecider = (error: SdkError) => true;
-    const strategy = new StandardRetryStrategy(maxAttempts, retryDecider);
+    const strategy = new StandardRetryStrategy(maxAttempts, { retryDecider });
     const retryHandler = retryMiddleware({
       maxAttempts,
       retryStrategy: strategy
