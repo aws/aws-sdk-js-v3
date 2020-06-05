@@ -17,13 +17,13 @@ export interface RetryResolvedConfig {
   retryStrategy: RetryStrategy;
 }
 
-export function resolveRetryConfig<T>(
+export const resolveRetryConfig = <T>(
   input: T & RetryInputConfig
-): T & RetryResolvedConfig {
-  const maxAttempts = input.maxAttempts === undefined ? 3 : input.maxAttempts;
+): T & RetryResolvedConfig => {
+  const maxAttempts = input.maxAttempts ?? 3;
   return {
     ...input,
     maxAttempts,
     retryStrategy: input.retryStrategy || new StandardRetryStrategy(maxAttempts)
   };
-}
+};
