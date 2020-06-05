@@ -886,46 +886,6 @@ export namespace EC2Specification {
 }
 
 /**
- * <p>Details about the Amazon ES instances that AWS recommends that you
- *             purchase.</p>
- */
-export interface ESInstanceDetails {
-  __type?: "ESInstanceDetails";
-  /**
-   * <p>Whether the recommendation is for a current-generation instance.</p>
-   */
-  CurrentGeneration?: boolean;
-
-  /**
-   * <p>The class of instance that AWS recommends.</p>
-   */
-  InstanceClass?: string;
-
-  /**
-   * <p>The size of instance that AWS recommends.</p>
-   */
-  InstanceSize?: string;
-
-  /**
-   * <p>The AWS Region of the recommended reservation.</p>
-   */
-  Region?: string;
-
-  /**
-   * <p>Whether the recommended reservation is size flexible.</p>
-   */
-  SizeFlexEligible?: boolean;
-}
-
-export namespace ESInstanceDetails {
-  export const filterSensitiveLog = (obj: ESInstanceDetails): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ESInstanceDetails =>
-    __isa(o, "ESInstanceDetails");
-}
-
-/**
  * <p>Details about the Amazon ElastiCache instances that AWS recommends that you
  *             purchase.</p>
  */
@@ -968,6 +928,46 @@ export namespace ElastiCacheInstanceDetails {
   });
   export const isa = (o: any): o is ElastiCacheInstanceDetails =>
     __isa(o, "ElastiCacheInstanceDetails");
+}
+
+/**
+ * <p>Details about the Amazon ES instances that AWS recommends that you
+ *             purchase.</p>
+ */
+export interface ESInstanceDetails {
+  __type?: "ESInstanceDetails";
+  /**
+   * <p>Whether the recommendation is for a current-generation instance.</p>
+   */
+  CurrentGeneration?: boolean;
+
+  /**
+   * <p>The class of instance that AWS recommends.</p>
+   */
+  InstanceClass?: string;
+
+  /**
+   * <p>The size of instance that AWS recommends.</p>
+   */
+  InstanceSize?: string;
+
+  /**
+   * <p>The AWS Region of the recommended reservation.</p>
+   */
+  Region?: string;
+
+  /**
+   * <p>Whether the recommended reservation is size flexible.</p>
+   */
+  SizeFlexEligible?: boolean;
+}
+
+export namespace ESInstanceDetails {
+  export const filterSensitiveLog = (obj: ESInstanceDetails): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ESInstanceDetails =>
+    __isa(o, "ESInstanceDetails");
 }
 
 /**
@@ -4271,11 +4271,6 @@ export namespace TargetInstance {
     __isa(o, "TargetInstance");
 }
 
-export enum TermInYears {
-  ONE_YEAR = "ONE_YEAR",
-  THREE_YEARS = "THREE_YEARS"
-}
-
 /**
  * <p> Details on termination recommendation.  </p>
  */
@@ -4300,6 +4295,11 @@ export namespace TerminateRecommendationDetail {
   });
   export const isa = (o: any): o is TerminateRecommendationDetail =>
     __isa(o, "TerminateRecommendationDetail");
+}
+
+export enum TermInYears {
+  ONE_YEAR = "ONE_YEAR",
+  THREE_YEARS = "THREE_YEARS"
 }
 
 /**

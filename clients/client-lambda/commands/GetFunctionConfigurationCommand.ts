@@ -8,9 +8,9 @@ import {
   GetFunctionConfigurationRequest
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetFunctionConfigurationCommand,
-  serializeAws_restJson1_1GetFunctionConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetFunctionConfigurationCommand,
+  serializeAws_restJson1GetFunctionConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetFunctionConfigurationCommand extends $Command<
     input: GetFunctionConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetFunctionConfigurationCommand(
+    return serializeAws_restJson1GetFunctionConfigurationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetFunctionConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFunctionConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1GetFunctionConfigurationCommand(
+    return deserializeAws_restJson1GetFunctionConfigurationCommand(
       output,
       context
     );

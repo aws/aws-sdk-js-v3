@@ -7613,6 +7613,43 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Deletes one or more specified VPC endpoints. Deleting a gateway endpoint also deletes
+   *             the endpoint routes in the route tables that were associated with the endpoint. Deleting
+   *             an interface endpoint deletes the endpoint network interfaces.</p>
+   */
+  public deleteVpcEndpoints(
+    args: DeleteVpcEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVpcEndpointsCommandOutput>;
+  public deleteVpcEndpoints(
+    args: DeleteVpcEndpointsCommandInput,
+    cb: (err: any, data?: DeleteVpcEndpointsCommandOutput) => void
+  ): void;
+  public deleteVpcEndpoints(
+    args: DeleteVpcEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVpcEndpointsCommandOutput) => void
+  ): void;
+  public deleteVpcEndpoints(
+    args: DeleteVpcEndpointsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteVpcEndpointsCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVpcEndpointsCommandOutput) => void
+  ): Promise<DeleteVpcEndpointsCommandOutput> | void {
+    const command = new DeleteVpcEndpointsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes one or more VPC endpoint service configurations in your account. Before you
    *             delete the endpoint service configuration, you must reject any <code>Available</code> or
    *                 <code>PendingAcceptance</code> interface endpoint connections that are attached to
@@ -7651,43 +7688,6 @@ export class EC2 extends EC2Client {
     ) => void
   ): Promise<DeleteVpcEndpointServiceConfigurationsCommandOutput> | void {
     const command = new DeleteVpcEndpointServiceConfigurationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes one or more specified VPC endpoints. Deleting a gateway endpoint also deletes
-   *             the endpoint routes in the route tables that were associated with the endpoint. Deleting
-   *             an interface endpoint deletes the endpoint network interfaces.</p>
-   */
-  public deleteVpcEndpoints(
-    args: DeleteVpcEndpointsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteVpcEndpointsCommandOutput>;
-  public deleteVpcEndpoints(
-    args: DeleteVpcEndpointsCommandInput,
-    cb: (err: any, data?: DeleteVpcEndpointsCommandOutput) => void
-  ): void;
-  public deleteVpcEndpoints(
-    args: DeleteVpcEndpointsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteVpcEndpointsCommandOutput) => void
-  ): void;
-  public deleteVpcEndpoints(
-    args: DeleteVpcEndpointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVpcEndpointsCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVpcEndpointsCommandOutput) => void
-  ): Promise<DeleteVpcEndpointsCommandOutput> | void {
-    const command = new DeleteVpcEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -9280,6 +9280,59 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Describes the ID format settings for resources for the specified IAM user, IAM role, or root
+   *       user. For example, you can view the resource types that are enabled for longer IDs. This request only
+   *       returns information about resource types whose ID formats can be modified; it does not return
+   *       information about other resource types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. </p>
+   *          <p>The following resource types support longer IDs: <code>bundle</code> |
+   *           <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
+   *           <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
+   *           <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
+   *           <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> |
+   *           <code>network-acl</code> | <code>network-acl-association</code> |
+   *           <code>network-interface</code> | <code>network-interface-attachment</code> |
+   *           <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> |
+   *           <code>route-table-association</code> | <code>security-group</code> |
+   *           <code>snapshot</code> | <code>subnet</code> |
+   *           <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code>
+   *           | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> |
+   *           <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p>
+   *          <p>These settings apply to the principal specified in the request. They do not apply to the
+   *       principal that makes the request.</p>
+   */
+  public describeIdentityIdFormat(
+    args: DescribeIdentityIdFormatCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIdentityIdFormatCommandOutput>;
+  public describeIdentityIdFormat(
+    args: DescribeIdentityIdFormatCommandInput,
+    cb: (err: any, data?: DescribeIdentityIdFormatCommandOutput) => void
+  ): void;
+  public describeIdentityIdFormat(
+    args: DescribeIdentityIdFormatCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIdentityIdFormatCommandOutput) => void
+  ): void;
+  public describeIdentityIdFormat(
+    args: DescribeIdentityIdFormatCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeIdentityIdFormatCommandOutput) => void),
+    cb?: (err: any, data?: DescribeIdentityIdFormatCommandOutput) => void
+  ): Promise<DescribeIdentityIdFormatCommandOutput> | void {
+    const command = new DescribeIdentityIdFormatCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes the ID format settings for your resources on a per-Region basis, for example, to view which resource types are enabled for longer IDs. This request only returns information about resource types whose ID formats can be modified; it does not return information about other resource types.</p>
    *          <p>The following resource types support longer IDs: <code>bundle</code> |
    *            <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
@@ -9322,59 +9375,6 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DescribeIdFormatCommandOutput) => void
   ): Promise<DescribeIdFormatCommandOutput> | void {
     const command = new DescribeIdFormatCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Describes the ID format settings for resources for the specified IAM user, IAM role, or root
-   *       user. For example, you can view the resource types that are enabled for longer IDs. This request only
-   *       returns information about resource types whose ID formats can be modified; it does not return
-   *       information about other resource types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. </p>
-   *          <p>The following resource types support longer IDs: <code>bundle</code> |
-   *           <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
-   *           <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
-   *           <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
-   *           <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> |
-   *           <code>network-acl</code> | <code>network-acl-association</code> |
-   *           <code>network-interface</code> | <code>network-interface-attachment</code> |
-   *           <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> |
-   *           <code>route-table-association</code> | <code>security-group</code> |
-   *           <code>snapshot</code> | <code>subnet</code> |
-   *           <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code>
-   *           | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> |
-   *           <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p>
-   *          <p>These settings apply to the principal specified in the request. They do not apply to the
-   *       principal that makes the request.</p>
-   */
-  public describeIdentityIdFormat(
-    args: DescribeIdentityIdFormatCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeIdentityIdFormatCommandOutput>;
-  public describeIdentityIdFormat(
-    args: DescribeIdentityIdFormatCommandInput,
-    cb: (err: any, data?: DescribeIdentityIdFormatCommandOutput) => void
-  ): void;
-  public describeIdentityIdFormat(
-    args: DescribeIdentityIdFormatCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeIdentityIdFormatCommandOutput) => void
-  ): void;
-  public describeIdentityIdFormat(
-    args: DescribeIdentityIdFormatCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeIdentityIdFormatCommandOutput) => void),
-    cb?: (err: any, data?: DescribeIdentityIdFormatCommandOutput) => void
-  ): Promise<DescribeIdentityIdFormatCommandOutput> | void {
-    const command = new DescribeIdentityIdFormatCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -9640,6 +9640,53 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Describes the specified instances or all of AWS account's instances.</p>
+   *         <p>If you specify one or more instance IDs, Amazon EC2 returns information for those
+   *             instances. If you do not specify instance IDs, Amazon EC2 returns information for all
+   *             relevant instances. If you specify an instance ID that is not valid, an error is
+   *             returned. If you specify an instance that you do not own, it is not included in the
+   *             returned results.</p>
+   *         <p>Recently terminated instances might appear in the returned results. This interval is
+   *             usually less than one hour.</p>
+   *         <p>If you describe instances in the rare case where an Availability Zone is experiencing
+   *             a service disruption and you specify instance IDs that are in the affected zone, or do
+   *             not specify any instance IDs at all, the call fails. If you describe instances and
+   *             specify only instance IDs that are in an unaffected zone, the call works
+   *             normally.</p>
+   */
+  public describeInstances(
+    args: DescribeInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstancesCommandOutput>;
+  public describeInstances(
+    args: DescribeInstancesCommandInput,
+    cb: (err: any, data?: DescribeInstancesCommandOutput) => void
+  ): void;
+  public describeInstances(
+    args: DescribeInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstancesCommandOutput) => void
+  ): void;
+  public describeInstances(
+    args: DescribeInstancesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeInstancesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeInstancesCommandOutput) => void
+  ): Promise<DescribeInstancesCommandOutput> | void {
+    const command = new DescribeInstancesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes the status of the specified instances or all of your instances. By default,
    *             only running instances are described, unless you specifically indicate to return the
    *             status of all instances.</p>
@@ -9776,53 +9823,6 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Describes the specified instances or all of AWS account's instances.</p>
-   *         <p>If you specify one or more instance IDs, Amazon EC2 returns information for those
-   *             instances. If you do not specify instance IDs, Amazon EC2 returns information for all
-   *             relevant instances. If you specify an instance ID that is not valid, an error is
-   *             returned. If you specify an instance that you do not own, it is not included in the
-   *             returned results.</p>
-   *         <p>Recently terminated instances might appear in the returned results. This interval is
-   *             usually less than one hour.</p>
-   *         <p>If you describe instances in the rare case where an Availability Zone is experiencing
-   *             a service disruption and you specify instance IDs that are in the affected zone, or do
-   *             not specify any instance IDs at all, the call fails. If you describe instances and
-   *             specify only instance IDs that are in an unaffected zone, the call works
-   *             normally.</p>
-   */
-  public describeInstances(
-    args: DescribeInstancesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeInstancesCommandOutput>;
-  public describeInstances(
-    args: DescribeInstancesCommandInput,
-    cb: (err: any, data?: DescribeInstancesCommandOutput) => void
-  ): void;
-  public describeInstances(
-    args: DescribeInstancesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeInstancesCommandOutput) => void
-  ): void;
-  public describeInstances(
-    args: DescribeInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInstancesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeInstancesCommandOutput) => void
-  ): Promise<DescribeInstancesCommandOutput> | void {
-    const command = new DescribeInstancesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Describes one or more of your internet gateways.</p>
    */
   public describeInternetGateways(
@@ -9930,6 +9930,41 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Describes one or more launch templates.</p>
+   */
+  public describeLaunchTemplates(
+    args: DescribeLaunchTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLaunchTemplatesCommandOutput>;
+  public describeLaunchTemplates(
+    args: DescribeLaunchTemplatesCommandInput,
+    cb: (err: any, data?: DescribeLaunchTemplatesCommandOutput) => void
+  ): void;
+  public describeLaunchTemplates(
+    args: DescribeLaunchTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLaunchTemplatesCommandOutput) => void
+  ): void;
+  public describeLaunchTemplates(
+    args: DescribeLaunchTemplatesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeLaunchTemplatesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLaunchTemplatesCommandOutput) => void
+  ): Promise<DescribeLaunchTemplatesCommandOutput> | void {
+    const command = new DescribeLaunchTemplatesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes one or more versions of a specified launch template. You can describe all
    *             versions, individual versions, or a range of versions.</p>
    */
@@ -9969,29 +10004,33 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Describes one or more launch templates.</p>
+   * <p>Describes one or more local gateway route tables. By default, all local gateway route tables are described.
+   *          Alternatively, you can filter the results.</p>
    */
-  public describeLaunchTemplates(
-    args: DescribeLaunchTemplatesCommandInput,
+  public describeLocalGatewayRouteTables(
+    args: DescribeLocalGatewayRouteTablesCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeLaunchTemplatesCommandOutput>;
-  public describeLaunchTemplates(
-    args: DescribeLaunchTemplatesCommandInput,
-    cb: (err: any, data?: DescribeLaunchTemplatesCommandOutput) => void
+  ): Promise<DescribeLocalGatewayRouteTablesCommandOutput>;
+  public describeLocalGatewayRouteTables(
+    args: DescribeLocalGatewayRouteTablesCommandInput,
+    cb: (err: any, data?: DescribeLocalGatewayRouteTablesCommandOutput) => void
   ): void;
-  public describeLaunchTemplates(
-    args: DescribeLaunchTemplatesCommandInput,
+  public describeLocalGatewayRouteTables(
+    args: DescribeLocalGatewayRouteTablesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeLaunchTemplatesCommandOutput) => void
+    cb: (err: any, data?: DescribeLocalGatewayRouteTablesCommandOutput) => void
   ): void;
-  public describeLaunchTemplates(
-    args: DescribeLaunchTemplatesCommandInput,
+  public describeLocalGatewayRouteTables(
+    args: DescribeLocalGatewayRouteTablesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLaunchTemplatesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeLaunchTemplatesCommandOutput) => void
-  ): Promise<DescribeLaunchTemplatesCommandOutput> | void {
-    const command = new DescribeLaunchTemplatesCommand(args);
+      | ((
+          err: any,
+          data?: DescribeLocalGatewayRouteTablesCommandOutput
+        ) => void),
+    cb?: (err: any, data?: DescribeLocalGatewayRouteTablesCommandOutput) => void
+  ): Promise<DescribeLocalGatewayRouteTablesCommandOutput> | void {
+    const command = new DescribeLocalGatewayRouteTablesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -10108,33 +10147,30 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Describes one or more local gateway route tables. By default, all local gateway route tables are described.
-   *          Alternatively, you can filter the results.</p>
+   * <p>Describes one or more local gateways. By default, all local gateways are described.
+   *         Alternatively, you can filter the results.</p>
    */
-  public describeLocalGatewayRouteTables(
-    args: DescribeLocalGatewayRouteTablesCommandInput,
+  public describeLocalGateways(
+    args: DescribeLocalGatewaysCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeLocalGatewayRouteTablesCommandOutput>;
-  public describeLocalGatewayRouteTables(
-    args: DescribeLocalGatewayRouteTablesCommandInput,
-    cb: (err: any, data?: DescribeLocalGatewayRouteTablesCommandOutput) => void
+  ): Promise<DescribeLocalGatewaysCommandOutput>;
+  public describeLocalGateways(
+    args: DescribeLocalGatewaysCommandInput,
+    cb: (err: any, data?: DescribeLocalGatewaysCommandOutput) => void
   ): void;
-  public describeLocalGatewayRouteTables(
-    args: DescribeLocalGatewayRouteTablesCommandInput,
+  public describeLocalGateways(
+    args: DescribeLocalGatewaysCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeLocalGatewayRouteTablesCommandOutput) => void
+    cb: (err: any, data?: DescribeLocalGatewaysCommandOutput) => void
   ): void;
-  public describeLocalGatewayRouteTables(
-    args: DescribeLocalGatewayRouteTablesCommandInput,
+  public describeLocalGateways(
+    args: DescribeLocalGatewaysCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeLocalGatewayRouteTablesCommandOutput
-        ) => void),
-    cb?: (err: any, data?: DescribeLocalGatewayRouteTablesCommandOutput) => void
-  ): Promise<DescribeLocalGatewayRouteTablesCommandOutput> | void {
-    const command = new DescribeLocalGatewayRouteTablesCommand(args);
+      | ((err: any, data?: DescribeLocalGatewaysCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLocalGatewaysCommandOutput) => void
+  ): Promise<DescribeLocalGatewaysCommandOutput> | void {
+    const command = new DescribeLocalGatewaysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -10229,42 +10265,6 @@ export class EC2 extends EC2Client {
     ) => void
   ): Promise<DescribeLocalGatewayVirtualInterfacesCommandOutput> | void {
     const command = new DescribeLocalGatewayVirtualInterfacesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Describes one or more local gateways. By default, all local gateways are described.
-   *         Alternatively, you can filter the results.</p>
-   */
-  public describeLocalGateways(
-    args: DescribeLocalGatewaysCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeLocalGatewaysCommandOutput>;
-  public describeLocalGateways(
-    args: DescribeLocalGatewaysCommandInput,
-    cb: (err: any, data?: DescribeLocalGatewaysCommandOutput) => void
-  ): void;
-  public describeLocalGateways(
-    args: DescribeLocalGatewaysCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeLocalGatewaysCommandOutput) => void
-  ): void;
-  public describeLocalGateways(
-    args: DescribeLocalGatewaysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLocalGatewaysCommandOutput) => void),
-    cb?: (err: any, data?: DescribeLocalGatewaysCommandOutput) => void
-  ): Promise<DescribeLocalGatewaysCommandOutput> | void {
-    const command = new DescribeLocalGatewaysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -11866,6 +11866,42 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Describes one or more transit gateways. By default, all transit gateways are described. Alternatively, you can
+   *          filter the results.</p>
+   */
+  public describeTransitGateways(
+    args: DescribeTransitGatewaysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTransitGatewaysCommandOutput>;
+  public describeTransitGateways(
+    args: DescribeTransitGatewaysCommandInput,
+    cb: (err: any, data?: DescribeTransitGatewaysCommandOutput) => void
+  ): void;
+  public describeTransitGateways(
+    args: DescribeTransitGatewaysCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTransitGatewaysCommandOutput) => void
+  ): void;
+  public describeTransitGateways(
+    args: DescribeTransitGatewaysCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeTransitGatewaysCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTransitGatewaysCommandOutput) => void
+  ): Promise<DescribeTransitGatewaysCommandOutput> | void {
+    const command = new DescribeTransitGatewaysCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes one or more VPC attachments. By default, all VPC attachments are described.
    *          Alternatively, you can filter the results.</p>
    */
@@ -11914,42 +11950,6 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Describes one or more transit gateways. By default, all transit gateways are described. Alternatively, you can
-   *          filter the results.</p>
-   */
-  public describeTransitGateways(
-    args: DescribeTransitGatewaysCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeTransitGatewaysCommandOutput>;
-  public describeTransitGateways(
-    args: DescribeTransitGatewaysCommandInput,
-    cb: (err: any, data?: DescribeTransitGatewaysCommandOutput) => void
-  ): void;
-  public describeTransitGateways(
-    args: DescribeTransitGatewaysCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeTransitGatewaysCommandOutput) => void
-  ): void;
-  public describeTransitGateways(
-    args: DescribeTransitGatewaysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTransitGatewaysCommandOutput) => void),
-    cb?: (err: any, data?: DescribeTransitGatewaysCommandOutput) => void
-  ): Promise<DescribeTransitGatewaysCommandOutput> | void {
-    const command = new DescribeTransitGatewaysCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Describes the specified attribute of the specified volume. You can specify only one
    *       attribute at a time.</p>
    *          <p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon EBS Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -11975,74 +11975,6 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DescribeVolumeAttributeCommandOutput) => void
   ): Promise<DescribeVolumeAttributeCommandOutput> | void {
     const command = new DescribeVolumeAttributeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Describes the status of the specified volumes. Volume status provides the result of the
-   *       checks performed on your volumes to determine events that can impair the performance of your
-   *       volumes. The performance of a volume can be affected if an issue occurs on the volume's
-   *       underlying host. If the volume's underlying host experiences a power outage or system issue,
-   *       after the system is restored, there could be data inconsistencies on the volume. Volume events
-   *       notify you if this occurs. Volume actions notify you if any action needs to be taken in
-   *       response to the event.</p>
-   *          <p>The <code>DescribeVolumeStatus</code> operation provides the following information about
-   *       the specified volumes:</p>
-   *          <p>
-   *             <i>Status</i>: Reflects the current status of the volume. The possible
-   *       values are <code>ok</code>, <code>impaired</code> , <code>warning</code>, or
-   *         <code>insufficient-data</code>. If all checks pass, the overall status of the volume is
-   *         <code>ok</code>. If the check fails, the overall status is <code>impaired</code>. If the
-   *       status is <code>insufficient-data</code>, then the checks may still be taking place on your
-   *       volume at the time. We recommend that you retry the request. For more information about volume
-   *       status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitoring the Status of Your Volumes</a> in the
-   *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          <p>
-   *             <i>Events</i>: Reflect the cause of a volume status and may require you to
-   *       take action. For example, if your volume returns an <code>impaired</code> status, then the
-   *       volume event might be <code>potential-data-inconsistency</code>. This means that your volume
-   *       has been affected by an issue with the underlying host, has all I/O operations disabled, and
-   *       may have inconsistent data.</p>
-   *          <p>
-   *             <i>Actions</i>: Reflect the actions you may have to take in response to an
-   *       event. For example, if the status of the volume is <code>impaired</code> and the volume event
-   *       shows <code>potential-data-inconsistency</code>, then the action shows
-   *         <code>enable-volume-io</code>. This means that you may want to enable the I/O operations for
-   *       the volume by calling the <a>EnableVolumeIO</a> action and then check the volume
-   *       for data consistency.</p>
-   *          <p>Volume status is based on the volume status checks, and does not reflect the volume state.
-   *       Therefore, volume status does not indicate volumes in the <code>error</code> state (for
-   *       example, when a volume is incapable of accepting I/O.)</p>
-   */
-  public describeVolumeStatus(
-    args: DescribeVolumeStatusCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeVolumeStatusCommandOutput>;
-  public describeVolumeStatus(
-    args: DescribeVolumeStatusCommandInput,
-    cb: (err: any, data?: DescribeVolumeStatusCommandOutput) => void
-  ): void;
-  public describeVolumeStatus(
-    args: DescribeVolumeStatusCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeVolumeStatusCommandOutput) => void
-  ): void;
-  public describeVolumeStatus(
-    args: DescribeVolumeStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVolumeStatusCommandOutput) => void),
-    cb?: (err: any, data?: DescribeVolumeStatusCommandOutput) => void
-  ): Promise<DescribeVolumeStatusCommandOutput> | void {
-    const command = new DescribeVolumeStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -12130,6 +12062,74 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DescribeVolumesModificationsCommandOutput) => void
   ): Promise<DescribeVolumesModificationsCommandOutput> | void {
     const command = new DescribeVolumesModificationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the status of the specified volumes. Volume status provides the result of the
+   *       checks performed on your volumes to determine events that can impair the performance of your
+   *       volumes. The performance of a volume can be affected if an issue occurs on the volume's
+   *       underlying host. If the volume's underlying host experiences a power outage or system issue,
+   *       after the system is restored, there could be data inconsistencies on the volume. Volume events
+   *       notify you if this occurs. Volume actions notify you if any action needs to be taken in
+   *       response to the event.</p>
+   *          <p>The <code>DescribeVolumeStatus</code> operation provides the following information about
+   *       the specified volumes:</p>
+   *          <p>
+   *             <i>Status</i>: Reflects the current status of the volume. The possible
+   *       values are <code>ok</code>, <code>impaired</code> , <code>warning</code>, or
+   *         <code>insufficient-data</code>. If all checks pass, the overall status of the volume is
+   *         <code>ok</code>. If the check fails, the overall status is <code>impaired</code>. If the
+   *       status is <code>insufficient-data</code>, then the checks may still be taking place on your
+   *       volume at the time. We recommend that you retry the request. For more information about volume
+   *       status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitoring the Status of Your Volumes</a> in the
+   *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>
+   *             <i>Events</i>: Reflect the cause of a volume status and may require you to
+   *       take action. For example, if your volume returns an <code>impaired</code> status, then the
+   *       volume event might be <code>potential-data-inconsistency</code>. This means that your volume
+   *       has been affected by an issue with the underlying host, has all I/O operations disabled, and
+   *       may have inconsistent data.</p>
+   *          <p>
+   *             <i>Actions</i>: Reflect the actions you may have to take in response to an
+   *       event. For example, if the status of the volume is <code>impaired</code> and the volume event
+   *       shows <code>potential-data-inconsistency</code>, then the action shows
+   *         <code>enable-volume-io</code>. This means that you may want to enable the I/O operations for
+   *       the volume by calling the <a>EnableVolumeIO</a> action and then check the volume
+   *       for data consistency.</p>
+   *          <p>Volume status is based on the volume status checks, and does not reflect the volume state.
+   *       Therefore, volume status does not indicate volumes in the <code>error</code> state (for
+   *       example, when a volume is incapable of accepting I/O.)</p>
+   */
+  public describeVolumeStatus(
+    args: DescribeVolumeStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVolumeStatusCommandOutput>;
+  public describeVolumeStatus(
+    args: DescribeVolumeStatusCommandInput,
+    cb: (err: any, data?: DescribeVolumeStatusCommandOutput) => void
+  ): void;
+  public describeVolumeStatus(
+    args: DescribeVolumeStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVolumeStatusCommandOutput) => void
+  ): void;
+  public describeVolumeStatus(
+    args: DescribeVolumeStatusCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeVolumeStatusCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVolumeStatusCommandOutput) => void
+  ): Promise<DescribeVolumeStatusCommandOutput> | void {
+    const command = new DescribeVolumeStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -12344,6 +12344,41 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Describes one or more of your VPC endpoints.</p>
+   */
+  public describeVpcEndpoints(
+    args: DescribeVpcEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVpcEndpointsCommandOutput>;
+  public describeVpcEndpoints(
+    args: DescribeVpcEndpointsCommandInput,
+    cb: (err: any, data?: DescribeVpcEndpointsCommandOutput) => void
+  ): void;
+  public describeVpcEndpoints(
+    args: DescribeVpcEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVpcEndpointsCommandOutput) => void
+  ): void;
+  public describeVpcEndpoints(
+    args: DescribeVpcEndpointsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeVpcEndpointsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVpcEndpointsCommandOutput) => void
+  ): Promise<DescribeVpcEndpointsCommandOutput> | void {
+    const command = new DescribeVpcEndpointsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes the VPC endpoint service configurations in your account (your services).</p>
    */
   public describeVpcEndpointServiceConfigurations(
@@ -12462,41 +12497,6 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DescribeVpcEndpointServicesCommandOutput) => void
   ): Promise<DescribeVpcEndpointServicesCommandOutput> | void {
     const command = new DescribeVpcEndpointServicesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Describes one or more of your VPC endpoints.</p>
-   */
-  public describeVpcEndpoints(
-    args: DescribeVpcEndpointsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeVpcEndpointsCommandOutput>;
-  public describeVpcEndpoints(
-    args: DescribeVpcEndpointsCommandInput,
-    cb: (err: any, data?: DescribeVpcEndpointsCommandOutput) => void
-  ): void;
-  public describeVpcEndpoints(
-    args: DescribeVpcEndpointsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeVpcEndpointsCommandOutput) => void
-  ): void;
-  public describeVpcEndpoints(
-    args: DescribeVpcEndpointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVpcEndpointsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeVpcEndpointsCommandOutput) => void
-  ): Promise<DescribeVpcEndpointsCommandOutput> | void {
-    const command = new DescribeVpcEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -15107,6 +15107,62 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Modifies the ID format of a resource for a specified IAM user, IAM role, or the root
+   *        user for an account; or all IAM users, IAM roles, and the root user for an account. You can
+   *        specify that resources should receive longer IDs (17-character IDs) when they are created. </p>
+   *          <p>This request can only be used to modify longer ID settings for resource types that are
+   *        within the opt-in period. Resources currently in their opt-in period include:
+   *                 <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
+   *                 <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
+   *                 <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
+   *                 <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code>
+   *             | <code>network-acl-association</code> | <code>network-interface</code> |
+   *                 <code>network-interface-attachment</code> | <code>prefix-list</code> |
+   *                 <code>route-table</code> | <code>route-table-association</code> |
+   *                 <code>security-group</code> | <code>subnet</code> |
+   *                 <code>subnet-cidr-block-association</code> | <code>vpc</code> |
+   *         <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource IDs</a> in the
+   *                 <i>Amazon Elastic Compute Cloud User Guide</i>. </p>
+   *          <p>This setting applies to the principal specified in the request; it does not apply to the
+   *       principal that makes the request. </p>
+   *          <p>Resources created with longer IDs are visible to all IAM roles and users, regardless of these
+   *       settings and provided that they have permission to use the relevant <code>Describe</code>
+   *       command for the resource type.</p>
+   */
+  public modifyIdentityIdFormat(
+    args: ModifyIdentityIdFormatCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyIdentityIdFormatCommandOutput>;
+  public modifyIdentityIdFormat(
+    args: ModifyIdentityIdFormatCommandInput,
+    cb: (err: any, data?: ModifyIdentityIdFormatCommandOutput) => void
+  ): void;
+  public modifyIdentityIdFormat(
+    args: ModifyIdentityIdFormatCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyIdentityIdFormatCommandOutput) => void
+  ): void;
+  public modifyIdentityIdFormat(
+    args: ModifyIdentityIdFormatCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ModifyIdentityIdFormatCommandOutput) => void),
+    cb?: (err: any, data?: ModifyIdentityIdFormatCommandOutput) => void
+  ): Promise<ModifyIdentityIdFormatCommandOutput> | void {
+    const command = new ModifyIdentityIdFormatCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Modifies the ID format for the specified resource on a per-Region basis. You can
    *             specify that resources should receive longer IDs (17-character IDs) when they are
    *             created.</p>
@@ -15153,62 +15209,6 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: ModifyIdFormatCommandOutput) => void
   ): Promise<ModifyIdFormatCommandOutput> | void {
     const command = new ModifyIdFormatCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Modifies the ID format of a resource for a specified IAM user, IAM role, or the root
-   *        user for an account; or all IAM users, IAM roles, and the root user for an account. You can
-   *        specify that resources should receive longer IDs (17-character IDs) when they are created. </p>
-   *          <p>This request can only be used to modify longer ID settings for resource types that are
-   *        within the opt-in period. Resources currently in their opt-in period include:
-   *                 <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
-   *                 <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
-   *                 <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
-   *                 <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code>
-   *             | <code>network-acl-association</code> | <code>network-interface</code> |
-   *                 <code>network-interface-attachment</code> | <code>prefix-list</code> |
-   *                 <code>route-table</code> | <code>route-table-association</code> |
-   *                 <code>security-group</code> | <code>subnet</code> |
-   *                 <code>subnet-cidr-block-association</code> | <code>vpc</code> |
-   *         <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource IDs</a> in the
-   *                 <i>Amazon Elastic Compute Cloud User Guide</i>. </p>
-   *          <p>This setting applies to the principal specified in the request; it does not apply to the
-   *       principal that makes the request. </p>
-   *          <p>Resources created with longer IDs are visible to all IAM roles and users, regardless of these
-   *       settings and provided that they have permission to use the relevant <code>Describe</code>
-   *       command for the resource type.</p>
-   */
-  public modifyIdentityIdFormat(
-    args: ModifyIdentityIdFormatCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ModifyIdentityIdFormatCommandOutput>;
-  public modifyIdentityIdFormat(
-    args: ModifyIdentityIdFormatCommandInput,
-    cb: (err: any, data?: ModifyIdentityIdFormatCommandOutput) => void
-  ): void;
-  public modifyIdentityIdFormat(
-    args: ModifyIdentityIdFormatCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ModifyIdentityIdFormatCommandOutput) => void
-  ): void;
-  public modifyIdentityIdFormat(
-    args: ModifyIdentityIdFormatCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyIdentityIdFormatCommandOutput) => void),
-    cb?: (err: any, data?: ModifyIdentityIdFormatCommandOutput) => void
-  ): Promise<ModifyIdentityIdFormatCommandOutput> | void {
-    const command = new ModifyIdentityIdFormatCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -8,9 +8,9 @@ import {
   ListCertificatesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListCertificatesCommand,
-  serializeAws_restJson1_1ListCertificatesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListCertificatesCommand,
+  serializeAws_restJson1ListCertificatesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ListCertificatesCommand extends $Command<
     input: ListCertificatesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListCertificatesCommand(input, context);
+    return serializeAws_restJson1ListCertificatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCertificatesCommandOutput> {
-    return deserializeAws_restJson1_1ListCertificatesCommand(output, context);
+    return deserializeAws_restJson1ListCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

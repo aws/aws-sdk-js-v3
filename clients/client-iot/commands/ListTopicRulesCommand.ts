@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { ListTopicRulesRequest, ListTopicRulesResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListTopicRulesCommand,
-  serializeAws_restJson1_1ListTopicRulesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListTopicRulesCommand,
+  serializeAws_restJson1ListTopicRulesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class ListTopicRulesCommand extends $Command<
     input: ListTopicRulesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListTopicRulesCommand(input, context);
+    return serializeAws_restJson1ListTopicRulesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTopicRulesCommandOutput> {
-    return deserializeAws_restJson1_1ListTopicRulesCommand(output, context);
+    return deserializeAws_restJson1ListTopicRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

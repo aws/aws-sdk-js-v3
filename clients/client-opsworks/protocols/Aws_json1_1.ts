@@ -1016,21 +1016,6 @@ export const serializeAws_json1_1DescribeStackProvisioningParametersCommand = as
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeStackSummaryCommand = async (
-  input: DescribeStackSummaryCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OpsWorks_20130218.DescribeStackSummary"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeStackSummaryRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1DescribeStacksCommand = async (
   input: DescribeStacksCommandInput,
   context: __SerdeContext
@@ -1042,6 +1027,21 @@ export const serializeAws_json1_1DescribeStacksCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeStacksRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeStackSummaryCommand = async (
+  input: DescribeStackSummaryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OpsWorks_20130218.DescribeStackSummary"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeStackSummaryRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -4185,31 +4185,28 @@ const deserializeAws_json1_1DescribeStackProvisioningParametersCommandError = as
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeStackSummaryCommand = async (
+export const deserializeAws_json1_1DescribeStacksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeStackSummaryCommandOutput> => {
+): Promise<DescribeStacksCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeStackSummaryCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeStacksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeStackSummaryResult(data, context);
-  const response: DescribeStackSummaryCommandOutput = {
+  contents = deserializeAws_json1_1DescribeStacksResult(data, context);
+  const response: DescribeStacksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStackSummaryResult",
+    __type: "DescribeStacksResult",
     ...contents
   };
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeStackSummaryCommandError = async (
+const deserializeAws_json1_1DescribeStacksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeStackSummaryCommandOutput> => {
+): Promise<DescribeStacksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4259,28 +4256,31 @@ const deserializeAws_json1_1DescribeStackSummaryCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeStacksCommand = async (
+export const deserializeAws_json1_1DescribeStackSummaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeStacksCommandOutput> => {
+): Promise<DescribeStackSummaryCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeStacksCommandError(output, context);
+    return deserializeAws_json1_1DescribeStackSummaryCommandError(
+      output,
+      context
+    );
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeStacksResult(data, context);
-  const response: DescribeStacksCommandOutput = {
+  contents = deserializeAws_json1_1DescribeStackSummaryResult(data, context);
+  const response: DescribeStackSummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStacksResult",
+    __type: "DescribeStackSummaryResult",
     ...contents
   };
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeStacksCommandError = async (
+const deserializeAws_json1_1DescribeStackSummaryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeStacksCommandOutput> => {
+): Promise<DescribeStackSummaryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7557,15 +7557,6 @@ const serializeAws_json1_1DescribeStackProvisioningParametersRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeStackSummaryRequest = (
-  input: DescribeStackSummaryRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.StackId !== undefined && { StackId: input.StackId })
-  };
-};
-
 const serializeAws_json1_1DescribeStacksRequest = (
   input: DescribeStacksRequest,
   context: __SerdeContext
@@ -7574,6 +7565,15 @@ const serializeAws_json1_1DescribeStacksRequest = (
     ...(input.StackIds !== undefined && {
       StackIds: serializeAws_json1_1Strings(input.StackIds, context)
     })
+  };
+};
+
+const serializeAws_json1_1DescribeStackSummaryRequest = (
+  input: DescribeStackSummaryRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.StackId !== undefined && { StackId: input.StackId })
   };
 };
 
@@ -9225,19 +9225,6 @@ const deserializeAws_json1_1DescribeStackProvisioningParametersResult = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeStackSummaryResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeStackSummaryResult => {
-  return {
-    __type: "DescribeStackSummaryResult",
-    StackSummary:
-      output.StackSummary !== undefined && output.StackSummary !== null
-        ? deserializeAws_json1_1StackSummary(output.StackSummary, context)
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1DescribeStacksResult = (
   output: any,
   context: __SerdeContext
@@ -9247,6 +9234,19 @@ const deserializeAws_json1_1DescribeStacksResult = (
     Stacks:
       output.Stacks !== undefined && output.Stacks !== null
         ? deserializeAws_json1_1Stacks(output.Stacks, context)
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeStackSummaryResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeStackSummaryResult => {
+  return {
+    __type: "DescribeStackSummaryResult",
+    StackSummary:
+      output.StackSummary !== undefined && output.StackSummary !== null
+        ? deserializeAws_json1_1StackSummary(output.StackSummary, context)
         : undefined
   } as any;
 };
@@ -10652,6 +10652,15 @@ const deserializeAws_json1_1StackConfigurationManager = (
   } as any;
 };
 
+const deserializeAws_json1_1Stacks = (
+  output: any,
+  context: __SerdeContext
+): Stack[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Stack(entry, context)
+  );
+};
+
 const deserializeAws_json1_1StackSummary = (
   output: any,
   context: __SerdeContext
@@ -10681,15 +10690,6 @@ const deserializeAws_json1_1StackSummary = (
         ? output.StackId
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1Stacks = (
-  output: any,
-  context: __SerdeContext
-): Stack[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Stack(entry, context)
-  );
 };
 
 const deserializeAws_json1_1Strings = (

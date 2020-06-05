@@ -8,9 +8,9 @@ import {
   GetBaiduChannelResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetBaiduChannelCommand,
-  serializeAws_restJson1_1GetBaiduChannelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetBaiduChannelCommand,
+  serializeAws_restJson1GetBaiduChannelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetBaiduChannelCommand extends $Command<
     input: GetBaiduChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetBaiduChannelCommand(input, context);
+    return serializeAws_restJson1GetBaiduChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBaiduChannelCommandOutput> {
-    return deserializeAws_restJson1_1GetBaiduChannelCommand(output, context);
+    return deserializeAws_restJson1GetBaiduChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

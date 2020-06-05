@@ -8,9 +8,9 @@ import {
   PutPlaybackConfigurationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutPlaybackConfigurationCommand,
-  serializeAws_restJson1_1PutPlaybackConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutPlaybackConfigurationCommand,
+  serializeAws_restJson1PutPlaybackConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class PutPlaybackConfigurationCommand extends $Command<
     input: PutPlaybackConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutPlaybackConfigurationCommand(
+    return serializeAws_restJson1PutPlaybackConfigurationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class PutPlaybackConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutPlaybackConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1PutPlaybackConfigurationCommand(
+    return deserializeAws_restJson1PutPlaybackConfigurationCommand(
       output,
       context
     );

@@ -547,43 +547,6 @@ export class Support extends SupportClient {
   }
 
   /**
-   * <p>Takes a <code>caseId</code> and returns the initial state of the case along with
-   *             the state of the case after the call to <a>ResolveCase</a>
-   *             completed.</p>
-   */
-  public resolveCase(
-    args: ResolveCaseCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ResolveCaseCommandOutput>;
-  public resolveCase(
-    args: ResolveCaseCommandInput,
-    cb: (err: any, data?: ResolveCaseCommandOutput) => void
-  ): void;
-  public resolveCase(
-    args: ResolveCaseCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ResolveCaseCommandOutput) => void
-  ): void;
-  public resolveCase(
-    args: ResolveCaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResolveCaseCommandOutput) => void),
-    cb?: (err: any, data?: ResolveCaseCommandOutput) => void
-  ): Promise<ResolveCaseCommandOutput> | void {
-    const command = new ResolveCaseCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Returns the refresh status of the Trusted Advisor checks that have the specified
    *             check IDs. Check IDs can be obtained by calling <a>DescribeTrustedAdvisorChecks</a>.</p>
    *         <note>
@@ -723,6 +686,44 @@ export class Support extends SupportClient {
   }
 
   /**
+   * <p>Returns information about all available Trusted Advisor checks, including name, ID,
+   *             category, description, and metadata. You must specify a language code; English ("en")
+   *             and Japanese ("ja") are currently supported. The response contains a <a>TrustedAdvisorCheckDescription</a> for each check. The region must be set to
+   *             us-east-1.</p>
+   */
+  public describeTrustedAdvisorChecks(
+    args: DescribeTrustedAdvisorChecksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTrustedAdvisorChecksCommandOutput>;
+  public describeTrustedAdvisorChecks(
+    args: DescribeTrustedAdvisorChecksCommandInput,
+    cb: (err: any, data?: DescribeTrustedAdvisorChecksCommandOutput) => void
+  ): void;
+  public describeTrustedAdvisorChecks(
+    args: DescribeTrustedAdvisorChecksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTrustedAdvisorChecksCommandOutput) => void
+  ): void;
+  public describeTrustedAdvisorChecks(
+    args: DescribeTrustedAdvisorChecksCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeTrustedAdvisorChecksCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTrustedAdvisorChecksCommandOutput) => void
+  ): Promise<DescribeTrustedAdvisorChecksCommandOutput> | void {
+    const command = new DescribeTrustedAdvisorChecksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the summaries of the results of the Trusted Advisor checks that have the
    *             specified check IDs. Check IDs can be obtained by calling <a>DescribeTrustedAdvisorChecks</a>.</p>
    *         <p>The response contains an array of <a>TrustedAdvisorCheckSummary</a>
@@ -761,44 +762,6 @@ export class Support extends SupportClient {
     ) => void
   ): Promise<DescribeTrustedAdvisorCheckSummariesCommandOutput> | void {
     const command = new DescribeTrustedAdvisorCheckSummariesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns information about all available Trusted Advisor checks, including name, ID,
-   *             category, description, and metadata. You must specify a language code; English ("en")
-   *             and Japanese ("ja") are currently supported. The response contains a <a>TrustedAdvisorCheckDescription</a> for each check. The region must be set to
-   *             us-east-1.</p>
-   */
-  public describeTrustedAdvisorChecks(
-    args: DescribeTrustedAdvisorChecksCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeTrustedAdvisorChecksCommandOutput>;
-  public describeTrustedAdvisorChecks(
-    args: DescribeTrustedAdvisorChecksCommandInput,
-    cb: (err: any, data?: DescribeTrustedAdvisorChecksCommandOutput) => void
-  ): void;
-  public describeTrustedAdvisorChecks(
-    args: DescribeTrustedAdvisorChecksCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeTrustedAdvisorChecksCommandOutput) => void
-  ): void;
-  public describeTrustedAdvisorChecks(
-    args: DescribeTrustedAdvisorChecksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTrustedAdvisorChecksCommandOutput) => void),
-    cb?: (err: any, data?: DescribeTrustedAdvisorChecksCommandOutput) => void
-  ): Promise<DescribeTrustedAdvisorChecksCommandOutput> | void {
-    const command = new DescribeTrustedAdvisorChecksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -884,6 +847,43 @@ export class Support extends SupportClient {
     cb?: (err: any, data?: RefreshTrustedAdvisorCheckCommandOutput) => void
   ): Promise<RefreshTrustedAdvisorCheckCommandOutput> | void {
     const command = new RefreshTrustedAdvisorCheckCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Takes a <code>caseId</code> and returns the initial state of the case along with
+   *             the state of the case after the call to <a>ResolveCase</a>
+   *             completed.</p>
+   */
+  public resolveCase(
+    args: ResolveCaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResolveCaseCommandOutput>;
+  public resolveCase(
+    args: ResolveCaseCommandInput,
+    cb: (err: any, data?: ResolveCaseCommandOutput) => void
+  ): void;
+  public resolveCase(
+    args: ResolveCaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResolveCaseCommandOutput) => void
+  ): void;
+  public resolveCase(
+    args: ResolveCaseCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ResolveCaseCommandOutput) => void),
+    cb?: (err: any, data?: ResolveCaseCommandOutput) => void
+  ): Promise<ResolveCaseCommandOutput> | void {
+    const command = new ResolveCaseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

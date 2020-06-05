@@ -8,9 +8,9 @@ import {
   PurchaseProvisionedCapacityOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PurchaseProvisionedCapacityCommand,
-  serializeAws_restJson1_1PurchaseProvisionedCapacityCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PurchaseProvisionedCapacityCommand,
+  serializeAws_restJson1PurchaseProvisionedCapacityCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class PurchaseProvisionedCapacityCommand extends $Command<
     input: PurchaseProvisionedCapacityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PurchaseProvisionedCapacityCommand(
+    return serializeAws_restJson1PurchaseProvisionedCapacityCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class PurchaseProvisionedCapacityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseProvisionedCapacityCommandOutput> {
-    return deserializeAws_restJson1_1PurchaseProvisionedCapacityCommand(
+    return deserializeAws_restJson1PurchaseProvisionedCapacityCommand(
       output,
       context
     );

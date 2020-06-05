@@ -5,9 +5,9 @@ import {
 } from "../ConnectClient";
 import { StopContactRequest, StopContactResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1StopContactCommand,
-  serializeAws_restJson1_1StopContactCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1StopContactCommand,
+  serializeAws_restJson1StopContactCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class StopContactCommand extends $Command<
     input: StopContactCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StopContactCommand(input, context);
+    return serializeAws_restJson1StopContactCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopContactCommandOutput> {
-    return deserializeAws_restJson1_1StopContactCommand(output, context);
+    return deserializeAws_restJson1StopContactCommand(output, context);
   }
 
   // Start section: command_body_extra

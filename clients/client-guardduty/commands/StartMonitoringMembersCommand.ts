@@ -8,9 +8,9 @@ import {
   StartMonitoringMembersResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1StartMonitoringMembersCommand,
-  serializeAws_restJson1_1StartMonitoringMembersCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1StartMonitoringMembersCommand,
+  serializeAws_restJson1StartMonitoringMembersCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class StartMonitoringMembersCommand extends $Command<
     input: StartMonitoringMembersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StartMonitoringMembersCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1StartMonitoringMembersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartMonitoringMembersCommandOutput> {
-    return deserializeAws_restJson1_1StartMonitoringMembersCommand(
+    return deserializeAws_restJson1StartMonitoringMembersCommand(
       output,
       context
     );

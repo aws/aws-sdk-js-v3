@@ -8,9 +8,9 @@ import {
   GetBulkPublishDetailsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetBulkPublishDetailsCommand,
-  serializeAws_restJson1_1GetBulkPublishDetailsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetBulkPublishDetailsCommand,
+  serializeAws_restJson1GetBulkPublishDetailsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class GetBulkPublishDetailsCommand extends $Command<
     input: GetBulkPublishDetailsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetBulkPublishDetailsCommand(input, context);
+    return serializeAws_restJson1GetBulkPublishDetailsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBulkPublishDetailsCommandOutput> {
-    return deserializeAws_restJson1_1GetBulkPublishDetailsCommand(
+    return deserializeAws_restJson1GetBulkPublishDetailsCommand(
       output,
       context
     );

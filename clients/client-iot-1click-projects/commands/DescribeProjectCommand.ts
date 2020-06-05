@@ -8,9 +8,9 @@ import {
   DescribeProjectResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeProjectCommand,
-  serializeAws_restJson1_1DescribeProjectCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeProjectCommand,
+  serializeAws_restJson1DescribeProjectCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DescribeProjectCommand extends $Command<
     input: DescribeProjectCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeProjectCommand(input, context);
+    return serializeAws_restJson1DescribeProjectCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeProjectCommandOutput> {
-    return deserializeAws_restJson1_1DescribeProjectCommand(output, context);
+    return deserializeAws_restJson1DescribeProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

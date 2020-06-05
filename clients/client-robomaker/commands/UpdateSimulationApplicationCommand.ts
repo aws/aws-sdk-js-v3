@@ -8,9 +8,9 @@ import {
   UpdateSimulationApplicationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateSimulationApplicationCommand,
-  serializeAws_restJson1_1UpdateSimulationApplicationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateSimulationApplicationCommand,
+  serializeAws_restJson1UpdateSimulationApplicationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdateSimulationApplicationCommand extends $Command<
     input: UpdateSimulationApplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateSimulationApplicationCommand(
+    return serializeAws_restJson1UpdateSimulationApplicationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdateSimulationApplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSimulationApplicationCommandOutput> {
-    return deserializeAws_restJson1_1UpdateSimulationApplicationCommand(
+    return deserializeAws_restJson1UpdateSimulationApplicationCommand(
       output,
       context
     );

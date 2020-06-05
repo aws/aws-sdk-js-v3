@@ -6,6 +6,25 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
+ * <p>The specified activity does not exist.</p>
+ */
+export interface ActivityDoesNotExist
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ActivityDoesNotExist";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ActivityDoesNotExist {
+  export const filterSensitiveLog = (obj: ActivityDoesNotExist): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ActivityDoesNotExist =>
+    __isa(o, "ActivityDoesNotExist");
+}
+
+/**
  * <p>Contains details about an activity that failed during an execution.</p>
  */
 export interface ActivityFailedEventDetails {
@@ -32,32 +51,73 @@ export namespace ActivityFailedEventDetails {
 }
 
 /**
- * <p>Contains details about an activity schedule failure that occurred during an
- *       execution.</p>
+ * <p>The maximum number of activities has been reached. Existing activities must be deleted
+ *       before a new activity can be created.</p>
  */
-export interface ActivityScheduleFailedEventDetails {
-  __type?: "ActivityScheduleFailedEventDetails";
-  /**
-   * <p>A more detailed explanation of the cause of the failure.</p>
-   */
-  cause?: string;
-
-  /**
-   * <p>The error code of the failure.</p>
-   */
-  error?: string;
+export interface ActivityLimitExceeded
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ActivityLimitExceeded";
+  $fault: "client";
+  message?: string;
 }
 
-export namespace ActivityScheduleFailedEventDetails {
-  export const filterSensitiveLog = (
-    obj: ActivityScheduleFailedEventDetails
-  ): any => ({
-    ...obj,
-    ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
+export namespace ActivityLimitExceeded {
+  export const filterSensitiveLog = (obj: ActivityLimitExceeded): any => ({
+    ...obj
   });
-  export const isa = (o: any): o is ActivityScheduleFailedEventDetails =>
-    __isa(o, "ActivityScheduleFailedEventDetails");
+  export const isa = (o: any): o is ActivityLimitExceeded =>
+    __isa(o, "ActivityLimitExceeded");
+}
+
+/**
+ * <p>Contains details about an activity.</p>
+ */
+export interface ActivityListItem {
+  __type?: "ActivityListItem";
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the activity.</p>
+   */
+  activityArn: string | undefined;
+
+  /**
+   * <p>The date the activity is created.</p>
+   */
+  creationDate: Date | undefined;
+
+  /**
+   * <p>The name of the activity.</p>
+   *          <p>A name must <i>not</i> contain:</p>
+   *          <ul>
+   *             <li>
+   *                <p>white space</p>
+   *             </li>
+   *             <li>
+   *                <p>brackets <code>< > { } [ ]</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>wildcard characters <code>? *</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>special characters <code>" # % \ ^ | ~ ` $ & , ; : /</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p>
+   *             </li>
+   *          </ul>
+   */
+  name: string | undefined;
+}
+
+export namespace ActivityListItem {
+  export const filterSensitiveLog = (obj: ActivityListItem): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ActivityListItem =>
+    __isa(o, "ActivityListItem");
 }
 
 /**
@@ -95,6 +155,35 @@ export namespace ActivityScheduledEventDetails {
   });
   export const isa = (o: any): o is ActivityScheduledEventDetails =>
     __isa(o, "ActivityScheduledEventDetails");
+}
+
+/**
+ * <p>Contains details about an activity schedule failure that occurred during an
+ *       execution.</p>
+ */
+export interface ActivityScheduleFailedEventDetails {
+  __type?: "ActivityScheduleFailedEventDetails";
+  /**
+   * <p>A more detailed explanation of the cause of the failure.</p>
+   */
+  cause?: string;
+
+  /**
+   * <p>The error code of the failure.</p>
+   */
+  error?: string;
+}
+
+export namespace ActivityScheduleFailedEventDetails {
+  export const filterSensitiveLog = (
+    obj: ActivityScheduleFailedEventDetails
+  ): any => ({
+    ...obj,
+    ...(obj.cause && { cause: SENSITIVE_STRING }),
+    ...(obj.error && { error: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is ActivityScheduleFailedEventDetails =>
+    __isa(o, "ActivityScheduleFailedEventDetails");
 }
 
 /**
@@ -171,1237 +260,6 @@ export namespace ActivityTimedOutEventDetails {
 }
 
 /**
- * <p></p>
- */
-export interface CloudWatchLogsLogGroup {
-  __type?: "CloudWatchLogsLogGroup";
-  /**
-   * <p>The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with <code>:*</code>
-   *          </p>
-   */
-  logGroupArn?: string;
-}
-
-export namespace CloudWatchLogsLogGroup {
-  export const filterSensitiveLog = (obj: CloudWatchLogsLogGroup): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CloudWatchLogsLogGroup =>
-    __isa(o, "CloudWatchLogsLogGroup");
-}
-
-/**
- * <p>Contains details about an abort of an execution.</p>
- */
-export interface ExecutionAbortedEventDetails {
-  __type?: "ExecutionAbortedEventDetails";
-  /**
-   * <p>A more detailed explanation of the cause of the failure.</p>
-   */
-  cause?: string;
-
-  /**
-   * <p>The error code of the failure.</p>
-   */
-  error?: string;
-}
-
-export namespace ExecutionAbortedEventDetails {
-  export const filterSensitiveLog = (
-    obj: ExecutionAbortedEventDetails
-  ): any => ({
-    ...obj,
-    ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is ExecutionAbortedEventDetails =>
-    __isa(o, "ExecutionAbortedEventDetails");
-}
-
-/**
- * <p>Contains details about an execution failure event.</p>
- */
-export interface ExecutionFailedEventDetails {
-  __type?: "ExecutionFailedEventDetails";
-  /**
-   * <p>A more detailed explanation of the cause of the failure.</p>
-   */
-  cause?: string;
-
-  /**
-   * <p>The error code of the failure.</p>
-   */
-  error?: string;
-}
-
-export namespace ExecutionFailedEventDetails {
-  export const filterSensitiveLog = (
-    obj: ExecutionFailedEventDetails
-  ): any => ({
-    ...obj,
-    ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is ExecutionFailedEventDetails =>
-    __isa(o, "ExecutionFailedEventDetails");
-}
-
-/**
- * <p>Contains details about the start of the execution.</p>
- */
-export interface ExecutionStartedEventDetails {
-  __type?: "ExecutionStartedEventDetails";
-  /**
-   * <p>The JSON data input to the execution.</p>
-   */
-  input?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role used for executing AWS Lambda tasks.</p>
-   */
-  roleArn?: string;
-}
-
-export namespace ExecutionStartedEventDetails {
-  export const filterSensitiveLog = (
-    obj: ExecutionStartedEventDetails
-  ): any => ({
-    ...obj,
-    ...(obj.input && { input: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is ExecutionStartedEventDetails =>
-    __isa(o, "ExecutionStartedEventDetails");
-}
-
-/**
- * <p>Contains details about the successful termination of the execution.</p>
- */
-export interface ExecutionSucceededEventDetails {
-  __type?: "ExecutionSucceededEventDetails";
-  /**
-   * <p>The JSON data output by the execution.</p>
-   */
-  output?: string;
-}
-
-export namespace ExecutionSucceededEventDetails {
-  export const filterSensitiveLog = (
-    obj: ExecutionSucceededEventDetails
-  ): any => ({
-    ...obj,
-    ...(obj.output && { output: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is ExecutionSucceededEventDetails =>
-    __isa(o, "ExecutionSucceededEventDetails");
-}
-
-/**
- * <p>Contains details about the execution timeout that occurred during the execution.</p>
- */
-export interface ExecutionTimedOutEventDetails {
-  __type?: "ExecutionTimedOutEventDetails";
-  /**
-   * <p>A more detailed explanation of the cause of the timeout.</p>
-   */
-  cause?: string;
-
-  /**
-   * <p>The error code of the failure.</p>
-   */
-  error?: string;
-}
-
-export namespace ExecutionTimedOutEventDetails {
-  export const filterSensitiveLog = (
-    obj: ExecutionTimedOutEventDetails
-  ): any => ({
-    ...obj,
-    ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is ExecutionTimedOutEventDetails =>
-    __isa(o, "ExecutionTimedOutEventDetails");
-}
-
-/**
- * <p>Contains details about the events of an execution.</p>
- */
-export interface HistoryEvent {
-  __type?: "HistoryEvent";
-  /**
-   * <p>Contains details about an activity that failed during an execution.</p>
-   */
-  activityFailedEventDetails?: ActivityFailedEventDetails;
-
-  /**
-   * <p>Contains details about an activity schedule event that failed during an execution.</p>
-   */
-  activityScheduleFailedEventDetails?: ActivityScheduleFailedEventDetails;
-
-  /**
-   * <p>Contains details about an activity scheduled during an execution.</p>
-   */
-  activityScheduledEventDetails?: ActivityScheduledEventDetails;
-
-  /**
-   * <p>Contains details about the start of an activity during an execution.</p>
-   */
-  activityStartedEventDetails?: ActivityStartedEventDetails;
-
-  /**
-   * <p>Contains details about an activity that successfully terminated during an
-   *       execution.</p>
-   */
-  activitySucceededEventDetails?: ActivitySucceededEventDetails;
-
-  /**
-   * <p>Contains details about an activity timeout that occurred during an execution.</p>
-   */
-  activityTimedOutEventDetails?: ActivityTimedOutEventDetails;
-
-  /**
-   * <p>Contains details about an abort of an execution.</p>
-   */
-  executionAbortedEventDetails?: ExecutionAbortedEventDetails;
-
-  /**
-   * <p>Contains details about an execution failure event.</p>
-   */
-  executionFailedEventDetails?: ExecutionFailedEventDetails;
-
-  /**
-   * <p>Contains details about the start of the execution.</p>
-   */
-  executionStartedEventDetails?: ExecutionStartedEventDetails;
-
-  /**
-   * <p>Contains details about the successful termination of the execution.</p>
-   */
-  executionSucceededEventDetails?: ExecutionSucceededEventDetails;
-
-  /**
-   * <p>Contains details about the execution timeout that occurred during the execution.</p>
-   */
-  executionTimedOutEventDetails?: ExecutionTimedOutEventDetails;
-
-  /**
-   * <p>The id of the event. Events are numbered sequentially, starting at one.</p>
-   */
-  id: number | undefined;
-
-  /**
-   * <p>Contains details about a lambda function that failed during an execution.</p>
-   */
-  lambdaFunctionFailedEventDetails?: LambdaFunctionFailedEventDetails;
-
-  /**
-   * <p>Contains details about a failed lambda function schedule event that occurred during an
-   *       execution.</p>
-   */
-  lambdaFunctionScheduleFailedEventDetails?: LambdaFunctionScheduleFailedEventDetails;
-
-  /**
-   * <p>Contains details about a lambda function scheduled during an execution.</p>
-   */
-  lambdaFunctionScheduledEventDetails?: LambdaFunctionScheduledEventDetails;
-
-  /**
-   * <p>Contains details about a lambda function that failed to start during an execution.</p>
-   */
-  lambdaFunctionStartFailedEventDetails?: LambdaFunctionStartFailedEventDetails;
-
-  /**
-   * <p>Contains details about a lambda function that terminated successfully during an
-   *       execution.</p>
-   */
-  lambdaFunctionSucceededEventDetails?: LambdaFunctionSucceededEventDetails;
-
-  /**
-   * <p>Contains details about a lambda function timeout that occurred during an execution.</p>
-   */
-  lambdaFunctionTimedOutEventDetails?: LambdaFunctionTimedOutEventDetails;
-
-  /**
-   * <p>Contains details about an iteration of a Map state that was aborted.</p>
-   */
-  mapIterationAbortedEventDetails?: MapIterationEventDetails;
-
-  /**
-   * <p>Contains details about an iteration of a Map state that failed.</p>
-   */
-  mapIterationFailedEventDetails?: MapIterationEventDetails;
-
-  /**
-   * <p>Contains details about an iteration of a Map state that was started.</p>
-   */
-  mapIterationStartedEventDetails?: MapIterationEventDetails;
-
-  /**
-   * <p>Contains details about an iteration of a Map state that succeeded.</p>
-   */
-  mapIterationSucceededEventDetails?: MapIterationEventDetails;
-
-  /**
-   * <p>Contains details about Map state that was started.</p>
-   */
-  mapStateStartedEventDetails?: MapStateStartedEventDetails;
-
-  /**
-   * <p>The id of the previous event.</p>
-   */
-  previousEventId?: number;
-
-  /**
-   * <p>Contains details about a state entered during an execution.</p>
-   */
-  stateEnteredEventDetails?: StateEnteredEventDetails;
-
-  /**
-   * <p>Contains details about an exit from a state during an execution.</p>
-   */
-  stateExitedEventDetails?: StateExitedEventDetails;
-
-  /**
-   * <p>Contains details about the failure of a task.</p>
-   */
-  taskFailedEventDetails?: TaskFailedEventDetails;
-
-  /**
-   * <p>Contains details about a task that was scheduled.</p>
-   */
-  taskScheduledEventDetails?: TaskScheduledEventDetails;
-
-  /**
-   * <p>Contains details about a task that failed to start.</p>
-   */
-  taskStartFailedEventDetails?: TaskStartFailedEventDetails;
-
-  /**
-   * <p>Contains details about a task that was started.</p>
-   */
-  taskStartedEventDetails?: TaskStartedEventDetails;
-
-  /**
-   * <p>Contains details about a task that where the submit failed.</p>
-   */
-  taskSubmitFailedEventDetails?: TaskSubmitFailedEventDetails;
-
-  /**
-   * <p>Contains details about a submitted task.</p>
-   */
-  taskSubmittedEventDetails?: TaskSubmittedEventDetails;
-
-  /**
-   * <p>Contains details about a task that succeeded.</p>
-   */
-  taskSucceededEventDetails?: TaskSucceededEventDetails;
-
-  /**
-   * <p>Contains details about a task that timed out.</p>
-   */
-  taskTimedOutEventDetails?: TaskTimedOutEventDetails;
-
-  /**
-   * <p>The date and time the event occurred.</p>
-   */
-  timestamp: Date | undefined;
-
-  /**
-   * <p>The type of the event.</p>
-   */
-  type: HistoryEventType | string | undefined;
-}
-
-export namespace HistoryEvent {
-  export const filterSensitiveLog = (obj: HistoryEvent): any => ({
-    ...obj,
-    ...(obj.activityFailedEventDetails && {
-      activityFailedEventDetails: ActivityFailedEventDetails.filterSensitiveLog(
-        obj.activityFailedEventDetails
-      )
-    }),
-    ...(obj.activityScheduleFailedEventDetails && {
-      activityScheduleFailedEventDetails: ActivityScheduleFailedEventDetails.filterSensitiveLog(
-        obj.activityScheduleFailedEventDetails
-      )
-    }),
-    ...(obj.activityScheduledEventDetails && {
-      activityScheduledEventDetails: ActivityScheduledEventDetails.filterSensitiveLog(
-        obj.activityScheduledEventDetails
-      )
-    }),
-    ...(obj.activitySucceededEventDetails && {
-      activitySucceededEventDetails: ActivitySucceededEventDetails.filterSensitiveLog(
-        obj.activitySucceededEventDetails
-      )
-    }),
-    ...(obj.activityTimedOutEventDetails && {
-      activityTimedOutEventDetails: ActivityTimedOutEventDetails.filterSensitiveLog(
-        obj.activityTimedOutEventDetails
-      )
-    }),
-    ...(obj.executionAbortedEventDetails && {
-      executionAbortedEventDetails: ExecutionAbortedEventDetails.filterSensitiveLog(
-        obj.executionAbortedEventDetails
-      )
-    }),
-    ...(obj.executionFailedEventDetails && {
-      executionFailedEventDetails: ExecutionFailedEventDetails.filterSensitiveLog(
-        obj.executionFailedEventDetails
-      )
-    }),
-    ...(obj.executionStartedEventDetails && {
-      executionStartedEventDetails: ExecutionStartedEventDetails.filterSensitiveLog(
-        obj.executionStartedEventDetails
-      )
-    }),
-    ...(obj.executionSucceededEventDetails && {
-      executionSucceededEventDetails: ExecutionSucceededEventDetails.filterSensitiveLog(
-        obj.executionSucceededEventDetails
-      )
-    }),
-    ...(obj.executionTimedOutEventDetails && {
-      executionTimedOutEventDetails: ExecutionTimedOutEventDetails.filterSensitiveLog(
-        obj.executionTimedOutEventDetails
-      )
-    }),
-    ...(obj.lambdaFunctionFailedEventDetails && {
-      lambdaFunctionFailedEventDetails: LambdaFunctionFailedEventDetails.filterSensitiveLog(
-        obj.lambdaFunctionFailedEventDetails
-      )
-    }),
-    ...(obj.lambdaFunctionScheduleFailedEventDetails && {
-      lambdaFunctionScheduleFailedEventDetails: LambdaFunctionScheduleFailedEventDetails.filterSensitiveLog(
-        obj.lambdaFunctionScheduleFailedEventDetails
-      )
-    }),
-    ...(obj.lambdaFunctionScheduledEventDetails && {
-      lambdaFunctionScheduledEventDetails: LambdaFunctionScheduledEventDetails.filterSensitiveLog(
-        obj.lambdaFunctionScheduledEventDetails
-      )
-    }),
-    ...(obj.lambdaFunctionStartFailedEventDetails && {
-      lambdaFunctionStartFailedEventDetails: LambdaFunctionStartFailedEventDetails.filterSensitiveLog(
-        obj.lambdaFunctionStartFailedEventDetails
-      )
-    }),
-    ...(obj.lambdaFunctionSucceededEventDetails && {
-      lambdaFunctionSucceededEventDetails: LambdaFunctionSucceededEventDetails.filterSensitiveLog(
-        obj.lambdaFunctionSucceededEventDetails
-      )
-    }),
-    ...(obj.lambdaFunctionTimedOutEventDetails && {
-      lambdaFunctionTimedOutEventDetails: LambdaFunctionTimedOutEventDetails.filterSensitiveLog(
-        obj.lambdaFunctionTimedOutEventDetails
-      )
-    }),
-    ...(obj.stateEnteredEventDetails && {
-      stateEnteredEventDetails: StateEnteredEventDetails.filterSensitiveLog(
-        obj.stateEnteredEventDetails
-      )
-    }),
-    ...(obj.stateExitedEventDetails && {
-      stateExitedEventDetails: StateExitedEventDetails.filterSensitiveLog(
-        obj.stateExitedEventDetails
-      )
-    }),
-    ...(obj.taskFailedEventDetails && {
-      taskFailedEventDetails: TaskFailedEventDetails.filterSensitiveLog(
-        obj.taskFailedEventDetails
-      )
-    }),
-    ...(obj.taskScheduledEventDetails && {
-      taskScheduledEventDetails: TaskScheduledEventDetails.filterSensitiveLog(
-        obj.taskScheduledEventDetails
-      )
-    }),
-    ...(obj.taskStartFailedEventDetails && {
-      taskStartFailedEventDetails: TaskStartFailedEventDetails.filterSensitiveLog(
-        obj.taskStartFailedEventDetails
-      )
-    }),
-    ...(obj.taskSubmitFailedEventDetails && {
-      taskSubmitFailedEventDetails: TaskSubmitFailedEventDetails.filterSensitiveLog(
-        obj.taskSubmitFailedEventDetails
-      )
-    }),
-    ...(obj.taskSubmittedEventDetails && {
-      taskSubmittedEventDetails: TaskSubmittedEventDetails.filterSensitiveLog(
-        obj.taskSubmittedEventDetails
-      )
-    }),
-    ...(obj.taskSucceededEventDetails && {
-      taskSucceededEventDetails: TaskSucceededEventDetails.filterSensitiveLog(
-        obj.taskSucceededEventDetails
-      )
-    }),
-    ...(obj.taskTimedOutEventDetails && {
-      taskTimedOutEventDetails: TaskTimedOutEventDetails.filterSensitiveLog(
-        obj.taskTimedOutEventDetails
-      )
-    })
-  });
-  export const isa = (o: any): o is HistoryEvent => __isa(o, "HistoryEvent");
-}
-
-export type HistoryEventType =
-  | "ActivityFailed"
-  | "ActivityScheduleFailed"
-  | "ActivityScheduled"
-  | "ActivityStarted"
-  | "ActivitySucceeded"
-  | "ActivityTimedOut"
-  | "ChoiceStateEntered"
-  | "ChoiceStateExited"
-  | "ExecutionAborted"
-  | "ExecutionFailed"
-  | "ExecutionStarted"
-  | "ExecutionSucceeded"
-  | "ExecutionTimedOut"
-  | "FailStateEntered"
-  | "LambdaFunctionFailed"
-  | "LambdaFunctionScheduleFailed"
-  | "LambdaFunctionScheduled"
-  | "LambdaFunctionStartFailed"
-  | "LambdaFunctionStarted"
-  | "LambdaFunctionSucceeded"
-  | "LambdaFunctionTimedOut"
-  | "MapIterationAborted"
-  | "MapIterationFailed"
-  | "MapIterationStarted"
-  | "MapIterationSucceeded"
-  | "MapStateAborted"
-  | "MapStateEntered"
-  | "MapStateExited"
-  | "MapStateFailed"
-  | "MapStateStarted"
-  | "MapStateSucceeded"
-  | "ParallelStateAborted"
-  | "ParallelStateEntered"
-  | "ParallelStateExited"
-  | "ParallelStateFailed"
-  | "ParallelStateStarted"
-  | "ParallelStateSucceeded"
-  | "PassStateEntered"
-  | "PassStateExited"
-  | "SucceedStateEntered"
-  | "SucceedStateExited"
-  | "TaskFailed"
-  | "TaskScheduled"
-  | "TaskStartFailed"
-  | "TaskStarted"
-  | "TaskStateAborted"
-  | "TaskStateEntered"
-  | "TaskStateExited"
-  | "TaskSubmitFailed"
-  | "TaskSubmitted"
-  | "TaskSucceeded"
-  | "TaskTimedOut"
-  | "WaitStateAborted"
-  | "WaitStateEntered"
-  | "WaitStateExited";
-
-/**
- * <p>Contains details about a lambda function that failed during an execution.</p>
- */
-export interface LambdaFunctionFailedEventDetails {
-  __type?: "LambdaFunctionFailedEventDetails";
-  /**
-   * <p>A more detailed explanation of the cause of the failure.</p>
-   */
-  cause?: string;
-
-  /**
-   * <p>The error code of the failure.</p>
-   */
-  error?: string;
-}
-
-export namespace LambdaFunctionFailedEventDetails {
-  export const filterSensitiveLog = (
-    obj: LambdaFunctionFailedEventDetails
-  ): any => ({
-    ...obj,
-    ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is LambdaFunctionFailedEventDetails =>
-    __isa(o, "LambdaFunctionFailedEventDetails");
-}
-
-/**
- * <p>Contains details about a failed lambda function schedule event that occurred during an
- *       execution.</p>
- */
-export interface LambdaFunctionScheduleFailedEventDetails {
-  __type?: "LambdaFunctionScheduleFailedEventDetails";
-  /**
-   * <p>A more detailed explanation of the cause of the failure.</p>
-   */
-  cause?: string;
-
-  /**
-   * <p>The error code of the failure.</p>
-   */
-  error?: string;
-}
-
-export namespace LambdaFunctionScheduleFailedEventDetails {
-  export const filterSensitiveLog = (
-    obj: LambdaFunctionScheduleFailedEventDetails
-  ): any => ({
-    ...obj,
-    ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is LambdaFunctionScheduleFailedEventDetails =>
-    __isa(o, "LambdaFunctionScheduleFailedEventDetails");
-}
-
-/**
- * <p>Contains details about a lambda function scheduled during an execution.</p>
- */
-export interface LambdaFunctionScheduledEventDetails {
-  __type?: "LambdaFunctionScheduledEventDetails";
-  /**
-   * <p>The JSON data input to the lambda function.</p>
-   */
-  input?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the scheduled lambda function.</p>
-   */
-  resource: string | undefined;
-
-  /**
-   * <p>The maximum allowed duration of the lambda function.</p>
-   */
-  timeoutInSeconds?: number;
-}
-
-export namespace LambdaFunctionScheduledEventDetails {
-  export const filterSensitiveLog = (
-    obj: LambdaFunctionScheduledEventDetails
-  ): any => ({
-    ...obj,
-    ...(obj.input && { input: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is LambdaFunctionScheduledEventDetails =>
-    __isa(o, "LambdaFunctionScheduledEventDetails");
-}
-
-/**
- * <p>Contains details about a lambda function that failed to start during an execution.</p>
- */
-export interface LambdaFunctionStartFailedEventDetails {
-  __type?: "LambdaFunctionStartFailedEventDetails";
-  /**
-   * <p>A more detailed explanation of the cause of the failure.</p>
-   */
-  cause?: string;
-
-  /**
-   * <p>The error code of the failure.</p>
-   */
-  error?: string;
-}
-
-export namespace LambdaFunctionStartFailedEventDetails {
-  export const filterSensitiveLog = (
-    obj: LambdaFunctionStartFailedEventDetails
-  ): any => ({
-    ...obj,
-    ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is LambdaFunctionStartFailedEventDetails =>
-    __isa(o, "LambdaFunctionStartFailedEventDetails");
-}
-
-/**
- * <p>Contains details about a lambda function that successfully terminated during an
- *       execution.</p>
- */
-export interface LambdaFunctionSucceededEventDetails {
-  __type?: "LambdaFunctionSucceededEventDetails";
-  /**
-   * <p>The JSON data output by the lambda function.</p>
-   */
-  output?: string;
-}
-
-export namespace LambdaFunctionSucceededEventDetails {
-  export const filterSensitiveLog = (
-    obj: LambdaFunctionSucceededEventDetails
-  ): any => ({
-    ...obj,
-    ...(obj.output && { output: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is LambdaFunctionSucceededEventDetails =>
-    __isa(o, "LambdaFunctionSucceededEventDetails");
-}
-
-/**
- * <p>Contains details about a lambda function timeout that occurred during an execution.</p>
- */
-export interface LambdaFunctionTimedOutEventDetails {
-  __type?: "LambdaFunctionTimedOutEventDetails";
-  /**
-   * <p>A more detailed explanation of the cause of the timeout.</p>
-   */
-  cause?: string;
-
-  /**
-   * <p>The error code of the failure.</p>
-   */
-  error?: string;
-}
-
-export namespace LambdaFunctionTimedOutEventDetails {
-  export const filterSensitiveLog = (
-    obj: LambdaFunctionTimedOutEventDetails
-  ): any => ({
-    ...obj,
-    ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is LambdaFunctionTimedOutEventDetails =>
-    __isa(o, "LambdaFunctionTimedOutEventDetails");
-}
-
-/**
- * <p></p>
- */
-export interface LogDestination {
-  __type?: "LogDestination";
-  /**
-   * <p>An object describing a CloudWatch log group. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html">AWS::Logs::LogGroup</a> in the AWS CloudFormation User Guide.</p>
-   */
-  cloudWatchLogsLogGroup?: CloudWatchLogsLogGroup;
-}
-
-export namespace LogDestination {
-  export const filterSensitiveLog = (obj: LogDestination): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is LogDestination =>
-    __isa(o, "LogDestination");
-}
-
-export type LogLevel = "ALL" | "ERROR" | "FATAL" | "OFF";
-
-/**
- * <p></p>
- */
-export interface LoggingConfiguration {
-  __type?: "LoggingConfiguration";
-  /**
-   * <p>An object that describes where your execution history events will be logged. Limited to
-   *       size 1. Required, if your log level is not set to <code>OFF</code>.</p>
-   */
-  destinations?: LogDestination[];
-
-  /**
-   * <p>Determines whether execution history data is included in your log. When set to
-   *         <code>FALSE</code>, data is excluded.</p>
-   */
-  includeExecutionData?: boolean;
-
-  /**
-   * <p>Defines which category of execution history events are logged.</p>
-   */
-  level?: LogLevel | string;
-}
-
-export namespace LoggingConfiguration {
-  export const filterSensitiveLog = (obj: LoggingConfiguration): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is LoggingConfiguration =>
-    __isa(o, "LoggingConfiguration");
-}
-
-/**
- * <p>Contains details about an iteration of a Map state.</p>
- */
-export interface MapIterationEventDetails {
-  __type?: "MapIterationEventDetails";
-  /**
-   * <p>The index of the array belonging to the Map state iteration.</p>
-   */
-  index?: number;
-
-  /**
-   * <p>The name of the iteration’s parent Map state.</p>
-   */
-  name?: string;
-}
-
-export namespace MapIterationEventDetails {
-  export const filterSensitiveLog = (obj: MapIterationEventDetails): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is MapIterationEventDetails =>
-    __isa(o, "MapIterationEventDetails");
-}
-
-/**
- * <p>Details about a Map state that was started.</p>
- */
-export interface MapStateStartedEventDetails {
-  __type?: "MapStateStartedEventDetails";
-  /**
-   * <p>The size of the array for Map state iterations.</p>
-   */
-  length?: number;
-}
-
-export namespace MapStateStartedEventDetails {
-  export const filterSensitiveLog = (
-    obj: MapStateStartedEventDetails
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is MapStateStartedEventDetails =>
-    __isa(o, "MapStateStartedEventDetails");
-}
-
-/**
- * <p>Contains details about a state entered during an execution.</p>
- */
-export interface StateEnteredEventDetails {
-  __type?: "StateEnteredEventDetails";
-  /**
-   * <p>The string that contains the JSON input data for the state.</p>
-   */
-  input?: string;
-
-  /**
-   * <p>The name of the state.</p>
-   */
-  name: string | undefined;
-}
-
-export namespace StateEnteredEventDetails {
-  export const filterSensitiveLog = (obj: StateEnteredEventDetails): any => ({
-    ...obj,
-    ...(obj.input && { input: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is StateEnteredEventDetails =>
-    __isa(o, "StateEnteredEventDetails");
-}
-
-/**
- * <p>Contains details about an exit from a state during an execution.</p>
- */
-export interface StateExitedEventDetails {
-  __type?: "StateExitedEventDetails";
-  /**
-   * <p>The name of the state.</p>
-   *          <p>A name must <i>not</i> contain:</p>
-   *          <ul>
-   *             <li>
-   *                <p>white space</p>
-   *             </li>
-   *             <li>
-   *                <p>brackets <code>< > { } [ ]</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>wildcard characters <code>? *</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>special characters <code>" # % \ ^ | ~ ` $ & , ; : /</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p>
-   *             </li>
-   *          </ul>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The JSON output data of the state.</p>
-   */
-  output?: string;
-}
-
-export namespace StateExitedEventDetails {
-  export const filterSensitiveLog = (obj: StateExitedEventDetails): any => ({
-    ...obj,
-    ...(obj.output && { output: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is StateExitedEventDetails =>
-    __isa(o, "StateExitedEventDetails");
-}
-
-export type StateMachineType = "EXPRESS" | "STANDARD";
-
-/**
- * <p>Contains details about a task failure event.</p>
- */
-export interface TaskFailedEventDetails {
-  __type?: "TaskFailedEventDetails";
-  /**
-   * <p>A more detailed explanation of the cause of the failure.</p>
-   */
-  cause?: string;
-
-  /**
-   * <p>The error code of the failure.</p>
-   */
-  error?: string;
-
-  /**
-   * <p>The service name of the resource in a task state.</p>
-   */
-  resource: string | undefined;
-
-  /**
-   * <p>The action of the resource called by a task state.</p>
-   */
-  resourceType: string | undefined;
-}
-
-export namespace TaskFailedEventDetails {
-  export const filterSensitiveLog = (obj: TaskFailedEventDetails): any => ({
-    ...obj,
-    ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is TaskFailedEventDetails =>
-    __isa(o, "TaskFailedEventDetails");
-}
-
-/**
- * <p>Contains details about a task scheduled during an execution.</p>
- */
-export interface TaskScheduledEventDetails {
-  __type?: "TaskScheduledEventDetails";
-  /**
-   * <p>The JSON data passed to the resource referenced in a task state.</p>
-   */
-  parameters: string | undefined;
-
-  /**
-   * <p>The region of the scheduled task</p>
-   */
-  region: string | undefined;
-
-  /**
-   * <p>The service name of the resource in a task state.</p>
-   */
-  resource: string | undefined;
-
-  /**
-   * <p>The action of the resource called by a task state.</p>
-   */
-  resourceType: string | undefined;
-
-  /**
-   * <p>The maximum allowed duration of the task.</p>
-   */
-  timeoutInSeconds?: number;
-}
-
-export namespace TaskScheduledEventDetails {
-  export const filterSensitiveLog = (obj: TaskScheduledEventDetails): any => ({
-    ...obj,
-    ...(obj.parameters && { parameters: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is TaskScheduledEventDetails =>
-    __isa(o, "TaskScheduledEventDetails");
-}
-
-/**
- * <p>Contains details about a task that failed to start during an execution.</p>
- */
-export interface TaskStartFailedEventDetails {
-  __type?: "TaskStartFailedEventDetails";
-  /**
-   * <p>A more detailed explanation of the cause of the failure.</p>
-   */
-  cause?: string;
-
-  /**
-   * <p>The error code of the failure.</p>
-   */
-  error?: string;
-
-  /**
-   * <p>The service name of the resource in a task state.</p>
-   */
-  resource: string | undefined;
-
-  /**
-   * <p>The action of the resource called by a task state.</p>
-   */
-  resourceType: string | undefined;
-}
-
-export namespace TaskStartFailedEventDetails {
-  export const filterSensitiveLog = (
-    obj: TaskStartFailedEventDetails
-  ): any => ({
-    ...obj,
-    ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is TaskStartFailedEventDetails =>
-    __isa(o, "TaskStartFailedEventDetails");
-}
-
-/**
- * <p>Contains details about the start of a task during an execution.</p>
- */
-export interface TaskStartedEventDetails {
-  __type?: "TaskStartedEventDetails";
-  /**
-   * <p>The service name of the resource in a task state.</p>
-   */
-  resource: string | undefined;
-
-  /**
-   * <p>The action of the resource called by a task state.</p>
-   */
-  resourceType: string | undefined;
-}
-
-export namespace TaskStartedEventDetails {
-  export const filterSensitiveLog = (obj: TaskStartedEventDetails): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TaskStartedEventDetails =>
-    __isa(o, "TaskStartedEventDetails");
-}
-
-/**
- * <p>Contains details about a task that failed to submit during an execution.</p>
- */
-export interface TaskSubmitFailedEventDetails {
-  __type?: "TaskSubmitFailedEventDetails";
-  /**
-   * <p>A more detailed explanation of the cause of the failure.</p>
-   */
-  cause?: string;
-
-  /**
-   * <p>The error code of the failure.</p>
-   */
-  error?: string;
-
-  /**
-   * <p>The service name of the resource in a task state.</p>
-   */
-  resource: string | undefined;
-
-  /**
-   * <p>The action of the resource called by a task state.</p>
-   */
-  resourceType: string | undefined;
-}
-
-export namespace TaskSubmitFailedEventDetails {
-  export const filterSensitiveLog = (
-    obj: TaskSubmitFailedEventDetails
-  ): any => ({
-    ...obj,
-    ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is TaskSubmitFailedEventDetails =>
-    __isa(o, "TaskSubmitFailedEventDetails");
-}
-
-/**
- * <p>Contains details about a task submitted to a resource .</p>
- */
-export interface TaskSubmittedEventDetails {
-  __type?: "TaskSubmittedEventDetails";
-  /**
-   * <p>The response from a resource when a task has started.</p>
-   */
-  output?: string;
-
-  /**
-   * <p>The service name of the resource in a task state.</p>
-   */
-  resource: string | undefined;
-
-  /**
-   * <p>The action of the resource called by a task state.</p>
-   */
-  resourceType: string | undefined;
-}
-
-export namespace TaskSubmittedEventDetails {
-  export const filterSensitiveLog = (obj: TaskSubmittedEventDetails): any => ({
-    ...obj,
-    ...(obj.output && { output: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is TaskSubmittedEventDetails =>
-    __isa(o, "TaskSubmittedEventDetails");
-}
-
-/**
- * <p>Contains details about the successful completion of a task state.</p>
- */
-export interface TaskSucceededEventDetails {
-  __type?: "TaskSucceededEventDetails";
-  /**
-   * <p>The full JSON response from a resource when a task has succeeded. This response becomes
-   *       the output of the related task.</p>
-   */
-  output?: string;
-
-  /**
-   * <p>The service name of the resource in a task state.</p>
-   */
-  resource: string | undefined;
-
-  /**
-   * <p>The action of the resource called by a task state.</p>
-   */
-  resourceType: string | undefined;
-}
-
-export namespace TaskSucceededEventDetails {
-  export const filterSensitiveLog = (obj: TaskSucceededEventDetails): any => ({
-    ...obj,
-    ...(obj.output && { output: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is TaskSucceededEventDetails =>
-    __isa(o, "TaskSucceededEventDetails");
-}
-
-/**
- * <p>Contains details about a resource timeout that occurred during an execution.</p>
- */
-export interface TaskTimedOutEventDetails {
-  __type?: "TaskTimedOutEventDetails";
-  /**
-   * <p>A more detailed explanation of the cause of the failure.</p>
-   */
-  cause?: string;
-
-  /**
-   * <p>The error code of the failure.</p>
-   */
-  error?: string;
-
-  /**
-   * <p>The service name of the resource in a task state.</p>
-   */
-  resource: string | undefined;
-
-  /**
-   * <p>The action of the resource called by a task state.</p>
-   */
-  resourceType: string | undefined;
-}
-
-export namespace TaskTimedOutEventDetails {
-  export const filterSensitiveLog = (obj: TaskTimedOutEventDetails): any => ({
-    ...obj,
-    ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is TaskTimedOutEventDetails =>
-    __isa(o, "TaskTimedOutEventDetails");
-}
-
-/**
- * <p>The specified activity does not exist.</p>
- */
-export interface ActivityDoesNotExist
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ActivityDoesNotExist";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ActivityDoesNotExist {
-  export const filterSensitiveLog = (obj: ActivityDoesNotExist): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ActivityDoesNotExist =>
-    __isa(o, "ActivityDoesNotExist");
-}
-
-/**
- * <p>The maximum number of activities has been reached. Existing activities must be deleted
- *       before a new activity can be created.</p>
- */
-export interface ActivityLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ActivityLimitExceeded";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ActivityLimitExceeded {
-  export const filterSensitiveLog = (obj: ActivityLimitExceeded): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ActivityLimitExceeded =>
-    __isa(o, "ActivityLimitExceeded");
-}
-
-/**
- * <p>Contains details about an activity.</p>
- */
-export interface ActivityListItem {
-  __type?: "ActivityListItem";
-  /**
-   * <p>The Amazon Resource Name (ARN) that identifies the activity.</p>
-   */
-  activityArn: string | undefined;
-
-  /**
-   * <p>The date the activity is created.</p>
-   */
-  creationDate: Date | undefined;
-
-  /**
-   * <p>The name of the activity.</p>
-   *          <p>A name must <i>not</i> contain:</p>
-   *          <ul>
-   *             <li>
-   *                <p>white space</p>
-   *             </li>
-   *             <li>
-   *                <p>brackets <code>< > { } [ ]</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>wildcard characters <code>? *</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>special characters <code>" # % \ ^ | ~ ` $ & , ; : /</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p>
-   *             </li>
-   *          </ul>
-   */
-  name: string | undefined;
-}
-
-export namespace ActivityListItem {
-  export const filterSensitiveLog = (obj: ActivityListItem): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ActivityListItem =>
-    __isa(o, "ActivityListItem");
-}
-
-/**
  * <p>The maximum number of workers concurrently polling for activity tasks has been
  *       reached.</p>
  */
@@ -1421,6 +279,26 @@ export namespace ActivityWorkerLimitExceeded {
   });
   export const isa = (o: any): o is ActivityWorkerLimitExceeded =>
     __isa(o, "ActivityWorkerLimitExceeded");
+}
+
+/**
+ * <p></p>
+ */
+export interface CloudWatchLogsLogGroup {
+  __type?: "CloudWatchLogsLogGroup";
+  /**
+   * <p>The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with <code>:*</code>
+   *          </p>
+   */
+  logGroupArn?: string;
+}
+
+export namespace CloudWatchLogsLogGroup {
+  export const filterSensitiveLog = (obj: CloudWatchLogsLogGroup): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CloudWatchLogsLogGroup =>
+    __isa(o, "CloudWatchLogsLogGroup");
 }
 
 export interface CreateActivityInput {
@@ -1944,6 +822,34 @@ export namespace DescribeStateMachineOutput {
 }
 
 /**
+ * <p>Contains details about an abort of an execution.</p>
+ */
+export interface ExecutionAbortedEventDetails {
+  __type?: "ExecutionAbortedEventDetails";
+  /**
+   * <p>A more detailed explanation of the cause of the failure.</p>
+   */
+  cause?: string;
+
+  /**
+   * <p>The error code of the failure.</p>
+   */
+  error?: string;
+}
+
+export namespace ExecutionAbortedEventDetails {
+  export const filterSensitiveLog = (
+    obj: ExecutionAbortedEventDetails
+  ): any => ({
+    ...obj,
+    ...(obj.cause && { cause: SENSITIVE_STRING }),
+    ...(obj.error && { error: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is ExecutionAbortedEventDetails =>
+    __isa(o, "ExecutionAbortedEventDetails");
+}
+
+/**
  * <p>The execution has the same <code>name</code> as another execution (but a different
  *         <code>input</code>).</p>
  *          <note>
@@ -1984,6 +890,34 @@ export namespace ExecutionDoesNotExist {
   });
   export const isa = (o: any): o is ExecutionDoesNotExist =>
     __isa(o, "ExecutionDoesNotExist");
+}
+
+/**
+ * <p>Contains details about an execution failure event.</p>
+ */
+export interface ExecutionFailedEventDetails {
+  __type?: "ExecutionFailedEventDetails";
+  /**
+   * <p>A more detailed explanation of the cause of the failure.</p>
+   */
+  cause?: string;
+
+  /**
+   * <p>The error code of the failure.</p>
+   */
+  error?: string;
+}
+
+export namespace ExecutionFailedEventDetails {
+  export const filterSensitiveLog = (
+    obj: ExecutionFailedEventDetails
+  ): any => ({
+    ...obj,
+    ...(obj.cause && { cause: SENSITIVE_STRING }),
+    ...(obj.error && { error: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is ExecutionFailedEventDetails =>
+    __isa(o, "ExecutionFailedEventDetails");
 }
 
 /**
@@ -2071,12 +1005,89 @@ export namespace ExecutionListItem {
     __isa(o, "ExecutionListItem");
 }
 
+/**
+ * <p>Contains details about the start of the execution.</p>
+ */
+export interface ExecutionStartedEventDetails {
+  __type?: "ExecutionStartedEventDetails";
+  /**
+   * <p>The JSON data input to the execution.</p>
+   */
+  input?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role used for executing AWS Lambda tasks.</p>
+   */
+  roleArn?: string;
+}
+
+export namespace ExecutionStartedEventDetails {
+  export const filterSensitiveLog = (
+    obj: ExecutionStartedEventDetails
+  ): any => ({
+    ...obj,
+    ...(obj.input && { input: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is ExecutionStartedEventDetails =>
+    __isa(o, "ExecutionStartedEventDetails");
+}
+
 export type ExecutionStatus =
   | "ABORTED"
   | "FAILED"
   | "RUNNING"
   | "SUCCEEDED"
   | "TIMED_OUT";
+
+/**
+ * <p>Contains details about the successful termination of the execution.</p>
+ */
+export interface ExecutionSucceededEventDetails {
+  __type?: "ExecutionSucceededEventDetails";
+  /**
+   * <p>The JSON data output by the execution.</p>
+   */
+  output?: string;
+}
+
+export namespace ExecutionSucceededEventDetails {
+  export const filterSensitiveLog = (
+    obj: ExecutionSucceededEventDetails
+  ): any => ({
+    ...obj,
+    ...(obj.output && { output: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is ExecutionSucceededEventDetails =>
+    __isa(o, "ExecutionSucceededEventDetails");
+}
+
+/**
+ * <p>Contains details about the execution timeout that occurred during the execution.</p>
+ */
+export interface ExecutionTimedOutEventDetails {
+  __type?: "ExecutionTimedOutEventDetails";
+  /**
+   * <p>A more detailed explanation of the cause of the timeout.</p>
+   */
+  cause?: string;
+
+  /**
+   * <p>The error code of the failure.</p>
+   */
+  error?: string;
+}
+
+export namespace ExecutionTimedOutEventDetails {
+  export const filterSensitiveLog = (
+    obj: ExecutionTimedOutEventDetails
+  ): any => ({
+    ...obj,
+    ...(obj.cause && { cause: SENSITIVE_STRING }),
+    ...(obj.error && { error: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is ExecutionTimedOutEventDetails =>
+    __isa(o, "ExecutionTimedOutEventDetails");
+}
 
 export interface GetActivityTaskInput {
   __type?: "GetActivityTaskInput";
@@ -2184,6 +1195,384 @@ export namespace GetExecutionHistoryOutput {
   export const isa = (o: any): o is GetExecutionHistoryOutput =>
     __isa(o, "GetExecutionHistoryOutput");
 }
+
+/**
+ * <p>Contains details about the events of an execution.</p>
+ */
+export interface HistoryEvent {
+  __type?: "HistoryEvent";
+  /**
+   * <p>Contains details about an activity that failed during an execution.</p>
+   */
+  activityFailedEventDetails?: ActivityFailedEventDetails;
+
+  /**
+   * <p>Contains details about an activity schedule event that failed during an execution.</p>
+   */
+  activityScheduleFailedEventDetails?: ActivityScheduleFailedEventDetails;
+
+  /**
+   * <p>Contains details about an activity scheduled during an execution.</p>
+   */
+  activityScheduledEventDetails?: ActivityScheduledEventDetails;
+
+  /**
+   * <p>Contains details about the start of an activity during an execution.</p>
+   */
+  activityStartedEventDetails?: ActivityStartedEventDetails;
+
+  /**
+   * <p>Contains details about an activity that successfully terminated during an
+   *       execution.</p>
+   */
+  activitySucceededEventDetails?: ActivitySucceededEventDetails;
+
+  /**
+   * <p>Contains details about an activity timeout that occurred during an execution.</p>
+   */
+  activityTimedOutEventDetails?: ActivityTimedOutEventDetails;
+
+  /**
+   * <p>Contains details about an abort of an execution.</p>
+   */
+  executionAbortedEventDetails?: ExecutionAbortedEventDetails;
+
+  /**
+   * <p>Contains details about an execution failure event.</p>
+   */
+  executionFailedEventDetails?: ExecutionFailedEventDetails;
+
+  /**
+   * <p>Contains details about the start of the execution.</p>
+   */
+  executionStartedEventDetails?: ExecutionStartedEventDetails;
+
+  /**
+   * <p>Contains details about the successful termination of the execution.</p>
+   */
+  executionSucceededEventDetails?: ExecutionSucceededEventDetails;
+
+  /**
+   * <p>Contains details about the execution timeout that occurred during the execution.</p>
+   */
+  executionTimedOutEventDetails?: ExecutionTimedOutEventDetails;
+
+  /**
+   * <p>The id of the event. Events are numbered sequentially, starting at one.</p>
+   */
+  id: number | undefined;
+
+  /**
+   * <p>Contains details about a lambda function that failed during an execution.</p>
+   */
+  lambdaFunctionFailedEventDetails?: LambdaFunctionFailedEventDetails;
+
+  /**
+   * <p>Contains details about a failed lambda function schedule event that occurred during an
+   *       execution.</p>
+   */
+  lambdaFunctionScheduleFailedEventDetails?: LambdaFunctionScheduleFailedEventDetails;
+
+  /**
+   * <p>Contains details about a lambda function scheduled during an execution.</p>
+   */
+  lambdaFunctionScheduledEventDetails?: LambdaFunctionScheduledEventDetails;
+
+  /**
+   * <p>Contains details about a lambda function that failed to start during an execution.</p>
+   */
+  lambdaFunctionStartFailedEventDetails?: LambdaFunctionStartFailedEventDetails;
+
+  /**
+   * <p>Contains details about a lambda function that terminated successfully during an
+   *       execution.</p>
+   */
+  lambdaFunctionSucceededEventDetails?: LambdaFunctionSucceededEventDetails;
+
+  /**
+   * <p>Contains details about a lambda function timeout that occurred during an execution.</p>
+   */
+  lambdaFunctionTimedOutEventDetails?: LambdaFunctionTimedOutEventDetails;
+
+  /**
+   * <p>Contains details about an iteration of a Map state that was aborted.</p>
+   */
+  mapIterationAbortedEventDetails?: MapIterationEventDetails;
+
+  /**
+   * <p>Contains details about an iteration of a Map state that failed.</p>
+   */
+  mapIterationFailedEventDetails?: MapIterationEventDetails;
+
+  /**
+   * <p>Contains details about an iteration of a Map state that was started.</p>
+   */
+  mapIterationStartedEventDetails?: MapIterationEventDetails;
+
+  /**
+   * <p>Contains details about an iteration of a Map state that succeeded.</p>
+   */
+  mapIterationSucceededEventDetails?: MapIterationEventDetails;
+
+  /**
+   * <p>Contains details about Map state that was started.</p>
+   */
+  mapStateStartedEventDetails?: MapStateStartedEventDetails;
+
+  /**
+   * <p>The id of the previous event.</p>
+   */
+  previousEventId?: number;
+
+  /**
+   * <p>Contains details about a state entered during an execution.</p>
+   */
+  stateEnteredEventDetails?: StateEnteredEventDetails;
+
+  /**
+   * <p>Contains details about an exit from a state during an execution.</p>
+   */
+  stateExitedEventDetails?: StateExitedEventDetails;
+
+  /**
+   * <p>Contains details about the failure of a task.</p>
+   */
+  taskFailedEventDetails?: TaskFailedEventDetails;
+
+  /**
+   * <p>Contains details about a task that was scheduled.</p>
+   */
+  taskScheduledEventDetails?: TaskScheduledEventDetails;
+
+  /**
+   * <p>Contains details about a task that failed to start.</p>
+   */
+  taskStartFailedEventDetails?: TaskStartFailedEventDetails;
+
+  /**
+   * <p>Contains details about a task that was started.</p>
+   */
+  taskStartedEventDetails?: TaskStartedEventDetails;
+
+  /**
+   * <p>Contains details about a task that where the submit failed.</p>
+   */
+  taskSubmitFailedEventDetails?: TaskSubmitFailedEventDetails;
+
+  /**
+   * <p>Contains details about a submitted task.</p>
+   */
+  taskSubmittedEventDetails?: TaskSubmittedEventDetails;
+
+  /**
+   * <p>Contains details about a task that succeeded.</p>
+   */
+  taskSucceededEventDetails?: TaskSucceededEventDetails;
+
+  /**
+   * <p>Contains details about a task that timed out.</p>
+   */
+  taskTimedOutEventDetails?: TaskTimedOutEventDetails;
+
+  /**
+   * <p>The date and time the event occurred.</p>
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>The type of the event.</p>
+   */
+  type: HistoryEventType | string | undefined;
+}
+
+export namespace HistoryEvent {
+  export const filterSensitiveLog = (obj: HistoryEvent): any => ({
+    ...obj,
+    ...(obj.activityFailedEventDetails && {
+      activityFailedEventDetails: ActivityFailedEventDetails.filterSensitiveLog(
+        obj.activityFailedEventDetails
+      )
+    }),
+    ...(obj.activityScheduleFailedEventDetails && {
+      activityScheduleFailedEventDetails: ActivityScheduleFailedEventDetails.filterSensitiveLog(
+        obj.activityScheduleFailedEventDetails
+      )
+    }),
+    ...(obj.activityScheduledEventDetails && {
+      activityScheduledEventDetails: ActivityScheduledEventDetails.filterSensitiveLog(
+        obj.activityScheduledEventDetails
+      )
+    }),
+    ...(obj.activitySucceededEventDetails && {
+      activitySucceededEventDetails: ActivitySucceededEventDetails.filterSensitiveLog(
+        obj.activitySucceededEventDetails
+      )
+    }),
+    ...(obj.activityTimedOutEventDetails && {
+      activityTimedOutEventDetails: ActivityTimedOutEventDetails.filterSensitiveLog(
+        obj.activityTimedOutEventDetails
+      )
+    }),
+    ...(obj.executionAbortedEventDetails && {
+      executionAbortedEventDetails: ExecutionAbortedEventDetails.filterSensitiveLog(
+        obj.executionAbortedEventDetails
+      )
+    }),
+    ...(obj.executionFailedEventDetails && {
+      executionFailedEventDetails: ExecutionFailedEventDetails.filterSensitiveLog(
+        obj.executionFailedEventDetails
+      )
+    }),
+    ...(obj.executionStartedEventDetails && {
+      executionStartedEventDetails: ExecutionStartedEventDetails.filterSensitiveLog(
+        obj.executionStartedEventDetails
+      )
+    }),
+    ...(obj.executionSucceededEventDetails && {
+      executionSucceededEventDetails: ExecutionSucceededEventDetails.filterSensitiveLog(
+        obj.executionSucceededEventDetails
+      )
+    }),
+    ...(obj.executionTimedOutEventDetails && {
+      executionTimedOutEventDetails: ExecutionTimedOutEventDetails.filterSensitiveLog(
+        obj.executionTimedOutEventDetails
+      )
+    }),
+    ...(obj.lambdaFunctionFailedEventDetails && {
+      lambdaFunctionFailedEventDetails: LambdaFunctionFailedEventDetails.filterSensitiveLog(
+        obj.lambdaFunctionFailedEventDetails
+      )
+    }),
+    ...(obj.lambdaFunctionScheduleFailedEventDetails && {
+      lambdaFunctionScheduleFailedEventDetails: LambdaFunctionScheduleFailedEventDetails.filterSensitiveLog(
+        obj.lambdaFunctionScheduleFailedEventDetails
+      )
+    }),
+    ...(obj.lambdaFunctionScheduledEventDetails && {
+      lambdaFunctionScheduledEventDetails: LambdaFunctionScheduledEventDetails.filterSensitiveLog(
+        obj.lambdaFunctionScheduledEventDetails
+      )
+    }),
+    ...(obj.lambdaFunctionStartFailedEventDetails && {
+      lambdaFunctionStartFailedEventDetails: LambdaFunctionStartFailedEventDetails.filterSensitiveLog(
+        obj.lambdaFunctionStartFailedEventDetails
+      )
+    }),
+    ...(obj.lambdaFunctionSucceededEventDetails && {
+      lambdaFunctionSucceededEventDetails: LambdaFunctionSucceededEventDetails.filterSensitiveLog(
+        obj.lambdaFunctionSucceededEventDetails
+      )
+    }),
+    ...(obj.lambdaFunctionTimedOutEventDetails && {
+      lambdaFunctionTimedOutEventDetails: LambdaFunctionTimedOutEventDetails.filterSensitiveLog(
+        obj.lambdaFunctionTimedOutEventDetails
+      )
+    }),
+    ...(obj.stateEnteredEventDetails && {
+      stateEnteredEventDetails: StateEnteredEventDetails.filterSensitiveLog(
+        obj.stateEnteredEventDetails
+      )
+    }),
+    ...(obj.stateExitedEventDetails && {
+      stateExitedEventDetails: StateExitedEventDetails.filterSensitiveLog(
+        obj.stateExitedEventDetails
+      )
+    }),
+    ...(obj.taskFailedEventDetails && {
+      taskFailedEventDetails: TaskFailedEventDetails.filterSensitiveLog(
+        obj.taskFailedEventDetails
+      )
+    }),
+    ...(obj.taskScheduledEventDetails && {
+      taskScheduledEventDetails: TaskScheduledEventDetails.filterSensitiveLog(
+        obj.taskScheduledEventDetails
+      )
+    }),
+    ...(obj.taskStartFailedEventDetails && {
+      taskStartFailedEventDetails: TaskStartFailedEventDetails.filterSensitiveLog(
+        obj.taskStartFailedEventDetails
+      )
+    }),
+    ...(obj.taskSubmitFailedEventDetails && {
+      taskSubmitFailedEventDetails: TaskSubmitFailedEventDetails.filterSensitiveLog(
+        obj.taskSubmitFailedEventDetails
+      )
+    }),
+    ...(obj.taskSubmittedEventDetails && {
+      taskSubmittedEventDetails: TaskSubmittedEventDetails.filterSensitiveLog(
+        obj.taskSubmittedEventDetails
+      )
+    }),
+    ...(obj.taskSucceededEventDetails && {
+      taskSucceededEventDetails: TaskSucceededEventDetails.filterSensitiveLog(
+        obj.taskSucceededEventDetails
+      )
+    }),
+    ...(obj.taskTimedOutEventDetails && {
+      taskTimedOutEventDetails: TaskTimedOutEventDetails.filterSensitiveLog(
+        obj.taskTimedOutEventDetails
+      )
+    })
+  });
+  export const isa = (o: any): o is HistoryEvent => __isa(o, "HistoryEvent");
+}
+
+export type HistoryEventType =
+  | "ActivityFailed"
+  | "ActivityScheduleFailed"
+  | "ActivityScheduled"
+  | "ActivityStarted"
+  | "ActivitySucceeded"
+  | "ActivityTimedOut"
+  | "ChoiceStateEntered"
+  | "ChoiceStateExited"
+  | "ExecutionAborted"
+  | "ExecutionFailed"
+  | "ExecutionStarted"
+  | "ExecutionSucceeded"
+  | "ExecutionTimedOut"
+  | "FailStateEntered"
+  | "LambdaFunctionFailed"
+  | "LambdaFunctionScheduleFailed"
+  | "LambdaFunctionScheduled"
+  | "LambdaFunctionStartFailed"
+  | "LambdaFunctionStarted"
+  | "LambdaFunctionSucceeded"
+  | "LambdaFunctionTimedOut"
+  | "MapIterationAborted"
+  | "MapIterationFailed"
+  | "MapIterationStarted"
+  | "MapIterationSucceeded"
+  | "MapStateAborted"
+  | "MapStateEntered"
+  | "MapStateExited"
+  | "MapStateFailed"
+  | "MapStateStarted"
+  | "MapStateSucceeded"
+  | "ParallelStateAborted"
+  | "ParallelStateEntered"
+  | "ParallelStateExited"
+  | "ParallelStateFailed"
+  | "ParallelStateStarted"
+  | "ParallelStateSucceeded"
+  | "PassStateEntered"
+  | "PassStateExited"
+  | "SucceedStateEntered"
+  | "SucceedStateExited"
+  | "TaskFailed"
+  | "TaskScheduled"
+  | "TaskStartFailed"
+  | "TaskStarted"
+  | "TaskStateAborted"
+  | "TaskStateEntered"
+  | "TaskStateExited"
+  | "TaskSubmitFailed"
+  | "TaskSubmitted"
+  | "TaskSucceeded"
+  | "TaskTimedOut"
+  | "WaitStateAborted"
+  | "WaitStateEntered"
+  | "WaitStateExited";
 
 /**
  * <p>The provided Amazon Resource Name (ARN) is invalid.</p>
@@ -2304,6 +1693,174 @@ export namespace InvalidToken {
     ...obj
   });
   export const isa = (o: any): o is InvalidToken => __isa(o, "InvalidToken");
+}
+
+/**
+ * <p>Contains details about a lambda function that failed during an execution.</p>
+ */
+export interface LambdaFunctionFailedEventDetails {
+  __type?: "LambdaFunctionFailedEventDetails";
+  /**
+   * <p>A more detailed explanation of the cause of the failure.</p>
+   */
+  cause?: string;
+
+  /**
+   * <p>The error code of the failure.</p>
+   */
+  error?: string;
+}
+
+export namespace LambdaFunctionFailedEventDetails {
+  export const filterSensitiveLog = (
+    obj: LambdaFunctionFailedEventDetails
+  ): any => ({
+    ...obj,
+    ...(obj.cause && { cause: SENSITIVE_STRING }),
+    ...(obj.error && { error: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is LambdaFunctionFailedEventDetails =>
+    __isa(o, "LambdaFunctionFailedEventDetails");
+}
+
+/**
+ * <p>Contains details about a lambda function scheduled during an execution.</p>
+ */
+export interface LambdaFunctionScheduledEventDetails {
+  __type?: "LambdaFunctionScheduledEventDetails";
+  /**
+   * <p>The JSON data input to the lambda function.</p>
+   */
+  input?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the scheduled lambda function.</p>
+   */
+  resource: string | undefined;
+
+  /**
+   * <p>The maximum allowed duration of the lambda function.</p>
+   */
+  timeoutInSeconds?: number;
+}
+
+export namespace LambdaFunctionScheduledEventDetails {
+  export const filterSensitiveLog = (
+    obj: LambdaFunctionScheduledEventDetails
+  ): any => ({
+    ...obj,
+    ...(obj.input && { input: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is LambdaFunctionScheduledEventDetails =>
+    __isa(o, "LambdaFunctionScheduledEventDetails");
+}
+
+/**
+ * <p>Contains details about a failed lambda function schedule event that occurred during an
+ *       execution.</p>
+ */
+export interface LambdaFunctionScheduleFailedEventDetails {
+  __type?: "LambdaFunctionScheduleFailedEventDetails";
+  /**
+   * <p>A more detailed explanation of the cause of the failure.</p>
+   */
+  cause?: string;
+
+  /**
+   * <p>The error code of the failure.</p>
+   */
+  error?: string;
+}
+
+export namespace LambdaFunctionScheduleFailedEventDetails {
+  export const filterSensitiveLog = (
+    obj: LambdaFunctionScheduleFailedEventDetails
+  ): any => ({
+    ...obj,
+    ...(obj.cause && { cause: SENSITIVE_STRING }),
+    ...(obj.error && { error: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is LambdaFunctionScheduleFailedEventDetails =>
+    __isa(o, "LambdaFunctionScheduleFailedEventDetails");
+}
+
+/**
+ * <p>Contains details about a lambda function that failed to start during an execution.</p>
+ */
+export interface LambdaFunctionStartFailedEventDetails {
+  __type?: "LambdaFunctionStartFailedEventDetails";
+  /**
+   * <p>A more detailed explanation of the cause of the failure.</p>
+   */
+  cause?: string;
+
+  /**
+   * <p>The error code of the failure.</p>
+   */
+  error?: string;
+}
+
+export namespace LambdaFunctionStartFailedEventDetails {
+  export const filterSensitiveLog = (
+    obj: LambdaFunctionStartFailedEventDetails
+  ): any => ({
+    ...obj,
+    ...(obj.cause && { cause: SENSITIVE_STRING }),
+    ...(obj.error && { error: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is LambdaFunctionStartFailedEventDetails =>
+    __isa(o, "LambdaFunctionStartFailedEventDetails");
+}
+
+/**
+ * <p>Contains details about a lambda function that successfully terminated during an
+ *       execution.</p>
+ */
+export interface LambdaFunctionSucceededEventDetails {
+  __type?: "LambdaFunctionSucceededEventDetails";
+  /**
+   * <p>The JSON data output by the lambda function.</p>
+   */
+  output?: string;
+}
+
+export namespace LambdaFunctionSucceededEventDetails {
+  export const filterSensitiveLog = (
+    obj: LambdaFunctionSucceededEventDetails
+  ): any => ({
+    ...obj,
+    ...(obj.output && { output: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is LambdaFunctionSucceededEventDetails =>
+    __isa(o, "LambdaFunctionSucceededEventDetails");
+}
+
+/**
+ * <p>Contains details about a lambda function timeout that occurred during an execution.</p>
+ */
+export interface LambdaFunctionTimedOutEventDetails {
+  __type?: "LambdaFunctionTimedOutEventDetails";
+  /**
+   * <p>A more detailed explanation of the cause of the timeout.</p>
+   */
+  cause?: string;
+
+  /**
+   * <p>The error code of the failure.</p>
+   */
+  error?: string;
+}
+
+export namespace LambdaFunctionTimedOutEventDetails {
+  export const filterSensitiveLog = (
+    obj: LambdaFunctionTimedOutEventDetails
+  ): any => ({
+    ...obj,
+    ...(obj.cause && { cause: SENSITIVE_STRING }),
+    ...(obj.error && { error: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is LambdaFunctionTimedOutEventDetails =>
+    __isa(o, "LambdaFunctionTimedOutEventDetails");
 }
 
 export interface ListActivitiesInput {
@@ -2482,6 +2039,103 @@ export namespace ListTagsForResourceOutput {
   });
   export const isa = (o: any): o is ListTagsForResourceOutput =>
     __isa(o, "ListTagsForResourceOutput");
+}
+
+/**
+ * <p></p>
+ */
+export interface LogDestination {
+  __type?: "LogDestination";
+  /**
+   * <p>An object describing a CloudWatch log group. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html">AWS::Logs::LogGroup</a> in the AWS CloudFormation User Guide.</p>
+   */
+  cloudWatchLogsLogGroup?: CloudWatchLogsLogGroup;
+}
+
+export namespace LogDestination {
+  export const filterSensitiveLog = (obj: LogDestination): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is LogDestination =>
+    __isa(o, "LogDestination");
+}
+
+/**
+ * <p></p>
+ */
+export interface LoggingConfiguration {
+  __type?: "LoggingConfiguration";
+  /**
+   * <p>An object that describes where your execution history events will be logged. Limited to
+   *       size 1. Required, if your log level is not set to <code>OFF</code>.</p>
+   */
+  destinations?: LogDestination[];
+
+  /**
+   * <p>Determines whether execution history data is included in your log. When set to
+   *         <code>FALSE</code>, data is excluded.</p>
+   */
+  includeExecutionData?: boolean;
+
+  /**
+   * <p>Defines which category of execution history events are logged.</p>
+   */
+  level?: LogLevel | string;
+}
+
+export namespace LoggingConfiguration {
+  export const filterSensitiveLog = (obj: LoggingConfiguration): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is LoggingConfiguration =>
+    __isa(o, "LoggingConfiguration");
+}
+
+export type LogLevel = "ALL" | "ERROR" | "FATAL" | "OFF";
+
+/**
+ * <p>Contains details about an iteration of a Map state.</p>
+ */
+export interface MapIterationEventDetails {
+  __type?: "MapIterationEventDetails";
+  /**
+   * <p>The index of the array belonging to the Map state iteration.</p>
+   */
+  index?: number;
+
+  /**
+   * <p>The name of the iteration’s parent Map state.</p>
+   */
+  name?: string;
+}
+
+export namespace MapIterationEventDetails {
+  export const filterSensitiveLog = (obj: MapIterationEventDetails): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is MapIterationEventDetails =>
+    __isa(o, "MapIterationEventDetails");
+}
+
+/**
+ * <p>Details about a Map state that was started.</p>
+ */
+export interface MapStateStartedEventDetails {
+  __type?: "MapStateStartedEventDetails";
+  /**
+   * <p>The size of the array for Map state iterations.</p>
+   */
+  length?: number;
+}
+
+export namespace MapStateStartedEventDetails {
+  export const filterSensitiveLog = (
+    obj: MapStateStartedEventDetails
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is MapStateStartedEventDetails =>
+    __isa(o, "MapStateStartedEventDetails");
 }
 
 /**
@@ -2711,6 +2365,77 @@ export namespace StartExecutionOutput {
 }
 
 /**
+ * <p>Contains details about a state entered during an execution.</p>
+ */
+export interface StateEnteredEventDetails {
+  __type?: "StateEnteredEventDetails";
+  /**
+   * <p>The string that contains the JSON input data for the state.</p>
+   */
+  input?: string;
+
+  /**
+   * <p>The name of the state.</p>
+   */
+  name: string | undefined;
+}
+
+export namespace StateEnteredEventDetails {
+  export const filterSensitiveLog = (obj: StateEnteredEventDetails): any => ({
+    ...obj,
+    ...(obj.input && { input: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is StateEnteredEventDetails =>
+    __isa(o, "StateEnteredEventDetails");
+}
+
+/**
+ * <p>Contains details about an exit from a state during an execution.</p>
+ */
+export interface StateExitedEventDetails {
+  __type?: "StateExitedEventDetails";
+  /**
+   * <p>The name of the state.</p>
+   *          <p>A name must <i>not</i> contain:</p>
+   *          <ul>
+   *             <li>
+   *                <p>white space</p>
+   *             </li>
+   *             <li>
+   *                <p>brackets <code>< > { } [ ]</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>wildcard characters <code>? *</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>special characters <code>" # % \ ^ | ~ ` $ & , ; : /</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p>
+   *             </li>
+   *          </ul>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The JSON output data of the state.</p>
+   */
+  output?: string;
+}
+
+export namespace StateExitedEventDetails {
+  export const filterSensitiveLog = (obj: StateExitedEventDetails): any => ({
+    ...obj,
+    ...(obj.output && { output: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is StateExitedEventDetails =>
+    __isa(o, "StateExitedEventDetails");
+}
+
+/**
  * <p>A state machine with the same name but a different definition or role ARN already
  *       exists.</p>
  */
@@ -2844,6 +2569,8 @@ export namespace StateMachineListItem {
 }
 
 export type StateMachineStatus = "ACTIVE" | "DELETING";
+
+export type StateMachineType = "EXPRESS" | "STANDARD";
 
 /**
  * <p></p>
@@ -2987,6 +2714,243 @@ export namespace TaskDoesNotExist {
     __isa(o, "TaskDoesNotExist");
 }
 
+/**
+ * <p>Contains details about a task failure event.</p>
+ */
+export interface TaskFailedEventDetails {
+  __type?: "TaskFailedEventDetails";
+  /**
+   * <p>A more detailed explanation of the cause of the failure.</p>
+   */
+  cause?: string;
+
+  /**
+   * <p>The error code of the failure.</p>
+   */
+  error?: string;
+
+  /**
+   * <p>The service name of the resource in a task state.</p>
+   */
+  resource: string | undefined;
+
+  /**
+   * <p>The action of the resource called by a task state.</p>
+   */
+  resourceType: string | undefined;
+}
+
+export namespace TaskFailedEventDetails {
+  export const filterSensitiveLog = (obj: TaskFailedEventDetails): any => ({
+    ...obj,
+    ...(obj.cause && { cause: SENSITIVE_STRING }),
+    ...(obj.error && { error: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is TaskFailedEventDetails =>
+    __isa(o, "TaskFailedEventDetails");
+}
+
+/**
+ * <p>Contains details about a task scheduled during an execution.</p>
+ */
+export interface TaskScheduledEventDetails {
+  __type?: "TaskScheduledEventDetails";
+  /**
+   * <p>The JSON data passed to the resource referenced in a task state.</p>
+   */
+  parameters: string | undefined;
+
+  /**
+   * <p>The region of the scheduled task</p>
+   */
+  region: string | undefined;
+
+  /**
+   * <p>The service name of the resource in a task state.</p>
+   */
+  resource: string | undefined;
+
+  /**
+   * <p>The action of the resource called by a task state.</p>
+   */
+  resourceType: string | undefined;
+
+  /**
+   * <p>The maximum allowed duration of the task.</p>
+   */
+  timeoutInSeconds?: number;
+}
+
+export namespace TaskScheduledEventDetails {
+  export const filterSensitiveLog = (obj: TaskScheduledEventDetails): any => ({
+    ...obj,
+    ...(obj.parameters && { parameters: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is TaskScheduledEventDetails =>
+    __isa(o, "TaskScheduledEventDetails");
+}
+
+/**
+ * <p>Contains details about the start of a task during an execution.</p>
+ */
+export interface TaskStartedEventDetails {
+  __type?: "TaskStartedEventDetails";
+  /**
+   * <p>The service name of the resource in a task state.</p>
+   */
+  resource: string | undefined;
+
+  /**
+   * <p>The action of the resource called by a task state.</p>
+   */
+  resourceType: string | undefined;
+}
+
+export namespace TaskStartedEventDetails {
+  export const filterSensitiveLog = (obj: TaskStartedEventDetails): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TaskStartedEventDetails =>
+    __isa(o, "TaskStartedEventDetails");
+}
+
+/**
+ * <p>Contains details about a task that failed to start during an execution.</p>
+ */
+export interface TaskStartFailedEventDetails {
+  __type?: "TaskStartFailedEventDetails";
+  /**
+   * <p>A more detailed explanation of the cause of the failure.</p>
+   */
+  cause?: string;
+
+  /**
+   * <p>The error code of the failure.</p>
+   */
+  error?: string;
+
+  /**
+   * <p>The service name of the resource in a task state.</p>
+   */
+  resource: string | undefined;
+
+  /**
+   * <p>The action of the resource called by a task state.</p>
+   */
+  resourceType: string | undefined;
+}
+
+export namespace TaskStartFailedEventDetails {
+  export const filterSensitiveLog = (
+    obj: TaskStartFailedEventDetails
+  ): any => ({
+    ...obj,
+    ...(obj.cause && { cause: SENSITIVE_STRING }),
+    ...(obj.error && { error: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is TaskStartFailedEventDetails =>
+    __isa(o, "TaskStartFailedEventDetails");
+}
+
+/**
+ * <p>Contains details about a task that failed to submit during an execution.</p>
+ */
+export interface TaskSubmitFailedEventDetails {
+  __type?: "TaskSubmitFailedEventDetails";
+  /**
+   * <p>A more detailed explanation of the cause of the failure.</p>
+   */
+  cause?: string;
+
+  /**
+   * <p>The error code of the failure.</p>
+   */
+  error?: string;
+
+  /**
+   * <p>The service name of the resource in a task state.</p>
+   */
+  resource: string | undefined;
+
+  /**
+   * <p>The action of the resource called by a task state.</p>
+   */
+  resourceType: string | undefined;
+}
+
+export namespace TaskSubmitFailedEventDetails {
+  export const filterSensitiveLog = (
+    obj: TaskSubmitFailedEventDetails
+  ): any => ({
+    ...obj,
+    ...(obj.cause && { cause: SENSITIVE_STRING }),
+    ...(obj.error && { error: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is TaskSubmitFailedEventDetails =>
+    __isa(o, "TaskSubmitFailedEventDetails");
+}
+
+/**
+ * <p>Contains details about a task submitted to a resource .</p>
+ */
+export interface TaskSubmittedEventDetails {
+  __type?: "TaskSubmittedEventDetails";
+  /**
+   * <p>The response from a resource when a task has started.</p>
+   */
+  output?: string;
+
+  /**
+   * <p>The service name of the resource in a task state.</p>
+   */
+  resource: string | undefined;
+
+  /**
+   * <p>The action of the resource called by a task state.</p>
+   */
+  resourceType: string | undefined;
+}
+
+export namespace TaskSubmittedEventDetails {
+  export const filterSensitiveLog = (obj: TaskSubmittedEventDetails): any => ({
+    ...obj,
+    ...(obj.output && { output: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is TaskSubmittedEventDetails =>
+    __isa(o, "TaskSubmittedEventDetails");
+}
+
+/**
+ * <p>Contains details about the successful completion of a task state.</p>
+ */
+export interface TaskSucceededEventDetails {
+  __type?: "TaskSucceededEventDetails";
+  /**
+   * <p>The full JSON response from a resource when a task has succeeded. This response becomes
+   *       the output of the related task.</p>
+   */
+  output?: string;
+
+  /**
+   * <p>The service name of the resource in a task state.</p>
+   */
+  resource: string | undefined;
+
+  /**
+   * <p>The action of the resource called by a task state.</p>
+   */
+  resourceType: string | undefined;
+}
+
+export namespace TaskSucceededEventDetails {
+  export const filterSensitiveLog = (obj: TaskSucceededEventDetails): any => ({
+    ...obj,
+    ...(obj.output && { output: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is TaskSucceededEventDetails =>
+    __isa(o, "TaskSucceededEventDetails");
+}
+
 export interface TaskTimedOut extends __SmithyException, $MetadataBearer {
   name: "TaskTimedOut";
   $fault: "client";
@@ -2998,6 +2962,42 @@ export namespace TaskTimedOut {
     ...obj
   });
   export const isa = (o: any): o is TaskTimedOut => __isa(o, "TaskTimedOut");
+}
+
+/**
+ * <p>Contains details about a resource timeout that occurred during an execution.</p>
+ */
+export interface TaskTimedOutEventDetails {
+  __type?: "TaskTimedOutEventDetails";
+  /**
+   * <p>A more detailed explanation of the cause of the failure.</p>
+   */
+  cause?: string;
+
+  /**
+   * <p>The error code of the failure.</p>
+   */
+  error?: string;
+
+  /**
+   * <p>The service name of the resource in a task state.</p>
+   */
+  resource: string | undefined;
+
+  /**
+   * <p>The action of the resource called by a task state.</p>
+   */
+  resourceType: string | undefined;
+}
+
+export namespace TaskTimedOutEventDetails {
+  export const filterSensitiveLog = (obj: TaskTimedOutEventDetails): any => ({
+    ...obj,
+    ...(obj.cause && { cause: SENSITIVE_STRING }),
+    ...(obj.error && { error: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is TaskTimedOutEventDetails =>
+    __isa(o, "TaskTimedOutEventDetails");
 }
 
 /**

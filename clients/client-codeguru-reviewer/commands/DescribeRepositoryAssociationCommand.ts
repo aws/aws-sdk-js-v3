@@ -8,9 +8,9 @@ import {
   DescribeRepositoryAssociationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeRepositoryAssociationCommand,
-  serializeAws_restJson1_1DescribeRepositoryAssociationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeRepositoryAssociationCommand,
+  serializeAws_restJson1DescribeRepositoryAssociationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeRepositoryAssociationCommand extends $Command<
     input: DescribeRepositoryAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeRepositoryAssociationCommand(
+    return serializeAws_restJson1DescribeRepositoryAssociationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeRepositoryAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRepositoryAssociationCommandOutput> {
-    return deserializeAws_restJson1_1DescribeRepositoryAssociationCommand(
+    return deserializeAws_restJson1DescribeRepositoryAssociationCommand(
       output,
       context
     );

@@ -8,9 +8,9 @@ import {
   UpdateTypedLinkFacetResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateTypedLinkFacetCommand,
-  serializeAws_restJson1_1UpdateTypedLinkFacetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateTypedLinkFacetCommand,
+  serializeAws_restJson1UpdateTypedLinkFacetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class UpdateTypedLinkFacetCommand extends $Command<
     input: UpdateTypedLinkFacetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateTypedLinkFacetCommand(input, context);
+    return serializeAws_restJson1UpdateTypedLinkFacetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateTypedLinkFacetCommandOutput> {
-    return deserializeAws_restJson1_1UpdateTypedLinkFacetCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateTypedLinkFacetCommand(output, context);
   }
 
   // Start section: command_body_extra

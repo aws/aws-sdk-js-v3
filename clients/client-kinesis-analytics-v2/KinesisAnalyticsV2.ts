@@ -911,41 +911,6 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   }
 
   /**
-   * <p>Lists information about the current application snapshots.</p>
-   */
-  public listApplicationSnapshots(
-    args: ListApplicationSnapshotsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListApplicationSnapshotsCommandOutput>;
-  public listApplicationSnapshots(
-    args: ListApplicationSnapshotsCommandInput,
-    cb: (err: any, data?: ListApplicationSnapshotsCommandOutput) => void
-  ): void;
-  public listApplicationSnapshots(
-    args: ListApplicationSnapshotsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListApplicationSnapshotsCommandOutput) => void
-  ): void;
-  public listApplicationSnapshots(
-    args: ListApplicationSnapshotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListApplicationSnapshotsCommandOutput) => void),
-    cb?: (err: any, data?: ListApplicationSnapshotsCommandOutput) => void
-  ): Promise<ListApplicationSnapshotsCommandOutput> | void {
-    const command = new ListApplicationSnapshotsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Returns a list of Amazon Kinesis Data Analytics applications in your account. For each
    *       application, the response includes the application name, Amazon Resource Name (ARN), and
    *       status. </p>
@@ -973,6 +938,41 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
     cb?: (err: any, data?: ListApplicationsCommandOutput) => void
   ): Promise<ListApplicationsCommandOutput> | void {
     const command = new ListApplicationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists information about the current application snapshots.</p>
+   */
+  public listApplicationSnapshots(
+    args: ListApplicationSnapshotsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationSnapshotsCommandOutput>;
+  public listApplicationSnapshots(
+    args: ListApplicationSnapshotsCommandInput,
+    cb: (err: any, data?: ListApplicationSnapshotsCommandOutput) => void
+  ): void;
+  public listApplicationSnapshots(
+    args: ListApplicationSnapshotsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationSnapshotsCommandOutput) => void
+  ): void;
+  public listApplicationSnapshots(
+    args: ListApplicationSnapshotsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListApplicationSnapshotsCommandOutput) => void),
+    cb?: (err: any, data?: ListApplicationSnapshotsCommandOutput) => void
+  ): Promise<ListApplicationSnapshotsCommandOutput> | void {
+    const command = new ListApplicationSnapshotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -237,32 +237,6 @@ export namespace BackupPlanInput {
 }
 
 /**
- * <p>An object specifying metadata associated with a backup plan template.</p>
- */
-export interface BackupPlanTemplatesListMember {
-  __type?: "BackupPlanTemplatesListMember";
-  /**
-   * <p>Uniquely identifies a stored backup plan template.</p>
-   */
-  BackupPlanTemplateId?: string;
-
-  /**
-   * <p>The optional display name of a backup plan template.</p>
-   */
-  BackupPlanTemplateName?: string;
-}
-
-export namespace BackupPlanTemplatesListMember {
-  export const filterSensitiveLog = (
-    obj: BackupPlanTemplatesListMember
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is BackupPlanTemplatesListMember =>
-    __isa(o, "BackupPlanTemplatesListMember");
-}
-
-/**
  * <p>Contains metadata about a backup plan.</p>
  */
 export interface BackupPlansListMember {
@@ -326,6 +300,32 @@ export namespace BackupPlansListMember {
   });
   export const isa = (o: any): o is BackupPlansListMember =>
     __isa(o, "BackupPlansListMember");
+}
+
+/**
+ * <p>An object specifying metadata associated with a backup plan template.</p>
+ */
+export interface BackupPlanTemplatesListMember {
+  __type?: "BackupPlanTemplatesListMember";
+  /**
+   * <p>Uniquely identifies a stored backup plan template.</p>
+   */
+  BackupPlanTemplateId?: string;
+
+  /**
+   * <p>The optional display name of a backup plan template.</p>
+   */
+  BackupPlanTemplateName?: string;
+}
+
+export namespace BackupPlanTemplatesListMember {
+  export const filterSensitiveLog = (
+    obj: BackupPlanTemplatesListMember
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is BackupPlanTemplatesListMember =>
+    __isa(o, "BackupPlanTemplatesListMember");
 }
 
 /**
@@ -2439,6 +2439,61 @@ export namespace ListBackupJobsOutput {
     __isa(o, "ListBackupJobsOutput");
 }
 
+export interface ListBackupPlansInput {
+  __type?: "ListBackupPlansInput";
+  /**
+   * <p>A Boolean value with a default value of <code>FALSE</code> that returns deleted backup
+   *          plans when set to <code>TRUE</code>.</p>
+   */
+  IncludeDeleted?: boolean;
+
+  /**
+   * <p>The maximum number of items to be returned.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The next item following a partial list of returned items. For example, if a request is
+   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          to return more items in your list starting at the location pointed to by the next
+   *          token.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListBackupPlansInput {
+  export const filterSensitiveLog = (obj: ListBackupPlansInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListBackupPlansInput =>
+    __isa(o, "ListBackupPlansInput");
+}
+
+export interface ListBackupPlansOutput {
+  __type?: "ListBackupPlansOutput";
+  /**
+   * <p>An array of backup plan list items containing metadata about your saved backup
+   *          plans.</p>
+   */
+  BackupPlansList?: BackupPlansListMember[];
+
+  /**
+   * <p>The next item following a partial list of returned items. For example, if a request is
+   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          to return more items in your list starting at the location pointed to by the next
+   *          token.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListBackupPlansOutput {
+  export const filterSensitiveLog = (obj: ListBackupPlansOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListBackupPlansOutput =>
+    __isa(o, "ListBackupPlansOutput");
+}
+
 export interface ListBackupPlanTemplatesInput {
   __type?: "ListBackupPlanTemplatesInput";
   /**
@@ -2546,61 +2601,6 @@ export namespace ListBackupPlanVersionsOutput {
   });
   export const isa = (o: any): o is ListBackupPlanVersionsOutput =>
     __isa(o, "ListBackupPlanVersionsOutput");
-}
-
-export interface ListBackupPlansInput {
-  __type?: "ListBackupPlansInput";
-  /**
-   * <p>A Boolean value with a default value of <code>FALSE</code> that returns deleted backup
-   *          plans when set to <code>TRUE</code>.</p>
-   */
-  IncludeDeleted?: boolean;
-
-  /**
-   * <p>The maximum number of items to be returned.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
-   *          to return more items in your list starting at the location pointed to by the next
-   *          token.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListBackupPlansInput {
-  export const filterSensitiveLog = (obj: ListBackupPlansInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListBackupPlansInput =>
-    __isa(o, "ListBackupPlansInput");
-}
-
-export interface ListBackupPlansOutput {
-  __type?: "ListBackupPlansOutput";
-  /**
-   * <p>An array of backup plan list items containing metadata about your saved backup
-   *          plans.</p>
-   */
-  BackupPlansList?: BackupPlansListMember[];
-
-  /**
-   * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
-   *          to return more items in your list starting at the location pointed to by the next
-   *          token.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListBackupPlansOutput {
-  export const filterSensitiveLog = (obj: ListBackupPlansOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListBackupPlansOutput =>
-    __isa(o, "ListBackupPlansOutput");
 }
 
 export interface ListBackupSelectionsInput {
@@ -3477,14 +3477,6 @@ export namespace ResourceNotFoundException {
     __isa(o, "ResourceNotFoundException");
 }
 
-export enum RestoreJobStatus {
-  ABORTED = "ABORTED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING"
-}
-
 /**
  * <p>Contains metadata about a restore job.</p>
  */
@@ -3564,6 +3556,14 @@ export namespace RestoreJobsListMember {
   });
   export const isa = (o: any): o is RestoreJobsListMember =>
     __isa(o, "RestoreJobsListMember");
+}
+
+export enum RestoreJobStatus {
+  ABORTED = "ABORTED",
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  RUNNING = "RUNNING"
 }
 
 /**

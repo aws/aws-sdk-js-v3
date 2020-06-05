@@ -5,9 +5,9 @@ import {
 } from "../ChimeClient";
 import { DeleteVoiceConnectorGroupRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteVoiceConnectorGroupCommand,
-  serializeAws_restJson1_1DeleteVoiceConnectorGroupCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteVoiceConnectorGroupCommand,
+  serializeAws_restJson1DeleteVoiceConnectorGroupCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class DeleteVoiceConnectorGroupCommand extends $Command<
     input: DeleteVoiceConnectorGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteVoiceConnectorGroupCommand(
+    return serializeAws_restJson1DeleteVoiceConnectorGroupCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class DeleteVoiceConnectorGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVoiceConnectorGroupCommandOutput> {
-    return deserializeAws_restJson1_1DeleteVoiceConnectorGroupCommand(
+    return deserializeAws_restJson1DeleteVoiceConnectorGroupCommand(
       output,
       context
     );

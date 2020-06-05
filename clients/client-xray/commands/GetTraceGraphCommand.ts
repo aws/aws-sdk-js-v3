@@ -5,9 +5,9 @@ import {
 } from "../XRayClient";
 import { GetTraceGraphRequest, GetTraceGraphResult } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetTraceGraphCommand,
-  serializeAws_restJson1_1GetTraceGraphCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetTraceGraphCommand,
+  serializeAws_restJson1GetTraceGraphCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetTraceGraphCommand extends $Command<
     input: GetTraceGraphCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetTraceGraphCommand(input, context);
+    return serializeAws_restJson1GetTraceGraphCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTraceGraphCommandOutput> {
-    return deserializeAws_restJson1_1GetTraceGraphCommand(output, context);
+    return deserializeAws_restJson1GetTraceGraphCommand(output, context);
   }
 
   // Start section: command_body_extra

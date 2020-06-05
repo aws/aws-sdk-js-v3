@@ -5,9 +5,9 @@ import {
 } from "../MediaLiveClient";
 import { DeleteInputRequest, DeleteInputResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteInputCommand,
-  serializeAws_restJson1_1DeleteInputCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteInputCommand,
+  serializeAws_restJson1DeleteInputCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteInputCommand extends $Command<
     input: DeleteInputCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteInputCommand(input, context);
+    return serializeAws_restJson1DeleteInputCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteInputCommandOutput> {
-    return deserializeAws_restJson1_1DeleteInputCommand(output, context);
+    return deserializeAws_restJson1DeleteInputCommand(output, context);
   }
 
   // Start section: command_body_extra

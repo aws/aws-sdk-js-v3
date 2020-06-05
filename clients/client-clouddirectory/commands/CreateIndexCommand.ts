@@ -5,9 +5,9 @@ import {
 } from "../CloudDirectoryClient";
 import { CreateIndexRequest, CreateIndexResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateIndexCommand,
-  serializeAws_restJson1_1CreateIndexCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateIndexCommand,
+  serializeAws_restJson1CreateIndexCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateIndexCommand extends $Command<
     input: CreateIndexCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateIndexCommand(input, context);
+    return serializeAws_restJson1CreateIndexCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateIndexCommandOutput> {
-    return deserializeAws_restJson1_1CreateIndexCommand(output, context);
+    return deserializeAws_restJson1CreateIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

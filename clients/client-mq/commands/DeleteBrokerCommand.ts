@@ -5,9 +5,9 @@ import {
   mqClientResolvedConfig
 } from "../mqClient";
 import {
-  deserializeAws_restJson1_1DeleteBrokerCommand,
-  serializeAws_restJson1_1DeleteBrokerCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteBrokerCommand,
+  serializeAws_restJson1DeleteBrokerCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteBrokerCommand extends $Command<
     input: DeleteBrokerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteBrokerCommand(input, context);
+    return serializeAws_restJson1DeleteBrokerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBrokerCommandOutput> {
-    return deserializeAws_restJson1_1DeleteBrokerCommand(output, context);
+    return deserializeAws_restJson1DeleteBrokerCommand(output, context);
   }
 
   // Start section: command_body_extra

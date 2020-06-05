@@ -640,7 +640,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -651,7 +651,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -662,7 +662,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
       };
       break;
     case "InvalidTagException":
-    case "com.amazon.eml.v20141212#InvalidTagException":
+    case "com.amazonaws.machinelearning#InvalidTagException":
       response = {
         ...(await deserializeAws_json1_1InvalidTagExceptionResponse(
           parsedOutput,
@@ -673,7 +673,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.eml.v20141212#ResourceNotFoundException":
+    case "com.amazonaws.machinelearning#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -684,7 +684,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
       };
       break;
     case "TagLimitExceededException":
-    case "com.amazon.eml.v20141212#TagLimitExceededException":
+    case "com.amazonaws.machinelearning#TagLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1TagLimitExceededExceptionResponse(
           parsedOutput,
@@ -747,7 +747,7 @@ const deserializeAws_json1_1CreateBatchPredictionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
-    case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
+    case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
           parsedOutput,
@@ -758,7 +758,7 @@ const deserializeAws_json1_1CreateBatchPredictionCommandError = async (
       };
       break;
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -769,7 +769,7 @@ const deserializeAws_json1_1CreateBatchPredictionCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -832,7 +832,7 @@ const deserializeAws_json1_1CreateDataSourceFromRDSCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
-    case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
+    case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
           parsedOutput,
@@ -843,7 +843,7 @@ const deserializeAws_json1_1CreateDataSourceFromRDSCommandError = async (
       };
       break;
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -854,7 +854,7 @@ const deserializeAws_json1_1CreateDataSourceFromRDSCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -920,7 +920,7 @@ const deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
-    case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
+    case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
           parsedOutput,
@@ -931,7 +931,7 @@ const deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError = async (
       };
       break;
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -942,7 +942,7 @@ const deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1005,7 +1005,7 @@ const deserializeAws_json1_1CreateDataSourceFromS3CommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
-    case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
+    case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
           parsedOutput,
@@ -1016,7 +1016,7 @@ const deserializeAws_json1_1CreateDataSourceFromS3CommandError = async (
       };
       break;
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1027,7 +1027,7 @@ const deserializeAws_json1_1CreateDataSourceFromS3CommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1087,7 +1087,7 @@ const deserializeAws_json1_1CreateEvaluationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
-    case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
+    case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
           parsedOutput,
@@ -1098,7 +1098,7 @@ const deserializeAws_json1_1CreateEvaluationCommandError = async (
       };
       break;
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1109,7 +1109,7 @@ const deserializeAws_json1_1CreateEvaluationCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1169,7 +1169,7 @@ const deserializeAws_json1_1CreateMLModelCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
-    case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
+    case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
       response = {
         ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
           parsedOutput,
@@ -1180,7 +1180,7 @@ const deserializeAws_json1_1CreateMLModelCommandError = async (
       };
       break;
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1191,7 +1191,7 @@ const deserializeAws_json1_1CreateMLModelCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1254,7 +1254,7 @@ const deserializeAws_json1_1CreateRealtimeEndpointCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1265,7 +1265,7 @@ const deserializeAws_json1_1CreateRealtimeEndpointCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1276,7 +1276,7 @@ const deserializeAws_json1_1CreateRealtimeEndpointCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.eml.v20141212#ResourceNotFoundException":
+    case "com.amazonaws.machinelearning#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1339,7 +1339,7 @@ const deserializeAws_json1_1DeleteBatchPredictionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1350,7 +1350,7 @@ const deserializeAws_json1_1DeleteBatchPredictionCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1361,7 +1361,7 @@ const deserializeAws_json1_1DeleteBatchPredictionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.eml.v20141212#ResourceNotFoundException":
+    case "com.amazonaws.machinelearning#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1421,7 +1421,7 @@ const deserializeAws_json1_1DeleteDataSourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1432,7 +1432,7 @@ const deserializeAws_json1_1DeleteDataSourceCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1443,7 +1443,7 @@ const deserializeAws_json1_1DeleteDataSourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.eml.v20141212#ResourceNotFoundException":
+    case "com.amazonaws.machinelearning#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1503,7 +1503,7 @@ const deserializeAws_json1_1DeleteEvaluationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1514,7 +1514,7 @@ const deserializeAws_json1_1DeleteEvaluationCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1525,7 +1525,7 @@ const deserializeAws_json1_1DeleteEvaluationCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.eml.v20141212#ResourceNotFoundException":
+    case "com.amazonaws.machinelearning#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1585,7 +1585,7 @@ const deserializeAws_json1_1DeleteMLModelCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1596,7 +1596,7 @@ const deserializeAws_json1_1DeleteMLModelCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1607,7 +1607,7 @@ const deserializeAws_json1_1DeleteMLModelCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.eml.v20141212#ResourceNotFoundException":
+    case "com.amazonaws.machinelearning#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1670,7 +1670,7 @@ const deserializeAws_json1_1DeleteRealtimeEndpointCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1681,7 +1681,7 @@ const deserializeAws_json1_1DeleteRealtimeEndpointCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1692,7 +1692,7 @@ const deserializeAws_json1_1DeleteRealtimeEndpointCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.eml.v20141212#ResourceNotFoundException":
+    case "com.amazonaws.machinelearning#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1752,7 +1752,7 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1763,7 +1763,7 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1774,7 +1774,7 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
       };
       break;
     case "InvalidTagException":
-    case "com.amazon.eml.v20141212#InvalidTagException":
+    case "com.amazonaws.machinelearning#InvalidTagException":
       response = {
         ...(await deserializeAws_json1_1InvalidTagExceptionResponse(
           parsedOutput,
@@ -1785,7 +1785,7 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.eml.v20141212#ResourceNotFoundException":
+    case "com.amazonaws.machinelearning#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1851,7 +1851,7 @@ const deserializeAws_json1_1DescribeBatchPredictionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1862,7 +1862,7 @@ const deserializeAws_json1_1DescribeBatchPredictionsCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1925,7 +1925,7 @@ const deserializeAws_json1_1DescribeDataSourcesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1936,7 +1936,7 @@ const deserializeAws_json1_1DescribeDataSourcesCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1999,7 +1999,7 @@ const deserializeAws_json1_1DescribeEvaluationsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2010,7 +2010,7 @@ const deserializeAws_json1_1DescribeEvaluationsCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2070,7 +2070,7 @@ const deserializeAws_json1_1DescribeMLModelsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2081,7 +2081,7 @@ const deserializeAws_json1_1DescribeMLModelsCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2141,7 +2141,7 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2152,7 +2152,7 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2163,7 +2163,7 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.eml.v20141212#ResourceNotFoundException":
+    case "com.amazonaws.machinelearning#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2226,7 +2226,7 @@ const deserializeAws_json1_1GetBatchPredictionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2237,7 +2237,7 @@ const deserializeAws_json1_1GetBatchPredictionCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2248,7 +2248,7 @@ const deserializeAws_json1_1GetBatchPredictionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.eml.v20141212#ResourceNotFoundException":
+    case "com.amazonaws.machinelearning#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2308,7 +2308,7 @@ const deserializeAws_json1_1GetDataSourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2319,7 +2319,7 @@ const deserializeAws_json1_1GetDataSourceCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2330,7 +2330,7 @@ const deserializeAws_json1_1GetDataSourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.eml.v20141212#ResourceNotFoundException":
+    case "com.amazonaws.machinelearning#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2390,7 +2390,7 @@ const deserializeAws_json1_1GetEvaluationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2401,7 +2401,7 @@ const deserializeAws_json1_1GetEvaluationCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2412,7 +2412,7 @@ const deserializeAws_json1_1GetEvaluationCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.eml.v20141212#ResourceNotFoundException":
+    case "com.amazonaws.machinelearning#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2472,7 +2472,7 @@ const deserializeAws_json1_1GetMLModelCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2483,7 +2483,7 @@ const deserializeAws_json1_1GetMLModelCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2494,7 +2494,7 @@ const deserializeAws_json1_1GetMLModelCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.eml.v20141212#ResourceNotFoundException":
+    case "com.amazonaws.machinelearning#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2554,7 +2554,7 @@ const deserializeAws_json1_1PredictCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2565,7 +2565,7 @@ const deserializeAws_json1_1PredictCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2576,7 +2576,7 @@ const deserializeAws_json1_1PredictCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.eml.v20141212#LimitExceededException":
+    case "com.amazonaws.machinelearning#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2587,7 +2587,7 @@ const deserializeAws_json1_1PredictCommandError = async (
       };
       break;
     case "PredictorNotMountedException":
-    case "com.amazon.eml.v20141212#PredictorNotMountedException":
+    case "com.amazonaws.machinelearning#PredictorNotMountedException":
       response = {
         ...(await deserializeAws_json1_1PredictorNotMountedExceptionResponse(
           parsedOutput,
@@ -2598,7 +2598,7 @@ const deserializeAws_json1_1PredictCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.eml.v20141212#ResourceNotFoundException":
+    case "com.amazonaws.machinelearning#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2661,7 +2661,7 @@ const deserializeAws_json1_1UpdateBatchPredictionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2672,7 +2672,7 @@ const deserializeAws_json1_1UpdateBatchPredictionCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2683,7 +2683,7 @@ const deserializeAws_json1_1UpdateBatchPredictionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.eml.v20141212#ResourceNotFoundException":
+    case "com.amazonaws.machinelearning#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2743,7 +2743,7 @@ const deserializeAws_json1_1UpdateDataSourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2754,7 +2754,7 @@ const deserializeAws_json1_1UpdateDataSourceCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2765,7 +2765,7 @@ const deserializeAws_json1_1UpdateDataSourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.eml.v20141212#ResourceNotFoundException":
+    case "com.amazonaws.machinelearning#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2825,7 +2825,7 @@ const deserializeAws_json1_1UpdateEvaluationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2836,7 +2836,7 @@ const deserializeAws_json1_1UpdateEvaluationCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2847,7 +2847,7 @@ const deserializeAws_json1_1UpdateEvaluationCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.eml.v20141212#ResourceNotFoundException":
+    case "com.amazonaws.machinelearning#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2907,7 +2907,7 @@ const deserializeAws_json1_1UpdateMLModelCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.eml.v20141212#InternalServerException":
+    case "com.amazonaws.machinelearning#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2918,7 +2918,7 @@ const deserializeAws_json1_1UpdateMLModelCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.eml.v20141212#InvalidInputException":
+    case "com.amazonaws.machinelearning#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2929,7 +2929,7 @@ const deserializeAws_json1_1UpdateMLModelCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.eml.v20141212#ResourceNotFoundException":
+    case "com.amazonaws.machinelearning#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3473,6 +3473,30 @@ const serializeAws_json1_1PredictInput = (
   };
 };
 
+const serializeAws_json1_1RDSDatabase = (
+  input: RDSDatabase,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DatabaseName !== undefined && {
+      DatabaseName: input.DatabaseName
+    }),
+    ...(input.InstanceIdentifier !== undefined && {
+      InstanceIdentifier: input.InstanceIdentifier
+    })
+  };
+};
+
+const serializeAws_json1_1RDSDatabaseCredentials = (
+  input: RDSDatabaseCredentials,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Password !== undefined && { Password: input.Password }),
+    ...(input.Username !== undefined && { Username: input.Username })
+  };
+};
+
 const serializeAws_json1_1RDSDataSpec = (
   input: RDSDataSpec,
   context: __SerdeContext
@@ -3517,30 +3541,6 @@ const serializeAws_json1_1RDSDataSpec = (
   };
 };
 
-const serializeAws_json1_1RDSDatabase = (
-  input: RDSDatabase,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DatabaseName !== undefined && {
-      DatabaseName: input.DatabaseName
-    }),
-    ...(input.InstanceIdentifier !== undefined && {
-      InstanceIdentifier: input.InstanceIdentifier
-    })
-  };
-};
-
-const serializeAws_json1_1RDSDatabaseCredentials = (
-  input: RDSDatabaseCredentials,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Password !== undefined && { Password: input.Password }),
-    ...(input.Username !== undefined && { Username: input.Username })
-  };
-};
-
 const serializeAws_json1_1Record = (
   input: { [key: string]: string },
   context: __SerdeContext
@@ -3552,6 +3552,30 @@ const serializeAws_json1_1Record = (
     }),
     {}
   );
+};
+
+const serializeAws_json1_1RedshiftDatabase = (
+  input: RedshiftDatabase,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClusterIdentifier !== undefined && {
+      ClusterIdentifier: input.ClusterIdentifier
+    }),
+    ...(input.DatabaseName !== undefined && {
+      DatabaseName: input.DatabaseName
+    })
+  };
+};
+
+const serializeAws_json1_1RedshiftDatabaseCredentials = (
+  input: RedshiftDatabaseCredentials,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Password !== undefined && { Password: input.Password }),
+    ...(input.Username !== undefined && { Username: input.Username })
+  };
 };
 
 const serializeAws_json1_1RedshiftDataSpec = (
@@ -3584,30 +3608,6 @@ const serializeAws_json1_1RedshiftDataSpec = (
     ...(input.SelectSqlQuery !== undefined && {
       SelectSqlQuery: input.SelectSqlQuery
     })
-  };
-};
-
-const serializeAws_json1_1RedshiftDatabase = (
-  input: RedshiftDatabase,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ClusterIdentifier !== undefined && {
-      ClusterIdentifier: input.ClusterIdentifier
-    }),
-    ...(input.DatabaseName !== undefined && {
-      DatabaseName: input.DatabaseName
-    })
-  };
-};
-
-const serializeAws_json1_1RedshiftDatabaseCredentials = (
-  input: RedshiftDatabaseCredentials,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Password !== undefined && { Password: input.Password }),
-    ...(input.Username !== undefined && { Username: input.Username })
   };
 };
 
@@ -4859,19 +4859,6 @@ const deserializeAws_json1_1PerformanceMetricsProperties = (
   );
 };
 
-const deserializeAws_json1_1PredictOutput = (
-  output: any,
-  context: __SerdeContext
-): PredictOutput => {
-  return {
-    __type: "PredictOutput",
-    Prediction:
-      output.Prediction !== undefined && output.Prediction !== null
-        ? deserializeAws_json1_1Prediction(output.Prediction, context)
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1Prediction = (
   output: any,
   context: __SerdeContext
@@ -4909,6 +4896,19 @@ const deserializeAws_json1_1PredictorNotMountedException = (
     message:
       output.message !== undefined && output.message !== null
         ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1PredictOutput = (
+  output: any,
+  context: __SerdeContext
+): PredictOutput => {
+  return {
+    __type: "PredictOutput",
+    Prediction:
+      output.Prediction !== undefined && output.Prediction !== null
+        ? deserializeAws_json1_1Prediction(output.Prediction, context)
         : undefined
   } as any;
 };

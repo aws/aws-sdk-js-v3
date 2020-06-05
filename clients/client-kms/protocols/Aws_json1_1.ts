@@ -1002,7 +1002,7 @@ const deserializeAws_json1_1CancelKeyDeletionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -1013,7 +1013,7 @@ const deserializeAws_json1_1CancelKeyDeletionCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -1024,7 +1024,7 @@ const deserializeAws_json1_1CancelKeyDeletionCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -1035,7 +1035,7 @@ const deserializeAws_json1_1CancelKeyDeletionCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -1046,7 +1046,7 @@ const deserializeAws_json1_1CancelKeyDeletionCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -1109,7 +1109,7 @@ const deserializeAws_json1_1ConnectCustomKeyStoreCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmClusterInvalidConfigurationException":
-    case "com.amazon.trent#CloudHsmClusterInvalidConfigurationException":
+    case "com.amazonaws.kms#CloudHsmClusterInvalidConfigurationException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionResponse(
           parsedOutput,
@@ -1120,7 +1120,7 @@ const deserializeAws_json1_1ConnectCustomKeyStoreCommandError = async (
       };
       break;
     case "CloudHsmClusterNotActiveException":
-    case "com.amazon.trent#CloudHsmClusterNotActiveException":
+    case "com.amazonaws.kms#CloudHsmClusterNotActiveException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmClusterNotActiveExceptionResponse(
           parsedOutput,
@@ -1131,7 +1131,7 @@ const deserializeAws_json1_1ConnectCustomKeyStoreCommandError = async (
       };
       break;
     case "CustomKeyStoreInvalidStateException":
-    case "com.amazon.trent#CustomKeyStoreInvalidStateException":
+    case "com.amazonaws.kms#CustomKeyStoreInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(
           parsedOutput,
@@ -1142,7 +1142,7 @@ const deserializeAws_json1_1ConnectCustomKeyStoreCommandError = async (
       };
       break;
     case "CustomKeyStoreNotFoundException":
-    case "com.amazon.trent#CustomKeyStoreNotFoundException":
+    case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(
           parsedOutput,
@@ -1153,7 +1153,7 @@ const deserializeAws_json1_1ConnectCustomKeyStoreCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -1209,7 +1209,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
-    case "com.amazon.trent#AlreadyExistsException":
+    case "com.amazonaws.kms#AlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1220,7 +1220,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
       };
       break;
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -1231,7 +1231,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
       };
       break;
     case "InvalidAliasNameException":
-    case "com.amazon.trent#InvalidAliasNameException":
+    case "com.amazonaws.kms#InvalidAliasNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidAliasNameExceptionResponse(
           parsedOutput,
@@ -1242,7 +1242,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -1253,7 +1253,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -1264,7 +1264,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.trent#LimitExceededException":
+    case "com.amazonaws.kms#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1275,7 +1275,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -1338,7 +1338,7 @@ const deserializeAws_json1_1CreateCustomKeyStoreCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmClusterInUseException":
-    case "com.amazon.trent#CloudHsmClusterInUseException":
+    case "com.amazonaws.kms#CloudHsmClusterInUseException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmClusterInUseExceptionResponse(
           parsedOutput,
@@ -1349,7 +1349,7 @@ const deserializeAws_json1_1CreateCustomKeyStoreCommandError = async (
       };
       break;
     case "CloudHsmClusterInvalidConfigurationException":
-    case "com.amazon.trent#CloudHsmClusterInvalidConfigurationException":
+    case "com.amazonaws.kms#CloudHsmClusterInvalidConfigurationException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionResponse(
           parsedOutput,
@@ -1360,7 +1360,7 @@ const deserializeAws_json1_1CreateCustomKeyStoreCommandError = async (
       };
       break;
     case "CloudHsmClusterNotActiveException":
-    case "com.amazon.trent#CloudHsmClusterNotActiveException":
+    case "com.amazonaws.kms#CloudHsmClusterNotActiveException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmClusterNotActiveExceptionResponse(
           parsedOutput,
@@ -1371,7 +1371,7 @@ const deserializeAws_json1_1CreateCustomKeyStoreCommandError = async (
       };
       break;
     case "CloudHsmClusterNotFoundException":
-    case "com.amazon.trent#CloudHsmClusterNotFoundException":
+    case "com.amazonaws.kms#CloudHsmClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -1382,7 +1382,7 @@ const deserializeAws_json1_1CreateCustomKeyStoreCommandError = async (
       };
       break;
     case "CustomKeyStoreNameInUseException":
-    case "com.amazon.trent#CustomKeyStoreNameInUseException":
+    case "com.amazonaws.kms#CustomKeyStoreNameInUseException":
       response = {
         ...(await deserializeAws_json1_1CustomKeyStoreNameInUseExceptionResponse(
           parsedOutput,
@@ -1393,7 +1393,7 @@ const deserializeAws_json1_1CreateCustomKeyStoreCommandError = async (
       };
       break;
     case "IncorrectTrustAnchorException":
-    case "com.amazon.trent#IncorrectTrustAnchorException":
+    case "com.amazonaws.kms#IncorrectTrustAnchorException":
       response = {
         ...(await deserializeAws_json1_1IncorrectTrustAnchorExceptionResponse(
           parsedOutput,
@@ -1404,7 +1404,7 @@ const deserializeAws_json1_1CreateCustomKeyStoreCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -1464,7 +1464,7 @@ const deserializeAws_json1_1CreateGrantCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -1475,7 +1475,7 @@ const deserializeAws_json1_1CreateGrantCommandError = async (
       };
       break;
     case "DisabledException":
-    case "com.amazon.trent#DisabledException":
+    case "com.amazonaws.kms#DisabledException":
       response = {
         ...(await deserializeAws_json1_1DisabledExceptionResponse(
           parsedOutput,
@@ -1486,7 +1486,7 @@ const deserializeAws_json1_1CreateGrantCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -1497,7 +1497,7 @@ const deserializeAws_json1_1CreateGrantCommandError = async (
       };
       break;
     case "InvalidGrantTokenException":
-    case "com.amazon.trent#InvalidGrantTokenException":
+    case "com.amazonaws.kms#InvalidGrantTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(
           parsedOutput,
@@ -1508,7 +1508,7 @@ const deserializeAws_json1_1CreateGrantCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -1519,7 +1519,7 @@ const deserializeAws_json1_1CreateGrantCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -1530,7 +1530,7 @@ const deserializeAws_json1_1CreateGrantCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.trent#LimitExceededException":
+    case "com.amazonaws.kms#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1541,7 +1541,7 @@ const deserializeAws_json1_1CreateGrantCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -1601,7 +1601,7 @@ const deserializeAws_json1_1CreateKeyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmClusterInvalidConfigurationException":
-    case "com.amazon.trent#CloudHsmClusterInvalidConfigurationException":
+    case "com.amazonaws.kms#CloudHsmClusterInvalidConfigurationException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionResponse(
           parsedOutput,
@@ -1612,7 +1612,7 @@ const deserializeAws_json1_1CreateKeyCommandError = async (
       };
       break;
     case "CustomKeyStoreInvalidStateException":
-    case "com.amazon.trent#CustomKeyStoreInvalidStateException":
+    case "com.amazonaws.kms#CustomKeyStoreInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(
           parsedOutput,
@@ -1623,7 +1623,7 @@ const deserializeAws_json1_1CreateKeyCommandError = async (
       };
       break;
     case "CustomKeyStoreNotFoundException":
-    case "com.amazon.trent#CustomKeyStoreNotFoundException":
+    case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(
           parsedOutput,
@@ -1634,7 +1634,7 @@ const deserializeAws_json1_1CreateKeyCommandError = async (
       };
       break;
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -1645,7 +1645,7 @@ const deserializeAws_json1_1CreateKeyCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -1656,7 +1656,7 @@ const deserializeAws_json1_1CreateKeyCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -1667,7 +1667,7 @@ const deserializeAws_json1_1CreateKeyCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.trent#LimitExceededException":
+    case "com.amazonaws.kms#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1678,7 +1678,7 @@ const deserializeAws_json1_1CreateKeyCommandError = async (
       };
       break;
     case "MalformedPolicyDocumentException":
-    case "com.amazon.trent#MalformedPolicyDocumentException":
+    case "com.amazonaws.kms#MalformedPolicyDocumentException":
       response = {
         ...(await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(
           parsedOutput,
@@ -1689,7 +1689,7 @@ const deserializeAws_json1_1CreateKeyCommandError = async (
       };
       break;
     case "TagException":
-    case "com.amazon.trent#TagException":
+    case "com.amazonaws.kms#TagException":
       response = {
         ...(await deserializeAws_json1_1TagExceptionResponse(
           parsedOutput,
@@ -1700,7 +1700,7 @@ const deserializeAws_json1_1CreateKeyCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazon.trent#UnsupportedOperationException":
+    case "com.amazonaws.kms#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -1760,7 +1760,7 @@ const deserializeAws_json1_1DecryptCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -1771,7 +1771,7 @@ const deserializeAws_json1_1DecryptCommandError = async (
       };
       break;
     case "DisabledException":
-    case "com.amazon.trent#DisabledException":
+    case "com.amazonaws.kms#DisabledException":
       response = {
         ...(await deserializeAws_json1_1DisabledExceptionResponse(
           parsedOutput,
@@ -1782,7 +1782,7 @@ const deserializeAws_json1_1DecryptCommandError = async (
       };
       break;
     case "IncorrectKeyException":
-    case "com.amazon.trent#IncorrectKeyException":
+    case "com.amazonaws.kms#IncorrectKeyException":
       response = {
         ...(await deserializeAws_json1_1IncorrectKeyExceptionResponse(
           parsedOutput,
@@ -1793,7 +1793,7 @@ const deserializeAws_json1_1DecryptCommandError = async (
       };
       break;
     case "InvalidCiphertextException":
-    case "com.amazon.trent#InvalidCiphertextException":
+    case "com.amazonaws.kms#InvalidCiphertextException":
       response = {
         ...(await deserializeAws_json1_1InvalidCiphertextExceptionResponse(
           parsedOutput,
@@ -1804,7 +1804,7 @@ const deserializeAws_json1_1DecryptCommandError = async (
       };
       break;
     case "InvalidGrantTokenException":
-    case "com.amazon.trent#InvalidGrantTokenException":
+    case "com.amazonaws.kms#InvalidGrantTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(
           parsedOutput,
@@ -1815,7 +1815,7 @@ const deserializeAws_json1_1DecryptCommandError = async (
       };
       break;
     case "InvalidKeyUsageException":
-    case "com.amazon.trent#InvalidKeyUsageException":
+    case "com.amazonaws.kms#InvalidKeyUsageException":
       response = {
         ...(await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(
           parsedOutput,
@@ -1825,8 +1825,19 @@ const deserializeAws_json1_1DecryptCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -1837,7 +1848,7 @@ const deserializeAws_json1_1DecryptCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -1847,19 +1858,8 @@ const deserializeAws_json1_1DecryptCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "KeyUnavailableException":
-    case "com.amazon.trent#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -1915,7 +1915,7 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -1926,7 +1926,7 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -1937,7 +1937,7 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -1948,7 +1948,7 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2011,7 +2011,7 @@ const deserializeAws_json1_1DeleteCustomKeyStoreCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CustomKeyStoreHasCMKsException":
-    case "com.amazon.trent#CustomKeyStoreHasCMKsException":
+    case "com.amazonaws.kms#CustomKeyStoreHasCMKsException":
       response = {
         ...(await deserializeAws_json1_1CustomKeyStoreHasCMKsExceptionResponse(
           parsedOutput,
@@ -2022,7 +2022,7 @@ const deserializeAws_json1_1DeleteCustomKeyStoreCommandError = async (
       };
       break;
     case "CustomKeyStoreInvalidStateException":
-    case "com.amazon.trent#CustomKeyStoreInvalidStateException":
+    case "com.amazonaws.kms#CustomKeyStoreInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(
           parsedOutput,
@@ -2033,7 +2033,7 @@ const deserializeAws_json1_1DeleteCustomKeyStoreCommandError = async (
       };
       break;
     case "CustomKeyStoreNotFoundException":
-    case "com.amazon.trent#CustomKeyStoreNotFoundException":
+    case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(
           parsedOutput,
@@ -2044,7 +2044,7 @@ const deserializeAws_json1_1DeleteCustomKeyStoreCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -2103,7 +2103,7 @@ const deserializeAws_json1_1DeleteImportedKeyMaterialCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -2114,7 +2114,7 @@ const deserializeAws_json1_1DeleteImportedKeyMaterialCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -2125,7 +2125,7 @@ const deserializeAws_json1_1DeleteImportedKeyMaterialCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -2136,7 +2136,7 @@ const deserializeAws_json1_1DeleteImportedKeyMaterialCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -2147,7 +2147,7 @@ const deserializeAws_json1_1DeleteImportedKeyMaterialCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2158,7 +2158,7 @@ const deserializeAws_json1_1DeleteImportedKeyMaterialCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazon.trent#UnsupportedOperationException":
+    case "com.amazonaws.kms#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -2224,7 +2224,7 @@ const deserializeAws_json1_1DescribeCustomKeyStoresCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CustomKeyStoreNotFoundException":
-    case "com.amazon.trent#CustomKeyStoreNotFoundException":
+    case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(
           parsedOutput,
@@ -2235,7 +2235,7 @@ const deserializeAws_json1_1DescribeCustomKeyStoresCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -2295,7 +2295,7 @@ const deserializeAws_json1_1DescribeKeyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -2306,7 +2306,7 @@ const deserializeAws_json1_1DescribeKeyCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -2317,7 +2317,7 @@ const deserializeAws_json1_1DescribeKeyCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -2328,7 +2328,7 @@ const deserializeAws_json1_1DescribeKeyCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2384,7 +2384,7 @@ const deserializeAws_json1_1DisableKeyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -2395,7 +2395,7 @@ const deserializeAws_json1_1DisableKeyCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -2406,7 +2406,7 @@ const deserializeAws_json1_1DisableKeyCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -2417,7 +2417,7 @@ const deserializeAws_json1_1DisableKeyCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -2428,7 +2428,7 @@ const deserializeAws_json1_1DisableKeyCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2487,7 +2487,7 @@ const deserializeAws_json1_1DisableKeyRotationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -2498,7 +2498,7 @@ const deserializeAws_json1_1DisableKeyRotationCommandError = async (
       };
       break;
     case "DisabledException":
-    case "com.amazon.trent#DisabledException":
+    case "com.amazonaws.kms#DisabledException":
       response = {
         ...(await deserializeAws_json1_1DisabledExceptionResponse(
           parsedOutput,
@@ -2509,7 +2509,7 @@ const deserializeAws_json1_1DisableKeyRotationCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -2520,7 +2520,7 @@ const deserializeAws_json1_1DisableKeyRotationCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -2531,7 +2531,7 @@ const deserializeAws_json1_1DisableKeyRotationCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -2542,7 +2542,7 @@ const deserializeAws_json1_1DisableKeyRotationCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2553,7 +2553,7 @@ const deserializeAws_json1_1DisableKeyRotationCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazon.trent#UnsupportedOperationException":
+    case "com.amazonaws.kms#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -2619,7 +2619,7 @@ const deserializeAws_json1_1DisconnectCustomKeyStoreCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CustomKeyStoreInvalidStateException":
-    case "com.amazon.trent#CustomKeyStoreInvalidStateException":
+    case "com.amazonaws.kms#CustomKeyStoreInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(
           parsedOutput,
@@ -2630,7 +2630,7 @@ const deserializeAws_json1_1DisconnectCustomKeyStoreCommandError = async (
       };
       break;
     case "CustomKeyStoreNotFoundException":
-    case "com.amazon.trent#CustomKeyStoreNotFoundException":
+    case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(
           parsedOutput,
@@ -2641,7 +2641,7 @@ const deserializeAws_json1_1DisconnectCustomKeyStoreCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -2697,7 +2697,7 @@ const deserializeAws_json1_1EnableKeyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -2708,7 +2708,7 @@ const deserializeAws_json1_1EnableKeyCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -2719,7 +2719,7 @@ const deserializeAws_json1_1EnableKeyCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -2730,7 +2730,7 @@ const deserializeAws_json1_1EnableKeyCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -2741,7 +2741,7 @@ const deserializeAws_json1_1EnableKeyCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.trent#LimitExceededException":
+    case "com.amazonaws.kms#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2752,7 +2752,7 @@ const deserializeAws_json1_1EnableKeyCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2808,7 +2808,7 @@ const deserializeAws_json1_1EnableKeyRotationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -2819,7 +2819,7 @@ const deserializeAws_json1_1EnableKeyRotationCommandError = async (
       };
       break;
     case "DisabledException":
-    case "com.amazon.trent#DisabledException":
+    case "com.amazonaws.kms#DisabledException":
       response = {
         ...(await deserializeAws_json1_1DisabledExceptionResponse(
           parsedOutput,
@@ -2830,7 +2830,7 @@ const deserializeAws_json1_1EnableKeyRotationCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -2841,7 +2841,7 @@ const deserializeAws_json1_1EnableKeyRotationCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -2852,7 +2852,7 @@ const deserializeAws_json1_1EnableKeyRotationCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -2863,7 +2863,7 @@ const deserializeAws_json1_1EnableKeyRotationCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2874,7 +2874,7 @@ const deserializeAws_json1_1EnableKeyRotationCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazon.trent#UnsupportedOperationException":
+    case "com.amazonaws.kms#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -2934,7 +2934,7 @@ const deserializeAws_json1_1EncryptCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -2945,7 +2945,7 @@ const deserializeAws_json1_1EncryptCommandError = async (
       };
       break;
     case "DisabledException":
-    case "com.amazon.trent#DisabledException":
+    case "com.amazonaws.kms#DisabledException":
       response = {
         ...(await deserializeAws_json1_1DisabledExceptionResponse(
           parsedOutput,
@@ -2956,7 +2956,7 @@ const deserializeAws_json1_1EncryptCommandError = async (
       };
       break;
     case "InvalidGrantTokenException":
-    case "com.amazon.trent#InvalidGrantTokenException":
+    case "com.amazonaws.kms#InvalidGrantTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(
           parsedOutput,
@@ -2967,7 +2967,7 @@ const deserializeAws_json1_1EncryptCommandError = async (
       };
       break;
     case "InvalidKeyUsageException":
-    case "com.amazon.trent#InvalidKeyUsageException":
+    case "com.amazonaws.kms#InvalidKeyUsageException":
       response = {
         ...(await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(
           parsedOutput,
@@ -2977,8 +2977,19 @@ const deserializeAws_json1_1EncryptCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -2989,7 +3000,7 @@ const deserializeAws_json1_1EncryptCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -2999,19 +3010,8 @@ const deserializeAws_json1_1EncryptCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "KeyUnavailableException":
-    case "com.amazon.trent#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3071,7 +3071,7 @@ const deserializeAws_json1_1GenerateDataKeyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -3082,7 +3082,7 @@ const deserializeAws_json1_1GenerateDataKeyCommandError = async (
       };
       break;
     case "DisabledException":
-    case "com.amazon.trent#DisabledException":
+    case "com.amazonaws.kms#DisabledException":
       response = {
         ...(await deserializeAws_json1_1DisabledExceptionResponse(
           parsedOutput,
@@ -3093,7 +3093,7 @@ const deserializeAws_json1_1GenerateDataKeyCommandError = async (
       };
       break;
     case "InvalidGrantTokenException":
-    case "com.amazon.trent#InvalidGrantTokenException":
+    case "com.amazonaws.kms#InvalidGrantTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(
           parsedOutput,
@@ -3104,7 +3104,7 @@ const deserializeAws_json1_1GenerateDataKeyCommandError = async (
       };
       break;
     case "InvalidKeyUsageException":
-    case "com.amazon.trent#InvalidKeyUsageException":
+    case "com.amazonaws.kms#InvalidKeyUsageException":
       response = {
         ...(await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(
           parsedOutput,
@@ -3114,8 +3114,19 @@ const deserializeAws_json1_1GenerateDataKeyCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -3126,7 +3137,7 @@ const deserializeAws_json1_1GenerateDataKeyCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -3136,19 +3147,8 @@ const deserializeAws_json1_1GenerateDataKeyCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "KeyUnavailableException":
-    case "com.amazon.trent#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3211,7 +3211,7 @@ const deserializeAws_json1_1GenerateDataKeyPairCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -3222,7 +3222,7 @@ const deserializeAws_json1_1GenerateDataKeyPairCommandError = async (
       };
       break;
     case "DisabledException":
-    case "com.amazon.trent#DisabledException":
+    case "com.amazonaws.kms#DisabledException":
       response = {
         ...(await deserializeAws_json1_1DisabledExceptionResponse(
           parsedOutput,
@@ -3233,7 +3233,7 @@ const deserializeAws_json1_1GenerateDataKeyPairCommandError = async (
       };
       break;
     case "InvalidGrantTokenException":
-    case "com.amazon.trent#InvalidGrantTokenException":
+    case "com.amazonaws.kms#InvalidGrantTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(
           parsedOutput,
@@ -3244,7 +3244,7 @@ const deserializeAws_json1_1GenerateDataKeyPairCommandError = async (
       };
       break;
     case "InvalidKeyUsageException":
-    case "com.amazon.trent#InvalidKeyUsageException":
+    case "com.amazonaws.kms#InvalidKeyUsageException":
       response = {
         ...(await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(
           parsedOutput,
@@ -3254,8 +3254,19 @@ const deserializeAws_json1_1GenerateDataKeyPairCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -3266,7 +3277,7 @@ const deserializeAws_json1_1GenerateDataKeyPairCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -3276,19 +3287,8 @@ const deserializeAws_json1_1GenerateDataKeyPairCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "KeyUnavailableException":
-    case "com.amazon.trent#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3354,7 +3354,7 @@ const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandError = as
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -3365,7 +3365,7 @@ const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandError = as
       };
       break;
     case "DisabledException":
-    case "com.amazon.trent#DisabledException":
+    case "com.amazonaws.kms#DisabledException":
       response = {
         ...(await deserializeAws_json1_1DisabledExceptionResponse(
           parsedOutput,
@@ -3376,7 +3376,7 @@ const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandError = as
       };
       break;
     case "InvalidGrantTokenException":
-    case "com.amazon.trent#InvalidGrantTokenException":
+    case "com.amazonaws.kms#InvalidGrantTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(
           parsedOutput,
@@ -3387,7 +3387,7 @@ const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandError = as
       };
       break;
     case "InvalidKeyUsageException":
-    case "com.amazon.trent#InvalidKeyUsageException":
+    case "com.amazonaws.kms#InvalidKeyUsageException":
       response = {
         ...(await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(
           parsedOutput,
@@ -3397,8 +3397,19 @@ const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandError = as
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -3409,7 +3420,7 @@ const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandError = as
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -3419,19 +3430,8 @@ const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandError = as
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "KeyUnavailableException":
-    case "com.amazon.trent#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3497,7 +3497,7 @@ const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError = async 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -3508,7 +3508,7 @@ const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError = async 
       };
       break;
     case "DisabledException":
-    case "com.amazon.trent#DisabledException":
+    case "com.amazonaws.kms#DisabledException":
       response = {
         ...(await deserializeAws_json1_1DisabledExceptionResponse(
           parsedOutput,
@@ -3519,7 +3519,7 @@ const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError = async 
       };
       break;
     case "InvalidGrantTokenException":
-    case "com.amazon.trent#InvalidGrantTokenException":
+    case "com.amazonaws.kms#InvalidGrantTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(
           parsedOutput,
@@ -3530,7 +3530,7 @@ const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError = async 
       };
       break;
     case "InvalidKeyUsageException":
-    case "com.amazon.trent#InvalidKeyUsageException":
+    case "com.amazonaws.kms#InvalidKeyUsageException":
       response = {
         ...(await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(
           parsedOutput,
@@ -3540,8 +3540,19 @@ const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError = async 
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -3552,7 +3563,7 @@ const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError = async 
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -3562,19 +3573,8 @@ const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError = async 
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "KeyUnavailableException":
-    case "com.amazon.trent#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3634,7 +3634,7 @@ const deserializeAws_json1_1GenerateRandomCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CustomKeyStoreInvalidStateException":
-    case "com.amazon.trent#CustomKeyStoreInvalidStateException":
+    case "com.amazonaws.kms#CustomKeyStoreInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(
           parsedOutput,
@@ -3645,7 +3645,7 @@ const deserializeAws_json1_1GenerateRandomCommandError = async (
       };
       break;
     case "CustomKeyStoreNotFoundException":
-    case "com.amazon.trent#CustomKeyStoreNotFoundException":
+    case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(
           parsedOutput,
@@ -3656,7 +3656,7 @@ const deserializeAws_json1_1GenerateRandomCommandError = async (
       };
       break;
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -3667,7 +3667,7 @@ const deserializeAws_json1_1GenerateRandomCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -3727,7 +3727,7 @@ const deserializeAws_json1_1GetKeyPolicyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -3738,7 +3738,7 @@ const deserializeAws_json1_1GetKeyPolicyCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -3749,7 +3749,7 @@ const deserializeAws_json1_1GetKeyPolicyCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -3760,7 +3760,7 @@ const deserializeAws_json1_1GetKeyPolicyCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -3771,7 +3771,7 @@ const deserializeAws_json1_1GetKeyPolicyCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3834,7 +3834,7 @@ const deserializeAws_json1_1GetKeyRotationStatusCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -3845,7 +3845,7 @@ const deserializeAws_json1_1GetKeyRotationStatusCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -3856,7 +3856,7 @@ const deserializeAws_json1_1GetKeyRotationStatusCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -3867,7 +3867,7 @@ const deserializeAws_json1_1GetKeyRotationStatusCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -3878,7 +3878,7 @@ const deserializeAws_json1_1GetKeyRotationStatusCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -3889,7 +3889,7 @@ const deserializeAws_json1_1GetKeyRotationStatusCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazon.trent#UnsupportedOperationException":
+    case "com.amazonaws.kms#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -3955,7 +3955,7 @@ const deserializeAws_json1_1GetParametersForImportCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -3966,7 +3966,7 @@ const deserializeAws_json1_1GetParametersForImportCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -3977,7 +3977,7 @@ const deserializeAws_json1_1GetParametersForImportCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -3988,7 +3988,7 @@ const deserializeAws_json1_1GetParametersForImportCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -3999,7 +3999,7 @@ const deserializeAws_json1_1GetParametersForImportCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4010,7 +4010,7 @@ const deserializeAws_json1_1GetParametersForImportCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazon.trent#UnsupportedOperationException":
+    case "com.amazonaws.kms#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -4070,7 +4070,7 @@ const deserializeAws_json1_1GetPublicKeyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -4081,7 +4081,7 @@ const deserializeAws_json1_1GetPublicKeyCommandError = async (
       };
       break;
     case "DisabledException":
-    case "com.amazon.trent#DisabledException":
+    case "com.amazonaws.kms#DisabledException":
       response = {
         ...(await deserializeAws_json1_1DisabledExceptionResponse(
           parsedOutput,
@@ -4092,7 +4092,7 @@ const deserializeAws_json1_1GetPublicKeyCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -4103,7 +4103,7 @@ const deserializeAws_json1_1GetPublicKeyCommandError = async (
       };
       break;
     case "InvalidGrantTokenException":
-    case "com.amazon.trent#InvalidGrantTokenException":
+    case "com.amazonaws.kms#InvalidGrantTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(
           parsedOutput,
@@ -4114,7 +4114,7 @@ const deserializeAws_json1_1GetPublicKeyCommandError = async (
       };
       break;
     case "InvalidKeyUsageException":
-    case "com.amazon.trent#InvalidKeyUsageException":
+    case "com.amazonaws.kms#InvalidKeyUsageException":
       response = {
         ...(await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(
           parsedOutput,
@@ -4124,8 +4124,19 @@ const deserializeAws_json1_1GetPublicKeyCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -4136,7 +4147,7 @@ const deserializeAws_json1_1GetPublicKeyCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -4146,19 +4157,8 @@ const deserializeAws_json1_1GetPublicKeyCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "KeyUnavailableException":
-    case "com.amazon.trent#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4169,7 +4169,7 @@ const deserializeAws_json1_1GetPublicKeyCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazon.trent#UnsupportedOperationException":
+    case "com.amazonaws.kms#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -4229,7 +4229,7 @@ const deserializeAws_json1_1ImportKeyMaterialCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -4240,7 +4240,7 @@ const deserializeAws_json1_1ImportKeyMaterialCommandError = async (
       };
       break;
     case "ExpiredImportTokenException":
-    case "com.amazon.trent#ExpiredImportTokenException":
+    case "com.amazonaws.kms#ExpiredImportTokenException":
       response = {
         ...(await deserializeAws_json1_1ExpiredImportTokenExceptionResponse(
           parsedOutput,
@@ -4251,7 +4251,7 @@ const deserializeAws_json1_1ImportKeyMaterialCommandError = async (
       };
       break;
     case "IncorrectKeyMaterialException":
-    case "com.amazon.trent#IncorrectKeyMaterialException":
+    case "com.amazonaws.kms#IncorrectKeyMaterialException":
       response = {
         ...(await deserializeAws_json1_1IncorrectKeyMaterialExceptionResponse(
           parsedOutput,
@@ -4262,7 +4262,7 @@ const deserializeAws_json1_1ImportKeyMaterialCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -4273,7 +4273,7 @@ const deserializeAws_json1_1ImportKeyMaterialCommandError = async (
       };
       break;
     case "InvalidCiphertextException":
-    case "com.amazon.trent#InvalidCiphertextException":
+    case "com.amazonaws.kms#InvalidCiphertextException":
       response = {
         ...(await deserializeAws_json1_1InvalidCiphertextExceptionResponse(
           parsedOutput,
@@ -4284,7 +4284,7 @@ const deserializeAws_json1_1ImportKeyMaterialCommandError = async (
       };
       break;
     case "InvalidImportTokenException":
-    case "com.amazon.trent#InvalidImportTokenException":
+    case "com.amazonaws.kms#InvalidImportTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidImportTokenExceptionResponse(
           parsedOutput,
@@ -4295,7 +4295,7 @@ const deserializeAws_json1_1ImportKeyMaterialCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -4306,7 +4306,7 @@ const deserializeAws_json1_1ImportKeyMaterialCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -4317,7 +4317,7 @@ const deserializeAws_json1_1ImportKeyMaterialCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4328,7 +4328,7 @@ const deserializeAws_json1_1ImportKeyMaterialCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazon.trent#UnsupportedOperationException":
+    case "com.amazonaws.kms#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -4388,7 +4388,7 @@ const deserializeAws_json1_1ListAliasesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -4399,7 +4399,7 @@ const deserializeAws_json1_1ListAliasesCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -4410,7 +4410,7 @@ const deserializeAws_json1_1ListAliasesCommandError = async (
       };
       break;
     case "InvalidMarkerException":
-    case "com.amazon.trent#InvalidMarkerException":
+    case "com.amazonaws.kms#InvalidMarkerException":
       response = {
         ...(await deserializeAws_json1_1InvalidMarkerExceptionResponse(
           parsedOutput,
@@ -4421,7 +4421,7 @@ const deserializeAws_json1_1ListAliasesCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -4432,7 +4432,7 @@ const deserializeAws_json1_1ListAliasesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4492,7 +4492,7 @@ const deserializeAws_json1_1ListGrantsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -4503,7 +4503,7 @@ const deserializeAws_json1_1ListGrantsCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -4514,7 +4514,7 @@ const deserializeAws_json1_1ListGrantsCommandError = async (
       };
       break;
     case "InvalidMarkerException":
-    case "com.amazon.trent#InvalidMarkerException":
+    case "com.amazonaws.kms#InvalidMarkerException":
       response = {
         ...(await deserializeAws_json1_1InvalidMarkerExceptionResponse(
           parsedOutput,
@@ -4525,7 +4525,7 @@ const deserializeAws_json1_1ListGrantsCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -4536,7 +4536,7 @@ const deserializeAws_json1_1ListGrantsCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -4547,7 +4547,7 @@ const deserializeAws_json1_1ListGrantsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4607,7 +4607,7 @@ const deserializeAws_json1_1ListKeyPoliciesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -4618,7 +4618,7 @@ const deserializeAws_json1_1ListKeyPoliciesCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -4629,7 +4629,7 @@ const deserializeAws_json1_1ListKeyPoliciesCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -4640,7 +4640,7 @@ const deserializeAws_json1_1ListKeyPoliciesCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -4651,7 +4651,7 @@ const deserializeAws_json1_1ListKeyPoliciesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4711,7 +4711,7 @@ const deserializeAws_json1_1ListKeysCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -4722,7 +4722,7 @@ const deserializeAws_json1_1ListKeysCommandError = async (
       };
       break;
     case "InvalidMarkerException":
-    case "com.amazon.trent#InvalidMarkerException":
+    case "com.amazonaws.kms#InvalidMarkerException":
       response = {
         ...(await deserializeAws_json1_1InvalidMarkerExceptionResponse(
           parsedOutput,
@@ -4733,7 +4733,7 @@ const deserializeAws_json1_1ListKeysCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -4793,7 +4793,7 @@ const deserializeAws_json1_1ListResourceTagsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -4804,7 +4804,7 @@ const deserializeAws_json1_1ListResourceTagsCommandError = async (
       };
       break;
     case "InvalidMarkerException":
-    case "com.amazon.trent#InvalidMarkerException":
+    case "com.amazonaws.kms#InvalidMarkerException":
       response = {
         ...(await deserializeAws_json1_1InvalidMarkerExceptionResponse(
           parsedOutput,
@@ -4815,7 +4815,7 @@ const deserializeAws_json1_1ListResourceTagsCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -4826,7 +4826,7 @@ const deserializeAws_json1_1ListResourceTagsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4889,7 +4889,7 @@ const deserializeAws_json1_1ListRetirableGrantsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -4900,7 +4900,7 @@ const deserializeAws_json1_1ListRetirableGrantsCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -4911,7 +4911,7 @@ const deserializeAws_json1_1ListRetirableGrantsCommandError = async (
       };
       break;
     case "InvalidMarkerException":
-    case "com.amazon.trent#InvalidMarkerException":
+    case "com.amazonaws.kms#InvalidMarkerException":
       response = {
         ...(await deserializeAws_json1_1InvalidMarkerExceptionResponse(
           parsedOutput,
@@ -4922,7 +4922,7 @@ const deserializeAws_json1_1ListRetirableGrantsCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -4933,7 +4933,7 @@ const deserializeAws_json1_1ListRetirableGrantsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -4989,7 +4989,7 @@ const deserializeAws_json1_1PutKeyPolicyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -5000,7 +5000,7 @@ const deserializeAws_json1_1PutKeyPolicyCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -5011,7 +5011,7 @@ const deserializeAws_json1_1PutKeyPolicyCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -5022,7 +5022,7 @@ const deserializeAws_json1_1PutKeyPolicyCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -5033,7 +5033,7 @@ const deserializeAws_json1_1PutKeyPolicyCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.trent#LimitExceededException":
+    case "com.amazonaws.kms#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -5044,7 +5044,7 @@ const deserializeAws_json1_1PutKeyPolicyCommandError = async (
       };
       break;
     case "MalformedPolicyDocumentException":
-    case "com.amazon.trent#MalformedPolicyDocumentException":
+    case "com.amazonaws.kms#MalformedPolicyDocumentException":
       response = {
         ...(await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(
           parsedOutput,
@@ -5055,7 +5055,7 @@ const deserializeAws_json1_1PutKeyPolicyCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5066,7 +5066,7 @@ const deserializeAws_json1_1PutKeyPolicyCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazon.trent#UnsupportedOperationException":
+    case "com.amazonaws.kms#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -5126,7 +5126,7 @@ const deserializeAws_json1_1ReEncryptCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -5137,7 +5137,7 @@ const deserializeAws_json1_1ReEncryptCommandError = async (
       };
       break;
     case "DisabledException":
-    case "com.amazon.trent#DisabledException":
+    case "com.amazonaws.kms#DisabledException":
       response = {
         ...(await deserializeAws_json1_1DisabledExceptionResponse(
           parsedOutput,
@@ -5148,7 +5148,7 @@ const deserializeAws_json1_1ReEncryptCommandError = async (
       };
       break;
     case "IncorrectKeyException":
-    case "com.amazon.trent#IncorrectKeyException":
+    case "com.amazonaws.kms#IncorrectKeyException":
       response = {
         ...(await deserializeAws_json1_1IncorrectKeyExceptionResponse(
           parsedOutput,
@@ -5159,7 +5159,7 @@ const deserializeAws_json1_1ReEncryptCommandError = async (
       };
       break;
     case "InvalidCiphertextException":
-    case "com.amazon.trent#InvalidCiphertextException":
+    case "com.amazonaws.kms#InvalidCiphertextException":
       response = {
         ...(await deserializeAws_json1_1InvalidCiphertextExceptionResponse(
           parsedOutput,
@@ -5170,7 +5170,7 @@ const deserializeAws_json1_1ReEncryptCommandError = async (
       };
       break;
     case "InvalidGrantTokenException":
-    case "com.amazon.trent#InvalidGrantTokenException":
+    case "com.amazonaws.kms#InvalidGrantTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(
           parsedOutput,
@@ -5181,7 +5181,7 @@ const deserializeAws_json1_1ReEncryptCommandError = async (
       };
       break;
     case "InvalidKeyUsageException":
-    case "com.amazon.trent#InvalidKeyUsageException":
+    case "com.amazonaws.kms#InvalidKeyUsageException":
       response = {
         ...(await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(
           parsedOutput,
@@ -5191,8 +5191,19 @@ const deserializeAws_json1_1ReEncryptCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -5203,7 +5214,7 @@ const deserializeAws_json1_1ReEncryptCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -5213,19 +5224,8 @@ const deserializeAws_json1_1ReEncryptCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "KeyUnavailableException":
-    case "com.amazon.trent#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5281,7 +5281,7 @@ const deserializeAws_json1_1RetireGrantCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -5292,7 +5292,7 @@ const deserializeAws_json1_1RetireGrantCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -5303,7 +5303,7 @@ const deserializeAws_json1_1RetireGrantCommandError = async (
       };
       break;
     case "InvalidGrantIdException":
-    case "com.amazon.trent#InvalidGrantIdException":
+    case "com.amazonaws.kms#InvalidGrantIdException":
       response = {
         ...(await deserializeAws_json1_1InvalidGrantIdExceptionResponse(
           parsedOutput,
@@ -5314,7 +5314,7 @@ const deserializeAws_json1_1RetireGrantCommandError = async (
       };
       break;
     case "InvalidGrantTokenException":
-    case "com.amazon.trent#InvalidGrantTokenException":
+    case "com.amazonaws.kms#InvalidGrantTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(
           parsedOutput,
@@ -5325,7 +5325,7 @@ const deserializeAws_json1_1RetireGrantCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -5336,7 +5336,7 @@ const deserializeAws_json1_1RetireGrantCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -5347,7 +5347,7 @@ const deserializeAws_json1_1RetireGrantCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5403,7 +5403,7 @@ const deserializeAws_json1_1RevokeGrantCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -5414,7 +5414,7 @@ const deserializeAws_json1_1RevokeGrantCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -5425,7 +5425,7 @@ const deserializeAws_json1_1RevokeGrantCommandError = async (
       };
       break;
     case "InvalidGrantIdException":
-    case "com.amazon.trent#InvalidGrantIdException":
+    case "com.amazonaws.kms#InvalidGrantIdException":
       response = {
         ...(await deserializeAws_json1_1InvalidGrantIdExceptionResponse(
           parsedOutput,
@@ -5436,7 +5436,7 @@ const deserializeAws_json1_1RevokeGrantCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -5447,7 +5447,7 @@ const deserializeAws_json1_1RevokeGrantCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -5458,7 +5458,7 @@ const deserializeAws_json1_1RevokeGrantCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5521,7 +5521,7 @@ const deserializeAws_json1_1ScheduleKeyDeletionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -5532,7 +5532,7 @@ const deserializeAws_json1_1ScheduleKeyDeletionCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -5543,7 +5543,7 @@ const deserializeAws_json1_1ScheduleKeyDeletionCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -5554,7 +5554,7 @@ const deserializeAws_json1_1ScheduleKeyDeletionCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -5565,7 +5565,7 @@ const deserializeAws_json1_1ScheduleKeyDeletionCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5625,7 +5625,7 @@ const deserializeAws_json1_1SignCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -5636,7 +5636,7 @@ const deserializeAws_json1_1SignCommandError = async (
       };
       break;
     case "DisabledException":
-    case "com.amazon.trent#DisabledException":
+    case "com.amazonaws.kms#DisabledException":
       response = {
         ...(await deserializeAws_json1_1DisabledExceptionResponse(
           parsedOutput,
@@ -5647,7 +5647,7 @@ const deserializeAws_json1_1SignCommandError = async (
       };
       break;
     case "InvalidGrantTokenException":
-    case "com.amazon.trent#InvalidGrantTokenException":
+    case "com.amazonaws.kms#InvalidGrantTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(
           parsedOutput,
@@ -5658,7 +5658,7 @@ const deserializeAws_json1_1SignCommandError = async (
       };
       break;
     case "InvalidKeyUsageException":
-    case "com.amazon.trent#InvalidKeyUsageException":
+    case "com.amazonaws.kms#InvalidKeyUsageException":
       response = {
         ...(await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(
           parsedOutput,
@@ -5668,8 +5668,19 @@ const deserializeAws_json1_1SignCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -5680,7 +5691,7 @@ const deserializeAws_json1_1SignCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -5690,19 +5701,8 @@ const deserializeAws_json1_1SignCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "KeyUnavailableException":
-    case "com.amazon.trent#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5758,7 +5758,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -5769,7 +5769,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -5780,7 +5780,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -5791,7 +5791,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.trent#LimitExceededException":
+    case "com.amazonaws.kms#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -5802,7 +5802,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5813,7 +5813,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "TagException":
-    case "com.amazon.trent#TagException":
+    case "com.amazonaws.kms#TagException":
       response = {
         ...(await deserializeAws_json1_1TagExceptionResponse(
           parsedOutput,
@@ -5869,7 +5869,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -5880,7 +5880,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -5891,7 +5891,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -5902,7 +5902,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -5913,7 +5913,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "TagException":
-    case "com.amazon.trent#TagException":
+    case "com.amazonaws.kms#TagException":
       response = {
         ...(await deserializeAws_json1_1TagExceptionResponse(
           parsedOutput,
@@ -5969,7 +5969,7 @@ const deserializeAws_json1_1UpdateAliasCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -5980,7 +5980,7 @@ const deserializeAws_json1_1UpdateAliasCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -5991,7 +5991,7 @@ const deserializeAws_json1_1UpdateAliasCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -6002,7 +6002,7 @@ const deserializeAws_json1_1UpdateAliasCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6065,7 +6065,7 @@ const deserializeAws_json1_1UpdateCustomKeyStoreCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmClusterInvalidConfigurationException":
-    case "com.amazon.trent#CloudHsmClusterInvalidConfigurationException":
+    case "com.amazonaws.kms#CloudHsmClusterInvalidConfigurationException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionResponse(
           parsedOutput,
@@ -6076,7 +6076,7 @@ const deserializeAws_json1_1UpdateCustomKeyStoreCommandError = async (
       };
       break;
     case "CloudHsmClusterNotActiveException":
-    case "com.amazon.trent#CloudHsmClusterNotActiveException":
+    case "com.amazonaws.kms#CloudHsmClusterNotActiveException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmClusterNotActiveExceptionResponse(
           parsedOutput,
@@ -6087,7 +6087,7 @@ const deserializeAws_json1_1UpdateCustomKeyStoreCommandError = async (
       };
       break;
     case "CloudHsmClusterNotFoundException":
-    case "com.amazon.trent#CloudHsmClusterNotFoundException":
+    case "com.amazonaws.kms#CloudHsmClusterNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmClusterNotFoundExceptionResponse(
           parsedOutput,
@@ -6098,7 +6098,7 @@ const deserializeAws_json1_1UpdateCustomKeyStoreCommandError = async (
       };
       break;
     case "CloudHsmClusterNotRelatedException":
-    case "com.amazon.trent#CloudHsmClusterNotRelatedException":
+    case "com.amazonaws.kms#CloudHsmClusterNotRelatedException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmClusterNotRelatedExceptionResponse(
           parsedOutput,
@@ -6109,7 +6109,7 @@ const deserializeAws_json1_1UpdateCustomKeyStoreCommandError = async (
       };
       break;
     case "CustomKeyStoreInvalidStateException":
-    case "com.amazon.trent#CustomKeyStoreInvalidStateException":
+    case "com.amazonaws.kms#CustomKeyStoreInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(
           parsedOutput,
@@ -6120,7 +6120,7 @@ const deserializeAws_json1_1UpdateCustomKeyStoreCommandError = async (
       };
       break;
     case "CustomKeyStoreNameInUseException":
-    case "com.amazon.trent#CustomKeyStoreNameInUseException":
+    case "com.amazonaws.kms#CustomKeyStoreNameInUseException":
       response = {
         ...(await deserializeAws_json1_1CustomKeyStoreNameInUseExceptionResponse(
           parsedOutput,
@@ -6131,7 +6131,7 @@ const deserializeAws_json1_1UpdateCustomKeyStoreCommandError = async (
       };
       break;
     case "CustomKeyStoreNotFoundException":
-    case "com.amazon.trent#CustomKeyStoreNotFoundException":
+    case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(
           parsedOutput,
@@ -6142,7 +6142,7 @@ const deserializeAws_json1_1UpdateCustomKeyStoreCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -6201,7 +6201,7 @@ const deserializeAws_json1_1UpdateKeyDescriptionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -6212,7 +6212,7 @@ const deserializeAws_json1_1UpdateKeyDescriptionCommandError = async (
       };
       break;
     case "InvalidArnException":
-    case "com.amazon.trent#InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -6223,7 +6223,7 @@ const deserializeAws_json1_1UpdateKeyDescriptionCommandError = async (
       };
       break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -6234,7 +6234,7 @@ const deserializeAws_json1_1UpdateKeyDescriptionCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -6245,7 +6245,7 @@ const deserializeAws_json1_1UpdateKeyDescriptionCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6305,7 +6305,7 @@ const deserializeAws_json1_1VerifyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DependencyTimeoutException":
-    case "com.amazon.trent#DependencyTimeoutException":
+    case "com.amazonaws.kms#DependencyTimeoutException":
       response = {
         ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(
           parsedOutput,
@@ -6316,7 +6316,7 @@ const deserializeAws_json1_1VerifyCommandError = async (
       };
       break;
     case "DisabledException":
-    case "com.amazon.trent#DisabledException":
+    case "com.amazonaws.kms#DisabledException":
       response = {
         ...(await deserializeAws_json1_1DisabledExceptionResponse(
           parsedOutput,
@@ -6327,7 +6327,7 @@ const deserializeAws_json1_1VerifyCommandError = async (
       };
       break;
     case "InvalidGrantTokenException":
-    case "com.amazon.trent#InvalidGrantTokenException":
+    case "com.amazonaws.kms#InvalidGrantTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(
           parsedOutput,
@@ -6338,7 +6338,7 @@ const deserializeAws_json1_1VerifyCommandError = async (
       };
       break;
     case "InvalidKeyUsageException":
-    case "com.amazon.trent#InvalidKeyUsageException":
+    case "com.amazonaws.kms#InvalidKeyUsageException":
       response = {
         ...(await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(
           parsedOutput,
@@ -6348,8 +6348,19 @@ const deserializeAws_json1_1VerifyCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "KMSInternalException":
-    case "com.amazon.trent#KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
       response = {
         ...(await deserializeAws_json1_1KMSInternalExceptionResponse(
           parsedOutput,
@@ -6360,7 +6371,7 @@ const deserializeAws_json1_1VerifyCommandError = async (
       };
       break;
     case "KMSInvalidSignatureException":
-    case "com.amazon.trent#KMSInvalidSignatureException":
+    case "com.amazonaws.kms#KMSInvalidSignatureException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidSignatureExceptionResponse(
           parsedOutput,
@@ -6371,7 +6382,7 @@ const deserializeAws_json1_1VerifyCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.trent#KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -6381,19 +6392,8 @@ const deserializeAws_json1_1VerifyCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "KeyUnavailableException":
-    case "com.amazon.trent#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "NotFoundException":
-    case "com.amazon.trent#NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -6852,6 +6852,24 @@ const deserializeAws_json1_1InvalidMarkerExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1KeyUnavailableExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<KeyUnavailableException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1KeyUnavailableException(
+    body,
+    context
+  );
+  const contents: KeyUnavailableException = {
+    name: "KeyUnavailableException",
+    $fault: "server",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1KMSInternalExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -6900,24 +6918,6 @@ const deserializeAws_json1_1KMSInvalidStateExceptionResponse = async (
   const contents: KMSInvalidStateException = {
     name: "KMSInvalidStateException",
     $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
-const deserializeAws_json1_1KeyUnavailableExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<KeyUnavailableException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1KeyUnavailableException(
-    body,
-    context
-  );
-  const contents: KeyUnavailableException = {
-    name: "KeyUnavailableException",
-    $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
@@ -7253,6 +7253,19 @@ const serializeAws_json1_1EnableKeyRotationRequest = (
   };
 };
 
+const serializeAws_json1_1EncryptionContextType = (
+  input: { [key: string]: string },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
+};
+
 const serializeAws_json1_1EncryptRequest = (
   input: EncryptRequest,
   context: __SerdeContext
@@ -7278,19 +7291,6 @@ const serializeAws_json1_1EncryptRequest = (
       Plaintext: context.base64Encoder(input.Plaintext)
     })
   };
-};
-
-const serializeAws_json1_1EncryptionContextType = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
-      ...acc,
-      [key]: value
-    }),
-    {}
-  );
 };
 
 const serializeAws_json1_1GenerateDataKeyPairRequest = (
@@ -8168,6 +8168,26 @@ const deserializeAws_json1_1DisconnectCustomKeyStoreResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1EncryptionAlgorithmSpecList = (
+  output: any,
+  context: __SerdeContext
+): (EncryptionAlgorithmSpec | string)[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1EncryptionContextType = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
+};
+
 const deserializeAws_json1_1EncryptResponse = (
   output: any,
   context: __SerdeContext
@@ -8188,26 +8208,6 @@ const deserializeAws_json1_1EncryptResponse = (
         ? output.KeyId
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1EncryptionAlgorithmSpecList = (
-  output: any,
-  context: __SerdeContext
-): (EncryptionAlgorithmSpec | string)[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
-const deserializeAws_json1_1EncryptionContextType = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
-      ...acc,
-      [key]: value
-    }),
-    {}
-  );
 };
 
 const deserializeAws_json1_1ExpiredImportTokenException = (
@@ -8665,45 +8665,6 @@ const deserializeAws_json1_1InvalidMarkerException = (
   } as any;
 };
 
-const deserializeAws_json1_1KMSInternalException = (
-  output: any,
-  context: __SerdeContext
-): KMSInternalException => {
-  return {
-    __type: "KMSInternalException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1KMSInvalidSignatureException = (
-  output: any,
-  context: __SerdeContext
-): KMSInvalidSignatureException => {
-  return {
-    __type: "KMSInvalidSignatureException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1KMSInvalidStateException = (
-  output: any,
-  context: __SerdeContext
-): KMSInvalidStateException => {
-  return {
-    __type: "KMSInvalidStateException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1KeyList = (
   output: any,
   context: __SerdeContext
@@ -8825,6 +8786,45 @@ const deserializeAws_json1_1KeyUnavailableException = (
 ): KeyUnavailableException => {
   return {
     __type: "KeyUnavailableException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1KMSInternalException = (
+  output: any,
+  context: __SerdeContext
+): KMSInternalException => {
+  return {
+    __type: "KMSInternalException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1KMSInvalidSignatureException = (
+  output: any,
+  context: __SerdeContext
+): KMSInvalidSignatureException => {
+  return {
+    __type: "KMSInvalidSignatureException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1KMSInvalidStateException = (
+  output: any,
+  context: __SerdeContext
+): KMSInvalidStateException => {
+  return {
+    __type: "KMSInvalidStateException",
     message:
       output.message !== undefined && output.message !== null
         ? output.message
@@ -9031,6 +9031,13 @@ const deserializeAws_json1_1ScheduleKeyDeletionResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1SigningAlgorithmSpecList = (
+  output: any,
+  context: __SerdeContext
+): (SigningAlgorithmSpec | string)[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_1SignResponse = (
   output: any,
   context: __SerdeContext
@@ -9050,13 +9057,6 @@ const deserializeAws_json1_1SignResponse = (
         ? output.SigningAlgorithm
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1SigningAlgorithmSpecList = (
-  output: any,
-  context: __SerdeContext
-): (SigningAlgorithmSpec | string)[] => {
-  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1Tag = (

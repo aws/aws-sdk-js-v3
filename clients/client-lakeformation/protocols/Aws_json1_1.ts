@@ -345,7 +345,7 @@ const deserializeAws_json1_1BatchGrantPermissionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.michigan.common.exceptions#InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -356,7 +356,7 @@ const deserializeAws_json1_1BatchGrantPermissionsCommandError = async (
       };
       break;
     case "OperationTimeoutException":
-    case "com.amazonaws.michigan.common.exceptions#OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
       response = {
         ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
           parsedOutput,
@@ -422,7 +422,7 @@ const deserializeAws_json1_1BatchRevokePermissionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.michigan.common.exceptions#InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -433,7 +433,7 @@ const deserializeAws_json1_1BatchRevokePermissionsCommandError = async (
       };
       break;
     case "OperationTimeoutException":
-    case "com.amazonaws.michigan.common.exceptions#OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
       response = {
         ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
           parsedOutput,
@@ -496,7 +496,7 @@ const deserializeAws_json1_1DeregisterResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
-    case "com.amazonaws.michigan.common.exceptions#EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -507,7 +507,7 @@ const deserializeAws_json1_1DeregisterResourceCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.michigan.common.exceptions#InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -518,7 +518,7 @@ const deserializeAws_json1_1DeregisterResourceCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.michigan.common.exceptions#InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -529,7 +529,7 @@ const deserializeAws_json1_1DeregisterResourceCommandError = async (
       };
       break;
     case "OperationTimeoutException":
-    case "com.amazonaws.michigan.common.exceptions#OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
       response = {
         ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
           parsedOutput,
@@ -589,7 +589,7 @@ const deserializeAws_json1_1DescribeResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
-    case "com.amazonaws.michigan.common.exceptions#EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -600,7 +600,7 @@ const deserializeAws_json1_1DescribeResourceCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.michigan.common.exceptions#InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -611,7 +611,7 @@ const deserializeAws_json1_1DescribeResourceCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.michigan.common.exceptions#InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -622,7 +622,7 @@ const deserializeAws_json1_1DescribeResourceCommandError = async (
       };
       break;
     case "OperationTimeoutException":
-    case "com.amazonaws.michigan.common.exceptions#OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
       response = {
         ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
           parsedOutput,
@@ -685,7 +685,7 @@ const deserializeAws_json1_1GetDataLakeSettingsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
-    case "com.amazonaws.michigan.common.exceptions#EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -696,7 +696,7 @@ const deserializeAws_json1_1GetDataLakeSettingsCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.michigan.common.exceptions#InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -707,7 +707,7 @@ const deserializeAws_json1_1GetDataLakeSettingsCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.michigan.common.exceptions#InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -773,7 +773,7 @@ const deserializeAws_json1_1GetEffectivePermissionsForPathCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
-    case "com.amazonaws.michigan.common.exceptions#EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -784,7 +784,7 @@ const deserializeAws_json1_1GetEffectivePermissionsForPathCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.michigan.common.exceptions#InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -795,7 +795,7 @@ const deserializeAws_json1_1GetEffectivePermissionsForPathCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.michigan.common.exceptions#InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -806,7 +806,7 @@ const deserializeAws_json1_1GetEffectivePermissionsForPathCommandError = async (
       };
       break;
     case "OperationTimeoutException":
-    case "com.amazonaws.michigan.common.exceptions#OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
       response = {
         ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
           parsedOutput,
@@ -866,7 +866,7 @@ const deserializeAws_json1_1GrantPermissionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.michigan.common.exceptions#ConcurrentModificationException":
+    case "com.amazonaws.lakeformation#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -877,7 +877,7 @@ const deserializeAws_json1_1GrantPermissionsCommandError = async (
       };
       break;
     case "EntityNotFoundException":
-    case "com.amazonaws.michigan.common.exceptions#EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -888,7 +888,7 @@ const deserializeAws_json1_1GrantPermissionsCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.michigan.common.exceptions#InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -948,7 +948,7 @@ const deserializeAws_json1_1ListPermissionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.michigan.common.exceptions#InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -959,7 +959,7 @@ const deserializeAws_json1_1ListPermissionsCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.michigan.common.exceptions#InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -970,7 +970,7 @@ const deserializeAws_json1_1ListPermissionsCommandError = async (
       };
       break;
     case "OperationTimeoutException":
-    case "com.amazonaws.michigan.common.exceptions#OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
       response = {
         ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
           parsedOutput,
@@ -1030,7 +1030,7 @@ const deserializeAws_json1_1ListResourcesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.michigan.common.exceptions#InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -1041,7 +1041,7 @@ const deserializeAws_json1_1ListResourcesCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.michigan.common.exceptions#InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1052,7 +1052,7 @@ const deserializeAws_json1_1ListResourcesCommandError = async (
       };
       break;
     case "OperationTimeoutException":
-    case "com.amazonaws.michigan.common.exceptions#OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
       response = {
         ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
           parsedOutput,
@@ -1115,7 +1115,7 @@ const deserializeAws_json1_1PutDataLakeSettingsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
-    case "com.amazonaws.michigan.common.exceptions#InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -1126,7 +1126,7 @@ const deserializeAws_json1_1PutDataLakeSettingsCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.michigan.common.exceptions#InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1186,7 +1186,7 @@ const deserializeAws_json1_1RegisterResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
-    case "com.amazonaws.michigan.common.exceptions#AlreadyExistsException":
+    case "com.amazonaws.lakeformation#AlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1197,7 +1197,7 @@ const deserializeAws_json1_1RegisterResourceCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.michigan.common.exceptions#InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -1208,7 +1208,7 @@ const deserializeAws_json1_1RegisterResourceCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.michigan.common.exceptions#InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1219,7 +1219,7 @@ const deserializeAws_json1_1RegisterResourceCommandError = async (
       };
       break;
     case "OperationTimeoutException":
-    case "com.amazonaws.michigan.common.exceptions#OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
       response = {
         ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
           parsedOutput,
@@ -1279,7 +1279,7 @@ const deserializeAws_json1_1RevokePermissionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.michigan.common.exceptions#ConcurrentModificationException":
+    case "com.amazonaws.lakeformation#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -1290,7 +1290,7 @@ const deserializeAws_json1_1RevokePermissionsCommandError = async (
       };
       break;
     case "EntityNotFoundException":
-    case "com.amazonaws.michigan.common.exceptions#EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -1301,7 +1301,7 @@ const deserializeAws_json1_1RevokePermissionsCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.michigan.common.exceptions#InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1361,7 +1361,7 @@ const deserializeAws_json1_1UpdateResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
-    case "com.amazonaws.michigan.common.exceptions#EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -1372,7 +1372,7 @@ const deserializeAws_json1_1UpdateResourceCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.michigan.common.exceptions#InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -1383,7 +1383,7 @@ const deserializeAws_json1_1UpdateResourceCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.michigan.common.exceptions#InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1394,7 +1394,7 @@ const deserializeAws_json1_1UpdateResourceCommandError = async (
       };
       break;
     case "OperationTimeoutException":
-    case "com.amazonaws.michigan.common.exceptions#OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
       response = {
         ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
           parsedOutput,
@@ -1623,6 +1623,15 @@ const serializeAws_json1_1ColumnWildcard = (
   };
 };
 
+const serializeAws_json1_1DatabaseResource = (
+  input: DatabaseResource,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name !== undefined && { Name: input.Name })
+  };
+};
+
 const serializeAws_json1_1DataLakePrincipal = (
   input: DataLakePrincipal,
   context: __SerdeContext
@@ -1678,15 +1687,6 @@ const serializeAws_json1_1DataLocationResource = (
   };
 };
 
-const serializeAws_json1_1DatabaseResource = (
-  input: DatabaseResource,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Name !== undefined && { Name: input.Name })
-  };
-};
-
 const serializeAws_json1_1DeregisterResourceRequest = (
   input: DeregisterResourceRequest,
   context: __SerdeContext
@@ -1703,6 +1703,33 @@ const serializeAws_json1_1DescribeResourceRequest = (
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn })
   };
+};
+
+const serializeAws_json1_1FilterCondition = (
+  input: FilterCondition,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ComparisonOperator !== undefined && {
+      ComparisonOperator: input.ComparisonOperator
+    }),
+    ...(input.Field !== undefined && { Field: input.Field }),
+    ...(input.StringValueList !== undefined && {
+      StringValueList: serializeAws_json1_1StringValueList(
+        input.StringValueList,
+        context
+      )
+    })
+  };
+};
+
+const serializeAws_json1_1FilterConditionList = (
+  input: FilterCondition[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry =>
+    serializeAws_json1_1FilterCondition(entry, context)
+  );
 };
 
 const serializeAws_json1_1GetDataLakeSettingsRequest = (
@@ -1906,6 +1933,13 @@ const serializeAws_json1_1RevokePermissionsRequest = (
   };
 };
 
+const serializeAws_json1_1StringValueList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
+};
+
 const serializeAws_json1_1TableResource = (
   input: TableResource,
   context: __SerdeContext
@@ -1949,38 +1983,17 @@ const serializeAws_json1_1UpdateResourceRequest = (
   };
 };
 
-const serializeAws_json1_1FilterCondition = (
-  input: FilterCondition,
+const deserializeAws_json1_1AlreadyExistsException = (
+  output: any,
   context: __SerdeContext
-): any => {
+): AlreadyExistsException => {
   return {
-    ...(input.ComparisonOperator !== undefined && {
-      ComparisonOperator: input.ComparisonOperator
-    }),
-    ...(input.Field !== undefined && { Field: input.Field }),
-    ...(input.StringValueList !== undefined && {
-      StringValueList: serializeAws_json1_1StringValueList(
-        input.StringValueList,
-        context
-      )
-    })
-  };
-};
-
-const serializeAws_json1_1FilterConditionList = (
-  input: FilterCondition[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_1FilterCondition(entry, context)
-  );
-};
-
-const serializeAws_json1_1StringValueList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
+    __type: "AlreadyExistsException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1BatchGrantPermissionsResponse = (
@@ -2104,6 +2117,32 @@ const deserializeAws_json1_1ColumnWildcard = (
   } as any;
 };
 
+const deserializeAws_json1_1ConcurrentModificationException = (
+  output: any,
+  context: __SerdeContext
+): ConcurrentModificationException => {
+  return {
+    __type: "ConcurrentModificationException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1DatabaseResource = (
+  output: any,
+  context: __SerdeContext
+): DatabaseResource => {
+  return {
+    __type: "DatabaseResource",
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1DataLakePrincipal = (
   output: any,
   context: __SerdeContext
@@ -2172,19 +2211,6 @@ const deserializeAws_json1_1DataLocationResource = (
   } as any;
 };
 
-const deserializeAws_json1_1DatabaseResource = (
-  output: any,
-  context: __SerdeContext
-): DatabaseResource => {
-  return {
-    __type: "DatabaseResource",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1DeregisterResourceResponse = (
   output: any,
   context: __SerdeContext
@@ -2203,6 +2229,36 @@ const deserializeAws_json1_1DescribeResourceResponse = (
     ResourceInfo:
       output.ResourceInfo !== undefined && output.ResourceInfo !== null
         ? deserializeAws_json1_1ResourceInfo(output.ResourceInfo, context)
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1EntityNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): EntityNotFoundException => {
+  return {
+    __type: "EntityNotFoundException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ErrorDetail = (
+  output: any,
+  context: __SerdeContext
+): ErrorDetail => {
+  return {
+    __type: "ErrorDetail",
+    ErrorCode:
+      output.ErrorCode !== undefined && output.ErrorCode !== null
+        ? output.ErrorCode
+        : undefined,
+    ErrorMessage:
+      output.ErrorMessage !== undefined && output.ErrorMessage !== null
+        ? output.ErrorMessage
         : undefined
   } as any;
 };
@@ -2252,6 +2308,32 @@ const deserializeAws_json1_1GrantPermissionsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1InternalServiceException = (
+  output: any,
+  context: __SerdeContext
+): InternalServiceException => {
+  return {
+    __type: "InternalServiceException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidInputException = (
+  output: any,
+  context: __SerdeContext
+): InvalidInputException => {
+  return {
+    __type: "InvalidInputException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1ListPermissionsResponse = (
   output: any,
   context: __SerdeContext
@@ -2289,6 +2371,19 @@ const deserializeAws_json1_1ListResourcesResponse = (
             output.ResourceInfoList,
             context
           )
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1OperationTimeoutException = (
+  output: any,
+  context: __SerdeContext
+): OperationTimeoutException => {
+  return {
+    __type: "OperationTimeoutException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
         : undefined
   } as any;
 };
@@ -2417,6 +2512,36 @@ const deserializeAws_json1_1Resource = (
   } as any;
 };
 
+const deserializeAws_json1_1ResourceInfo = (
+  output: any,
+  context: __SerdeContext
+): ResourceInfo => {
+  return {
+    __type: "ResourceInfo",
+    LastModified:
+      output.LastModified !== undefined && output.LastModified !== null
+        ? new Date(Math.round(output.LastModified * 1000))
+        : undefined,
+    ResourceArn:
+      output.ResourceArn !== undefined && output.ResourceArn !== null
+        ? output.ResourceArn
+        : undefined,
+    RoleArn:
+      output.RoleArn !== undefined && output.RoleArn !== null
+        ? output.RoleArn
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ResourceInfoList = (
+  output: any,
+  context: __SerdeContext
+): ResourceInfo[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ResourceInfo(entry, context)
+  );
+};
+
 const deserializeAws_json1_1RevokePermissionsResponse = (
   output: any,
   context: __SerdeContext
@@ -2475,131 +2600,6 @@ const deserializeAws_json1_1UpdateResourceResponse = (
   return {
     __type: "UpdateResourceResponse"
   } as any;
-};
-
-const deserializeAws_json1_1AlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): AlreadyExistsException => {
-  return {
-    __type: "AlreadyExistsException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ConcurrentModificationException = (
-  output: any,
-  context: __SerdeContext
-): ConcurrentModificationException => {
-  return {
-    __type: "ConcurrentModificationException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1EntityNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): EntityNotFoundException => {
-  return {
-    __type: "EntityNotFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ErrorDetail = (
-  output: any,
-  context: __SerdeContext
-): ErrorDetail => {
-  return {
-    __type: "ErrorDetail",
-    ErrorCode:
-      output.ErrorCode !== undefined && output.ErrorCode !== null
-        ? output.ErrorCode
-        : undefined,
-    ErrorMessage:
-      output.ErrorMessage !== undefined && output.ErrorMessage !== null
-        ? output.ErrorMessage
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InternalServiceException = (
-  output: any,
-  context: __SerdeContext
-): InternalServiceException => {
-  return {
-    __type: "InternalServiceException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidInputException = (
-  output: any,
-  context: __SerdeContext
-): InvalidInputException => {
-  return {
-    __type: "InvalidInputException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1OperationTimeoutException = (
-  output: any,
-  context: __SerdeContext
-): OperationTimeoutException => {
-  return {
-    __type: "OperationTimeoutException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceInfo = (
-  output: any,
-  context: __SerdeContext
-): ResourceInfo => {
-  return {
-    __type: "ResourceInfo",
-    LastModified:
-      output.LastModified !== undefined && output.LastModified !== null
-        ? new Date(Math.round(output.LastModified * 1000))
-        : undefined,
-    ResourceArn:
-      output.ResourceArn !== undefined && output.ResourceArn !== null
-        ? output.ResourceArn
-        : undefined,
-    RoleArn:
-      output.RoleArn !== undefined && output.RoleArn !== null
-        ? output.RoleArn
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceInfoList = (
-  output: any,
-  context: __SerdeContext
-): ResourceInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ResourceInfo(entry, context)
-  );
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -8,9 +8,9 @@ import {
   CreateRobotApplicationVersionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateRobotApplicationVersionCommand,
-  serializeAws_restJson1_1CreateRobotApplicationVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateRobotApplicationVersionCommand,
+  serializeAws_restJson1CreateRobotApplicationVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CreateRobotApplicationVersionCommand extends $Command<
     input: CreateRobotApplicationVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateRobotApplicationVersionCommand(
+    return serializeAws_restJson1CreateRobotApplicationVersionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CreateRobotApplicationVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateRobotApplicationVersionCommandOutput> {
-    return deserializeAws_restJson1_1CreateRobotApplicationVersionCommand(
+    return deserializeAws_restJson1CreateRobotApplicationVersionCommand(
       output,
       context
     );

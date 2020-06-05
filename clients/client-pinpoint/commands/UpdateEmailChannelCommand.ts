@@ -8,9 +8,9 @@ import {
   UpdateEmailChannelResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateEmailChannelCommand,
-  serializeAws_restJson1_1UpdateEmailChannelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateEmailChannelCommand,
+  serializeAws_restJson1UpdateEmailChannelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class UpdateEmailChannelCommand extends $Command<
     input: UpdateEmailChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateEmailChannelCommand(input, context);
+    return serializeAws_restJson1UpdateEmailChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEmailChannelCommandOutput> {
-    return deserializeAws_restJson1_1UpdateEmailChannelCommand(output, context);
+    return deserializeAws_restJson1UpdateEmailChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

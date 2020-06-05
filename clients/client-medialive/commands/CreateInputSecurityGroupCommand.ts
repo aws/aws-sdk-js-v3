@@ -8,9 +8,9 @@ import {
   CreateInputSecurityGroupResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateInputSecurityGroupCommand,
-  serializeAws_restJson1_1CreateInputSecurityGroupCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateInputSecurityGroupCommand,
+  serializeAws_restJson1CreateInputSecurityGroupCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CreateInputSecurityGroupCommand extends $Command<
     input: CreateInputSecurityGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateInputSecurityGroupCommand(
+    return serializeAws_restJson1CreateInputSecurityGroupCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CreateInputSecurityGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateInputSecurityGroupCommandOutput> {
-    return deserializeAws_restJson1_1CreateInputSecurityGroupCommand(
+    return deserializeAws_restJson1CreateInputSecurityGroupCommand(
       output,
       context
     );

@@ -5,9 +5,9 @@ import {
 } from "../AccessAnalyzerClient";
 import { GetArchiveRuleRequest, GetArchiveRuleResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetArchiveRuleCommand,
-  serializeAws_restJson1_1GetArchiveRuleCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetArchiveRuleCommand,
+  serializeAws_restJson1GetArchiveRuleCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetArchiveRuleCommand extends $Command<
     input: GetArchiveRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetArchiveRuleCommand(input, context);
+    return serializeAws_restJson1GetArchiveRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetArchiveRuleCommandOutput> {
-    return deserializeAws_restJson1_1GetArchiveRuleCommand(output, context);
+    return deserializeAws_restJson1GetArchiveRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

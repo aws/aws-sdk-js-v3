@@ -1,8 +1,8 @@
 import { StopDiscovererRequest, StopDiscovererResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1StopDiscovererCommand,
-  serializeAws_restJson1_1StopDiscovererCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1StopDiscovererCommand,
+  serializeAws_restJson1StopDiscovererCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -68,14 +68,14 @@ export class StopDiscovererCommand extends $Command<
     input: StopDiscovererCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StopDiscovererCommand(input, context);
+    return serializeAws_restJson1StopDiscovererCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopDiscovererCommandOutput> {
-    return deserializeAws_restJson1_1StopDiscovererCommand(output, context);
+    return deserializeAws_restJson1StopDiscovererCommand(output, context);
   }
 
   // Start section: command_body_extra

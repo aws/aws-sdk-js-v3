@@ -5,9 +5,9 @@ import {
 } from "../AppConfigClient";
 import { Deployment, GetDeploymentRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetDeploymentCommand,
-  serializeAws_restJson1_1GetDeploymentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetDeploymentCommand,
+  serializeAws_restJson1GetDeploymentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetDeploymentCommand extends $Command<
     input: GetDeploymentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDeploymentCommand(input, context);
+    return serializeAws_restJson1GetDeploymentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDeploymentCommandOutput> {
-    return deserializeAws_restJson1_1GetDeploymentCommand(output, context);
+    return deserializeAws_restJson1GetDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

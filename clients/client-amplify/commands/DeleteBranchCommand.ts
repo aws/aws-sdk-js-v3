@@ -5,9 +5,9 @@ import {
 } from "../AmplifyClient";
 import { DeleteBranchRequest, DeleteBranchResult } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteBranchCommand,
-  serializeAws_restJson1_1DeleteBranchCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteBranchCommand,
+  serializeAws_restJson1DeleteBranchCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteBranchCommand extends $Command<
     input: DeleteBranchCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteBranchCommand(input, context);
+    return serializeAws_restJson1DeleteBranchCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBranchCommandOutput> {
-    return deserializeAws_restJson1_1DeleteBranchCommand(output, context);
+    return deserializeAws_restJson1DeleteBranchCommand(output, context);
   }
 
   // Start section: command_body_extra

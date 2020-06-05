@@ -8,9 +8,9 @@ import {
   GenerateClientCertificateRequest
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GenerateClientCertificateCommand,
-  serializeAws_restJson1_1GenerateClientCertificateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GenerateClientCertificateCommand,
+  serializeAws_restJson1GenerateClientCertificateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GenerateClientCertificateCommand extends $Command<
     input: GenerateClientCertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GenerateClientCertificateCommand(
+    return serializeAws_restJson1GenerateClientCertificateCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GenerateClientCertificateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GenerateClientCertificateCommandOutput> {
-    return deserializeAws_restJson1_1GenerateClientCertificateCommand(
+    return deserializeAws_restJson1GenerateClientCertificateCommand(
       output,
       context
     );

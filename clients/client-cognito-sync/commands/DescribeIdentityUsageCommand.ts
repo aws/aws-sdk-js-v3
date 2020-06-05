@@ -8,9 +8,9 @@ import {
   DescribeIdentityUsageResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeIdentityUsageCommand,
-  serializeAws_restJson1_1DescribeIdentityUsageCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeIdentityUsageCommand,
+  serializeAws_restJson1DescribeIdentityUsageCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class DescribeIdentityUsageCommand extends $Command<
     input: DescribeIdentityUsageCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeIdentityUsageCommand(input, context);
+    return serializeAws_restJson1DescribeIdentityUsageCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeIdentityUsageCommandOutput> {
-    return deserializeAws_restJson1_1DescribeIdentityUsageCommand(
+    return deserializeAws_restJson1DescribeIdentityUsageCommand(
       output,
       context
     );

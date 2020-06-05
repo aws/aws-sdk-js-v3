@@ -5,9 +5,9 @@ import {
 } from "../ManagedBlockchainClient";
 import { CreateProposalInput, CreateProposalOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateProposalCommand,
-  serializeAws_restJson1_1CreateProposalCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateProposalCommand,
+  serializeAws_restJson1CreateProposalCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class CreateProposalCommand extends $Command<
     input: CreateProposalCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateProposalCommand(input, context);
+    return serializeAws_restJson1CreateProposalCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateProposalCommandOutput> {
-    return deserializeAws_restJson1_1CreateProposalCommand(output, context);
+    return deserializeAws_restJson1CreateProposalCommand(output, context);
   }
 
   // Start section: command_body_extra

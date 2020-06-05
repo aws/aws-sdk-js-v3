@@ -8,9 +8,9 @@ import {
   DeleteDirectoryResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteDirectoryCommand,
-  serializeAws_restJson1_1DeleteDirectoryCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteDirectoryCommand,
+  serializeAws_restJson1DeleteDirectoryCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DeleteDirectoryCommand extends $Command<
     input: DeleteDirectoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDirectoryCommand(input, context);
+    return serializeAws_restJson1DeleteDirectoryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDirectoryCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDirectoryCommand(output, context);
+    return deserializeAws_restJson1DeleteDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

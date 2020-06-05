@@ -666,39 +666,6 @@ export namespace DataTransfer {
   export const isa = (o: any): o is DataTransfer => __isa(o, "DataTransfer");
 }
 
-export interface DescribeAddressRequest {
-  __type?: "DescribeAddressRequest";
-  /**
-   * <p>The automatically generated ID for a specific address.</p>
-   */
-  AddressId: string | undefined;
-}
-
-export namespace DescribeAddressRequest {
-  export const filterSensitiveLog = (obj: DescribeAddressRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeAddressRequest =>
-    __isa(o, "DescribeAddressRequest");
-}
-
-export interface DescribeAddressResult {
-  __type?: "DescribeAddressResult";
-  /**
-   * <p>The address that you want the Snowball or Snowballs associated with a specific job to
-   *       be shipped to.</p>
-   */
-  Address?: Address;
-}
-
-export namespace DescribeAddressResult {
-  export const filterSensitiveLog = (obj: DescribeAddressResult): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeAddressResult =>
-    __isa(o, "DescribeAddressResult");
-}
-
 export interface DescribeAddressesRequest {
   __type?: "DescribeAddressesRequest";
   /**
@@ -743,6 +710,39 @@ export namespace DescribeAddressesResult {
   });
   export const isa = (o: any): o is DescribeAddressesResult =>
     __isa(o, "DescribeAddressesResult");
+}
+
+export interface DescribeAddressRequest {
+  __type?: "DescribeAddressRequest";
+  /**
+   * <p>The automatically generated ID for a specific address.</p>
+   */
+  AddressId: string | undefined;
+}
+
+export namespace DescribeAddressRequest {
+  export const filterSensitiveLog = (obj: DescribeAddressRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeAddressRequest =>
+    __isa(o, "DescribeAddressRequest");
+}
+
+export interface DescribeAddressResult {
+  __type?: "DescribeAddressResult";
+  /**
+   * <p>The address that you want the Snowball or Snowballs associated with a specific job to
+   *       be shipped to.</p>
+   */
+  Address?: Address;
+}
+
+export namespace DescribeAddressResult {
+  export const filterSensitiveLog = (obj: DescribeAddressResult): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeAddressResult =>
+    __isa(o, "DescribeAddressResult");
 }
 
 export interface DescribeClusterRequest {
@@ -1401,26 +1401,6 @@ export enum JobType {
 }
 
 /**
- * <p>The provided AWS Key Management Service key lacks the permissions to perform the
- *       specified <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
- */
-export interface KMSRequestFailedException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "KMSRequestFailedException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace KMSRequestFailedException {
-  export const filterSensitiveLog = (obj: KMSRequestFailedException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is KMSRequestFailedException =>
-    __isa(o, "KMSRequestFailedException");
-}
-
-/**
  * <p>Contains a key range. For export jobs, a <code>S3Resource</code> object can have an
  *       optional <code>KeyRange</code> value. The length of the range is defined at job creation, and
  *       has either an inclusive <code>BeginMarker</code>, an inclusive <code>EndMarker</code>, or
@@ -1446,6 +1426,26 @@ export namespace KeyRange {
     ...obj
   });
   export const isa = (o: any): o is KeyRange => __isa(o, "KeyRange");
+}
+
+/**
+ * <p>The provided AWS Key Management Service key lacks the permissions to perform the
+ *       specified <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
+ */
+export interface KMSRequestFailedException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "KMSRequestFailedException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace KMSRequestFailedException {
+  export const filterSensitiveLog = (obj: KMSRequestFailedException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is KMSRequestFailedException =>
+    __isa(o, "KMSRequestFailedException");
 }
 
 /**

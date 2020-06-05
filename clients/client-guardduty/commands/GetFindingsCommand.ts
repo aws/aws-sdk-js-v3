@@ -5,9 +5,9 @@ import {
 } from "../GuardDutyClient";
 import { GetFindingsRequest, GetFindingsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetFindingsCommand,
-  serializeAws_restJson1_1GetFindingsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetFindingsCommand,
+  serializeAws_restJson1GetFindingsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetFindingsCommand extends $Command<
     input: GetFindingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetFindingsCommand(input, context);
+    return serializeAws_restJson1GetFindingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFindingsCommandOutput> {
-    return deserializeAws_restJson1_1GetFindingsCommand(output, context);
+    return deserializeAws_restJson1GetFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

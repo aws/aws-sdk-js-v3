@@ -487,42 +487,6 @@ export class Health extends HealthClient {
   }
 
   /**
-   * <p>Returns the event types that meet the specified filter criteria. If no filter
-   *          criteria are specified, all event types are returned, in no particular order.</p>
-   */
-  public describeEventTypes(
-    args: DescribeEventTypesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeEventTypesCommandOutput>;
-  public describeEventTypes(
-    args: DescribeEventTypesCommandInput,
-    cb: (err: any, data?: DescribeEventTypesCommandOutput) => void
-  ): void;
-  public describeEventTypes(
-    args: DescribeEventTypesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeEventTypesCommandOutput) => void
-  ): void;
-  public describeEventTypes(
-    args: DescribeEventTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventTypesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeEventTypesCommandOutput) => void
-  ): Promise<DescribeEventTypesCommandOutput> | void {
-    const command = new DescribeEventTypesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Returns information about events that meet the specified filter criteria. Events are
    *          returned in a summary form and do not include the detailed description, any additional
    *          metadata that depends on the event type, or any affected resources. To retrieve that
@@ -594,6 +558,42 @@ export class Health extends HealthClient {
     cb?: (err: any, data?: DescribeEventsForOrganizationCommandOutput) => void
   ): Promise<DescribeEventsForOrganizationCommandOutput> | void {
     const command = new DescribeEventsForOrganizationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the event types that meet the specified filter criteria. If no filter
+   *          criteria are specified, all event types are returned, in no particular order.</p>
+   */
+  public describeEventTypes(
+    args: DescribeEventTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEventTypesCommandOutput>;
+  public describeEventTypes(
+    args: DescribeEventTypesCommandInput,
+    cb: (err: any, data?: DescribeEventTypesCommandOutput) => void
+  ): void;
+  public describeEventTypes(
+    args: DescribeEventTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEventTypesCommandOutput) => void
+  ): void;
+  public describeEventTypes(
+    args: DescribeEventTypesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeEventTypesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEventTypesCommandOutput) => void
+  ): Promise<DescribeEventTypesCommandOutput> | void {
+    const command = new DescribeEventTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

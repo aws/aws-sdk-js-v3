@@ -5,9 +5,9 @@ import {
 } from "../ChimeClient";
 import { GetRoomRequest, GetRoomResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetRoomCommand,
-  serializeAws_restJson1_1GetRoomCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetRoomCommand,
+  serializeAws_restJson1GetRoomCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetRoomCommand extends $Command<
     input: GetRoomCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetRoomCommand(input, context);
+    return serializeAws_restJson1GetRoomCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRoomCommandOutput> {
-    return deserializeAws_restJson1_1GetRoomCommand(output, context);
+    return deserializeAws_restJson1GetRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

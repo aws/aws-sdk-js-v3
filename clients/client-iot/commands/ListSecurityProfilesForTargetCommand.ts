@@ -8,9 +8,9 @@ import {
   ListSecurityProfilesForTargetResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListSecurityProfilesForTargetCommand,
-  serializeAws_restJson1_1ListSecurityProfilesForTargetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListSecurityProfilesForTargetCommand,
+  serializeAws_restJson1ListSecurityProfilesForTargetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListSecurityProfilesForTargetCommand extends $Command<
     input: ListSecurityProfilesForTargetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListSecurityProfilesForTargetCommand(
+    return serializeAws_restJson1ListSecurityProfilesForTargetCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListSecurityProfilesForTargetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSecurityProfilesForTargetCommandOutput> {
-    return deserializeAws_restJson1_1ListSecurityProfilesForTargetCommand(
+    return deserializeAws_restJson1ListSecurityProfilesForTargetCommand(
       output,
       context
     );

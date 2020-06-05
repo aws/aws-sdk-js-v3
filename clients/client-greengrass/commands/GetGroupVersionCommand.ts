@@ -8,9 +8,9 @@ import {
   GetGroupVersionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetGroupVersionCommand,
-  serializeAws_restJson1_1GetGroupVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetGroupVersionCommand,
+  serializeAws_restJson1GetGroupVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetGroupVersionCommand extends $Command<
     input: GetGroupVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetGroupVersionCommand(input, context);
+    return serializeAws_restJson1GetGroupVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetGroupVersionCommandOutput> {
-    return deserializeAws_restJson1_1GetGroupVersionCommand(output, context);
+    return deserializeAws_restJson1GetGroupVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

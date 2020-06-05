@@ -5,9 +5,9 @@ import {
 } from "../DetectiveClient";
 import { AcceptInvitationRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1AcceptInvitationCommand,
-  serializeAws_restJson1_1AcceptInvitationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AcceptInvitationCommand,
+  serializeAws_restJson1AcceptInvitationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class AcceptInvitationCommand extends $Command<
     input: AcceptInvitationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AcceptInvitationCommand(input, context);
+    return serializeAws_restJson1AcceptInvitationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptInvitationCommandOutput> {
-    return deserializeAws_restJson1_1AcceptInvitationCommand(output, context);
+    return deserializeAws_restJson1AcceptInvitationCommand(output, context);
   }
 
   // Start section: command_body_extra

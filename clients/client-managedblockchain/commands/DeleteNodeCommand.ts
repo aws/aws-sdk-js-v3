@@ -5,9 +5,9 @@ import {
 } from "../ManagedBlockchainClient";
 import { DeleteNodeInput, DeleteNodeOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteNodeCommand,
-  serializeAws_restJson1_1DeleteNodeCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteNodeCommand,
+  serializeAws_restJson1DeleteNodeCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteNodeCommand extends $Command<
     input: DeleteNodeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteNodeCommand(input, context);
+    return serializeAws_restJson1DeleteNodeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNodeCommandOutput> {
-    return deserializeAws_restJson1_1DeleteNodeCommand(output, context);
+    return deserializeAws_restJson1DeleteNodeCommand(output, context);
   }
 
   // Start section: command_body_extra

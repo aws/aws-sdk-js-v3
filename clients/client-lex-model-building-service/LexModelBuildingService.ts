@@ -901,49 +901,6 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
-   * <p>Gets information about all of the versions of a bot.</p>
-   *          <p>The <code>GetBotVersions</code> operation returns a <code>BotMetadata</code> object for
-   *       each version of a bot. For example, if a bot has three numbered versions, the
-   *         <code>GetBotVersions</code> operation returns four <code>BotMetadata</code> objects in the
-   *       response, one for each numbered version and one for the <code>$LATEST</code> version. </p>
-   *          <p>The <code>GetBotVersions</code> operation always returns at least one version, the
-   *         <code>$LATEST</code> version.</p>
-   *          <p>This operation requires permissions for the <code>lex:GetBotVersions</code>
-   *       action.</p>
-   */
-  public getBotVersions(
-    args: GetBotVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetBotVersionsCommandOutput>;
-  public getBotVersions(
-    args: GetBotVersionsCommandInput,
-    cb: (err: any, data?: GetBotVersionsCommandOutput) => void
-  ): void;
-  public getBotVersions(
-    args: GetBotVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetBotVersionsCommandOutput) => void
-  ): void;
-  public getBotVersions(
-    args: GetBotVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBotVersionsCommandOutput) => void),
-    cb?: (err: any, data?: GetBotVersionsCommandOutput) => void
-  ): Promise<GetBotVersionsCommandOutput> | void {
-    const command = new GetBotVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Returns bot information as follows: </p>
    *          <ul>
    *             <li>
@@ -979,6 +936,49 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
     cb?: (err: any, data?: GetBotsCommandOutput) => void
   ): Promise<GetBotsCommandOutput> | void {
     const command = new GetBotsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about all of the versions of a bot.</p>
+   *          <p>The <code>GetBotVersions</code> operation returns a <code>BotMetadata</code> object for
+   *       each version of a bot. For example, if a bot has three numbered versions, the
+   *         <code>GetBotVersions</code> operation returns four <code>BotMetadata</code> objects in the
+   *       response, one for each numbered version and one for the <code>$LATEST</code> version. </p>
+   *          <p>The <code>GetBotVersions</code> operation always returns at least one version, the
+   *         <code>$LATEST</code> version.</p>
+   *          <p>This operation requires permissions for the <code>lex:GetBotVersions</code>
+   *       action.</p>
+   */
+  public getBotVersions(
+    args: GetBotVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBotVersionsCommandOutput>;
+  public getBotVersions(
+    args: GetBotVersionsCommandInput,
+    cb: (err: any, data?: GetBotVersionsCommandOutput) => void
+  ): void;
+  public getBotVersions(
+    args: GetBotVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBotVersionsCommandOutput) => void
+  ): void;
+  public getBotVersions(
+    args: GetBotVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetBotVersionsCommandOutput) => void),
+    cb?: (err: any, data?: GetBotVersionsCommandOutput) => void
+  ): Promise<GetBotVersionsCommandOutput> | void {
+    const command = new GetBotVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1213,49 +1213,6 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
-   * <p>Gets information about all of the versions of an intent.</p>
-   *          <p>The <code>GetIntentVersions</code> operation returns an <code>IntentMetadata</code>
-   *       object for each version of an intent. For example, if an intent has three numbered versions,
-   *       the <code>GetIntentVersions</code> operation returns four <code>IntentMetadata</code> objects
-   *       in the response, one for each numbered version and one for the <code>$LATEST</code> version. </p>
-   *          <p>The <code>GetIntentVersions</code> operation always returns at least one version, the
-   *         <code>$LATEST</code> version.</p>
-   *          <p>This operation requires permissions for the <code>lex:GetIntentVersions</code>
-   *       action.</p>
-   */
-  public getIntentVersions(
-    args: GetIntentVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetIntentVersionsCommandOutput>;
-  public getIntentVersions(
-    args: GetIntentVersionsCommandInput,
-    cb: (err: any, data?: GetIntentVersionsCommandOutput) => void
-  ): void;
-  public getIntentVersions(
-    args: GetIntentVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetIntentVersionsCommandOutput) => void
-  ): void;
-  public getIntentVersions(
-    args: GetIntentVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIntentVersionsCommandOutput) => void),
-    cb?: (err: any, data?: GetIntentVersionsCommandOutput) => void
-  ): Promise<GetIntentVersionsCommandOutput> | void {
-    const command = new GetIntentVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Returns intent information as follows: </p>
    *          <ul>
    *             <li>
@@ -1291,6 +1248,49 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
     cb?: (err: any, data?: GetIntentsCommandOutput) => void
   ): Promise<GetIntentsCommandOutput> | void {
     const command = new GetIntentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about all of the versions of an intent.</p>
+   *          <p>The <code>GetIntentVersions</code> operation returns an <code>IntentMetadata</code>
+   *       object for each version of an intent. For example, if an intent has three numbered versions,
+   *       the <code>GetIntentVersions</code> operation returns four <code>IntentMetadata</code> objects
+   *       in the response, one for each numbered version and one for the <code>$LATEST</code> version. </p>
+   *          <p>The <code>GetIntentVersions</code> operation always returns at least one version, the
+   *         <code>$LATEST</code> version.</p>
+   *          <p>This operation requires permissions for the <code>lex:GetIntentVersions</code>
+   *       action.</p>
+   */
+  public getIntentVersions(
+    args: GetIntentVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIntentVersionsCommandOutput>;
+  public getIntentVersions(
+    args: GetIntentVersionsCommandInput,
+    cb: (err: any, data?: GetIntentVersionsCommandOutput) => void
+  ): void;
+  public getIntentVersions(
+    args: GetIntentVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIntentVersionsCommandOutput) => void
+  ): void;
+  public getIntentVersions(
+    args: GetIntentVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetIntentVersionsCommandOutput) => void),
+    cb?: (err: any, data?: GetIntentVersionsCommandOutput) => void
+  ): Promise<GetIntentVersionsCommandOutput> | void {
+    const command = new GetIntentVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1341,50 +1341,6 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
-   * <p>Gets information about all versions of a slot type.</p>
-   *          <p>The <code>GetSlotTypeVersions</code> operation returns a <code>SlotTypeMetadata</code>
-   *       object for each version of a slot type. For example, if a slot type has three numbered
-   *       versions, the <code>GetSlotTypeVersions</code> operation returns four
-   *         <code>SlotTypeMetadata</code> objects in the response, one for each numbered version and one
-   *       for the <code>$LATEST</code> version. </p>
-   *          <p>The <code>GetSlotTypeVersions</code> operation always returns at least one version, the
-   *         <code>$LATEST</code> version.</p>
-   *          <p>This operation requires permissions for the <code>lex:GetSlotTypeVersions</code>
-   *       action.</p>
-   */
-  public getSlotTypeVersions(
-    args: GetSlotTypeVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSlotTypeVersionsCommandOutput>;
-  public getSlotTypeVersions(
-    args: GetSlotTypeVersionsCommandInput,
-    cb: (err: any, data?: GetSlotTypeVersionsCommandOutput) => void
-  ): void;
-  public getSlotTypeVersions(
-    args: GetSlotTypeVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetSlotTypeVersionsCommandOutput) => void
-  ): void;
-  public getSlotTypeVersions(
-    args: GetSlotTypeVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSlotTypeVersionsCommandOutput) => void),
-    cb?: (err: any, data?: GetSlotTypeVersionsCommandOutput) => void
-  ): Promise<GetSlotTypeVersionsCommandOutput> | void {
-    const command = new GetSlotTypeVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Returns slot type information as follows: </p>
    *          <ul>
    *             <li>
@@ -1421,6 +1377,50 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
     cb?: (err: any, data?: GetSlotTypesCommandOutput) => void
   ): Promise<GetSlotTypesCommandOutput> | void {
     const command = new GetSlotTypesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about all versions of a slot type.</p>
+   *          <p>The <code>GetSlotTypeVersions</code> operation returns a <code>SlotTypeMetadata</code>
+   *       object for each version of a slot type. For example, if a slot type has three numbered
+   *       versions, the <code>GetSlotTypeVersions</code> operation returns four
+   *         <code>SlotTypeMetadata</code> objects in the response, one for each numbered version and one
+   *       for the <code>$LATEST</code> version. </p>
+   *          <p>The <code>GetSlotTypeVersions</code> operation always returns at least one version, the
+   *         <code>$LATEST</code> version.</p>
+   *          <p>This operation requires permissions for the <code>lex:GetSlotTypeVersions</code>
+   *       action.</p>
+   */
+  public getSlotTypeVersions(
+    args: GetSlotTypeVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSlotTypeVersionsCommandOutput>;
+  public getSlotTypeVersions(
+    args: GetSlotTypeVersionsCommandInput,
+    cb: (err: any, data?: GetSlotTypeVersionsCommandOutput) => void
+  ): void;
+  public getSlotTypeVersions(
+    args: GetSlotTypeVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSlotTypeVersionsCommandOutput) => void
+  ): void;
+  public getSlotTypeVersions(
+    args: GetSlotTypeVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSlotTypeVersionsCommandOutput) => void),
+    cb?: (err: any, data?: GetSlotTypeVersionsCommandOutput) => void
+  ): Promise<GetSlotTypeVersionsCommandOutput> | void {
+    const command = new GetSlotTypeVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

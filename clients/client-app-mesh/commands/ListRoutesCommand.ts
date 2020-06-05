@@ -5,9 +5,9 @@ import {
 } from "../AppMeshClient";
 import { ListRoutesInput, ListRoutesOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListRoutesCommand,
-  serializeAws_restJson1_1ListRoutesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListRoutesCommand,
+  serializeAws_restJson1ListRoutesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListRoutesCommand extends $Command<
     input: ListRoutesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListRoutesCommand(input, context);
+    return serializeAws_restJson1ListRoutesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRoutesCommandOutput> {
-    return deserializeAws_restJson1_1ListRoutesCommand(output, context);
+    return deserializeAws_restJson1ListRoutesCommand(output, context);
   }
 
   // Start section: command_body_extra

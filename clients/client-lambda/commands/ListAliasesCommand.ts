@@ -5,9 +5,9 @@ import {
 } from "../LambdaClient";
 import { ListAliasesRequest, ListAliasesResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListAliasesCommand,
-  serializeAws_restJson1_1ListAliasesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListAliasesCommand,
+  serializeAws_restJson1ListAliasesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListAliasesCommand extends $Command<
     input: ListAliasesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListAliasesCommand(input, context);
+    return serializeAws_restJson1ListAliasesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAliasesCommandOutput> {
-    return deserializeAws_restJson1_1ListAliasesCommand(output, context);
+    return deserializeAws_restJson1ListAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

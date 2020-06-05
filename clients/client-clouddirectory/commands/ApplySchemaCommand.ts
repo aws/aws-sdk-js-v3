@@ -5,9 +5,9 @@ import {
 } from "../CloudDirectoryClient";
 import { ApplySchemaRequest, ApplySchemaResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ApplySchemaCommand,
-  serializeAws_restJson1_1ApplySchemaCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ApplySchemaCommand,
+  serializeAws_restJson1ApplySchemaCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ApplySchemaCommand extends $Command<
     input: ApplySchemaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ApplySchemaCommand(input, context);
+    return serializeAws_restJson1ApplySchemaCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ApplySchemaCommandOutput> {
-    return deserializeAws_restJson1_1ApplySchemaCommand(output, context);
+    return deserializeAws_restJson1ApplySchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

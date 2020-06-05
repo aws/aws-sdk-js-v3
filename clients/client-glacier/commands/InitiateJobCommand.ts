@@ -5,9 +5,9 @@ import {
 } from "../GlacierClient";
 import { InitiateJobInput, InitiateJobOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1InitiateJobCommand,
-  serializeAws_restJson1_1InitiateJobCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1InitiateJobCommand,
+  serializeAws_restJson1InitiateJobCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class InitiateJobCommand extends $Command<
     input: InitiateJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1InitiateJobCommand(input, context);
+    return serializeAws_restJson1InitiateJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InitiateJobCommandOutput> {
-    return deserializeAws_restJson1_1InitiateJobCommand(output, context);
+    return deserializeAws_restJson1InitiateJobCommand(output, context);
   }
 
   // Start section: command_body_extra

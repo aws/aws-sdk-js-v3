@@ -8,9 +8,9 @@ import {
   DeleteImageRecipeResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteImageRecipeCommand,
-  serializeAws_restJson1_1DeleteImageRecipeCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteImageRecipeCommand,
+  serializeAws_restJson1DeleteImageRecipeCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DeleteImageRecipeCommand extends $Command<
     input: DeleteImageRecipeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteImageRecipeCommand(input, context);
+    return serializeAws_restJson1DeleteImageRecipeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteImageRecipeCommandOutput> {
-    return deserializeAws_restJson1_1DeleteImageRecipeCommand(output, context);
+    return deserializeAws_restJson1DeleteImageRecipeCommand(output, context);
   }
 
   // Start section: command_body_extra

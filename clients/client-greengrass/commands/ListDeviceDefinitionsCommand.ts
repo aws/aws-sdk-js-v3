@@ -8,9 +8,9 @@ import {
   ListDeviceDefinitionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListDeviceDefinitionsCommand,
-  serializeAws_restJson1_1ListDeviceDefinitionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListDeviceDefinitionsCommand,
+  serializeAws_restJson1ListDeviceDefinitionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class ListDeviceDefinitionsCommand extends $Command<
     input: ListDeviceDefinitionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListDeviceDefinitionsCommand(input, context);
+    return serializeAws_restJson1ListDeviceDefinitionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDeviceDefinitionsCommandOutput> {
-    return deserializeAws_restJson1_1ListDeviceDefinitionsCommand(
+    return deserializeAws_restJson1ListDeviceDefinitionsCommand(
       output,
       context
     );

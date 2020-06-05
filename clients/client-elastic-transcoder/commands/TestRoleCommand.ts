@@ -5,9 +5,9 @@ import {
 } from "../ElasticTranscoderClient";
 import { TestRoleRequest, TestRoleResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1TestRoleCommand,
-  serializeAws_restJson1_1TestRoleCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1TestRoleCommand,
+  serializeAws_restJson1TestRoleCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class TestRoleCommand extends $Command<
     input: TestRoleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1TestRoleCommand(input, context);
+    return serializeAws_restJson1TestRoleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TestRoleCommandOutput> {
-    return deserializeAws_restJson1_1TestRoleCommand(output, context);
+    return deserializeAws_restJson1TestRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

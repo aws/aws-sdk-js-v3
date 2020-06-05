@@ -5,9 +5,9 @@ import {
 } from "../GuardDutyClient";
 import { GetMembersRequest, GetMembersResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetMembersCommand,
-  serializeAws_restJson1_1GetMembersCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetMembersCommand,
+  serializeAws_restJson1GetMembersCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetMembersCommand extends $Command<
     input: GetMembersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetMembersCommand(input, context);
+    return serializeAws_restJson1GetMembersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMembersCommandOutput> {
-    return deserializeAws_restJson1_1GetMembersCommand(output, context);
+    return deserializeAws_restJson1GetMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

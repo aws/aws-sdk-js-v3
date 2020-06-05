@@ -5,9 +5,9 @@ import {
 } from "../IoTAnalyticsClient";
 import { UpdateDatasetRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateDatasetCommand,
-  serializeAws_restJson1_1UpdateDatasetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateDatasetCommand,
+  serializeAws_restJson1UpdateDatasetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class UpdateDatasetCommand extends $Command<
     input: UpdateDatasetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDatasetCommand(input, context);
+    return serializeAws_restJson1UpdateDatasetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDatasetCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDatasetCommand(output, context);
+    return deserializeAws_restJson1UpdateDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

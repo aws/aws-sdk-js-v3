@@ -951,49 +951,6 @@ export namespace DescribeWorkspaceImagesResult {
     __isa(o, "DescribeWorkspaceImagesResult");
 }
 
-export interface DescribeWorkspaceSnapshotsRequest {
-  __type?: "DescribeWorkspaceSnapshotsRequest";
-  /**
-   * <p>The identifier of the WorkSpace.</p>
-   */
-  WorkspaceId: string | undefined;
-}
-
-export namespace DescribeWorkspaceSnapshotsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeWorkspaceSnapshotsRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeWorkspaceSnapshotsRequest =>
-    __isa(o, "DescribeWorkspaceSnapshotsRequest");
-}
-
-export interface DescribeWorkspaceSnapshotsResult {
-  __type?: "DescribeWorkspaceSnapshotsResult";
-  /**
-   * <p>Information about the snapshots that can be used to rebuild a WorkSpace. These snapshots include
-   *          the user volume.</p>
-   */
-  RebuildSnapshots?: Snapshot[];
-
-  /**
-   * <p>Information about the snapshots that can be used to restore a WorkSpace. These snapshots
-   *          include both the root volume and the user volume.</p>
-   */
-  RestoreSnapshots?: Snapshot[];
-}
-
-export namespace DescribeWorkspaceSnapshotsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeWorkspaceSnapshotsResult
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeWorkspaceSnapshotsResult =>
-    __isa(o, "DescribeWorkspaceSnapshotsResult");
-}
-
 export interface DescribeWorkspacesConnectionStatusRequest {
   __type?: "DescribeWorkspacesConnectionStatusRequest";
   /**
@@ -1040,6 +997,49 @@ export namespace DescribeWorkspacesConnectionStatusResult {
   });
   export const isa = (o: any): o is DescribeWorkspacesConnectionStatusResult =>
     __isa(o, "DescribeWorkspacesConnectionStatusResult");
+}
+
+export interface DescribeWorkspaceSnapshotsRequest {
+  __type?: "DescribeWorkspaceSnapshotsRequest";
+  /**
+   * <p>The identifier of the WorkSpace.</p>
+   */
+  WorkspaceId: string | undefined;
+}
+
+export namespace DescribeWorkspaceSnapshotsRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeWorkspaceSnapshotsRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeWorkspaceSnapshotsRequest =>
+    __isa(o, "DescribeWorkspaceSnapshotsRequest");
+}
+
+export interface DescribeWorkspaceSnapshotsResult {
+  __type?: "DescribeWorkspaceSnapshotsResult";
+  /**
+   * <p>Information about the snapshots that can be used to rebuild a WorkSpace. These snapshots include
+   *          the user volume.</p>
+   */
+  RebuildSnapshots?: Snapshot[];
+
+  /**
+   * <p>Information about the snapshots that can be used to restore a WorkSpace. These snapshots
+   *          include both the root volume and the user volume.</p>
+   */
+  RestoreSnapshots?: Snapshot[];
+}
+
+export namespace DescribeWorkspaceSnapshotsResult {
+  export const filterSensitiveLog = (
+    obj: DescribeWorkspaceSnapshotsResult
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeWorkspaceSnapshotsResult =>
+    __isa(o, "DescribeWorkspaceSnapshotsResult");
 }
 
 export interface DescribeWorkspacesRequest {
@@ -3110,26 +3110,6 @@ export namespace WorkspaceRequest {
     __isa(o, "WorkspaceRequest");
 }
 
-export enum WorkspaceState {
-  ADMIN_MAINTENANCE = "ADMIN_MAINTENANCE",
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  IMPAIRED = "IMPAIRED",
-  MAINTENANCE = "MAINTENANCE",
-  PENDING = "PENDING",
-  REBOOTING = "REBOOTING",
-  REBUILDING = "REBUILDING",
-  RESTORING = "RESTORING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  SUSPENDED = "SUSPENDED",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-  UNHEALTHY = "UNHEALTHY",
-  UPDATING = "UPDATING"
-}
-
 /**
  * <p>The workspaces_DefaultRole role could not be found. If this is the first time you are registering a directory, you
  *          will need to create the workspaces_DefaultRole role before you can register a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">Creating the workspaces_DefaultRole Role</a>.</p>
@@ -3184,4 +3164,24 @@ export namespace WorkspacesIpGroup {
   });
   export const isa = (o: any): o is WorkspacesIpGroup =>
     __isa(o, "WorkspacesIpGroup");
+}
+
+export enum WorkspaceState {
+  ADMIN_MAINTENANCE = "ADMIN_MAINTENANCE",
+  AVAILABLE = "AVAILABLE",
+  ERROR = "ERROR",
+  IMPAIRED = "IMPAIRED",
+  MAINTENANCE = "MAINTENANCE",
+  PENDING = "PENDING",
+  REBOOTING = "REBOOTING",
+  REBUILDING = "REBUILDING",
+  RESTORING = "RESTORING",
+  STARTING = "STARTING",
+  STOPPED = "STOPPED",
+  STOPPING = "STOPPING",
+  SUSPENDED = "SUSPENDED",
+  TERMINATED = "TERMINATED",
+  TERMINATING = "TERMINATING",
+  UNHEALTHY = "UNHEALTHY",
+  UPDATING = "UPDATING"
 }

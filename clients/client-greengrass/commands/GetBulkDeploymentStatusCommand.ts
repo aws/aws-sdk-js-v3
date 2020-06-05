@@ -8,9 +8,9 @@ import {
   GetBulkDeploymentStatusResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetBulkDeploymentStatusCommand,
-  serializeAws_restJson1_1GetBulkDeploymentStatusCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetBulkDeploymentStatusCommand,
+  serializeAws_restJson1GetBulkDeploymentStatusCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetBulkDeploymentStatusCommand extends $Command<
     input: GetBulkDeploymentStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetBulkDeploymentStatusCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1GetBulkDeploymentStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBulkDeploymentStatusCommandOutput> {
-    return deserializeAws_restJson1_1GetBulkDeploymentStatusCommand(
+    return deserializeAws_restJson1GetBulkDeploymentStatusCommand(
       output,
       context
     );

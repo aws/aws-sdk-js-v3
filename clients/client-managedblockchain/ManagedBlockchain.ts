@@ -587,41 +587,6 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   * <p>Returns the listing of votes for a specified proposal, including the value of each vote and the unique identifier of the member that cast the vote.</p>
-   */
-  public listProposalVotes(
-    args: ListProposalVotesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListProposalVotesCommandOutput>;
-  public listProposalVotes(
-    args: ListProposalVotesCommandInput,
-    cb: (err: any, data?: ListProposalVotesCommandOutput) => void
-  ): void;
-  public listProposalVotes(
-    args: ListProposalVotesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListProposalVotesCommandOutput) => void
-  ): void;
-  public listProposalVotes(
-    args: ListProposalVotesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProposalVotesCommandOutput) => void),
-    cb?: (err: any, data?: ListProposalVotesCommandOutput) => void
-  ): Promise<ListProposalVotesCommandOutput> | void {
-    const command = new ListProposalVotesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Returns a listing of proposals for the network.</p>
    */
   public listProposals(
@@ -645,6 +610,41 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
     cb?: (err: any, data?: ListProposalsCommandOutput) => void
   ): Promise<ListProposalsCommandOutput> | void {
     const command = new ListProposalsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the listing of votes for a specified proposal, including the value of each vote and the unique identifier of the member that cast the vote.</p>
+   */
+  public listProposalVotes(
+    args: ListProposalVotesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProposalVotesCommandOutput>;
+  public listProposalVotes(
+    args: ListProposalVotesCommandInput,
+    cb: (err: any, data?: ListProposalVotesCommandOutput) => void
+  ): void;
+  public listProposalVotes(
+    args: ListProposalVotesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProposalVotesCommandOutput) => void
+  ): void;
+  public listProposalVotes(
+    args: ListProposalVotesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListProposalVotesCommandOutput) => void),
+    cb?: (err: any, data?: ListProposalVotesCommandOutput) => void
+  ): Promise<ListProposalVotesCommandOutput> | void {
+    const command = new ListProposalVotesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

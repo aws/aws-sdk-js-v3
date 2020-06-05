@@ -5,9 +5,9 @@ import {
 } from "../BackupClient";
 import { StopBackupJobInput } from "../models/index";
 import {
-  deserializeAws_restJson1_1StopBackupJobCommand,
-  serializeAws_restJson1_1StopBackupJobCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1StopBackupJobCommand,
+  serializeAws_restJson1StopBackupJobCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class StopBackupJobCommand extends $Command<
     input: StopBackupJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StopBackupJobCommand(input, context);
+    return serializeAws_restJson1StopBackupJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopBackupJobCommandOutput> {
-    return deserializeAws_restJson1_1StopBackupJobCommand(output, context);
+    return deserializeAws_restJson1StopBackupJobCommand(output, context);
   }
 
   // Start section: command_body_extra

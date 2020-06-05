@@ -8,9 +8,9 @@ import {
   GetTimeSeriesServiceStatisticsResult
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommand,
-  serializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetTimeSeriesServiceStatisticsCommand,
+  serializeAws_restJson1GetTimeSeriesServiceStatisticsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetTimeSeriesServiceStatisticsCommand extends $Command<
     input: GetTimeSeriesServiceStatisticsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommand(
+    return serializeAws_restJson1GetTimeSeriesServiceStatisticsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetTimeSeriesServiceStatisticsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTimeSeriesServiceStatisticsCommandOutput> {
-    return deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommand(
+    return deserializeAws_restJson1GetTimeSeriesServiceStatisticsCommand(
       output,
       context
     );

@@ -877,7 +877,7 @@ const deserializeAws_queryAddListenerCertificatesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#CertificateNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#CertificateNotFoundException":
       response = {
         ...(await deserializeAws_queryCertificateNotFoundExceptionResponse(
           parsedOutput,
@@ -888,7 +888,7 @@ const deserializeAws_queryAddListenerCertificatesCommandError = async (
       };
       break;
     case "ListenerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#ListenerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
       response = {
         ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
           parsedOutput,
@@ -899,7 +899,7 @@ const deserializeAws_queryAddListenerCertificatesCommandError = async (
       };
       break;
     case "TooManyCertificatesException":
-    case "com.amazon.elb.version_2015_12_01#TooManyCertificatesException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyCertificatesException":
       response = {
         ...(await deserializeAws_queryTooManyCertificatesExceptionResponse(
           parsedOutput,
@@ -958,7 +958,7 @@ const deserializeAws_queryAddTagsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateTagKeysException":
-    case "com.amazon.elb.version_2015_12_01#DuplicateTagKeysException":
+    case "com.amazonaws.elasticloadbalancingv2#DuplicateTagKeysException":
       response = {
         ...(await deserializeAws_queryDuplicateTagKeysExceptionResponse(
           parsedOutput,
@@ -969,7 +969,7 @@ const deserializeAws_queryAddTagsCommandError = async (
       };
       break;
     case "LoadBalancerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
       response = {
         ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
           parsedOutput,
@@ -980,7 +980,7 @@ const deserializeAws_queryAddTagsCommandError = async (
       };
       break;
     case "TargetGroupNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
       response = {
         ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
           parsedOutput,
@@ -991,7 +991,7 @@ const deserializeAws_queryAddTagsCommandError = async (
       };
       break;
     case "TooManyTagsException":
-    case "com.amazon.elb.version_2015_12_01#TooManyTagsException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyTagsException":
       response = {
         ...(await deserializeAws_queryTooManyTagsExceptionResponse(
           parsedOutput,
@@ -1053,7 +1053,7 @@ const deserializeAws_queryCreateListenerCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#CertificateNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#CertificateNotFoundException":
       response = {
         ...(await deserializeAws_queryCertificateNotFoundExceptionResponse(
           parsedOutput,
@@ -1064,7 +1064,7 @@ const deserializeAws_queryCreateListenerCommandError = async (
       };
       break;
     case "DuplicateListenerException":
-    case "com.amazon.elb.version_2015_12_01#DuplicateListenerException":
+    case "com.amazonaws.elasticloadbalancingv2#DuplicateListenerException":
       response = {
         ...(await deserializeAws_queryDuplicateListenerExceptionResponse(
           parsedOutput,
@@ -1075,7 +1075,7 @@ const deserializeAws_queryCreateListenerCommandError = async (
       };
       break;
     case "IncompatibleProtocolsException":
-    case "com.amazon.elb.version_2015_12_01#IncompatibleProtocolsException":
+    case "com.amazonaws.elasticloadbalancingv2#IncompatibleProtocolsException":
       response = {
         ...(await deserializeAws_queryIncompatibleProtocolsExceptionResponse(
           parsedOutput,
@@ -1086,7 +1086,7 @@ const deserializeAws_queryCreateListenerCommandError = async (
       };
       break;
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -1097,7 +1097,7 @@ const deserializeAws_queryCreateListenerCommandError = async (
       };
       break;
     case "InvalidLoadBalancerActionException":
-    case "com.amazon.elb.version_2015_12_01#InvalidLoadBalancerActionException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidLoadBalancerActionException":
       response = {
         ...(await deserializeAws_queryInvalidLoadBalancerActionExceptionResponse(
           parsedOutput,
@@ -1108,7 +1108,7 @@ const deserializeAws_queryCreateListenerCommandError = async (
       };
       break;
     case "LoadBalancerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
       response = {
         ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
           parsedOutput,
@@ -1119,7 +1119,7 @@ const deserializeAws_queryCreateListenerCommandError = async (
       };
       break;
     case "SSLPolicyNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#SSLPolicyNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#SSLPolicyNotFoundException":
       response = {
         ...(await deserializeAws_querySSLPolicyNotFoundExceptionResponse(
           parsedOutput,
@@ -1130,7 +1130,7 @@ const deserializeAws_queryCreateListenerCommandError = async (
       };
       break;
     case "TargetGroupAssociationLimitException":
-    case "com.amazon.elb.version_2015_12_01#TargetGroupAssociationLimitException":
+    case "com.amazonaws.elasticloadbalancingv2#TargetGroupAssociationLimitException":
       response = {
         ...(await deserializeAws_queryTargetGroupAssociationLimitExceptionResponse(
           parsedOutput,
@@ -1141,7 +1141,7 @@ const deserializeAws_queryCreateListenerCommandError = async (
       };
       break;
     case "TargetGroupNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
       response = {
         ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
           parsedOutput,
@@ -1152,7 +1152,7 @@ const deserializeAws_queryCreateListenerCommandError = async (
       };
       break;
     case "TooManyActionsException":
-    case "com.amazon.elb.version_2015_12_01#TooManyActionsException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyActionsException":
       response = {
         ...(await deserializeAws_queryTooManyActionsExceptionResponse(
           parsedOutput,
@@ -1163,7 +1163,7 @@ const deserializeAws_queryCreateListenerCommandError = async (
       };
       break;
     case "TooManyCertificatesException":
-    case "com.amazon.elb.version_2015_12_01#TooManyCertificatesException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyCertificatesException":
       response = {
         ...(await deserializeAws_queryTooManyCertificatesExceptionResponse(
           parsedOutput,
@@ -1174,7 +1174,7 @@ const deserializeAws_queryCreateListenerCommandError = async (
       };
       break;
     case "TooManyListenersException":
-    case "com.amazon.elb.version_2015_12_01#TooManyListenersException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyListenersException":
       response = {
         ...(await deserializeAws_queryTooManyListenersExceptionResponse(
           parsedOutput,
@@ -1185,7 +1185,7 @@ const deserializeAws_queryCreateListenerCommandError = async (
       };
       break;
     case "TooManyRegistrationsForTargetIdException":
-    case "com.amazon.elb.version_2015_12_01#TooManyRegistrationsForTargetIdException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyRegistrationsForTargetIdException":
       response = {
         ...(await deserializeAws_queryTooManyRegistrationsForTargetIdExceptionResponse(
           parsedOutput,
@@ -1196,7 +1196,7 @@ const deserializeAws_queryCreateListenerCommandError = async (
       };
       break;
     case "TooManyTargetsException":
-    case "com.amazon.elb.version_2015_12_01#TooManyTargetsException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyTargetsException":
       response = {
         ...(await deserializeAws_queryTooManyTargetsExceptionResponse(
           parsedOutput,
@@ -1207,7 +1207,7 @@ const deserializeAws_queryCreateListenerCommandError = async (
       };
       break;
     case "TooManyUniqueTargetGroupsPerLoadBalancerException":
-    case "com.amazon.elb.version_2015_12_01#TooManyUniqueTargetGroupsPerLoadBalancerException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyUniqueTargetGroupsPerLoadBalancerException":
       response = {
         ...(await deserializeAws_queryTooManyUniqueTargetGroupsPerLoadBalancerExceptionResponse(
           parsedOutput,
@@ -1218,7 +1218,7 @@ const deserializeAws_queryCreateListenerCommandError = async (
       };
       break;
     case "UnsupportedProtocolException":
-    case "com.amazon.elb.version_2015_12_01#UnsupportedProtocolException":
+    case "com.amazonaws.elasticloadbalancingv2#UnsupportedProtocolException":
       response = {
         ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(
           parsedOutput,
@@ -1280,7 +1280,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AllocationIdNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#AllocationIdNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#AllocationIdNotFoundException":
       response = {
         ...(await deserializeAws_queryAllocationIdNotFoundExceptionResponse(
           parsedOutput,
@@ -1291,7 +1291,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "AvailabilityZoneNotSupportedException":
-    case "com.amazon.elb.version_2015_12_01#AvailabilityZoneNotSupportedException":
+    case "com.amazonaws.elasticloadbalancingv2#AvailabilityZoneNotSupportedException":
       response = {
         ...(await deserializeAws_queryAvailabilityZoneNotSupportedExceptionResponse(
           parsedOutput,
@@ -1302,7 +1302,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "DuplicateLoadBalancerNameException":
-    case "com.amazon.elb.version_2015_12_01#DuplicateLoadBalancerNameException":
+    case "com.amazonaws.elasticloadbalancingv2#DuplicateLoadBalancerNameException":
       response = {
         ...(await deserializeAws_queryDuplicateLoadBalancerNameExceptionResponse(
           parsedOutput,
@@ -1313,7 +1313,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "DuplicateTagKeysException":
-    case "com.amazon.elb.version_2015_12_01#DuplicateTagKeysException":
+    case "com.amazonaws.elasticloadbalancingv2#DuplicateTagKeysException":
       response = {
         ...(await deserializeAws_queryDuplicateTagKeysExceptionResponse(
           parsedOutput,
@@ -1324,7 +1324,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -1335,7 +1335,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "InvalidSchemeException":
-    case "com.amazon.elb.version_2015_12_01#InvalidSchemeException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidSchemeException":
       response = {
         ...(await deserializeAws_queryInvalidSchemeExceptionResponse(
           parsedOutput,
@@ -1346,7 +1346,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "InvalidSecurityGroupException":
-    case "com.amazon.elb.version_2015_12_01#InvalidSecurityGroupException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidSecurityGroupException":
       response = {
         ...(await deserializeAws_queryInvalidSecurityGroupExceptionResponse(
           parsedOutput,
@@ -1357,7 +1357,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "InvalidSubnetException":
-    case "com.amazon.elb.version_2015_12_01#InvalidSubnetException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidSubnetException":
       response = {
         ...(await deserializeAws_queryInvalidSubnetExceptionResponse(
           parsedOutput,
@@ -1368,7 +1368,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazon.elb.version_2015_12_01#OperationNotPermittedException":
+    case "com.amazonaws.elasticloadbalancingv2#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_queryOperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1379,7 +1379,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazon.elb.version_2015_12_01#ResourceInUseException":
+    case "com.amazonaws.elasticloadbalancingv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_queryResourceInUseExceptionResponse(
           parsedOutput,
@@ -1390,7 +1390,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "SubnetNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#SubnetNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#SubnetNotFoundException":
       response = {
         ...(await deserializeAws_querySubnetNotFoundExceptionResponse(
           parsedOutput,
@@ -1401,7 +1401,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "TooManyLoadBalancersException":
-    case "com.amazon.elb.version_2015_12_01#TooManyLoadBalancersException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyLoadBalancersException":
       response = {
         ...(await deserializeAws_queryTooManyLoadBalancersExceptionResponse(
           parsedOutput,
@@ -1412,7 +1412,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "TooManyTagsException":
-    case "com.amazon.elb.version_2015_12_01#TooManyTagsException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyTagsException":
       response = {
         ...(await deserializeAws_queryTooManyTagsExceptionResponse(
           parsedOutput,
@@ -1474,7 +1474,7 @@ const deserializeAws_queryCreateRuleCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IncompatibleProtocolsException":
-    case "com.amazon.elb.version_2015_12_01#IncompatibleProtocolsException":
+    case "com.amazonaws.elasticloadbalancingv2#IncompatibleProtocolsException":
       response = {
         ...(await deserializeAws_queryIncompatibleProtocolsExceptionResponse(
           parsedOutput,
@@ -1485,7 +1485,7 @@ const deserializeAws_queryCreateRuleCommandError = async (
       };
       break;
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -1496,7 +1496,7 @@ const deserializeAws_queryCreateRuleCommandError = async (
       };
       break;
     case "InvalidLoadBalancerActionException":
-    case "com.amazon.elb.version_2015_12_01#InvalidLoadBalancerActionException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidLoadBalancerActionException":
       response = {
         ...(await deserializeAws_queryInvalidLoadBalancerActionExceptionResponse(
           parsedOutput,
@@ -1507,7 +1507,7 @@ const deserializeAws_queryCreateRuleCommandError = async (
       };
       break;
     case "ListenerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#ListenerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
       response = {
         ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
           parsedOutput,
@@ -1518,7 +1518,7 @@ const deserializeAws_queryCreateRuleCommandError = async (
       };
       break;
     case "PriorityInUseException":
-    case "com.amazon.elb.version_2015_12_01#PriorityInUseException":
+    case "com.amazonaws.elasticloadbalancingv2#PriorityInUseException":
       response = {
         ...(await deserializeAws_queryPriorityInUseExceptionResponse(
           parsedOutput,
@@ -1529,7 +1529,7 @@ const deserializeAws_queryCreateRuleCommandError = async (
       };
       break;
     case "TargetGroupAssociationLimitException":
-    case "com.amazon.elb.version_2015_12_01#TargetGroupAssociationLimitException":
+    case "com.amazonaws.elasticloadbalancingv2#TargetGroupAssociationLimitException":
       response = {
         ...(await deserializeAws_queryTargetGroupAssociationLimitExceptionResponse(
           parsedOutput,
@@ -1540,7 +1540,7 @@ const deserializeAws_queryCreateRuleCommandError = async (
       };
       break;
     case "TargetGroupNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
       response = {
         ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
           parsedOutput,
@@ -1551,7 +1551,7 @@ const deserializeAws_queryCreateRuleCommandError = async (
       };
       break;
     case "TooManyActionsException":
-    case "com.amazon.elb.version_2015_12_01#TooManyActionsException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyActionsException":
       response = {
         ...(await deserializeAws_queryTooManyActionsExceptionResponse(
           parsedOutput,
@@ -1562,7 +1562,7 @@ const deserializeAws_queryCreateRuleCommandError = async (
       };
       break;
     case "TooManyRegistrationsForTargetIdException":
-    case "com.amazon.elb.version_2015_12_01#TooManyRegistrationsForTargetIdException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyRegistrationsForTargetIdException":
       response = {
         ...(await deserializeAws_queryTooManyRegistrationsForTargetIdExceptionResponse(
           parsedOutput,
@@ -1573,7 +1573,7 @@ const deserializeAws_queryCreateRuleCommandError = async (
       };
       break;
     case "TooManyRulesException":
-    case "com.amazon.elb.version_2015_12_01#TooManyRulesException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyRulesException":
       response = {
         ...(await deserializeAws_queryTooManyRulesExceptionResponse(
           parsedOutput,
@@ -1584,7 +1584,7 @@ const deserializeAws_queryCreateRuleCommandError = async (
       };
       break;
     case "TooManyTargetGroupsException":
-    case "com.amazon.elb.version_2015_12_01#TooManyTargetGroupsException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyTargetGroupsException":
       response = {
         ...(await deserializeAws_queryTooManyTargetGroupsExceptionResponse(
           parsedOutput,
@@ -1595,7 +1595,7 @@ const deserializeAws_queryCreateRuleCommandError = async (
       };
       break;
     case "TooManyTargetsException":
-    case "com.amazon.elb.version_2015_12_01#TooManyTargetsException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyTargetsException":
       response = {
         ...(await deserializeAws_queryTooManyTargetsExceptionResponse(
           parsedOutput,
@@ -1606,7 +1606,7 @@ const deserializeAws_queryCreateRuleCommandError = async (
       };
       break;
     case "TooManyUniqueTargetGroupsPerLoadBalancerException":
-    case "com.amazon.elb.version_2015_12_01#TooManyUniqueTargetGroupsPerLoadBalancerException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyUniqueTargetGroupsPerLoadBalancerException":
       response = {
         ...(await deserializeAws_queryTooManyUniqueTargetGroupsPerLoadBalancerExceptionResponse(
           parsedOutput,
@@ -1617,7 +1617,7 @@ const deserializeAws_queryCreateRuleCommandError = async (
       };
       break;
     case "UnsupportedProtocolException":
-    case "com.amazon.elb.version_2015_12_01#UnsupportedProtocolException":
+    case "com.amazonaws.elasticloadbalancingv2#UnsupportedProtocolException":
       response = {
         ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(
           parsedOutput,
@@ -1679,7 +1679,7 @@ const deserializeAws_queryCreateTargetGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateTargetGroupNameException":
-    case "com.amazon.elb.version_2015_12_01#DuplicateTargetGroupNameException":
+    case "com.amazonaws.elasticloadbalancingv2#DuplicateTargetGroupNameException":
       response = {
         ...(await deserializeAws_queryDuplicateTargetGroupNameExceptionResponse(
           parsedOutput,
@@ -1690,7 +1690,7 @@ const deserializeAws_queryCreateTargetGroupCommandError = async (
       };
       break;
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -1701,7 +1701,7 @@ const deserializeAws_queryCreateTargetGroupCommandError = async (
       };
       break;
     case "TooManyTargetGroupsException":
-    case "com.amazon.elb.version_2015_12_01#TooManyTargetGroupsException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyTargetGroupsException":
       response = {
         ...(await deserializeAws_queryTooManyTargetGroupsExceptionResponse(
           parsedOutput,
@@ -1763,7 +1763,7 @@ const deserializeAws_queryDeleteListenerCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ListenerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#ListenerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
       response = {
         ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
           parsedOutput,
@@ -1825,7 +1825,7 @@ const deserializeAws_queryDeleteLoadBalancerCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LoadBalancerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
       response = {
         ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
           parsedOutput,
@@ -1836,7 +1836,7 @@ const deserializeAws_queryDeleteLoadBalancerCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazon.elb.version_2015_12_01#OperationNotPermittedException":
+    case "com.amazonaws.elasticloadbalancingv2#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_queryOperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1847,7 +1847,7 @@ const deserializeAws_queryDeleteLoadBalancerCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazon.elb.version_2015_12_01#ResourceInUseException":
+    case "com.amazonaws.elasticloadbalancingv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_queryResourceInUseExceptionResponse(
           parsedOutput,
@@ -1909,7 +1909,7 @@ const deserializeAws_queryDeleteRuleCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedException":
-    case "com.amazon.elb.version_2015_12_01#OperationNotPermittedException":
+    case "com.amazonaws.elasticloadbalancingv2#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_queryOperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1920,7 +1920,7 @@ const deserializeAws_queryDeleteRuleCommandError = async (
       };
       break;
     case "RuleNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#RuleNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#RuleNotFoundException":
       response = {
         ...(await deserializeAws_queryRuleNotFoundExceptionResponse(
           parsedOutput,
@@ -1982,7 +1982,7 @@ const deserializeAws_queryDeleteTargetGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceInUseException":
-    case "com.amazon.elb.version_2015_12_01#ResourceInUseException":
+    case "com.amazonaws.elasticloadbalancingv2#ResourceInUseException":
       response = {
         ...(await deserializeAws_queryResourceInUseExceptionResponse(
           parsedOutput,
@@ -2044,7 +2044,7 @@ const deserializeAws_queryDeregisterTargetsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTargetException":
-    case "com.amazon.elb.version_2015_12_01#InvalidTargetException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidTargetException":
       response = {
         ...(await deserializeAws_queryInvalidTargetExceptionResponse(
           parsedOutput,
@@ -2055,7 +2055,7 @@ const deserializeAws_queryDeregisterTargetsCommandError = async (
       };
       break;
     case "TargetGroupNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
       response = {
         ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
           parsedOutput,
@@ -2174,7 +2174,7 @@ const deserializeAws_queryDescribeListenerCertificatesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ListenerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#ListenerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
       response = {
         ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
           parsedOutput,
@@ -2236,7 +2236,7 @@ const deserializeAws_queryDescribeListenersCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ListenerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#ListenerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
       response = {
         ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
           parsedOutput,
@@ -2247,7 +2247,7 @@ const deserializeAws_queryDescribeListenersCommandError = async (
       };
       break;
     case "LoadBalancerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
       response = {
         ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
           parsedOutput,
@@ -2258,7 +2258,7 @@ const deserializeAws_queryDescribeListenersCommandError = async (
       };
       break;
     case "UnsupportedProtocolException":
-    case "com.amazon.elb.version_2015_12_01#UnsupportedProtocolException":
+    case "com.amazonaws.elasticloadbalancingv2#UnsupportedProtocolException":
       response = {
         ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(
           parsedOutput,
@@ -2323,7 +2323,7 @@ const deserializeAws_queryDescribeLoadBalancerAttributesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LoadBalancerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
       response = {
         ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
           parsedOutput,
@@ -2388,7 +2388,7 @@ const deserializeAws_queryDescribeLoadBalancersCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LoadBalancerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
       response = {
         ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
           parsedOutput,
@@ -2450,7 +2450,7 @@ const deserializeAws_queryDescribeRulesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ListenerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#ListenerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
       response = {
         ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
           parsedOutput,
@@ -2461,7 +2461,7 @@ const deserializeAws_queryDescribeRulesCommandError = async (
       };
       break;
     case "RuleNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#RuleNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#RuleNotFoundException":
       response = {
         ...(await deserializeAws_queryRuleNotFoundExceptionResponse(
           parsedOutput,
@@ -2472,7 +2472,7 @@ const deserializeAws_queryDescribeRulesCommandError = async (
       };
       break;
     case "UnsupportedProtocolException":
-    case "com.amazon.elb.version_2015_12_01#UnsupportedProtocolException":
+    case "com.amazonaws.elasticloadbalancingv2#UnsupportedProtocolException":
       response = {
         ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(
           parsedOutput,
@@ -2534,7 +2534,7 @@ const deserializeAws_queryDescribeSSLPoliciesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "SSLPolicyNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#SSLPolicyNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#SSLPolicyNotFoundException":
       response = {
         ...(await deserializeAws_querySSLPolicyNotFoundExceptionResponse(
           parsedOutput,
@@ -2596,7 +2596,7 @@ const deserializeAws_queryDescribeTagsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ListenerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#ListenerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
       response = {
         ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
           parsedOutput,
@@ -2607,7 +2607,7 @@ const deserializeAws_queryDescribeTagsCommandError = async (
       };
       break;
     case "LoadBalancerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
       response = {
         ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
           parsedOutput,
@@ -2618,7 +2618,7 @@ const deserializeAws_queryDescribeTagsCommandError = async (
       };
       break;
     case "RuleNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#RuleNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#RuleNotFoundException":
       response = {
         ...(await deserializeAws_queryRuleNotFoundExceptionResponse(
           parsedOutput,
@@ -2629,7 +2629,7 @@ const deserializeAws_queryDescribeTagsCommandError = async (
       };
       break;
     case "TargetGroupNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
       response = {
         ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
           parsedOutput,
@@ -2694,7 +2694,7 @@ const deserializeAws_queryDescribeTargetGroupAttributesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "TargetGroupNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
       response = {
         ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
           parsedOutput,
@@ -2759,7 +2759,7 @@ const deserializeAws_queryDescribeTargetGroupsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LoadBalancerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
       response = {
         ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
           parsedOutput,
@@ -2770,7 +2770,7 @@ const deserializeAws_queryDescribeTargetGroupsCommandError = async (
       };
       break;
     case "TargetGroupNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
       response = {
         ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
           parsedOutput,
@@ -2835,7 +2835,7 @@ const deserializeAws_queryDescribeTargetHealthCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HealthUnavailableException":
-    case "com.amazon.elb.version_2015_12_01#HealthUnavailableException":
+    case "com.amazonaws.elasticloadbalancingv2#HealthUnavailableException":
       response = {
         ...(await deserializeAws_queryHealthUnavailableExceptionResponse(
           parsedOutput,
@@ -2846,7 +2846,7 @@ const deserializeAws_queryDescribeTargetHealthCommandError = async (
       };
       break;
     case "InvalidTargetException":
-    case "com.amazon.elb.version_2015_12_01#InvalidTargetException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidTargetException":
       response = {
         ...(await deserializeAws_queryInvalidTargetExceptionResponse(
           parsedOutput,
@@ -2857,7 +2857,7 @@ const deserializeAws_queryDescribeTargetHealthCommandError = async (
       };
       break;
     case "TargetGroupNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
       response = {
         ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
           parsedOutput,
@@ -2919,7 +2919,7 @@ const deserializeAws_queryModifyListenerCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#CertificateNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#CertificateNotFoundException":
       response = {
         ...(await deserializeAws_queryCertificateNotFoundExceptionResponse(
           parsedOutput,
@@ -2930,7 +2930,7 @@ const deserializeAws_queryModifyListenerCommandError = async (
       };
       break;
     case "DuplicateListenerException":
-    case "com.amazon.elb.version_2015_12_01#DuplicateListenerException":
+    case "com.amazonaws.elasticloadbalancingv2#DuplicateListenerException":
       response = {
         ...(await deserializeAws_queryDuplicateListenerExceptionResponse(
           parsedOutput,
@@ -2941,7 +2941,7 @@ const deserializeAws_queryModifyListenerCommandError = async (
       };
       break;
     case "IncompatibleProtocolsException":
-    case "com.amazon.elb.version_2015_12_01#IncompatibleProtocolsException":
+    case "com.amazonaws.elasticloadbalancingv2#IncompatibleProtocolsException":
       response = {
         ...(await deserializeAws_queryIncompatibleProtocolsExceptionResponse(
           parsedOutput,
@@ -2952,7 +2952,7 @@ const deserializeAws_queryModifyListenerCommandError = async (
       };
       break;
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -2963,7 +2963,7 @@ const deserializeAws_queryModifyListenerCommandError = async (
       };
       break;
     case "InvalidLoadBalancerActionException":
-    case "com.amazon.elb.version_2015_12_01#InvalidLoadBalancerActionException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidLoadBalancerActionException":
       response = {
         ...(await deserializeAws_queryInvalidLoadBalancerActionExceptionResponse(
           parsedOutput,
@@ -2974,7 +2974,7 @@ const deserializeAws_queryModifyListenerCommandError = async (
       };
       break;
     case "ListenerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#ListenerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
       response = {
         ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
           parsedOutput,
@@ -2985,7 +2985,7 @@ const deserializeAws_queryModifyListenerCommandError = async (
       };
       break;
     case "SSLPolicyNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#SSLPolicyNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#SSLPolicyNotFoundException":
       response = {
         ...(await deserializeAws_querySSLPolicyNotFoundExceptionResponse(
           parsedOutput,
@@ -2996,7 +2996,7 @@ const deserializeAws_queryModifyListenerCommandError = async (
       };
       break;
     case "TargetGroupAssociationLimitException":
-    case "com.amazon.elb.version_2015_12_01#TargetGroupAssociationLimitException":
+    case "com.amazonaws.elasticloadbalancingv2#TargetGroupAssociationLimitException":
       response = {
         ...(await deserializeAws_queryTargetGroupAssociationLimitExceptionResponse(
           parsedOutput,
@@ -3007,7 +3007,7 @@ const deserializeAws_queryModifyListenerCommandError = async (
       };
       break;
     case "TargetGroupNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
       response = {
         ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
           parsedOutput,
@@ -3018,7 +3018,7 @@ const deserializeAws_queryModifyListenerCommandError = async (
       };
       break;
     case "TooManyActionsException":
-    case "com.amazon.elb.version_2015_12_01#TooManyActionsException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyActionsException":
       response = {
         ...(await deserializeAws_queryTooManyActionsExceptionResponse(
           parsedOutput,
@@ -3029,7 +3029,7 @@ const deserializeAws_queryModifyListenerCommandError = async (
       };
       break;
     case "TooManyCertificatesException":
-    case "com.amazon.elb.version_2015_12_01#TooManyCertificatesException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyCertificatesException":
       response = {
         ...(await deserializeAws_queryTooManyCertificatesExceptionResponse(
           parsedOutput,
@@ -3040,7 +3040,7 @@ const deserializeAws_queryModifyListenerCommandError = async (
       };
       break;
     case "TooManyListenersException":
-    case "com.amazon.elb.version_2015_12_01#TooManyListenersException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyListenersException":
       response = {
         ...(await deserializeAws_queryTooManyListenersExceptionResponse(
           parsedOutput,
@@ -3051,7 +3051,7 @@ const deserializeAws_queryModifyListenerCommandError = async (
       };
       break;
     case "TooManyRegistrationsForTargetIdException":
-    case "com.amazon.elb.version_2015_12_01#TooManyRegistrationsForTargetIdException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyRegistrationsForTargetIdException":
       response = {
         ...(await deserializeAws_queryTooManyRegistrationsForTargetIdExceptionResponse(
           parsedOutput,
@@ -3062,7 +3062,7 @@ const deserializeAws_queryModifyListenerCommandError = async (
       };
       break;
     case "TooManyTargetsException":
-    case "com.amazon.elb.version_2015_12_01#TooManyTargetsException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyTargetsException":
       response = {
         ...(await deserializeAws_queryTooManyTargetsExceptionResponse(
           parsedOutput,
@@ -3073,7 +3073,7 @@ const deserializeAws_queryModifyListenerCommandError = async (
       };
       break;
     case "TooManyUniqueTargetGroupsPerLoadBalancerException":
-    case "com.amazon.elb.version_2015_12_01#TooManyUniqueTargetGroupsPerLoadBalancerException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyUniqueTargetGroupsPerLoadBalancerException":
       response = {
         ...(await deserializeAws_queryTooManyUniqueTargetGroupsPerLoadBalancerExceptionResponse(
           parsedOutput,
@@ -3084,7 +3084,7 @@ const deserializeAws_queryModifyListenerCommandError = async (
       };
       break;
     case "UnsupportedProtocolException":
-    case "com.amazon.elb.version_2015_12_01#UnsupportedProtocolException":
+    case "com.amazonaws.elasticloadbalancingv2#UnsupportedProtocolException":
       response = {
         ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(
           parsedOutput,
@@ -3149,7 +3149,7 @@ const deserializeAws_queryModifyLoadBalancerAttributesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -3160,7 +3160,7 @@ const deserializeAws_queryModifyLoadBalancerAttributesCommandError = async (
       };
       break;
     case "LoadBalancerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
       response = {
         ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
           parsedOutput,
@@ -3222,7 +3222,7 @@ const deserializeAws_queryModifyRuleCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IncompatibleProtocolsException":
-    case "com.amazon.elb.version_2015_12_01#IncompatibleProtocolsException":
+    case "com.amazonaws.elasticloadbalancingv2#IncompatibleProtocolsException":
       response = {
         ...(await deserializeAws_queryIncompatibleProtocolsExceptionResponse(
           parsedOutput,
@@ -3233,7 +3233,7 @@ const deserializeAws_queryModifyRuleCommandError = async (
       };
       break;
     case "InvalidLoadBalancerActionException":
-    case "com.amazon.elb.version_2015_12_01#InvalidLoadBalancerActionException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidLoadBalancerActionException":
       response = {
         ...(await deserializeAws_queryInvalidLoadBalancerActionExceptionResponse(
           parsedOutput,
@@ -3244,7 +3244,7 @@ const deserializeAws_queryModifyRuleCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazon.elb.version_2015_12_01#OperationNotPermittedException":
+    case "com.amazonaws.elasticloadbalancingv2#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_queryOperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -3255,7 +3255,7 @@ const deserializeAws_queryModifyRuleCommandError = async (
       };
       break;
     case "RuleNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#RuleNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#RuleNotFoundException":
       response = {
         ...(await deserializeAws_queryRuleNotFoundExceptionResponse(
           parsedOutput,
@@ -3266,7 +3266,7 @@ const deserializeAws_queryModifyRuleCommandError = async (
       };
       break;
     case "TargetGroupAssociationLimitException":
-    case "com.amazon.elb.version_2015_12_01#TargetGroupAssociationLimitException":
+    case "com.amazonaws.elasticloadbalancingv2#TargetGroupAssociationLimitException":
       response = {
         ...(await deserializeAws_queryTargetGroupAssociationLimitExceptionResponse(
           parsedOutput,
@@ -3277,7 +3277,7 @@ const deserializeAws_queryModifyRuleCommandError = async (
       };
       break;
     case "TargetGroupNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
       response = {
         ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
           parsedOutput,
@@ -3288,7 +3288,7 @@ const deserializeAws_queryModifyRuleCommandError = async (
       };
       break;
     case "TooManyActionsException":
-    case "com.amazon.elb.version_2015_12_01#TooManyActionsException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyActionsException":
       response = {
         ...(await deserializeAws_queryTooManyActionsExceptionResponse(
           parsedOutput,
@@ -3299,7 +3299,7 @@ const deserializeAws_queryModifyRuleCommandError = async (
       };
       break;
     case "TooManyRegistrationsForTargetIdException":
-    case "com.amazon.elb.version_2015_12_01#TooManyRegistrationsForTargetIdException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyRegistrationsForTargetIdException":
       response = {
         ...(await deserializeAws_queryTooManyRegistrationsForTargetIdExceptionResponse(
           parsedOutput,
@@ -3310,7 +3310,7 @@ const deserializeAws_queryModifyRuleCommandError = async (
       };
       break;
     case "TooManyTargetsException":
-    case "com.amazon.elb.version_2015_12_01#TooManyTargetsException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyTargetsException":
       response = {
         ...(await deserializeAws_queryTooManyTargetsExceptionResponse(
           parsedOutput,
@@ -3321,7 +3321,7 @@ const deserializeAws_queryModifyRuleCommandError = async (
       };
       break;
     case "TooManyUniqueTargetGroupsPerLoadBalancerException":
-    case "com.amazon.elb.version_2015_12_01#TooManyUniqueTargetGroupsPerLoadBalancerException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyUniqueTargetGroupsPerLoadBalancerException":
       response = {
         ...(await deserializeAws_queryTooManyUniqueTargetGroupsPerLoadBalancerExceptionResponse(
           parsedOutput,
@@ -3332,7 +3332,7 @@ const deserializeAws_queryModifyRuleCommandError = async (
       };
       break;
     case "UnsupportedProtocolException":
-    case "com.amazon.elb.version_2015_12_01#UnsupportedProtocolException":
+    case "com.amazonaws.elasticloadbalancingv2#UnsupportedProtocolException":
       response = {
         ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(
           parsedOutput,
@@ -3394,7 +3394,7 @@ const deserializeAws_queryModifyTargetGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -3405,7 +3405,7 @@ const deserializeAws_queryModifyTargetGroupCommandError = async (
       };
       break;
     case "TargetGroupNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
       response = {
         ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
           parsedOutput,
@@ -3470,7 +3470,7 @@ const deserializeAws_queryModifyTargetGroupAttributesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -3481,7 +3481,7 @@ const deserializeAws_queryModifyTargetGroupAttributesCommandError = async (
       };
       break;
     case "TargetGroupNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
       response = {
         ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
           parsedOutput,
@@ -3543,7 +3543,7 @@ const deserializeAws_queryRegisterTargetsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTargetException":
-    case "com.amazon.elb.version_2015_12_01#InvalidTargetException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidTargetException":
       response = {
         ...(await deserializeAws_queryInvalidTargetExceptionResponse(
           parsedOutput,
@@ -3554,7 +3554,7 @@ const deserializeAws_queryRegisterTargetsCommandError = async (
       };
       break;
     case "TargetGroupNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
       response = {
         ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
           parsedOutput,
@@ -3565,7 +3565,7 @@ const deserializeAws_queryRegisterTargetsCommandError = async (
       };
       break;
     case "TooManyRegistrationsForTargetIdException":
-    case "com.amazon.elb.version_2015_12_01#TooManyRegistrationsForTargetIdException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyRegistrationsForTargetIdException":
       response = {
         ...(await deserializeAws_queryTooManyRegistrationsForTargetIdExceptionResponse(
           parsedOutput,
@@ -3576,7 +3576,7 @@ const deserializeAws_queryRegisterTargetsCommandError = async (
       };
       break;
     case "TooManyTargetsException":
-    case "com.amazon.elb.version_2015_12_01#TooManyTargetsException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyTargetsException":
       response = {
         ...(await deserializeAws_queryTooManyTargetsExceptionResponse(
           parsedOutput,
@@ -3641,7 +3641,7 @@ const deserializeAws_queryRemoveListenerCertificatesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ListenerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#ListenerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
       response = {
         ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
           parsedOutput,
@@ -3652,7 +3652,7 @@ const deserializeAws_queryRemoveListenerCertificatesCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazon.elb.version_2015_12_01#OperationNotPermittedException":
+    case "com.amazonaws.elasticloadbalancingv2#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_queryOperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -3714,7 +3714,7 @@ const deserializeAws_queryRemoveTagsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ListenerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#ListenerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
       response = {
         ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
           parsedOutput,
@@ -3725,7 +3725,7 @@ const deserializeAws_queryRemoveTagsCommandError = async (
       };
       break;
     case "LoadBalancerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
       response = {
         ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
           parsedOutput,
@@ -3736,7 +3736,7 @@ const deserializeAws_queryRemoveTagsCommandError = async (
       };
       break;
     case "RuleNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#RuleNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#RuleNotFoundException":
       response = {
         ...(await deserializeAws_queryRuleNotFoundExceptionResponse(
           parsedOutput,
@@ -3747,7 +3747,7 @@ const deserializeAws_queryRemoveTagsCommandError = async (
       };
       break;
     case "TargetGroupNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
       response = {
         ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
           parsedOutput,
@@ -3758,7 +3758,7 @@ const deserializeAws_queryRemoveTagsCommandError = async (
       };
       break;
     case "TooManyTagsException":
-    case "com.amazon.elb.version_2015_12_01#TooManyTagsException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyTagsException":
       response = {
         ...(await deserializeAws_queryTooManyTagsExceptionResponse(
           parsedOutput,
@@ -3820,7 +3820,7 @@ const deserializeAws_querySetIpAddressTypeCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -3831,7 +3831,7 @@ const deserializeAws_querySetIpAddressTypeCommandError = async (
       };
       break;
     case "InvalidSubnetException":
-    case "com.amazon.elb.version_2015_12_01#InvalidSubnetException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidSubnetException":
       response = {
         ...(await deserializeAws_queryInvalidSubnetExceptionResponse(
           parsedOutput,
@@ -3842,7 +3842,7 @@ const deserializeAws_querySetIpAddressTypeCommandError = async (
       };
       break;
     case "LoadBalancerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
       response = {
         ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
           parsedOutput,
@@ -3904,7 +3904,7 @@ const deserializeAws_querySetRulePrioritiesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedException":
-    case "com.amazon.elb.version_2015_12_01#OperationNotPermittedException":
+    case "com.amazonaws.elasticloadbalancingv2#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_queryOperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -3915,7 +3915,7 @@ const deserializeAws_querySetRulePrioritiesCommandError = async (
       };
       break;
     case "PriorityInUseException":
-    case "com.amazon.elb.version_2015_12_01#PriorityInUseException":
+    case "com.amazonaws.elasticloadbalancingv2#PriorityInUseException":
       response = {
         ...(await deserializeAws_queryPriorityInUseExceptionResponse(
           parsedOutput,
@@ -3926,7 +3926,7 @@ const deserializeAws_querySetRulePrioritiesCommandError = async (
       };
       break;
     case "RuleNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#RuleNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#RuleNotFoundException":
       response = {
         ...(await deserializeAws_queryRuleNotFoundExceptionResponse(
           parsedOutput,
@@ -3988,7 +3988,7 @@ const deserializeAws_querySetSecurityGroupsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -3999,7 +3999,7 @@ const deserializeAws_querySetSecurityGroupsCommandError = async (
       };
       break;
     case "InvalidSecurityGroupException":
-    case "com.amazon.elb.version_2015_12_01#InvalidSecurityGroupException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidSecurityGroupException":
       response = {
         ...(await deserializeAws_queryInvalidSecurityGroupExceptionResponse(
           parsedOutput,
@@ -4010,7 +4010,7 @@ const deserializeAws_querySetSecurityGroupsCommandError = async (
       };
       break;
     case "LoadBalancerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
       response = {
         ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
           parsedOutput,
@@ -4072,7 +4072,7 @@ const deserializeAws_querySetSubnetsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AllocationIdNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#AllocationIdNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#AllocationIdNotFoundException":
       response = {
         ...(await deserializeAws_queryAllocationIdNotFoundExceptionResponse(
           parsedOutput,
@@ -4083,7 +4083,7 @@ const deserializeAws_querySetSubnetsCommandError = async (
       };
       break;
     case "AvailabilityZoneNotSupportedException":
-    case "com.amazon.elb.version_2015_12_01#AvailabilityZoneNotSupportedException":
+    case "com.amazonaws.elasticloadbalancingv2#AvailabilityZoneNotSupportedException":
       response = {
         ...(await deserializeAws_queryAvailabilityZoneNotSupportedExceptionResponse(
           parsedOutput,
@@ -4094,7 +4094,7 @@ const deserializeAws_querySetSubnetsCommandError = async (
       };
       break;
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -4105,7 +4105,7 @@ const deserializeAws_querySetSubnetsCommandError = async (
       };
       break;
     case "InvalidSubnetException":
-    case "com.amazon.elb.version_2015_12_01#InvalidSubnetException":
+    case "com.amazonaws.elasticloadbalancingv2#InvalidSubnetException":
       response = {
         ...(await deserializeAws_queryInvalidSubnetExceptionResponse(
           parsedOutput,
@@ -4116,7 +4116,7 @@ const deserializeAws_querySetSubnetsCommandError = async (
       };
       break;
     case "LoadBalancerNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
       response = {
         ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
           parsedOutput,
@@ -4127,7 +4127,7 @@ const deserializeAws_querySetSubnetsCommandError = async (
       };
       break;
     case "SubnetNotFoundException":
-    case "com.amazon.elb.version_2015_12_01#SubnetNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#SubnetNotFoundException":
       response = {
         ...(await deserializeAws_querySubnetNotFoundExceptionResponse(
           parsedOutput,
@@ -5655,7 +5655,7 @@ const serializeAws_queryHttpRequestMethodConditionConfig = (
   return entries;
 };
 
-const serializeAws_queryListOfString = (
+const serializeAws_queryListenerArns = (
   input: string[],
   context: __SerdeContext
 ): any => {
@@ -5668,7 +5668,7 @@ const serializeAws_queryListOfString = (
   return entries;
 };
 
-const serializeAws_queryListenerArns = (
+const serializeAws_queryListOfString = (
   input: string[],
   context: __SerdeContext
 ): any => {
@@ -7683,13 +7683,6 @@ const deserializeAws_queryLimits = (
   );
 };
 
-const deserializeAws_queryListOfString = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
 const deserializeAws_queryListener = (
   output: any,
   context: __SerdeContext
@@ -7767,6 +7760,13 @@ const deserializeAws_queryListeners = (
   return (output || []).map((entry: any) =>
     deserializeAws_queryListener(entry, context)
   );
+};
+
+const deserializeAws_queryListOfString = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryLoadBalancer = (
@@ -7927,6 +7927,15 @@ const deserializeAws_queryLoadBalancerNotFoundException = (
   return contents;
 };
 
+const deserializeAws_queryLoadBalancers = (
+  output: any,
+  context: __SerdeContext
+): LoadBalancer[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryLoadBalancer(entry, context)
+  );
+};
+
 const deserializeAws_queryLoadBalancerState = (
   output: any,
   context: __SerdeContext
@@ -7943,15 +7952,6 @@ const deserializeAws_queryLoadBalancerState = (
     contents.Reason = output["Reason"];
   }
   return contents;
-};
-
-const deserializeAws_queryLoadBalancers = (
-  output: any,
-  context: __SerdeContext
-): LoadBalancer[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryLoadBalancer(entry, context)
-  );
 };
 
 const deserializeAws_queryMatcher = (
@@ -8411,20 +8411,6 @@ const deserializeAws_queryRules = (
   );
 };
 
-const deserializeAws_querySSLPolicyNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): SSLPolicyNotFoundException => {
-  let contents: any = {
-    __type: "SSLPolicyNotFoundException",
-    Message: undefined
-  };
-  if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
-  }
-  return contents;
-};
-
 const deserializeAws_querySecurityGroups = (
   output: any,
   context: __SerdeContext
@@ -8583,6 +8569,20 @@ const deserializeAws_querySslPolicy = (
       __getArrayIfSingleItem(output["SslProtocols"]["member"]),
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_querySSLPolicyNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): SSLPolicyNotFoundException => {
+  let contents: any = {
+    __type: "SSLPolicyNotFoundException",
+    Message: undefined
+  };
+  if (output["Message"] !== undefined) {
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -8840,6 +8840,15 @@ const deserializeAws_queryTargetGroupNotFoundException = (
   return contents;
 };
 
+const deserializeAws_queryTargetGroups = (
+  output: any,
+  context: __SerdeContext
+): TargetGroup[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryTargetGroup(entry, context)
+  );
+};
+
 const deserializeAws_queryTargetGroupStickinessConfig = (
   output: any,
   context: __SerdeContext
@@ -8874,15 +8883,6 @@ const deserializeAws_queryTargetGroupTuple = (
     contents.Weight = parseInt(output["Weight"]);
   }
   return contents;
-};
-
-const deserializeAws_queryTargetGroups = (
-  output: any,
-  context: __SerdeContext
-): TargetGroup[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryTargetGroup(entry, context)
-  );
 };
 
 const deserializeAws_queryTargetHealth = (

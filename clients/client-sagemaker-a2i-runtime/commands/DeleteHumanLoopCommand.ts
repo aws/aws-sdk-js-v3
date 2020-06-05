@@ -8,9 +8,9 @@ import {
   DeleteHumanLoopResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteHumanLoopCommand,
-  serializeAws_restJson1_1DeleteHumanLoopCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteHumanLoopCommand,
+  serializeAws_restJson1DeleteHumanLoopCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DeleteHumanLoopCommand extends $Command<
     input: DeleteHumanLoopCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteHumanLoopCommand(input, context);
+    return serializeAws_restJson1DeleteHumanLoopCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteHumanLoopCommandOutput> {
-    return deserializeAws_restJson1_1DeleteHumanLoopCommand(output, context);
+    return deserializeAws_restJson1DeleteHumanLoopCommand(output, context);
   }
 
   // Start section: command_body_extra

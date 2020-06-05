@@ -8,9 +8,9 @@ import {
   SearchAvailablePhoneNumbersResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1SearchAvailablePhoneNumbersCommand,
-  serializeAws_restJson1_1SearchAvailablePhoneNumbersCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1SearchAvailablePhoneNumbersCommand,
+  serializeAws_restJson1SearchAvailablePhoneNumbersCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
     input: SearchAvailablePhoneNumbersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1SearchAvailablePhoneNumbersCommand(
+    return serializeAws_restJson1SearchAvailablePhoneNumbersCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchAvailablePhoneNumbersCommandOutput> {
-    return deserializeAws_restJson1_1SearchAvailablePhoneNumbersCommand(
+    return deserializeAws_restJson1SearchAvailablePhoneNumbersCommand(
       output,
       context
     );

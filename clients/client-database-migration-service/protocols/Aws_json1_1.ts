@@ -603,21 +603,6 @@ export const serializeAws_json1_1DescribeConnectionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeEndpointTypesCommand = async (
-  input: DescribeEndpointTypesCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonDMSv20160101.DescribeEndpointTypes"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeEndpointTypesMessage(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1DescribeEndpointsCommand = async (
   input: DescribeEndpointsCommandInput,
   context: __SerdeContext
@@ -629,6 +614,21 @@ export const serializeAws_json1_1DescribeEndpointsCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEndpointsMessage(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeEndpointTypesCommand = async (
+  input: DescribeEndpointTypesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDMSv20160101.DescribeEndpointTypes"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEndpointTypesMessage(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -648,21 +648,6 @@ export const serializeAws_json1_1DescribeEventCategoriesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeEventSubscriptionsCommand = async (
-  input: DescribeEventSubscriptionsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonDMSv20160101.DescribeEventSubscriptions"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeEventSubscriptionsMessage(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1DescribeEventsCommand = async (
   input: DescribeEventsCommandInput,
   context: __SerdeContext
@@ -674,6 +659,21 @@ export const serializeAws_json1_1DescribeEventsCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventsMessage(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeEventSubscriptionsCommand = async (
+  input: DescribeEventSubscriptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDMSv20160101.DescribeEventSubscriptions"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEventSubscriptionsMessage(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -726,6 +726,21 @@ export const serializeAws_json1_1DescribeRefreshSchemasStatusCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeReplicationInstancesCommand = async (
+  input: DescribeReplicationInstancesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDMSv20160101.DescribeReplicationInstances"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeReplicationInstancesMessage(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand = async (
   input: DescribeReplicationInstanceTaskLogsCommandInput,
   context: __SerdeContext
@@ -740,21 +755,6 @@ export const serializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand = as
       input,
       context
     )
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1DescribeReplicationInstancesCommand = async (
-  input: DescribeReplicationInstancesCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonDMSv20160101.DescribeReplicationInstances"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeReplicationInstancesMessage(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1096,7 +1096,7 @@ const deserializeAws_json1_1AddTagsToResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -1162,7 +1162,7 @@ const deserializeAws_json1_1ApplyPendingMaintenanceActionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -1222,7 +1222,7 @@ const deserializeAws_json1_1CreateEndpointCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedFault":
-    case "com.amazonaws.dms#AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedFaultResponse(
           parsedOutput,
@@ -1233,7 +1233,7 @@ const deserializeAws_json1_1CreateEndpointCommandError = async (
       };
       break;
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -1244,7 +1244,7 @@ const deserializeAws_json1_1CreateEndpointCommandError = async (
       };
       break;
     case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.dms#KMSKeyNotAccessibleFault":
+    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
       response = {
         ...(await deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse(
           parsedOutput,
@@ -1255,7 +1255,7 @@ const deserializeAws_json1_1CreateEndpointCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.dms#ResourceAlreadyExistsFault":
+    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
           parsedOutput,
@@ -1266,7 +1266,7 @@ const deserializeAws_json1_1CreateEndpointCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -1277,7 +1277,7 @@ const deserializeAws_json1_1CreateEndpointCommandError = async (
       };
       break;
     case "ResourceQuotaExceededFault":
-    case "com.amazonaws.dms#ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
       response = {
         ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
           parsedOutput,
@@ -1343,7 +1343,7 @@ const deserializeAws_json1_1CreateEventSubscriptionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "KMSAccessDeniedFault":
-    case "com.amazonaws.dms#KMSAccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#KMSAccessDeniedFault":
       response = {
         ...(await deserializeAws_json1_1KMSAccessDeniedFaultResponse(
           parsedOutput,
@@ -1354,7 +1354,7 @@ const deserializeAws_json1_1CreateEventSubscriptionCommandError = async (
       };
       break;
     case "KMSDisabledFault":
-    case "com.amazonaws.dms#KMSDisabledFault":
+    case "com.amazonaws.databasemigrationservice#KMSDisabledFault":
       response = {
         ...(await deserializeAws_json1_1KMSDisabledFaultResponse(
           parsedOutput,
@@ -1365,7 +1365,7 @@ const deserializeAws_json1_1CreateEventSubscriptionCommandError = async (
       };
       break;
     case "KMSInvalidStateFault":
-    case "com.amazonaws.dms#KMSInvalidStateFault":
+    case "com.amazonaws.databasemigrationservice#KMSInvalidStateFault":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateFaultResponse(
           parsedOutput,
@@ -1376,7 +1376,7 @@ const deserializeAws_json1_1CreateEventSubscriptionCommandError = async (
       };
       break;
     case "KMSNotFoundFault":
-    case "com.amazonaws.dms#KMSNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#KMSNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1KMSNotFoundFaultResponse(
           parsedOutput,
@@ -1387,7 +1387,7 @@ const deserializeAws_json1_1CreateEventSubscriptionCommandError = async (
       };
       break;
     case "KMSThrottlingFault":
-    case "com.amazonaws.dms#KMSThrottlingFault":
+    case "com.amazonaws.databasemigrationservice#KMSThrottlingFault":
       response = {
         ...(await deserializeAws_json1_1KMSThrottlingFaultResponse(
           parsedOutput,
@@ -1398,7 +1398,7 @@ const deserializeAws_json1_1CreateEventSubscriptionCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.dms#ResourceAlreadyExistsFault":
+    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
           parsedOutput,
@@ -1409,7 +1409,7 @@ const deserializeAws_json1_1CreateEventSubscriptionCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -1420,7 +1420,7 @@ const deserializeAws_json1_1CreateEventSubscriptionCommandError = async (
       };
       break;
     case "ResourceQuotaExceededFault":
-    case "com.amazonaws.dms#ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
       response = {
         ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
           parsedOutput,
@@ -1431,7 +1431,7 @@ const deserializeAws_json1_1CreateEventSubscriptionCommandError = async (
       };
       break;
     case "SNSInvalidTopicFault":
-    case "com.amazonaws.dms#SNSInvalidTopicFault":
+    case "com.amazonaws.databasemigrationservice#SNSInvalidTopicFault":
       response = {
         ...(await deserializeAws_json1_1SNSInvalidTopicFaultResponse(
           parsedOutput,
@@ -1442,7 +1442,7 @@ const deserializeAws_json1_1CreateEventSubscriptionCommandError = async (
       };
       break;
     case "SNSNoAuthorizationFault":
-    case "com.amazonaws.dms#SNSNoAuthorizationFault":
+    case "com.amazonaws.databasemigrationservice#SNSNoAuthorizationFault":
       response = {
         ...(await deserializeAws_json1_1SNSNoAuthorizationFaultResponse(
           parsedOutput,
@@ -1508,7 +1508,7 @@ const deserializeAws_json1_1CreateReplicationInstanceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedFault":
-    case "com.amazonaws.dms#AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedFaultResponse(
           parsedOutput,
@@ -1519,7 +1519,7 @@ const deserializeAws_json1_1CreateReplicationInstanceCommandError = async (
       };
       break;
     case "InsufficientResourceCapacityFault":
-    case "com.amazonaws.dms#InsufficientResourceCapacityFault":
+    case "com.amazonaws.databasemigrationservice#InsufficientResourceCapacityFault":
       response = {
         ...(await deserializeAws_json1_1InsufficientResourceCapacityFaultResponse(
           parsedOutput,
@@ -1530,7 +1530,7 @@ const deserializeAws_json1_1CreateReplicationInstanceCommandError = async (
       };
       break;
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -1541,7 +1541,7 @@ const deserializeAws_json1_1CreateReplicationInstanceCommandError = async (
       };
       break;
     case "InvalidSubnet":
-    case "com.amazonaws.dms#InvalidSubnet":
+    case "com.amazonaws.databasemigrationservice#InvalidSubnet":
       response = {
         ...(await deserializeAws_json1_1InvalidSubnetResponse(
           parsedOutput,
@@ -1552,7 +1552,7 @@ const deserializeAws_json1_1CreateReplicationInstanceCommandError = async (
       };
       break;
     case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.dms#KMSKeyNotAccessibleFault":
+    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
       response = {
         ...(await deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse(
           parsedOutput,
@@ -1563,7 +1563,7 @@ const deserializeAws_json1_1CreateReplicationInstanceCommandError = async (
       };
       break;
     case "ReplicationSubnetGroupDoesNotCoverEnoughAZs":
-    case "com.amazonaws.dms#ReplicationSubnetGroupDoesNotCoverEnoughAZs":
+    case "com.amazonaws.databasemigrationservice#ReplicationSubnetGroupDoesNotCoverEnoughAZs":
       response = {
         ...(await deserializeAws_json1_1ReplicationSubnetGroupDoesNotCoverEnoughAZsResponse(
           parsedOutput,
@@ -1574,7 +1574,7 @@ const deserializeAws_json1_1CreateReplicationInstanceCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.dms#ResourceAlreadyExistsFault":
+    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
           parsedOutput,
@@ -1585,7 +1585,7 @@ const deserializeAws_json1_1CreateReplicationInstanceCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -1596,7 +1596,7 @@ const deserializeAws_json1_1CreateReplicationInstanceCommandError = async (
       };
       break;
     case "ResourceQuotaExceededFault":
-    case "com.amazonaws.dms#ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
       response = {
         ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
           parsedOutput,
@@ -1607,7 +1607,7 @@ const deserializeAws_json1_1CreateReplicationInstanceCommandError = async (
       };
       break;
     case "StorageQuotaExceededFault":
-    case "com.amazonaws.dms#StorageQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#StorageQuotaExceededFault":
       response = {
         ...(await deserializeAws_json1_1StorageQuotaExceededFaultResponse(
           parsedOutput,
@@ -1673,7 +1673,7 @@ const deserializeAws_json1_1CreateReplicationSubnetGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedFault":
-    case "com.amazonaws.dms#AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedFaultResponse(
           parsedOutput,
@@ -1684,7 +1684,7 @@ const deserializeAws_json1_1CreateReplicationSubnetGroupCommandError = async (
       };
       break;
     case "InvalidSubnet":
-    case "com.amazonaws.dms#InvalidSubnet":
+    case "com.amazonaws.databasemigrationservice#InvalidSubnet":
       response = {
         ...(await deserializeAws_json1_1InvalidSubnetResponse(
           parsedOutput,
@@ -1695,7 +1695,7 @@ const deserializeAws_json1_1CreateReplicationSubnetGroupCommandError = async (
       };
       break;
     case "ReplicationSubnetGroupDoesNotCoverEnoughAZs":
-    case "com.amazonaws.dms#ReplicationSubnetGroupDoesNotCoverEnoughAZs":
+    case "com.amazonaws.databasemigrationservice#ReplicationSubnetGroupDoesNotCoverEnoughAZs":
       response = {
         ...(await deserializeAws_json1_1ReplicationSubnetGroupDoesNotCoverEnoughAZsResponse(
           parsedOutput,
@@ -1706,7 +1706,7 @@ const deserializeAws_json1_1CreateReplicationSubnetGroupCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.dms#ResourceAlreadyExistsFault":
+    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
           parsedOutput,
@@ -1717,7 +1717,7 @@ const deserializeAws_json1_1CreateReplicationSubnetGroupCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -1728,7 +1728,7 @@ const deserializeAws_json1_1CreateReplicationSubnetGroupCommandError = async (
       };
       break;
     case "ResourceQuotaExceededFault":
-    case "com.amazonaws.dms#ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
       response = {
         ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
           parsedOutput,
@@ -1791,7 +1791,7 @@ const deserializeAws_json1_1CreateReplicationTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedFault":
-    case "com.amazonaws.dms#AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedFaultResponse(
           parsedOutput,
@@ -1802,7 +1802,7 @@ const deserializeAws_json1_1CreateReplicationTaskCommandError = async (
       };
       break;
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -1813,7 +1813,7 @@ const deserializeAws_json1_1CreateReplicationTaskCommandError = async (
       };
       break;
     case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.dms#KMSKeyNotAccessibleFault":
+    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
       response = {
         ...(await deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse(
           parsedOutput,
@@ -1824,7 +1824,7 @@ const deserializeAws_json1_1CreateReplicationTaskCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.dms#ResourceAlreadyExistsFault":
+    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
           parsedOutput,
@@ -1835,7 +1835,7 @@ const deserializeAws_json1_1CreateReplicationTaskCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -1846,7 +1846,7 @@ const deserializeAws_json1_1CreateReplicationTaskCommandError = async (
       };
       break;
     case "ResourceQuotaExceededFault":
-    case "com.amazonaws.dms#ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
       response = {
         ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
           parsedOutput,
@@ -1906,7 +1906,7 @@ const deserializeAws_json1_1DeleteCertificateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -1917,7 +1917,7 @@ const deserializeAws_json1_1DeleteCertificateCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -1977,7 +1977,7 @@ const deserializeAws_json1_1DeleteConnectionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedFault":
-    case "com.amazonaws.dms#AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedFaultResponse(
           parsedOutput,
@@ -1988,7 +1988,7 @@ const deserializeAws_json1_1DeleteConnectionCommandError = async (
       };
       break;
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -1999,7 +1999,7 @@ const deserializeAws_json1_1DeleteConnectionCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -2059,7 +2059,7 @@ const deserializeAws_json1_1DeleteEndpointCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -2070,7 +2070,7 @@ const deserializeAws_json1_1DeleteEndpointCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -2136,7 +2136,7 @@ const deserializeAws_json1_1DeleteEventSubscriptionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -2147,7 +2147,7 @@ const deserializeAws_json1_1DeleteEventSubscriptionCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -2213,7 +2213,7 @@ const deserializeAws_json1_1DeleteReplicationInstanceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -2224,7 +2224,7 @@ const deserializeAws_json1_1DeleteReplicationInstanceCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -2290,7 +2290,7 @@ const deserializeAws_json1_1DeleteReplicationSubnetGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -2301,7 +2301,7 @@ const deserializeAws_json1_1DeleteReplicationSubnetGroupCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -2364,7 +2364,7 @@ const deserializeAws_json1_1DeleteReplicationTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -2375,7 +2375,7 @@ const deserializeAws_json1_1DeleteReplicationTaskCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -2493,7 +2493,7 @@ const deserializeAws_json1_1DescribeCertificatesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -2556,7 +2556,67 @@ const deserializeAws_json1_1DescribeConnectionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEndpointsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeEndpointsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeEndpointsResponse(data, context);
+  const response: DescribeEndpointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeEndpointsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeEndpointsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEndpointsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -2635,66 +2695,6 @@ const deserializeAws_json1_1DescribeEndpointTypesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeEndpointsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeEndpointsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEndpointsResponse(data, context);
-  const response: DescribeEndpointsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DescribeEndpointsResponse",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DescribeEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
 export const deserializeAws_json1_1DescribeEventCategoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2723,6 +2723,55 @@ const deserializeAws_json1_1DescribeEventCategoriesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventCategoriesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeEventsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeEventsResponse(data, context);
+  const response: DescribeEventsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeEventsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeEventsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2789,7 +2838,7 @@ const deserializeAws_json1_1DescribeEventSubscriptionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -2799,55 +2848,6 @@ const deserializeAws_json1_1DescribeEventSubscriptionsCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1DescribeEventsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeEventsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEventsResponse(data, context);
-  const response: DescribeEventsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DescribeEventsResponse",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DescribeEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -2959,7 +2959,7 @@ const deserializeAws_json1_1DescribePendingMaintenanceActionsCommandError = asyn
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -3025,7 +3025,7 @@ const deserializeAws_json1_1DescribeRefreshSchemasStatusCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -3036,84 +3036,7 @@ const deserializeAws_json1_1DescribeRefreshSchemasStatusCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReplicationInstanceTaskLogsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeReplicationInstanceTaskLogsCommandError(
-      output,
-      context
-    );
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DescribeReplicationInstanceTaskLogsResponse(
-    data,
-    context
-  );
-  const response: DescribeReplicationInstanceTaskLogsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DescribeReplicationInstanceTaskLogsResponse",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DescribeReplicationInstanceTaskLogsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReplicationInstanceTaskLogsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
-      response = {
-        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -3179,7 +3102,84 @@ const deserializeAws_json1_1DescribeReplicationInstancesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReplicationInstanceTaskLogsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeReplicationInstanceTaskLogsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeReplicationInstanceTaskLogsResponse(
+    data,
+    context
+  );
+  const response: DescribeReplicationInstanceTaskLogsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeReplicationInstanceTaskLogsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeReplicationInstanceTaskLogsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReplicationInstanceTaskLogsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -3245,7 +3245,7 @@ const deserializeAws_json1_1DescribeReplicationSubnetGroupsCommandError = async 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -3311,7 +3311,7 @@ const deserializeAws_json1_1DescribeReplicationTaskAssessmentResultsCommandError
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -3377,7 +3377,7 @@ const deserializeAws_json1_1DescribeReplicationTasksCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -3437,7 +3437,7 @@ const deserializeAws_json1_1DescribeSchemasCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -3448,7 +3448,7 @@ const deserializeAws_json1_1DescribeSchemasCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -3514,7 +3514,7 @@ const deserializeAws_json1_1DescribeTableStatisticsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -3525,7 +3525,7 @@ const deserializeAws_json1_1DescribeTableStatisticsCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -3585,7 +3585,7 @@ const deserializeAws_json1_1ImportCertificateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidCertificateFault":
-    case "com.amazonaws.dms#InvalidCertificateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidCertificateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidCertificateFaultResponse(
           parsedOutput,
@@ -3596,7 +3596,7 @@ const deserializeAws_json1_1ImportCertificateCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.dms#ResourceAlreadyExistsFault":
+    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
           parsedOutput,
@@ -3607,7 +3607,7 @@ const deserializeAws_json1_1ImportCertificateCommandError = async (
       };
       break;
     case "ResourceQuotaExceededFault":
-    case "com.amazonaws.dms#ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
       response = {
         ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
           parsedOutput,
@@ -3670,7 +3670,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -3730,7 +3730,7 @@ const deserializeAws_json1_1ModifyEndpointCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedFault":
-    case "com.amazonaws.dms#AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedFaultResponse(
           parsedOutput,
@@ -3741,7 +3741,7 @@ const deserializeAws_json1_1ModifyEndpointCommandError = async (
       };
       break;
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -3752,7 +3752,7 @@ const deserializeAws_json1_1ModifyEndpointCommandError = async (
       };
       break;
     case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.dms#KMSKeyNotAccessibleFault":
+    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
       response = {
         ...(await deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse(
           parsedOutput,
@@ -3763,7 +3763,7 @@ const deserializeAws_json1_1ModifyEndpointCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.dms#ResourceAlreadyExistsFault":
+    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
           parsedOutput,
@@ -3774,7 +3774,7 @@ const deserializeAws_json1_1ModifyEndpointCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -3840,7 +3840,7 @@ const deserializeAws_json1_1ModifyEventSubscriptionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "KMSAccessDeniedFault":
-    case "com.amazonaws.dms#KMSAccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#KMSAccessDeniedFault":
       response = {
         ...(await deserializeAws_json1_1KMSAccessDeniedFaultResponse(
           parsedOutput,
@@ -3851,7 +3851,7 @@ const deserializeAws_json1_1ModifyEventSubscriptionCommandError = async (
       };
       break;
     case "KMSDisabledFault":
-    case "com.amazonaws.dms#KMSDisabledFault":
+    case "com.amazonaws.databasemigrationservice#KMSDisabledFault":
       response = {
         ...(await deserializeAws_json1_1KMSDisabledFaultResponse(
           parsedOutput,
@@ -3862,7 +3862,7 @@ const deserializeAws_json1_1ModifyEventSubscriptionCommandError = async (
       };
       break;
     case "KMSInvalidStateFault":
-    case "com.amazonaws.dms#KMSInvalidStateFault":
+    case "com.amazonaws.databasemigrationservice#KMSInvalidStateFault":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateFaultResponse(
           parsedOutput,
@@ -3873,7 +3873,7 @@ const deserializeAws_json1_1ModifyEventSubscriptionCommandError = async (
       };
       break;
     case "KMSNotFoundFault":
-    case "com.amazonaws.dms#KMSNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#KMSNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1KMSNotFoundFaultResponse(
           parsedOutput,
@@ -3884,7 +3884,7 @@ const deserializeAws_json1_1ModifyEventSubscriptionCommandError = async (
       };
       break;
     case "KMSThrottlingFault":
-    case "com.amazonaws.dms#KMSThrottlingFault":
+    case "com.amazonaws.databasemigrationservice#KMSThrottlingFault":
       response = {
         ...(await deserializeAws_json1_1KMSThrottlingFaultResponse(
           parsedOutput,
@@ -3895,7 +3895,7 @@ const deserializeAws_json1_1ModifyEventSubscriptionCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -3906,7 +3906,7 @@ const deserializeAws_json1_1ModifyEventSubscriptionCommandError = async (
       };
       break;
     case "ResourceQuotaExceededFault":
-    case "com.amazonaws.dms#ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
       response = {
         ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
           parsedOutput,
@@ -3917,7 +3917,7 @@ const deserializeAws_json1_1ModifyEventSubscriptionCommandError = async (
       };
       break;
     case "SNSInvalidTopicFault":
-    case "com.amazonaws.dms#SNSInvalidTopicFault":
+    case "com.amazonaws.databasemigrationservice#SNSInvalidTopicFault":
       response = {
         ...(await deserializeAws_json1_1SNSInvalidTopicFaultResponse(
           parsedOutput,
@@ -3928,7 +3928,7 @@ const deserializeAws_json1_1ModifyEventSubscriptionCommandError = async (
       };
       break;
     case "SNSNoAuthorizationFault":
-    case "com.amazonaws.dms#SNSNoAuthorizationFault":
+    case "com.amazonaws.databasemigrationservice#SNSNoAuthorizationFault":
       response = {
         ...(await deserializeAws_json1_1SNSNoAuthorizationFaultResponse(
           parsedOutput,
@@ -3994,7 +3994,7 @@ const deserializeAws_json1_1ModifyReplicationInstanceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedFault":
-    case "com.amazonaws.dms#AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedFaultResponse(
           parsedOutput,
@@ -4005,7 +4005,7 @@ const deserializeAws_json1_1ModifyReplicationInstanceCommandError = async (
       };
       break;
     case "InsufficientResourceCapacityFault":
-    case "com.amazonaws.dms#InsufficientResourceCapacityFault":
+    case "com.amazonaws.databasemigrationservice#InsufficientResourceCapacityFault":
       response = {
         ...(await deserializeAws_json1_1InsufficientResourceCapacityFaultResponse(
           parsedOutput,
@@ -4016,7 +4016,7 @@ const deserializeAws_json1_1ModifyReplicationInstanceCommandError = async (
       };
       break;
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -4027,7 +4027,7 @@ const deserializeAws_json1_1ModifyReplicationInstanceCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.dms#ResourceAlreadyExistsFault":
+    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
           parsedOutput,
@@ -4038,7 +4038,7 @@ const deserializeAws_json1_1ModifyReplicationInstanceCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -4049,7 +4049,7 @@ const deserializeAws_json1_1ModifyReplicationInstanceCommandError = async (
       };
       break;
     case "StorageQuotaExceededFault":
-    case "com.amazonaws.dms#StorageQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#StorageQuotaExceededFault":
       response = {
         ...(await deserializeAws_json1_1StorageQuotaExceededFaultResponse(
           parsedOutput,
@@ -4060,7 +4060,7 @@ const deserializeAws_json1_1ModifyReplicationInstanceCommandError = async (
       };
       break;
     case "UpgradeDependencyFailureFault":
-    case "com.amazonaws.dms#UpgradeDependencyFailureFault":
+    case "com.amazonaws.databasemigrationservice#UpgradeDependencyFailureFault":
       response = {
         ...(await deserializeAws_json1_1UpgradeDependencyFailureFaultResponse(
           parsedOutput,
@@ -4126,7 +4126,7 @@ const deserializeAws_json1_1ModifyReplicationSubnetGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedFault":
-    case "com.amazonaws.dms#AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedFaultResponse(
           parsedOutput,
@@ -4137,7 +4137,7 @@ const deserializeAws_json1_1ModifyReplicationSubnetGroupCommandError = async (
       };
       break;
     case "InvalidSubnet":
-    case "com.amazonaws.dms#InvalidSubnet":
+    case "com.amazonaws.databasemigrationservice#InvalidSubnet":
       response = {
         ...(await deserializeAws_json1_1InvalidSubnetResponse(
           parsedOutput,
@@ -4148,7 +4148,7 @@ const deserializeAws_json1_1ModifyReplicationSubnetGroupCommandError = async (
       };
       break;
     case "ReplicationSubnetGroupDoesNotCoverEnoughAZs":
-    case "com.amazonaws.dms#ReplicationSubnetGroupDoesNotCoverEnoughAZs":
+    case "com.amazonaws.databasemigrationservice#ReplicationSubnetGroupDoesNotCoverEnoughAZs":
       response = {
         ...(await deserializeAws_json1_1ReplicationSubnetGroupDoesNotCoverEnoughAZsResponse(
           parsedOutput,
@@ -4159,7 +4159,7 @@ const deserializeAws_json1_1ModifyReplicationSubnetGroupCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -4170,7 +4170,7 @@ const deserializeAws_json1_1ModifyReplicationSubnetGroupCommandError = async (
       };
       break;
     case "ResourceQuotaExceededFault":
-    case "com.amazonaws.dms#ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
       response = {
         ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
           parsedOutput,
@@ -4181,7 +4181,7 @@ const deserializeAws_json1_1ModifyReplicationSubnetGroupCommandError = async (
       };
       break;
     case "SubnetAlreadyInUse":
-    case "com.amazonaws.dms#SubnetAlreadyInUse":
+    case "com.amazonaws.databasemigrationservice#SubnetAlreadyInUse":
       response = {
         ...(await deserializeAws_json1_1SubnetAlreadyInUseResponse(
           parsedOutput,
@@ -4244,7 +4244,7 @@ const deserializeAws_json1_1ModifyReplicationTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -4255,7 +4255,7 @@ const deserializeAws_json1_1ModifyReplicationTaskCommandError = async (
       };
       break;
     case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.dms#KMSKeyNotAccessibleFault":
+    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
       response = {
         ...(await deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse(
           parsedOutput,
@@ -4266,7 +4266,7 @@ const deserializeAws_json1_1ModifyReplicationTaskCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.dms#ResourceAlreadyExistsFault":
+    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsFaultResponse(
           parsedOutput,
@@ -4277,7 +4277,7 @@ const deserializeAws_json1_1ModifyReplicationTaskCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -4343,7 +4343,7 @@ const deserializeAws_json1_1RebootReplicationInstanceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -4354,7 +4354,7 @@ const deserializeAws_json1_1RebootReplicationInstanceCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -4414,7 +4414,7 @@ const deserializeAws_json1_1RefreshSchemasCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -4425,7 +4425,7 @@ const deserializeAws_json1_1RefreshSchemasCommandError = async (
       };
       break;
     case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.dms#KMSKeyNotAccessibleFault":
+    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
       response = {
         ...(await deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse(
           parsedOutput,
@@ -4436,7 +4436,7 @@ const deserializeAws_json1_1RefreshSchemasCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -4447,7 +4447,7 @@ const deserializeAws_json1_1RefreshSchemasCommandError = async (
       };
       break;
     case "ResourceQuotaExceededFault":
-    case "com.amazonaws.dms#ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
       response = {
         ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
           parsedOutput,
@@ -4507,7 +4507,7 @@ const deserializeAws_json1_1ReloadTablesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -4518,7 +4518,7 @@ const deserializeAws_json1_1ReloadTablesCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -4584,7 +4584,7 @@ const deserializeAws_json1_1RemoveTagsFromResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -4647,7 +4647,7 @@ const deserializeAws_json1_1StartReplicationTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedFault":
-    case "com.amazonaws.dms#AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedFaultResponse(
           parsedOutput,
@@ -4658,7 +4658,7 @@ const deserializeAws_json1_1StartReplicationTaskCommandError = async (
       };
       break;
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -4669,7 +4669,7 @@ const deserializeAws_json1_1StartReplicationTaskCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -4735,7 +4735,7 @@ const deserializeAws_json1_1StartReplicationTaskAssessmentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -4746,7 +4746,7 @@ const deserializeAws_json1_1StartReplicationTaskAssessmentCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -4809,7 +4809,7 @@ const deserializeAws_json1_1StopReplicationTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -4820,7 +4820,7 @@ const deserializeAws_json1_1StopReplicationTaskCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -4880,7 +4880,7 @@ const deserializeAws_json1_1TestConnectionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidResourceStateFault":
-    case "com.amazonaws.dms#InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(
           parsedOutput,
@@ -4891,7 +4891,7 @@ const deserializeAws_json1_1TestConnectionCommandError = async (
       };
       break;
     case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.dms#KMSKeyNotAccessibleFault":
+    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
       response = {
         ...(await deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse(
           parsedOutput,
@@ -4902,7 +4902,7 @@ const deserializeAws_json1_1TestConnectionCommandError = async (
       };
       break;
     case "ResourceNotFoundFault":
-    case "com.amazonaws.dms#ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(
           parsedOutput,
@@ -4913,7 +4913,7 @@ const deserializeAws_json1_1TestConnectionCommandError = async (
       };
       break;
     case "ResourceQuotaExceededFault":
-    case "com.amazonaws.dms#ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
       response = {
         ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(
           parsedOutput,
@@ -5648,8 +5648,8 @@ const serializeAws_json1_1DescribeConnectionsMessage = (
   };
 };
 
-const serializeAws_json1_1DescribeEndpointTypesMessage = (
-  input: DescribeEndpointTypesMessage,
+const serializeAws_json1_1DescribeEndpointsMessage = (
+  input: DescribeEndpointsMessage,
   context: __SerdeContext
 ): any => {
   return {
@@ -5661,8 +5661,8 @@ const serializeAws_json1_1DescribeEndpointTypesMessage = (
   };
 };
 
-const serializeAws_json1_1DescribeEndpointsMessage = (
-  input: DescribeEndpointsMessage,
+const serializeAws_json1_1DescribeEndpointTypesMessage = (
+  input: DescribeEndpointTypesMessage,
   context: __SerdeContext
 ): any => {
   return {
@@ -5683,22 +5683,6 @@ const serializeAws_json1_1DescribeEventCategoriesMessage = (
       Filters: serializeAws_json1_1FilterList(input.Filters, context)
     }),
     ...(input.SourceType !== undefined && { SourceType: input.SourceType })
-  };
-};
-
-const serializeAws_json1_1DescribeEventSubscriptionsMessage = (
-  input: DescribeEventSubscriptionsMessage,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1FilterList(input.Filters, context)
-    }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxRecords !== undefined && { MaxRecords: input.MaxRecords }),
-    ...(input.SubscriptionName !== undefined && {
-      SubscriptionName: input.SubscriptionName
-    })
   };
 };
 
@@ -5728,6 +5712,22 @@ const serializeAws_json1_1DescribeEventsMessage = (
     ...(input.SourceType !== undefined && { SourceType: input.SourceType }),
     ...(input.StartTime !== undefined && {
       StartTime: Math.round(input.StartTime.getTime() / 1000)
+    })
+  };
+};
+
+const serializeAws_json1_1DescribeEventSubscriptionsMessage = (
+  input: DescribeEventSubscriptionsMessage,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_json1_1FilterList(input.Filters, context)
+    }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxRecords !== undefined && { MaxRecords: input.MaxRecords }),
+    ...(input.SubscriptionName !== undefined && {
+      SubscriptionName: input.SubscriptionName
     })
   };
 };
@@ -5767,19 +5767,6 @@ const serializeAws_json1_1DescribeRefreshSchemasStatusMessage = (
   };
 };
 
-const serializeAws_json1_1DescribeReplicationInstanceTaskLogsMessage = (
-  input: DescribeReplicationInstanceTaskLogsMessage,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxRecords !== undefined && { MaxRecords: input.MaxRecords }),
-    ...(input.ReplicationInstanceArn !== undefined && {
-      ReplicationInstanceArn: input.ReplicationInstanceArn
-    })
-  };
-};
-
 const serializeAws_json1_1DescribeReplicationInstancesMessage = (
   input: DescribeReplicationInstancesMessage,
   context: __SerdeContext
@@ -5790,6 +5777,19 @@ const serializeAws_json1_1DescribeReplicationInstancesMessage = (
     }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxRecords !== undefined && { MaxRecords: input.MaxRecords })
+  };
+};
+
+const serializeAws_json1_1DescribeReplicationInstanceTaskLogsMessage = (
+  input: DescribeReplicationInstanceTaskLogsMessage,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxRecords !== undefined && { MaxRecords: input.MaxRecords }),
+    ...(input.ReplicationInstanceArn !== undefined && {
+      ReplicationInstanceArn: input.ReplicationInstanceArn
+    })
   };
 };
 
@@ -6511,257 +6511,6 @@ const deserializeAws_json1_1AccessDeniedFault = (
   } as any;
 };
 
-const deserializeAws_json1_1InsufficientResourceCapacityFault = (
-  output: any,
-  context: __SerdeContext
-): InsufficientResourceCapacityFault => {
-  return {
-    __type: "InsufficientResourceCapacityFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidCertificateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidCertificateFault => {
-  return {
-    __type: "InvalidCertificateFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidResourceStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidResourceStateFault => {
-  return {
-    __type: "InvalidResourceStateFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidSubnet = (
-  output: any,
-  context: __SerdeContext
-): InvalidSubnet => {
-  return {
-    __type: "InvalidSubnet",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1KMSAccessDeniedFault = (
-  output: any,
-  context: __SerdeContext
-): KMSAccessDeniedFault => {
-  return {
-    __type: "KMSAccessDeniedFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1KMSDisabledFault = (
-  output: any,
-  context: __SerdeContext
-): KMSDisabledFault => {
-  return {
-    __type: "KMSDisabledFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1KMSInvalidStateFault = (
-  output: any,
-  context: __SerdeContext
-): KMSInvalidStateFault => {
-  return {
-    __type: "KMSInvalidStateFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1KMSKeyNotAccessibleFault = (
-  output: any,
-  context: __SerdeContext
-): KMSKeyNotAccessibleFault => {
-  return {
-    __type: "KMSKeyNotAccessibleFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1KMSNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): KMSNotFoundFault => {
-  return {
-    __type: "KMSNotFoundFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1KMSThrottlingFault = (
-  output: any,
-  context: __SerdeContext
-): KMSThrottlingFault => {
-  return {
-    __type: "KMSThrottlingFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ReplicationSubnetGroupDoesNotCoverEnoughAZs = (
-  output: any,
-  context: __SerdeContext
-): ReplicationSubnetGroupDoesNotCoverEnoughAZs => {
-  return {
-    __type: "ReplicationSubnetGroupDoesNotCoverEnoughAZs",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): ResourceAlreadyExistsFault => {
-  return {
-    __type: "ResourceAlreadyExistsFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
-    resourceArn:
-      output.resourceArn !== undefined && output.resourceArn !== null
-        ? output.resourceArn
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundFault => {
-  return {
-    __type: "ResourceNotFoundFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): ResourceQuotaExceededFault => {
-  return {
-    __type: "ResourceQuotaExceededFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1SNSInvalidTopicFault = (
-  output: any,
-  context: __SerdeContext
-): SNSInvalidTopicFault => {
-  return {
-    __type: "SNSInvalidTopicFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1SNSNoAuthorizationFault = (
-  output: any,
-  context: __SerdeContext
-): SNSNoAuthorizationFault => {
-  return {
-    __type: "SNSNoAuthorizationFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1StorageQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): StorageQuotaExceededFault => {
-  return {
-    __type: "StorageQuotaExceededFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1SubnetAlreadyInUse = (
-  output: any,
-  context: __SerdeContext
-): SubnetAlreadyInUse => {
-  return {
-    __type: "SubnetAlreadyInUse",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1UpgradeDependencyFailureFault = (
-  output: any,
-  context: __SerdeContext
-): UpgradeDependencyFailureFault => {
-  return {
-    __type: "UpgradeDependencyFailureFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1AccountQuota = (
   output: any,
   context: __SerdeContext
@@ -7167,6 +6916,23 @@ const deserializeAws_json1_1DescribeConnectionsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeEndpointsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeEndpointsResponse => {
+  return {
+    __type: "DescribeEndpointsResponse",
+    Endpoints:
+      output.Endpoints !== undefined && output.Endpoints !== null
+        ? deserializeAws_json1_1EndpointList(output.Endpoints, context)
+        : undefined,
+    Marker:
+      output.Marker !== undefined && output.Marker !== null
+        ? output.Marker
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeEndpointTypesResponse = (
   output: any,
   context: __SerdeContext
@@ -7188,23 +6954,6 @@ const deserializeAws_json1_1DescribeEndpointTypesResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeEndpointsResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeEndpointsResponse => {
-  return {
-    __type: "DescribeEndpointsResponse",
-    Endpoints:
-      output.Endpoints !== undefined && output.Endpoints !== null
-        ? deserializeAws_json1_1EndpointList(output.Endpoints, context)
-        : undefined,
-    Marker:
-      output.Marker !== undefined && output.Marker !== null
-        ? output.Marker
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1DescribeEventCategoriesResponse = (
   output: any,
   context: __SerdeContext
@@ -7222,6 +6971,23 @@ const deserializeAws_json1_1DescribeEventCategoriesResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeEventsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeEventsResponse => {
+  return {
+    __type: "DescribeEventsResponse",
+    Events:
+      output.Events !== undefined && output.Events !== null
+        ? deserializeAws_json1_1EventList(output.Events, context)
+        : undefined,
+    Marker:
+      output.Marker !== undefined && output.Marker !== null
+        ? output.Marker
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeEventSubscriptionsResponse = (
   output: any,
   context: __SerdeContext
@@ -7235,23 +7001,6 @@ const deserializeAws_json1_1DescribeEventSubscriptionsResponse = (
             output.EventSubscriptionsList,
             context
           )
-        : undefined,
-    Marker:
-      output.Marker !== undefined && output.Marker !== null
-        ? output.Marker
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeEventsResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeEventsResponse => {
-  return {
-    __type: "DescribeEventsResponse",
-    Events:
-      output.Events !== undefined && output.Events !== null
-        ? deserializeAws_json1_1EventList(output.Events, context)
         : undefined,
     Marker:
       output.Marker !== undefined && output.Marker !== null
@@ -7319,6 +7068,27 @@ const deserializeAws_json1_1DescribeRefreshSchemasStatusResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeReplicationInstancesResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeReplicationInstancesResponse => {
+  return {
+    __type: "DescribeReplicationInstancesResponse",
+    Marker:
+      output.Marker !== undefined && output.Marker !== null
+        ? output.Marker
+        : undefined,
+    ReplicationInstances:
+      output.ReplicationInstances !== undefined &&
+      output.ReplicationInstances !== null
+        ? deserializeAws_json1_1ReplicationInstanceList(
+            output.ReplicationInstances,
+            context
+          )
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeReplicationInstanceTaskLogsResponse = (
   output: any,
   context: __SerdeContext
@@ -7339,27 +7109,6 @@ const deserializeAws_json1_1DescribeReplicationInstanceTaskLogsResponse = (
       output.ReplicationInstanceTaskLogs !== null
         ? deserializeAws_json1_1ReplicationInstanceTaskLogsList(
             output.ReplicationInstanceTaskLogs,
-            context
-          )
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeReplicationInstancesResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeReplicationInstancesResponse => {
-  return {
-    __type: "DescribeReplicationInstancesResponse",
-    Marker:
-      output.Marker !== undefined && output.Marker !== null
-        ? output.Marker
-        : undefined,
-    ReplicationInstances:
-      output.ReplicationInstances !== undefined &&
-      output.ReplicationInstances !== null
-        ? deserializeAws_json1_1ReplicationInstanceList(
-            output.ReplicationInstances,
             context
           )
         : undefined
@@ -7817,6 +7566,58 @@ const deserializeAws_json1_1ImportCertificateResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1InsufficientResourceCapacityFault = (
+  output: any,
+  context: __SerdeContext
+): InsufficientResourceCapacityFault => {
+  return {
+    __type: "InsufficientResourceCapacityFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidCertificateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidCertificateFault => {
+  return {
+    __type: "InvalidCertificateFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidResourceStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidResourceStateFault => {
+  return {
+    __type: "InvalidResourceStateFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidSubnet = (
+  output: any,
+  context: __SerdeContext
+): InvalidSubnet => {
+  return {
+    __type: "InvalidSubnet",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1KinesisSettings = (
   output: any,
   context: __SerdeContext
@@ -7835,6 +7636,84 @@ const deserializeAws_json1_1KinesisSettings = (
     StreamArn:
       output.StreamArn !== undefined && output.StreamArn !== null
         ? output.StreamArn
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1KMSAccessDeniedFault = (
+  output: any,
+  context: __SerdeContext
+): KMSAccessDeniedFault => {
+  return {
+    __type: "KMSAccessDeniedFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1KMSDisabledFault = (
+  output: any,
+  context: __SerdeContext
+): KMSDisabledFault => {
+  return {
+    __type: "KMSDisabledFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1KMSInvalidStateFault = (
+  output: any,
+  context: __SerdeContext
+): KMSInvalidStateFault => {
+  return {
+    __type: "KMSInvalidStateFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1KMSKeyNotAccessibleFault = (
+  output: any,
+  context: __SerdeContext
+): KMSKeyNotAccessibleFault => {
+  return {
+    __type: "KMSKeyNotAccessibleFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1KMSNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): KMSNotFoundFault => {
+  return {
+    __type: "KMSNotFoundFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1KMSThrottlingFault = (
+  output: any,
+  context: __SerdeContext
+): KMSThrottlingFault => {
+  return {
+    __type: "KMSThrottlingFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
         : undefined
   } as any;
 };
@@ -8551,6 +8430,19 @@ const deserializeAws_json1_1ReplicationSubnetGroup = (
   } as any;
 };
 
+const deserializeAws_json1_1ReplicationSubnetGroupDoesNotCoverEnoughAZs = (
+  output: any,
+  context: __SerdeContext
+): ReplicationSubnetGroupDoesNotCoverEnoughAZs => {
+  return {
+    __type: "ReplicationSubnetGroupDoesNotCoverEnoughAZs",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1ReplicationSubnetGroups = (
   output: any,
   context: __SerdeContext
@@ -8768,6 +8660,36 @@ const deserializeAws_json1_1ReplicationTaskStats = (
   } as any;
 };
 
+const deserializeAws_json1_1ResourceAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): ResourceAlreadyExistsFault => {
+  return {
+    __type: "ResourceAlreadyExistsFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined,
+    resourceArn:
+      output.resourceArn !== undefined && output.resourceArn !== null
+        ? output.resourceArn
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ResourceNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): ResourceNotFoundFault => {
+  return {
+    __type: "ResourceNotFoundFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1ResourcePendingMaintenanceActions = (
   output: any,
   context: __SerdeContext
@@ -8786,6 +8708,19 @@ const deserializeAws_json1_1ResourcePendingMaintenanceActions = (
       output.ResourceIdentifier !== undefined &&
       output.ResourceIdentifier !== null
         ? output.ResourceIdentifier
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ResourceQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): ResourceQuotaExceededFault => {
+  return {
+    __type: "ResourceQuotaExceededFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
         : undefined
   } as any;
 };
@@ -8893,6 +8828,32 @@ const deserializeAws_json1_1SchemaList = (
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_json1_1SNSInvalidTopicFault = (
+  output: any,
+  context: __SerdeContext
+): SNSInvalidTopicFault => {
+  return {
+    __type: "SNSInvalidTopicFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1SNSNoAuthorizationFault = (
+  output: any,
+  context: __SerdeContext
+): SNSNoAuthorizationFault => {
+  return {
+    __type: "SNSNoAuthorizationFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1SourceIdsList = (
   output: any,
   context: __SerdeContext
@@ -8939,6 +8900,19 @@ const deserializeAws_json1_1StopReplicationTaskResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1StorageQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): StorageQuotaExceededFault => {
+  return {
+    __type: "StorageQuotaExceededFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1Subnet = (
   output: any,
   context: __SerdeContext
@@ -8960,6 +8934,19 @@ const deserializeAws_json1_1Subnet = (
     SubnetStatus:
       output.SubnetStatus !== undefined && output.SubnetStatus !== null
         ? output.SubnetStatus
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1SubnetAlreadyInUse = (
+  output: any,
+  context: __SerdeContext
+): SubnetAlreadyInUse => {
+  return {
+    __type: "SubnetAlreadyInUse",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
         : undefined
   } as any;
 };
@@ -9129,6 +9116,19 @@ const deserializeAws_json1_1TestConnectionResponse = (
     Connection:
       output.Connection !== undefined && output.Connection !== null
         ? deserializeAws_json1_1Connection(output.Connection, context)
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1UpgradeDependencyFailureFault = (
+  output: any,
+  context: __SerdeContext
+): UpgradeDependencyFailureFault => {
+  return {
+    __type: "UpgradeDependencyFailureFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
         : undefined
   } as any;
 };

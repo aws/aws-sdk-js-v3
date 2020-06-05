@@ -8,9 +8,9 @@ import {
   DisableImportFindingsForProductResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DisableImportFindingsForProductCommand,
-  serializeAws_restJson1_1DisableImportFindingsForProductCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DisableImportFindingsForProductCommand,
+  serializeAws_restJson1DisableImportFindingsForProductCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DisableImportFindingsForProductCommand extends $Command<
     input: DisableImportFindingsForProductCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisableImportFindingsForProductCommand(
+    return serializeAws_restJson1DisableImportFindingsForProductCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DisableImportFindingsForProductCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableImportFindingsForProductCommandOutput> {
-    return deserializeAws_restJson1_1DisableImportFindingsForProductCommand(
+    return deserializeAws_restJson1DisableImportFindingsForProductCommand(
       output,
       context
     );

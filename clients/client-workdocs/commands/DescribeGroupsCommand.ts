@@ -5,9 +5,9 @@ import {
 } from "../WorkDocsClient";
 import { DescribeGroupsRequest, DescribeGroupsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeGroupsCommand,
-  serializeAws_restJson1_1DescribeGroupsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeGroupsCommand,
+  serializeAws_restJson1DescribeGroupsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class DescribeGroupsCommand extends $Command<
     input: DescribeGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeGroupsCommand(input, context);
+    return serializeAws_restJson1DescribeGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeGroupsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeGroupsCommand(output, context);
+    return deserializeAws_restJson1DescribeGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

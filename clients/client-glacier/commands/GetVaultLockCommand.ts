@@ -5,9 +5,9 @@ import {
 } from "../GlacierClient";
 import { GetVaultLockInput, GetVaultLockOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetVaultLockCommand,
-  serializeAws_restJson1_1GetVaultLockCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetVaultLockCommand,
+  serializeAws_restJson1GetVaultLockCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetVaultLockCommand extends $Command<
     input: GetVaultLockCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetVaultLockCommand(input, context);
+    return serializeAws_restJson1GetVaultLockCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVaultLockCommandOutput> {
-    return deserializeAws_restJson1_1GetVaultLockCommand(output, context);
+    return deserializeAws_restJson1GetVaultLockCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -4,9 +4,9 @@ import {
   ServiceOutputTypes
 } from "../ElasticsearchServiceClient";
 import {
-  deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCommand,
-  serializeAws_restJson1_1DeleteElasticsearchServiceRoleCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteElasticsearchServiceRoleCommand,
+  serializeAws_restJson1DeleteElasticsearchServiceRoleCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -69,7 +69,7 @@ export class DeleteElasticsearchServiceRoleCommand extends $Command<
     input: DeleteElasticsearchServiceRoleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteElasticsearchServiceRoleCommand(
+    return serializeAws_restJson1DeleteElasticsearchServiceRoleCommand(
       input,
       context
     );
@@ -79,7 +79,7 @@ export class DeleteElasticsearchServiceRoleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteElasticsearchServiceRoleCommandOutput> {
-    return deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCommand(
+    return deserializeAws_restJson1DeleteElasticsearchServiceRoleCommand(
       output,
       context
     );

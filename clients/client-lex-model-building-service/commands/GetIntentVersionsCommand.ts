@@ -8,9 +8,9 @@ import {
   GetIntentVersionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetIntentVersionsCommand,
-  serializeAws_restJson1_1GetIntentVersionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetIntentVersionsCommand,
+  serializeAws_restJson1GetIntentVersionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetIntentVersionsCommand extends $Command<
     input: GetIntentVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetIntentVersionsCommand(input, context);
+    return serializeAws_restJson1GetIntentVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIntentVersionsCommandOutput> {
-    return deserializeAws_restJson1_1GetIntentVersionsCommand(output, context);
+    return deserializeAws_restJson1GetIntentVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

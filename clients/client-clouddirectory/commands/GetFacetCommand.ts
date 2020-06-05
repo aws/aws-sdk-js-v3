@@ -5,9 +5,9 @@ import {
 } from "../CloudDirectoryClient";
 import { GetFacetRequest, GetFacetResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetFacetCommand,
-  serializeAws_restJson1_1GetFacetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetFacetCommand,
+  serializeAws_restJson1GetFacetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetFacetCommand extends $Command<
     input: GetFacetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetFacetCommand(input, context);
+    return serializeAws_restJson1GetFacetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFacetCommandOutput> {
-    return deserializeAws_restJson1_1GetFacetCommand(output, context);
+    return deserializeAws_restJson1GetFacetCommand(output, context);
   }
 
   // Start section: command_body_extra

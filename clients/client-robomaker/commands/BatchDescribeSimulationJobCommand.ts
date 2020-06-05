@@ -8,9 +8,9 @@ import {
   BatchDescribeSimulationJobResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1BatchDescribeSimulationJobCommand,
-  serializeAws_restJson1_1BatchDescribeSimulationJobCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1BatchDescribeSimulationJobCommand,
+  serializeAws_restJson1BatchDescribeSimulationJobCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class BatchDescribeSimulationJobCommand extends $Command<
     input: BatchDescribeSimulationJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1BatchDescribeSimulationJobCommand(
+    return serializeAws_restJson1BatchDescribeSimulationJobCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class BatchDescribeSimulationJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDescribeSimulationJobCommandOutput> {
-    return deserializeAws_restJson1_1BatchDescribeSimulationJobCommand(
+    return deserializeAws_restJson1BatchDescribeSimulationJobCommand(
       output,
       context
     );

@@ -199,11 +199,6 @@ export namespace ApiKeyIds {
   export const isa = (o: any): o is ApiKeyIds => __isa(o, "ApiKeyIds");
 }
 
-export enum ApiKeySourceType {
-  AUTHORIZER = "AUTHORIZER",
-  HEADER = "HEADER"
-}
-
 /**
  * <p>Represents a collection of API keys as represented by an <a>ApiKeys</a> resource.</p>
  *       <div class="seeAlso">
@@ -237,6 +232,11 @@ export namespace ApiKeys {
 
 export enum ApiKeysFormat {
   csv = "csv"
+}
+
+export enum ApiKeySourceType {
+  AUTHORIZER = "AUTHORIZER",
+  HEADER = "HEADER"
 }
 
 /**
@@ -334,12 +334,6 @@ export namespace Authorizer {
   export const isa = (o: any): o is Authorizer => __isa(o, "Authorizer");
 }
 
-export enum AuthorizerType {
-  COGNITO_USER_POOLS = "COGNITO_USER_POOLS",
-  REQUEST = "REQUEST",
-  TOKEN = "TOKEN"
-}
-
 /**
  * <p>Represents a collection of <a>Authorizer</a> resources.</p>
  *       <div class="seeAlso">
@@ -365,6 +359,31 @@ export namespace Authorizers {
     ...obj
   });
   export const isa = (o: any): o is Authorizers => __isa(o, "Authorizers");
+}
+
+export enum AuthorizerType {
+  COGNITO_USER_POOLS = "COGNITO_USER_POOLS",
+  REQUEST = "REQUEST",
+  TOKEN = "TOKEN"
+}
+
+/**
+ * <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ */
+export interface BadRequestException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "BadRequestException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace BadRequestException {
+  export const filterSensitiveLog = (obj: BadRequestException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is BadRequestException =>
+    __isa(o, "BadRequestException");
 }
 
 /**
@@ -553,6 +572,23 @@ export namespace ClientCertificates {
   });
   export const isa = (o: any): o is ClientCertificates =>
     __isa(o, "ClientCertificates");
+}
+
+/**
+ * <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ */
+export interface ConflictException extends __SmithyException, $MetadataBearer {
+  name: "ConflictException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ConflictException {
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ConflictException =>
+    __isa(o, "ConflictException");
 }
 
 export enum ConnectionType {
@@ -2146,21 +2182,6 @@ export namespace DocumentationPartLocation {
     __isa(o, "DocumentationPartLocation");
 }
 
-export enum DocumentationPartType {
-  API = "API",
-  AUTHORIZER = "AUTHORIZER",
-  METHOD = "METHOD",
-  MODEL = "MODEL",
-  PATH_PARAMETER = "PATH_PARAMETER",
-  QUERY_PARAMETER = "QUERY_PARAMETER",
-  REQUEST_BODY = "REQUEST_BODY",
-  REQUEST_HEADER = "REQUEST_HEADER",
-  RESOURCE = "RESOURCE",
-  RESPONSE = "RESPONSE",
-  RESPONSE_BODY = "RESPONSE_BODY",
-  RESPONSE_HEADER = "RESPONSE_HEADER"
-}
-
 /**
  * <p>The collection of documentation parts of an API.</p>
  *     <div class="remarks"></div>
@@ -2187,6 +2208,21 @@ export namespace DocumentationParts {
   });
   export const isa = (o: any): o is DocumentationParts =>
     __isa(o, "DocumentationParts");
+}
+
+export enum DocumentationPartType {
+  API = "API",
+  AUTHORIZER = "AUTHORIZER",
+  METHOD = "METHOD",
+  MODEL = "MODEL",
+  PATH_PARAMETER = "PATH_PARAMETER",
+  QUERY_PARAMETER = "QUERY_PARAMETER",
+  REQUEST_BODY = "REQUEST_BODY",
+  REQUEST_HEADER = "REQUEST_HEADER",
+  RESOURCE = "RESOURCE",
+  RESPONSE = "RESPONSE",
+  RESPONSE_BODY = "RESPONSE_BODY",
+  RESPONSE_HEADER = "RESPONSE_HEADER"
 }
 
 /**
@@ -2345,12 +2381,6 @@ export namespace DomainName {
   export const isa = (o: any): o is DomainName => __isa(o, "DomainName");
 }
 
-export enum DomainNameStatus {
-  AVAILABLE = "AVAILABLE",
-  PENDING = "PENDING",
-  UPDATING = "UPDATING"
-}
-
 /**
  * <p>Represents a collection of <a>DomainName</a> resources.</p>
  *       <div class="seeAlso">
@@ -2375,6 +2405,12 @@ export namespace DomainNames {
     ...obj
   });
   export const isa = (o: any): o is DomainNames => __isa(o, "DomainNames");
+}
+
+export enum DomainNameStatus {
+  AVAILABLE = "AVAILABLE",
+  PENDING = "PENDING",
+  UPDATING = "UPDATING"
 }
 
 /**
@@ -2588,29 +2624,6 @@ export namespace GatewayResponse {
   });
   export const isa = (o: any): o is GatewayResponse =>
     __isa(o, "GatewayResponse");
-}
-
-export enum GatewayResponseType {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  API_CONFIGURATION_ERROR = "API_CONFIGURATION_ERROR",
-  AUTHORIZER_CONFIGURATION_ERROR = "AUTHORIZER_CONFIGURATION_ERROR",
-  AUTHORIZER_FAILURE = "AUTHORIZER_FAILURE",
-  BAD_REQUEST_BODY = "BAD_REQUEST_BODY",
-  BAD_REQUEST_PARAMETERS = "BAD_REQUEST_PARAMETERS",
-  DEFAULT_4XX = "DEFAULT_4XX",
-  DEFAULT_5XX = "DEFAULT_5XX",
-  EXPIRED_TOKEN = "EXPIRED_TOKEN",
-  INTEGRATION_FAILURE = "INTEGRATION_FAILURE",
-  INTEGRATION_TIMEOUT = "INTEGRATION_TIMEOUT",
-  INVALID_API_KEY = "INVALID_API_KEY",
-  INVALID_SIGNATURE = "INVALID_SIGNATURE",
-  MISSING_AUTHENTICATION_TOKEN = "MISSING_AUTHENTICATION_TOKEN",
-  QUOTA_EXCEEDED = "QUOTA_EXCEEDED",
-  REQUEST_TOO_LARGE = "REQUEST_TOO_LARGE",
-  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
-  THROTTLED = "THROTTLED",
-  UNAUTHORIZED = "UNAUTHORIZED",
-  UNSUPPORTED_MEDIA_TYPE = "UNSUPPORTED_MEDIA_TYPE"
 }
 
 /**
@@ -3163,6 +3176,29 @@ export namespace GatewayResponses {
   });
   export const isa = (o: any): o is GatewayResponses =>
     __isa(o, "GatewayResponses");
+}
+
+export enum GatewayResponseType {
+  ACCESS_DENIED = "ACCESS_DENIED",
+  API_CONFIGURATION_ERROR = "API_CONFIGURATION_ERROR",
+  AUTHORIZER_CONFIGURATION_ERROR = "AUTHORIZER_CONFIGURATION_ERROR",
+  AUTHORIZER_FAILURE = "AUTHORIZER_FAILURE",
+  BAD_REQUEST_BODY = "BAD_REQUEST_BODY",
+  BAD_REQUEST_PARAMETERS = "BAD_REQUEST_PARAMETERS",
+  DEFAULT_4XX = "DEFAULT_4XX",
+  DEFAULT_5XX = "DEFAULT_5XX",
+  EXPIRED_TOKEN = "EXPIRED_TOKEN",
+  INTEGRATION_FAILURE = "INTEGRATION_FAILURE",
+  INTEGRATION_TIMEOUT = "INTEGRATION_TIMEOUT",
+  INVALID_API_KEY = "INVALID_API_KEY",
+  INVALID_SIGNATURE = "INVALID_SIGNATURE",
+  MISSING_AUTHENTICATION_TOKEN = "MISSING_AUTHENTICATION_TOKEN",
+  QUOTA_EXCEEDED = "QUOTA_EXCEEDED",
+  REQUEST_TOO_LARGE = "REQUEST_TOO_LARGE",
+  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
+  THROTTLED = "THROTTLED",
+  UNAUTHORIZED = "UNAUTHORIZED",
+  UNSUPPORTED_MEDIA_TYPE = "UNSUPPORTED_MEDIA_TYPE"
 }
 
 /**
@@ -4030,35 +4066,6 @@ export namespace GetModelRequest {
 }
 
 /**
- * <p>Request to generate a sample mapping template used to transform the payload.</p>
- */
-export interface GetModelTemplateRequest {
-  __type?: "GetModelTemplateRequest";
-  /**
-   * <p>[Required] The name of the model for which to generate a template.</p>
-   */
-  modelName: string | undefined;
-
-  name?: string;
-  /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
-   */
-  restApiId: string | undefined;
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
-}
-
-export namespace GetModelTemplateRequest {
-  export const filterSensitiveLog = (obj: GetModelTemplateRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetModelTemplateRequest =>
-    __isa(o, "GetModelTemplateRequest");
-}
-
-/**
  * <p>Request to list existing <a>Models</a> defined for a <a>RestApi</a> resource.</p>
  */
 export interface GetModelsRequest {
@@ -4090,6 +4097,35 @@ export namespace GetModelsRequest {
   });
   export const isa = (o: any): o is GetModelsRequest =>
     __isa(o, "GetModelsRequest");
+}
+
+/**
+ * <p>Request to generate a sample mapping template used to transform the payload.</p>
+ */
+export interface GetModelTemplateRequest {
+  __type?: "GetModelTemplateRequest";
+  /**
+   * <p>[Required] The name of the model for which to generate a template.</p>
+   */
+  modelName: string | undefined;
+
+  name?: string;
+  /**
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   */
+  restApiId: string | undefined;
+
+  template?: boolean;
+  templateSkipList?: string[];
+  title?: string;
+}
+
+export namespace GetModelTemplateRequest {
+  export const filterSensitiveLog = (obj: GetModelTemplateRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetModelTemplateRequest =>
+    __isa(o, "GetModelTemplateRequest");
 }
 
 /**
@@ -5014,6 +5050,26 @@ export enum IntegrationType {
   MOCK = "MOCK"
 }
 
+/**
+ * <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+ */
+export interface LimitExceededException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  message?: string;
+  retryAfterSeconds?: string;
+}
+
+export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
+}
+
 export enum LocationStatusType {
   DOCUMENTED = "DOCUMENTED",
   UNDOCUMENTED = "UNDOCUMENTED"
@@ -5616,6 +5672,60 @@ export namespace Models {
     ...obj
   });
   export const isa = (o: any): o is Models => __isa(o, "Models");
+}
+
+/**
+ * <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+ */
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
+  name: "NotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NotFoundException {
+  export const filterSensitiveLog = (obj: NotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NotFoundException =>
+    __isa(o, "NotFoundException");
+}
+
+export type Op = "add" | "copy" | "move" | "remove" | "replace" | "test";
+
+/**
+ * A single patch operation to apply to the specified resource. Please refer to
+ *         http://tools.ietf.org/html/rfc6902#section-4 for an explanation of how each operation is used.
+ */
+export interface PatchOperation {
+  __type?: "PatchOperation";
+  /**
+   * <p>The <code>copy</code> update operation's source as identified by a <code>JSON-Pointer</code> value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a <a>Stage</a> resource with <code>"op":"copy"</code>, <code>"from":"/canarySettings/deploymentId"</code> and <code>"path":"/deploymentId"</code>.</p>
+   */
+  from?: string;
+
+  /**
+   * <p> An update operation to be performed with this PATCH request. The valid value can be <code>add</code>, <code>remove</code>,  <code>replace</code> or <code>copy</code>. Not all valid operations are supported for a given resource. Support of the operations depends on specific operational contexts. Attempts to apply an unsupported operation on a resource will return an error message.</p>
+   */
+  op?: Op | string;
+
+  /**
+   * <p>The <code>op</code> operation's target, as identified by a <a href="https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08">JSON Pointer</a> value that references a location within the targeted resource. For example, if the target resource has an updateable property of <code>{"name":"value"}</code>, the path for this property is <code>/name</code>. If the <code>name</code> property value is a JSON object (e.g., <code>{"name": {"child/name": "child-value"}}</code>), the path for the <code>child/name</code> property will be <code>/name/child~1name</code>. Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each <code>op</code> operation can have only one <code>path</code> associated with it.</p>
+   */
+  path?: string;
+
+  /**
+   * <p>The new target value of the update operation. It is applicable for the <code>add</code> or <code>replace</code> operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for Parameters</a>.</p>
+   */
+  value?: string;
+}
+
+export namespace PatchOperation {
+  export const filterSensitiveLog = (obj: PatchOperation): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is PatchOperation =>
+    __isa(o, "PatchOperation");
 }
 
 /**
@@ -6554,6 +6664,28 @@ export namespace SdkTypes {
 export type SecurityPolicy = "TLS_1_0" | "TLS_1_2";
 
 /**
+ * <p>The requested service is not available. For details see the accompanying error message. Retry after the specified time period.</p>
+ */
+export interface ServiceUnavailableException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ServiceUnavailableException";
+  $fault: "server";
+  message?: string;
+  retryAfterSeconds?: string;
+}
+
+export namespace ServiceUnavailableException {
+  export const filterSensitiveLog = (
+    obj: ServiceUnavailableException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ServiceUnavailableException =>
+    __isa(o, "ServiceUnavailableException");
+}
+
+/**
  * <p>Represents a unique identifier for a version of a deployed <a>RestApi</a> that is callable by users.</p>
  *       <div class="seeAlso">
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html">Deploy an API</a>
@@ -6998,10 +7130,49 @@ export namespace ThrottleSettings {
     __isa(o, "ThrottleSettings");
 }
 
+/**
+ * <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+ */
+export interface TooManyRequestsException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TooManyRequestsException";
+  $fault: "client";
+  message?: string;
+  retryAfterSeconds?: string;
+}
+
+export namespace TooManyRequestsException {
+  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TooManyRequestsException =>
+    __isa(o, "TooManyRequestsException");
+}
+
 export enum UnauthorizedCacheControlHeaderStrategy {
   FAIL_WITH_403 = "FAIL_WITH_403",
   SUCCEED_WITHOUT_RESPONSE_HEADER = "SUCCEED_WITHOUT_RESPONSE_HEADER",
   SUCCEED_WITH_RESPONSE_HEADER = "SUCCEED_WITH_RESPONSE_HEADER"
+}
+
+/**
+ * <p>The request is denied because the caller has insufficient permissions.</p>
+ */
+export interface UnauthorizedException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "UnauthorizedException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace UnauthorizedException {
+  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UnauthorizedException =>
+    __isa(o, "UnauthorizedException");
 }
 
 /**
@@ -8031,13 +8202,6 @@ export namespace VpcLink {
   export const isa = (o: any): o is VpcLink => __isa(o, "VpcLink");
 }
 
-export enum VpcLinkStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PENDING = "PENDING"
-}
-
 /**
  * <p>The collection of VPC links under the caller's account in a region.</p>
  *         <div class="seeAlso">
@@ -8067,173 +8231,9 @@ export namespace VpcLinks {
   export const isa = (o: any): o is VpcLinks => __isa(o, "VpcLinks");
 }
 
-export type Op = "add" | "copy" | "move" | "remove" | "replace" | "test";
-
-/**
- * A single patch operation to apply to the specified resource. Please refer to
- *         http://tools.ietf.org/html/rfc6902#section-4 for an explanation of how each operation is used.
- */
-export interface PatchOperation {
-  __type?: "PatchOperation";
-  /**
-   * <p>The <code>copy</code> update operation's source as identified by a <code>JSON-Pointer</code> value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a <a>Stage</a> resource with <code>"op":"copy"</code>, <code>"from":"/canarySettings/deploymentId"</code> and <code>"path":"/deploymentId"</code>.</p>
-   */
-  from?: string;
-
-  /**
-   * <p> An update operation to be performed with this PATCH request. The valid value can be <code>add</code>, <code>remove</code>,  <code>replace</code> or <code>copy</code>. Not all valid operations are supported for a given resource. Support of the operations depends on specific operational contexts. Attempts to apply an unsupported operation on a resource will return an error message.</p>
-   */
-  op?: Op | string;
-
-  /**
-   * <p>The <code>op</code> operation's target, as identified by a <a href="https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08">JSON Pointer</a> value that references a location within the targeted resource. For example, if the target resource has an updateable property of <code>{"name":"value"}</code>, the path for this property is <code>/name</code>. If the <code>name</code> property value is a JSON object (e.g., <code>{"name": {"child/name": "child-value"}}</code>), the path for the <code>child/name</code> property will be <code>/name/child~1name</code>. Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each <code>op</code> operation can have only one <code>path</code> associated with it.</p>
-   */
-  path?: string;
-
-  /**
-   * <p>The new target value of the update operation. It is applicable for the <code>add</code> or <code>replace</code> operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for Parameters</a>.</p>
-   */
-  value?: string;
-}
-
-export namespace PatchOperation {
-  export const filterSensitiveLog = (obj: PatchOperation): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is PatchOperation =>
-    __isa(o, "PatchOperation");
-}
-
-/**
- * <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
- */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace BadRequestException {
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
-}
-
-/**
- * <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
- */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ConflictException {
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ConflictException =>
-    __isa(o, "ConflictException");
-}
-
-/**
- * <p>The request exceeded the rate limit. Retry after the specified time period.</p>
- */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
-  retryAfterSeconds?: string;
-}
-
-export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
-}
-
-/**
- * <p>The requested resource is not found. Make sure that the request URI is correct.</p>
- */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NotFoundException {
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
-}
-
-/**
- * <p>The requested service is not available. For details see the accompanying error message. Retry after the specified time period.</p>
- */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  message?: string;
-  retryAfterSeconds?: string;
-}
-
-export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (
-    obj: ServiceUnavailableException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ServiceUnavailableException =>
-    __isa(o, "ServiceUnavailableException");
-}
-
-/**
- * <p>The request has reached its throttling limit. Retry after the specified time period.</p>
- */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
-  message?: string;
-  retryAfterSeconds?: string;
-}
-
-export namespace TooManyRequestsException {
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TooManyRequestsException =>
-    __isa(o, "TooManyRequestsException");
-}
-
-/**
- * <p>The request is denied because the caller has insufficient permissions.</p>
- */
-export interface UnauthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "UnauthorizedException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace UnauthorizedException {
-  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UnauthorizedException =>
-    __isa(o, "UnauthorizedException");
+export enum VpcLinkStatus {
+  AVAILABLE = "AVAILABLE",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  PENDING = "PENDING"
 }

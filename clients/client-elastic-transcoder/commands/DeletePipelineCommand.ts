@@ -5,9 +5,9 @@ import {
 } from "../ElasticTranscoderClient";
 import { DeletePipelineRequest, DeletePipelineResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeletePipelineCommand,
-  serializeAws_restJson1_1DeletePipelineCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeletePipelineCommand,
+  serializeAws_restJson1DeletePipelineCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class DeletePipelineCommand extends $Command<
     input: DeletePipelineCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeletePipelineCommand(input, context);
+    return serializeAws_restJson1DeletePipelineCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePipelineCommandOutput> {
-    return deserializeAws_restJson1_1DeletePipelineCommand(output, context);
+    return deserializeAws_restJson1DeletePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

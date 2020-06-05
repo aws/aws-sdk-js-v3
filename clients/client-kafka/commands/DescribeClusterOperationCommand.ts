@@ -8,9 +8,9 @@ import {
   DescribeClusterOperationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeClusterOperationCommand,
-  serializeAws_restJson1_1DescribeClusterOperationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeClusterOperationCommand,
+  serializeAws_restJson1DescribeClusterOperationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeClusterOperationCommand extends $Command<
     input: DescribeClusterOperationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeClusterOperationCommand(
+    return serializeAws_restJson1DescribeClusterOperationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeClusterOperationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClusterOperationCommandOutput> {
-    return deserializeAws_restJson1_1DescribeClusterOperationCommand(
+    return deserializeAws_restJson1DescribeClusterOperationCommand(
       output,
       context
     );

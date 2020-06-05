@@ -8,9 +8,9 @@ import {
   DescribeBackupVaultOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeBackupVaultCommand,
-  serializeAws_restJson1_1DescribeBackupVaultCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeBackupVaultCommand,
+  serializeAws_restJson1DescribeBackupVaultCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DescribeBackupVaultCommand extends $Command<
     input: DescribeBackupVaultCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeBackupVaultCommand(input, context);
+    return serializeAws_restJson1DescribeBackupVaultCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBackupVaultCommandOutput> {
-    return deserializeAws_restJson1_1DescribeBackupVaultCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DescribeBackupVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -8,9 +8,9 @@ import {
   CreateResourceDefinitionVersionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateResourceDefinitionVersionCommand,
-  serializeAws_restJson1_1CreateResourceDefinitionVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateResourceDefinitionVersionCommand,
+  serializeAws_restJson1CreateResourceDefinitionVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CreateResourceDefinitionVersionCommand extends $Command<
     input: CreateResourceDefinitionVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateResourceDefinitionVersionCommand(
+    return serializeAws_restJson1CreateResourceDefinitionVersionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CreateResourceDefinitionVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateResourceDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1_1CreateResourceDefinitionVersionCommand(
+    return deserializeAws_restJson1CreateResourceDefinitionVersionCommand(
       output,
       context
     );

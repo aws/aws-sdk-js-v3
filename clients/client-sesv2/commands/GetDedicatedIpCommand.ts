@@ -5,9 +5,9 @@ import {
 } from "../SESv2Client";
 import { GetDedicatedIpRequest, GetDedicatedIpResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetDedicatedIpCommand,
-  serializeAws_restJson1_1GetDedicatedIpCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetDedicatedIpCommand,
+  serializeAws_restJson1GetDedicatedIpCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetDedicatedIpCommand extends $Command<
     input: GetDedicatedIpCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDedicatedIpCommand(input, context);
+    return serializeAws_restJson1GetDedicatedIpCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDedicatedIpCommandOutput> {
-    return deserializeAws_restJson1_1GetDedicatedIpCommand(output, context);
+    return deserializeAws_restJson1GetDedicatedIpCommand(output, context);
   }
 
   // Start section: command_body_extra

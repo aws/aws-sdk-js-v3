@@ -8,9 +8,9 @@ import {
   GetCompatibleElasticsearchVersionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetCompatibleElasticsearchVersionsCommand,
-  serializeAws_restJson1_1GetCompatibleElasticsearchVersionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetCompatibleElasticsearchVersionsCommand,
+  serializeAws_restJson1GetCompatibleElasticsearchVersionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command<
     input: GetCompatibleElasticsearchVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetCompatibleElasticsearchVersionsCommand(
+    return serializeAws_restJson1GetCompatibleElasticsearchVersionsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCompatibleElasticsearchVersionsCommandOutput> {
-    return deserializeAws_restJson1_1GetCompatibleElasticsearchVersionsCommand(
+    return deserializeAws_restJson1GetCompatibleElasticsearchVersionsCommand(
       output,
       context
     );

@@ -5,9 +5,9 @@ import {
 } from "../ManagedBlockchainClient";
 import { RejectInvitationInput, RejectInvitationOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1RejectInvitationCommand,
-  serializeAws_restJson1_1RejectInvitationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1RejectInvitationCommand,
+  serializeAws_restJson1RejectInvitationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class RejectInvitationCommand extends $Command<
     input: RejectInvitationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RejectInvitationCommand(input, context);
+    return serializeAws_restJson1RejectInvitationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RejectInvitationCommandOutput> {
-    return deserializeAws_restJson1_1RejectInvitationCommand(output, context);
+    return deserializeAws_restJson1RejectInvitationCommand(output, context);
   }
 
   // Start section: command_body_extra

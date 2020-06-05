@@ -8,9 +8,9 @@ import {
   UpdateInfrastructureConfigurationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateInfrastructureConfigurationCommand,
-  serializeAws_restJson1_1UpdateInfrastructureConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateInfrastructureConfigurationCommand,
+  serializeAws_restJson1UpdateInfrastructureConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdateInfrastructureConfigurationCommand extends $Command<
     input: UpdateInfrastructureConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateInfrastructureConfigurationCommand(
+    return serializeAws_restJson1UpdateInfrastructureConfigurationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdateInfrastructureConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateInfrastructureConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1UpdateInfrastructureConfigurationCommand(
+    return deserializeAws_restJson1UpdateInfrastructureConfigurationCommand(
       output,
       context
     );

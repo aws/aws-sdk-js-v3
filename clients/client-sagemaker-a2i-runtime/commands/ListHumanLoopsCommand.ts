@@ -5,9 +5,9 @@ import {
 } from "../SageMakerA2IRuntimeClient";
 import { ListHumanLoopsRequest, ListHumanLoopsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListHumanLoopsCommand,
-  serializeAws_restJson1_1ListHumanLoopsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListHumanLoopsCommand,
+  serializeAws_restJson1ListHumanLoopsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class ListHumanLoopsCommand extends $Command<
     input: ListHumanLoopsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListHumanLoopsCommand(input, context);
+    return serializeAws_restJson1ListHumanLoopsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListHumanLoopsCommandOutput> {
-    return deserializeAws_restJson1_1ListHumanLoopsCommand(output, context);
+    return deserializeAws_restJson1ListHumanLoopsCommand(output, context);
   }
 
   // Start section: command_body_extra

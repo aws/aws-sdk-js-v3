@@ -8,9 +8,9 @@ import {
   GetSamplingStatisticSummariesResult
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetSamplingStatisticSummariesCommand,
-  serializeAws_restJson1_1GetSamplingStatisticSummariesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetSamplingStatisticSummariesCommand,
+  serializeAws_restJson1GetSamplingStatisticSummariesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetSamplingStatisticSummariesCommand extends $Command<
     input: GetSamplingStatisticSummariesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetSamplingStatisticSummariesCommand(
+    return serializeAws_restJson1GetSamplingStatisticSummariesCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetSamplingStatisticSummariesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSamplingStatisticSummariesCommandOutput> {
-    return deserializeAws_restJson1_1GetSamplingStatisticSummariesCommand(
+    return deserializeAws_restJson1GetSamplingStatisticSummariesCommand(
       output,
       context
     );

@@ -90,7 +90,7 @@ const deserializeAws_json1_1GenerateDataSetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "MarketplaceCommerceAnalyticsException":
-    case "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#MarketplaceCommerceAnalyticsException":
+    case "com.amazonaws.marketplacecommerceanalytics#MarketplaceCommerceAnalyticsException":
       response = {
         ...(await deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse(
           parsedOutput,
@@ -153,7 +153,7 @@ const deserializeAws_json1_1StartSupportDataExportCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "MarketplaceCommerceAnalyticsException":
-    case "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#MarketplaceCommerceAnalyticsException":
+    case "com.amazonaws.marketplacecommerceanalytics#MarketplaceCommerceAnalyticsException":
       response = {
         ...(await deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse(
           parsedOutput,

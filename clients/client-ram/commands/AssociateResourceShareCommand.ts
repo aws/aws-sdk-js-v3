@@ -8,9 +8,9 @@ import {
   AssociateResourceShareResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1AssociateResourceShareCommand,
-  serializeAws_restJson1_1AssociateResourceShareCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AssociateResourceShareCommand,
+  serializeAws_restJson1AssociateResourceShareCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class AssociateResourceShareCommand extends $Command<
     input: AssociateResourceShareCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AssociateResourceShareCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1AssociateResourceShareCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateResourceShareCommandOutput> {
-    return deserializeAws_restJson1_1AssociateResourceShareCommand(
+    return deserializeAws_restJson1AssociateResourceShareCommand(
       output,
       context
     );

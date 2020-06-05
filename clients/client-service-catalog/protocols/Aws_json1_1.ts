@@ -1893,7 +1893,7 @@ const deserializeAws_json1_1AcceptPortfolioShareCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -1904,7 +1904,7 @@ const deserializeAws_json1_1AcceptPortfolioShareCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
+    case "com.amazonaws.servicecatalog#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1915,7 +1915,7 @@ const deserializeAws_json1_1AcceptPortfolioShareCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1981,7 +1981,7 @@ const deserializeAws_json1_1AssociateBudgetWithResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateResourceException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#DuplicateResourceException":
+    case "com.amazonaws.servicecatalog#DuplicateResourceException":
       response = {
         ...(await deserializeAws_json1_1DuplicateResourceExceptionResponse(
           parsedOutput,
@@ -1992,7 +1992,7 @@ const deserializeAws_json1_1AssociateBudgetWithResourceCommandError = async (
       };
       break;
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -2003,7 +2003,7 @@ const deserializeAws_json1_1AssociateBudgetWithResourceCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
+    case "com.amazonaws.servicecatalog#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2014,7 +2014,7 @@ const deserializeAws_json1_1AssociateBudgetWithResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2080,7 +2080,7 @@ const deserializeAws_json1_1AssociatePrincipalWithPortfolioCommandError = async 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -2091,7 +2091,7 @@ const deserializeAws_json1_1AssociatePrincipalWithPortfolioCommandError = async 
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
+    case "com.amazonaws.servicecatalog#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2102,7 +2102,7 @@ const deserializeAws_json1_1AssociatePrincipalWithPortfolioCommandError = async 
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2168,7 +2168,7 @@ const deserializeAws_json1_1AssociateProductWithPortfolioCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -2179,7 +2179,7 @@ const deserializeAws_json1_1AssociateProductWithPortfolioCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
+    case "com.amazonaws.servicecatalog#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2190,7 +2190,7 @@ const deserializeAws_json1_1AssociateProductWithPortfolioCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2256,7 +2256,7 @@ const deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactComman
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateResourceException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#DuplicateResourceException":
+    case "com.amazonaws.servicecatalog#DuplicateResourceException":
       response = {
         ...(await deserializeAws_json1_1DuplicateResourceExceptionResponse(
           parsedOutput,
@@ -2267,7 +2267,7 @@ const deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactComman
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
+    case "com.amazonaws.servicecatalog#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2278,7 +2278,7 @@ const deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactComman
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2344,7 +2344,7 @@ const deserializeAws_json1_1AssociateTagOptionWithResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateResourceException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#DuplicateResourceException":
+    case "com.amazonaws.servicecatalog#DuplicateResourceException":
       response = {
         ...(await deserializeAws_json1_1DuplicateResourceExceptionResponse(
           parsedOutput,
@@ -2355,7 +2355,7 @@ const deserializeAws_json1_1AssociateTagOptionWithResourceCommandError = async (
       };
       break;
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -2366,7 +2366,7 @@ const deserializeAws_json1_1AssociateTagOptionWithResourceCommandError = async (
       };
       break;
     case "InvalidStateException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidStateException":
+    case "com.amazonaws.servicecatalog#InvalidStateException":
       response = {
         ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
           parsedOutput,
@@ -2377,7 +2377,7 @@ const deserializeAws_json1_1AssociateTagOptionWithResourceCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
+    case "com.amazonaws.servicecatalog#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2388,7 +2388,7 @@ const deserializeAws_json1_1AssociateTagOptionWithResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2399,7 +2399,7 @@ const deserializeAws_json1_1AssociateTagOptionWithResourceCommandError = async (
       };
       break;
     case "TagOptionNotMigratedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
+    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
       response = {
         ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
           parsedOutput,
@@ -2469,7 +2469,7 @@ const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactC
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -2539,7 +2539,7 @@ const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifa
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -2599,7 +2599,7 @@ const deserializeAws_json1_1CopyProductCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -2610,7 +2610,7 @@ const deserializeAws_json1_1CopyProductCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2670,7 +2670,7 @@ const deserializeAws_json1_1CreateConstraintCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateResourceException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#DuplicateResourceException":
+    case "com.amazonaws.servicecatalog#DuplicateResourceException":
       response = {
         ...(await deserializeAws_json1_1DuplicateResourceExceptionResponse(
           parsedOutput,
@@ -2681,7 +2681,7 @@ const deserializeAws_json1_1CreateConstraintCommandError = async (
       };
       break;
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -2692,7 +2692,7 @@ const deserializeAws_json1_1CreateConstraintCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
+    case "com.amazonaws.servicecatalog#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2703,7 +2703,7 @@ const deserializeAws_json1_1CreateConstraintCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2763,7 +2763,7 @@ const deserializeAws_json1_1CreatePortfolioCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -2774,7 +2774,7 @@ const deserializeAws_json1_1CreatePortfolioCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
+    case "com.amazonaws.servicecatalog#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2785,7 +2785,7 @@ const deserializeAws_json1_1CreatePortfolioCommandError = async (
       };
       break;
     case "TagOptionNotMigratedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
+    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
       response = {
         ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
           parsedOutput,
@@ -2848,7 +2848,7 @@ const deserializeAws_json1_1CreatePortfolioShareCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -2859,7 +2859,7 @@ const deserializeAws_json1_1CreatePortfolioShareCommandError = async (
       };
       break;
     case "InvalidStateException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidStateException":
+    case "com.amazonaws.servicecatalog#InvalidStateException":
       response = {
         ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
           parsedOutput,
@@ -2870,7 +2870,7 @@ const deserializeAws_json1_1CreatePortfolioShareCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
+    case "com.amazonaws.servicecatalog#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2881,7 +2881,7 @@ const deserializeAws_json1_1CreatePortfolioShareCommandError = async (
       };
       break;
     case "OperationNotSupportedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#OperationNotSupportedException":
+    case "com.amazonaws.servicecatalog#OperationNotSupportedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
           parsedOutput,
@@ -2892,7 +2892,7 @@ const deserializeAws_json1_1CreatePortfolioShareCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2952,7 +2952,7 @@ const deserializeAws_json1_1CreateProductCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -2963,7 +2963,7 @@ const deserializeAws_json1_1CreateProductCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
+    case "com.amazonaws.servicecatalog#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2974,7 +2974,7 @@ const deserializeAws_json1_1CreateProductCommandError = async (
       };
       break;
     case "TagOptionNotMigratedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
+    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
       response = {
         ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
           parsedOutput,
@@ -3040,7 +3040,7 @@ const deserializeAws_json1_1CreateProvisionedProductPlanCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -3051,7 +3051,7 @@ const deserializeAws_json1_1CreateProvisionedProductPlanCommandError = async (
       };
       break;
     case "InvalidStateException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidStateException":
+    case "com.amazonaws.servicecatalog#InvalidStateException":
       response = {
         ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
           parsedOutput,
@@ -3062,7 +3062,7 @@ const deserializeAws_json1_1CreateProvisionedProductPlanCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3128,7 +3128,7 @@ const deserializeAws_json1_1CreateProvisioningArtifactCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -3139,7 +3139,7 @@ const deserializeAws_json1_1CreateProvisioningArtifactCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
+    case "com.amazonaws.servicecatalog#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3150,7 +3150,7 @@ const deserializeAws_json1_1CreateProvisioningArtifactCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3213,7 +3213,7 @@ const deserializeAws_json1_1CreateServiceActionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -3224,7 +3224,7 @@ const deserializeAws_json1_1CreateServiceActionCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
+    case "com.amazonaws.servicecatalog#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3284,7 +3284,7 @@ const deserializeAws_json1_1CreateTagOptionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateResourceException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#DuplicateResourceException":
+    case "com.amazonaws.servicecatalog#DuplicateResourceException":
       response = {
         ...(await deserializeAws_json1_1DuplicateResourceExceptionResponse(
           parsedOutput,
@@ -3295,7 +3295,7 @@ const deserializeAws_json1_1CreateTagOptionCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
+    case "com.amazonaws.servicecatalog#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3306,7 +3306,7 @@ const deserializeAws_json1_1CreateTagOptionCommandError = async (
       };
       break;
     case "TagOptionNotMigratedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
+    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
       response = {
         ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
           parsedOutput,
@@ -3366,7 +3366,7 @@ const deserializeAws_json1_1DeleteConstraintCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -3377,7 +3377,7 @@ const deserializeAws_json1_1DeleteConstraintCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3437,7 +3437,7 @@ const deserializeAws_json1_1DeletePortfolioCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -3448,7 +3448,7 @@ const deserializeAws_json1_1DeletePortfolioCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceInUseException":
+    case "com.amazonaws.servicecatalog#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -3459,7 +3459,7 @@ const deserializeAws_json1_1DeletePortfolioCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3470,7 +3470,7 @@ const deserializeAws_json1_1DeletePortfolioCommandError = async (
       };
       break;
     case "TagOptionNotMigratedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
+    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
       response = {
         ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
           parsedOutput,
@@ -3533,7 +3533,7 @@ const deserializeAws_json1_1DeletePortfolioShareCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -3544,7 +3544,7 @@ const deserializeAws_json1_1DeletePortfolioShareCommandError = async (
       };
       break;
     case "InvalidStateException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidStateException":
+    case "com.amazonaws.servicecatalog#InvalidStateException":
       response = {
         ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
           parsedOutput,
@@ -3555,7 +3555,7 @@ const deserializeAws_json1_1DeletePortfolioShareCommandError = async (
       };
       break;
     case "OperationNotSupportedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#OperationNotSupportedException":
+    case "com.amazonaws.servicecatalog#OperationNotSupportedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
           parsedOutput,
@@ -3566,7 +3566,7 @@ const deserializeAws_json1_1DeletePortfolioShareCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3626,7 +3626,7 @@ const deserializeAws_json1_1DeleteProductCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -3637,7 +3637,7 @@ const deserializeAws_json1_1DeleteProductCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceInUseException":
+    case "com.amazonaws.servicecatalog#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -3648,7 +3648,7 @@ const deserializeAws_json1_1DeleteProductCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3659,7 +3659,7 @@ const deserializeAws_json1_1DeleteProductCommandError = async (
       };
       break;
     case "TagOptionNotMigratedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
+    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
       response = {
         ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
           parsedOutput,
@@ -3725,7 +3725,7 @@ const deserializeAws_json1_1DeleteProvisionedProductPlanCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -3736,7 +3736,7 @@ const deserializeAws_json1_1DeleteProvisionedProductPlanCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3802,7 +3802,7 @@ const deserializeAws_json1_1DeleteProvisioningArtifactCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -3813,7 +3813,7 @@ const deserializeAws_json1_1DeleteProvisioningArtifactCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceInUseException":
+    case "com.amazonaws.servicecatalog#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -3824,7 +3824,7 @@ const deserializeAws_json1_1DeleteProvisioningArtifactCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3887,7 +3887,7 @@ const deserializeAws_json1_1DeleteServiceActionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUseException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceInUseException":
+    case "com.amazonaws.servicecatalog#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -3898,7 +3898,7 @@ const deserializeAws_json1_1DeleteServiceActionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3958,7 +3958,7 @@ const deserializeAws_json1_1DeleteTagOptionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUseException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceInUseException":
+    case "com.amazonaws.servicecatalog#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -3969,7 +3969,7 @@ const deserializeAws_json1_1DeleteTagOptionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3980,7 +3980,7 @@ const deserializeAws_json1_1DeleteTagOptionCommandError = async (
       };
       break;
     case "TagOptionNotMigratedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
+    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
       response = {
         ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
           parsedOutput,
@@ -4043,7 +4043,7 @@ const deserializeAws_json1_1DescribeConstraintCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4109,7 +4109,7 @@ const deserializeAws_json1_1DescribeCopyProductStatusCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4169,7 +4169,7 @@ const deserializeAws_json1_1DescribePortfolioCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4235,7 +4235,7 @@ const deserializeAws_json1_1DescribePortfolioShareStatusCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -4246,7 +4246,7 @@ const deserializeAws_json1_1DescribePortfolioShareStatusCommandError = async (
       };
       break;
     case "OperationNotSupportedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#OperationNotSupportedException":
+    case "com.amazonaws.servicecatalog#OperationNotSupportedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
           parsedOutput,
@@ -4257,7 +4257,7 @@ const deserializeAws_json1_1DescribePortfolioShareStatusCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4317,7 +4317,7 @@ const deserializeAws_json1_1DescribeProductCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -4328,7 +4328,7 @@ const deserializeAws_json1_1DescribeProductCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4391,7 +4391,7 @@ const deserializeAws_json1_1DescribeProductAsAdminCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4454,7 +4454,7 @@ const deserializeAws_json1_1DescribeProductViewCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -4465,7 +4465,7 @@ const deserializeAws_json1_1DescribeProductViewCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4531,7 +4531,7 @@ const deserializeAws_json1_1DescribeProvisionedProductCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4597,7 +4597,7 @@ const deserializeAws_json1_1DescribeProvisionedProductPlanCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -4608,7 +4608,7 @@ const deserializeAws_json1_1DescribeProvisionedProductPlanCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4674,7 +4674,7 @@ const deserializeAws_json1_1DescribeProvisioningArtifactCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4740,7 +4740,7 @@ const deserializeAws_json1_1DescribeProvisioningParametersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -4751,7 +4751,7 @@ const deserializeAws_json1_1DescribeProvisioningParametersCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4811,7 +4811,7 @@ const deserializeAws_json1_1DescribeRecordCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4874,7 +4874,7 @@ const deserializeAws_json1_1DescribeServiceActionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4940,7 +4940,7 @@ const deserializeAws_json1_1DescribeServiceActionExecutionParametersCommandError
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -4951,7 +4951,7 @@ const deserializeAws_json1_1DescribeServiceActionExecutionParametersCommandError
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -5011,7 +5011,7 @@ const deserializeAws_json1_1DescribeTagOptionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -5022,7 +5022,7 @@ const deserializeAws_json1_1DescribeTagOptionCommandError = async (
       };
       break;
     case "TagOptionNotMigratedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
+    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
       response = {
         ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
           parsedOutput,
@@ -5088,7 +5088,7 @@ const deserializeAws_json1_1DisableAWSOrganizationsAccessCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidStateException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidStateException":
+    case "com.amazonaws.servicecatalog#InvalidStateException":
       response = {
         ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
           parsedOutput,
@@ -5099,7 +5099,7 @@ const deserializeAws_json1_1DisableAWSOrganizationsAccessCommandError = async (
       };
       break;
     case "OperationNotSupportedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#OperationNotSupportedException":
+    case "com.amazonaws.servicecatalog#OperationNotSupportedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
           parsedOutput,
@@ -5110,7 +5110,7 @@ const deserializeAws_json1_1DisableAWSOrganizationsAccessCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -5176,7 +5176,7 @@ const deserializeAws_json1_1DisassociateBudgetFromResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -5242,7 +5242,7 @@ const deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommandError = asy
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -5253,7 +5253,7 @@ const deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommandError = asy
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -5319,7 +5319,7 @@ const deserializeAws_json1_1DisassociateProductFromPortfolioCommandError = async
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -5330,7 +5330,7 @@ const deserializeAws_json1_1DisassociateProductFromPortfolioCommandError = async
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceInUseException":
+    case "com.amazonaws.servicecatalog#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -5341,7 +5341,7 @@ const deserializeAws_json1_1DisassociateProductFromPortfolioCommandError = async
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -5407,7 +5407,7 @@ const deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCom
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -5473,7 +5473,7 @@ const deserializeAws_json1_1DisassociateTagOptionFromResourceCommandError = asyn
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -5484,7 +5484,7 @@ const deserializeAws_json1_1DisassociateTagOptionFromResourceCommandError = asyn
       };
       break;
     case "TagOptionNotMigratedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
+    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
       response = {
         ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
           parsedOutput,
@@ -5550,7 +5550,7 @@ const deserializeAws_json1_1EnableAWSOrganizationsAccessCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidStateException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidStateException":
+    case "com.amazonaws.servicecatalog#InvalidStateException":
       response = {
         ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
           parsedOutput,
@@ -5561,7 +5561,7 @@ const deserializeAws_json1_1EnableAWSOrganizationsAccessCommandError = async (
       };
       break;
     case "OperationNotSupportedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#OperationNotSupportedException":
+    case "com.amazonaws.servicecatalog#OperationNotSupportedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
           parsedOutput,
@@ -5572,7 +5572,7 @@ const deserializeAws_json1_1EnableAWSOrganizationsAccessCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -5638,7 +5638,7 @@ const deserializeAws_json1_1ExecuteProvisionedProductPlanCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -5649,7 +5649,7 @@ const deserializeAws_json1_1ExecuteProvisionedProductPlanCommandError = async (
       };
       break;
     case "InvalidStateException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidStateException":
+    case "com.amazonaws.servicecatalog#InvalidStateException":
       response = {
         ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
           parsedOutput,
@@ -5660,7 +5660,7 @@ const deserializeAws_json1_1ExecuteProvisionedProductPlanCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -5726,7 +5726,7 @@ const deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommandError =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -5737,7 +5737,7 @@ const deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommandError =
       };
       break;
     case "InvalidStateException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidStateException":
+    case "com.amazonaws.servicecatalog#InvalidStateException":
       response = {
         ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
           parsedOutput,
@@ -5748,7 +5748,7 @@ const deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommandError =
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -5814,7 +5814,7 @@ const deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommandError = async 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotSupportedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#OperationNotSupportedException":
+    case "com.amazonaws.servicecatalog#OperationNotSupportedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
           parsedOutput,
@@ -5825,7 +5825,7 @@ const deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommandError = async 
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -5891,7 +5891,7 @@ const deserializeAws_json1_1ListAcceptedPortfolioSharesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -5902,7 +5902,7 @@ const deserializeAws_json1_1ListAcceptedPortfolioSharesCommandError = async (
       };
       break;
     case "OperationNotSupportedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#OperationNotSupportedException":
+    case "com.amazonaws.servicecatalog#OperationNotSupportedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
           parsedOutput,
@@ -5965,7 +5965,7 @@ const deserializeAws_json1_1ListBudgetsForResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -5976,7 +5976,7 @@ const deserializeAws_json1_1ListBudgetsForResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -6042,7 +6042,7 @@ const deserializeAws_json1_1ListConstraintsForPortfolioCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -6053,7 +6053,7 @@ const deserializeAws_json1_1ListConstraintsForPortfolioCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -6113,7 +6113,7 @@ const deserializeAws_json1_1ListLaunchPathsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -6124,7 +6124,7 @@ const deserializeAws_json1_1ListLaunchPathsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -6190,7 +6190,7 @@ const deserializeAws_json1_1ListOrganizationPortfolioAccessCommandError = async 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -6201,7 +6201,7 @@ const deserializeAws_json1_1ListOrganizationPortfolioAccessCommandError = async 
       };
       break;
     case "OperationNotSupportedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#OperationNotSupportedException":
+    case "com.amazonaws.servicecatalog#OperationNotSupportedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
           parsedOutput,
@@ -6212,7 +6212,7 @@ const deserializeAws_json1_1ListOrganizationPortfolioAccessCommandError = async 
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -6275,7 +6275,7 @@ const deserializeAws_json1_1ListPortfolioAccessCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -6335,7 +6335,7 @@ const deserializeAws_json1_1ListPortfoliosCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -6401,7 +6401,7 @@ const deserializeAws_json1_1ListPortfoliosForProductCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -6412,7 +6412,7 @@ const deserializeAws_json1_1ListPortfoliosForProductCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -6478,7 +6478,7 @@ const deserializeAws_json1_1ListPrincipalsForPortfolioCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -6489,7 +6489,7 @@ const deserializeAws_json1_1ListPrincipalsForPortfolioCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -6555,7 +6555,7 @@ const deserializeAws_json1_1ListProvisionedProductPlansCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -6566,7 +6566,7 @@ const deserializeAws_json1_1ListProvisionedProductPlansCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -6632,7 +6632,7 @@ const deserializeAws_json1_1ListProvisioningArtifactsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -6643,7 +6643,7 @@ const deserializeAws_json1_1ListProvisioningArtifactsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -6709,7 +6709,7 @@ const deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCommandErro
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -6720,7 +6720,7 @@ const deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCommandErro
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -6780,7 +6780,7 @@ const deserializeAws_json1_1ListRecordHistoryCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -6846,7 +6846,7 @@ const deserializeAws_json1_1ListResourcesForTagOptionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -6857,7 +6857,7 @@ const deserializeAws_json1_1ListResourcesForTagOptionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -6868,7 +6868,7 @@ const deserializeAws_json1_1ListResourcesForTagOptionCommandError = async (
       };
       break;
     case "TagOptionNotMigratedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
+    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
       response = {
         ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
           parsedOutput,
@@ -6931,7 +6931,7 @@ const deserializeAws_json1_1ListServiceActionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -6997,7 +6997,7 @@ const deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCommandErro
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -7008,7 +7008,7 @@ const deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCommandErro
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -7074,7 +7074,7 @@ const deserializeAws_json1_1ListStackInstancesForProvisionedProductCommandError 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -7085,7 +7085,7 @@ const deserializeAws_json1_1ListStackInstancesForProvisionedProductCommandError 
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -7145,7 +7145,7 @@ const deserializeAws_json1_1ListTagOptionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -7156,7 +7156,7 @@ const deserializeAws_json1_1ListTagOptionsCommandError = async (
       };
       break;
     case "TagOptionNotMigratedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
+    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
       response = {
         ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
           parsedOutput,
@@ -7216,7 +7216,7 @@ const deserializeAws_json1_1ProvisionProductCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateResourceException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#DuplicateResourceException":
+    case "com.amazonaws.servicecatalog#DuplicateResourceException":
       response = {
         ...(await deserializeAws_json1_1DuplicateResourceExceptionResponse(
           parsedOutput,
@@ -7227,7 +7227,7 @@ const deserializeAws_json1_1ProvisionProductCommandError = async (
       };
       break;
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -7238,7 +7238,7 @@ const deserializeAws_json1_1ProvisionProductCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -7301,7 +7301,7 @@ const deserializeAws_json1_1RejectPortfolioShareCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -7364,7 +7364,7 @@ const deserializeAws_json1_1ScanProvisionedProductsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -7424,7 +7424,7 @@ const deserializeAws_json1_1SearchProductsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -7487,7 +7487,7 @@ const deserializeAws_json1_1SearchProductsAsAdminCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -7498,7 +7498,7 @@ const deserializeAws_json1_1SearchProductsAsAdminCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -7564,7 +7564,7 @@ const deserializeAws_json1_1SearchProvisionedProductsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -7630,7 +7630,7 @@ const deserializeAws_json1_1TerminateProvisionedProductCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -7690,7 +7690,7 @@ const deserializeAws_json1_1UpdateConstraintCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -7701,7 +7701,7 @@ const deserializeAws_json1_1UpdateConstraintCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -7761,7 +7761,7 @@ const deserializeAws_json1_1UpdatePortfolioCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -7772,7 +7772,7 @@ const deserializeAws_json1_1UpdatePortfolioCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#LimitExceededException":
+    case "com.amazonaws.servicecatalog#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -7783,7 +7783,7 @@ const deserializeAws_json1_1UpdatePortfolioCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -7794,7 +7794,7 @@ const deserializeAws_json1_1UpdatePortfolioCommandError = async (
       };
       break;
     case "TagOptionNotMigratedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
+    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
       response = {
         ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
           parsedOutput,
@@ -7854,7 +7854,7 @@ const deserializeAws_json1_1UpdateProductCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -7865,7 +7865,7 @@ const deserializeAws_json1_1UpdateProductCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -7876,7 +7876,7 @@ const deserializeAws_json1_1UpdateProductCommandError = async (
       };
       break;
     case "TagOptionNotMigratedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
+    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
       response = {
         ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
           parsedOutput,
@@ -7942,7 +7942,7 @@ const deserializeAws_json1_1UpdateProvisionedProductCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -7953,7 +7953,7 @@ const deserializeAws_json1_1UpdateProvisionedProductCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -8019,7 +8019,7 @@ const deserializeAws_json1_1UpdateProvisionedProductPropertiesCommandError = asy
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -8030,7 +8030,7 @@ const deserializeAws_json1_1UpdateProvisionedProductPropertiesCommandError = asy
       };
       break;
     case "InvalidStateException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidStateException":
+    case "com.amazonaws.servicecatalog#InvalidStateException":
       response = {
         ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
           parsedOutput,
@@ -8041,7 +8041,7 @@ const deserializeAws_json1_1UpdateProvisionedProductPropertiesCommandError = asy
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -8107,7 +8107,7 @@ const deserializeAws_json1_1UpdateProvisioningArtifactCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -8118,7 +8118,7 @@ const deserializeAws_json1_1UpdateProvisioningArtifactCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -8181,7 +8181,7 @@ const deserializeAws_json1_1UpdateServiceActionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -8192,7 +8192,7 @@ const deserializeAws_json1_1UpdateServiceActionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -8252,7 +8252,7 @@ const deserializeAws_json1_1UpdateTagOptionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateResourceException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#DuplicateResourceException":
+    case "com.amazonaws.servicecatalog#DuplicateResourceException":
       response = {
         ...(await deserializeAws_json1_1DuplicateResourceExceptionResponse(
           parsedOutput,
@@ -8263,7 +8263,7 @@ const deserializeAws_json1_1UpdateTagOptionCommandError = async (
       };
       break;
     case "InvalidParametersException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
       response = {
         ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(
           parsedOutput,
@@ -8274,7 +8274,7 @@ const deserializeAws_json1_1UpdateTagOptionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -8285,7 +8285,7 @@ const deserializeAws_json1_1UpdateTagOptionCommandError = async (
       };
       break;
     case "TagOptionNotMigratedException":
-    case "com.amazonaws.aws242.servicecatalog.v20151210#TagOptionNotMigratedException":
+    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
       response = {
         ...(await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(
           parsedOutput,
@@ -8456,103 +8456,6 @@ const deserializeAws_json1_1TagOptionNotMigratedExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_json1_1AssociateTagOptionWithResourceInput = (
-  input: AssociateTagOptionWithResourceInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.TagOptionId !== undefined && { TagOptionId: input.TagOptionId })
-  };
-};
-
-const serializeAws_json1_1CreateTagOptionInput = (
-  input: CreateTagOptionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value })
-  };
-};
-
-const serializeAws_json1_1DeleteTagOptionInput = (
-  input: DeleteTagOptionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Id !== undefined && { Id: input.Id })
-  };
-};
-
-const serializeAws_json1_1DescribeTagOptionInput = (
-  input: DescribeTagOptionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Id !== undefined && { Id: input.Id })
-  };
-};
-
-const serializeAws_json1_1DisassociateTagOptionFromResourceInput = (
-  input: DisassociateTagOptionFromResourceInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.TagOptionId !== undefined && { TagOptionId: input.TagOptionId })
-  };
-};
-
-const serializeAws_json1_1ListResourcesForTagOptionInput = (
-  input: ListResourcesForTagOptionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType
-    }),
-    ...(input.TagOptionId !== undefined && { TagOptionId: input.TagOptionId })
-  };
-};
-
-const serializeAws_json1_1ListTagOptionsFilters = (
-  input: ListTagOptionsFilters,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Active !== undefined && { Active: input.Active }),
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value })
-  };
-};
-
-const serializeAws_json1_1ListTagOptionsInput = (
-  input: ListTagOptionsInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1ListTagOptionsFilters(input.Filters, context)
-    }),
-    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && { PageToken: input.PageToken })
-  };
-};
-
-const serializeAws_json1_1UpdateTagOptionInput = (
-  input: UpdateTagOptionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Active !== undefined && { Active: input.Active }),
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.Value !== undefined && { Value: input.Value })
-  };
-};
-
 const serializeAws_json1_1AcceptPortfolioShareInput = (
   input: AcceptPortfolioShareInput,
   context: __SerdeContext
@@ -8644,6 +8547,16 @@ const serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactInput = 
     ...(input.ServiceActionId !== undefined && {
       ServiceActionId: input.ServiceActionId
     })
+  };
+};
+
+const serializeAws_json1_1AssociateTagOptionWithResourceInput = (
+  input: AssociateTagOptionWithResourceInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.TagOptionId !== undefined && { TagOptionId: input.TagOptionId })
   };
 };
 
@@ -8886,6 +8799,16 @@ const serializeAws_json1_1CreateServiceActionInput = (
   };
 };
 
+const serializeAws_json1_1CreateTagOptionInput = (
+  input: CreateTagOptionInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
+};
+
 const serializeAws_json1_1DeleteConstraintInput = (
   input: DeleteConstraintInput,
   context: __SerdeContext
@@ -8979,6 +8902,15 @@ const serializeAws_json1_1DeleteServiceActionInput = (
     ...(input.AcceptLanguage !== undefined && {
       AcceptLanguage: input.AcceptLanguage
     }),
+    ...(input.Id !== undefined && { Id: input.Id })
+  };
+};
+
+const serializeAws_json1_1DeleteTagOptionInput = (
+  input: DeleteTagOptionInput,
+  context: __SerdeContext
+): any => {
+  return {
     ...(input.Id !== undefined && { Id: input.Id })
   };
 };
@@ -9169,6 +9101,15 @@ const serializeAws_json1_1DescribeServiceActionInput = (
   };
 };
 
+const serializeAws_json1_1DescribeTagOptionInput = (
+  input: DescribeTagOptionInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Id !== undefined && { Id: input.Id })
+  };
+};
+
 const serializeAws_json1_1DisableAWSOrganizationsAccessInput = (
   input: DisableAWSOrganizationsAccessInput,
   context: __SerdeContext
@@ -9229,6 +9170,16 @@ const serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactInput
     ...(input.ServiceActionId !== undefined && {
       ServiceActionId: input.ServiceActionId
     })
+  };
+};
+
+const serializeAws_json1_1DisassociateTagOptionFromResourceInput = (
+  input: DisassociateTagOptionFromResourceInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.TagOptionId !== undefined && { TagOptionId: input.TagOptionId })
   };
 };
 
@@ -9517,6 +9468,20 @@ const serializeAws_json1_1ListRecordHistorySearchFilter = (
   };
 };
 
+const serializeAws_json1_1ListResourcesForTagOptionInput = (
+  input: ListResourcesForTagOptionInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.ResourceType !== undefined && {
+      ResourceType: input.ResourceType
+    }),
+    ...(input.TagOptionId !== undefined && { TagOptionId: input.TagOptionId })
+  };
+};
+
 const serializeAws_json1_1ListServiceActionsForProvisioningArtifactInput = (
   input: ListServiceActionsForProvisioningArtifactInput,
   context: __SerdeContext
@@ -9563,6 +9528,30 @@ const serializeAws_json1_1ListStackInstancesForProvisionedProductInput = (
   };
 };
 
+const serializeAws_json1_1ListTagOptionsFilters = (
+  input: ListTagOptionsFilters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Active !== undefined && { Active: input.Active }),
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
+};
+
+const serializeAws_json1_1ListTagOptionsInput = (
+  input: ListTagOptionsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_json1_1ListTagOptionsFilters(input.Filters, context)
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken })
+  };
+};
+
 const serializeAws_json1_1NotificationArns = (
   input: string[],
   context: __SerdeContext
@@ -9578,13 +9567,6 @@ const serializeAws_json1_1OrganizationNode = (
     ...(input.Type !== undefined && { Type: input.Type }),
     ...(input.Value !== undefined && { Value: input.Value })
   };
-};
-
-const serializeAws_json1_1ProductViewFilterValues = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ProductViewFilters = (
@@ -9603,45 +9585,11 @@ const serializeAws_json1_1ProductViewFilters = (
   );
 };
 
-const serializeAws_json1_1ProvisionProductInput = (
-  input: ProvisionProductInput,
+const serializeAws_json1_1ProductViewFilterValues = (
+  input: string[],
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.AcceptLanguage !== undefined && {
-      AcceptLanguage: input.AcceptLanguage
-    }),
-    ...(input.NotificationArns !== undefined && {
-      NotificationArns: serializeAws_json1_1NotificationArns(
-        input.NotificationArns,
-        context
-      )
-    }),
-    ...(input.PathId !== undefined && { PathId: input.PathId }),
-    ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
-    ProvisionToken: input.ProvisionToken ?? generateIdempotencyToken(),
-    ...(input.ProvisionedProductName !== undefined && {
-      ProvisionedProductName: input.ProvisionedProductName
-    }),
-    ...(input.ProvisioningArtifactId !== undefined && {
-      ProvisioningArtifactId: input.ProvisioningArtifactId
-    }),
-    ...(input.ProvisioningParameters !== undefined && {
-      ProvisioningParameters: serializeAws_json1_1ProvisioningParameters(
-        input.ProvisioningParameters,
-        context
-      )
-    }),
-    ...(input.ProvisioningPreferences !== undefined && {
-      ProvisioningPreferences: serializeAws_json1_1ProvisioningPreferences(
-        input.ProvisioningPreferences,
-        context
-      )
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context)
-    })
-  };
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ProvisionedProductFilters = (
@@ -9764,6 +9712,47 @@ const serializeAws_json1_1ProvisioningPreferences = (
         input.StackSetRegions,
         context
       )
+    })
+  };
+};
+
+const serializeAws_json1_1ProvisionProductInput = (
+  input: ProvisionProductInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.NotificationArns !== undefined && {
+      NotificationArns: serializeAws_json1_1NotificationArns(
+        input.NotificationArns,
+        context
+      )
+    }),
+    ...(input.PathId !== undefined && { PathId: input.PathId }),
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
+    ProvisionToken: input.ProvisionToken ?? generateIdempotencyToken(),
+    ...(input.ProvisionedProductName !== undefined && {
+      ProvisionedProductName: input.ProvisionedProductName
+    }),
+    ...(input.ProvisioningArtifactId !== undefined && {
+      ProvisioningArtifactId: input.ProvisioningArtifactId
+    }),
+    ...(input.ProvisioningParameters !== undefined && {
+      ProvisioningParameters: serializeAws_json1_1ProvisioningParameters(
+        input.ProvisioningParameters,
+        context
+      )
+    }),
+    ...(input.ProvisioningPreferences !== undefined && {
+      ProvisioningPreferences: serializeAws_json1_1ProvisioningPreferences(
+        input.ProvisioningPreferences,
+        context
+      )
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1Tags(input.Tags, context)
     })
   };
 };
@@ -10212,176 +10201,15 @@ const serializeAws_json1_1UpdateServiceActionInput = (
   };
 };
 
-const deserializeAws_json1_1AssociateTagOptionWithResourceOutput = (
-  output: any,
+const serializeAws_json1_1UpdateTagOptionInput = (
+  input: UpdateTagOptionInput,
   context: __SerdeContext
-): AssociateTagOptionWithResourceOutput => {
+): any => {
   return {
-    __type: "AssociateTagOptionWithResourceOutput"
-  } as any;
-};
-
-const deserializeAws_json1_1CreateTagOptionOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateTagOptionOutput => {
-  return {
-    __type: "CreateTagOptionOutput",
-    TagOptionDetail:
-      output.TagOptionDetail !== undefined && output.TagOptionDetail !== null
-        ? deserializeAws_json1_1TagOptionDetail(output.TagOptionDetail, context)
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1DeleteTagOptionOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteTagOptionOutput => {
-  return {
-    __type: "DeleteTagOptionOutput"
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeTagOptionOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeTagOptionOutput => {
-  return {
-    __type: "DescribeTagOptionOutput",
-    TagOptionDetail:
-      output.TagOptionDetail !== undefined && output.TagOptionDetail !== null
-        ? deserializeAws_json1_1TagOptionDetail(output.TagOptionDetail, context)
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1DisassociateTagOptionFromResourceOutput = (
-  output: any,
-  context: __SerdeContext
-): DisassociateTagOptionFromResourceOutput => {
-  return {
-    __type: "DisassociateTagOptionFromResourceOutput"
-  } as any;
-};
-
-const deserializeAws_json1_1ListResourcesForTagOptionOutput = (
-  output: any,
-  context: __SerdeContext
-): ListResourcesForTagOptionOutput => {
-  return {
-    __type: "ListResourcesForTagOptionOutput",
-    PageToken:
-      output.PageToken !== undefined && output.PageToken !== null
-        ? output.PageToken
-        : undefined,
-    ResourceDetails:
-      output.ResourceDetails !== undefined && output.ResourceDetails !== null
-        ? deserializeAws_json1_1ResourceDetails(output.ResourceDetails, context)
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ListTagOptionsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListTagOptionsOutput => {
-  return {
-    __type: "ListTagOptionsOutput",
-    PageToken:
-      output.PageToken !== undefined && output.PageToken !== null
-        ? output.PageToken
-        : undefined,
-    TagOptionDetails:
-      output.TagOptionDetails !== undefined && output.TagOptionDetails !== null
-        ? deserializeAws_json1_1TagOptionDetails(
-            output.TagOptionDetails,
-            context
-          )
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceDetail = (
-  output: any,
-  context: __SerdeContext
-): ResourceDetail => {
-  return {
-    __type: "ResourceDetail",
-    ARN:
-      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
-    CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
-        : undefined,
-    Description:
-      output.Description !== undefined && output.Description !== null
-        ? output.Description
-        : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceDetails = (
-  output: any,
-  context: __SerdeContext
-): ResourceDetail[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ResourceDetail(entry, context)
-  );
-};
-
-const deserializeAws_json1_1TagOptionDetail = (
-  output: any,
-  context: __SerdeContext
-): TagOptionDetail => {
-  return {
-    __type: "TagOptionDetail",
-    Active:
-      output.Active !== undefined && output.Active !== null
-        ? output.Active
-        : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1TagOptionDetails = (
-  output: any,
-  context: __SerdeContext
-): TagOptionDetail[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1TagOptionDetail(entry, context)
-  );
-};
-
-const deserializeAws_json1_1TagOptionValues = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
-const deserializeAws_json1_1UpdateTagOptionOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateTagOptionOutput => {
-  return {
-    __type: "UpdateTagOptionOutput",
-    TagOptionDetail:
-      output.TagOptionDetail !== undefined && output.TagOptionDetail !== null
-        ? deserializeAws_json1_1TagOptionDetail(output.TagOptionDetail, context)
-        : undefined
-  } as any;
+    ...(input.Active !== undefined && { Active: input.Active }),
+    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const deserializeAws_json1_1AcceptPortfolioShareOutput = (
@@ -10440,6 +10268,15 @@ const deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactOutput
 ): AssociateServiceActionWithProvisioningArtifactOutput => {
   return {
     __type: "AssociateServiceActionWithProvisioningArtifactOutput"
+  } as any;
+};
+
+const deserializeAws_json1_1AssociateTagOptionWithResourceOutput = (
+  output: any,
+  context: __SerdeContext
+): AssociateTagOptionWithResourceOutput => {
+  return {
+    __type: "AssociateTagOptionWithResourceOutput"
   } as any;
 };
 
@@ -10753,6 +10590,19 @@ const deserializeAws_json1_1CreateServiceActionOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateTagOptionOutput = (
+  output: any,
+  context: __SerdeContext
+): CreateTagOptionOutput => {
+  return {
+    __type: "CreateTagOptionOutput",
+    TagOptionDetail:
+      output.TagOptionDetail !== undefined && output.TagOptionDetail !== null
+        ? deserializeAws_json1_1TagOptionDetail(output.TagOptionDetail, context)
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1DeleteConstraintOutput = (
   output: any,
   context: __SerdeContext
@@ -10818,6 +10668,15 @@ const deserializeAws_json1_1DeleteServiceActionOutput = (
 ): DeleteServiceActionOutput => {
   return {
     __type: "DeleteServiceActionOutput"
+  } as any;
+};
+
+const deserializeAws_json1_1DeleteTagOptionOutput = (
+  output: any,
+  context: __SerdeContext
+): DeleteTagOptionOutput => {
+  return {
+    __type: "DeleteTagOptionOutput"
   } as any;
 };
 
@@ -11190,6 +11049,19 @@ const deserializeAws_json1_1DescribeServiceActionOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeTagOptionOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribeTagOptionOutput => {
+  return {
+    __type: "DescribeTagOptionOutput",
+    TagOptionDetail:
+      output.TagOptionDetail !== undefined && output.TagOptionDetail !== null
+        ? deserializeAws_json1_1TagOptionDetail(output.TagOptionDetail, context)
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1DisableAWSOrganizationsAccessOutput = (
   output: any,
   context: __SerdeContext
@@ -11232,6 +11104,15 @@ const deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactOut
 ): DisassociateServiceActionFromProvisioningArtifactOutput => {
   return {
     __type: "DisassociateServiceActionFromProvisioningArtifactOutput"
+  } as any;
+};
+
+const deserializeAws_json1_1DisassociateTagOptionFromResourceOutput = (
+  output: any,
+  context: __SerdeContext
+): DisassociateTagOptionFromResourceOutput => {
+  return {
+    __type: "DisassociateTagOptionFromResourceOutput"
   } as any;
 };
 
@@ -11307,13 +11188,6 @@ const deserializeAws_json1_1ExecutionParameter = (
   } as any;
 };
 
-const deserializeAws_json1_1ExecutionParameterValueList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
 const deserializeAws_json1_1ExecutionParameters = (
   output: any,
   context: __SerdeContext
@@ -11321,6 +11195,13 @@ const deserializeAws_json1_1ExecutionParameters = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ExecutionParameter(entry, context)
   );
+};
+
+const deserializeAws_json1_1ExecutionParameterValueList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1FailedServiceActionAssociation = (
@@ -11703,6 +11584,23 @@ const deserializeAws_json1_1ListRecordHistoryOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1ListResourcesForTagOptionOutput = (
+  output: any,
+  context: __SerdeContext
+): ListResourcesForTagOptionOutput => {
+  return {
+    __type: "ListResourcesForTagOptionOutput",
+    PageToken:
+      output.PageToken !== undefined && output.PageToken !== null
+        ? output.PageToken
+        : undefined,
+    ResourceDetails:
+      output.ResourceDetails !== undefined && output.ResourceDetails !== null
+        ? deserializeAws_json1_1ResourceDetails(output.ResourceDetails, context)
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1ListServiceActionsForProvisioningArtifactOutput = (
   output: any,
   context: __SerdeContext
@@ -11758,6 +11656,26 @@ const deserializeAws_json1_1ListStackInstancesForProvisionedProductOutput = (
     StackInstances:
       output.StackInstances !== undefined && output.StackInstances !== null
         ? deserializeAws_json1_1StackInstances(output.StackInstances, context)
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ListTagOptionsOutput = (
+  output: any,
+  context: __SerdeContext
+): ListTagOptionsOutput => {
+  return {
+    __type: "ListTagOptionsOutput",
+    PageToken:
+      output.PageToken !== undefined && output.PageToken !== null
+        ? output.PageToken
+        : undefined,
+    TagOptionDetails:
+      output.TagOptionDetails !== undefined && output.TagOptionDetails !== null
+        ? deserializeAws_json1_1TagOptionDetails(
+            output.TagOptionDetails,
+            context
+          )
         : undefined
   } as any;
 };
@@ -11891,6 +11809,22 @@ const deserializeAws_json1_1Principals = (
   );
 };
 
+const deserializeAws_json1_1ProductViewAggregations = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: ProductViewAggregationValue[] } => {
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: ProductViewAggregationValue[] },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1ProductViewAggregationValues(value, context)
+    }),
+    {}
+  );
+};
+
 const deserializeAws_json1_1ProductViewAggregationValue = (
   output: any,
   context: __SerdeContext
@@ -11914,22 +11848,6 @@ const deserializeAws_json1_1ProductViewAggregationValues = (
 ): ProductViewAggregationValue[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ProductViewAggregationValue(entry, context)
-  );
-};
-
-const deserializeAws_json1_1ProductViewAggregations = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: ProductViewAggregationValue[] } => {
-  return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: ProductViewAggregationValue[] },
-      [key, value]: [string, any]
-    ) => ({
-      ...acc,
-      [key]: deserializeAws_json1_1ProductViewAggregationValues(value, context)
-    }),
-    {}
   );
 };
 
@@ -12027,19 +11945,6 @@ const deserializeAws_json1_1ProductViewSummary = (
     Type:
       output.Type !== undefined && output.Type !== null
         ? output.Type
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ProvisionProductOutput = (
-  output: any,
-  context: __SerdeContext
-): ProvisionProductOutput => {
-  return {
-    __type: "ProvisionProductOutput",
-    RecordDetail:
-      output.RecordDetail !== undefined && output.RecordDetail !== null
-        ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context)
         : undefined
   } as any;
 };
@@ -12255,6 +12160,15 @@ const deserializeAws_json1_1ProvisionedProductPlanDetails = (
   } as any;
 };
 
+const deserializeAws_json1_1ProvisionedProductPlans = (
+  output: any,
+  context: __SerdeContext
+): ProvisionedProductPlanSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ProvisionedProductPlanSummary(entry, context)
+  );
+};
+
 const deserializeAws_json1_1ProvisionedProductPlanSummary = (
   output: any,
   context: __SerdeContext
@@ -12289,15 +12203,6 @@ const deserializeAws_json1_1ProvisionedProductPlanSummary = (
         ? output.ProvisioningArtifactId
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1ProvisionedProductPlans = (
-  output: any,
-  context: __SerdeContext
-): ProvisionedProductPlanSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ProvisionedProductPlanSummary(entry, context)
-  );
 };
 
 const deserializeAws_json1_1ProvisionedProductProperties = (
@@ -12464,6 +12369,15 @@ const deserializeAws_json1_1ProvisioningArtifactPreferences = (
   } as any;
 };
 
+const deserializeAws_json1_1ProvisioningArtifacts = (
+  output: any,
+  context: __SerdeContext
+): ProvisioningArtifact[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ProvisioningArtifact(entry, context)
+  );
+};
+
 const deserializeAws_json1_1ProvisioningArtifactSummaries = (
   output: any,
   context: __SerdeContext
@@ -12537,13 +12451,17 @@ const deserializeAws_json1_1ProvisioningArtifactViews = (
   );
 };
 
-const deserializeAws_json1_1ProvisioningArtifacts = (
+const deserializeAws_json1_1ProvisionProductOutput = (
   output: any,
   context: __SerdeContext
-): ProvisioningArtifact[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ProvisioningArtifact(entry, context)
-  );
+): ProvisionProductOutput => {
+  return {
+    __type: "ProvisionProductOutput",
+    RecordDetail:
+      output.RecordDetail !== undefined && output.RecordDetail !== null
+        ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RecordDetail = (
@@ -12784,6 +12702,39 @@ const deserializeAws_json1_1ResourceChanges = (
 ): ResourceChange[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceChange(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ResourceDetail = (
+  output: any,
+  context: __SerdeContext
+): ResourceDetail => {
+  return {
+    __type: "ResourceDetail",
+    ARN:
+      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    CreatedTime:
+      output.CreatedTime !== undefined && output.CreatedTime !== null
+        ? new Date(Math.round(output.CreatedTime * 1000))
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ResourceDetails = (
+  output: any,
+  context: __SerdeContext
+): ResourceDetail[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ResourceDetail(entry, context)
   );
 };
 
@@ -13127,6 +13078,35 @@ const deserializeAws_json1_1Tag = (
   } as any;
 };
 
+const deserializeAws_json1_1TagOptionDetail = (
+  output: any,
+  context: __SerdeContext
+): TagOptionDetail => {
+  return {
+    __type: "TagOptionDetail",
+    Active:
+      output.Active !== undefined && output.Active !== null
+        ? output.Active
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1TagOptionDetails = (
+  output: any,
+  context: __SerdeContext
+): TagOptionDetail[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1TagOptionDetail(entry, context)
+  );
+};
+
 const deserializeAws_json1_1TagOptionNotMigratedException = (
   output: any,
   context: __SerdeContext
@@ -13162,6 +13142,13 @@ const deserializeAws_json1_1TagOptionSummary = (
         ? deserializeAws_json1_1TagOptionValues(output.Values, context)
         : undefined
   } as any;
+};
+
+const deserializeAws_json1_1TagOptionValues = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1Tags = (
@@ -13358,6 +13345,19 @@ const deserializeAws_json1_1UpdateServiceActionOutput = (
             output.ServiceActionDetail,
             context
           )
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateTagOptionOutput = (
+  output: any,
+  context: __SerdeContext
+): UpdateTagOptionOutput => {
+  return {
+    __type: "UpdateTagOptionOutput",
+    TagOptionDetail:
+      output.TagOptionDetail !== undefined && output.TagOptionDetail !== null
+        ? deserializeAws_json1_1TagOptionDetail(output.TagOptionDetail, context)
         : undefined
   } as any;
 };

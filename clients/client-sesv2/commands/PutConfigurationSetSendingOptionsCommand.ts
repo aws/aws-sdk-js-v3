@@ -8,9 +8,9 @@ import {
   PutConfigurationSetSendingOptionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutConfigurationSetSendingOptionsCommand,
-  serializeAws_restJson1_1PutConfigurationSetSendingOptionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutConfigurationSetSendingOptionsCommand,
+  serializeAws_restJson1PutConfigurationSetSendingOptionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command<
     input: PutConfigurationSetSendingOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutConfigurationSetSendingOptionsCommand(
+    return serializeAws_restJson1PutConfigurationSetSendingOptionsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationSetSendingOptionsCommandOutput> {
-    return deserializeAws_restJson1_1PutConfigurationSetSendingOptionsCommand(
+    return deserializeAws_restJson1PutConfigurationSetSendingOptionsCommand(
       output,
       context
     );

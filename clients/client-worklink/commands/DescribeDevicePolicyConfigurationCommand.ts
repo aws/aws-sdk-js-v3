@@ -8,9 +8,9 @@ import {
   DescribeDevicePolicyConfigurationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeDevicePolicyConfigurationCommand,
-  serializeAws_restJson1_1DescribeDevicePolicyConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeDevicePolicyConfigurationCommand,
+  serializeAws_restJson1DescribeDevicePolicyConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeDevicePolicyConfigurationCommand extends $Command<
     input: DescribeDevicePolicyConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeDevicePolicyConfigurationCommand(
+    return serializeAws_restJson1DescribeDevicePolicyConfigurationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeDevicePolicyConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDevicePolicyConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DescribeDevicePolicyConfigurationCommand(
+    return deserializeAws_restJson1DescribeDevicePolicyConfigurationCommand(
       output,
       context
     );

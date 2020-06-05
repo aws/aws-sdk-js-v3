@@ -1,8 +1,8 @@
 import { UpdateSchemaRequest, UpdateSchemaResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateSchemaCommand,
-  serializeAws_restJson1_1UpdateSchemaCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateSchemaCommand,
+  serializeAws_restJson1UpdateSchemaCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -67,14 +67,14 @@ export class UpdateSchemaCommand extends $Command<
     input: UpdateSchemaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateSchemaCommand(input, context);
+    return serializeAws_restJson1UpdateSchemaCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSchemaCommandOutput> {
-    return deserializeAws_restJson1_1UpdateSchemaCommand(output, context);
+    return deserializeAws_restJson1UpdateSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

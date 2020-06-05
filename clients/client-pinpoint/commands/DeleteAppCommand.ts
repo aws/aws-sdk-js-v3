@@ -5,9 +5,9 @@ import {
 } from "../PinpointClient";
 import { DeleteAppRequest, DeleteAppResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteAppCommand,
-  serializeAws_restJson1_1DeleteAppCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteAppCommand,
+  serializeAws_restJson1DeleteAppCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteAppCommand extends $Command<
     input: DeleteAppCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteAppCommand(input, context);
+    return serializeAws_restJson1DeleteAppCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAppCommandOutput> {
-    return deserializeAws_restJson1_1DeleteAppCommand(output, context);
+    return deserializeAws_restJson1DeleteAppCommand(output, context);
   }
 
   // Start section: command_body_extra

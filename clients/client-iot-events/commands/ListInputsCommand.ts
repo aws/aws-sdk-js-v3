@@ -5,9 +5,9 @@ import {
 } from "../IoTEventsClient";
 import { ListInputsRequest, ListInputsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListInputsCommand,
-  serializeAws_restJson1_1ListInputsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListInputsCommand,
+  serializeAws_restJson1ListInputsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListInputsCommand extends $Command<
     input: ListInputsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListInputsCommand(input, context);
+    return serializeAws_restJson1ListInputsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListInputsCommandOutput> {
-    return deserializeAws_restJson1_1ListInputsCommand(output, context);
+    return deserializeAws_restJson1ListInputsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -8,9 +8,9 @@ import {
   GetPendingJobExecutionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetPendingJobExecutionsCommand,
-  serializeAws_restJson1_1GetPendingJobExecutionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetPendingJobExecutionsCommand,
+  serializeAws_restJson1GetPendingJobExecutionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetPendingJobExecutionsCommand extends $Command<
     input: GetPendingJobExecutionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetPendingJobExecutionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1GetPendingJobExecutionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPendingJobExecutionsCommandOutput> {
-    return deserializeAws_restJson1_1GetPendingJobExecutionsCommand(
+    return deserializeAws_restJson1GetPendingJobExecutionsCommand(
       output,
       context
     );

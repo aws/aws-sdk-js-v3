@@ -8,9 +8,9 @@ import {
   GetUtterancesViewResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetUtterancesViewCommand,
-  serializeAws_restJson1_1GetUtterancesViewCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetUtterancesViewCommand,
+  serializeAws_restJson1GetUtterancesViewCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetUtterancesViewCommand extends $Command<
     input: GetUtterancesViewCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetUtterancesViewCommand(input, context);
+    return serializeAws_restJson1GetUtterancesViewCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetUtterancesViewCommandOutput> {
-    return deserializeAws_restJson1_1GetUtterancesViewCommand(output, context);
+    return deserializeAws_restJson1GetUtterancesViewCommand(output, context);
   }
 
   // Start section: command_body_extra

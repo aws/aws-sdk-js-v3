@@ -8,9 +8,9 @@ import {
   UpdateOriginEndpointResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateOriginEndpointCommand,
-  serializeAws_restJson1_1UpdateOriginEndpointCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateOriginEndpointCommand,
+  serializeAws_restJson1UpdateOriginEndpointCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class UpdateOriginEndpointCommand extends $Command<
     input: UpdateOriginEndpointCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateOriginEndpointCommand(input, context);
+    return serializeAws_restJson1UpdateOriginEndpointCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateOriginEndpointCommandOutput> {
-    return deserializeAws_restJson1_1UpdateOriginEndpointCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateOriginEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

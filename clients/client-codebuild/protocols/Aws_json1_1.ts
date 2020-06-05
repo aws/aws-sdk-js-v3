@@ -3753,6 +3753,13 @@ const serializeAws_json1_1ProjectSource = (
   };
 };
 
+const serializeAws_json1_1ProjectSources = (
+  input: ProjectSource[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => serializeAws_json1_1ProjectSource(entry, context));
+};
+
 const serializeAws_json1_1ProjectSourceVersion = (
   input: ProjectSourceVersion,
   context: __SerdeContext
@@ -3765,13 +3772,6 @@ const serializeAws_json1_1ProjectSourceVersion = (
       sourceVersion: input.sourceVersion
     })
   };
-};
-
-const serializeAws_json1_1ProjectSources = (
-  input: ProjectSource[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_json1_1ProjectSource(entry, context));
 };
 
 const serializeAws_json1_1PutResourcePolicyInput = (
@@ -4889,6 +4889,15 @@ const deserializeAws_json1_1ImportSourceCredentialsOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1InvalidateProjectCacheOutput = (
+  output: any,
+  context: __SerdeContext
+): InvalidateProjectCacheOutput => {
+  return {
+    __type: "InvalidateProjectCacheOutput"
+  } as any;
+};
+
 const deserializeAws_json1_1InvalidInputException = (
   output: any,
   context: __SerdeContext
@@ -4899,15 +4908,6 @@ const deserializeAws_json1_1InvalidInputException = (
       output.message !== undefined && output.message !== null
         ? output.message
         : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidateProjectCacheOutput = (
-  output: any,
-  context: __SerdeContext
-): InvalidateProjectCacheOutput => {
-  return {
-    __type: "InvalidateProjectCacheOutput"
   } as any;
 };
 
@@ -5469,6 +5469,15 @@ const deserializeAws_json1_1ProjectNames = (
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_json1_1Projects = (
+  output: any,
+  context: __SerdeContext
+): Project[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Project(entry, context)
+  );
+};
+
 const deserializeAws_json1_1ProjectSecondarySourceVersions = (
   output: any,
   context: __SerdeContext
@@ -5528,6 +5537,15 @@ const deserializeAws_json1_1ProjectSource = (
   } as any;
 };
 
+const deserializeAws_json1_1ProjectSources = (
+  output: any,
+  context: __SerdeContext
+): ProjectSource[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ProjectSource(entry, context)
+  );
+};
+
 const deserializeAws_json1_1ProjectSourceVersion = (
   output: any,
   context: __SerdeContext
@@ -5543,24 +5561,6 @@ const deserializeAws_json1_1ProjectSourceVersion = (
         ? output.sourceVersion
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1ProjectSources = (
-  output: any,
-  context: __SerdeContext
-): ProjectSource[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ProjectSource(entry, context)
-  );
-};
-
-const deserializeAws_json1_1Projects = (
-  output: any,
-  context: __SerdeContext
-): Project[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Project(entry, context)
-  );
 };
 
 const deserializeAws_json1_1PutResourcePolicyOutput = (
@@ -5719,6 +5719,15 @@ const deserializeAws_json1_1ReportGroups = (
   );
 };
 
+const deserializeAws_json1_1Reports = (
+  output: any,
+  context: __SerdeContext
+): Report[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Report(entry, context)
+  );
+};
+
 const deserializeAws_json1_1ReportStatusCounts = (
   output: any,
   context: __SerdeContext
@@ -5729,15 +5738,6 @@ const deserializeAws_json1_1ReportStatusCounts = (
       [key]: value
     }),
     {}
-  );
-};
-
-const deserializeAws_json1_1Reports = (
-  output: any,
-  context: __SerdeContext
-): Report[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Report(entry, context)
   );
 };
 

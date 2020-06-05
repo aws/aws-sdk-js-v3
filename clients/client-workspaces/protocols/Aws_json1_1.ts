@@ -569,21 +569,6 @@ export const serializeAws_json1_1DescribeWorkspaceImagesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeWorkspaceSnapshotsCommand = async (
-  input: DescribeWorkspaceSnapshotsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkspacesService.DescribeWorkspaceSnapshots"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeWorkspaceSnapshotsRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1DescribeWorkspacesCommand = async (
   input: DescribeWorkspacesCommandInput,
   context: __SerdeContext
@@ -613,6 +598,21 @@ export const serializeAws_json1_1DescribeWorkspacesConnectionStatusCommand = asy
       input,
       context
     )
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeWorkspaceSnapshotsCommand = async (
+  input: DescribeWorkspaceSnapshotsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeWorkspaceSnapshots"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeWorkspaceSnapshotsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2421,94 +2421,6 @@ const deserializeAws_json1_1DescribeWorkspaceImagesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeWorkspaceSnapshotsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorkspaceSnapshotsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeWorkspaceSnapshotsCommandError(
-      output,
-      context
-    );
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DescribeWorkspaceSnapshotsResult(
-    data,
-    context
-  );
-  const response: DescribeWorkspaceSnapshotsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DescribeWorkspaceSnapshotsResult",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DescribeWorkspaceSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorkspaceSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
 export const deserializeAws_json1_1DescribeWorkspacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2625,6 +2537,94 @@ const deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommandError = asy
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeWorkspaceSnapshotsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorkspaceSnapshotsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeWorkspaceSnapshotsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeWorkspaceSnapshotsResult(
+    data,
+    context
+  );
+  const response: DescribeWorkspaceSnapshotsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeWorkspaceSnapshotsResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeWorkspaceSnapshotsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorkspaceSnapshotsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
           context
         )),
@@ -4878,15 +4878,6 @@ const serializeAws_json1_1DescribeWorkspaceImagesRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeWorkspaceSnapshotsRequest = (
-  input: DescribeWorkspaceSnapshotsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.WorkspaceId !== undefined && { WorkspaceId: input.WorkspaceId })
-  };
-};
-
 const serializeAws_json1_1DescribeWorkspacesConnectionStatusRequest = (
   input: DescribeWorkspacesConnectionStatusRequest,
   context: __SerdeContext
@@ -4899,6 +4890,15 @@ const serializeAws_json1_1DescribeWorkspacesConnectionStatusRequest = (
         context
       )
     })
+  };
+};
+
+const serializeAws_json1_1DescribeWorkspaceSnapshotsRequest = (
+  input: DescribeWorkspaceSnapshotsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.WorkspaceId !== undefined && { WorkspaceId: input.WorkspaceId })
   };
 };
 
@@ -5919,23 +5919,6 @@ const deserializeAws_json1_1DescribeWorkspaceImagesResult = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeWorkspaceSnapshotsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeWorkspaceSnapshotsResult => {
-  return {
-    __type: "DescribeWorkspaceSnapshotsResult",
-    RebuildSnapshots:
-      output.RebuildSnapshots !== undefined && output.RebuildSnapshots !== null
-        ? deserializeAws_json1_1SnapshotList(output.RebuildSnapshots, context)
-        : undefined,
-    RestoreSnapshots:
-      output.RestoreSnapshots !== undefined && output.RestoreSnapshots !== null
-        ? deserializeAws_json1_1SnapshotList(output.RestoreSnapshots, context)
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1DescribeWorkspacesConnectionStatusResult = (
   output: any,
   context: __SerdeContext
@@ -5953,6 +5936,23 @@ const deserializeAws_json1_1DescribeWorkspacesConnectionStatusResult = (
             output.WorkspacesConnectionStatus,
             context
           )
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeWorkspaceSnapshotsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeWorkspaceSnapshotsResult => {
+  return {
+    __type: "DescribeWorkspaceSnapshotsResult",
+    RebuildSnapshots:
+      output.RebuildSnapshots !== undefined && output.RebuildSnapshots !== null
+        ? deserializeAws_json1_1SnapshotList(output.RebuildSnapshots, context)
+        : undefined,
+    RestoreSnapshots:
+      output.RestoreSnapshots !== undefined && output.RestoreSnapshots !== null
+        ? deserializeAws_json1_1SnapshotList(output.RestoreSnapshots, context)
         : undefined
   } as any;
 };

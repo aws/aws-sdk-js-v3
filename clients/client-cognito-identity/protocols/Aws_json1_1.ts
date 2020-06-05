@@ -494,7 +494,7 @@ const deserializeAws_json1_1CreateIdentityPoolCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.cognito.identity.model#InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -505,7 +505,7 @@ const deserializeAws_json1_1CreateIdentityPoolCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.cognito.identity.model#InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -516,7 +516,7 @@ const deserializeAws_json1_1CreateIdentityPoolCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.cognito.identity.model#LimitExceededException":
+    case "com.amazonaws.cognitoidentity#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -527,7 +527,7 @@ const deserializeAws_json1_1CreateIdentityPoolCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "com.amazonaws.cognito.identity.model#NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -538,7 +538,7 @@ const deserializeAws_json1_1CreateIdentityPoolCommandError = async (
       };
       break;
     case "ResourceConflictException":
-    case "com.amazonaws.cognito.identity.model#ResourceConflictException":
+    case "com.amazonaws.cognitoidentity#ResourceConflictException":
       response = {
         ...(await deserializeAws_json1_1ResourceConflictExceptionResponse(
           parsedOutput,
@@ -549,7 +549,7 @@ const deserializeAws_json1_1CreateIdentityPoolCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.cognito.identity.model#TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -609,7 +609,7 @@ const deserializeAws_json1_1DeleteIdentitiesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.cognito.identity.model#InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -620,7 +620,7 @@ const deserializeAws_json1_1DeleteIdentitiesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.cognito.identity.model#InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -631,7 +631,7 @@ const deserializeAws_json1_1DeleteIdentitiesCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.cognito.identity.model#TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -690,7 +690,7 @@ const deserializeAws_json1_1DeleteIdentityPoolCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.cognito.identity.model#InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -701,7 +701,7 @@ const deserializeAws_json1_1DeleteIdentityPoolCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.cognito.identity.model#InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -712,7 +712,7 @@ const deserializeAws_json1_1DeleteIdentityPoolCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "com.amazonaws.cognito.identity.model#NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -723,7 +723,7 @@ const deserializeAws_json1_1DeleteIdentityPoolCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cognito.identity.model#ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentity#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -734,7 +734,7 @@ const deserializeAws_json1_1DeleteIdentityPoolCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.cognito.identity.model#TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -794,7 +794,7 @@ const deserializeAws_json1_1DescribeIdentityCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.cognito.identity.model#InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -805,7 +805,7 @@ const deserializeAws_json1_1DescribeIdentityCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.cognito.identity.model#InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -816,7 +816,7 @@ const deserializeAws_json1_1DescribeIdentityCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "com.amazonaws.cognito.identity.model#NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -827,7 +827,7 @@ const deserializeAws_json1_1DescribeIdentityCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cognito.identity.model#ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentity#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -838,7 +838,7 @@ const deserializeAws_json1_1DescribeIdentityCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.cognito.identity.model#TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -901,7 +901,7 @@ const deserializeAws_json1_1DescribeIdentityPoolCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.cognito.identity.model#InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -912,7 +912,7 @@ const deserializeAws_json1_1DescribeIdentityPoolCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.cognito.identity.model#InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -923,7 +923,7 @@ const deserializeAws_json1_1DescribeIdentityPoolCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "com.amazonaws.cognito.identity.model#NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -934,7 +934,7 @@ const deserializeAws_json1_1DescribeIdentityPoolCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cognito.identity.model#ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentity#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -945,7 +945,7 @@ const deserializeAws_json1_1DescribeIdentityPoolCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.cognito.identity.model#TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1011,7 +1011,7 @@ const deserializeAws_json1_1GetCredentialsForIdentityCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExternalServiceException":
-    case "com.amazonaws.cognito.identity.model#ExternalServiceException":
+    case "com.amazonaws.cognitoidentity#ExternalServiceException":
       response = {
         ...(await deserializeAws_json1_1ExternalServiceExceptionResponse(
           parsedOutput,
@@ -1022,7 +1022,7 @@ const deserializeAws_json1_1GetCredentialsForIdentityCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.cognito.identity.model#InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1033,7 +1033,7 @@ const deserializeAws_json1_1GetCredentialsForIdentityCommandError = async (
       };
       break;
     case "InvalidIdentityPoolConfigurationException":
-    case "com.amazonaws.cognito.identity.model#InvalidIdentityPoolConfigurationException":
+    case "com.amazonaws.cognitoidentity#InvalidIdentityPoolConfigurationException":
       response = {
         ...(await deserializeAws_json1_1InvalidIdentityPoolConfigurationExceptionResponse(
           parsedOutput,
@@ -1044,7 +1044,7 @@ const deserializeAws_json1_1GetCredentialsForIdentityCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.cognito.identity.model#InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1055,7 +1055,7 @@ const deserializeAws_json1_1GetCredentialsForIdentityCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "com.amazonaws.cognito.identity.model#NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -1066,7 +1066,7 @@ const deserializeAws_json1_1GetCredentialsForIdentityCommandError = async (
       };
       break;
     case "ResourceConflictException":
-    case "com.amazonaws.cognito.identity.model#ResourceConflictException":
+    case "com.amazonaws.cognitoidentity#ResourceConflictException":
       response = {
         ...(await deserializeAws_json1_1ResourceConflictExceptionResponse(
           parsedOutput,
@@ -1077,7 +1077,7 @@ const deserializeAws_json1_1GetCredentialsForIdentityCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cognito.identity.model#ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentity#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1088,7 +1088,7 @@ const deserializeAws_json1_1GetCredentialsForIdentityCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.cognito.identity.model#TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1148,7 +1148,7 @@ const deserializeAws_json1_1GetIdCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExternalServiceException":
-    case "com.amazonaws.cognito.identity.model#ExternalServiceException":
+    case "com.amazonaws.cognitoidentity#ExternalServiceException":
       response = {
         ...(await deserializeAws_json1_1ExternalServiceExceptionResponse(
           parsedOutput,
@@ -1159,7 +1159,7 @@ const deserializeAws_json1_1GetIdCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.cognito.identity.model#InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1170,7 +1170,7 @@ const deserializeAws_json1_1GetIdCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.cognito.identity.model#InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1181,7 +1181,7 @@ const deserializeAws_json1_1GetIdCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.cognito.identity.model#LimitExceededException":
+    case "com.amazonaws.cognitoidentity#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1192,7 +1192,7 @@ const deserializeAws_json1_1GetIdCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "com.amazonaws.cognito.identity.model#NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -1203,7 +1203,7 @@ const deserializeAws_json1_1GetIdCommandError = async (
       };
       break;
     case "ResourceConflictException":
-    case "com.amazonaws.cognito.identity.model#ResourceConflictException":
+    case "com.amazonaws.cognitoidentity#ResourceConflictException":
       response = {
         ...(await deserializeAws_json1_1ResourceConflictExceptionResponse(
           parsedOutput,
@@ -1214,7 +1214,7 @@ const deserializeAws_json1_1GetIdCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cognito.identity.model#ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentity#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1225,7 +1225,7 @@ const deserializeAws_json1_1GetIdCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.cognito.identity.model#TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1288,7 +1288,7 @@ const deserializeAws_json1_1GetIdentityPoolRolesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.cognito.identity.model#InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1299,7 +1299,7 @@ const deserializeAws_json1_1GetIdentityPoolRolesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.cognito.identity.model#InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1310,7 +1310,7 @@ const deserializeAws_json1_1GetIdentityPoolRolesCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "com.amazonaws.cognito.identity.model#NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -1321,7 +1321,7 @@ const deserializeAws_json1_1GetIdentityPoolRolesCommandError = async (
       };
       break;
     case "ResourceConflictException":
-    case "com.amazonaws.cognito.identity.model#ResourceConflictException":
+    case "com.amazonaws.cognitoidentity#ResourceConflictException":
       response = {
         ...(await deserializeAws_json1_1ResourceConflictExceptionResponse(
           parsedOutput,
@@ -1332,7 +1332,7 @@ const deserializeAws_json1_1GetIdentityPoolRolesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cognito.identity.model#ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentity#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1343,7 +1343,7 @@ const deserializeAws_json1_1GetIdentityPoolRolesCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.cognito.identity.model#TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1403,7 +1403,7 @@ const deserializeAws_json1_1GetOpenIdTokenCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExternalServiceException":
-    case "com.amazonaws.cognito.identity.model#ExternalServiceException":
+    case "com.amazonaws.cognitoidentity#ExternalServiceException":
       response = {
         ...(await deserializeAws_json1_1ExternalServiceExceptionResponse(
           parsedOutput,
@@ -1414,7 +1414,7 @@ const deserializeAws_json1_1GetOpenIdTokenCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.cognito.identity.model#InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1425,7 +1425,7 @@ const deserializeAws_json1_1GetOpenIdTokenCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.cognito.identity.model#InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1436,7 +1436,7 @@ const deserializeAws_json1_1GetOpenIdTokenCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "com.amazonaws.cognito.identity.model#NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -1447,7 +1447,7 @@ const deserializeAws_json1_1GetOpenIdTokenCommandError = async (
       };
       break;
     case "ResourceConflictException":
-    case "com.amazonaws.cognito.identity.model#ResourceConflictException":
+    case "com.amazonaws.cognitoidentity#ResourceConflictException":
       response = {
         ...(await deserializeAws_json1_1ResourceConflictExceptionResponse(
           parsedOutput,
@@ -1458,7 +1458,7 @@ const deserializeAws_json1_1GetOpenIdTokenCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cognito.identity.model#ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentity#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1469,7 +1469,7 @@ const deserializeAws_json1_1GetOpenIdTokenCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.cognito.identity.model#TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1535,7 +1535,7 @@ const deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommandError = asy
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DeveloperUserAlreadyRegisteredException":
-    case "com.amazonaws.cognito.identity.model#DeveloperUserAlreadyRegisteredException":
+    case "com.amazonaws.cognitoidentity#DeveloperUserAlreadyRegisteredException":
       response = {
         ...(await deserializeAws_json1_1DeveloperUserAlreadyRegisteredExceptionResponse(
           parsedOutput,
@@ -1546,7 +1546,7 @@ const deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommandError = asy
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.cognito.identity.model#InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1557,7 +1557,7 @@ const deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommandError = asy
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.cognito.identity.model#InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1568,7 +1568,7 @@ const deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommandError = asy
       };
       break;
     case "NotAuthorizedException":
-    case "com.amazonaws.cognito.identity.model#NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -1579,7 +1579,7 @@ const deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommandError = asy
       };
       break;
     case "ResourceConflictException":
-    case "com.amazonaws.cognito.identity.model#ResourceConflictException":
+    case "com.amazonaws.cognitoidentity#ResourceConflictException":
       response = {
         ...(await deserializeAws_json1_1ResourceConflictExceptionResponse(
           parsedOutput,
@@ -1590,7 +1590,7 @@ const deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommandError = asy
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cognito.identity.model#ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentity#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1601,7 +1601,7 @@ const deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommandError = asy
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.cognito.identity.model#TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1661,7 +1661,7 @@ const deserializeAws_json1_1ListIdentitiesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.cognito.identity.model#InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1672,7 +1672,7 @@ const deserializeAws_json1_1ListIdentitiesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.cognito.identity.model#InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1683,7 +1683,7 @@ const deserializeAws_json1_1ListIdentitiesCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "com.amazonaws.cognito.identity.model#NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -1694,7 +1694,7 @@ const deserializeAws_json1_1ListIdentitiesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cognito.identity.model#ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentity#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1705,7 +1705,7 @@ const deserializeAws_json1_1ListIdentitiesCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.cognito.identity.model#TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1765,7 +1765,7 @@ const deserializeAws_json1_1ListIdentityPoolsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.cognito.identity.model#InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1776,7 +1776,7 @@ const deserializeAws_json1_1ListIdentityPoolsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.cognito.identity.model#InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1787,7 +1787,7 @@ const deserializeAws_json1_1ListIdentityPoolsCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "com.amazonaws.cognito.identity.model#NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -1798,7 +1798,7 @@ const deserializeAws_json1_1ListIdentityPoolsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cognito.identity.model#ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentity#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1809,7 +1809,7 @@ const deserializeAws_json1_1ListIdentityPoolsCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.cognito.identity.model#TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1872,7 +1872,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.cognito.identity.model#InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1883,7 +1883,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.cognito.identity.model#InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1894,7 +1894,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "com.amazonaws.cognito.identity.model#NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -1905,7 +1905,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cognito.identity.model#ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentity#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1916,7 +1916,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.cognito.identity.model#TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1982,7 +1982,7 @@ const deserializeAws_json1_1LookupDeveloperIdentityCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.cognito.identity.model#InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1993,7 +1993,7 @@ const deserializeAws_json1_1LookupDeveloperIdentityCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.cognito.identity.model#InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2004,7 +2004,7 @@ const deserializeAws_json1_1LookupDeveloperIdentityCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "com.amazonaws.cognito.identity.model#NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -2015,7 +2015,7 @@ const deserializeAws_json1_1LookupDeveloperIdentityCommandError = async (
       };
       break;
     case "ResourceConflictException":
-    case "com.amazonaws.cognito.identity.model#ResourceConflictException":
+    case "com.amazonaws.cognitoidentity#ResourceConflictException":
       response = {
         ...(await deserializeAws_json1_1ResourceConflictExceptionResponse(
           parsedOutput,
@@ -2026,7 +2026,7 @@ const deserializeAws_json1_1LookupDeveloperIdentityCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cognito.identity.model#ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentity#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2037,7 +2037,7 @@ const deserializeAws_json1_1LookupDeveloperIdentityCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.cognito.identity.model#TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -2103,7 +2103,7 @@ const deserializeAws_json1_1MergeDeveloperIdentitiesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.cognito.identity.model#InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -2114,7 +2114,7 @@ const deserializeAws_json1_1MergeDeveloperIdentitiesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.cognito.identity.model#InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2125,7 +2125,7 @@ const deserializeAws_json1_1MergeDeveloperIdentitiesCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "com.amazonaws.cognito.identity.model#NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -2136,7 +2136,7 @@ const deserializeAws_json1_1MergeDeveloperIdentitiesCommandError = async (
       };
       break;
     case "ResourceConflictException":
-    case "com.amazonaws.cognito.identity.model#ResourceConflictException":
+    case "com.amazonaws.cognitoidentity#ResourceConflictException":
       response = {
         ...(await deserializeAws_json1_1ResourceConflictExceptionResponse(
           parsedOutput,
@@ -2147,7 +2147,7 @@ const deserializeAws_json1_1MergeDeveloperIdentitiesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cognito.identity.model#ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentity#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2158,7 +2158,7 @@ const deserializeAws_json1_1MergeDeveloperIdentitiesCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.cognito.identity.model#TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -2217,7 +2217,7 @@ const deserializeAws_json1_1SetIdentityPoolRolesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.cognito.identity.model#ConcurrentModificationException":
+    case "com.amazonaws.cognitoidentity#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2228,7 +2228,7 @@ const deserializeAws_json1_1SetIdentityPoolRolesCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.cognito.identity.model#InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -2239,7 +2239,7 @@ const deserializeAws_json1_1SetIdentityPoolRolesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.cognito.identity.model#InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2250,7 +2250,7 @@ const deserializeAws_json1_1SetIdentityPoolRolesCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "com.amazonaws.cognito.identity.model#NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -2261,7 +2261,7 @@ const deserializeAws_json1_1SetIdentityPoolRolesCommandError = async (
       };
       break;
     case "ResourceConflictException":
-    case "com.amazonaws.cognito.identity.model#ResourceConflictException":
+    case "com.amazonaws.cognitoidentity#ResourceConflictException":
       response = {
         ...(await deserializeAws_json1_1ResourceConflictExceptionResponse(
           parsedOutput,
@@ -2272,7 +2272,7 @@ const deserializeAws_json1_1SetIdentityPoolRolesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cognito.identity.model#ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentity#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2283,7 +2283,7 @@ const deserializeAws_json1_1SetIdentityPoolRolesCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.cognito.identity.model#TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -2343,7 +2343,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.cognito.identity.model#InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -2354,7 +2354,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.cognito.identity.model#InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2365,7 +2365,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "com.amazonaws.cognito.identity.model#NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -2376,7 +2376,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cognito.identity.model#ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentity#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2387,7 +2387,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.cognito.identity.model#TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -2446,7 +2446,7 @@ const deserializeAws_json1_1UnlinkDeveloperIdentityCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.cognito.identity.model#InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -2457,7 +2457,7 @@ const deserializeAws_json1_1UnlinkDeveloperIdentityCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.cognito.identity.model#InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2468,7 +2468,7 @@ const deserializeAws_json1_1UnlinkDeveloperIdentityCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "com.amazonaws.cognito.identity.model#NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -2479,7 +2479,7 @@ const deserializeAws_json1_1UnlinkDeveloperIdentityCommandError = async (
       };
       break;
     case "ResourceConflictException":
-    case "com.amazonaws.cognito.identity.model#ResourceConflictException":
+    case "com.amazonaws.cognitoidentity#ResourceConflictException":
       response = {
         ...(await deserializeAws_json1_1ResourceConflictExceptionResponse(
           parsedOutput,
@@ -2490,7 +2490,7 @@ const deserializeAws_json1_1UnlinkDeveloperIdentityCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cognito.identity.model#ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentity#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2501,7 +2501,7 @@ const deserializeAws_json1_1UnlinkDeveloperIdentityCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.cognito.identity.model#TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -2557,7 +2557,7 @@ const deserializeAws_json1_1UnlinkIdentityCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExternalServiceException":
-    case "com.amazonaws.cognito.identity.model#ExternalServiceException":
+    case "com.amazonaws.cognitoidentity#ExternalServiceException":
       response = {
         ...(await deserializeAws_json1_1ExternalServiceExceptionResponse(
           parsedOutput,
@@ -2568,7 +2568,7 @@ const deserializeAws_json1_1UnlinkIdentityCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.cognito.identity.model#InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -2579,7 +2579,7 @@ const deserializeAws_json1_1UnlinkIdentityCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.cognito.identity.model#InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2590,7 +2590,7 @@ const deserializeAws_json1_1UnlinkIdentityCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "com.amazonaws.cognito.identity.model#NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -2601,7 +2601,7 @@ const deserializeAws_json1_1UnlinkIdentityCommandError = async (
       };
       break;
     case "ResourceConflictException":
-    case "com.amazonaws.cognito.identity.model#ResourceConflictException":
+    case "com.amazonaws.cognitoidentity#ResourceConflictException":
       response = {
         ...(await deserializeAws_json1_1ResourceConflictExceptionResponse(
           parsedOutput,
@@ -2612,7 +2612,7 @@ const deserializeAws_json1_1UnlinkIdentityCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cognito.identity.model#ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentity#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2623,7 +2623,7 @@ const deserializeAws_json1_1UnlinkIdentityCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.cognito.identity.model#TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -2683,7 +2683,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
-    case "com.amazonaws.cognito.identity.model#InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -2694,7 +2694,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.cognito.identity.model#InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2705,7 +2705,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "com.amazonaws.cognito.identity.model#NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -2716,7 +2716,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cognito.identity.model#ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentity#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2727,7 +2727,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.cognito.identity.model#TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -2790,7 +2790,7 @@ const deserializeAws_json1_1UpdateIdentityPoolCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.cognito.identity.model#ConcurrentModificationException":
+    case "com.amazonaws.cognitoidentity#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2801,7 +2801,7 @@ const deserializeAws_json1_1UpdateIdentityPoolCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.cognito.identity.model#InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -2812,7 +2812,7 @@ const deserializeAws_json1_1UpdateIdentityPoolCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.cognito.identity.model#InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2823,7 +2823,7 @@ const deserializeAws_json1_1UpdateIdentityPoolCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.cognito.identity.model#LimitExceededException":
+    case "com.amazonaws.cognitoidentity#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2834,7 +2834,7 @@ const deserializeAws_json1_1UpdateIdentityPoolCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "com.amazonaws.cognito.identity.model#NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -2845,7 +2845,7 @@ const deserializeAws_json1_1UpdateIdentityPoolCommandError = async (
       };
       break;
     case "ResourceConflictException":
-    case "com.amazonaws.cognito.identity.model#ResourceConflictException":
+    case "com.amazonaws.cognitoidentity#ResourceConflictException":
       response = {
         ...(await deserializeAws_json1_1ResourceConflictExceptionResponse(
           parsedOutput,
@@ -2856,7 +2856,7 @@ const deserializeAws_json1_1UpdateIdentityPoolCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cognito.identity.model#ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentity#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2867,7 +2867,7 @@ const deserializeAws_json1_1UpdateIdentityPoolCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.cognito.identity.model#TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -3226,6 +3226,17 @@ const serializeAws_json1_1GetCredentialsForIdentityInput = (
   };
 };
 
+const serializeAws_json1_1GetIdentityPoolRolesInput = (
+  input: GetIdentityPoolRolesInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IdentityPoolId !== undefined && {
+      IdentityPoolId: input.IdentityPoolId
+    })
+  };
+};
+
 const serializeAws_json1_1GetIdInput = (
   input: GetIdInput,
   context: __SerdeContext
@@ -3237,17 +3248,6 @@ const serializeAws_json1_1GetIdInput = (
     }),
     ...(input.Logins !== undefined && {
       Logins: serializeAws_json1_1LoginsMap(input.Logins, context)
-    })
-  };
-};
-
-const serializeAws_json1_1GetIdentityPoolRolesInput = (
-  input: GetIdentityPoolRolesInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.IdentityPoolId !== undefined && {
-      IdentityPoolId: input.IdentityPoolId
     })
   };
 };
@@ -3774,19 +3774,6 @@ const deserializeAws_json1_1GetCredentialsForIdentityResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1GetIdResponse = (
-  output: any,
-  context: __SerdeContext
-): GetIdResponse => {
-  return {
-    __type: "GetIdResponse",
-    IdentityId:
-      output.IdentityId !== undefined && output.IdentityId !== null
-        ? output.IdentityId
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1GetIdentityPoolRolesResponse = (
   output: any,
   context: __SerdeContext
@@ -3804,6 +3791,19 @@ const deserializeAws_json1_1GetIdentityPoolRolesResponse = (
     Roles:
       output.Roles !== undefined && output.Roles !== null
         ? deserializeAws_json1_1RolesMap(output.Roles, context)
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1GetIdResponse = (
+  output: any,
+  context: __SerdeContext
+): GetIdResponse => {
+  return {
+    __type: "GetIdResponse",
+    IdentityId:
+      output.IdentityId !== undefined && output.IdentityId !== null
+        ? output.IdentityId
         : undefined
   } as any;
 };
@@ -3962,6 +3962,15 @@ const deserializeAws_json1_1IdentityPoolShortDescription = (
   } as any;
 };
 
+const deserializeAws_json1_1IdentityPoolsList = (
+  output: any,
+  context: __SerdeContext
+): IdentityPoolShortDescription[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1IdentityPoolShortDescription(entry, context)
+  );
+};
+
 const deserializeAws_json1_1IdentityPoolTagsType = (
   output: any,
   context: __SerdeContext
@@ -3972,15 +3981,6 @@ const deserializeAws_json1_1IdentityPoolTagsType = (
       [key]: value
     }),
     {}
-  );
-};
-
-const deserializeAws_json1_1IdentityPoolsList = (
-  output: any,
-  context: __SerdeContext
-): IdentityPoolShortDescription[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1IdentityPoolShortDescription(entry, context)
   );
 };
 

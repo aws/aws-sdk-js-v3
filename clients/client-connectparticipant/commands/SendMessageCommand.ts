@@ -5,9 +5,9 @@ import {
 } from "../ConnectParticipantClient";
 import { SendMessageRequest, SendMessageResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1SendMessageCommand,
-  serializeAws_restJson1_1SendMessageCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1SendMessageCommand,
+  serializeAws_restJson1SendMessageCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class SendMessageCommand extends $Command<
     input: SendMessageCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1SendMessageCommand(input, context);
+    return serializeAws_restJson1SendMessageCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SendMessageCommandOutput> {
-    return deserializeAws_restJson1_1SendMessageCommand(output, context);
+    return deserializeAws_restJson1SendMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

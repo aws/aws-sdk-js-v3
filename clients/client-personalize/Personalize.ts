@@ -1971,44 +1971,6 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   * <p>Returns a list of solution versions for the given solution. When a solution is not
-   *       specified, all the solution versions associated with the account are listed. The response
-   *       provides the properties for each solution version, including the Amazon Resource Name (ARN).
-   *       For more information on solutions, see <a>CreateSolution</a>.</p>
-   */
-  public listSolutionVersions(
-    args: ListSolutionVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSolutionVersionsCommandOutput>;
-  public listSolutionVersions(
-    args: ListSolutionVersionsCommandInput,
-    cb: (err: any, data?: ListSolutionVersionsCommandOutput) => void
-  ): void;
-  public listSolutionVersions(
-    args: ListSolutionVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListSolutionVersionsCommandOutput) => void
-  ): void;
-  public listSolutionVersions(
-    args: ListSolutionVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSolutionVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListSolutionVersionsCommandOutput) => void
-  ): Promise<ListSolutionVersionsCommandOutput> | void {
-    const command = new ListSolutionVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Returns a list of solutions that use the given dataset group.
    *       When a dataset group is not specified, all the solutions associated with the account are listed.
    *       The response provides the properties for each solution, including the Amazon Resource Name (ARN).
@@ -2035,6 +1997,44 @@ export class Personalize extends PersonalizeClient {
     cb?: (err: any, data?: ListSolutionsCommandOutput) => void
   ): Promise<ListSolutionsCommandOutput> | void {
     const command = new ListSolutionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of solution versions for the given solution. When a solution is not
+   *       specified, all the solution versions associated with the account are listed. The response
+   *       provides the properties for each solution version, including the Amazon Resource Name (ARN).
+   *       For more information on solutions, see <a>CreateSolution</a>.</p>
+   */
+  public listSolutionVersions(
+    args: ListSolutionVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSolutionVersionsCommandOutput>;
+  public listSolutionVersions(
+    args: ListSolutionVersionsCommandInput,
+    cb: (err: any, data?: ListSolutionVersionsCommandOutput) => void
+  ): void;
+  public listSolutionVersions(
+    args: ListSolutionVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSolutionVersionsCommandOutput) => void
+  ): void;
+  public listSolutionVersions(
+    args: ListSolutionVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListSolutionVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListSolutionVersionsCommandOutput) => void
+  ): Promise<ListSolutionVersionsCommandOutput> | void {
+    const command = new ListSolutionVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -24,6 +24,43 @@ export namespace AccessDeniedException {
     __isa(o, "AccessDeniedException");
 }
 
+export enum ChatItemType {
+  CONNECTION_ACK = "CONNECTION_ACK",
+  EVENT = "EVENT",
+  MESSAGE = "MESSAGE"
+}
+
+/**
+ * <p>Connection credentials. </p>
+ */
+export interface ConnectionCredentials {
+  __type?: "ConnectionCredentials";
+  /**
+   * <p>The connection token.</p>
+   */
+  ConnectionToken?: string;
+
+  /**
+   * <p>The expiration of the token.</p>
+   *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
+   *             2019-11-08T02:41:28.172Z.</p>
+   */
+  Expiry?: string;
+}
+
+export namespace ConnectionCredentials {
+  export const filterSensitiveLog = (obj: ConnectionCredentials): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ConnectionCredentials =>
+    __isa(o, "ConnectionCredentials");
+}
+
+export enum ConnectionType {
+  CONNECTION_CREDENTIALS = "CONNECTION_CREDENTIALS",
+  WEBSOCKET = "WEBSOCKET"
+}
+
 export interface CreateParticipantConnectionRequest {
   __type?: "CreateParticipantConnectionRequest";
   /**
@@ -203,6 +240,72 @@ export namespace InternalServerException {
     __isa(o, "InternalServerException");
 }
 
+/**
+ * <p>An item - message or event - that has been sent. </p>
+ */
+export interface Item {
+  __type?: "Item";
+  /**
+   * <p>The time when the message or event was sent.</p>
+   *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
+   *             2019-11-08T02:41:28.172Z.</p>
+   */
+  AbsoluteTime?: string;
+
+  /**
+   * <p>The content of the message or event.</p>
+   */
+  Content?: string;
+
+  /**
+   * <p>The type of content of the item.</p>
+   */
+  ContentType?: string;
+
+  /**
+   * <p>The chat display name of the sender.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The ID of the item.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The ID of the sender in the session.</p>
+   */
+  ParticipantId?: string;
+
+  /**
+   * <p>The role of the sender. For example, is it a customer, agent, or system.</p>
+   */
+  ParticipantRole?: ParticipantRole | string;
+
+  /**
+   * <p>Type of the item: message or event. </p>
+   */
+  Type?: ChatItemType | string;
+}
+
+export namespace Item {
+  export const filterSensitiveLog = (obj: Item): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Item => __isa(o, "Item");
+}
+
+export enum ParticipantRole {
+  AGENT = "AGENT",
+  CUSTOMER = "CUSTOMER",
+  SYSTEM = "SYSTEM"
+}
+
+export enum ScanDirection {
+  BACKWARD = "BACKWARD",
+  FORWARD = "FORWARD"
+}
+
 export interface SendEventRequest {
   __type?: "SendEventRequest";
   /**
@@ -323,110 +426,6 @@ export namespace SendMessageResponse {
     __isa(o, "SendMessageResponse");
 }
 
-/**
- * <p>The request was denied due to request throttling.</p>
- */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  Message: string | undefined;
-}
-
-export namespace ThrottlingException {
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
- */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  Message: string | undefined;
-}
-
-export namespace ValidationException {
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
-}
-
-export enum ChatItemType {
-  CONNECTION_ACK = "CONNECTION_ACK",
-  EVENT = "EVENT",
-  MESSAGE = "MESSAGE"
-}
-
-/**
- * <p>An item - message or event - that has been sent. </p>
- */
-export interface Item {
-  __type?: "Item";
-  /**
-   * <p>The time when the message or event was sent.</p>
-   *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
-   *             2019-11-08T02:41:28.172Z.</p>
-   */
-  AbsoluteTime?: string;
-
-  /**
-   * <p>The content of the message or event.</p>
-   */
-  Content?: string;
-
-  /**
-   * <p>The type of content of the item.</p>
-   */
-  ContentType?: string;
-
-  /**
-   * <p>The chat display name of the sender.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The ID of the item.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The ID of the sender in the session.</p>
-   */
-  ParticipantId?: string;
-
-  /**
-   * <p>The role of the sender. For example, is it a customer, agent, or system.</p>
-   */
-  ParticipantRole?: ParticipantRole | string;
-
-  /**
-   * <p>Type of the item: message or event. </p>
-   */
-  Type?: ChatItemType | string;
-}
-
-export namespace Item {
-  export const filterSensitiveLog = (obj: Item): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Item => __isa(o, "Item");
-}
-
-export enum ScanDirection {
-  BACKWARD = "BACKWARD",
-  FORWARD = "FORWARD"
-}
-
 export enum SortKey {
   ASCENDING = "ASCENDING",
   DESCENDING = "DESCENDING"
@@ -464,40 +463,41 @@ export namespace StartPosition {
 }
 
 /**
- * <p>Connection credentials. </p>
+ * <p>The request was denied due to request throttling.</p>
  */
-export interface ConnectionCredentials {
-  __type?: "ConnectionCredentials";
-  /**
-   * <p>The connection token.</p>
-   */
-  ConnectionToken?: string;
-
-  /**
-   * <p>The expiration of the token.</p>
-   *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
-   *             2019-11-08T02:41:28.172Z.</p>
-   */
-  Expiry?: string;
+export interface ThrottlingException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ThrottlingException";
+  $fault: "client";
+  Message: string | undefined;
 }
 
-export namespace ConnectionCredentials {
-  export const filterSensitiveLog = (obj: ConnectionCredentials): any => ({
+export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj
   });
-  export const isa = (o: any): o is ConnectionCredentials =>
-    __isa(o, "ConnectionCredentials");
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
 }
 
-export enum ConnectionType {
-  CONNECTION_CREDENTIALS = "CONNECTION_CREDENTIALS",
-  WEBSOCKET = "WEBSOCKET"
+/**
+ * <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
+ */
+export interface ValidationException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ValidationException";
+  $fault: "client";
+  Message: string | undefined;
 }
 
-export enum ParticipantRole {
-  AGENT = "AGENT",
-  CUSTOMER = "CUSTOMER",
-  SYSTEM = "SYSTEM"
+export namespace ValidationException {
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ValidationException =>
+    __isa(o, "ValidationException");
 }
 
 /**

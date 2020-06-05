@@ -8,9 +8,9 @@ import {
   SubscribeToDatasetResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1SubscribeToDatasetCommand,
-  serializeAws_restJson1_1SubscribeToDatasetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1SubscribeToDatasetCommand,
+  serializeAws_restJson1SubscribeToDatasetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class SubscribeToDatasetCommand extends $Command<
     input: SubscribeToDatasetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1SubscribeToDatasetCommand(input, context);
+    return serializeAws_restJson1SubscribeToDatasetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SubscribeToDatasetCommandOutput> {
-    return deserializeAws_restJson1_1SubscribeToDatasetCommand(output, context);
+    return deserializeAws_restJson1SubscribeToDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

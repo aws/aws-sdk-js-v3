@@ -8,9 +8,9 @@ import {
   AttachSecurityProfileResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1AttachSecurityProfileCommand,
-  serializeAws_restJson1_1AttachSecurityProfileCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AttachSecurityProfileCommand,
+  serializeAws_restJson1AttachSecurityProfileCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class AttachSecurityProfileCommand extends $Command<
     input: AttachSecurityProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AttachSecurityProfileCommand(input, context);
+    return serializeAws_restJson1AttachSecurityProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachSecurityProfileCommandOutput> {
-    return deserializeAws_restJson1_1AttachSecurityProfileCommand(
+    return deserializeAws_restJson1AttachSecurityProfileCommand(
       output,
       context
     );

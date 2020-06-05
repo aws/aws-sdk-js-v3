@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { GetResourceRequest, Resource } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetResourceCommand,
-  serializeAws_restJson1_1GetResourceCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetResourceCommand,
+  serializeAws_restJson1GetResourceCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetResourceCommand extends $Command<
     input: GetResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetResourceCommand(input, context);
+    return serializeAws_restJson1GetResourceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetResourceCommandOutput> {
-    return deserializeAws_restJson1_1GetResourceCommand(output, context);
+    return deserializeAws_restJson1GetResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

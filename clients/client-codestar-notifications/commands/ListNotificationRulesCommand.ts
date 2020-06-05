@@ -8,9 +8,9 @@ import {
   ListNotificationRulesResult
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListNotificationRulesCommand,
-  serializeAws_restJson1_1ListNotificationRulesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListNotificationRulesCommand,
+  serializeAws_restJson1ListNotificationRulesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class ListNotificationRulesCommand extends $Command<
     input: ListNotificationRulesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListNotificationRulesCommand(input, context);
+    return serializeAws_restJson1ListNotificationRulesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListNotificationRulesCommandOutput> {
-    return deserializeAws_restJson1_1ListNotificationRulesCommand(
+    return deserializeAws_restJson1ListNotificationRulesCommand(
       output,
       context
     );

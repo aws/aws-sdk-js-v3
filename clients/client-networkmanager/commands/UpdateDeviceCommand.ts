@@ -5,9 +5,9 @@ import {
 } from "../NetworkManagerClient";
 import { UpdateDeviceRequest, UpdateDeviceResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateDeviceCommand,
-  serializeAws_restJson1_1UpdateDeviceCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateDeviceCommand,
+  serializeAws_restJson1UpdateDeviceCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class UpdateDeviceCommand extends $Command<
     input: UpdateDeviceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDeviceCommand(input, context);
+    return serializeAws_restJson1UpdateDeviceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDeviceCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDeviceCommand(output, context);
+    return deserializeAws_restJson1UpdateDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -8,9 +8,9 @@ import {
   DetachThingPrincipalResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DetachThingPrincipalCommand,
-  serializeAws_restJson1_1DetachThingPrincipalCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DetachThingPrincipalCommand,
+  serializeAws_restJson1DetachThingPrincipalCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DetachThingPrincipalCommand extends $Command<
     input: DetachThingPrincipalCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DetachThingPrincipalCommand(input, context);
+    return serializeAws_restJson1DetachThingPrincipalCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DetachThingPrincipalCommandOutput> {
-    return deserializeAws_restJson1_1DetachThingPrincipalCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DetachThingPrincipalCommand(output, context);
   }
 
   // Start section: command_body_extra

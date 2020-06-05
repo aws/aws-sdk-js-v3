@@ -705,7 +705,7 @@ const deserializeAws_json1_1ActivateEventSourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -716,7 +716,7 @@ const deserializeAws_json1_1ActivateEventSourceCommandError = async (
       };
       break;
     case "InvalidStateException":
-    case "com.amazon.jetstream.v20151007.exceptions#InvalidStateException":
+    case "com.amazonaws.eventbridge#InvalidStateException":
       response = {
         ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
           parsedOutput,
@@ -727,7 +727,7 @@ const deserializeAws_json1_1ActivateEventSourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -787,7 +787,7 @@ const deserializeAws_json1_1CreateEventBusCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
+    case "com.amazonaws.eventbridge#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -798,7 +798,7 @@ const deserializeAws_json1_1CreateEventBusCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -809,7 +809,7 @@ const deserializeAws_json1_1CreateEventBusCommandError = async (
       };
       break;
     case "InvalidStateException":
-    case "com.amazon.jetstream.v20151007.exceptions#InvalidStateException":
+    case "com.amazonaws.eventbridge#InvalidStateException":
       response = {
         ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
           parsedOutput,
@@ -820,7 +820,7 @@ const deserializeAws_json1_1CreateEventBusCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.jetstream.v20151007.exceptions#LimitExceededException":
+    case "com.amazonaws.eventbridge#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -831,7 +831,7 @@ const deserializeAws_json1_1CreateEventBusCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceAlreadyExistsException":
+    case "com.amazonaws.eventbridge#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -842,7 +842,7 @@ const deserializeAws_json1_1CreateEventBusCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -908,7 +908,7 @@ const deserializeAws_json1_1CreatePartnerEventSourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
+    case "com.amazonaws.eventbridge#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -919,7 +919,7 @@ const deserializeAws_json1_1CreatePartnerEventSourceCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -930,7 +930,7 @@ const deserializeAws_json1_1CreatePartnerEventSourceCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.jetstream.v20151007.exceptions#LimitExceededException":
+    case "com.amazonaws.eventbridge#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -941,7 +941,7 @@ const deserializeAws_json1_1CreatePartnerEventSourceCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceAlreadyExistsException":
+    case "com.amazonaws.eventbridge#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1000,7 +1000,7 @@ const deserializeAws_json1_1DeactivateEventSourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1011,7 +1011,7 @@ const deserializeAws_json1_1DeactivateEventSourceCommandError = async (
       };
       break;
     case "InvalidStateException":
-    case "com.amazon.jetstream.v20151007.exceptions#InvalidStateException":
+    case "com.amazonaws.eventbridge#InvalidStateException":
       response = {
         ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
           parsedOutput,
@@ -1022,7 +1022,7 @@ const deserializeAws_json1_1DeactivateEventSourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1078,7 +1078,7 @@ const deserializeAws_json1_1DeleteEventBusCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1137,7 +1137,7 @@ const deserializeAws_json1_1DeletePartnerEventSourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1193,7 +1193,7 @@ const deserializeAws_json1_1DeleteRuleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
+    case "com.amazonaws.eventbridge#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -1204,7 +1204,7 @@ const deserializeAws_json1_1DeleteRuleCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1215,7 +1215,7 @@ const deserializeAws_json1_1DeleteRuleCommandError = async (
       };
       break;
     case "ManagedRuleException":
-    case "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException":
+    case "com.amazonaws.eventbridge#ManagedRuleException":
       response = {
         ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(
           parsedOutput,
@@ -1226,7 +1226,7 @@ const deserializeAws_json1_1DeleteRuleCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1286,7 +1286,7 @@ const deserializeAws_json1_1DescribeEventBusCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1297,7 +1297,7 @@ const deserializeAws_json1_1DescribeEventBusCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1360,7 +1360,7 @@ const deserializeAws_json1_1DescribeEventSourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1371,7 +1371,7 @@ const deserializeAws_json1_1DescribeEventSourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1437,7 +1437,7 @@ const deserializeAws_json1_1DescribePartnerEventSourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1448,7 +1448,7 @@ const deserializeAws_json1_1DescribePartnerEventSourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1508,7 +1508,7 @@ const deserializeAws_json1_1DescribeRuleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1519,7 +1519,7 @@ const deserializeAws_json1_1DescribeRuleCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1575,7 +1575,7 @@ const deserializeAws_json1_1DisableRuleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
+    case "com.amazonaws.eventbridge#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -1586,7 +1586,7 @@ const deserializeAws_json1_1DisableRuleCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1597,7 +1597,7 @@ const deserializeAws_json1_1DisableRuleCommandError = async (
       };
       break;
     case "ManagedRuleException":
-    case "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException":
+    case "com.amazonaws.eventbridge#ManagedRuleException":
       response = {
         ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(
           parsedOutput,
@@ -1608,7 +1608,7 @@ const deserializeAws_json1_1DisableRuleCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1664,7 +1664,7 @@ const deserializeAws_json1_1EnableRuleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
+    case "com.amazonaws.eventbridge#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -1675,7 +1675,7 @@ const deserializeAws_json1_1EnableRuleCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1686,7 +1686,7 @@ const deserializeAws_json1_1EnableRuleCommandError = async (
       };
       break;
     case "ManagedRuleException":
-    case "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException":
+    case "com.amazonaws.eventbridge#ManagedRuleException":
       response = {
         ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(
           parsedOutput,
@@ -1697,7 +1697,7 @@ const deserializeAws_json1_1EnableRuleCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1757,7 +1757,7 @@ const deserializeAws_json1_1ListEventBusesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1817,7 +1817,7 @@ const deserializeAws_json1_1ListEventSourcesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1883,7 +1883,7 @@ const deserializeAws_json1_1ListPartnerEventSourceAccountsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -1894,7 +1894,7 @@ const deserializeAws_json1_1ListPartnerEventSourceAccountsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1960,7 +1960,7 @@ const deserializeAws_json1_1ListPartnerEventSourcesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -2023,7 +2023,7 @@ const deserializeAws_json1_1ListRuleNamesByTargetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -2034,7 +2034,7 @@ const deserializeAws_json1_1ListRuleNamesByTargetCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2094,7 +2094,7 @@ const deserializeAws_json1_1ListRulesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -2105,7 +2105,7 @@ const deserializeAws_json1_1ListRulesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2168,7 +2168,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -2179,7 +2179,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2239,7 +2239,7 @@ const deserializeAws_json1_1ListTargetsByRuleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -2250,7 +2250,7 @@ const deserializeAws_json1_1ListTargetsByRuleCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2310,7 +2310,7 @@ const deserializeAws_json1_1PutEventsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -2370,7 +2370,7 @@ const deserializeAws_json1_1PutPartnerEventsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -2426,7 +2426,7 @@ const deserializeAws_json1_1PutPermissionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
+    case "com.amazonaws.eventbridge#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2437,7 +2437,7 @@ const deserializeAws_json1_1PutPermissionCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -2448,7 +2448,7 @@ const deserializeAws_json1_1PutPermissionCommandError = async (
       };
       break;
     case "PolicyLengthExceededException":
-    case "com.amazon.jetstream.v20151007.exceptions#PolicyLengthExceededException":
+    case "com.amazonaws.eventbridge#PolicyLengthExceededException":
       response = {
         ...(await deserializeAws_json1_1PolicyLengthExceededExceptionResponse(
           parsedOutput,
@@ -2459,7 +2459,7 @@ const deserializeAws_json1_1PutPermissionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2519,7 +2519,7 @@ const deserializeAws_json1_1PutRuleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
+    case "com.amazonaws.eventbridge#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2530,7 +2530,7 @@ const deserializeAws_json1_1PutRuleCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -2541,7 +2541,7 @@ const deserializeAws_json1_1PutRuleCommandError = async (
       };
       break;
     case "InvalidEventPatternException":
-    case "com.amazon.jetstream.v20151007.exceptions#InvalidEventPatternException":
+    case "com.amazonaws.eventbridge#InvalidEventPatternException":
       response = {
         ...(await deserializeAws_json1_1InvalidEventPatternExceptionResponse(
           parsedOutput,
@@ -2552,7 +2552,7 @@ const deserializeAws_json1_1PutRuleCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.jetstream.v20151007.exceptions#LimitExceededException":
+    case "com.amazonaws.eventbridge#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2563,7 +2563,7 @@ const deserializeAws_json1_1PutRuleCommandError = async (
       };
       break;
     case "ManagedRuleException":
-    case "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException":
+    case "com.amazonaws.eventbridge#ManagedRuleException":
       response = {
         ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(
           parsedOutput,
@@ -2574,7 +2574,7 @@ const deserializeAws_json1_1PutRuleCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2634,7 +2634,7 @@ const deserializeAws_json1_1PutTargetsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
+    case "com.amazonaws.eventbridge#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2645,7 +2645,7 @@ const deserializeAws_json1_1PutTargetsCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -2656,7 +2656,7 @@ const deserializeAws_json1_1PutTargetsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.jetstream.v20151007.exceptions#LimitExceededException":
+    case "com.amazonaws.eventbridge#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2667,7 +2667,7 @@ const deserializeAws_json1_1PutTargetsCommandError = async (
       };
       break;
     case "ManagedRuleException":
-    case "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException":
+    case "com.amazonaws.eventbridge#ManagedRuleException":
       response = {
         ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(
           parsedOutput,
@@ -2678,7 +2678,7 @@ const deserializeAws_json1_1PutTargetsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2734,7 +2734,7 @@ const deserializeAws_json1_1RemovePermissionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
+    case "com.amazonaws.eventbridge#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2745,7 +2745,7 @@ const deserializeAws_json1_1RemovePermissionCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -2756,7 +2756,7 @@ const deserializeAws_json1_1RemovePermissionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2816,7 +2816,7 @@ const deserializeAws_json1_1RemoveTargetsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
+    case "com.amazonaws.eventbridge#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2827,7 +2827,7 @@ const deserializeAws_json1_1RemoveTargetsCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -2838,7 +2838,7 @@ const deserializeAws_json1_1RemoveTargetsCommandError = async (
       };
       break;
     case "ManagedRuleException":
-    case "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException":
+    case "com.amazonaws.eventbridge#ManagedRuleException":
       response = {
         ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(
           parsedOutput,
@@ -2849,7 +2849,7 @@ const deserializeAws_json1_1RemoveTargetsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2909,7 +2909,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
+    case "com.amazonaws.eventbridge#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2920,7 +2920,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -2931,7 +2931,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "ManagedRuleException":
-    case "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException":
+    case "com.amazonaws.eventbridge#ManagedRuleException":
       response = {
         ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(
           parsedOutput,
@@ -2942,7 +2942,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3002,7 +3002,7 @@ const deserializeAws_json1_1TestEventPatternCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -3013,7 +3013,7 @@ const deserializeAws_json1_1TestEventPatternCommandError = async (
       };
       break;
     case "InvalidEventPatternException":
-    case "com.amazon.jetstream.v20151007.exceptions#InvalidEventPatternException":
+    case "com.amazonaws.eventbridge#InvalidEventPatternException":
       response = {
         ...(await deserializeAws_json1_1InvalidEventPatternExceptionResponse(
           parsedOutput,
@@ -3073,7 +3073,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
+    case "com.amazonaws.eventbridge#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -3084,7 +3084,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.amazon.jetstream.v20151007.exceptions#InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -3095,7 +3095,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "ManagedRuleException":
-    case "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException":
+    case "com.amazonaws.eventbridge#ManagedRuleException":
       response = {
         ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(
           parsedOutput,
@@ -3106,7 +3106,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3865,13 +3865,6 @@ const serializeAws_json1_1RunCommandTarget = (
   };
 };
 
-const serializeAws_json1_1RunCommandTargetValues = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
 const serializeAws_json1_1RunCommandTargets = (
   input: RunCommandTarget[],
   context: __SerdeContext
@@ -3879,6 +3872,13 @@ const serializeAws_json1_1RunCommandTargets = (
   return input.map(entry =>
     serializeAws_json1_1RunCommandTarget(entry, context)
   );
+};
+
+const serializeAws_json1_1RunCommandTargetValues = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1SqsParameters = (
@@ -4106,6 +4106,19 @@ const deserializeAws_json1_1BatchRetryStrategy = (
     Attempts:
       output.Attempts !== undefined && output.Attempts !== null
         ? output.Attempts
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ConcurrentModificationException = (
+  output: any,
+  context: __SerdeContext
+): ConcurrentModificationException => {
+  return {
+    __type: "ConcurrentModificationException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
         : undefined
   } as any;
 };
@@ -4368,6 +4381,45 @@ const deserializeAws_json1_1InputTransformer = (
   } as any;
 };
 
+const deserializeAws_json1_1InternalException = (
+  output: any,
+  context: __SerdeContext
+): InternalException => {
+  return {
+    __type: "InternalException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidEventPatternException = (
+  output: any,
+  context: __SerdeContext
+): InvalidEventPatternException => {
+  return {
+    __type: "InvalidEventPatternException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidStateException = (
+  output: any,
+  context: __SerdeContext
+): InvalidStateException => {
+  return {
+    __type: "InvalidStateException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1KinesisParameters = (
   output: any,
   context: __SerdeContext
@@ -4377,6 +4429,19 @@ const deserializeAws_json1_1KinesisParameters = (
     PartitionKeyPath:
       output.PartitionKeyPath !== undefined && output.PartitionKeyPath !== null
         ? output.PartitionKeyPath
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1LimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): LimitExceededException => {
+  return {
+    __type: "LimitExceededException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
         : undefined
   } as any;
 };
@@ -4521,6 +4586,19 @@ const deserializeAws_json1_1ListTargetsByRuleResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ManagedRuleException = (
+  output: any,
+  context: __SerdeContext
+): ManagedRuleException => {
+  return {
+    __type: "ManagedRuleException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1NetworkConfiguration = (
   output: any,
   context: __SerdeContext
@@ -4594,6 +4672,19 @@ const deserializeAws_json1_1PartnerEventSourceList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PartnerEventSource(entry, context)
   );
+};
+
+const deserializeAws_json1_1PolicyLengthExceededException = (
+  output: any,
+  context: __SerdeContext
+): PolicyLengthExceededException => {
+  return {
+    __type: "PolicyLengthExceededException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PutEventsResponse = (
@@ -4809,6 +4900,32 @@ const deserializeAws_json1_1RemoveTargetsResultEntryList = (
   );
 };
 
+const deserializeAws_json1_1ResourceAlreadyExistsException = (
+  output: any,
+  context: __SerdeContext
+): ResourceAlreadyExistsException => {
+  return {
+    __type: "ResourceAlreadyExistsException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ResourceNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): ResourceNotFoundException => {
+  return {
+    __type: "ResourceNotFoundException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1Rule = (
   output: any,
   context: __SerdeContext
@@ -4901,13 +5018,6 @@ const deserializeAws_json1_1RunCommandTarget = (
   } as any;
 };
 
-const deserializeAws_json1_1RunCommandTargetValues = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
 const deserializeAws_json1_1RunCommandTargets = (
   output: any,
   context: __SerdeContext
@@ -4915,6 +5025,13 @@ const deserializeAws_json1_1RunCommandTargets = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RunCommandTarget(entry, context)
   );
+};
+
+const deserializeAws_json1_1RunCommandTargetValues = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1SqsParameters = (
@@ -5070,123 +5187,6 @@ const deserializeAws_json1_1UntagResourceResponse = (
 ): UntagResourceResponse => {
   return {
     __type: "UntagResourceResponse"
-  } as any;
-};
-
-const deserializeAws_json1_1ConcurrentModificationException = (
-  output: any,
-  context: __SerdeContext
-): ConcurrentModificationException => {
-  return {
-    __type: "ConcurrentModificationException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InternalException = (
-  output: any,
-  context: __SerdeContext
-): InternalException => {
-  return {
-    __type: "InternalException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidEventPatternException = (
-  output: any,
-  context: __SerdeContext
-): InvalidEventPatternException => {
-  return {
-    __type: "InvalidEventPatternException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidStateException = (
-  output: any,
-  context: __SerdeContext
-): InvalidStateException => {
-  return {
-    __type: "InvalidStateException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1LimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): LimitExceededException => {
-  return {
-    __type: "LimitExceededException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ManagedRuleException = (
-  output: any,
-  context: __SerdeContext
-): ManagedRuleException => {
-  return {
-    __type: "ManagedRuleException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1PolicyLengthExceededException = (
-  output: any,
-  context: __SerdeContext
-): PolicyLengthExceededException => {
-  return {
-    __type: "PolicyLengthExceededException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): ResourceAlreadyExistsException => {
-  return {
-    __type: "ResourceAlreadyExistsException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    __type: "ResourceNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
   } as any;
 };
 

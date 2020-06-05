@@ -5,9 +5,9 @@ import {
 } from "../LambdaClient";
 import { InvokeAsyncRequest, InvokeAsyncResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1InvokeAsyncCommand,
-  serializeAws_restJson1_1InvokeAsyncCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1InvokeAsyncCommand,
+  serializeAws_restJson1InvokeAsyncCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -69,14 +69,14 @@ export class InvokeAsyncCommand extends $Command<
     input: InvokeAsyncCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1InvokeAsyncCommand(input, context);
+    return serializeAws_restJson1InvokeAsyncCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InvokeAsyncCommandOutput> {
-    return deserializeAws_restJson1_1InvokeAsyncCommand(output, context);
+    return deserializeAws_restJson1InvokeAsyncCommand(output, context);
   }
 
   // Start section: command_body_extra

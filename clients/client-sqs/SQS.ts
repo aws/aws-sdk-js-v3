@@ -710,44 +710,6 @@ export class SQS extends SQSClient {
   }
 
   /**
-   * <p>List all cost allocation tags added to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging Your Amazon SQS Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
-   *         <note>
-   *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
-   *         </note>
-   */
-  public listQueueTags(
-    args: ListQueueTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListQueueTagsCommandOutput>;
-  public listQueueTags(
-    args: ListQueueTagsCommandInput,
-    cb: (err: any, data?: ListQueueTagsCommandOutput) => void
-  ): void;
-  public listQueueTags(
-    args: ListQueueTagsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListQueueTagsCommandOutput) => void
-  ): void;
-  public listQueueTags(
-    args: ListQueueTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListQueueTagsCommandOutput) => void),
-    cb?: (err: any, data?: ListQueueTagsCommandOutput) => void
-  ): Promise<ListQueueTagsCommandOutput> | void {
-    const command = new ListQueueTagsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Returns a list of your queues. The maximum number of queues that can be returned is 1,000. If you specify a value for the optional
    *           <code>QueueNamePrefix</code> parameter, only queues with a name that begins with the specified value are returned.</p>
    *          <note>
@@ -775,6 +737,44 @@ export class SQS extends SQSClient {
     cb?: (err: any, data?: ListQueuesCommandOutput) => void
   ): Promise<ListQueuesCommandOutput> | void {
     const command = new ListQueuesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List all cost allocation tags added to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging Your Amazon SQS Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   *         <note>
+   *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   *         </note>
+   */
+  public listQueueTags(
+    args: ListQueueTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListQueueTagsCommandOutput>;
+  public listQueueTags(
+    args: ListQueueTagsCommandInput,
+    cb: (err: any, data?: ListQueueTagsCommandOutput) => void
+  ): void;
+  public listQueueTags(
+    args: ListQueueTagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListQueueTagsCommandOutput) => void
+  ): void;
+  public listQueueTags(
+    args: ListQueueTagsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListQueueTagsCommandOutput) => void),
+    cb?: (err: any, data?: ListQueueTagsCommandOutput) => void
+  ): Promise<ListQueueTagsCommandOutput> | void {
+    const command = new ListQueueTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

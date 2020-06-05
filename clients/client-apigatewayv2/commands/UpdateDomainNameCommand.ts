@@ -8,9 +8,9 @@ import {
   UpdateDomainNameResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateDomainNameCommand,
-  serializeAws_restJson1_1UpdateDomainNameCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateDomainNameCommand,
+  serializeAws_restJson1UpdateDomainNameCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class UpdateDomainNameCommand extends $Command<
     input: UpdateDomainNameCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDomainNameCommand(input, context);
+    return serializeAws_restJson1UpdateDomainNameCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDomainNameCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDomainNameCommand(output, context);
+    return deserializeAws_restJson1UpdateDomainNameCommand(output, context);
   }
 
   // Start section: command_body_extra

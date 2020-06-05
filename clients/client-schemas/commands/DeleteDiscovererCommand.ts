@@ -1,8 +1,8 @@
 import { DeleteDiscovererRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteDiscovererCommand,
-  serializeAws_restJson1_1DeleteDiscovererCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteDiscovererCommand,
+  serializeAws_restJson1DeleteDiscovererCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -67,14 +67,14 @@ export class DeleteDiscovererCommand extends $Command<
     input: DeleteDiscovererCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDiscovererCommand(input, context);
+    return serializeAws_restJson1DeleteDiscovererCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDiscovererCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDiscovererCommand(output, context);
+    return deserializeAws_restJson1DeleteDiscovererCommand(output, context);
   }
 
   // Start section: command_body_extra

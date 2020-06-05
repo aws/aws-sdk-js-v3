@@ -8,9 +8,9 @@ import {
   CreateTemplateAliasResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateTemplateAliasCommand,
-  serializeAws_restJson1_1CreateTemplateAliasCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateTemplateAliasCommand,
+  serializeAws_restJson1CreateTemplateAliasCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class CreateTemplateAliasCommand extends $Command<
     input: CreateTemplateAliasCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateTemplateAliasCommand(input, context);
+    return serializeAws_restJson1CreateTemplateAliasCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTemplateAliasCommandOutput> {
-    return deserializeAws_restJson1_1CreateTemplateAliasCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateTemplateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

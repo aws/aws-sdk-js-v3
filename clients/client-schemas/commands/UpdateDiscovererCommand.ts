@@ -3,9 +3,9 @@ import {
   UpdateDiscovererResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateDiscovererCommand,
-  serializeAws_restJson1_1UpdateDiscovererCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateDiscovererCommand,
+  serializeAws_restJson1UpdateDiscovererCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -71,14 +71,14 @@ export class UpdateDiscovererCommand extends $Command<
     input: UpdateDiscovererCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDiscovererCommand(input, context);
+    return serializeAws_restJson1UpdateDiscovererCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDiscovererCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDiscovererCommand(output, context);
+    return deserializeAws_restJson1UpdateDiscovererCommand(output, context);
   }
 
   // Start section: command_body_extra

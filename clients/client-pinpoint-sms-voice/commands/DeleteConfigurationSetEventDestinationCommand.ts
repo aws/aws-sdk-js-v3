@@ -8,9 +8,9 @@ import {
   DeleteConfigurationSetEventDestinationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationCommand,
-  serializeAws_restJson1_1DeleteConfigurationSetEventDestinationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommand,
+  serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -76,7 +76,7 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     input: DeleteConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteConfigurationSetEventDestinationCommand(
+    return serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand(
       input,
       context
     );
@@ -86,7 +86,7 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationCommand(
+    return deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommand(
       output,
       context
     );

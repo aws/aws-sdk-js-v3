@@ -5,9 +5,9 @@ import {
 } from "../CloudDirectoryClient";
 import { UpdateFacetRequest, UpdateFacetResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateFacetCommand,
-  serializeAws_restJson1_1UpdateFacetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateFacetCommand,
+  serializeAws_restJson1UpdateFacetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class UpdateFacetCommand extends $Command<
     input: UpdateFacetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateFacetCommand(input, context);
+    return serializeAws_restJson1UpdateFacetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFacetCommandOutput> {
-    return deserializeAws_restJson1_1UpdateFacetCommand(output, context);
+    return deserializeAws_restJson1UpdateFacetCommand(output, context);
   }
 
   // Start section: command_body_extra

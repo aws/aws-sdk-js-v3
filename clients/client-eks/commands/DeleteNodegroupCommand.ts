@@ -8,9 +8,9 @@ import {
   DeleteNodegroupResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteNodegroupCommand,
-  serializeAws_restJson1_1DeleteNodegroupCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteNodegroupCommand,
+  serializeAws_restJson1DeleteNodegroupCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DeleteNodegroupCommand extends $Command<
     input: DeleteNodegroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteNodegroupCommand(input, context);
+    return serializeAws_restJson1DeleteNodegroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNodegroupCommandOutput> {
-    return deserializeAws_restJson1_1DeleteNodegroupCommand(output, context);
+    return deserializeAws_restJson1DeleteNodegroupCommand(output, context);
   }
 
   // Start section: command_body_extra

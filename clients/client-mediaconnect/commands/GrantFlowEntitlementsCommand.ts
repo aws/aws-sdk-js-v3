@@ -8,9 +8,9 @@ import {
   GrantFlowEntitlementsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GrantFlowEntitlementsCommand,
-  serializeAws_restJson1_1GrantFlowEntitlementsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GrantFlowEntitlementsCommand,
+  serializeAws_restJson1GrantFlowEntitlementsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class GrantFlowEntitlementsCommand extends $Command<
     input: GrantFlowEntitlementsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GrantFlowEntitlementsCommand(input, context);
+    return serializeAws_restJson1GrantFlowEntitlementsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GrantFlowEntitlementsCommandOutput> {
-    return deserializeAws_restJson1_1GrantFlowEntitlementsCommand(
+    return deserializeAws_restJson1GrantFlowEntitlementsCommand(
       output,
       context
     );

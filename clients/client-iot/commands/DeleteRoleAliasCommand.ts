@@ -8,9 +8,9 @@ import {
   DeleteRoleAliasResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteRoleAliasCommand,
-  serializeAws_restJson1_1DeleteRoleAliasCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteRoleAliasCommand,
+  serializeAws_restJson1DeleteRoleAliasCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DeleteRoleAliasCommand extends $Command<
     input: DeleteRoleAliasCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteRoleAliasCommand(input, context);
+    return serializeAws_restJson1DeleteRoleAliasCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRoleAliasCommandOutput> {
-    return deserializeAws_restJson1_1DeleteRoleAliasCommand(output, context);
+    return deserializeAws_restJson1DeleteRoleAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

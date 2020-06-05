@@ -8,9 +8,9 @@ import {
   DeleteBillingGroupResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteBillingGroupCommand,
-  serializeAws_restJson1_1DeleteBillingGroupCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteBillingGroupCommand,
+  serializeAws_restJson1DeleteBillingGroupCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DeleteBillingGroupCommand extends $Command<
     input: DeleteBillingGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteBillingGroupCommand(input, context);
+    return serializeAws_restJson1DeleteBillingGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBillingGroupCommandOutput> {
-    return deserializeAws_restJson1_1DeleteBillingGroupCommand(output, context);
+    return deserializeAws_restJson1DeleteBillingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

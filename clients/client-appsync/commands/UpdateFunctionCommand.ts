@@ -5,9 +5,9 @@ import {
 } from "../AppSyncClient";
 import { UpdateFunctionRequest, UpdateFunctionResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateFunctionCommand,
-  serializeAws_restJson1_1UpdateFunctionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateFunctionCommand,
+  serializeAws_restJson1UpdateFunctionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class UpdateFunctionCommand extends $Command<
     input: UpdateFunctionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateFunctionCommand(input, context);
+    return serializeAws_restJson1UpdateFunctionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFunctionCommandOutput> {
-    return deserializeAws_restJson1_1UpdateFunctionCommand(output, context);
+    return deserializeAws_restJson1UpdateFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

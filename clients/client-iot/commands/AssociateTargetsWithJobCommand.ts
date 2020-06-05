@@ -8,9 +8,9 @@ import {
   AssociateTargetsWithJobResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1AssociateTargetsWithJobCommand,
-  serializeAws_restJson1_1AssociateTargetsWithJobCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AssociateTargetsWithJobCommand,
+  serializeAws_restJson1AssociateTargetsWithJobCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class AssociateTargetsWithJobCommand extends $Command<
     input: AssociateTargetsWithJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AssociateTargetsWithJobCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1AssociateTargetsWithJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateTargetsWithJobCommandOutput> {
-    return deserializeAws_restJson1_1AssociateTargetsWithJobCommand(
+    return deserializeAws_restJson1AssociateTargetsWithJobCommand(
       output,
       context
     );

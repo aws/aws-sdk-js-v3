@@ -8,9 +8,9 @@ import {
   UpdateDynamicThingGroupResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateDynamicThingGroupCommand,
-  serializeAws_restJson1_1UpdateDynamicThingGroupCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateDynamicThingGroupCommand,
+  serializeAws_restJson1UpdateDynamicThingGroupCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class UpdateDynamicThingGroupCommand extends $Command<
     input: UpdateDynamicThingGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDynamicThingGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1UpdateDynamicThingGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDynamicThingGroupCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDynamicThingGroupCommand(
+    return deserializeAws_restJson1UpdateDynamicThingGroupCommand(
       output,
       context
     );

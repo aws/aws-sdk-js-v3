@@ -62,12 +62,17 @@ export interface AnalyzedResource {
   resourceArn: string | undefined;
 
   /**
+   * <p>The AWS account ID that owns the resource.</p>
+   */
+  resourceOwnerAccount: string | undefined;
+
+  /**
    * <p>The type of the resource that was analyzed.</p>
    */
   resourceType: ResourceType | string | undefined;
 
   /**
-   * <p>Indicates how the access that generated the finding is granted.</p>
+   * <p>Indicates how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.</p>
    */
   sharedVia?: string[];
 
@@ -101,6 +106,11 @@ export interface AnalyzedResourceSummary {
   resourceArn: string | undefined;
 
   /**
+   * <p>The AWS account ID that owns the resource.</p>
+   */
+  resourceOwnerAccount: string | undefined;
+
+  /**
    * <p>The type of resource that was analyzed.</p>
    */
   resourceType: ResourceType | string | undefined;
@@ -113,6 +123,8 @@ export namespace AnalyzedResourceSummary {
   export const isa = (o: any): o is AnalyzedResourceSummary =>
     __isa(o, "AnalyzedResourceSummary");
 }
+
+export type AnalyzerStatus = "ACTIVE" | "CREATING" | "DISABLED" | "FAILED";
 
 /**
  * <p>Contains information about the analyzer.</p>
@@ -143,6 +155,23 @@ export interface AnalyzerSummary {
    * <p>The name of the analyzer.</p>
    */
   name: string | undefined;
+
+  /**
+   * <p>The status of the analyzer. An <code>Active</code> analyzer successfully monitors supported resources
+   *          and generates new findings. The analyzer is <code>Disabled</code> when a user action, such as removing
+   *          trusted access for IAM Access Analyzer from AWS Organizations, causes the analyzer to stop
+   *          generating new findings. The status is <code>Creating</code> when the analyzer creation is in progress
+   *          and <code>Failed</code> when the analyzer creation has failed. </p>
+   */
+  status: AnalyzerStatus | string | undefined;
+
+  /**
+   * <p>The <code>statusReason</code> provides more details about the current status of the analyzer. For example, if the
+   *          creation for the analyzer fails, a <code>Failed</code> status is displayed. For an analyzer
+   *          with organization as the type, this failure can be due to an issue with creating the
+   *          service-linked roles required in the member accounts of the AWS organization.</p>
+   */
+  statusReason?: StatusReason;
 
   /**
    * <p>The tags added to the analyzer.</p>
@@ -235,7 +264,8 @@ export interface CreateAnalyzerRequest {
   analyzerName: string | undefined;
 
   /**
-   * <p>Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.</p>
+   * <p>Specifies the archive rules to add for the analyzer. Archive rules automatically archive
+   *          findings that meet the criteria you define for the rule.</p>
    */
   archiveRules?: InlineArchiveRule[];
 
@@ -250,8 +280,8 @@ export interface CreateAnalyzerRequest {
   tags?: { [key: string]: string };
 
   /**
-   * <p>The type of analyzer to create. Only ACCOUNT analyzers are supported. You can create only one analyzer per account per
-   *          Region.</p>
+   * <p>The type of analyzer to create. Only ACCOUNT analyzers are supported. You can create
+   *          only one analyzer per account per Region.</p>
    */
   type: Type | string | undefined;
 }
@@ -456,9 +486,19 @@ export interface Finding {
   resource?: string;
 
   /**
+   * <p>The AWS account ID that owns the resource.</p>
+   */
+  resourceOwnerAccount: string | undefined;
+
+  /**
    * <p>The type of the resource reported in the finding.</p>
    */
   resourceType: ResourceType | string | undefined;
+
+  /**
+   * <p>The sources of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.</p>
+   */
+  sources?: FindingSource[];
 
   /**
    * <p>The current status of the finding.</p>
@@ -477,6 +517,54 @@ export namespace Finding {
   });
   export const isa = (o: any): o is Finding => __isa(o, "Finding");
 }
+
+/**
+ * <p>The source of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.</p>
+ */
+export interface FindingSource {
+  __type?: "FindingSource";
+  /**
+   * <p>Includes details about how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.</p>
+   */
+  detail?: FindingSourceDetail;
+
+  /**
+   * <p>Indicates the type of access that generated the finding.</p>
+   */
+  type: FindingSourceType | string | undefined;
+}
+
+export namespace FindingSource {
+  export const filterSensitiveLog = (obj: FindingSource): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is FindingSource => __isa(o, "FindingSource");
+}
+
+/**
+ * <p>Includes details about how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.</p>
+ */
+export interface FindingSourceDetail {
+  __type?: "FindingSourceDetail";
+  /**
+   * <p>The ARN of the access point that generated the finding.</p>
+   */
+  accessPointArn?: string;
+}
+
+export namespace FindingSourceDetail {
+  export const filterSensitiveLog = (obj: FindingSourceDetail): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is FindingSourceDetail =>
+    __isa(o, "FindingSourceDetail");
+}
+
+export type FindingSourceType =
+  | "// Conceptually the primary resource policy on the resource  BUCKET_ACL"
+  | "// S3 access points only  // KMS_GRANT"
+  | "// S3 bucket ACLs only  S3_ACCESS_POINT"
+  | "POLICY";
 
 export type FindingStatus = "ACTIVE" | "ARCHIVED" | "RESOLVED";
 
@@ -536,9 +624,19 @@ export interface FindingSummary {
   resource?: string;
 
   /**
+   * <p>The AWS account ID that owns the resource.</p>
+   */
+  resourceOwnerAccount: string | undefined;
+
+  /**
    * <p>The type of the resource that the external principal has access to.</p>
    */
   resourceType: ResourceType | string | undefined;
+
+  /**
+   * <p>The sources of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.</p>
+   */
+  sources?: FindingSource[];
 
   /**
    * <p>The status of the finding.</p>
@@ -1053,6 +1151,12 @@ export namespace ListTagsForResourceResponse {
 
 export type OrderBy = "ASC" | "DESC";
 
+export type ReasonCode =
+  | "AWS_SERVICE_ACCESS_DISABLED"
+  | "DELEGATED_ADMINISTRATOR_DEREGISTERED"
+  | "ORGANIZATION_DELETED"
+  | "SERVICE_LINKED_ROLE_CREATION_FAILED";
+
 /**
  * <p>The specified resource could not be found.</p>
  */
@@ -1168,6 +1272,27 @@ export namespace StartResourceScanRequest {
 }
 
 /**
+ * <p>Provides more details about the current status of the analyzer. For example, if the
+ *          creation for the analyzer fails, a <code>Failed</code> status is displayed. For an analyzer
+ *          with organization as the type, this failure can be due to an issue with creating the
+ *          service-linked roles required in the member accounts of the AWS organization.</p>
+ */
+export interface StatusReason {
+  __type?: "StatusReason";
+  /**
+   * <p>The reason code for the current status of the analyzer.</p>
+   */
+  code: ReasonCode | string | undefined;
+}
+
+export namespace StatusReason {
+  export const filterSensitiveLog = (obj: StatusReason): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StatusReason => __isa(o, "StatusReason");
+}
+
+/**
  * <p>Adds a tag to the specified resource.</p>
  */
 export interface TagResourceRequest {
@@ -1230,7 +1355,7 @@ export namespace ThrottlingException {
     __isa(o, "ThrottlingException");
 }
 
-export type Type = "ACCOUNT";
+export type Type = "ACCOUNT" | "ORGANIZATION";
 
 /**
  * <p>Removes a tag from the specified resource.</p>

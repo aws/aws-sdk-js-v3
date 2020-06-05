@@ -8,9 +8,9 @@ import {
   GetMediaForFragmentListOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetMediaForFragmentListCommand,
-  serializeAws_restJson1_1GetMediaForFragmentListCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetMediaForFragmentListCommand,
+  serializeAws_restJson1GetMediaForFragmentListCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetMediaForFragmentListCommand extends $Command<
     input: GetMediaForFragmentListCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetMediaForFragmentListCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1GetMediaForFragmentListCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMediaForFragmentListCommandOutput> {
-    return deserializeAws_restJson1_1GetMediaForFragmentListCommand(
+    return deserializeAws_restJson1GetMediaForFragmentListCommand(
       output,
       context
     );

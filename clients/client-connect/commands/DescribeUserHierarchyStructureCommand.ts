@@ -8,9 +8,9 @@ import {
   DescribeUserHierarchyStructureResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeUserHierarchyStructureCommand,
-  serializeAws_restJson1_1DescribeUserHierarchyStructureCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeUserHierarchyStructureCommand,
+  serializeAws_restJson1DescribeUserHierarchyStructureCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeUserHierarchyStructureCommand extends $Command<
     input: DescribeUserHierarchyStructureCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeUserHierarchyStructureCommand(
+    return serializeAws_restJson1DescribeUserHierarchyStructureCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeUserHierarchyStructureCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeUserHierarchyStructureCommandOutput> {
-    return deserializeAws_restJson1_1DescribeUserHierarchyStructureCommand(
+    return deserializeAws_restJson1DescribeUserHierarchyStructureCommand(
       output,
       context
     );

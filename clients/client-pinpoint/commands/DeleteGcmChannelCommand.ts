@@ -8,9 +8,9 @@ import {
   DeleteGcmChannelResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteGcmChannelCommand,
-  serializeAws_restJson1_1DeleteGcmChannelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteGcmChannelCommand,
+  serializeAws_restJson1DeleteGcmChannelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DeleteGcmChannelCommand extends $Command<
     input: DeleteGcmChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteGcmChannelCommand(input, context);
+    return serializeAws_restJson1DeleteGcmChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteGcmChannelCommandOutput> {
-    return deserializeAws_restJson1_1DeleteGcmChannelCommand(output, context);
+    return deserializeAws_restJson1DeleteGcmChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

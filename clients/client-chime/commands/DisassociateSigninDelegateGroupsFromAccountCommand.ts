@@ -8,9 +8,9 @@ import {
   DisassociateSigninDelegateGroupsFromAccountResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DisassociateSigninDelegateGroupsFromAccountCommand,
-  serializeAws_restJson1_1DisassociateSigninDelegateGroupsFromAccountCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DisassociateSigninDelegateGroupsFromAccountCommand,
+  serializeAws_restJson1DisassociateSigninDelegateGroupsFromAccountCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -76,7 +76,7 @@ export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
     input: DisassociateSigninDelegateGroupsFromAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociateSigninDelegateGroupsFromAccountCommand(
+    return serializeAws_restJson1DisassociateSigninDelegateGroupsFromAccountCommand(
       input,
       context
     );
@@ -86,7 +86,7 @@ export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateSigninDelegateGroupsFromAccountCommandOutput> {
-    return deserializeAws_restJson1_1DisassociateSigninDelegateGroupsFromAccountCommand(
+    return deserializeAws_restJson1DisassociateSigninDelegateGroupsFromAccountCommand(
       output,
       context
     );

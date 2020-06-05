@@ -8,9 +8,9 @@ import {
   DisassociateWebsiteCertificateAuthorityResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DisassociateWebsiteCertificateAuthorityCommand,
-  serializeAws_restJson1_1DisassociateWebsiteCertificateAuthorityCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DisassociateWebsiteCertificateAuthorityCommand,
+  serializeAws_restJson1DisassociateWebsiteCertificateAuthorityCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -76,7 +76,7 @@ export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
     input: DisassociateWebsiteCertificateAuthorityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociateWebsiteCertificateAuthorityCommand(
+    return serializeAws_restJson1DisassociateWebsiteCertificateAuthorityCommand(
       input,
       context
     );
@@ -86,7 +86,7 @@ export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateWebsiteCertificateAuthorityCommandOutput> {
-    return deserializeAws_restJson1_1DisassociateWebsiteCertificateAuthorityCommand(
+    return deserializeAws_restJson1DisassociateWebsiteCertificateAuthorityCommand(
       output,
       context
     );

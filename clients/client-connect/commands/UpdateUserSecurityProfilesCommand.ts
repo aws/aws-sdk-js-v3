@@ -5,9 +5,9 @@ import {
 } from "../ConnectClient";
 import { UpdateUserSecurityProfilesRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateUserSecurityProfilesCommand,
-  serializeAws_restJson1_1UpdateUserSecurityProfilesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateUserSecurityProfilesCommand,
+  serializeAws_restJson1UpdateUserSecurityProfilesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class UpdateUserSecurityProfilesCommand extends $Command<
     input: UpdateUserSecurityProfilesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateUserSecurityProfilesCommand(
+    return serializeAws_restJson1UpdateUserSecurityProfilesCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class UpdateUserSecurityProfilesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateUserSecurityProfilesCommandOutput> {
-    return deserializeAws_restJson1_1UpdateUserSecurityProfilesCommand(
+    return deserializeAws_restJson1UpdateUserSecurityProfilesCommand(
       output,
       context
     );

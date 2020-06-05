@@ -5,9 +5,9 @@ import {
 } from "../ElasticTranscoderClient";
 import { CreatePresetRequest, CreatePresetResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreatePresetCommand,
-  serializeAws_restJson1_1CreatePresetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreatePresetCommand,
+  serializeAws_restJson1CreatePresetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreatePresetCommand extends $Command<
     input: CreatePresetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreatePresetCommand(input, context);
+    return serializeAws_restJson1CreatePresetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePresetCommandOutput> {
-    return deserializeAws_restJson1_1CreatePresetCommand(output, context);
+    return deserializeAws_restJson1CreatePresetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,9 +5,9 @@ import {
 } from "../ChimeClient";
 import { ListAttendeesRequest, ListAttendeesResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListAttendeesCommand,
-  serializeAws_restJson1_1ListAttendeesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListAttendeesCommand,
+  serializeAws_restJson1ListAttendeesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class ListAttendeesCommand extends $Command<
     input: ListAttendeesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListAttendeesCommand(input, context);
+    return serializeAws_restJson1ListAttendeesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAttendeesCommandOutput> {
-    return deserializeAws_restJson1_1ListAttendeesCommand(output, context);
+    return deserializeAws_restJson1ListAttendeesCommand(output, context);
   }
 
   // Start section: command_body_extra

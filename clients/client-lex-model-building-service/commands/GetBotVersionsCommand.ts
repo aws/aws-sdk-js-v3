@@ -5,9 +5,9 @@ import {
 } from "../LexModelBuildingServiceClient";
 import { GetBotVersionsRequest, GetBotVersionsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetBotVersionsCommand,
-  serializeAws_restJson1_1GetBotVersionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetBotVersionsCommand,
+  serializeAws_restJson1GetBotVersionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetBotVersionsCommand extends $Command<
     input: GetBotVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetBotVersionsCommand(input, context);
+    return serializeAws_restJson1GetBotVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBotVersionsCommandOutput> {
-    return deserializeAws_restJson1_1GetBotVersionsCommand(output, context);
+    return deserializeAws_restJson1GetBotVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

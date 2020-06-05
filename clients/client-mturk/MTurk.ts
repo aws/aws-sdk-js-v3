@@ -1381,6 +1381,44 @@ export class MTurk extends MTurkClient {
 
   /**
    * <p>
+   *             The <code>ListReviewableHITs</code> operation retrieves the HITs with Status equal to
+   *             Reviewable or Status equal to Reviewing that belong to the Requester calling the operation.
+   *         </p>
+   */
+  public listReviewableHITs(
+    args: ListReviewableHITsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReviewableHITsCommandOutput>;
+  public listReviewableHITs(
+    args: ListReviewableHITsCommandInput,
+    cb: (err: any, data?: ListReviewableHITsCommandOutput) => void
+  ): void;
+  public listReviewableHITs(
+    args: ListReviewableHITsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListReviewableHITsCommandOutput) => void
+  ): void;
+  public listReviewableHITs(
+    args: ListReviewableHITsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListReviewableHITsCommandOutput) => void),
+    cb?: (err: any, data?: ListReviewableHITsCommandOutput) => void
+  ): Promise<ListReviewableHITsCommandOutput> | void {
+    const command = new ListReviewableHITsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
    *             The <code>ListReviewPolicyResultsForHIT</code> operation retrieves the computed results
    *             and the actions taken in the course of executing your Review Policies for a given HIT.
    *             For information about how to specify Review Policies when you call CreateHIT,
@@ -1409,44 +1447,6 @@ export class MTurk extends MTurkClient {
     cb?: (err: any, data?: ListReviewPolicyResultsForHITCommandOutput) => void
   ): Promise<ListReviewPolicyResultsForHITCommandOutput> | void {
     const command = new ListReviewPolicyResultsForHITCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>
-   *             The <code>ListReviewableHITs</code> operation retrieves the HITs with Status equal to
-   *             Reviewable or Status equal to Reviewing that belong to the Requester calling the operation.
-   *         </p>
-   */
-  public listReviewableHITs(
-    args: ListReviewableHITsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListReviewableHITsCommandOutput>;
-  public listReviewableHITs(
-    args: ListReviewableHITsCommandInput,
-    cb: (err: any, data?: ListReviewableHITsCommandOutput) => void
-  ): void;
-  public listReviewableHITs(
-    args: ListReviewableHITsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListReviewableHITsCommandOutput) => void
-  ): void;
-  public listReviewableHITs(
-    args: ListReviewableHITsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListReviewableHITsCommandOutput) => void),
-    cb?: (err: any, data?: ListReviewableHITsCommandOutput) => void
-  ): Promise<ListReviewableHITsCommandOutput> | void {
-    const command = new ListReviewableHITsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

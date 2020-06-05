@@ -194,6 +194,41 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class IoTAnalytics extends IoTAnalyticsClient {
   /**
+   * <p>Sends messages to a channel.</p>
+   */
+  public batchPutMessage(
+    args: BatchPutMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchPutMessageCommandOutput>;
+  public batchPutMessage(
+    args: BatchPutMessageCommandInput,
+    cb: (err: any, data?: BatchPutMessageCommandOutput) => void
+  ): void;
+  public batchPutMessage(
+    args: BatchPutMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchPutMessageCommandOutput) => void
+  ): void;
+  public batchPutMessage(
+    args: BatchPutMessageCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchPutMessageCommandOutput) => void),
+    cb?: (err: any, data?: BatchPutMessageCommandOutput) => void
+  ): Promise<BatchPutMessageCommandOutput> | void {
+    const command = new BatchPutMessageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Cancels the reprocessing of data through the pipeline.</p>
    */
   public cancelPipelineReprocessing(
@@ -1355,41 +1390,6 @@ export class IoTAnalytics extends IoTAnalyticsClient {
     cb?: (err: any, data?: UpdatePipelineCommandOutput) => void
   ): Promise<UpdatePipelineCommandOutput> | void {
     const command = new UpdatePipelineCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Sends messages to a channel.</p>
-   */
-  public batchPutMessage(
-    args: BatchPutMessageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchPutMessageCommandOutput>;
-  public batchPutMessage(
-    args: BatchPutMessageCommandInput,
-    cb: (err: any, data?: BatchPutMessageCommandOutput) => void
-  ): void;
-  public batchPutMessage(
-    args: BatchPutMessageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchPutMessageCommandOutput) => void
-  ): void;
-  public batchPutMessage(
-    args: BatchPutMessageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchPutMessageCommandOutput) => void),
-    cb?: (err: any, data?: BatchPutMessageCommandOutput) => void
-  ): Promise<BatchPutMessageCommandOutput> | void {
-    const command = new BatchPutMessageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

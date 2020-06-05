@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { DeleteClientCertificateRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteClientCertificateCommand,
-  serializeAws_restJson1_1DeleteClientCertificateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteClientCertificateCommand,
+  serializeAws_restJson1DeleteClientCertificateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,17 +70,14 @@ export class DeleteClientCertificateCommand extends $Command<
     input: DeleteClientCertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteClientCertificateCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DeleteClientCertificateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteClientCertificateCommandOutput> {
-    return deserializeAws_restJson1_1DeleteClientCertificateCommand(
+    return deserializeAws_restJson1DeleteClientCertificateCommand(
       output,
       context
     );

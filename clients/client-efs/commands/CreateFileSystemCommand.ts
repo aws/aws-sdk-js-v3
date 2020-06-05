@@ -8,9 +8,9 @@ import {
   FileSystemDescription
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateFileSystemCommand,
-  serializeAws_restJson1_1CreateFileSystemCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateFileSystemCommand,
+  serializeAws_restJson1CreateFileSystemCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class CreateFileSystemCommand extends $Command<
     input: CreateFileSystemCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateFileSystemCommand(input, context);
+    return serializeAws_restJson1CreateFileSystemCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateFileSystemCommandOutput> {
-    return deserializeAws_restJson1_1CreateFileSystemCommand(output, context);
+    return deserializeAws_restJson1CreateFileSystemCommand(output, context);
   }
 
   // Start section: command_body_extra

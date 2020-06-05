@@ -5,9 +5,9 @@ import {
 } from "../ChimeClient";
 import { UpdateAccountRequest, UpdateAccountResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateAccountCommand,
-  serializeAws_restJson1_1UpdateAccountCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateAccountCommand,
+  serializeAws_restJson1UpdateAccountCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class UpdateAccountCommand extends $Command<
     input: UpdateAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateAccountCommand(input, context);
+    return serializeAws_restJson1UpdateAccountCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAccountCommandOutput> {
-    return deserializeAws_restJson1_1UpdateAccountCommand(output, context);
+    return deserializeAws_restJson1UpdateAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

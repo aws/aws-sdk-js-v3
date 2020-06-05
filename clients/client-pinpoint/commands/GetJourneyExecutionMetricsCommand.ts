@@ -8,9 +8,9 @@ import {
   GetJourneyExecutionMetricsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetJourneyExecutionMetricsCommand,
-  serializeAws_restJson1_1GetJourneyExecutionMetricsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetJourneyExecutionMetricsCommand,
+  serializeAws_restJson1GetJourneyExecutionMetricsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetJourneyExecutionMetricsCommand extends $Command<
     input: GetJourneyExecutionMetricsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetJourneyExecutionMetricsCommand(
+    return serializeAws_restJson1GetJourneyExecutionMetricsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetJourneyExecutionMetricsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetJourneyExecutionMetricsCommandOutput> {
-    return deserializeAws_restJson1_1GetJourneyExecutionMetricsCommand(
+    return deserializeAws_restJson1GetJourneyExecutionMetricsCommand(
       output,
       context
     );

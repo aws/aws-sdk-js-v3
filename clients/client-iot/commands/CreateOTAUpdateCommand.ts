@@ -8,9 +8,9 @@ import {
   CreateOTAUpdateResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateOTAUpdateCommand,
-  serializeAws_restJson1_1CreateOTAUpdateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateOTAUpdateCommand,
+  serializeAws_restJson1CreateOTAUpdateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class CreateOTAUpdateCommand extends $Command<
     input: CreateOTAUpdateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateOTAUpdateCommand(input, context);
+    return serializeAws_restJson1CreateOTAUpdateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateOTAUpdateCommandOutput> {
-    return deserializeAws_restJson1_1CreateOTAUpdateCommand(output, context);
+    return deserializeAws_restJson1CreateOTAUpdateCommand(output, context);
   }
 
   // Start section: command_body_extra

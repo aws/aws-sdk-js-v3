@@ -2358,13 +2358,6 @@ const serializeAws_json1_1TagList = (
   return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
-const deserializeAws_json1_1AZList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
 const deserializeAws_json1_1AddTagsToResourceResponse = (
   output: any,
   context: __SerdeContext
@@ -2376,6 +2369,13 @@ const deserializeAws_json1_1AddTagsToResourceResponse = (
         ? output.Status
         : undefined
   } as any;
+};
+
+const deserializeAws_json1_1AZList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1ClientList = (

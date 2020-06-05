@@ -1226,6 +1226,41 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
+   * <p>Returns information about provisioned DB clusters. This API supports pagination.</p>
+   */
+  public describeDBClusters(
+    args: DescribeDBClustersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDBClustersCommandOutput>;
+  public describeDBClusters(
+    args: DescribeDBClustersCommandInput,
+    cb: (err: any, data?: DescribeDBClustersCommandOutput) => void
+  ): void;
+  public describeDBClusters(
+    args: DescribeDBClustersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDBClustersCommandOutput) => void
+  ): void;
+  public describeDBClusters(
+    args: DescribeDBClustersCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeDBClustersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDBClustersCommandOutput) => void
+  ): Promise<DescribeDBClustersCommandOutput> | void {
+    const command = new DescribeDBClustersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster
    *       snapshot.</p>
    *          <p>When sharing snapshots with other AWS accounts,
@@ -1306,41 +1341,6 @@ export class Neptune extends NeptuneClient {
     cb?: (err: any, data?: DescribeDBClusterSnapshotsCommandOutput) => void
   ): Promise<DescribeDBClusterSnapshotsCommandOutput> | void {
     const command = new DescribeDBClusterSnapshotsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns information about provisioned DB clusters. This API supports pagination.</p>
-   */
-  public describeDBClusters(
-    args: DescribeDBClustersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeDBClustersCommandOutput>;
-  public describeDBClusters(
-    args: DescribeDBClustersCommandInput,
-    cb: (err: any, data?: DescribeDBClustersCommandOutput) => void
-  ): void;
-  public describeDBClusters(
-    args: DescribeDBClustersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeDBClustersCommandOutput) => void
-  ): void;
-  public describeDBClusters(
-    args: DescribeDBClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBClustersCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDBClustersCommandOutput) => void
-  ): Promise<DescribeDBClustersCommandOutput> | void {
-    const command = new DescribeDBClustersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1655,44 +1655,6 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   * <p>Lists all the subscription descriptions for a customer account. The description for a
-   *       subscription includes SubscriptionName, SNSTopicARN, CustomerID, SourceType, SourceID,
-   *       CreationTime, and Status.</p>
-   *          <p>If you specify a SubscriptionName, lists the description for that subscription.</p>
-   */
-  public describeEventSubscriptions(
-    args: DescribeEventSubscriptionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeEventSubscriptionsCommandOutput>;
-  public describeEventSubscriptions(
-    args: DescribeEventSubscriptionsCommandInput,
-    cb: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
-  ): void;
-  public describeEventSubscriptions(
-    args: DescribeEventSubscriptionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
-  ): void;
-  public describeEventSubscriptions(
-    args: DescribeEventSubscriptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventSubscriptionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
-  ): Promise<DescribeEventSubscriptionsCommandOutput> | void {
-    const command = new DescribeEventSubscriptionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Returns events related to DB instances, DB security groups, DB snapshots, and DB parameter
    *       groups for the past 14 days. Events specific to a particular DB instance, DB security group,
    *       database snapshot, or DB parameter group can be obtained by providing the name as a parameter.
@@ -1719,6 +1681,44 @@ export class Neptune extends NeptuneClient {
     cb?: (err: any, data?: DescribeEventsCommandOutput) => void
   ): Promise<DescribeEventsCommandOutput> | void {
     const command = new DescribeEventsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all the subscription descriptions for a customer account. The description for a
+   *       subscription includes SubscriptionName, SNSTopicARN, CustomerID, SourceType, SourceID,
+   *       CreationTime, and Status.</p>
+   *          <p>If you specify a SubscriptionName, lists the description for that subscription.</p>
+   */
+  public describeEventSubscriptions(
+    args: DescribeEventSubscriptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEventSubscriptionsCommandOutput>;
+  public describeEventSubscriptions(
+    args: DescribeEventSubscriptionsCommandInput,
+    cb: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
+  ): void;
+  public describeEventSubscriptions(
+    args: DescribeEventSubscriptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
+  ): void;
+  public describeEventSubscriptions(
+    args: DescribeEventSubscriptionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeEventSubscriptionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
+  ): Promise<DescribeEventSubscriptionsCommandOutput> | void {
+    const command = new DescribeEventSubscriptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

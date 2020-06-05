@@ -588,22 +588,6 @@ export const serializeAws_queryDescribeAccountAttributesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeApplicationVersionsCommand = async (
-  input: DescribeApplicationVersionsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
-  };
-  let body: any;
-  body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeApplicationVersionsMessage(input, context),
-    Action: "DescribeApplicationVersions",
-    Version: "2010-12-01"
-  });
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_queryDescribeApplicationsCommand = async (
   input: DescribeApplicationsCommandInput,
   context: __SerdeContext
@@ -615,6 +599,22 @@ export const serializeAws_queryDescribeApplicationsCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeApplicationsMessage(input, context),
     Action: "DescribeApplications",
+    Version: "2010-12-01"
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDescribeApplicationVersionsCommand = async (
+  input: DescribeApplicationVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeApplicationVersionsMessage(input, context),
+    Action: "DescribeApplicationVersions",
     Version: "2010-12-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1435,10 +1435,10 @@ const deserializeAws_queryCreateApplicationVersionCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "TooManyApplicationVersionsException":
-    case "com.amazonaws.elasticbeanstalk#TooManyApplicationVersionsException":
+    case "TooManyApplicationsException":
+    case "com.amazonaws.elasticbeanstalk#TooManyApplicationsException":
       response = {
-        ...(await deserializeAws_queryTooManyApplicationVersionsExceptionResponse(
+        ...(await deserializeAws_queryTooManyApplicationsExceptionResponse(
           parsedOutput,
           context
         )),
@@ -1446,10 +1446,10 @@ const deserializeAws_queryCreateApplicationVersionCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "TooManyApplicationsException":
-    case "com.amazonaws.elasticbeanstalk#TooManyApplicationsException":
+    case "TooManyApplicationVersionsException":
+    case "com.amazonaws.elasticbeanstalk#TooManyApplicationVersionsException":
       response = {
-        ...(await deserializeAws_queryTooManyApplicationsExceptionResponse(
+        ...(await deserializeAws_queryTooManyApplicationVersionsExceptionResponse(
           parsedOutput,
           context
         )),
@@ -2223,60 +2223,6 @@ const deserializeAws_queryDescribeAccountAttributesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeApplicationVersionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeApplicationVersionsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeApplicationVersionsCommandError(
-      output,
-      context
-    );
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_queryApplicationVersionDescriptionsMessage(
-    data.DescribeApplicationVersionsResult,
-    context
-  );
-  const response: DescribeApplicationVersionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "ApplicationVersionDescriptionsMessage",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_queryDescribeApplicationVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeApplicationVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
 export const deserializeAws_queryDescribeApplicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2305,6 +2251,60 @@ const deserializeAws_queryDescribeApplicationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeApplicationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDescribeApplicationVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeApplicationVersionsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_queryDescribeApplicationVersionsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryApplicationVersionDescriptionsMessage(
+    data.DescribeApplicationVersionsResult,
+    context
+  );
+  const response: DescribeApplicationVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ApplicationVersionDescriptionsMessage",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeApplicationVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeApplicationVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4228,24 +4228,6 @@ const deserializeAws_querySourceBundleDeletionExceptionResponse = async (
   return contents;
 };
 
-const deserializeAws_queryTooManyApplicationVersionsExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<TooManyApplicationVersionsException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryTooManyApplicationVersionsException(
-    body.Error,
-    context
-  );
-  const contents: TooManyApplicationVersionsException = {
-    name: "TooManyApplicationVersionsException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
 const deserializeAws_queryTooManyApplicationsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4257,6 +4239,24 @@ const deserializeAws_queryTooManyApplicationsExceptionResponse = async (
   );
   const contents: TooManyApplicationsException = {
     name: "TooManyApplicationsException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_queryTooManyApplicationVersionsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyApplicationVersionsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryTooManyApplicationVersionsException(
+    body.Error,
+    context
+  );
+  const contents: TooManyApplicationVersionsException = {
+    name: "TooManyApplicationVersionsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4874,6 +4874,24 @@ const serializeAws_queryDeletePlatformVersionRequest = (
   return entries;
 };
 
+const serializeAws_queryDescribeApplicationsMessage = (
+  input: DescribeApplicationsMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ApplicationNames !== undefined) {
+    const memberEntries = serializeAws_queryApplicationNamesList(
+      input.ApplicationNames,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ApplicationNames.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_queryDescribeApplicationVersionsMessage = (
   input: DescribeApplicationVersionsMessage,
   context: __SerdeContext
@@ -4895,24 +4913,6 @@ const serializeAws_queryDescribeApplicationVersionsMessage = (
     );
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VersionLabels.${key}`;
-      entries[loc] = value;
-    });
-  }
-  return entries;
-};
-
-const serializeAws_queryDescribeApplicationsMessage = (
-  input: DescribeApplicationsMessage,
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  if (input.ApplicationNames !== undefined) {
-    const memberEntries = serializeAws_queryApplicationNamesList(
-      input.ApplicationNames,
-      context
-    );
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `ApplicationNames.${key}`;
       entries[loc] = value;
     });
   }
@@ -5368,19 +5368,6 @@ const serializeAws_queryPlatformFilter = (
   return entries;
 };
 
-const serializeAws_queryPlatformFilterValueList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  let counter = 1;
-  for (let entry of input) {
-    entries[`member.${counter}`] = entry;
-    counter++;
-  }
-  return entries;
-};
-
 const serializeAws_queryPlatformFilters = (
   input: PlatformFilter[],
   context: __SerdeContext
@@ -5392,6 +5379,19 @@ const serializeAws_queryPlatformFilters = (
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryPlatformFilterValueList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    entries[`member.${counter}`] = entry;
     counter++;
   }
   return entries;
@@ -6227,48 +6227,6 @@ const deserializeAws_queryBuilder = (
   return contents;
 };
 
-const deserializeAws_queryCPUUtilization = (
-  output: any,
-  context: __SerdeContext
-): CPUUtilization => {
-  let contents: any = {
-    __type: "CPUUtilization",
-    IOWait: undefined,
-    IRQ: undefined,
-    Idle: undefined,
-    Nice: undefined,
-    Privileged: undefined,
-    SoftIRQ: undefined,
-    System: undefined,
-    User: undefined
-  };
-  if (output["IOWait"] !== undefined) {
-    contents.IOWait = parseFloat(output["IOWait"]);
-  }
-  if (output["IRQ"] !== undefined) {
-    contents.IRQ = parseFloat(output["IRQ"]);
-  }
-  if (output["Idle"] !== undefined) {
-    contents.Idle = parseFloat(output["Idle"]);
-  }
-  if (output["Nice"] !== undefined) {
-    contents.Nice = parseFloat(output["Nice"]);
-  }
-  if (output["Privileged"] !== undefined) {
-    contents.Privileged = parseFloat(output["Privileged"]);
-  }
-  if (output["SoftIRQ"] !== undefined) {
-    contents.SoftIRQ = parseFloat(output["SoftIRQ"]);
-  }
-  if (output["System"] !== undefined) {
-    contents.System = parseFloat(output["System"]);
-  }
-  if (output["User"] !== undefined) {
-    contents.User = parseFloat(output["User"]);
-  }
-  return contents;
-};
-
 const deserializeAws_queryCauses = (
   output: any,
   context: __SerdeContext
@@ -6390,6 +6348,37 @@ const deserializeAws_queryConfigurationOptionPossibleValues = (
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_queryConfigurationOptionsDescription = (
+  output: any,
+  context: __SerdeContext
+): ConfigurationOptionsDescription => {
+  let contents: any = {
+    __type: "ConfigurationOptionsDescription",
+    Options: undefined,
+    PlatformArn: undefined,
+    SolutionStackName: undefined
+  };
+  if (output.Options === "") {
+    contents.Options = [];
+  }
+  if (
+    output["Options"] !== undefined &&
+    output["Options"]["member"] !== undefined
+  ) {
+    contents.Options = deserializeAws_queryConfigurationOptionDescriptionsList(
+      __getArrayIfSingleItem(output["Options"]["member"]),
+      context
+    );
+  }
+  if (output["PlatformArn"] !== undefined) {
+    contents.PlatformArn = output["PlatformArn"];
+  }
+  if (output["SolutionStackName"] !== undefined) {
+    contents.SolutionStackName = output["SolutionStackName"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryConfigurationOptionSetting = (
   output: any,
   context: __SerdeContext
@@ -6423,37 +6412,6 @@ const deserializeAws_queryConfigurationOptionSettingsList = (
   return (output || []).map((entry: any) =>
     deserializeAws_queryConfigurationOptionSetting(entry, context)
   );
-};
-
-const deserializeAws_queryConfigurationOptionsDescription = (
-  output: any,
-  context: __SerdeContext
-): ConfigurationOptionsDescription => {
-  let contents: any = {
-    __type: "ConfigurationOptionsDescription",
-    Options: undefined,
-    PlatformArn: undefined,
-    SolutionStackName: undefined
-  };
-  if (output.Options === "") {
-    contents.Options = [];
-  }
-  if (
-    output["Options"] !== undefined &&
-    output["Options"]["member"] !== undefined
-  ) {
-    contents.Options = deserializeAws_queryConfigurationOptionDescriptionsList(
-      __getArrayIfSingleItem(output["Options"]["member"]),
-      context
-    );
-  }
-  if (output["PlatformArn"] !== undefined) {
-    contents.PlatformArn = output["PlatformArn"];
-  }
-  if (output["SolutionStackName"] !== undefined) {
-    contents.SolutionStackName = output["SolutionStackName"];
-  }
-  return contents;
 };
 
 const deserializeAws_queryConfigurationSettingsDescription = (
@@ -6575,6 +6533,48 @@ const deserializeAws_queryConfigurationTemplateNamesList = (
   context: __SerdeContext
 ): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_queryCPUUtilization = (
+  output: any,
+  context: __SerdeContext
+): CPUUtilization => {
+  let contents: any = {
+    __type: "CPUUtilization",
+    IOWait: undefined,
+    IRQ: undefined,
+    Idle: undefined,
+    Nice: undefined,
+    Privileged: undefined,
+    SoftIRQ: undefined,
+    System: undefined,
+    User: undefined
+  };
+  if (output["IOWait"] !== undefined) {
+    contents.IOWait = parseFloat(output["IOWait"]);
+  }
+  if (output["IRQ"] !== undefined) {
+    contents.IRQ = parseFloat(output["IRQ"]);
+  }
+  if (output["Idle"] !== undefined) {
+    contents.Idle = parseFloat(output["Idle"]);
+  }
+  if (output["Nice"] !== undefined) {
+    contents.Nice = parseFloat(output["Nice"]);
+  }
+  if (output["Privileged"] !== undefined) {
+    contents.Privileged = parseFloat(output["Privileged"]);
+  }
+  if (output["SoftIRQ"] !== undefined) {
+    contents.SoftIRQ = parseFloat(output["SoftIRQ"]);
+  }
+  if (output["System"] !== undefined) {
+    contents.System = parseFloat(output["System"]);
+  }
+  if (output["User"] !== undefined) {
+    contents.User = parseFloat(output["User"]);
+  }
+  return contents;
 };
 
 const deserializeAws_queryCreatePlatformVersionResult = (
@@ -7541,6 +7541,24 @@ const deserializeAws_queryListAvailableSolutionStacksResultMessage = (
   return contents;
 };
 
+const deserializeAws_queryListener = (
+  output: any,
+  context: __SerdeContext
+): Listener => {
+  let contents: any = {
+    __type: "Listener",
+    Port: undefined,
+    Protocol: undefined
+  };
+  if (output["Port"] !== undefined) {
+    contents.Port = parseInt(output["Port"]);
+  }
+  if (output["Protocol"] !== undefined) {
+    contents.Protocol = output["Protocol"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryListPlatformVersionsResult = (
   output: any,
   context: __SerdeContext
@@ -7564,24 +7582,6 @@ const deserializeAws_queryListPlatformVersionsResult = (
       __getArrayIfSingleItem(output["PlatformSummaryList"]["member"]),
       context
     );
-  }
-  return contents;
-};
-
-const deserializeAws_queryListener = (
-  output: any,
-  context: __SerdeContext
-): Listener => {
-  let contents: any = {
-    __type: "Listener",
-    Port: undefined,
-    Protocol: undefined
-  };
-  if (output["Port"] !== undefined) {
-    contents.Port = parseInt(output["Port"]);
-  }
-  if (output["Protocol"] !== undefined) {
-    contents.Protocol = output["Protocol"];
   }
   return contents;
 };
@@ -8542,12 +8542,12 @@ const deserializeAws_queryTagList = (
   );
 };
 
-const deserializeAws_queryTooManyApplicationVersionsException = (
+const deserializeAws_queryTooManyApplicationsException = (
   output: any,
   context: __SerdeContext
-): TooManyApplicationVersionsException => {
+): TooManyApplicationsException => {
   let contents: any = {
-    __type: "TooManyApplicationVersionsException",
+    __type: "TooManyApplicationsException",
     message: undefined
   };
   if (output["message"] !== undefined) {
@@ -8556,12 +8556,12 @@ const deserializeAws_queryTooManyApplicationVersionsException = (
   return contents;
 };
 
-const deserializeAws_queryTooManyApplicationsException = (
+const deserializeAws_queryTooManyApplicationVersionsException = (
   output: any,
   context: __SerdeContext
-): TooManyApplicationsException => {
+): TooManyApplicationVersionsException => {
   let contents: any = {
-    __type: "TooManyApplicationsException",
+    __type: "TooManyApplicationVersionsException",
     message: undefined
   };
   if (output["message"] !== undefined) {

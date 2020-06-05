@@ -5,9 +5,9 @@ import {
 } from "../BackupClient";
 import { DescribeCopyJobInput, DescribeCopyJobOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeCopyJobCommand,
-  serializeAws_restJson1_1DescribeCopyJobCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeCopyJobCommand,
+  serializeAws_restJson1DescribeCopyJobCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class DescribeCopyJobCommand extends $Command<
     input: DescribeCopyJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeCopyJobCommand(input, context);
+    return serializeAws_restJson1DescribeCopyJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCopyJobCommandOutput> {
-    return deserializeAws_restJson1_1DescribeCopyJobCommand(output, context);
+    return deserializeAws_restJson1DescribeCopyJobCommand(output, context);
   }
 
   // Start section: command_body_extra

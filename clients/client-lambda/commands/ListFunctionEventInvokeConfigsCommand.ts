@@ -8,9 +8,9 @@ import {
   ListFunctionEventInvokeConfigsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListFunctionEventInvokeConfigsCommand,
-  serializeAws_restJson1_1ListFunctionEventInvokeConfigsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListFunctionEventInvokeConfigsCommand,
+  serializeAws_restJson1ListFunctionEventInvokeConfigsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListFunctionEventInvokeConfigsCommand extends $Command<
     input: ListFunctionEventInvokeConfigsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListFunctionEventInvokeConfigsCommand(
+    return serializeAws_restJson1ListFunctionEventInvokeConfigsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListFunctionEventInvokeConfigsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFunctionEventInvokeConfigsCommandOutput> {
-    return deserializeAws_restJson1_1ListFunctionEventInvokeConfigsCommand(
+    return deserializeAws_restJson1ListFunctionEventInvokeConfigsCommand(
       output,
       context
     );

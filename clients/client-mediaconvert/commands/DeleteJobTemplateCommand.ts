@@ -8,9 +8,9 @@ import {
   DeleteJobTemplateResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteJobTemplateCommand,
-  serializeAws_restJson1_1DeleteJobTemplateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteJobTemplateCommand,
+  serializeAws_restJson1DeleteJobTemplateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DeleteJobTemplateCommand extends $Command<
     input: DeleteJobTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteJobTemplateCommand(input, context);
+    return serializeAws_restJson1DeleteJobTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteJobTemplateCommandOutput> {
-    return deserializeAws_restJson1_1DeleteJobTemplateCommand(output, context);
+    return deserializeAws_restJson1DeleteJobTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

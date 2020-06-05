@@ -5,9 +5,9 @@ import {
 } from "../PinpointClient";
 import { SendMessagesRequest, SendMessagesResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1SendMessagesCommand,
-  serializeAws_restJson1_1SendMessagesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1SendMessagesCommand,
+  serializeAws_restJson1SendMessagesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class SendMessagesCommand extends $Command<
     input: SendMessagesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1SendMessagesCommand(input, context);
+    return serializeAws_restJson1SendMessagesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SendMessagesCommandOutput> {
-    return deserializeAws_restJson1_1SendMessagesCommand(output, context);
+    return deserializeAws_restJson1SendMessagesCommand(output, context);
   }
 
   // Start section: command_body_extra

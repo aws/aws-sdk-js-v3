@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { DeleteJobRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteJobCommand,
-  serializeAws_restJson1_1DeleteJobCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteJobCommand,
+  serializeAws_restJson1DeleteJobCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteJobCommand extends $Command<
     input: DeleteJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteJobCommand(input, context);
+    return serializeAws_restJson1DeleteJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteJobCommandOutput> {
-    return deserializeAws_restJson1_1DeleteJobCommand(output, context);
+    return deserializeAws_restJson1DeleteJobCommand(output, context);
   }
 
   // Start section: command_body_extra

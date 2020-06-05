@@ -5,9 +5,9 @@ import {
 } from "../GroundStationClient";
 import { ConfigIdResponse, DeleteConfigRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteConfigCommand,
-  serializeAws_restJson1_1DeleteConfigCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteConfigCommand,
+  serializeAws_restJson1DeleteConfigCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteConfigCommand extends $Command<
     input: DeleteConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteConfigCommand(input, context);
+    return serializeAws_restJson1DeleteConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigCommandOutput> {
-    return deserializeAws_restJson1_1DeleteConfigCommand(output, context);
+    return deserializeAws_restJson1DeleteConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

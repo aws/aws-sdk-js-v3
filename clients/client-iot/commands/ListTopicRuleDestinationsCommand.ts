@@ -8,9 +8,9 @@ import {
   ListTopicRuleDestinationsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListTopicRuleDestinationsCommand,
-  serializeAws_restJson1_1ListTopicRuleDestinationsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListTopicRuleDestinationsCommand,
+  serializeAws_restJson1ListTopicRuleDestinationsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListTopicRuleDestinationsCommand extends $Command<
     input: ListTopicRuleDestinationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListTopicRuleDestinationsCommand(
+    return serializeAws_restJson1ListTopicRuleDestinationsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListTopicRuleDestinationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTopicRuleDestinationsCommandOutput> {
-    return deserializeAws_restJson1_1ListTopicRuleDestinationsCommand(
+    return deserializeAws_restJson1ListTopicRuleDestinationsCommand(
       output,
       context
     );

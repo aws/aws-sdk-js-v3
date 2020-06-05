@@ -8,9 +8,9 @@ import {
   CreateCloudFormationChangeSetResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateCloudFormationChangeSetCommand,
-  serializeAws_restJson1_1CreateCloudFormationChangeSetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateCloudFormationChangeSetCommand,
+  serializeAws_restJson1CreateCloudFormationChangeSetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CreateCloudFormationChangeSetCommand extends $Command<
     input: CreateCloudFormationChangeSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateCloudFormationChangeSetCommand(
+    return serializeAws_restJson1CreateCloudFormationChangeSetCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CreateCloudFormationChangeSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCloudFormationChangeSetCommandOutput> {
-    return deserializeAws_restJson1_1CreateCloudFormationChangeSetCommand(
+    return deserializeAws_restJson1CreateCloudFormationChangeSetCommand(
       output,
       context
     );

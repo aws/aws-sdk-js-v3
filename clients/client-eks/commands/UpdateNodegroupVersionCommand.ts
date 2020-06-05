@@ -8,9 +8,9 @@ import {
   UpdateNodegroupVersionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateNodegroupVersionCommand,
-  serializeAws_restJson1_1UpdateNodegroupVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateNodegroupVersionCommand,
+  serializeAws_restJson1UpdateNodegroupVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class UpdateNodegroupVersionCommand extends $Command<
     input: UpdateNodegroupVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateNodegroupVersionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1UpdateNodegroupVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateNodegroupVersionCommandOutput> {
-    return deserializeAws_restJson1_1UpdateNodegroupVersionCommand(
+    return deserializeAws_restJson1UpdateNodegroupVersionCommand(
       output,
       context
     );

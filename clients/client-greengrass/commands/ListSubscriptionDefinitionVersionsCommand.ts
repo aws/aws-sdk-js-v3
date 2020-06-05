@@ -8,9 +8,9 @@ import {
   ListSubscriptionDefinitionVersionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListSubscriptionDefinitionVersionsCommand,
-  serializeAws_restJson1_1ListSubscriptionDefinitionVersionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommand,
+  serializeAws_restJson1ListSubscriptionDefinitionVersionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListSubscriptionDefinitionVersionsCommand extends $Command<
     input: ListSubscriptionDefinitionVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListSubscriptionDefinitionVersionsCommand(
+    return serializeAws_restJson1ListSubscriptionDefinitionVersionsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListSubscriptionDefinitionVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSubscriptionDefinitionVersionsCommandOutput> {
-    return deserializeAws_restJson1_1ListSubscriptionDefinitionVersionsCommand(
+    return deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommand(
       output,
       context
     );

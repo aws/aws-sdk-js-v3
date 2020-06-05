@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { BasePathMappings, GetBasePathMappingsRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetBasePathMappingsCommand,
-  serializeAws_restJson1_1GetBasePathMappingsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetBasePathMappingsCommand,
+  serializeAws_restJson1GetBasePathMappingsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,17 +71,14 @@ export class GetBasePathMappingsCommand extends $Command<
     input: GetBasePathMappingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetBasePathMappingsCommand(input, context);
+    return serializeAws_restJson1GetBasePathMappingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBasePathMappingsCommandOutput> {
-    return deserializeAws_restJson1_1GetBasePathMappingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetBasePathMappingsCommand(output, context);
   }
 
   // Start section: command_body_extra

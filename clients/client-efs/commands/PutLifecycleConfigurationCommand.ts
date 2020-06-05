@@ -8,9 +8,9 @@ import {
   PutLifecycleConfigurationRequest
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutLifecycleConfigurationCommand,
-  serializeAws_restJson1_1PutLifecycleConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutLifecycleConfigurationCommand,
+  serializeAws_restJson1PutLifecycleConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class PutLifecycleConfigurationCommand extends $Command<
     input: PutLifecycleConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutLifecycleConfigurationCommand(
+    return serializeAws_restJson1PutLifecycleConfigurationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class PutLifecycleConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutLifecycleConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1PutLifecycleConfigurationCommand(
+    return deserializeAws_restJson1PutLifecycleConfigurationCommand(
       output,
       context
     );

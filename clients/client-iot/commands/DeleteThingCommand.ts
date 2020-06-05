@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { DeleteThingRequest, DeleteThingResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteThingCommand,
-  serializeAws_restJson1_1DeleteThingCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteThingCommand,
+  serializeAws_restJson1DeleteThingCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteThingCommand extends $Command<
     input: DeleteThingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteThingCommand(input, context);
+    return serializeAws_restJson1DeleteThingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteThingCommandOutput> {
-    return deserializeAws_restJson1_1DeleteThingCommand(output, context);
+    return deserializeAws_restJson1DeleteThingCommand(output, context);
   }
 
   // Start section: command_body_extra

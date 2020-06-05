@@ -8,9 +8,9 @@ import {
   GetConfigurationSetResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetConfigurationSetCommand,
-  serializeAws_restJson1_1GetConfigurationSetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetConfigurationSetCommand,
+  serializeAws_restJson1GetConfigurationSetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetConfigurationSetCommand extends $Command<
     input: GetConfigurationSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetConfigurationSetCommand(input, context);
+    return serializeAws_restJson1GetConfigurationSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetConfigurationSetCommandOutput> {
-    return deserializeAws_restJson1_1GetConfigurationSetCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetConfigurationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

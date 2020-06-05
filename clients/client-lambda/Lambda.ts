@@ -1480,43 +1480,6 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
-   *         layer</a>. Versions that have been deleted aren't listed. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only
-   *       versions that indicate that they're compatible with that runtime.</p>
-   */
-  public listLayerVersions(
-    args: ListLayerVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListLayerVersionsCommandOutput>;
-  public listLayerVersions(
-    args: ListLayerVersionsCommandInput,
-    cb: (err: any, data?: ListLayerVersionsCommandOutput) => void
-  ): void;
-  public listLayerVersions(
-    args: ListLayerVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListLayerVersionsCommandOutput) => void
-  ): void;
-  public listLayerVersions(
-    args: ListLayerVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLayerVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListLayerVersionsCommandOutput) => void
-  ): Promise<ListLayerVersionsCommandOutput> | void {
-    const command = new ListLayerVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
    *         layers</a> and shows information about the latest version of each. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only layers
    *       that indicate that they're compatible with that runtime.</p>
@@ -1542,6 +1505,43 @@ export class Lambda extends LambdaClient {
     cb?: (err: any, data?: ListLayersCommandOutput) => void
   ): Promise<ListLayersCommandOutput> | void {
     const command = new ListLayersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+   *         layer</a>. Versions that have been deleted aren't listed. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only
+   *       versions that indicate that they're compatible with that runtime.</p>
+   */
+  public listLayerVersions(
+    args: ListLayerVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLayerVersionsCommandOutput>;
+  public listLayerVersions(
+    args: ListLayerVersionsCommandInput,
+    cb: (err: any, data?: ListLayerVersionsCommandOutput) => void
+  ): void;
+  public listLayerVersions(
+    args: ListLayerVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLayerVersionsCommandOutput) => void
+  ): void;
+  public listLayerVersions(
+    args: ListLayerVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListLayerVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListLayerVersionsCommandOutput) => void
+  ): Promise<ListLayerVersionsCommandOutput> | void {
+    const command = new ListLayerVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -8,9 +8,9 @@ import {
   DeleteGlobalNetworkResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteGlobalNetworkCommand,
-  serializeAws_restJson1_1DeleteGlobalNetworkCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteGlobalNetworkCommand,
+  serializeAws_restJson1DeleteGlobalNetworkCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteGlobalNetworkCommand extends $Command<
     input: DeleteGlobalNetworkCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteGlobalNetworkCommand(input, context);
+    return serializeAws_restJson1DeleteGlobalNetworkCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteGlobalNetworkCommandOutput> {
-    return deserializeAws_restJson1_1DeleteGlobalNetworkCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteGlobalNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

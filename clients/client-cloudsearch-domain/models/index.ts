@@ -590,6 +590,35 @@ export namespace SearchStatus {
 }
 
 /**
+ * <p>An autocomplete suggestion that matches the query string specified in a <code>SuggestRequest</code>.</p>
+ */
+export interface SuggestionMatch {
+  __type?: "SuggestionMatch";
+  /**
+   * <p>The document ID of the suggested document.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The relevance score of a suggested match.</p>
+   */
+  score?: number;
+
+  /**
+   * <p>The string that matches the query string specified in the <code>SuggestRequest</code>.</p>
+   */
+  suggestion?: string;
+}
+
+export namespace SuggestionMatch {
+  export const filterSensitiveLog = (obj: SuggestionMatch): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SuggestionMatch =>
+    __isa(o, "SuggestionMatch");
+}
+
+/**
  * <p>Container for the suggestion information returned in a <code>SuggestResponse</code>.</p>
  */
 export interface SuggestModel {
@@ -691,35 +720,6 @@ export namespace SuggestStatus {
     ...obj
   });
   export const isa = (o: any): o is SuggestStatus => __isa(o, "SuggestStatus");
-}
-
-/**
- * <p>An autocomplete suggestion that matches the query string specified in a <code>SuggestRequest</code>.</p>
- */
-export interface SuggestionMatch {
-  __type?: "SuggestionMatch";
-  /**
-   * <p>The document ID of the suggested document.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>The relevance score of a suggested match.</p>
-   */
-  score?: number;
-
-  /**
-   * <p>The string that matches the query string specified in the <code>SuggestRequest</code>.</p>
-   */
-  suggestion?: string;
-}
-
-export namespace SuggestionMatch {
-  export const filterSensitiveLog = (obj: SuggestionMatch): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SuggestionMatch =>
-    __isa(o, "SuggestionMatch");
 }
 
 /**

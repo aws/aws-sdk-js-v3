@@ -5,9 +5,9 @@ import {
 } from "../AppSyncClient";
 import { UpdateApiCacheRequest, UpdateApiCacheResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateApiCacheCommand,
-  serializeAws_restJson1_1UpdateApiCacheCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateApiCacheCommand,
+  serializeAws_restJson1UpdateApiCacheCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class UpdateApiCacheCommand extends $Command<
     input: UpdateApiCacheCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateApiCacheCommand(input, context);
+    return serializeAws_restJson1UpdateApiCacheCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApiCacheCommandOutput> {
-    return deserializeAws_restJson1_1UpdateApiCacheCommand(output, context);
+    return deserializeAws_restJson1UpdateApiCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

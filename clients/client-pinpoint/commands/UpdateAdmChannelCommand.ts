@@ -8,9 +8,9 @@ import {
   UpdateAdmChannelResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateAdmChannelCommand,
-  serializeAws_restJson1_1UpdateAdmChannelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateAdmChannelCommand,
+  serializeAws_restJson1UpdateAdmChannelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class UpdateAdmChannelCommand extends $Command<
     input: UpdateAdmChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateAdmChannelCommand(input, context);
+    return serializeAws_restJson1UpdateAdmChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAdmChannelCommandOutput> {
-    return deserializeAws_restJson1_1UpdateAdmChannelCommand(output, context);
+    return deserializeAws_restJson1UpdateAdmChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

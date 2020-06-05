@@ -5,9 +5,9 @@ import {
 } from "../BackupClient";
 import { DeleteRecoveryPointInput } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteRecoveryPointCommand,
-  serializeAws_restJson1_1DeleteRecoveryPointCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteRecoveryPointCommand,
+  serializeAws_restJson1DeleteRecoveryPointCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,17 +70,14 @@ export class DeleteRecoveryPointCommand extends $Command<
     input: DeleteRecoveryPointCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteRecoveryPointCommand(input, context);
+    return serializeAws_restJson1DeleteRecoveryPointCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRecoveryPointCommandOutput> {
-    return deserializeAws_restJson1_1DeleteRecoveryPointCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteRecoveryPointCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -433,40 +433,6 @@ export namespace ApplicationUpdate {
 }
 
 /**
- * <p>Provides additional mapping information when the record format
- *             uses delimiters, such as CSV. For example, the following sample records
- *             use CSV format, where the records use the <i>'\n'</i> as the row delimiter and a comma (",") as the column delimiter:
- *         </p>
- *
- *         <p>
- *             <code>"name1", "address1"</code>
- *          </p>
- *         <p>
- *             <code>"name2", "address2"</code>
- *          </p>
- */
-export interface CSVMappingParameters {
-  __type?: "CSVMappingParameters";
-  /**
-   * <p>Column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.</p>
-   */
-  RecordColumnDelimiter: string | undefined;
-
-  /**
-   * <p>Row delimiter. For example, in a CSV format, <i>'\n'</i> is the typical row delimiter.</p>
-   */
-  RecordRowDelimiter: string | undefined;
-}
-
-export namespace CSVMappingParameters {
-  export const filterSensitiveLog = (obj: CSVMappingParameters): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CSVMappingParameters =>
-    __isa(o, "CSVMappingParameters");
-}
-
-/**
  * <p>Provides a description of CloudWatch logging options, including the log stream
  *             Amazon Resource Name (ARN) and the role ARN.</p>
  */
@@ -700,6 +666,40 @@ export namespace CreateApplicationResponse {
   });
   export const isa = (o: any): o is CreateApplicationResponse =>
     __isa(o, "CreateApplicationResponse");
+}
+
+/**
+ * <p>Provides additional mapping information when the record format
+ *             uses delimiters, such as CSV. For example, the following sample records
+ *             use CSV format, where the records use the <i>'\n'</i> as the row delimiter and a comma (",") as the column delimiter:
+ *         </p>
+ *
+ *         <p>
+ *             <code>"name1", "address1"</code>
+ *          </p>
+ *         <p>
+ *             <code>"name2", "address2"</code>
+ *          </p>
+ */
+export interface CSVMappingParameters {
+  __type?: "CSVMappingParameters";
+  /**
+   * <p>Column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.</p>
+   */
+  RecordColumnDelimiter: string | undefined;
+
+  /**
+   * <p>Row delimiter. For example, in a CSV format, <i>'\n'</i> is the typical row delimiter.</p>
+   */
+  RecordRowDelimiter: string | undefined;
+}
+
+export namespace CSVMappingParameters {
+  export const filterSensitiveLog = (obj: CSVMappingParameters): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CSVMappingParameters =>
+    __isa(o, "CSVMappingParameters");
 }
 
 export interface DeleteApplicationCloudWatchLoggingOptionRequest {

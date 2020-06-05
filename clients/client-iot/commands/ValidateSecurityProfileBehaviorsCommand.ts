@@ -8,9 +8,9 @@ import {
   ValidateSecurityProfileBehaviorsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ValidateSecurityProfileBehaviorsCommand,
-  serializeAws_restJson1_1ValidateSecurityProfileBehaviorsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ValidateSecurityProfileBehaviorsCommand,
+  serializeAws_restJson1ValidateSecurityProfileBehaviorsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ValidateSecurityProfileBehaviorsCommand extends $Command<
     input: ValidateSecurityProfileBehaviorsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ValidateSecurityProfileBehaviorsCommand(
+    return serializeAws_restJson1ValidateSecurityProfileBehaviorsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ValidateSecurityProfileBehaviorsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ValidateSecurityProfileBehaviorsCommandOutput> {
-    return deserializeAws_restJson1_1ValidateSecurityProfileBehaviorsCommand(
+    return deserializeAws_restJson1ValidateSecurityProfileBehaviorsCommand(
       output,
       context
     );

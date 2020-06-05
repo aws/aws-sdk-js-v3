@@ -8,9 +8,9 @@ import {
   RejectResourceShareInvitationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1RejectResourceShareInvitationCommand,
-  serializeAws_restJson1_1RejectResourceShareInvitationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1RejectResourceShareInvitationCommand,
+  serializeAws_restJson1RejectResourceShareInvitationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class RejectResourceShareInvitationCommand extends $Command<
     input: RejectResourceShareInvitationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RejectResourceShareInvitationCommand(
+    return serializeAws_restJson1RejectResourceShareInvitationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class RejectResourceShareInvitationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RejectResourceShareInvitationCommandOutput> {
-    return deserializeAws_restJson1_1RejectResourceShareInvitationCommand(
+    return deserializeAws_restJson1RejectResourceShareInvitationCommand(
       output,
       context
     );

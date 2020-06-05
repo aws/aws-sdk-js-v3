@@ -8,9 +8,9 @@ import {
   UpdateFleetMetadataResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateFleetMetadataCommand,
-  serializeAws_restJson1_1UpdateFleetMetadataCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateFleetMetadataCommand,
+  serializeAws_restJson1UpdateFleetMetadataCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class UpdateFleetMetadataCommand extends $Command<
     input: UpdateFleetMetadataCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateFleetMetadataCommand(input, context);
+    return serializeAws_restJson1UpdateFleetMetadataCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFleetMetadataCommandOutput> {
-    return deserializeAws_restJson1_1UpdateFleetMetadataCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateFleetMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

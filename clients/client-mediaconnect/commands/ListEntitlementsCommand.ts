@@ -8,9 +8,9 @@ import {
   ListEntitlementsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListEntitlementsCommand,
-  serializeAws_restJson1_1ListEntitlementsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListEntitlementsCommand,
+  serializeAws_restJson1ListEntitlementsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ListEntitlementsCommand extends $Command<
     input: ListEntitlementsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListEntitlementsCommand(input, context);
+    return serializeAws_restJson1ListEntitlementsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListEntitlementsCommandOutput> {
-    return deserializeAws_restJson1_1ListEntitlementsCommand(output, context);
+    return deserializeAws_restJson1ListEntitlementsCommand(output, context);
   }
 
   // Start section: command_body_extra

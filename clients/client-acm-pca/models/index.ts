@@ -5,6 +5,12 @@ import {
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum ActionType {
+  GetCertificate = "GetCertificate",
+  IssueCertificate = "IssueCertificate",
+  ListPermissions = "ListPermissions"
+}
+
 /**
  * <p>Contains information about the certificate subject. The certificate can be one issued
  * 			by your private certificate authority (CA) or it can be your private CA certificate. The
@@ -104,12 +110,6 @@ export namespace ASN1Subject {
     ...obj
   });
   export const isa = (o: any): o is ASN1Subject => __isa(o, "ASN1Subject");
-}
-
-export enum ActionType {
-  GetCertificate = "GetCertificate",
-  IssueCertificate = "IssueCertificate",
-  ListPermissions = "ListPermissions"
 }
 
 export enum AuditReportResponseFormat {
@@ -1426,25 +1426,6 @@ export namespace ListTagsResponse {
 }
 
 /**
- * <p>The certificate signing request is invalid.</p>
- */
-export interface MalformedCSRException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "MalformedCSRException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace MalformedCSRException {
-  export const filterSensitiveLog = (obj: MalformedCSRException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is MalformedCSRException =>
-    __isa(o, "MalformedCSRException");
-}
-
-/**
  * <p>One or more fields in the certificate are invalid.</p>
  */
 export interface MalformedCertificateException
@@ -1463,6 +1444,25 @@ export namespace MalformedCertificateException {
   });
   export const isa = (o: any): o is MalformedCertificateException =>
     __isa(o, "MalformedCertificateException");
+}
+
+/**
+ * <p>The certificate signing request is invalid.</p>
+ */
+export interface MalformedCSRException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "MalformedCSRException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace MalformedCSRException {
+  export const filterSensitiveLog = (obj: MalformedCSRException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is MalformedCSRException =>
+    __isa(o, "MalformedCSRException");
 }
 
 /**

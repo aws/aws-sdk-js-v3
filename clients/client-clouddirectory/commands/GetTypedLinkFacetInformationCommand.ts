@@ -8,9 +8,9 @@ import {
   GetTypedLinkFacetInformationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetTypedLinkFacetInformationCommand,
-  serializeAws_restJson1_1GetTypedLinkFacetInformationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetTypedLinkFacetInformationCommand,
+  serializeAws_restJson1GetTypedLinkFacetInformationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetTypedLinkFacetInformationCommand extends $Command<
     input: GetTypedLinkFacetInformationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetTypedLinkFacetInformationCommand(
+    return serializeAws_restJson1GetTypedLinkFacetInformationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetTypedLinkFacetInformationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTypedLinkFacetInformationCommandOutput> {
-    return deserializeAws_restJson1_1GetTypedLinkFacetInformationCommand(
+    return deserializeAws_restJson1GetTypedLinkFacetInformationCommand(
       output,
       context
     );

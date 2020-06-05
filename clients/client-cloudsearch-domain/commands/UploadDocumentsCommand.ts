@@ -8,9 +8,9 @@ import {
   UploadDocumentsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UploadDocumentsCommand,
-  serializeAws_restJson1_1UploadDocumentsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UploadDocumentsCommand,
+  serializeAws_restJson1UploadDocumentsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -76,14 +76,14 @@ export class UploadDocumentsCommand extends $Command<
     input: UploadDocumentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UploadDocumentsCommand(input, context);
+    return serializeAws_restJson1UploadDocumentsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UploadDocumentsCommandOutput> {
-    return deserializeAws_restJson1_1UploadDocumentsCommand(output, context);
+    return deserializeAws_restJson1UploadDocumentsCommand(output, context);
   }
 
   // Start section: command_body_extra

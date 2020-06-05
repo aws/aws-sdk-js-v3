@@ -1061,53 +1061,6 @@ export namespace ListEndpointGroupsResponse {
     __isa(o, "ListEndpointGroupsResponse");
 }
 
-export interface ListListenersRequest {
-  __type?: "ListListenersRequest";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the accelerator for which you want to list listener objects.</p>
-   */
-  AcceleratorArn: string | undefined;
-
-  /**
-   * <p>The number of listener objects that you want to return with this call. The default value is 10.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of results. You receive this token from a previous call.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListListenersRequest {
-  export const filterSensitiveLog = (obj: ListListenersRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListListenersRequest =>
-    __isa(o, "ListListenersRequest");
-}
-
-export interface ListListenersResponse {
-  __type?: "ListListenersResponse";
-  /**
-   * <p>The list of listeners for an accelerator.</p>
-   */
-  Listeners?: Listener[];
-
-  /**
-   * <p>The token for the next set of results. You receive this token from a previous call.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListListenersResponse {
-  export const filterSensitiveLog = (obj: ListListenersResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListListenersResponse =>
-    __isa(o, "ListListenersResponse");
-}
-
 /**
  * <p>A complex type for a listener.</p>
  */
@@ -1169,6 +1122,53 @@ export namespace ListenerNotFoundException {
   });
   export const isa = (o: any): o is ListenerNotFoundException =>
     __isa(o, "ListenerNotFoundException");
+}
+
+export interface ListListenersRequest {
+  __type?: "ListListenersRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the accelerator for which you want to list listener objects.</p>
+   */
+  AcceleratorArn: string | undefined;
+
+  /**
+   * <p>The number of listener objects that you want to return with this call. The default value is 10.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results. You receive this token from a previous call.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListListenersRequest {
+  export const filterSensitiveLog = (obj: ListListenersRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListListenersRequest =>
+    __isa(o, "ListListenersRequest");
+}
+
+export interface ListListenersResponse {
+  __type?: "ListListenersResponse";
+  /**
+   * <p>The list of listeners for an accelerator.</p>
+   */
+  Listeners?: Listener[];
+
+  /**
+   * <p>The token for the next set of results. You receive this token from a previous call.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListListenersResponse {
+  export const filterSensitiveLog = (obj: ListListenersResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListListenersResponse =>
+    __isa(o, "ListListenersResponse");
 }
 
 /**

@@ -5,9 +5,9 @@ import {
 } from "../AppSyncClient";
 import { GetGraphqlApiRequest, GetGraphqlApiResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetGraphqlApiCommand,
-  serializeAws_restJson1_1GetGraphqlApiCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetGraphqlApiCommand,
+  serializeAws_restJson1GetGraphqlApiCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetGraphqlApiCommand extends $Command<
     input: GetGraphqlApiCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetGraphqlApiCommand(input, context);
+    return serializeAws_restJson1GetGraphqlApiCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetGraphqlApiCommandOutput> {
-    return deserializeAws_restJson1_1GetGraphqlApiCommand(output, context);
+    return deserializeAws_restJson1GetGraphqlApiCommand(output, context);
   }
 
   // Start section: command_body_extra

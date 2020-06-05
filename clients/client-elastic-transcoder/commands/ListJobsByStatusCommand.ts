@@ -8,9 +8,9 @@ import {
   ListJobsByStatusResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListJobsByStatusCommand,
-  serializeAws_restJson1_1ListJobsByStatusCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListJobsByStatusCommand,
+  serializeAws_restJson1ListJobsByStatusCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ListJobsByStatusCommand extends $Command<
     input: ListJobsByStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListJobsByStatusCommand(input, context);
+    return serializeAws_restJson1ListJobsByStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListJobsByStatusCommandOutput> {
-    return deserializeAws_restJson1_1ListJobsByStatusCommand(output, context);
+    return deserializeAws_restJson1ListJobsByStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

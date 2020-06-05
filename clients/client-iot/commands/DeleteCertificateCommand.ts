@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { DeleteCertificateRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteCertificateCommand,
-  serializeAws_restJson1_1DeleteCertificateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteCertificateCommand,
+  serializeAws_restJson1DeleteCertificateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteCertificateCommand extends $Command<
     input: DeleteCertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteCertificateCommand(input, context);
+    return serializeAws_restJson1DeleteCertificateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCertificateCommandOutput> {
-    return deserializeAws_restJson1_1DeleteCertificateCommand(output, context);
+    return deserializeAws_restJson1DeleteCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

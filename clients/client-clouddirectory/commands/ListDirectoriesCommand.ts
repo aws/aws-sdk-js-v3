@@ -8,9 +8,9 @@ import {
   ListDirectoriesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListDirectoriesCommand,
-  serializeAws_restJson1_1ListDirectoriesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListDirectoriesCommand,
+  serializeAws_restJson1ListDirectoriesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ListDirectoriesCommand extends $Command<
     input: ListDirectoriesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListDirectoriesCommand(input, context);
+    return serializeAws_restJson1ListDirectoriesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDirectoriesCommandOutput> {
-    return deserializeAws_restJson1_1ListDirectoriesCommand(output, context);
+    return deserializeAws_restJson1ListDirectoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

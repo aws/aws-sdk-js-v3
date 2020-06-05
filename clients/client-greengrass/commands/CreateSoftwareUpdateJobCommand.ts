@@ -8,9 +8,9 @@ import {
   CreateSoftwareUpdateJobResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateSoftwareUpdateJobCommand,
-  serializeAws_restJson1_1CreateSoftwareUpdateJobCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateSoftwareUpdateJobCommand,
+  serializeAws_restJson1CreateSoftwareUpdateJobCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class CreateSoftwareUpdateJobCommand extends $Command<
     input: CreateSoftwareUpdateJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateSoftwareUpdateJobCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1CreateSoftwareUpdateJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSoftwareUpdateJobCommandOutput> {
-    return deserializeAws_restJson1_1CreateSoftwareUpdateJobCommand(
+    return deserializeAws_restJson1CreateSoftwareUpdateJobCommand(
       output,
       context
     );

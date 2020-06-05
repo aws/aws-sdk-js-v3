@@ -715,7 +715,7 @@ const deserializeAws_queryDeleteAlarmsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFound":
-    case "com.amazonaws.cloudwatch.v2010_08_01#ResourceNotFound":
+    case "com.amazonaws.cloudwatch#ResourceNotFound":
       response = {
         ...(await deserializeAws_queryResourceNotFoundResponse(
           parsedOutput,
@@ -779,8 +779,19 @@ const deserializeAws_queryDeleteAnomalyDetectorCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalServiceFault":
+    case "com.amazonaws.cloudwatch#InternalServiceFault":
+      response = {
+        ...(await deserializeAws_queryInternalServiceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -791,7 +802,7 @@ const deserializeAws_queryDeleteAnomalyDetectorCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazon.coral.service#MissingRequiredParameterException":
+    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_queryMissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -801,19 +812,8 @@ const deserializeAws_queryDeleteAnomalyDetectorCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "InternalServiceFault":
-    case "com.amazonaws.cloudwatch.v2010_08_01#InternalServiceFault":
-      response = {
-        ...(await deserializeAws_queryInternalServiceFaultResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatch.v2010_08_01#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -874,19 +874,8 @@ const deserializeAws_queryDeleteDashboardsCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "DashboardNotFoundError":
-    case "com.amazonaws.cloudwatch.v2010_08_01#DashboardNotFoundError":
+    case "com.amazonaws.cloudwatch#DashboardNotFoundError":
       response = {
         ...(await deserializeAws_queryDashboardNotFoundErrorResponse(
           parsedOutput,
@@ -897,9 +886,20 @@ const deserializeAws_queryDeleteDashboardsCommandError = async (
       };
       break;
     case "InternalServiceFault":
-    case "com.amazonaws.cloudwatch.v2010_08_01#InternalServiceFault":
+    case "com.amazonaws.cloudwatch#InternalServiceFault":
       response = {
         ...(await deserializeAws_queryInternalServiceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
           parsedOutput,
           context
         )),
@@ -959,7 +959,7 @@ const deserializeAws_queryDeleteInsightRulesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -970,7 +970,7 @@ const deserializeAws_queryDeleteInsightRulesCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazon.coral.service#MissingRequiredParameterException":
+    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_queryMissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -1035,7 +1035,7 @@ const deserializeAws_queryDescribeAlarmHistoryCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
-    case "com.amazonaws.cloudwatch.v2010_08_01#InvalidNextToken":
+    case "com.amazonaws.cloudwatch#InvalidNextToken":
       response = {
         ...(await deserializeAws_queryInvalidNextTokenResponse(
           parsedOutput,
@@ -1097,7 +1097,7 @@ const deserializeAws_queryDescribeAlarmsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
-    case "com.amazonaws.cloudwatch.v2010_08_01#InvalidNextToken":
+    case "com.amazonaws.cloudwatch#InvalidNextToken":
       response = {
         ...(await deserializeAws_queryInvalidNextTokenResponse(
           parsedOutput,
@@ -1215,19 +1215,8 @@ const deserializeAws_queryDescribeAnomalyDetectorsCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServiceFault":
-    case "com.amazonaws.cloudwatch.v2010_08_01#InternalServiceFault":
+    case "com.amazonaws.cloudwatch#InternalServiceFault":
       response = {
         ...(await deserializeAws_queryInternalServiceFaultResponse(
           parsedOutput,
@@ -1238,9 +1227,20 @@ const deserializeAws_queryDescribeAnomalyDetectorsCommandError = async (
       };
       break;
     case "InvalidNextToken":
-    case "com.amazonaws.cloudwatch.v2010_08_01#InvalidNextToken":
+    case "com.amazonaws.cloudwatch#InvalidNextToken":
       response = {
         ...(await deserializeAws_queryInvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
           parsedOutput,
           context
         )),
@@ -1303,7 +1303,7 @@ const deserializeAws_queryDescribeInsightRulesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
-    case "com.amazonaws.cloudwatch.v2010_08_01#InvalidNextToken":
+    case "com.amazonaws.cloudwatch#InvalidNextToken":
       response = {
         ...(await deserializeAws_queryInvalidNextTokenResponse(
           parsedOutput,
@@ -1409,7 +1409,7 @@ const deserializeAws_queryDisableInsightRulesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1420,7 +1420,7 @@ const deserializeAws_queryDisableInsightRulesCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazon.coral.service#MissingRequiredParameterException":
+    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_queryMissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -1526,7 +1526,7 @@ const deserializeAws_queryEnableInsightRulesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1536,10 +1536,10 @@ const deserializeAws_queryEnableInsightRulesCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "MissingRequiredParameterException":
-    case "com.amazon.coral.service#MissingRequiredParameterException":
+    case "LimitExceededException":
+    case "com.amazonaws.cloudwatch#LimitExceededException":
       response = {
-        ...(await deserializeAws_queryMissingRequiredParameterExceptionResponse(
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
           context
         )),
@@ -1547,10 +1547,10 @@ const deserializeAws_queryEnableInsightRulesCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "LimitExceededException":
-    case "com.amazonaws.cloudwatch.v2010_08_01#LimitExceededException":
+    case "MissingRequiredParameterException":
+    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
       response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+        ...(await deserializeAws_queryMissingRequiredParameterExceptionResponse(
           parsedOutput,
           context
         )),
@@ -1609,19 +1609,8 @@ const deserializeAws_queryGetDashboardCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "DashboardNotFoundError":
-    case "com.amazonaws.cloudwatch.v2010_08_01#DashboardNotFoundError":
+    case "com.amazonaws.cloudwatch#DashboardNotFoundError":
       response = {
         ...(await deserializeAws_queryDashboardNotFoundErrorResponse(
           parsedOutput,
@@ -1632,9 +1621,20 @@ const deserializeAws_queryGetDashboardCommandError = async (
       };
       break;
     case "InternalServiceFault":
-    case "com.amazonaws.cloudwatch.v2010_08_01#InternalServiceFault":
+    case "com.amazonaws.cloudwatch#InternalServiceFault":
       response = {
         ...(await deserializeAws_queryInternalServiceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
           parsedOutput,
           context
         )),
@@ -1697,7 +1697,7 @@ const deserializeAws_queryGetInsightRuleReportCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1708,7 +1708,7 @@ const deserializeAws_queryGetInsightRuleReportCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazon.coral.service#MissingRequiredParameterException":
+    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_queryMissingRequiredParameterExceptionResponse(
           parsedOutput,
@@ -1719,7 +1719,7 @@ const deserializeAws_queryGetInsightRuleReportCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatch.v2010_08_01#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1781,7 +1781,7 @@ const deserializeAws_queryGetMetricDataCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
-    case "com.amazonaws.cloudwatch.v2010_08_01#InvalidNextToken":
+    case "com.amazonaws.cloudwatch#InvalidNextToken":
       response = {
         ...(await deserializeAws_queryInvalidNextTokenResponse(
           parsedOutput,
@@ -1842,8 +1842,19 @@ const deserializeAws_queryGetMetricStatisticsCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalServiceFault":
+    case "com.amazonaws.cloudwatch#InternalServiceFault":
+      response = {
+        ...(await deserializeAws_queryInternalServiceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "InvalidParameterCombinationException":
-    case "com.amazon.coral.service#InvalidParameterCombinationException":
+    case "com.amazonaws.cloudwatch#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
           parsedOutput,
@@ -1854,7 +1865,7 @@ const deserializeAws_queryGetMetricStatisticsCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1865,20 +1876,9 @@ const deserializeAws_queryGetMetricStatisticsCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazon.coral.service#MissingRequiredParameterException":
+    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_queryMissingRequiredParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InternalServiceFault":
-    case "com.amazonaws.cloudwatch.v2010_08_01#InternalServiceFault":
-      response = {
-        ...(await deserializeAws_queryInternalServiceFaultResponse(
           parsedOutput,
           context
         )),
@@ -1991,10 +1991,10 @@ const deserializeAws_queryListDashboardsCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
+    case "InternalServiceFault":
+    case "com.amazonaws.cloudwatch#InternalServiceFault":
       response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+        ...(await deserializeAws_queryInternalServiceFaultResponse(
           parsedOutput,
           context
         )),
@@ -2002,10 +2002,10 @@ const deserializeAws_queryListDashboardsCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "InternalServiceFault":
-    case "com.amazonaws.cloudwatch.v2010_08_01#InternalServiceFault":
+    case "InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_queryInternalServiceFaultResponse(
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
           parsedOutput,
           context
         )),
@@ -2064,10 +2064,10 @@ const deserializeAws_queryListMetricsCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
+    case "InternalServiceFault":
+    case "com.amazonaws.cloudwatch#InternalServiceFault":
       response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+        ...(await deserializeAws_queryInternalServiceFaultResponse(
           parsedOutput,
           context
         )),
@@ -2075,10 +2075,10 @@ const deserializeAws_queryListMetricsCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "InternalServiceFault":
-    case "com.amazonaws.cloudwatch.v2010_08_01#InternalServiceFault":
+    case "InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_queryInternalServiceFaultResponse(
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
           parsedOutput,
           context
         )),
@@ -2137,19 +2137,8 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServiceFault":
-    case "com.amazonaws.cloudwatch.v2010_08_01#InternalServiceFault":
+    case "com.amazonaws.cloudwatch#InternalServiceFault":
       response = {
         ...(await deserializeAws_queryInternalServiceFaultResponse(
           parsedOutput,
@@ -2159,8 +2148,19 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatch.v2010_08_01#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2221,30 +2221,8 @@ const deserializeAws_queryPutAnomalyDetectorCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "MissingRequiredParameterException":
-    case "com.amazon.coral.service#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_queryMissingRequiredParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServiceFault":
-    case "com.amazonaws.cloudwatch.v2010_08_01#InternalServiceFault":
+    case "com.amazonaws.cloudwatch#InternalServiceFault":
       response = {
         ...(await deserializeAws_queryInternalServiceFaultResponse(
           parsedOutput,
@@ -2254,10 +2232,32 @@ const deserializeAws_queryPutAnomalyDetectorCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "LimitExceededException":
-    case "com.amazonaws.cloudwatch.v2010_08_01#LimitExceededException":
+    case "com.amazonaws.cloudwatch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "MissingRequiredParameterException":
+    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
+      response = {
+        ...(await deserializeAws_queryMissingRequiredParameterExceptionResponse(
           parsedOutput,
           context
         )),
@@ -2317,7 +2317,7 @@ const deserializeAws_queryPutDashboardCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DashboardInvalidInputError":
-    case "com.amazonaws.cloudwatch.v2010_08_01#DashboardInvalidInputError":
+    case "com.amazonaws.cloudwatch#DashboardInvalidInputError":
       response = {
         ...(await deserializeAws_queryDashboardInvalidInputErrorResponse(
           parsedOutput,
@@ -2328,7 +2328,7 @@ const deserializeAws_queryPutDashboardCommandError = async (
       };
       break;
     case "InternalServiceFault":
-    case "com.amazonaws.cloudwatch.v2010_08_01#InternalServiceFault":
+    case "com.amazonaws.cloudwatch#InternalServiceFault":
       response = {
         ...(await deserializeAws_queryInternalServiceFaultResponse(
           parsedOutput,
@@ -2390,7 +2390,7 @@ const deserializeAws_queryPutInsightRuleCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -2400,10 +2400,10 @@ const deserializeAws_queryPutInsightRuleCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "MissingRequiredParameterException":
-    case "com.amazon.coral.service#MissingRequiredParameterException":
+    case "LimitExceededException":
+    case "com.amazonaws.cloudwatch#LimitExceededException":
       response = {
-        ...(await deserializeAws_queryMissingRequiredParameterExceptionResponse(
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
           context
         )),
@@ -2411,10 +2411,10 @@ const deserializeAws_queryPutInsightRuleCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "LimitExceededException":
-    case "com.amazonaws.cloudwatch.v2010_08_01#LimitExceededException":
+    case "MissingRequiredParameterException":
+    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
       response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+        ...(await deserializeAws_queryMissingRequiredParameterExceptionResponse(
           parsedOutput,
           context
         )),
@@ -2467,7 +2467,7 @@ const deserializeAws_queryPutMetricAlarmCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
-    case "com.amazonaws.cloudwatch.v2010_08_01#LimitExceededFault":
+    case "com.amazonaws.cloudwatch#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(
           parsedOutput,
@@ -2521,8 +2521,19 @@ const deserializeAws_queryPutMetricDataCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalServiceFault":
+    case "com.amazonaws.cloudwatch#InternalServiceFault":
+      response = {
+        ...(await deserializeAws_queryInternalServiceFaultResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "InvalidParameterCombinationException":
-    case "com.amazon.coral.service#InvalidParameterCombinationException":
+    case "com.amazonaws.cloudwatch#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(
           parsedOutput,
@@ -2533,7 +2544,7 @@ const deserializeAws_queryPutMetricDataCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -2544,20 +2555,9 @@ const deserializeAws_queryPutMetricDataCommandError = async (
       };
       break;
     case "MissingRequiredParameterException":
-    case "com.amazon.coral.service#MissingRequiredParameterException":
+    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
       response = {
         ...(await deserializeAws_queryMissingRequiredParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InternalServiceFault":
-    case "com.amazonaws.cloudwatch.v2010_08_01#InternalServiceFault":
-      response = {
-        ...(await deserializeAws_queryInternalServiceFaultResponse(
           parsedOutput,
           context
         )),
@@ -2610,7 +2610,7 @@ const deserializeAws_querySetAlarmStateCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidFormatFault":
-    case "com.amazonaws.cloudwatch.v2010_08_01#InvalidFormatFault":
+    case "com.amazonaws.cloudwatch#InvalidFormatFault":
       response = {
         ...(await deserializeAws_queryInvalidFormatFaultResponse(
           parsedOutput,
@@ -2621,7 +2621,7 @@ const deserializeAws_querySetAlarmStateCommandError = async (
       };
       break;
     case "ResourceNotFound":
-    case "com.amazonaws.cloudwatch.v2010_08_01#ResourceNotFound":
+    case "com.amazonaws.cloudwatch#ResourceNotFound":
       response = {
         ...(await deserializeAws_queryResourceNotFoundResponse(
           parsedOutput,
@@ -2682,19 +2682,8 @@ const deserializeAws_queryTagResourceCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "ConcurrentModificationException":
-    case "com.amazonaws.cloudwatch.v2010_08_01#ConcurrentModificationException":
+    case "com.amazonaws.cloudwatch#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2705,7 +2694,7 @@ const deserializeAws_queryTagResourceCommandError = async (
       };
       break;
     case "InternalServiceFault":
-    case "com.amazonaws.cloudwatch.v2010_08_01#InternalServiceFault":
+    case "com.amazonaws.cloudwatch#InternalServiceFault":
       response = {
         ...(await deserializeAws_queryInternalServiceFaultResponse(
           parsedOutput,
@@ -2715,8 +2704,19 @@ const deserializeAws_queryTagResourceCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatch.v2010_08_01#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2777,19 +2777,8 @@ const deserializeAws_queryUntagResourceCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "ConcurrentModificationException":
-    case "com.amazonaws.cloudwatch.v2010_08_01#ConcurrentModificationException":
+    case "com.amazonaws.cloudwatch#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2800,7 +2789,7 @@ const deserializeAws_queryUntagResourceCommandError = async (
       };
       break;
     case "InternalServiceFault":
-    case "com.amazonaws.cloudwatch.v2010_08_01#InternalServiceFault":
+    case "com.amazonaws.cloudwatch#InternalServiceFault":
       response = {
         ...(await deserializeAws_queryInternalServiceFaultResponse(
           parsedOutput,
@@ -2810,8 +2799,19 @@ const deserializeAws_queryUntagResourceCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatch.v2010_08_01#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2837,60 +2837,6 @@ const deserializeAws_queryUntagResourceCommandError = async (
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-};
-
-const deserializeAws_queryInvalidParameterCombinationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidParameterCombinationException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidParameterCombinationException(
-    body.Error,
-    context
-  );
-  const contents: InvalidParameterCombinationException = {
-    name: "InvalidParameterCombinationException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
-const deserializeAws_queryInvalidParameterValueExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidParameterValueException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidParameterValueException(
-    body.Error,
-    context
-  );
-  const contents: InvalidParameterValueException = {
-    name: "InvalidParameterValueException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
-const deserializeAws_queryMissingRequiredParameterExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<MissingRequiredParameterException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryMissingRequiredParameterException(
-    body.Error,
-    context
-  );
-  const contents: MissingRequiredParameterException = {
-    name: "MissingRequiredParameterException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
 };
 
 const deserializeAws_queryConcurrentModificationExceptionResponse = async (
@@ -3001,6 +2947,42 @@ const deserializeAws_queryInvalidNextTokenResponse = async (
   return contents;
 };
 
+const deserializeAws_queryInvalidParameterCombinationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidParameterCombinationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryInvalidParameterCombinationException(
+    body.Error,
+    context
+  );
+  const contents: InvalidParameterCombinationException = {
+    name: "InvalidParameterCombinationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_queryInvalidParameterValueExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidParameterValueException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryInvalidParameterValueException(
+    body.Error,
+    context
+  );
+  const contents: InvalidParameterValueException = {
+    name: "InvalidParameterValueException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
 const deserializeAws_queryLimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3030,6 +3012,24 @@ const deserializeAws_queryLimitExceededFaultResponse = async (
   );
   const contents: LimitExceededFault = {
     name: "LimitExceededFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_queryMissingRequiredParameterExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<MissingRequiredParameterException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryMissingRequiredParameterException(
+    body.Error,
+    context
+  );
+  const contents: MissingRequiredParameterException = {
+    name: "MissingRequiredParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4162,6 +4162,19 @@ const serializeAws_querySetAlarmStateInput = (
   return entries;
 };
 
+const serializeAws_queryStatistics = (
+  input: (Statistic | string)[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_queryStatisticSet = (
   input: StatisticSet,
   context: __SerdeContext
@@ -4178,19 +4191,6 @@ const serializeAws_queryStatisticSet = (
   }
   if (input.Sum !== undefined) {
     entries["Sum"] = input.Sum;
-  }
-  return entries;
-};
-
-const serializeAws_queryStatistics = (
-  input: (Statistic | string)[],
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  let counter = 1;
-  for (let entry of input) {
-    entries[`member.${counter}`] = entry;
-    counter++;
   }
   return entries;
 };
@@ -4282,48 +4282,6 @@ const serializeAws_queryValues = (
     counter++;
   }
   return entries;
-};
-
-const deserializeAws_queryInvalidParameterCombinationException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterCombinationException => {
-  let contents: any = {
-    __type: "InvalidParameterCombinationException",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryInvalidParameterValueException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterValueException => {
-  let contents: any = {
-    __type: "InvalidParameterValueException",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
-};
-
-const deserializeAws_queryMissingRequiredParameterException = (
-  output: any,
-  context: __SerdeContext
-): MissingRequiredParameterException => {
-  let contents: any = {
-    __type: "MissingRequiredParameterException",
-    message: undefined
-  };
-  if (output["message"] !== undefined) {
-    contents.message = output["message"];
-  }
-  return contents;
 };
 
 const deserializeAws_queryAlarmHistoryItem = (
@@ -4633,6 +4591,15 @@ const deserializeAws_queryDatapoint = (
   return contents;
 };
 
+const deserializeAws_queryDatapoints = (
+  output: any,
+  context: __SerdeContext
+): Datapoint[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDatapoint(entry, context)
+  );
+};
+
 const deserializeAws_queryDatapointValueMap = (
   output: any,
   context: __SerdeContext
@@ -4651,15 +4618,6 @@ const deserializeAws_queryDatapointValues = (
   context: __SerdeContext
 ): number[] => {
   return (output || []).map((entry: any) => parseFloat(entry));
-};
-
-const deserializeAws_queryDatapoints = (
-  output: any,
-  context: __SerdeContext
-): Datapoint[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDatapoint(entry, context)
-  );
 };
 
 const deserializeAws_queryDeleteAnomalyDetectorOutput = (
@@ -5294,6 +5252,34 @@ const deserializeAws_queryInvalidNextToken = (
   return contents;
 };
 
+const deserializeAws_queryInvalidParameterCombinationException = (
+  output: any,
+  context: __SerdeContext
+): InvalidParameterCombinationException => {
+  let contents: any = {
+    __type: "InvalidParameterCombinationException",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidParameterValueException = (
+  output: any,
+  context: __SerdeContext
+): InvalidParameterValueException => {
+  let contents: any = {
+    __type: "InvalidParameterValueException",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryLimitExceededException = (
   output: any,
   context: __SerdeContext
@@ -5745,6 +5731,15 @@ const deserializeAws_queryMetricDataResults = (
   );
 };
 
+const deserializeAws_queryMetrics = (
+  output: any,
+  context: __SerdeContext
+): Metric[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryMetric(entry, context)
+  );
+};
+
 const deserializeAws_queryMetricStat = (
   output: any,
   context: __SerdeContext
@@ -5771,13 +5766,18 @@ const deserializeAws_queryMetricStat = (
   return contents;
 };
 
-const deserializeAws_queryMetrics = (
+const deserializeAws_queryMissingRequiredParameterException = (
   output: any,
   context: __SerdeContext
-): Metric[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryMetric(entry, context)
-  );
+): MissingRequiredParameterException => {
+  let contents: any = {
+    __type: "MissingRequiredParameterException",
+    message: undefined
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
 };
 
 const deserializeAws_queryPartialFailure = (

@@ -8,9 +8,9 @@ import {
   StartElasticsearchServiceSoftwareUpdateResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdateCommand,
-  serializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand,
+  serializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -76,7 +76,7 @@ export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command<
     input: StartElasticsearchServiceSoftwareUpdateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdateCommand(
+    return serializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand(
       input,
       context
     );
@@ -86,7 +86,7 @@ export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartElasticsearchServiceSoftwareUpdateCommandOutput> {
-    return deserializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdateCommand(
+    return deserializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand(
       output,
       context
     );

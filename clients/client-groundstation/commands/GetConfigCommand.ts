@@ -5,9 +5,9 @@ import {
 } from "../GroundStationClient";
 import { GetConfigRequest, GetConfigResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetConfigCommand,
-  serializeAws_restJson1_1GetConfigCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetConfigCommand,
+  serializeAws_restJson1GetConfigCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetConfigCommand extends $Command<
     input: GetConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetConfigCommand(input, context);
+    return serializeAws_restJson1GetConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetConfigCommandOutput> {
-    return deserializeAws_restJson1_1GetConfigCommand(output, context);
+    return deserializeAws_restJson1GetConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -8,9 +8,9 @@ import {
   ListCoreDefinitionVersionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListCoreDefinitionVersionsCommand,
-  serializeAws_restJson1_1ListCoreDefinitionVersionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListCoreDefinitionVersionsCommand,
+  serializeAws_restJson1ListCoreDefinitionVersionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListCoreDefinitionVersionsCommand extends $Command<
     input: ListCoreDefinitionVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListCoreDefinitionVersionsCommand(
+    return serializeAws_restJson1ListCoreDefinitionVersionsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListCoreDefinitionVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCoreDefinitionVersionsCommandOutput> {
-    return deserializeAws_restJson1_1ListCoreDefinitionVersionsCommand(
+    return deserializeAws_restJson1ListCoreDefinitionVersionsCommand(
       output,
       context
     );

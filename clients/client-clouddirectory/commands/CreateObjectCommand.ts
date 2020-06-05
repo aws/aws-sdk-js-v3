@@ -5,9 +5,9 @@ import {
 } from "../CloudDirectoryClient";
 import { CreateObjectRequest, CreateObjectResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateObjectCommand,
-  serializeAws_restJson1_1CreateObjectCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateObjectCommand,
+  serializeAws_restJson1CreateObjectCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateObjectCommand extends $Command<
     input: CreateObjectCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateObjectCommand(input, context);
+    return serializeAws_restJson1CreateObjectCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateObjectCommandOutput> {
-    return deserializeAws_restJson1_1CreateObjectCommand(output, context);
+    return deserializeAws_restJson1CreateObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,9 +5,9 @@ import {
 } from "../NetworkManagerClient";
 import { DeleteSiteRequest, DeleteSiteResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteSiteCommand,
-  serializeAws_restJson1_1DeleteSiteCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteSiteCommand,
+  serializeAws_restJson1DeleteSiteCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteSiteCommand extends $Command<
     input: DeleteSiteCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteSiteCommand(input, context);
+    return serializeAws_restJson1DeleteSiteCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSiteCommandOutput> {
-    return deserializeAws_restJson1_1DeleteSiteCommand(output, context);
+    return deserializeAws_restJson1DeleteSiteCommand(output, context);
   }
 
   // Start section: command_body_extra

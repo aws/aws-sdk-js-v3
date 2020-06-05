@@ -101,7 +101,7 @@ const deserializeAws_json1_1DescribeDimensionKeysCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
-    case "amazonaws.pi.shared#InternalServiceError":
+    case "com.amazonaws.pi#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -112,7 +112,7 @@ const deserializeAws_json1_1DescribeDimensionKeysCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "amazonaws.pi.shared#InvalidArgumentException":
+    case "com.amazonaws.pi#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -123,7 +123,7 @@ const deserializeAws_json1_1DescribeDimensionKeysCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "amazonaws.pi.shared#NotAuthorizedException":
+    case "com.amazonaws.pi#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -186,7 +186,7 @@ const deserializeAws_json1_1GetResourceMetricsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
-    case "amazonaws.pi.shared#InternalServiceError":
+    case "com.amazonaws.pi#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -197,7 +197,7 @@ const deserializeAws_json1_1GetResourceMetricsCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "amazonaws.pi.shared#InvalidArgumentException":
+    case "com.amazonaws.pi#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -208,7 +208,7 @@ const deserializeAws_json1_1GetResourceMetricsCommandError = async (
       };
       break;
     case "NotAuthorizedException":
-    case "amazonaws.pi.shared#NotAuthorizedException":
+    case "com.amazonaws.pi#NotAuthorizedException":
       response = {
         ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
           parsedOutput,
@@ -405,45 +405,6 @@ const serializeAws_json1_1StringList = (
   return input.map(entry => entry);
 };
 
-const deserializeAws_json1_1InternalServiceError = (
-  output: any,
-  context: __SerdeContext
-): InternalServiceError => {
-  return {
-    __type: "InternalServiceError",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidArgumentException = (
-  output: any,
-  context: __SerdeContext
-): InvalidArgumentException => {
-  return {
-    __type: "InvalidArgumentException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1NotAuthorizedException = (
-  output: any,
-  context: __SerdeContext
-): NotAuthorizedException => {
-  return {
-    __type: "NotAuthorizedException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1DataPoint = (
   output: any,
   context: __SerdeContext
@@ -580,6 +541,32 @@ const deserializeAws_json1_1GetResourceMetricsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1InternalServiceError = (
+  output: any,
+  context: __SerdeContext
+): InternalServiceError => {
+  return {
+    __type: "InternalServiceError",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidArgumentException = (
+  output: any,
+  context: __SerdeContext
+): InvalidArgumentException => {
+  return {
+    __type: "InvalidArgumentException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1MetricKeyDataPoints = (
   output: any,
   context: __SerdeContext
@@ -611,6 +598,19 @@ const deserializeAws_json1_1MetricValuesList = (
   context: __SerdeContext
 ): number[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1NotAuthorizedException = (
+  output: any,
+  context: __SerdeContext
+): NotAuthorizedException => {
+  return {
+    __type: "NotAuthorizedException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResponsePartitionKey = (

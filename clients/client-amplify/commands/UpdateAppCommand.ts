@@ -5,9 +5,9 @@ import {
 } from "../AmplifyClient";
 import { UpdateAppRequest, UpdateAppResult } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateAppCommand,
-  serializeAws_restJson1_1UpdateAppCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateAppCommand,
+  serializeAws_restJson1UpdateAppCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class UpdateAppCommand extends $Command<
     input: UpdateAppCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateAppCommand(input, context);
+    return serializeAws_restJson1UpdateAppCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAppCommandOutput> {
-    return deserializeAws_restJson1_1UpdateAppCommand(output, context);
+    return deserializeAws_restJson1UpdateAppCommand(output, context);
   }
 
   // Start section: command_body_extra

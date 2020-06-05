@@ -258,36 +258,6 @@ export enum BillingMethod {
 }
 
 /**
- * <p>Represents the amount of CPU that an app is using on a physical device. Does not represent system-wide
- *             CPU usage.</p>
- */
-export interface CPU {
-  __type?: "CPU";
-  /**
-   * <p>The CPU's architecture (for example, x86 or ARM).</p>
-   */
-  architecture?: string;
-
-  /**
-   * <p>The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2
-   *             GHz CPU is expressed as 1200000000.</p>
-   */
-  clock?: number;
-
-  /**
-   * <p>The CPU's frequency.</p>
-   */
-  frequency?: string;
-}
-
-export namespace CPU {
-  export const filterSensitiveLog = (obj: CPU): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CPU => __isa(o, "CPU");
-}
-
-/**
  * <p>The requested object could not be deleted.</p>
  */
 export interface CannotDeleteException
@@ -352,6 +322,36 @@ export namespace Counters {
     ...obj
   });
   export const isa = (o: any): o is Counters => __isa(o, "Counters");
+}
+
+/**
+ * <p>Represents the amount of CPU that an app is using on a physical device. Does not represent system-wide
+ *             CPU usage.</p>
+ */
+export interface CPU {
+  __type?: "CPU";
+  /**
+   * <p>The CPU's architecture (for example, x86 or ARM).</p>
+   */
+  architecture?: string;
+
+  /**
+   * <p>The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2
+   *             GHz CPU is expressed as 1200000000.</p>
+   */
+  clock?: number;
+
+  /**
+   * <p>The CPU's frequency.</p>
+   */
+  frequency?: string;
+}
+
+export namespace CPU {
+  export const filterSensitiveLog = (obj: CPU): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CPU => __isa(o, "CPU");
 }
 
 /**
@@ -3899,6 +3899,51 @@ export namespace ListOfferingPromotionsResult {
 }
 
 /**
+ * <p>Represents the request to list all offerings.</p>
+ */
+export interface ListOfferingsRequest {
+  __type?: "ListOfferingsRequest";
+  /**
+   * <p>An identifier that was returned from the previous call to this operation, which can
+   *             be used to return the next set of items in the list.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListOfferingsRequest {
+  export const filterSensitiveLog = (obj: ListOfferingsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListOfferingsRequest =>
+    __isa(o, "ListOfferingsRequest");
+}
+
+/**
+ * <p>Represents the return values of the list of offerings.</p>
+ */
+export interface ListOfferingsResult {
+  __type?: "ListOfferingsResult";
+  /**
+   * <p>An identifier that was returned from the previous call to this operation, which can
+   *             be used to return the next set of items in the list.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>A value that represents the list offering results.</p>
+   */
+  offerings?: Offering[];
+}
+
+export namespace ListOfferingsResult {
+  export const filterSensitiveLog = (obj: ListOfferingsResult): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListOfferingsResult =>
+    __isa(o, "ListOfferingsResult");
+}
+
+/**
  * <p>Represents the request to list the offering transaction history.</p>
  */
 export interface ListOfferingTransactionsRequest {
@@ -3946,51 +3991,6 @@ export namespace ListOfferingTransactionsResult {
   });
   export const isa = (o: any): o is ListOfferingTransactionsResult =>
     __isa(o, "ListOfferingTransactionsResult");
-}
-
-/**
- * <p>Represents the request to list all offerings.</p>
- */
-export interface ListOfferingsRequest {
-  __type?: "ListOfferingsRequest";
-  /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListOfferingsRequest {
-  export const filterSensitiveLog = (obj: ListOfferingsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListOfferingsRequest =>
-    __isa(o, "ListOfferingsRequest");
-}
-
-/**
- * <p>Represents the return values of the list of offerings.</p>
- */
-export interface ListOfferingsResult {
-  __type?: "ListOfferingsResult";
-  /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>A value that represents the list offering results.</p>
-   */
-  offerings?: Offering[];
-}
-
-export namespace ListOfferingsResult {
-  export const filterSensitiveLog = (obj: ListOfferingsResult): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListOfferingsResult =>
-    __isa(o, "ListOfferingsResult");
 }
 
 /**

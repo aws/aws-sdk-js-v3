@@ -8,9 +8,9 @@ import {
   UpdateEndpointsBatchResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateEndpointsBatchCommand,
-  serializeAws_restJson1_1UpdateEndpointsBatchCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateEndpointsBatchCommand,
+  serializeAws_restJson1UpdateEndpointsBatchCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class UpdateEndpointsBatchCommand extends $Command<
     input: UpdateEndpointsBatchCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateEndpointsBatchCommand(input, context);
+    return serializeAws_restJson1UpdateEndpointsBatchCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEndpointsBatchCommandOutput> {
-    return deserializeAws_restJson1_1UpdateEndpointsBatchCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateEndpointsBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

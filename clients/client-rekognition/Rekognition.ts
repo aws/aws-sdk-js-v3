@@ -627,6 +627,42 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
+   * <p>Lists and gets information about your Amazon Rekognition Custom Labels projects.</p>
+   *          <p>This operation requires permissions to perform the <code>rekognition:DescribeProjects</code> action.</p>
+   */
+  public describeProjects(
+    args: DescribeProjectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeProjectsCommandOutput>;
+  public describeProjects(
+    args: DescribeProjectsCommandInput,
+    cb: (err: any, data?: DescribeProjectsCommandOutput) => void
+  ): void;
+  public describeProjects(
+    args: DescribeProjectsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeProjectsCommandOutput) => void
+  ): void;
+  public describeProjects(
+    args: DescribeProjectsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeProjectsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeProjectsCommandOutput) => void
+  ): Promise<DescribeProjectsCommandOutput> | void {
+    const command = new DescribeProjectsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists and describes the models in an Amazon Rekognition Custom Labels project. You
    *          can specify up to 10 model versions in <code>ProjectVersionArns</code>. If
    *          you don't specify a value, descriptions for all models are returned.</p>
@@ -654,42 +690,6 @@ export class Rekognition extends RekognitionClient {
     cb?: (err: any, data?: DescribeProjectVersionsCommandOutput) => void
   ): Promise<DescribeProjectVersionsCommandOutput> | void {
     const command = new DescribeProjectVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists and gets information about your Amazon Rekognition Custom Labels projects.</p>
-   *          <p>This operation requires permissions to perform the <code>rekognition:DescribeProjects</code> action.</p>
-   */
-  public describeProjects(
-    args: DescribeProjectsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeProjectsCommandOutput>;
-  public describeProjects(
-    args: DescribeProjectsCommandInput,
-    cb: (err: any, data?: DescribeProjectsCommandOutput) => void
-  ): void;
-  public describeProjects(
-    args: DescribeProjectsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeProjectsCommandOutput) => void
-  ): void;
-  public describeProjects(
-    args: DescribeProjectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeProjectsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeProjectsCommandOutput) => void
-  ): Promise<DescribeProjectsCommandOutput> | void {
-    const command = new DescribeProjectsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

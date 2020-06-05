@@ -8,9 +8,9 @@ import {
   GetSegmentExportJobsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetSegmentExportJobsCommand,
-  serializeAws_restJson1_1GetSegmentExportJobsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetSegmentExportJobsCommand,
+  serializeAws_restJson1GetSegmentExportJobsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetSegmentExportJobsCommand extends $Command<
     input: GetSegmentExportJobsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetSegmentExportJobsCommand(input, context);
+    return serializeAws_restJson1GetSegmentExportJobsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSegmentExportJobsCommandOutput> {
-    return deserializeAws_restJson1_1GetSegmentExportJobsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetSegmentExportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

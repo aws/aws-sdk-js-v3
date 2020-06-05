@@ -8,9 +8,9 @@ import {
   DescribeTemplateResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeTemplateCommand,
-  serializeAws_restJson1_1DescribeTemplateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeTemplateCommand,
+  serializeAws_restJson1DescribeTemplateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DescribeTemplateCommand extends $Command<
     input: DescribeTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeTemplateCommand(input, context);
+    return serializeAws_restJson1DescribeTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTemplateCommandOutput> {
-    return deserializeAws_restJson1_1DescribeTemplateCommand(output, context);
+    return deserializeAws_restJson1DescribeTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

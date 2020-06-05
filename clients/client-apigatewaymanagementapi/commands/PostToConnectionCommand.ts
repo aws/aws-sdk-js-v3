@@ -5,9 +5,9 @@ import {
 } from "../ApiGatewayManagementApiClient";
 import { PostToConnectionRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1PostToConnectionCommand,
-  serializeAws_restJson1_1PostToConnectionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PostToConnectionCommand,
+  serializeAws_restJson1PostToConnectionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class PostToConnectionCommand extends $Command<
     input: PostToConnectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PostToConnectionCommand(input, context);
+    return serializeAws_restJson1PostToConnectionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PostToConnectionCommandOutput> {
-    return deserializeAws_restJson1_1PostToConnectionCommand(output, context);
+    return deserializeAws_restJson1PostToConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

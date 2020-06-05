@@ -6,611 +6,6 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
-export enum ActionCode {
-  ArchiveRetrieval = "ArchiveRetrieval",
-  InventoryRetrieval = "InventoryRetrieval",
-  Select = "Select"
-}
-
-/**
- * <p>Contains information about the comma-separated value (CSV) file to select from.</p>
- */
-export interface CSVInput {
-  __type?: "CSVInput";
-  /**
-   * <p>A single character used to indicate that a row should be ignored when the character is
-   *             present at the start of that row.</p>
-   */
-  Comments?: string;
-
-  /**
-   * <p>A value used to separate individual fields from each other within a record.</p>
-   */
-  FieldDelimiter?: string;
-
-  /**
-   * <p>Describes the first line of input. Valid values are <code>None</code>,
-   *                 <code>Ignore</code>, and <code>Use</code>.</p>
-   */
-  FileHeaderInfo?: FileHeaderInfo | string;
-
-  /**
-   * <p>A value used as an escape character where the field delimiter is part of the
-   *             value.</p>
-   */
-  QuoteCharacter?: string;
-
-  /**
-   * <p>A single character used for escaping the quotation-mark character inside an already
-   *             escaped value.</p>
-   */
-  QuoteEscapeCharacter?: string;
-
-  /**
-   * <p>A value used to separate individual records from each other.</p>
-   */
-  RecordDelimiter?: string;
-}
-
-export namespace CSVInput {
-  export const filterSensitiveLog = (obj: CSVInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CSVInput => __isa(o, "CSVInput");
-}
-
-/**
- * <p>Contains information about the comma-separated value (CSV) file that the job results
- *             are stored in.</p>
- */
-export interface CSVOutput {
-  __type?: "CSVOutput";
-  /**
-   * <p>A value used to separate individual fields from each other within a record.</p>
-   */
-  FieldDelimiter?: string;
-
-  /**
-   * <p>A value used as an escape character where the field delimiter is part of the
-   *             value.</p>
-   */
-  QuoteCharacter?: string;
-
-  /**
-   * <p>A single character used for escaping the quotation-mark character inside an already
-   *             escaped value.</p>
-   */
-  QuoteEscapeCharacter?: string;
-
-  /**
-   * <p>A value that indicates whether all output fields should be contained within quotation
-   *             marks.</p>
-   */
-  QuoteFields?: QuoteFields | string;
-
-  /**
-   * <p>A value used to separate individual records from each other.</p>
-   */
-  RecordDelimiter?: string;
-}
-
-export namespace CSVOutput {
-  export const filterSensitiveLog = (obj: CSVOutput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CSVOutput => __isa(o, "CSVOutput");
-}
-
-export enum CannedACL {
-  AuthenticatedRead = "authenticated-read",
-  AwsExecRead = "aws-exec-read",
-  BucketOwnerFullControl = "bucket-owner-full-control",
-  BucketOwnerRead = "bucket-owner-read",
-  Private = "private",
-  PublicRead = "public-read",
-  PublicReadWrite = "public-read-write"
-}
-
-/**
- * <p>Contains information about the encryption used to store the job results in Amazon S3. </p>
- */
-export interface Encryption {
-  __type?: "Encryption";
-  /**
-   * <p>The server-side encryption algorithm used when storing job results in Amazon S3, for
-   *             example <code>AES256</code> or <code>aws:kms</code>.</p>
-   */
-  EncryptionType?: EncryptionType | string;
-
-  /**
-   * <p>Optional. If the encryption type is <code>aws:kms</code>, you can use this value to
-   *             specify the encryption context for the job results.</p>
-   */
-  KMSContext?: string;
-
-  /**
-   * <p>The AWS KMS key ID to use for object encryption. All GET and PUT requests for an
-   *             object protected by AWS KMS fail if not made by using Secure Sockets Layer (SSL) or
-   *             Signature Version 4. </p>
-   */
-  KMSKeyId?: string;
-}
-
-export namespace Encryption {
-  export const filterSensitiveLog = (obj: Encryption): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Encryption => __isa(o, "Encryption");
-}
-
-export enum EncryptionType {
-  KMS = "aws:kms",
-  S3 = "AES256"
-}
-
-export enum ExpressionType {
-  SQL = "SQL"
-}
-
-export enum FileHeaderInfo {
-  Ignore = "IGNORE",
-  None = "NONE",
-  Use = "USE"
-}
-
-/**
- * <p>Contains the description of an Amazon S3 Glacier job.</p>
- */
-export interface GlacierJobDescription {
-  __type?: "GlacierJobDescription";
-  /**
-   * <p>The job type. This value is either <code>ArchiveRetrieval</code>,
-   *                 <code>InventoryRetrieval</code>, or
-   *             <code>Select</code>. </p>
-   */
-  Action?: ActionCode | string;
-
-  /**
-   * <p>The archive ID requested for a select job or archive retrieval. Otherwise, this
-   *             field is null.</p>
-   */
-  ArchiveId?: string;
-
-  /**
-   * <p>The SHA256 tree hash of the entire archive for an archive retrieval. For inventory
-   *             retrieval or select jobs, this field is null.</p>
-   */
-  ArchiveSHA256TreeHash?: string;
-
-  /**
-   * <p>For an archive retrieval job, this value is the size in bytes of the archive being
-   *             requested for download. For an inventory retrieval or select job, this value is
-   *             null.</p>
-   */
-  ArchiveSizeInBytes?: number;
-
-  /**
-   * <p>The job status. When a job is completed, you get the job's output using Get Job
-   *             Output (GET output).</p>
-   */
-  Completed?: boolean;
-
-  /**
-   * <p>The UTC time that the job request completed. While the job is in progress, the
-   *             value is null.</p>
-   */
-  CompletionDate?: string;
-
-  /**
-   * <p>The UTC date when the job was created. This value is a string representation of ISO
-   *             8601 date format, for example <code>"2012-03-20T17:03:43.221Z"</code>.</p>
-   */
-  CreationDate?: string;
-
-  /**
-   * <p>Parameters used for range inventory retrieval.</p>
-   */
-  InventoryRetrievalParameters?: InventoryRetrievalJobDescription;
-
-  /**
-   * <p>For an inventory retrieval job, this value is the size in bytes of the inventory
-   *             requested for download. For an archive retrieval or select job, this value is
-   *             null.</p>
-   */
-  InventorySizeInBytes?: number;
-
-  /**
-   * <p>The job description provided when initiating the job.</p>
-   */
-  JobDescription?: string;
-
-  /**
-   * <p>An opaque string that identifies an Amazon S3 Glacier job.</p>
-   */
-  JobId?: string;
-
-  /**
-   * <p>Contains the job output location.</p>
-   */
-  JobOutputPath?: string;
-
-  /**
-   * <p>Contains the location where the data from the select job is stored.</p>
-   */
-  OutputLocation?: OutputLocation;
-
-  /**
-   * <p>The retrieved byte range for archive retrieval jobs in the form
-   *                 <i>StartByteValue</i>-<i>EndByteValue</i>. If no range
-   *             was specified in the archive retrieval, then the whole archive is retrieved. In this
-   *             case, <i>StartByteValue</i> equals 0 and <i>EndByteValue</i>
-   *             equals the size of the archive minus 1. For inventory retrieval or select jobs, this
-   *             field is null. </p>
-   */
-  RetrievalByteRange?: string;
-
-  /**
-   * <p>For an archive retrieval job, this value is the checksum of the archive. Otherwise,
-   *             this value is null.</p>
-   *         <p>The SHA256 tree hash value for the requested range of an archive. If the <b>InitiateJob</b> request for an archive specified a tree-hash
-   *             aligned range, then this field returns a value.</p>
-   *         <p>If the whole archive is retrieved, this value is the same as the
-   *             ArchiveSHA256TreeHash value.</p>
-   *         <p>This field is null for the following:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Archive retrieval jobs that specify a range that is not tree-hash
-   *                     aligned</p>
-   *             </li>
-   *          </ul>
-   *         <ul>
-   *             <li>
-   *                 <p>Archival jobs that specify a range that is equal to the whole archive, when
-   *                     the job status is <code>InProgress</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *         <ul>
-   *             <li>
-   *                 <p>Inventory jobs</p>
-   *             </li>
-   *             <li>
-   *                 <p>Select jobs</p>
-   *             </li>
-   *          </ul>
-   */
-  SHA256TreeHash?: string;
-
-  /**
-   * <p>An Amazon SNS topic that receives notification.</p>
-   */
-  SNSTopic?: string;
-
-  /**
-   * <p>Contains the parameters used for a select.</p>
-   */
-  SelectParameters?: SelectParameters;
-
-  /**
-   * <p>The status code can be <code>InProgress</code>, <code>Succeeded</code>, or
-   *                 <code>Failed</code>, and indicates the status of the job.</p>
-   */
-  StatusCode?: StatusCode | string;
-
-  /**
-   * <p>A friendly message that describes the job status.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The tier to use for a select or an archive retrieval. Valid values are
-   *                 <code>Expedited</code>, <code>Standard</code>, or <code>Bulk</code>.
-   *                 <code>Standard</code> is the default.</p>
-   */
-  Tier?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the vault from which an archive retrieval was
-   *             requested.</p>
-   */
-  VaultARN?: string;
-}
-
-export namespace GlacierJobDescription {
-  export const filterSensitiveLog = (obj: GlacierJobDescription): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GlacierJobDescription =>
-    __isa(o, "GlacierJobDescription");
-}
-
-/**
- * <p>Contains information about a grant.</p>
- */
-export interface Grant {
-  __type?: "Grant";
-  /**
-   * <p>The grantee.</p>
-   */
-  Grantee?: Grantee;
-
-  /**
-   * <p>Specifies the permission given to the grantee. </p>
-   */
-  Permission?: Permission | string;
-}
-
-export namespace Grant {
-  export const filterSensitiveLog = (obj: Grant): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Grant => __isa(o, "Grant");
-}
-
-/**
- * <p>Contains information about the grantee.</p>
- */
-export interface Grantee {
-  __type?: "Grantee";
-  /**
-   * <p>Screen name of the grantee.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>Email address of the grantee.</p>
-   */
-  EmailAddress?: string;
-
-  /**
-   * <p>The canonical user ID of the grantee.</p>
-   */
-  ID?: string;
-
-  /**
-   * <p>Type of grantee</p>
-   */
-  Type: Type | string | undefined;
-
-  /**
-   * <p>URI of the grantee group.</p>
-   */
-  URI?: string;
-}
-
-export namespace Grantee {
-  export const filterSensitiveLog = (obj: Grantee): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Grantee => __isa(o, "Grantee");
-}
-
-/**
- * <p>Describes how the archive is serialized.</p>
- */
-export interface InputSerialization {
-  __type?: "InputSerialization";
-  /**
-   * <p>Describes the serialization of a CSV-encoded object.</p>
-   */
-  csv?: CSVInput;
-}
-
-export namespace InputSerialization {
-  export const filterSensitiveLog = (obj: InputSerialization): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InputSerialization =>
-    __isa(o, "InputSerialization");
-}
-
-/**
- * <p>Describes the options for a range inventory retrieval job.</p>
- */
-export interface InventoryRetrievalJobDescription {
-  __type?: "InventoryRetrievalJobDescription";
-  /**
-   * <p>The end of the date range in UTC for vault inventory retrieval that includes
-   *             archives created before this date. This value should be a string in the ISO 8601 date
-   *             format, for example <code>2013-03-20T17:03:43Z</code>.</p>
-   */
-  EndDate?: string;
-
-  /**
-   * <p>The output format for the vault inventory list, which is set by the <b>InitiateJob</b> request when initiating a job to retrieve a vault
-   *             inventory. Valid values are <code>CSV</code> and <code>JSON</code>.</p>
-   */
-  Format?: string;
-
-  /**
-   * <p>The maximum number of inventory items returned per vault inventory retrieval
-   *             request. This limit is set when initiating the job with the a <b>InitiateJob</b> request. </p>
-   */
-  Limit?: string;
-
-  /**
-   * <p>An opaque string that represents where to continue pagination of the vault
-   *             inventory retrieval results. You use the marker in a new <b>InitiateJob</b> request to obtain additional inventory items. If there are
-   *             no more inventory items, this value is <code>null</code>. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html#api-initiate-job-post-vault-inventory-list-filtering"> Range Inventory Retrieval</a>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The start of the date range in Universal Coordinated Time (UTC) for vault inventory
-   *             retrieval that includes archives created on or after this date. This value should be a
-   *             string in the ISO 8601 date format, for example
-   *             <code>2013-03-20T17:03:43Z</code>.</p>
-   */
-  StartDate?: string;
-}
-
-export namespace InventoryRetrievalJobDescription {
-  export const filterSensitiveLog = (
-    obj: InventoryRetrievalJobDescription
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InventoryRetrievalJobDescription =>
-    __isa(o, "InventoryRetrievalJobDescription");
-}
-
-/**
- * <p>Contains information about the location where the select job results are stored.</p>
- */
-export interface OutputLocation {
-  __type?: "OutputLocation";
-  /**
-   * <p>Describes an S3 location that will receive the results of the job request.</p>
-   */
-  S3?: S3Location;
-}
-
-export namespace OutputLocation {
-  export const filterSensitiveLog = (obj: OutputLocation): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is OutputLocation =>
-    __isa(o, "OutputLocation");
-}
-
-/**
- * <p>Describes how the select output is serialized.</p>
- */
-export interface OutputSerialization {
-  __type?: "OutputSerialization";
-  /**
-   * <p>Describes the serialization of CSV-encoded query results.</p>
-   */
-  csv?: CSVOutput;
-}
-
-export namespace OutputSerialization {
-  export const filterSensitiveLog = (obj: OutputSerialization): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is OutputSerialization =>
-    __isa(o, "OutputSerialization");
-}
-
-export enum Permission {
-  FULL_CONTROL = "FULL_CONTROL",
-  READ = "READ",
-  READ_ACP = "READ_ACP",
-  WRITE = "WRITE",
-  WRITE_ACP = "WRITE_ACP"
-}
-
-export enum QuoteFields {
-  Always = "ALWAYS",
-  AsNeeded = "ASNEEDED"
-}
-
-/**
- * <p>Contains information about the location in Amazon S3 where the select job results are stored.</p>
- */
-export interface S3Location {
-  __type?: "S3Location";
-  /**
-   * <p>A list of grants that control access to the staged results.</p>
-   */
-  AccessControlList?: Grant[];
-
-  /**
-   * <p>The name of the Amazon S3 bucket where the job results are stored.</p>
-   */
-  BucketName?: string;
-
-  /**
-   * <p>The canned access control list (ACL) to apply to the job results.</p>
-   */
-  CannedACL?: CannedACL | string;
-
-  /**
-   * <p>Contains information about the encryption used to store the job results in Amazon S3.</p>
-   */
-  Encryption?: Encryption;
-
-  /**
-   * <p>The prefix that is prepended to the results for this request.</p>
-   */
-  Prefix?: string;
-
-  /**
-   * <p>The storage class used to store the job results.</p>
-   */
-  StorageClass?: StorageClass | string;
-
-  /**
-   * <p>The tag-set that is applied to the job results.</p>
-   */
-  Tagging?: { [key: string]: string };
-
-  /**
-   * <p>A map of metadata to store with the job results in Amazon S3.</p>
-   */
-  UserMetadata?: { [key: string]: string };
-}
-
-export namespace S3Location {
-  export const filterSensitiveLog = (obj: S3Location): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is S3Location => __isa(o, "S3Location");
-}
-
-/**
- * <p>Contains information about the parameters used for a select.</p>
- */
-export interface SelectParameters {
-  __type?: "SelectParameters";
-  /**
-   * <p>The expression that is used to select the object.</p>
-   */
-  Expression?: string;
-
-  /**
-   * <p>The type of the provided expression, for example <code>SQL</code>.</p>
-   */
-  ExpressionType?: ExpressionType | string;
-
-  /**
-   * <p>Describes the serialization format of the object.</p>
-   */
-  InputSerialization?: InputSerialization;
-
-  /**
-   * <p>Describes how the results of the select job are serialized.</p>
-   */
-  OutputSerialization?: OutputSerialization;
-}
-
-export namespace SelectParameters {
-  export const filterSensitiveLog = (obj: SelectParameters): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SelectParameters =>
-    __isa(o, "SelectParameters");
-}
-
-export enum StatusCode {
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Succeeded = "Succeeded"
-}
-
-export enum StorageClass {
-  ReducedRedundancy = "REDUCED_REDUNDANCY",
-  Standard = "STANDARD",
-  StandardInfrequentAccess = "STANDARD_IA"
-}
-
-export enum Type {
-  AmazonCustomerByEmail = "AmazonCustomerByEmail",
-  CanonicalUser = "CanonicalUser",
-  Group = "Group"
-}
-
 /**
  * <p>Provides options to abort a multipart upload identified by the upload ID.</p>
  *
@@ -674,6 +69,12 @@ export namespace AbortVaultLockInput {
   });
   export const isa = (o: any): o is AbortVaultLockInput =>
     __isa(o, "AbortVaultLockInput");
+}
+
+export enum ActionCode {
+  ArchiveRetrieval = "ArchiveRetrieval",
+  InventoryRetrieval = "InventoryRetrieval",
+  Select = "Select"
 }
 
 /**
@@ -740,6 +141,16 @@ export namespace ArchiveCreationOutput {
   });
   export const isa = (o: any): o is ArchiveCreationOutput =>
     __isa(o, "ArchiveCreationOutput");
+}
+
+export enum CannedACL {
+  AuthenticatedRead = "authenticated-read",
+  AwsExecRead = "aws-exec-read",
+  BucketOwnerFullControl = "bucket-owner-full-control",
+  BucketOwnerRead = "bucket-owner-read",
+  Private = "private",
+  PublicRead = "public-read",
+  PublicReadWrite = "public-read-write"
 }
 
 /**
@@ -872,6 +283,95 @@ export namespace CreateVaultOutput {
   });
   export const isa = (o: any): o is CreateVaultOutput =>
     __isa(o, "CreateVaultOutput");
+}
+
+/**
+ * <p>Contains information about the comma-separated value (CSV) file to select from.</p>
+ */
+export interface CSVInput {
+  __type?: "CSVInput";
+  /**
+   * <p>A single character used to indicate that a row should be ignored when the character is
+   *             present at the start of that row.</p>
+   */
+  Comments?: string;
+
+  /**
+   * <p>A value used to separate individual fields from each other within a record.</p>
+   */
+  FieldDelimiter?: string;
+
+  /**
+   * <p>Describes the first line of input. Valid values are <code>None</code>,
+   *                 <code>Ignore</code>, and <code>Use</code>.</p>
+   */
+  FileHeaderInfo?: FileHeaderInfo | string;
+
+  /**
+   * <p>A value used as an escape character where the field delimiter is part of the
+   *             value.</p>
+   */
+  QuoteCharacter?: string;
+
+  /**
+   * <p>A single character used for escaping the quotation-mark character inside an already
+   *             escaped value.</p>
+   */
+  QuoteEscapeCharacter?: string;
+
+  /**
+   * <p>A value used to separate individual records from each other.</p>
+   */
+  RecordDelimiter?: string;
+}
+
+export namespace CSVInput {
+  export const filterSensitiveLog = (obj: CSVInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CSVInput => __isa(o, "CSVInput");
+}
+
+/**
+ * <p>Contains information about the comma-separated value (CSV) file that the job results
+ *             are stored in.</p>
+ */
+export interface CSVOutput {
+  __type?: "CSVOutput";
+  /**
+   * <p>A value used to separate individual fields from each other within a record.</p>
+   */
+  FieldDelimiter?: string;
+
+  /**
+   * <p>A value used as an escape character where the field delimiter is part of the
+   *             value.</p>
+   */
+  QuoteCharacter?: string;
+
+  /**
+   * <p>A single character used for escaping the quotation-mark character inside an already
+   *             escaped value.</p>
+   */
+  QuoteEscapeCharacter?: string;
+
+  /**
+   * <p>A value that indicates whether all output fields should be contained within quotation
+   *             marks.</p>
+   */
+  QuoteFields?: QuoteFields | string;
+
+  /**
+   * <p>A value used to separate individual records from each other.</p>
+   */
+  RecordDelimiter?: string;
+}
+
+export namespace CSVOutput {
+  export const filterSensitiveLog = (obj: CSVOutput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CSVOutput => __isa(o, "CSVOutput");
 }
 
 /**
@@ -1156,6 +656,53 @@ export namespace DescribeVaultOutput {
   });
   export const isa = (o: any): o is DescribeVaultOutput =>
     __isa(o, "DescribeVaultOutput");
+}
+
+/**
+ * <p>Contains information about the encryption used to store the job results in Amazon S3. </p>
+ */
+export interface Encryption {
+  __type?: "Encryption";
+  /**
+   * <p>The server-side encryption algorithm used when storing job results in Amazon S3, for
+   *             example <code>AES256</code> or <code>aws:kms</code>.</p>
+   */
+  EncryptionType?: EncryptionType | string;
+
+  /**
+   * <p>Optional. If the encryption type is <code>aws:kms</code>, you can use this value to
+   *             specify the encryption context for the job results.</p>
+   */
+  KMSContext?: string;
+
+  /**
+   * <p>The AWS KMS key ID to use for object encryption. All GET and PUT requests for an
+   *             object protected by AWS KMS fail if not made by using Secure Sockets Layer (SSL) or
+   *             Signature Version 4. </p>
+   */
+  KMSKeyId?: string;
+}
+
+export namespace Encryption {
+  export const filterSensitiveLog = (obj: Encryption): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Encryption => __isa(o, "Encryption");
+}
+
+export enum EncryptionType {
+  KMS = "aws:kms",
+  S3 = "AES256"
+}
+
+export enum ExpressionType {
+  SQL = "SQL"
+}
+
+export enum FileHeaderInfo {
+  Ignore = "IGNORE",
+  None = "NONE",
+  Use = "USE"
 }
 
 /**
@@ -1511,6 +1058,233 @@ export namespace GetVaultNotificationsOutput {
 }
 
 /**
+ * <p>Contains the description of an Amazon S3 Glacier job.</p>
+ */
+export interface GlacierJobDescription {
+  __type?: "GlacierJobDescription";
+  /**
+   * <p>The job type. This value is either <code>ArchiveRetrieval</code>,
+   *                 <code>InventoryRetrieval</code>, or
+   *             <code>Select</code>. </p>
+   */
+  Action?: ActionCode | string;
+
+  /**
+   * <p>The archive ID requested for a select job or archive retrieval. Otherwise, this
+   *             field is null.</p>
+   */
+  ArchiveId?: string;
+
+  /**
+   * <p>The SHA256 tree hash of the entire archive for an archive retrieval. For inventory
+   *             retrieval or select jobs, this field is null.</p>
+   */
+  ArchiveSHA256TreeHash?: string;
+
+  /**
+   * <p>For an archive retrieval job, this value is the size in bytes of the archive being
+   *             requested for download. For an inventory retrieval or select job, this value is
+   *             null.</p>
+   */
+  ArchiveSizeInBytes?: number;
+
+  /**
+   * <p>The job status. When a job is completed, you get the job's output using Get Job
+   *             Output (GET output).</p>
+   */
+  Completed?: boolean;
+
+  /**
+   * <p>The UTC time that the job request completed. While the job is in progress, the
+   *             value is null.</p>
+   */
+  CompletionDate?: string;
+
+  /**
+   * <p>The UTC date when the job was created. This value is a string representation of ISO
+   *             8601 date format, for example <code>"2012-03-20T17:03:43.221Z"</code>.</p>
+   */
+  CreationDate?: string;
+
+  /**
+   * <p>Parameters used for range inventory retrieval.</p>
+   */
+  InventoryRetrievalParameters?: InventoryRetrievalJobDescription;
+
+  /**
+   * <p>For an inventory retrieval job, this value is the size in bytes of the inventory
+   *             requested for download. For an archive retrieval or select job, this value is
+   *             null.</p>
+   */
+  InventorySizeInBytes?: number;
+
+  /**
+   * <p>The job description provided when initiating the job.</p>
+   */
+  JobDescription?: string;
+
+  /**
+   * <p>An opaque string that identifies an Amazon S3 Glacier job.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>Contains the job output location.</p>
+   */
+  JobOutputPath?: string;
+
+  /**
+   * <p>Contains the location where the data from the select job is stored.</p>
+   */
+  OutputLocation?: OutputLocation;
+
+  /**
+   * <p>The retrieved byte range for archive retrieval jobs in the form
+   *                 <i>StartByteValue</i>-<i>EndByteValue</i>. If no range
+   *             was specified in the archive retrieval, then the whole archive is retrieved. In this
+   *             case, <i>StartByteValue</i> equals 0 and <i>EndByteValue</i>
+   *             equals the size of the archive minus 1. For inventory retrieval or select jobs, this
+   *             field is null. </p>
+   */
+  RetrievalByteRange?: string;
+
+  /**
+   * <p>For an archive retrieval job, this value is the checksum of the archive. Otherwise,
+   *             this value is null.</p>
+   *         <p>The SHA256 tree hash value for the requested range of an archive. If the <b>InitiateJob</b> request for an archive specified a tree-hash
+   *             aligned range, then this field returns a value.</p>
+   *         <p>If the whole archive is retrieved, this value is the same as the
+   *             ArchiveSHA256TreeHash value.</p>
+   *         <p>This field is null for the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Archive retrieval jobs that specify a range that is not tree-hash
+   *                     aligned</p>
+   *             </li>
+   *          </ul>
+   *         <ul>
+   *             <li>
+   *                 <p>Archival jobs that specify a range that is equal to the whole archive, when
+   *                     the job status is <code>InProgress</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <ul>
+   *             <li>
+   *                 <p>Inventory jobs</p>
+   *             </li>
+   *             <li>
+   *                 <p>Select jobs</p>
+   *             </li>
+   *          </ul>
+   */
+  SHA256TreeHash?: string;
+
+  /**
+   * <p>An Amazon SNS topic that receives notification.</p>
+   */
+  SNSTopic?: string;
+
+  /**
+   * <p>Contains the parameters used for a select.</p>
+   */
+  SelectParameters?: SelectParameters;
+
+  /**
+   * <p>The status code can be <code>InProgress</code>, <code>Succeeded</code>, or
+   *                 <code>Failed</code>, and indicates the status of the job.</p>
+   */
+  StatusCode?: StatusCode | string;
+
+  /**
+   * <p>A friendly message that describes the job status.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The tier to use for a select or an archive retrieval. Valid values are
+   *                 <code>Expedited</code>, <code>Standard</code>, or <code>Bulk</code>.
+   *                 <code>Standard</code> is the default.</p>
+   */
+  Tier?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the vault from which an archive retrieval was
+   *             requested.</p>
+   */
+  VaultARN?: string;
+}
+
+export namespace GlacierJobDescription {
+  export const filterSensitiveLog = (obj: GlacierJobDescription): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GlacierJobDescription =>
+    __isa(o, "GlacierJobDescription");
+}
+
+/**
+ * <p>Contains information about a grant.</p>
+ */
+export interface Grant {
+  __type?: "Grant";
+  /**
+   * <p>The grantee.</p>
+   */
+  Grantee?: Grantee;
+
+  /**
+   * <p>Specifies the permission given to the grantee. </p>
+   */
+  Permission?: Permission | string;
+}
+
+export namespace Grant {
+  export const filterSensitiveLog = (obj: Grant): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Grant => __isa(o, "Grant");
+}
+
+/**
+ * <p>Contains information about the grantee.</p>
+ */
+export interface Grantee {
+  __type?: "Grantee";
+  /**
+   * <p>Screen name of the grantee.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>Email address of the grantee.</p>
+   */
+  EmailAddress?: string;
+
+  /**
+   * <p>The canonical user ID of the grantee.</p>
+   */
+  ID?: string;
+
+  /**
+   * <p>Type of grantee</p>
+   */
+  Type: Type | string | undefined;
+
+  /**
+   * <p>URI of the grantee group.</p>
+   */
+  URI?: string;
+}
+
+export namespace Grantee {
+  export const filterSensitiveLog = (obj: Grantee): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Grantee => __isa(o, "Grantee");
+}
+
+/**
  * <p>Provides options for initiating an Amazon S3 Glacier job.</p>
  */
 export interface InitiateJobInput {
@@ -1698,6 +1472,25 @@ export namespace InitiateVaultLockOutput {
 }
 
 /**
+ * <p>Describes how the archive is serialized.</p>
+ */
+export interface InputSerialization {
+  __type?: "InputSerialization";
+  /**
+   * <p>Describes the serialization of a CSV-encoded object.</p>
+   */
+  csv?: CSVInput;
+}
+
+export namespace InputSerialization {
+  export const filterSensitiveLog = (obj: InputSerialization): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InputSerialization =>
+    __isa(o, "InputSerialization");
+}
+
+/**
  * <p>Returned if there is insufficient capacity to process this expedited request. This
  *          error only applies to expedited retrievals and not to standard or bulk
  *          retrievals.</p>
@@ -1754,6 +1547,57 @@ export namespace InvalidParameterValueException {
   });
   export const isa = (o: any): o is InvalidParameterValueException =>
     __isa(o, "InvalidParameterValueException");
+}
+
+/**
+ * <p>Describes the options for a range inventory retrieval job.</p>
+ */
+export interface InventoryRetrievalJobDescription {
+  __type?: "InventoryRetrievalJobDescription";
+  /**
+   * <p>The end of the date range in UTC for vault inventory retrieval that includes
+   *             archives created before this date. This value should be a string in the ISO 8601 date
+   *             format, for example <code>2013-03-20T17:03:43Z</code>.</p>
+   */
+  EndDate?: string;
+
+  /**
+   * <p>The output format for the vault inventory list, which is set by the <b>InitiateJob</b> request when initiating a job to retrieve a vault
+   *             inventory. Valid values are <code>CSV</code> and <code>JSON</code>.</p>
+   */
+  Format?: string;
+
+  /**
+   * <p>The maximum number of inventory items returned per vault inventory retrieval
+   *             request. This limit is set when initiating the job with the a <b>InitiateJob</b> request. </p>
+   */
+  Limit?: string;
+
+  /**
+   * <p>An opaque string that represents where to continue pagination of the vault
+   *             inventory retrieval results. You use the marker in a new <b>InitiateJob</b> request to obtain additional inventory items. If there are
+   *             no more inventory items, this value is <code>null</code>. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html#api-initiate-job-post-vault-inventory-list-filtering"> Range Inventory Retrieval</a>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The start of the date range in Universal Coordinated Time (UTC) for vault inventory
+   *             retrieval that includes archives created on or after this date. This value should be a
+   *             string in the ISO 8601 date format, for example
+   *             <code>2013-03-20T17:03:43Z</code>.</p>
+   */
+  StartDate?: string;
+}
+
+export namespace InventoryRetrievalJobDescription {
+  export const filterSensitiveLog = (
+    obj: InventoryRetrievalJobDescription
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InventoryRetrievalJobDescription =>
+    __isa(o, "InventoryRetrievalJobDescription");
 }
 
 /**
@@ -2355,6 +2199,44 @@ export namespace MissingParameterValueException {
 }
 
 /**
+ * <p>Contains information about the location where the select job results are stored.</p>
+ */
+export interface OutputLocation {
+  __type?: "OutputLocation";
+  /**
+   * <p>Describes an S3 location that will receive the results of the job request.</p>
+   */
+  S3?: S3Location;
+}
+
+export namespace OutputLocation {
+  export const filterSensitiveLog = (obj: OutputLocation): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is OutputLocation =>
+    __isa(o, "OutputLocation");
+}
+
+/**
+ * <p>Describes how the select output is serialized.</p>
+ */
+export interface OutputSerialization {
+  __type?: "OutputSerialization";
+  /**
+   * <p>Describes the serialization of CSV-encoded query results.</p>
+   */
+  csv?: CSVOutput;
+}
+
+export namespace OutputSerialization {
+  export const filterSensitiveLog = (obj: OutputSerialization): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is OutputSerialization =>
+    __isa(o, "OutputSerialization");
+}
+
+/**
  * <p>A list of the part sizes of the multipart upload.</p>
  */
 export interface PartListElement {
@@ -2377,6 +2259,14 @@ export namespace PartListElement {
   });
   export const isa = (o: any): o is PartListElement =>
     __isa(o, "PartListElement");
+}
+
+export enum Permission {
+  FULL_CONTROL = "FULL_CONTROL",
+  READ = "READ",
+  READ_ACP = "READ_ACP",
+  WRITE = "WRITE",
+  WRITE_ACP = "WRITE_ACP"
 }
 
 /**
@@ -2482,6 +2372,11 @@ export namespace PurchaseProvisionedCapacityOutput {
     __isa(o, "PurchaseProvisionedCapacityOutput");
 }
 
+export enum QuoteFields {
+  Always = "ALWAYS",
+  AsNeeded = "ASNEEDED"
+}
+
 /**
  * <p>The input value for <code>RemoveTagsFromVaultInput</code>.</p>
  */
@@ -2581,6 +2476,93 @@ export namespace ResourceNotFoundException {
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
+}
+
+/**
+ * <p>Contains information about the location in Amazon S3 where the select job results are stored.</p>
+ */
+export interface S3Location {
+  __type?: "S3Location";
+  /**
+   * <p>A list of grants that control access to the staged results.</p>
+   */
+  AccessControlList?: Grant[];
+
+  /**
+   * <p>The name of the Amazon S3 bucket where the job results are stored.</p>
+   */
+  BucketName?: string;
+
+  /**
+   * <p>The canned access control list (ACL) to apply to the job results.</p>
+   */
+  CannedACL?: CannedACL | string;
+
+  /**
+   * <p>Contains information about the encryption used to store the job results in Amazon S3.</p>
+   */
+  Encryption?: Encryption;
+
+  /**
+   * <p>The prefix that is prepended to the results for this request.</p>
+   */
+  Prefix?: string;
+
+  /**
+   * <p>The storage class used to store the job results.</p>
+   */
+  StorageClass?: StorageClass | string;
+
+  /**
+   * <p>The tag-set that is applied to the job results.</p>
+   */
+  Tagging?: { [key: string]: string };
+
+  /**
+   * <p>A map of metadata to store with the job results in Amazon S3.</p>
+   */
+  UserMetadata?: { [key: string]: string };
+}
+
+export namespace S3Location {
+  export const filterSensitiveLog = (obj: S3Location): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is S3Location => __isa(o, "S3Location");
+}
+
+/**
+ * <p>Contains information about the parameters used for a select.</p>
+ */
+export interface SelectParameters {
+  __type?: "SelectParameters";
+  /**
+   * <p>The expression that is used to select the object.</p>
+   */
+  Expression?: string;
+
+  /**
+   * <p>The type of the provided expression, for example <code>SQL</code>.</p>
+   */
+  ExpressionType?: ExpressionType | string;
+
+  /**
+   * <p>Describes the serialization format of the object.</p>
+   */
+  InputSerialization?: InputSerialization;
+
+  /**
+   * <p>Describes how the results of the select job are serialized.</p>
+   */
+  OutputSerialization?: OutputSerialization;
+}
+
+export namespace SelectParameters {
+  export const filterSensitiveLog = (obj: SelectParameters): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SelectParameters =>
+    __isa(o, "SelectParameters");
 }
 
 /**
@@ -2712,6 +2694,24 @@ export namespace SetVaultNotificationsInput {
   });
   export const isa = (o: any): o is SetVaultNotificationsInput =>
     __isa(o, "SetVaultNotificationsInput");
+}
+
+export enum StatusCode {
+  Failed = "Failed",
+  InProgress = "InProgress",
+  Succeeded = "Succeeded"
+}
+
+export enum StorageClass {
+  ReducedRedundancy = "REDUCED_REDUNDANCY",
+  Standard = "STANDARD",
+  StandardInfrequentAccess = "STANDARD_IA"
+}
+
+export enum Type {
+  AmazonCustomerByEmail = "AmazonCustomerByEmail",
+  CanonicalUser = "CanonicalUser",
+  Group = "Group"
 }
 
 /**

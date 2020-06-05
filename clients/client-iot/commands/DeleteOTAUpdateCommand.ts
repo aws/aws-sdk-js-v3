@@ -8,9 +8,9 @@ import {
   DeleteOTAUpdateResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteOTAUpdateCommand,
-  serializeAws_restJson1_1DeleteOTAUpdateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteOTAUpdateCommand,
+  serializeAws_restJson1DeleteOTAUpdateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DeleteOTAUpdateCommand extends $Command<
     input: DeleteOTAUpdateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteOTAUpdateCommand(input, context);
+    return serializeAws_restJson1DeleteOTAUpdateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteOTAUpdateCommandOutput> {
-    return deserializeAws_restJson1_1DeleteOTAUpdateCommand(output, context);
+    return deserializeAws_restJson1DeleteOTAUpdateCommand(output, context);
   }
 
   // Start section: command_body_extra

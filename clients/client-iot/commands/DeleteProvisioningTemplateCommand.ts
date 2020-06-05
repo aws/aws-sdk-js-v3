@@ -8,9 +8,9 @@ import {
   DeleteProvisioningTemplateResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteProvisioningTemplateCommand,
-  serializeAws_restJson1_1DeleteProvisioningTemplateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteProvisioningTemplateCommand,
+  serializeAws_restJson1DeleteProvisioningTemplateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DeleteProvisioningTemplateCommand extends $Command<
     input: DeleteProvisioningTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteProvisioningTemplateCommand(
+    return serializeAws_restJson1DeleteProvisioningTemplateCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DeleteProvisioningTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteProvisioningTemplateCommandOutput> {
-    return deserializeAws_restJson1_1DeleteProvisioningTemplateCommand(
+    return deserializeAws_restJson1DeleteProvisioningTemplateCommand(
       output,
       context
     );

@@ -809,7 +809,7 @@ const deserializeAws_json1_1AssociateEntityToThingCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -820,7 +820,7 @@ const deserializeAws_json1_1AssociateEntityToThingCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -831,7 +831,7 @@ const deserializeAws_json1_1AssociateEntityToThingCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
+    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -842,7 +842,7 @@ const deserializeAws_json1_1AssociateEntityToThingCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -905,7 +905,7 @@ const deserializeAws_json1_1CreateFlowTemplateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -916,7 +916,7 @@ const deserializeAws_json1_1CreateFlowTemplateCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -927,7 +927,7 @@ const deserializeAws_json1_1CreateFlowTemplateCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.iot.thingsgraph.types#LimitExceededException":
+    case "com.amazonaws.iotthingsgraph#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -938,7 +938,7 @@ const deserializeAws_json1_1CreateFlowTemplateCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceAlreadyExistsException":
+    case "com.amazonaws.iotthingsgraph#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -949,7 +949,7 @@ const deserializeAws_json1_1CreateFlowTemplateCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1012,7 +1012,7 @@ const deserializeAws_json1_1CreateSystemInstanceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -1023,7 +1023,7 @@ const deserializeAws_json1_1CreateSystemInstanceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1034,7 +1034,7 @@ const deserializeAws_json1_1CreateSystemInstanceCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.iot.thingsgraph.types#LimitExceededException":
+    case "com.amazonaws.iotthingsgraph#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1045,7 +1045,7 @@ const deserializeAws_json1_1CreateSystemInstanceCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceAlreadyExistsException":
+    case "com.amazonaws.iotthingsgraph#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1056,7 +1056,7 @@ const deserializeAws_json1_1CreateSystemInstanceCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1119,7 +1119,7 @@ const deserializeAws_json1_1CreateSystemTemplateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -1130,7 +1130,7 @@ const deserializeAws_json1_1CreateSystemTemplateCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1141,7 +1141,7 @@ const deserializeAws_json1_1CreateSystemTemplateCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceAlreadyExistsException":
+    case "com.amazonaws.iotthingsgraph#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1152,7 +1152,7 @@ const deserializeAws_json1_1CreateSystemTemplateCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1215,7 +1215,7 @@ const deserializeAws_json1_1DeleteFlowTemplateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -1226,7 +1226,7 @@ const deserializeAws_json1_1DeleteFlowTemplateCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1237,7 +1237,7 @@ const deserializeAws_json1_1DeleteFlowTemplateCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceInUseException":
+    case "com.amazonaws.iotthingsgraph#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1248,7 +1248,7 @@ const deserializeAws_json1_1DeleteFlowTemplateCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1308,7 +1308,7 @@ const deserializeAws_json1_1DeleteNamespaceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -1319,7 +1319,7 @@ const deserializeAws_json1_1DeleteNamespaceCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1382,7 +1382,7 @@ const deserializeAws_json1_1DeleteSystemInstanceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -1393,7 +1393,7 @@ const deserializeAws_json1_1DeleteSystemInstanceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1404,7 +1404,7 @@ const deserializeAws_json1_1DeleteSystemInstanceCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceInUseException":
+    case "com.amazonaws.iotthingsgraph#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1415,7 +1415,7 @@ const deserializeAws_json1_1DeleteSystemInstanceCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1478,7 +1478,7 @@ const deserializeAws_json1_1DeleteSystemTemplateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -1489,7 +1489,7 @@ const deserializeAws_json1_1DeleteSystemTemplateCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1500,7 +1500,7 @@ const deserializeAws_json1_1DeleteSystemTemplateCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceInUseException":
+    case "com.amazonaws.iotthingsgraph#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1511,7 +1511,7 @@ const deserializeAws_json1_1DeleteSystemTemplateCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1574,7 +1574,7 @@ const deserializeAws_json1_1DeploySystemInstanceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -1585,7 +1585,7 @@ const deserializeAws_json1_1DeploySystemInstanceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1596,7 +1596,7 @@ const deserializeAws_json1_1DeploySystemInstanceCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceInUseException":
+    case "com.amazonaws.iotthingsgraph#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1607,7 +1607,7 @@ const deserializeAws_json1_1DeploySystemInstanceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
+    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1618,7 +1618,7 @@ const deserializeAws_json1_1DeploySystemInstanceCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1681,7 +1681,7 @@ const deserializeAws_json1_1DeprecateFlowTemplateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -1692,7 +1692,7 @@ const deserializeAws_json1_1DeprecateFlowTemplateCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1703,7 +1703,7 @@ const deserializeAws_json1_1DeprecateFlowTemplateCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
+    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1714,7 +1714,7 @@ const deserializeAws_json1_1DeprecateFlowTemplateCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1780,7 +1780,7 @@ const deserializeAws_json1_1DeprecateSystemTemplateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -1791,7 +1791,7 @@ const deserializeAws_json1_1DeprecateSystemTemplateCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1802,7 +1802,7 @@ const deserializeAws_json1_1DeprecateSystemTemplateCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
+    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1813,7 +1813,7 @@ const deserializeAws_json1_1DeprecateSystemTemplateCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1873,7 +1873,7 @@ const deserializeAws_json1_1DescribeNamespaceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -1884,7 +1884,7 @@ const deserializeAws_json1_1DescribeNamespaceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1895,7 +1895,7 @@ const deserializeAws_json1_1DescribeNamespaceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
+    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1906,7 +1906,7 @@ const deserializeAws_json1_1DescribeNamespaceCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -1972,7 +1972,7 @@ const deserializeAws_json1_1DissociateEntityFromThingCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -1983,7 +1983,7 @@ const deserializeAws_json1_1DissociateEntityFromThingCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1994,7 +1994,7 @@ const deserializeAws_json1_1DissociateEntityFromThingCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
+    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2005,7 +2005,7 @@ const deserializeAws_json1_1DissociateEntityFromThingCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2065,7 +2065,7 @@ const deserializeAws_json1_1GetEntitiesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -2076,7 +2076,7 @@ const deserializeAws_json1_1GetEntitiesCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2087,7 +2087,7 @@ const deserializeAws_json1_1GetEntitiesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
+    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2098,7 +2098,7 @@ const deserializeAws_json1_1GetEntitiesCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2158,7 +2158,7 @@ const deserializeAws_json1_1GetFlowTemplateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -2169,7 +2169,7 @@ const deserializeAws_json1_1GetFlowTemplateCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2180,7 +2180,7 @@ const deserializeAws_json1_1GetFlowTemplateCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
+    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2191,7 +2191,7 @@ const deserializeAws_json1_1GetFlowTemplateCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2257,7 +2257,7 @@ const deserializeAws_json1_1GetFlowTemplateRevisionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -2268,7 +2268,7 @@ const deserializeAws_json1_1GetFlowTemplateRevisionsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2279,7 +2279,7 @@ const deserializeAws_json1_1GetFlowTemplateRevisionsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
+    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2290,7 +2290,7 @@ const deserializeAws_json1_1GetFlowTemplateRevisionsCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2356,7 +2356,7 @@ const deserializeAws_json1_1GetNamespaceDeletionStatusCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -2367,7 +2367,7 @@ const deserializeAws_json1_1GetNamespaceDeletionStatusCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2378,7 +2378,7 @@ const deserializeAws_json1_1GetNamespaceDeletionStatusCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2438,7 +2438,7 @@ const deserializeAws_json1_1GetSystemInstanceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -2449,7 +2449,7 @@ const deserializeAws_json1_1GetSystemInstanceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2460,7 +2460,7 @@ const deserializeAws_json1_1GetSystemInstanceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
+    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2471,7 +2471,7 @@ const deserializeAws_json1_1GetSystemInstanceCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2531,7 +2531,7 @@ const deserializeAws_json1_1GetSystemTemplateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -2542,7 +2542,7 @@ const deserializeAws_json1_1GetSystemTemplateCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2553,7 +2553,7 @@ const deserializeAws_json1_1GetSystemTemplateCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
+    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2564,7 +2564,7 @@ const deserializeAws_json1_1GetSystemTemplateCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2630,7 +2630,7 @@ const deserializeAws_json1_1GetSystemTemplateRevisionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -2641,7 +2641,7 @@ const deserializeAws_json1_1GetSystemTemplateRevisionsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2652,7 +2652,7 @@ const deserializeAws_json1_1GetSystemTemplateRevisionsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
+    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2663,7 +2663,7 @@ const deserializeAws_json1_1GetSystemTemplateRevisionsCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2723,7 +2723,7 @@ const deserializeAws_json1_1GetUploadStatusCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -2734,7 +2734,7 @@ const deserializeAws_json1_1GetUploadStatusCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2745,7 +2745,7 @@ const deserializeAws_json1_1GetUploadStatusCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
+    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2756,7 +2756,7 @@ const deserializeAws_json1_1GetUploadStatusCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2822,7 +2822,7 @@ const deserializeAws_json1_1ListFlowExecutionMessagesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -2833,7 +2833,7 @@ const deserializeAws_json1_1ListFlowExecutionMessagesCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2844,7 +2844,7 @@ const deserializeAws_json1_1ListFlowExecutionMessagesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
+    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2855,7 +2855,7 @@ const deserializeAws_json1_1ListFlowExecutionMessagesCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -2918,7 +2918,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -2929,7 +2929,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2940,7 +2940,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceAlreadyExistsException":
+    case "com.amazonaws.iotthingsgraph#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -2951,7 +2951,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3011,7 +3011,7 @@ const deserializeAws_json1_1SearchEntitiesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -3022,7 +3022,7 @@ const deserializeAws_json1_1SearchEntitiesCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3033,7 +3033,7 @@ const deserializeAws_json1_1SearchEntitiesCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3096,7 +3096,7 @@ const deserializeAws_json1_1SearchFlowExecutionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -3107,7 +3107,7 @@ const deserializeAws_json1_1SearchFlowExecutionsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3118,7 +3118,7 @@ const deserializeAws_json1_1SearchFlowExecutionsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
+    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3129,7 +3129,7 @@ const deserializeAws_json1_1SearchFlowExecutionsCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3192,7 +3192,7 @@ const deserializeAws_json1_1SearchFlowTemplatesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -3203,7 +3203,7 @@ const deserializeAws_json1_1SearchFlowTemplatesCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3214,7 +3214,7 @@ const deserializeAws_json1_1SearchFlowTemplatesCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3277,7 +3277,7 @@ const deserializeAws_json1_1SearchSystemInstancesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -3288,7 +3288,7 @@ const deserializeAws_json1_1SearchSystemInstancesCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3299,7 +3299,7 @@ const deserializeAws_json1_1SearchSystemInstancesCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3362,7 +3362,7 @@ const deserializeAws_json1_1SearchSystemTemplatesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -3373,7 +3373,7 @@ const deserializeAws_json1_1SearchSystemTemplatesCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3384,7 +3384,7 @@ const deserializeAws_json1_1SearchSystemTemplatesCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3444,7 +3444,7 @@ const deserializeAws_json1_1SearchThingsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -3455,7 +3455,7 @@ const deserializeAws_json1_1SearchThingsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3466,7 +3466,7 @@ const deserializeAws_json1_1SearchThingsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
+    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3477,7 +3477,7 @@ const deserializeAws_json1_1SearchThingsCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3537,7 +3537,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -3548,7 +3548,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3559,7 +3559,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceAlreadyExistsException":
+    case "com.amazonaws.iotthingsgraph#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -3570,7 +3570,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3636,7 +3636,7 @@ const deserializeAws_json1_1UndeploySystemInstanceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -3647,7 +3647,7 @@ const deserializeAws_json1_1UndeploySystemInstanceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3658,7 +3658,7 @@ const deserializeAws_json1_1UndeploySystemInstanceCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceInUseException":
+    case "com.amazonaws.iotthingsgraph#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -3669,7 +3669,7 @@ const deserializeAws_json1_1UndeploySystemInstanceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
+    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3680,7 +3680,7 @@ const deserializeAws_json1_1UndeploySystemInstanceCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3740,7 +3740,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -3751,7 +3751,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3762,7 +3762,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceAlreadyExistsException":
+    case "com.amazonaws.iotthingsgraph#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -3773,7 +3773,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3836,7 +3836,7 @@ const deserializeAws_json1_1UpdateFlowTemplateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -3847,7 +3847,7 @@ const deserializeAws_json1_1UpdateFlowTemplateCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3858,7 +3858,7 @@ const deserializeAws_json1_1UpdateFlowTemplateCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
+    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3869,7 +3869,7 @@ const deserializeAws_json1_1UpdateFlowTemplateCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -3932,7 +3932,7 @@ const deserializeAws_json1_1UpdateSystemTemplateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -3943,7 +3943,7 @@ const deserializeAws_json1_1UpdateSystemTemplateCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -3954,7 +3954,7 @@ const deserializeAws_json1_1UpdateSystemTemplateCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
+    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3965,7 +3965,7 @@ const deserializeAws_json1_1UpdateSystemTemplateCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -4031,7 +4031,7 @@ const deserializeAws_json1_1UploadEntityDefinitionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
-    case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
+    case "com.amazonaws.iotthingsgraph#InternalFailureException":
       response = {
         ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
           parsedOutput,
@@ -4042,7 +4042,7 @@ const deserializeAws_json1_1UploadEntityDefinitionsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
+    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -4053,7 +4053,7 @@ const deserializeAws_json1_1UploadEntityDefinitionsCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
+    case "com.amazonaws.iotthingsgraph#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,
@@ -4286,6 +4286,16 @@ const serializeAws_json1_1CreateSystemTemplateRequest = (
   };
 };
 
+const serializeAws_json1_1DefinitionDocument = (
+  input: DefinitionDocument,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.language !== undefined && { language: input.language }),
+    ...(input.text !== undefined && { text: input.text })
+  };
+};
+
 const serializeAws_json1_1DeleteFlowTemplateRequest = (
   input: DeleteFlowTemplateRequest,
   context: __SerdeContext
@@ -4366,6 +4376,67 @@ const serializeAws_json1_1DissociateEntityFromThingRequest = (
     ...(input.entityType !== undefined && { entityType: input.entityType }),
     ...(input.thingName !== undefined && { thingName: input.thingName })
   };
+};
+
+const serializeAws_json1_1EntityFilter = (
+  input: EntityFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.value !== undefined && {
+      value: serializeAws_json1_1EntityFilterValues(input.value, context)
+    })
+  };
+};
+
+const serializeAws_json1_1EntityFilters = (
+  input: EntityFilter[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => serializeAws_json1_1EntityFilter(entry, context));
+};
+
+const serializeAws_json1_1EntityFilterValues = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
+};
+
+const serializeAws_json1_1EntityTypes = (
+  input: (EntityType | string)[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
+};
+
+const serializeAws_json1_1FlowTemplateFilter = (
+  input: FlowTemplateFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.value !== undefined && {
+      value: serializeAws_json1_1FlowTemplateFilterValues(input.value, context)
+    })
+  };
+};
+
+const serializeAws_json1_1FlowTemplateFilters = (
+  input: FlowTemplateFilter[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry =>
+    serializeAws_json1_1FlowTemplateFilter(entry, context)
+  );
+};
+
+const serializeAws_json1_1FlowTemplateFilterValues = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1GetEntitiesRequest = (
@@ -4477,6 +4548,20 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   };
 };
 
+const serializeAws_json1_1MetricsConfiguration = (
+  input: MetricsConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.cloudMetricEnabled !== undefined && {
+      cloudMetricEnabled: input.cloudMetricEnabled
+    }),
+    ...(input.metricRuleRoleArn !== undefined && {
+      metricRuleRoleArn: input.metricRuleRoleArn
+    })
+  };
+};
+
 const serializeAws_json1_1SearchEntitiesRequest = (
   input: SearchEntitiesRequest,
   context: __SerdeContext
@@ -4571,6 +4656,89 @@ const serializeAws_json1_1SearchThingsRequest = (
   };
 };
 
+const serializeAws_json1_1SystemInstanceFilter = (
+  input: SystemInstanceFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.value !== undefined && {
+      value: serializeAws_json1_1SystemInstanceFilterValues(
+        input.value,
+        context
+      )
+    })
+  };
+};
+
+const serializeAws_json1_1SystemInstanceFilters = (
+  input: SystemInstanceFilter[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry =>
+    serializeAws_json1_1SystemInstanceFilter(entry, context)
+  );
+};
+
+const serializeAws_json1_1SystemInstanceFilterValues = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
+};
+
+const serializeAws_json1_1SystemTemplateFilter = (
+  input: SystemTemplateFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.value !== undefined && {
+      value: serializeAws_json1_1SystemTemplateFilterValues(
+        input.value,
+        context
+      )
+    })
+  };
+};
+
+const serializeAws_json1_1SystemTemplateFilters = (
+  input: SystemTemplateFilter[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry =>
+    serializeAws_json1_1SystemTemplateFilter(entry, context)
+  );
+};
+
+const serializeAws_json1_1SystemTemplateFilterValues = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
+};
+
+const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+  return {
+    ...(input.key !== undefined && { key: input.key }),
+    ...(input.value !== undefined && { value: input.value })
+  };
+};
+
+const serializeAws_json1_1TagKeyList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
+};
+
+const serializeAws_json1_1TagList = (
+  input: Tag[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => serializeAws_json1_1Tag(entry, context));
+};
+
 const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
   context: __SerdeContext
@@ -4657,179 +4825,11 @@ const serializeAws_json1_1UploadEntityDefinitionsRequest = (
   };
 };
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.key !== undefined && { key: input.key }),
-    ...(input.value !== undefined && { value: input.value })
-  };
-};
-
-const serializeAws_json1_1TagKeyList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
-const serializeAws_json1_1TagList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_json1_1Tag(entry, context));
-};
-
-const serializeAws_json1_1DefinitionDocument = (
-  input: DefinitionDocument,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.language !== undefined && { language: input.language }),
-    ...(input.text !== undefined && { text: input.text })
-  };
-};
-
 const serializeAws_json1_1Urns = (
   input: string[],
   context: __SerdeContext
 ): any => {
   return input.map(entry => entry);
-};
-
-const serializeAws_json1_1EntityFilter = (
-  input: EntityFilter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.value !== undefined && {
-      value: serializeAws_json1_1EntityFilterValues(input.value, context)
-    })
-  };
-};
-
-const serializeAws_json1_1EntityFilterValues = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
-const serializeAws_json1_1EntityFilters = (
-  input: EntityFilter[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_json1_1EntityFilter(entry, context));
-};
-
-const serializeAws_json1_1EntityTypes = (
-  input: (EntityType | string)[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
-const serializeAws_json1_1FlowTemplateFilter = (
-  input: FlowTemplateFilter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.value !== undefined && {
-      value: serializeAws_json1_1FlowTemplateFilterValues(input.value, context)
-    })
-  };
-};
-
-const serializeAws_json1_1FlowTemplateFilterValues = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
-const serializeAws_json1_1FlowTemplateFilters = (
-  input: FlowTemplateFilter[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_1FlowTemplateFilter(entry, context)
-  );
-};
-
-const serializeAws_json1_1MetricsConfiguration = (
-  input: MetricsConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.cloudMetricEnabled !== undefined && {
-      cloudMetricEnabled: input.cloudMetricEnabled
-    }),
-    ...(input.metricRuleRoleArn !== undefined && {
-      metricRuleRoleArn: input.metricRuleRoleArn
-    })
-  };
-};
-
-const serializeAws_json1_1SystemInstanceFilter = (
-  input: SystemInstanceFilter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.value !== undefined && {
-      value: serializeAws_json1_1SystemInstanceFilterValues(
-        input.value,
-        context
-      )
-    })
-  };
-};
-
-const serializeAws_json1_1SystemInstanceFilterValues = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
-const serializeAws_json1_1SystemInstanceFilters = (
-  input: SystemInstanceFilter[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_1SystemInstanceFilter(entry, context)
-  );
-};
-
-const serializeAws_json1_1SystemTemplateFilter = (
-  input: SystemTemplateFilter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.value !== undefined && {
-      value: serializeAws_json1_1SystemTemplateFilterValues(
-        input.value,
-        context
-      )
-    })
-  };
-};
-
-const serializeAws_json1_1SystemTemplateFilterValues = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
-const serializeAws_json1_1SystemTemplateFilters = (
-  input: SystemTemplateFilter[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_1SystemTemplateFilter(entry, context)
-  );
 };
 
 const deserializeAws_json1_1AssociateEntityToThingResponse = (
@@ -4880,6 +4880,23 @@ const deserializeAws_json1_1CreateSystemTemplateResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DefinitionDocument = (
+  output: any,
+  context: __SerdeContext
+): DefinitionDocument => {
+  return {
+    __type: "DefinitionDocument",
+    language:
+      output.language !== undefined && output.language !== null
+        ? output.language
+        : undefined,
+    text:
+      output.text !== undefined && output.text !== null
+        ? output.text
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1DeleteFlowTemplateResponse = (
   output: any,
   context: __SerdeContext
@@ -4922,6 +4939,29 @@ const deserializeAws_json1_1DeleteSystemTemplateResponse = (
   return {
     __type: "DeleteSystemTemplateResponse"
   } as any;
+};
+
+const deserializeAws_json1_1DependencyRevision = (
+  output: any,
+  context: __SerdeContext
+): DependencyRevision => {
+  return {
+    __type: "DependencyRevision",
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    revisionNumber:
+      output.revisionNumber !== undefined && output.revisionNumber !== null
+        ? output.revisionNumber
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1DependencyRevisions = (
+  output: any,
+  context: __SerdeContext
+): DependencyRevision[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1DependencyRevision(entry, context)
+  );
 };
 
 const deserializeAws_json1_1DeploySystemInstanceResponse = (
@@ -4997,6 +5037,166 @@ const deserializeAws_json1_1DissociateEntityFromThingResponse = (
 ): DissociateEntityFromThingResponse => {
   return {
     __type: "DissociateEntityFromThingResponse"
+  } as any;
+};
+
+const deserializeAws_json1_1EntityDescription = (
+  output: any,
+  context: __SerdeContext
+): EntityDescription => {
+  return {
+    __type: "EntityDescription",
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    definition:
+      output.definition !== undefined && output.definition !== null
+        ? deserializeAws_json1_1DefinitionDocument(output.definition, context)
+        : undefined,
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    type:
+      output.type !== undefined && output.type !== null
+        ? output.type
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1EntityDescriptions = (
+  output: any,
+  context: __SerdeContext
+): EntityDescription[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1EntityDescription(entry, context)
+  );
+};
+
+const deserializeAws_json1_1FlowExecutionMessage = (
+  output: any,
+  context: __SerdeContext
+): FlowExecutionMessage => {
+  return {
+    __type: "FlowExecutionMessage",
+    eventType:
+      output.eventType !== undefined && output.eventType !== null
+        ? output.eventType
+        : undefined,
+    messageId:
+      output.messageId !== undefined && output.messageId !== null
+        ? output.messageId
+        : undefined,
+    payload:
+      output.payload !== undefined && output.payload !== null
+        ? output.payload
+        : undefined,
+    timestamp:
+      output.timestamp !== undefined && output.timestamp !== null
+        ? new Date(Math.round(output.timestamp * 1000))
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1FlowExecutionMessages = (
+  output: any,
+  context: __SerdeContext
+): FlowExecutionMessage[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1FlowExecutionMessage(entry, context)
+  );
+};
+
+const deserializeAws_json1_1FlowExecutionSummaries = (
+  output: any,
+  context: __SerdeContext
+): FlowExecutionSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1FlowExecutionSummary(entry, context)
+  );
+};
+
+const deserializeAws_json1_1FlowExecutionSummary = (
+  output: any,
+  context: __SerdeContext
+): FlowExecutionSummary => {
+  return {
+    __type: "FlowExecutionSummary",
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    flowExecutionId:
+      output.flowExecutionId !== undefined && output.flowExecutionId !== null
+        ? output.flowExecutionId
+        : undefined,
+    flowTemplateId:
+      output.flowTemplateId !== undefined && output.flowTemplateId !== null
+        ? output.flowTemplateId
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    systemInstanceId:
+      output.systemInstanceId !== undefined && output.systemInstanceId !== null
+        ? output.systemInstanceId
+        : undefined,
+    updatedAt:
+      output.updatedAt !== undefined && output.updatedAt !== null
+        ? new Date(Math.round(output.updatedAt * 1000))
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1FlowTemplateDescription = (
+  output: any,
+  context: __SerdeContext
+): FlowTemplateDescription => {
+  return {
+    __type: "FlowTemplateDescription",
+    definition:
+      output.definition !== undefined && output.definition !== null
+        ? deserializeAws_json1_1DefinitionDocument(output.definition, context)
+        : undefined,
+    summary:
+      output.summary !== undefined && output.summary !== null
+        ? deserializeAws_json1_1FlowTemplateSummary(output.summary, context)
+        : undefined,
+    validatedNamespaceVersion:
+      output.validatedNamespaceVersion !== undefined &&
+      output.validatedNamespaceVersion !== null
+        ? output.validatedNamespaceVersion
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1FlowTemplateSummaries = (
+  output: any,
+  context: __SerdeContext
+): FlowTemplateSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1FlowTemplateSummary(entry, context)
+  );
+};
+
+const deserializeAws_json1_1FlowTemplateSummary = (
+  output: any,
+  context: __SerdeContext
+): FlowTemplateSummary => {
+  return {
+    __type: "FlowTemplateSummary",
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    revisionNumber:
+      output.revisionNumber !== undefined && output.revisionNumber !== null
+        ? output.revisionNumber
+        : undefined
   } as any;
 };
 
@@ -5164,6 +5364,45 @@ const deserializeAws_json1_1GetUploadStatusResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1InternalFailureException = (
+  output: any,
+  context: __SerdeContext
+): InternalFailureException => {
+  return {
+    __type: "InternalFailureException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidRequestException = (
+  output: any,
+  context: __SerdeContext
+): InvalidRequestException => {
+  return {
+    __type: "InvalidRequestException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1LimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): LimitExceededException => {
+  return {
+    __type: "LimitExceededException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1ListFlowExecutionMessagesResponse = (
   output: any,
   context: __SerdeContext
@@ -5194,6 +5433,64 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1MetricsConfiguration = (
+  output: any,
+  context: __SerdeContext
+): MetricsConfiguration => {
+  return {
+    __type: "MetricsConfiguration",
+    cloudMetricEnabled:
+      output.cloudMetricEnabled !== undefined &&
+      output.cloudMetricEnabled !== null
+        ? output.cloudMetricEnabled
+        : undefined,
+    metricRuleRoleArn:
+      output.metricRuleRoleArn !== undefined &&
+      output.metricRuleRoleArn !== null
+        ? output.metricRuleRoleArn
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ResourceAlreadyExistsException = (
+  output: any,
+  context: __SerdeContext
+): ResourceAlreadyExistsException => {
+  return {
+    __type: "ResourceAlreadyExistsException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ResourceInUseException = (
+  output: any,
+  context: __SerdeContext
+): ResourceInUseException => {
+  return {
+    __type: "ResourceInUseException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ResourceNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): ResourceNotFoundException => {
+  return {
+    __type: "ResourceNotFoundException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
         : undefined
   } as any;
 };
@@ -5309,441 +5606,11 @@ const deserializeAws_json1_1SearchThingsResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1TagResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): TagResourceResponse => {
-  return {
-    __type: "TagResourceResponse"
-  } as any;
-};
-
-const deserializeAws_json1_1UndeploySystemInstanceResponse = (
-  output: any,
-  context: __SerdeContext
-): UndeploySystemInstanceResponse => {
-  return {
-    __type: "UndeploySystemInstanceResponse",
-    summary:
-      output.summary !== undefined && output.summary !== null
-        ? deserializeAws_json1_1SystemInstanceSummary(output.summary, context)
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1UntagResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): UntagResourceResponse => {
-  return {
-    __type: "UntagResourceResponse"
-  } as any;
-};
-
-const deserializeAws_json1_1UpdateFlowTemplateResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateFlowTemplateResponse => {
-  return {
-    __type: "UpdateFlowTemplateResponse",
-    summary:
-      output.summary !== undefined && output.summary !== null
-        ? deserializeAws_json1_1FlowTemplateSummary(output.summary, context)
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1UpdateSystemTemplateResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateSystemTemplateResponse => {
-  return {
-    __type: "UpdateSystemTemplateResponse",
-    summary:
-      output.summary !== undefined && output.summary !== null
-        ? deserializeAws_json1_1SystemTemplateSummary(output.summary, context)
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1UploadEntityDefinitionsResponse = (
-  output: any,
-  context: __SerdeContext
-): UploadEntityDefinitionsResponse => {
-  return {
-    __type: "UploadEntityDefinitionsResponse",
-    uploadId:
-      output.uploadId !== undefined && output.uploadId !== null
-        ? output.uploadId
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
-  return {
-    __type: "Tag",
-    key:
-      output.key !== undefined && output.key !== null ? output.key : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1TagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Tag(entry, context)
-  );
-};
-
-const deserializeAws_json1_1DefinitionDocument = (
-  output: any,
-  context: __SerdeContext
-): DefinitionDocument => {
-  return {
-    __type: "DefinitionDocument",
-    language:
-      output.language !== undefined && output.language !== null
-        ? output.language
-        : undefined,
-    text:
-      output.text !== undefined && output.text !== null
-        ? output.text
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InternalFailureException = (
-  output: any,
-  context: __SerdeContext
-): InternalFailureException => {
-  return {
-    __type: "InternalFailureException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidRequestException = (
-  output: any,
-  context: __SerdeContext
-): InvalidRequestException => {
-  return {
-    __type: "InvalidRequestException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1LimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): LimitExceededException => {
-  return {
-    __type: "LimitExceededException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): ResourceAlreadyExistsException => {
-  return {
-    __type: "ResourceAlreadyExistsException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceInUseException = (
-  output: any,
-  context: __SerdeContext
-): ResourceInUseException => {
-  return {
-    __type: "ResourceInUseException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    __type: "ResourceNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1StringList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
   return (output || []).map((entry: any) => entry);
-};
-
-const deserializeAws_json1_1ThrottlingException = (
-  output: any,
-  context: __SerdeContext
-): ThrottlingException => {
-  return {
-    __type: "ThrottlingException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1EntityDescription = (
-  output: any,
-  context: __SerdeContext
-): EntityDescription => {
-  return {
-    __type: "EntityDescription",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
-        : undefined,
-    definition:
-      output.definition !== undefined && output.definition !== null
-        ? deserializeAws_json1_1DefinitionDocument(output.definition, context)
-        : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1EntityDescriptions = (
-  output: any,
-  context: __SerdeContext
-): EntityDescription[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1EntityDescription(entry, context)
-  );
-};
-
-const deserializeAws_json1_1Thing = (
-  output: any,
-  context: __SerdeContext
-): Thing => {
-  return {
-    __type: "Thing",
-    thingArn:
-      output.thingArn !== undefined && output.thingArn !== null
-        ? output.thingArn
-        : undefined,
-    thingName:
-      output.thingName !== undefined && output.thingName !== null
-        ? output.thingName
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1Things = (
-  output: any,
-  context: __SerdeContext
-): Thing[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Thing(entry, context)
-  );
-};
-
-const deserializeAws_json1_1DependencyRevision = (
-  output: any,
-  context: __SerdeContext
-): DependencyRevision => {
-  return {
-    __type: "DependencyRevision",
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    revisionNumber:
-      output.revisionNumber !== undefined && output.revisionNumber !== null
-        ? output.revisionNumber
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1DependencyRevisions = (
-  output: any,
-  context: __SerdeContext
-): DependencyRevision[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1DependencyRevision(entry, context)
-  );
-};
-
-const deserializeAws_json1_1FlowExecutionMessage = (
-  output: any,
-  context: __SerdeContext
-): FlowExecutionMessage => {
-  return {
-    __type: "FlowExecutionMessage",
-    eventType:
-      output.eventType !== undefined && output.eventType !== null
-        ? output.eventType
-        : undefined,
-    messageId:
-      output.messageId !== undefined && output.messageId !== null
-        ? output.messageId
-        : undefined,
-    payload:
-      output.payload !== undefined && output.payload !== null
-        ? output.payload
-        : undefined,
-    timestamp:
-      output.timestamp !== undefined && output.timestamp !== null
-        ? new Date(Math.round(output.timestamp * 1000))
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1FlowExecutionMessages = (
-  output: any,
-  context: __SerdeContext
-): FlowExecutionMessage[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1FlowExecutionMessage(entry, context)
-  );
-};
-
-const deserializeAws_json1_1FlowExecutionSummaries = (
-  output: any,
-  context: __SerdeContext
-): FlowExecutionSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1FlowExecutionSummary(entry, context)
-  );
-};
-
-const deserializeAws_json1_1FlowExecutionSummary = (
-  output: any,
-  context: __SerdeContext
-): FlowExecutionSummary => {
-  return {
-    __type: "FlowExecutionSummary",
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
-        : undefined,
-    flowExecutionId:
-      output.flowExecutionId !== undefined && output.flowExecutionId !== null
-        ? output.flowExecutionId
-        : undefined,
-    flowTemplateId:
-      output.flowTemplateId !== undefined && output.flowTemplateId !== null
-        ? output.flowTemplateId
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    systemInstanceId:
-      output.systemInstanceId !== undefined && output.systemInstanceId !== null
-        ? output.systemInstanceId
-        : undefined,
-    updatedAt:
-      output.updatedAt !== undefined && output.updatedAt !== null
-        ? new Date(Math.round(output.updatedAt * 1000))
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1FlowTemplateDescription = (
-  output: any,
-  context: __SerdeContext
-): FlowTemplateDescription => {
-  return {
-    __type: "FlowTemplateDescription",
-    definition:
-      output.definition !== undefined && output.definition !== null
-        ? deserializeAws_json1_1DefinitionDocument(output.definition, context)
-        : undefined,
-    summary:
-      output.summary !== undefined && output.summary !== null
-        ? deserializeAws_json1_1FlowTemplateSummary(output.summary, context)
-        : undefined,
-    validatedNamespaceVersion:
-      output.validatedNamespaceVersion !== undefined &&
-      output.validatedNamespaceVersion !== null
-        ? output.validatedNamespaceVersion
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1FlowTemplateSummaries = (
-  output: any,
-  context: __SerdeContext
-): FlowTemplateSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1FlowTemplateSummary(entry, context)
-  );
-};
-
-const deserializeAws_json1_1FlowTemplateSummary = (
-  output: any,
-  context: __SerdeContext
-): FlowTemplateSummary => {
-  return {
-    __type: "FlowTemplateSummary",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
-        : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    revisionNumber:
-      output.revisionNumber !== undefined && output.revisionNumber !== null
-        ? output.revisionNumber
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1MetricsConfiguration = (
-  output: any,
-  context: __SerdeContext
-): MetricsConfiguration => {
-  return {
-    __type: "MetricsConfiguration",
-    cloudMetricEnabled:
-      output.cloudMetricEnabled !== undefined &&
-      output.cloudMetricEnabled !== null
-        ? output.cloudMetricEnabled
-        : undefined,
-    metricRuleRoleArn:
-      output.metricRuleRoleArn !== undefined &&
-      output.metricRuleRoleArn !== null
-        ? output.metricRuleRoleArn
-        : undefined
-  } as any;
 };
 
 const deserializeAws_json1_1SystemInstanceDescription = (
@@ -5892,6 +5759,139 @@ const deserializeAws_json1_1SystemTemplateSummary = (
     revisionNumber:
       output.revisionNumber !== undefined && output.revisionNumber !== null
         ? output.revisionNumber
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1Tag = (
+  output: any,
+  context: __SerdeContext
+): Tag => {
+  return {
+    __type: "Tag",
+    key:
+      output.key !== undefined && output.key !== null ? output.key : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1TagList = (
+  output: any,
+  context: __SerdeContext
+): Tag[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Tag(entry, context)
+  );
+};
+
+const deserializeAws_json1_1TagResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): TagResourceResponse => {
+  return {
+    __type: "TagResourceResponse"
+  } as any;
+};
+
+const deserializeAws_json1_1Thing = (
+  output: any,
+  context: __SerdeContext
+): Thing => {
+  return {
+    __type: "Thing",
+    thingArn:
+      output.thingArn !== undefined && output.thingArn !== null
+        ? output.thingArn
+        : undefined,
+    thingName:
+      output.thingName !== undefined && output.thingName !== null
+        ? output.thingName
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1Things = (
+  output: any,
+  context: __SerdeContext
+): Thing[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Thing(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ThrottlingException = (
+  output: any,
+  context: __SerdeContext
+): ThrottlingException => {
+  return {
+    __type: "ThrottlingException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1UndeploySystemInstanceResponse = (
+  output: any,
+  context: __SerdeContext
+): UndeploySystemInstanceResponse => {
+  return {
+    __type: "UndeploySystemInstanceResponse",
+    summary:
+      output.summary !== undefined && output.summary !== null
+        ? deserializeAws_json1_1SystemInstanceSummary(output.summary, context)
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1UntagResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): UntagResourceResponse => {
+  return {
+    __type: "UntagResourceResponse"
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateFlowTemplateResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateFlowTemplateResponse => {
+  return {
+    __type: "UpdateFlowTemplateResponse",
+    summary:
+      output.summary !== undefined && output.summary !== null
+        ? deserializeAws_json1_1FlowTemplateSummary(output.summary, context)
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateSystemTemplateResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateSystemTemplateResponse => {
+  return {
+    __type: "UpdateSystemTemplateResponse",
+    summary:
+      output.summary !== undefined && output.summary !== null
+        ? deserializeAws_json1_1SystemTemplateSummary(output.summary, context)
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1UploadEntityDefinitionsResponse = (
+  output: any,
+  context: __SerdeContext
+): UploadEntityDefinitionsResponse => {
+  return {
+    __type: "UploadEntityDefinitionsResponse",
+    uploadId:
+      output.uploadId !== undefined && output.uploadId !== null
+        ? output.uploadId
         : undefined
   } as any;
 };

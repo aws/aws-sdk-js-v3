@@ -8,9 +8,9 @@ import {
   StartStreamTranscriptionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1StartStreamTranscriptionCommand,
-  serializeAws_restJson1_1StartStreamTranscriptionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1StartStreamTranscriptionCommand,
+  serializeAws_restJson1StartStreamTranscriptionCommand
+} from "../protocols/Aws_restJson1";
 import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
@@ -77,7 +77,7 @@ export class StartStreamTranscriptionCommand extends $Command<
     input: StartStreamTranscriptionCommandInput,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StartStreamTranscriptionCommand(
+    return serializeAws_restJson1StartStreamTranscriptionCommand(
       input,
       context
     );
@@ -87,7 +87,7 @@ export class StartStreamTranscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<StartStreamTranscriptionCommandOutput> {
-    return deserializeAws_restJson1_1StartStreamTranscriptionCommand(
+    return deserializeAws_restJson1StartStreamTranscriptionCommand(
       output,
       context
     );

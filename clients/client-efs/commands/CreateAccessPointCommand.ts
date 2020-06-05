@@ -8,9 +8,9 @@ import {
   CreateAccessPointRequest
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateAccessPointCommand,
-  serializeAws_restJson1_1CreateAccessPointCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateAccessPointCommand,
+  serializeAws_restJson1CreateAccessPointCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class CreateAccessPointCommand extends $Command<
     input: CreateAccessPointCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateAccessPointCommand(input, context);
+    return serializeAws_restJson1CreateAccessPointCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateAccessPointCommandOutput> {
-    return deserializeAws_restJson1_1CreateAccessPointCommand(output, context);
+    return deserializeAws_restJson1CreateAccessPointCommand(output, context);
   }
 
   // Start section: command_body_extra

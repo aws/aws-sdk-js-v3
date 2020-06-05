@@ -8,9 +8,9 @@ import {
   ListGroundStationsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListGroundStationsCommand,
-  serializeAws_restJson1_1ListGroundStationsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListGroundStationsCommand,
+  serializeAws_restJson1ListGroundStationsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ListGroundStationsCommand extends $Command<
     input: ListGroundStationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListGroundStationsCommand(input, context);
+    return serializeAws_restJson1ListGroundStationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListGroundStationsCommandOutput> {
-    return deserializeAws_restJson1_1ListGroundStationsCommand(output, context);
+    return deserializeAws_restJson1ListGroundStationsCommand(output, context);
   }
 
   // Start section: command_body_extra

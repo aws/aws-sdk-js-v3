@@ -8,9 +8,9 @@ import {
   CreateSmsTemplateResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateSmsTemplateCommand,
-  serializeAws_restJson1_1CreateSmsTemplateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateSmsTemplateCommand,
+  serializeAws_restJson1CreateSmsTemplateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class CreateSmsTemplateCommand extends $Command<
     input: CreateSmsTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateSmsTemplateCommand(input, context);
+    return serializeAws_restJson1CreateSmsTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSmsTemplateCommandOutput> {
-    return deserializeAws_restJson1_1CreateSmsTemplateCommand(output, context);
+    return deserializeAws_restJson1CreateSmsTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

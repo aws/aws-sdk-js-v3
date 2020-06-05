@@ -1396,6 +1396,24 @@ export namespace ListUpdatesResponse {
 }
 
 /**
+ * <p>An object representing the logging configuration for resources in your cluster.</p>
+ */
+export interface Logging {
+  __type?: "Logging";
+  /**
+   * <p>The cluster control plane logging configuration for your cluster.</p>
+   */
+  clusterLogging?: LogSetup[];
+}
+
+export namespace Logging {
+  export const filterSensitiveLog = (obj: Logging): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Logging => __isa(o, "Logging");
+}
+
+/**
  * <p>An object representing the enabled or disabled Kubernetes control plane logs for your
  *             cluster.</p>
  */
@@ -1427,24 +1445,6 @@ export enum LogType {
   AUTHENTICATOR = "authenticator",
   CONTROLLER_MANAGER = "controllerManager",
   SCHEDULER = "scheduler"
-}
-
-/**
- * <p>An object representing the logging configuration for resources in your cluster.</p>
- */
-export interface Logging {
-  __type?: "Logging";
-  /**
-   * <p>The cluster control plane logging configuration for your cluster.</p>
-   */
-  clusterLogging?: LogSetup[];
-}
-
-export namespace Logging {
-  export const filterSensitiveLog = (obj: Logging): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Logging => __isa(o, "Logging");
 }
 
 /**

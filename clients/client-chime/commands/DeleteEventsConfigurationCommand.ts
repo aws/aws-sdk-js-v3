@@ -5,9 +5,9 @@ import {
 } from "../ChimeClient";
 import { DeleteEventsConfigurationRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteEventsConfigurationCommand,
-  serializeAws_restJson1_1DeleteEventsConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteEventsConfigurationCommand,
+  serializeAws_restJson1DeleteEventsConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class DeleteEventsConfigurationCommand extends $Command<
     input: DeleteEventsConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteEventsConfigurationCommand(
+    return serializeAws_restJson1DeleteEventsConfigurationCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class DeleteEventsConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEventsConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteEventsConfigurationCommand(
+    return deserializeAws_restJson1DeleteEventsConfigurationCommand(
       output,
       context
     );

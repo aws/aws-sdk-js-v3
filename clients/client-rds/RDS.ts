@@ -774,9 +774,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Adds a source identifier to an existing RDS event notification subscription.</p>
-   */
   public addSourceIdentifierToSubscription(
     args: AddSourceIdentifierToSubscriptionCommandInput,
     options?: __HttpHandlerOptions
@@ -821,11 +818,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Adds metadata tags to an Amazon RDS resource. These tags can also be used with cost allocation reporting to track cost associated with Amazon RDS resources, or used in a Condition statement in an IAM policy for Amazon RDS.</p>
-   *          <p>For an overview on tagging Amazon RDS resources,
-   *             see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging Amazon RDS Resources</a>.</p>
-   */
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
     options?: __HttpHandlerOptions
@@ -893,20 +885,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Enables ingress to a DBSecurityGroup using one of two forms of authorization. First, EC2 or VPC security
-   *           groups can be added to the DBSecurityGroup if the application using the database is running on EC2 or VPC
-   *           instances. Second, IP ranges are available if the application accessing your database is running on the Internet.
-   *           Required parameters for this API are one of CIDR range, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId
-   *           and either EC2SecurityGroupName or EC2SecurityGroupId for non-VPC).</p>
-   *          <note>
-   *             <p>You can't authorize ingress from an EC2 security group in one AWS Region to an Amazon RDS DB instance in
-   *              another. You can't authorize ingress from a VPC security group in one VPC to an Amazon RDS DB instance in another.</p>
-   *          </note>
-   *          <p>For an overview of CIDR ranges, go to the
-   *             <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Wikipedia Tutorial</a>.
-   *         </p>
-   */
   public authorizeDBSecurityGroupIngress(
     args: AuthorizeDBSecurityGroupIngressCommandInput,
     options?: __HttpHandlerOptions
@@ -1167,17 +1145,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Copies the specified DB snapshot. The source DB snapshot must be in the "available" state.</p>
-   *
-   *         <p>You can copy a snapshot from one AWS Region to another. In that case, the AWS Region
-   *             where you call the <code>CopyDBSnapshot</code> action is the destination AWS Region for the
-   *             DB snapshot copy. </p>
-   *
-   *         <p>For more information about copying snapshots, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBSnapshot">Copying a DB Snapshot</a> in the <i>Amazon RDS User Guide.</i>
-   *         </p>
-   */
   public copyDBSnapshot(
     args: CopyDBSnapshotCommandInput,
     options?: __HttpHandlerOptions
@@ -1478,9 +1445,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Creates a new DB instance.</p>
-   */
   public createDBInstance(
     args: CreateDBInstanceCommandInput,
     options?: __HttpHandlerOptions
@@ -1513,26 +1477,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Creates a new DB instance that acts as a Read Replica for an existing source DB instance.
-   *           You can create a Read Replica for a DB instance running MySQL, MariaDB, Oracle, or PostgreSQL.
-   *           For more information, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working with Read Replicas</a> in the <i>Amazon RDS User Guide</i>.
-   *       </p>
-   *
-   *          <p>Amazon Aurora doesn't support this action. You must call the <code>CreateDBInstance</code> action to create a DB instance for an Aurora DB cluster.
-   *       </p>
-   *
-   *          <p>All Read Replica DB instances are created with backups disabled.
-   *           All other DB instance attributes (including DB security groups and DB parameter groups)
-   *           are inherited from the source DB instance, except as specified following.
-   *       </p>
-   *
-   *          <important>
-   *             <p>Your source DB instance must have backup retention enabled.
-   *          </p>
-   *          </important>
-   */
   public createDBInstanceReadReplica(
     args: CreateDBInstanceReadReplicaCommandInput,
     options?: __HttpHandlerOptions
@@ -1565,29 +1509,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Creates a new DB parameter group.</p>
-   *          <p>
-   *             A DB parameter group is initially created with the default parameters for the
-   *             database engine used by the DB instance. To provide custom values for any of the
-   *             parameters, you must modify the group after creating it using
-   *             <i>ModifyDBParameterGroup</i>. Once you've created a DB parameter group, you need to
-   *             associate it with your DB instance using <i>ModifyDBInstance</i>. When you associate
-   *             a new DB parameter group with a running DB instance, you need to reboot the DB
-   *             instance without failover for the new DB parameter group and associated settings to take effect.
-   *         </p>
-   *          <important>
-   *             <p>After you create a DB parameter group, you should wait at least 5 minutes
-   *                 before creating your first DB instance that uses that DB parameter group as the default parameter
-   *                 group. This allows Amazon RDS to fully complete the create action before the parameter
-   *                 group is used as the default for a new DB instance. This is especially important for parameters
-   *                 that are critical when creating the default database for a DB instance, such as the character set
-   *                 for the default database defined by the <code>character_set_database</code> parameter. You can use the
-   *                 <i>Parameter Groups</i> option of the <a href="https://console.aws.amazon.com/rds/">Amazon RDS console</a> or the
-   *                 <i>DescribeDBParameters</i> command to verify
-   *                 that your DB parameter group has been created or modified.</p>
-   *          </important>
-   */
   public createDBParameterGroup(
     args: CreateDBParameterGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -1659,12 +1580,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Creates a new DB security group. DB security groups control access to a DB instance.</p>
-   *          <note>
-   *             <p>A DB security group controls access to EC2-Classic DB instances that are not in a VPC.</p>
-   *          </note>
-   */
   public createDBSecurityGroup(
     args: CreateDBSecurityGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -1732,9 +1647,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the AWS Region.</p>
-   */
   public createDBSubnetGroup(
     args: CreateDBSubnetGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -1767,24 +1679,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Creates an RDS event notification subscription. This action requires a topic ARN (Amazon Resource Name) created by
-   *           either the RDS console, the SNS console, or the SNS API. To obtain an ARN with SNS, you must create a topic in
-   *           Amazon SNS and subscribe to the topic. The ARN is displayed in the SNS console.</p>
-   *          <p>You can specify the type of source (SourceType) you want to be notified of, provide a list of RDS sources
-   *           (SourceIds) that triggers the events, and provide a list of event categories (EventCategories) for events you want to
-   *           be notified of. For example, you can specify SourceType = db-instance, SourceIds = mydbinstance1, mydbinstance2 and
-   *           EventCategories = Availability, Backup.</p>
-   *          <p>If you specify both the SourceType and SourceIds, such as SourceType = db-instance and SourceIdentifier = myDBInstance1,
-   *           you are notified of all the db-instance events for the specified source. If you specify a SourceType but do not specify
-   *           a SourceIdentifier, you receive notice of the events for that source type for all your RDS sources. If you do not specify
-   *           either the SourceType nor the SourceIdentifier, you are notified of events generated from all RDS sources belonging to
-   *           your customer account.</p>
-   *          <note>
-   *             <p>RDS event notification is only available for unencrypted SNS topics. If you specify an
-   *               encrypted SNS topic, event notifications aren't sent for the topic.</p>
-   *          </note>
-   */
   public createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
     options?: __HttpHandlerOptions
@@ -1870,9 +1764,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Creates a new option group. You can create up to 20 option groups.</p>
-   */
   public createOptionGroup(
     args: CreateOptionGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -2117,32 +2008,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>The DeleteDBInstance action deletes a previously provisioned DB instance.
-   *           When you delete a DB instance, all automated backups for that instance are deleted and can't be recovered.
-   *           Manual DB snapshots of the DB instance to be deleted by <code>DeleteDBInstance</code> are not deleted.</p>
-   *          <p>
-   *         If you request a final DB snapshot
-   *         the status of the Amazon RDS DB instance is <code>deleting</code> until the DB snapshot is created. The API action <code>DescribeDBInstance</code>
-   *         is used to monitor the status of this operation. The action can't be canceled or reverted once submitted.
-   *         </p>
-   *          <p>Note that when a DB instance is in a failure state and has a status of <code>failed</code>, <code>incompatible-restore</code>,
-   *           or <code>incompatible-network</code>, you can only delete it when you skip creation of the final snapshot with the <code>SkipFinalSnapshot</code> parameter.</p>
-   *
-   *          <p>If the specified DB instance is part of an Amazon Aurora DB cluster, you can't delete the DB instance if both of the following
-   *       conditions are true:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The DB cluster is a Read Replica of another Amazon Aurora DB cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>The DB instance is the only instance in the DB cluster.</p>
-   *             </li>
-   *          </ul>
-   *          <p>To delete a DB instance in this case, first call the <code>PromoteReadReplicaDBCluster</code> API action to
-   *       promote the DB cluster so it's no longer a Read Replica. After the promotion completes, then call the <code>DeleteDBInstance</code>
-   *       API action to delete the final instance in the DB cluster.</p>
-   */
   public deleteDBInstance(
     args: DeleteDBInstanceCommandInput,
     options?: __HttpHandlerOptions
@@ -2214,9 +2079,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Deletes a specified DB parameter group. The DB parameter group to be deleted can't be associated with any DB instances.</p>
-   */
   public deleteDBParameterGroup(
     args: DeleteDBParameterGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -2288,12 +2150,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Deletes a DB security group.</p>
-   *          <note>
-   *             <p>The specified DB security group must not be associated with any DB instances.</p>
-   *          </note>
-   */
   public deleteDBSecurityGroup(
     args: DeleteDBSecurityGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -2326,13 +2182,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Deletes a DB snapshot. If the snapshot is being copied, the copy operation is
-   *             terminated.</p>
-   *          <note>
-   *             <p>The DB snapshot must be in the <code>available</code> state to be deleted.</p>
-   *          </note>
-   */
   public deleteDBSnapshot(
     args: DeleteDBSnapshotCommandInput,
     options?: __HttpHandlerOptions
@@ -2365,12 +2214,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Deletes a DB subnet group.</p>
-   *          <note>
-   *             <p>The specified database subnet group must not be associated with any DB instances.</p>
-   *          </note>
-   */
   public deleteDBSubnetGroup(
     args: DeleteDBSubnetGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -2403,9 +2246,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Deletes an RDS event notification subscription.</p>
-   */
   public deleteEventSubscription(
     args: DeleteEventSubscriptionCommandInput,
     options?: __HttpHandlerOptions
@@ -2515,9 +2355,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Deletes an existing option group.</p>
-   */
   public deleteOptionGroup(
     args: DeleteOptionGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -2879,6 +2716,48 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * <p>Returns information about provisioned Aurora DB clusters. This API supports pagination.</p>
+   *          <p>For more information on Amazon Aurora, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+   *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+   *          </p>
+   *          <note>
+   *             <p>This operation can also return information for Amazon Neptune DB instances and Amazon DocumentDB instances.</p>
+   *          </note>
+   */
+  public describeDBClusters(
+    args: DescribeDBClustersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDBClustersCommandOutput>;
+  public describeDBClusters(
+    args: DescribeDBClustersCommandInput,
+    cb: (err: any, data?: DescribeDBClustersCommandOutput) => void
+  ): void;
+  public describeDBClusters(
+    args: DescribeDBClustersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDBClustersCommandOutput) => void
+  ): void;
+  public describeDBClusters(
+    args: DescribeDBClustersCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeDBClustersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDBClustersCommandOutput) => void
+  ): Promise<DescribeDBClustersCommandOutput> | void {
+    const command = new DescribeDBClustersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster snapshot.</p>
    *         <p>When sharing snapshots with other AWS accounts, <code>DescribeDBClusterSnapshotAttributes</code>
    *             returns the <code>restore</code> attribute and a list of IDs for the AWS accounts that are
@@ -2977,51 +2856,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Returns information about provisioned Aurora DB clusters. This API supports pagination.</p>
-   *          <p>For more information on Amazon Aurora, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-   *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
-   *          </p>
-   *          <note>
-   *             <p>This operation can also return information for Amazon Neptune DB instances and Amazon DocumentDB instances.</p>
-   *          </note>
-   */
-  public describeDBClusters(
-    args: DescribeDBClustersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeDBClustersCommandOutput>;
-  public describeDBClusters(
-    args: DescribeDBClustersCommandInput,
-    cb: (err: any, data?: DescribeDBClustersCommandOutput) => void
-  ): void;
-  public describeDBClusters(
-    args: DescribeDBClustersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeDBClustersCommandOutput) => void
-  ): void;
-  public describeDBClusters(
-    args: DescribeDBClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBClustersCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDBClustersCommandOutput) => void
-  ): Promise<DescribeDBClustersCommandOutput> | void {
-    const command = new DescribeDBClustersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns a list of the available DB engines.</p>
-   */
   public describeDBEngineVersions(
     args: DescribeDBEngineVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -3107,12 +2941,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Returns information about provisioned RDS instances. This API supports pagination.</p>
-   *          <note>
-   *             <p>This operation can also return information for Amazon Neptune DB instances and Amazon DocumentDB instances.</p>
-   *          </note>
-   */
   public describeDBInstances(
     args: DescribeDBInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -3145,9 +2973,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Returns a list of DB log files for the DB instance.</p>
-   */
   public describeDBLogFiles(
     args: DescribeDBLogFilesCommandInput,
     options?: __HttpHandlerOptions
@@ -3180,12 +3005,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>
-   *         Returns a list of <code>DBParameterGroup</code> descriptions. If a <code>DBParameterGroupName</code> is specified,
-   *             the list will contain only the description of the specified DB parameter group.
-   *         </p>
-   */
   public describeDBParameterGroups(
     args: DescribeDBParameterGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -3218,9 +3037,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Returns the detailed parameter list for a particular DB parameter group.</p>
-   */
   public describeDBParameters(
     args: DescribeDBParametersCommandInput,
     options?: __HttpHandlerOptions
@@ -3370,12 +3186,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>
-   *         Returns a list of <code>DBSecurityGroup</code> descriptions. If a <code>DBSecurityGroupName</code> is specified,
-   *             the list will contain only the descriptions of the specified DB security group.
-   *         </p>
-   */
   public describeDBSecurityGroups(
     args: DescribeDBSecurityGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -3450,9 +3260,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Returns information about DB snapshots. This API action supports pagination.</p>
-   */
   public describeDBSnapshots(
     args: DescribeDBSnapshotsCommandInput,
     options?: __HttpHandlerOptions
@@ -3485,12 +3292,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is specified, the list will contain only the descriptions of the specified DBSubnetGroup.</p>
-   *          <p>For an overview of CIDR ranges, go to the
-   *             <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Wikipedia Tutorial</a>.
-   *         </p>
-   */
   public describeDBSubnetGroups(
     args: DescribeDBSubnetGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -3574,9 +3375,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Returns the default engine and system parameter information for the specified database engine.</p>
-   */
   public describeEngineDefaultParameters(
     args: DescribeEngineDefaultParametersCommandInput,
     options?: __HttpHandlerOptions
@@ -3612,13 +3410,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Displays a list of categories for all event source types, or, if specified, for a specified source type.
-   *             You can see a list of the event categories and source types
-   *             in the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">
-   *                 Events</a> topic in the <i>Amazon RDS User Guide.</i>
-   *          </p>
-   */
   public describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
     options?: __HttpHandlerOptions
@@ -3640,6 +3431,38 @@ export class RDS extends RDSClient {
     cb?: (err: any, data?: DescribeEventCategoriesCommandOutput) => void
   ): Promise<DescribeEventCategoriesCommandOutput> | void {
     const command = new DescribeEventCategoriesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public describeEvents(
+    args: DescribeEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEventsCommandOutput>;
+  public describeEvents(
+    args: DescribeEventsCommandInput,
+    cb: (err: any, data?: DescribeEventsCommandOutput) => void
+  ): void;
+  public describeEvents(
+    args: DescribeEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEventsCommandOutput) => void
+  ): void;
+  public describeEvents(
+    args: DescribeEventsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeEventsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEventsCommandOutput) => void
+  ): Promise<DescribeEventsCommandOutput> | void {
+    const command = new DescribeEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3676,41 +3499,6 @@ export class RDS extends RDSClient {
     cb?: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
   ): Promise<DescribeEventSubscriptionsCommandOutput> | void {
     const command = new DescribeEventSubscriptionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns events related to DB instances, DB security groups, DB snapshots, and DB parameter groups for the past 14 days. Events specific to a particular DB instance, DB security group, database snapshot, or DB parameter group can be obtained by providing the name as a parameter. By default, the past hour of events are returned.</p>
-   */
-  public describeEvents(
-    args: DescribeEventsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeEventsCommandOutput>;
-  public describeEvents(
-    args: DescribeEventsCommandInput,
-    cb: (err: any, data?: DescribeEventsCommandOutput) => void
-  ): void;
-  public describeEvents(
-    args: DescribeEventsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeEventsCommandOutput) => void
-  ): void;
-  public describeEvents(
-    args: DescribeEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeEventsCommandOutput) => void
-  ): Promise<DescribeEventsCommandOutput> | void {
-    const command = new DescribeEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3802,9 +3590,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Describes all available options.</p>
-   */
   public describeOptionGroupOptions(
     args: DescribeOptionGroupOptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -3837,9 +3622,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Describes the available option groups.</p>
-   */
   public describeOptionGroups(
     args: DescribeOptionGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -3872,9 +3654,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Returns a list of orderable DB instance options for the specified engine.</p>
-   */
   public describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -3966,9 +3745,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Returns information about reserved DB instances for this account, or about a specified reserved DB instance.</p>
-   */
   public describeReservedDBInstances(
     args: DescribeReservedDBInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -4001,9 +3777,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Lists available reserved DB instance offerings.</p>
-   */
   public describeReservedDBInstancesOfferings(
     args: DescribeReservedDBInstancesOfferingsCommandInput,
     options?: __HttpHandlerOptions
@@ -4135,9 +3908,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Downloads all or a portion of the specified log file, up to 1 MB in size.</p>
-   */
   public downloadDBLogFilePortion(
     args: DownloadDBLogFilePortionCommandInput,
     options?: __HttpHandlerOptions
@@ -4254,12 +4024,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Lists all tags on an Amazon RDS resource.</p>
-   *          <p>For an overview on tagging an Amazon RDS resource,
-   *           see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging Amazon RDS Resources</a>
-   *           in the <i>Amazon RDS User Guide</i>.</p>
-   */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options?: __HttpHandlerOptions
@@ -4609,14 +4373,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Modifies settings for a DB instance.
-   *           You can change one or more database configuration parameters by specifying these parameters and the new values in the request.
-   *             To learn what modifications you can make to your DB instance,
-   *             call <code>DescribeValidDBInstanceModifications</code>
-   *             before you call <code>ModifyDBInstance</code>.
-   *       </p>
-   */
   public modifyDBInstance(
     args: ModifyDBInstanceCommandInput,
     options?: __HttpHandlerOptions
@@ -4868,9 +4624,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the AWS Region.</p>
-   */
   public modifyDBSubnetGroup(
     args: ModifyDBSubnetGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -4903,13 +4656,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Modifies an existing RDS event notification subscription. Note that you can't modify the source identifiers using this call; to change
-   *         source identifiers for a subscription, use the <code>AddSourceIdentifierToSubscription</code> and <code>RemoveSourceIdentifierFromSubscription</code> calls.</p>
-   *          <p>You can see a list of the event categories for a given SourceType
-   *           in the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">Events</a> topic  in the <i>Amazon RDS User Guide</i>
-   *             or by using the <b>DescribeEventCategories</b> action.</p>
-   */
   public modifyEventSubscription(
     args: ModifyEventSubscriptionCommandInput,
     options?: __HttpHandlerOptions
@@ -4985,9 +4731,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Modifies an existing option group.</p>
-   */
   public modifyOptionGroup(
     args: ModifyOptionGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -5020,25 +4763,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Promotes a Read Replica DB instance to a standalone DB instance.</p>
-   *          <note>
-   *             <ul>
-   *                <li>
-   *                   <p>Backup duration is a function of the amount of changes to the database since the previous backup.
-   *                   If you plan to promote a Read Replica to a standalone instance, we recommend that you enable backups
-   *                   and complete at least one backup prior to promotion. In addition, a Read Replica cannot be promoted
-   *                   to a standalone instance when it is in the <code>backing-up</code> status. If you have enabled backups
-   *                   on your Read Replica, configure the automated backup window so that daily backups do not
-   *                   interfere with Read Replica promotion.</p>
-   *                </li>
-   *                <li>
-   *                   <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.</p>
-   *                </li>
-   *             </ul>
-   *
-   *          </note>
-   */
   public promoteReadReplica(
     args: PromoteReadReplicaCommandInput,
     options?: __HttpHandlerOptions
@@ -5358,9 +5082,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Removes a source identifier from an existing RDS event notification subscription.</p>
-   */
   public removeSourceIdentifierFromSubscription(
     args: RemoveSourceIdentifierFromSubscriptionCommandInput,
     options?: __HttpHandlerOptions
@@ -5405,13 +5126,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Removes metadata tags from an Amazon RDS resource.</p>
-   *          <p>For an overview on tagging an Amazon RDS resource,
-   *           see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging Amazon RDS Resources</a>
-   *           in the <i>Amazon RDS User Guide.</i>
-   *          </p>
-   */
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
     options?: __HttpHandlerOptions
@@ -5498,16 +5212,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Modifies the parameters of a DB parameter group to the engine/system default value.
-   *             To reset specific parameters, provide a list of the following:
-   *                 <code>ParameterName</code> and <code>ApplyMethod</code>. To reset the entire DB
-   *             parameter group, specify the <code>DBParameterGroup</code> name and
-   *                 <code>ResetAllParameters</code> parameters. When resetting the entire group, dynamic
-   *             parameters are updated immediately and static parameters are set to
-   *                 <code>pending-reboot</code> to take effect on the next DB instance restart or
-   *                 <code>RebootDBInstance</code> request. </p>
-   */
   public resetDBParameterGroup(
     args: ResetDBParameterGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -5683,15 +5387,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Creates a new DB instance from a DB snapshot. The target database is created from the source database restore point with the most of original configuration with the default security group and the default DB parameter group. By default, the new DB instance is created as a single-AZ deployment except when the instance is a SQL Server instance that has an option group that is associated with mirroring; in this case, the instance becomes a mirrored AZ deployment and not a single-AZ deployment.</p>
-   *          <p>If your intent is to replace your original DB instance with the new, restored DB instance, then rename your original DB instance before you call the RestoreDBInstanceFromDBSnapshot action. RDS doesn't allow two DB instances with the same name. Once you have renamed your original DB instance with a different identifier, then you can pass the original name of the DB instance as the DBInstanceIdentifier in the call to the RestoreDBInstanceFromDBSnapshot action. The result is that you will replace the original DB instance with the DB instance created from the snapshot.</p>
-   *          <p>If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>
-   *       must be the ARN of the shared DB snapshot.</p>
-   *          <note>
-   *             <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use <code>RestoreDBClusterFromSnapshot</code>.</p>
-   *          </note>
-   */
   public restoreDBInstanceFromDBSnapshot(
     args: RestoreDBInstanceFromDBSnapshotCommandInput,
     options?: __HttpHandlerOptions
@@ -5769,18 +5464,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Restores a DB instance to an arbitrary point in time. You can restore to any point in time before the time identified by the LatestRestorableTime property. You can restore to a point up to the number of days specified by the BackupRetentionPeriod property.</p>
-   * 	        <p>The target database is created with most of the original configuration, but in a
-   *             system-selected Availability Zone, with the default security group, the default subnet
-   *             group, and the default DB parameter group. By default, the new DB instance is created as
-   *             a single-AZ deployment except when the instance is a SQL Server instance that has an
-   *             option group that is associated with mirroring; in this case, the instance becomes a
-   *             mirrored deployment and not a single-AZ deployment.</p>
-   *          <note>
-   *             <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use <code>RestoreDBClusterToPointInTime</code>.</p>
-   *          </note>
-   */
   public restoreDBInstanceToPointInTime(
     args: RestoreDBInstanceToPointInTimeCommandInput,
     options?: __HttpHandlerOptions
@@ -5816,9 +5499,6 @@ export class RDS extends RDSClient {
     }
   }
 
-  /**
-   * <p>Revokes ingress from a DBSecurityGroup for previously authorized IP ranges or EC2 or VPC Security Groups. Required parameters for this API are one of CIDRIP, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or EC2SecurityGroupId).</p>
-   */
   public revokeDBSecurityGroupIngress(
     args: RevokeDBSecurityGroupIngressCommandInput,
     options?: __HttpHandlerOptions

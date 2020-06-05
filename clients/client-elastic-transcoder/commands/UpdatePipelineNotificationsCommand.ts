@@ -8,9 +8,9 @@ import {
   UpdatePipelineNotificationsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdatePipelineNotificationsCommand,
-  serializeAws_restJson1_1UpdatePipelineNotificationsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdatePipelineNotificationsCommand,
+  serializeAws_restJson1UpdatePipelineNotificationsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdatePipelineNotificationsCommand extends $Command<
     input: UpdatePipelineNotificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdatePipelineNotificationsCommand(
+    return serializeAws_restJson1UpdatePipelineNotificationsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdatePipelineNotificationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePipelineNotificationsCommandOutput> {
-    return deserializeAws_restJson1_1UpdatePipelineNotificationsCommand(
+    return deserializeAws_restJson1UpdatePipelineNotificationsCommand(
       output,
       context
     );

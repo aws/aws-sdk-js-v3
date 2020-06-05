@@ -8,9 +8,9 @@ import {
   DeletePlacementResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeletePlacementCommand,
-  serializeAws_restJson1_1DeletePlacementCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeletePlacementCommand,
+  serializeAws_restJson1DeletePlacementCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DeletePlacementCommand extends $Command<
     input: DeletePlacementCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeletePlacementCommand(input, context);
+    return serializeAws_restJson1DeletePlacementCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePlacementCommandOutput> {
-    return deserializeAws_restJson1_1DeletePlacementCommand(output, context);
+    return deserializeAws_restJson1DeletePlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

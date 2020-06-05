@@ -8,9 +8,9 @@ import {
   InvokeDeviceMethodResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1InvokeDeviceMethodCommand,
-  serializeAws_restJson1_1InvokeDeviceMethodCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1InvokeDeviceMethodCommand,
+  serializeAws_restJson1InvokeDeviceMethodCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class InvokeDeviceMethodCommand extends $Command<
     input: InvokeDeviceMethodCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1InvokeDeviceMethodCommand(input, context);
+    return serializeAws_restJson1InvokeDeviceMethodCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InvokeDeviceMethodCommandOutput> {
-    return deserializeAws_restJson1_1InvokeDeviceMethodCommand(output, context);
+    return deserializeAws_restJson1InvokeDeviceMethodCommand(output, context);
   }
 
   // Start section: command_body_extra

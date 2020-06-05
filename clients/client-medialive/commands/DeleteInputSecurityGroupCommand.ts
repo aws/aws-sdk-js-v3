@@ -8,9 +8,9 @@ import {
   DeleteInputSecurityGroupResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteInputSecurityGroupCommand,
-  serializeAws_restJson1_1DeleteInputSecurityGroupCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteInputSecurityGroupCommand,
+  serializeAws_restJson1DeleteInputSecurityGroupCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DeleteInputSecurityGroupCommand extends $Command<
     input: DeleteInputSecurityGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteInputSecurityGroupCommand(
+    return serializeAws_restJson1DeleteInputSecurityGroupCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DeleteInputSecurityGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteInputSecurityGroupCommandOutput> {
-    return deserializeAws_restJson1_1DeleteInputSecurityGroupCommand(
+    return deserializeAws_restJson1DeleteInputSecurityGroupCommand(
       output,
       context
     );

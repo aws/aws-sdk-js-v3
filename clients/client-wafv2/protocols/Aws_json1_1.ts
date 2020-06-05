@@ -851,7 +851,7 @@ const deserializeAws_json1_1AssociateWebACLCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -862,7 +862,7 @@ const deserializeAws_json1_1AssociateWebACLCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -873,7 +873,7 @@ const deserializeAws_json1_1AssociateWebACLCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -884,7 +884,7 @@ const deserializeAws_json1_1AssociateWebACLCommandError = async (
       };
       break;
     case "WAFUnavailableEntityException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFUnavailableEntityException":
+    case "com.amazonaws.wafv2#WAFUnavailableEntityException":
       response = {
         ...(await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
           parsedOutput,
@@ -944,7 +944,7 @@ const deserializeAws_json1_1CheckCapacityCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -955,7 +955,7 @@ const deserializeAws_json1_1CheckCapacityCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -966,7 +966,7 @@ const deserializeAws_json1_1CheckCapacityCommandError = async (
       };
       break;
     case "WAFInvalidResourceException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidResourceException":
+    case "com.amazonaws.wafv2#WAFInvalidResourceException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidResourceExceptionResponse(
           parsedOutput,
@@ -977,7 +977,7 @@ const deserializeAws_json1_1CheckCapacityCommandError = async (
       };
       break;
     case "WAFLimitsExceededException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFLimitsExceededException":
+    case "com.amazonaws.wafv2#WAFLimitsExceededException":
       response = {
         ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
           parsedOutput,
@@ -988,7 +988,7 @@ const deserializeAws_json1_1CheckCapacityCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -999,7 +999,7 @@ const deserializeAws_json1_1CheckCapacityCommandError = async (
       };
       break;
     case "WAFUnavailableEntityException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFUnavailableEntityException":
+    case "com.amazonaws.wafv2#WAFUnavailableEntityException":
       response = {
         ...(await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
           parsedOutput,
@@ -1059,7 +1059,7 @@ const deserializeAws_json1_1CreateIPSetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFDuplicateItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFDuplicateItemException":
+    case "com.amazonaws.wafv2#WAFDuplicateItemException":
       response = {
         ...(await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
           parsedOutput,
@@ -1070,7 +1070,7 @@ const deserializeAws_json1_1CreateIPSetCommandError = async (
       };
       break;
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -1081,7 +1081,7 @@ const deserializeAws_json1_1CreateIPSetCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -1092,7 +1092,7 @@ const deserializeAws_json1_1CreateIPSetCommandError = async (
       };
       break;
     case "WAFLimitsExceededException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFLimitsExceededException":
+    case "com.amazonaws.wafv2#WAFLimitsExceededException":
       response = {
         ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
           parsedOutput,
@@ -1103,7 +1103,7 @@ const deserializeAws_json1_1CreateIPSetCommandError = async (
       };
       break;
     case "WAFOptimisticLockException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
+    case "com.amazonaws.wafv2#WAFOptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
           parsedOutput,
@@ -1114,7 +1114,7 @@ const deserializeAws_json1_1CreateIPSetCommandError = async (
       };
       break;
     case "WAFTagOperationException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
+    case "com.amazonaws.wafv2#WAFTagOperationException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
           parsedOutput,
@@ -1125,7 +1125,7 @@ const deserializeAws_json1_1CreateIPSetCommandError = async (
       };
       break;
     case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
+    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
           parsedOutput,
@@ -1188,7 +1188,7 @@ const deserializeAws_json1_1CreateRegexPatternSetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFDuplicateItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFDuplicateItemException":
+    case "com.amazonaws.wafv2#WAFDuplicateItemException":
       response = {
         ...(await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
           parsedOutput,
@@ -1199,7 +1199,7 @@ const deserializeAws_json1_1CreateRegexPatternSetCommandError = async (
       };
       break;
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -1210,7 +1210,7 @@ const deserializeAws_json1_1CreateRegexPatternSetCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -1221,7 +1221,7 @@ const deserializeAws_json1_1CreateRegexPatternSetCommandError = async (
       };
       break;
     case "WAFLimitsExceededException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFLimitsExceededException":
+    case "com.amazonaws.wafv2#WAFLimitsExceededException":
       response = {
         ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
           parsedOutput,
@@ -1232,7 +1232,7 @@ const deserializeAws_json1_1CreateRegexPatternSetCommandError = async (
       };
       break;
     case "WAFOptimisticLockException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
+    case "com.amazonaws.wafv2#WAFOptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
           parsedOutput,
@@ -1243,7 +1243,7 @@ const deserializeAws_json1_1CreateRegexPatternSetCommandError = async (
       };
       break;
     case "WAFTagOperationException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
+    case "com.amazonaws.wafv2#WAFTagOperationException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
           parsedOutput,
@@ -1254,7 +1254,7 @@ const deserializeAws_json1_1CreateRegexPatternSetCommandError = async (
       };
       break;
     case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
+    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
           parsedOutput,
@@ -1314,7 +1314,7 @@ const deserializeAws_json1_1CreateRuleGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFDuplicateItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFDuplicateItemException":
+    case "com.amazonaws.wafv2#WAFDuplicateItemException":
       response = {
         ...(await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
           parsedOutput,
@@ -1325,7 +1325,7 @@ const deserializeAws_json1_1CreateRuleGroupCommandError = async (
       };
       break;
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -1336,7 +1336,7 @@ const deserializeAws_json1_1CreateRuleGroupCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -1347,7 +1347,7 @@ const deserializeAws_json1_1CreateRuleGroupCommandError = async (
       };
       break;
     case "WAFLimitsExceededException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFLimitsExceededException":
+    case "com.amazonaws.wafv2#WAFLimitsExceededException":
       response = {
         ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
           parsedOutput,
@@ -1358,7 +1358,7 @@ const deserializeAws_json1_1CreateRuleGroupCommandError = async (
       };
       break;
     case "WAFOptimisticLockException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
+    case "com.amazonaws.wafv2#WAFOptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
           parsedOutput,
@@ -1369,7 +1369,7 @@ const deserializeAws_json1_1CreateRuleGroupCommandError = async (
       };
       break;
     case "WAFTagOperationException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
+    case "com.amazonaws.wafv2#WAFTagOperationException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
           parsedOutput,
@@ -1380,7 +1380,7 @@ const deserializeAws_json1_1CreateRuleGroupCommandError = async (
       };
       break;
     case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
+    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
           parsedOutput,
@@ -1391,7 +1391,7 @@ const deserializeAws_json1_1CreateRuleGroupCommandError = async (
       };
       break;
     case "WAFUnavailableEntityException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFUnavailableEntityException":
+    case "com.amazonaws.wafv2#WAFUnavailableEntityException":
       response = {
         ...(await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
           parsedOutput,
@@ -1451,7 +1451,7 @@ const deserializeAws_json1_1CreateWebACLCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFDuplicateItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFDuplicateItemException":
+    case "com.amazonaws.wafv2#WAFDuplicateItemException":
       response = {
         ...(await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
           parsedOutput,
@@ -1462,7 +1462,7 @@ const deserializeAws_json1_1CreateWebACLCommandError = async (
       };
       break;
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -1473,7 +1473,7 @@ const deserializeAws_json1_1CreateWebACLCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -1484,7 +1484,7 @@ const deserializeAws_json1_1CreateWebACLCommandError = async (
       };
       break;
     case "WAFInvalidResourceException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidResourceException":
+    case "com.amazonaws.wafv2#WAFInvalidResourceException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidResourceExceptionResponse(
           parsedOutput,
@@ -1495,7 +1495,7 @@ const deserializeAws_json1_1CreateWebACLCommandError = async (
       };
       break;
     case "WAFLimitsExceededException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFLimitsExceededException":
+    case "com.amazonaws.wafv2#WAFLimitsExceededException":
       response = {
         ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
           parsedOutput,
@@ -1506,7 +1506,7 @@ const deserializeAws_json1_1CreateWebACLCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -1517,7 +1517,7 @@ const deserializeAws_json1_1CreateWebACLCommandError = async (
       };
       break;
     case "WAFOptimisticLockException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
+    case "com.amazonaws.wafv2#WAFOptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
           parsedOutput,
@@ -1528,7 +1528,7 @@ const deserializeAws_json1_1CreateWebACLCommandError = async (
       };
       break;
     case "WAFTagOperationException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
+    case "com.amazonaws.wafv2#WAFTagOperationException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
           parsedOutput,
@@ -1539,7 +1539,7 @@ const deserializeAws_json1_1CreateWebACLCommandError = async (
       };
       break;
     case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
+    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
           parsedOutput,
@@ -1550,7 +1550,7 @@ const deserializeAws_json1_1CreateWebACLCommandError = async (
       };
       break;
     case "WAFUnavailableEntityException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFUnavailableEntityException":
+    case "com.amazonaws.wafv2#WAFUnavailableEntityException":
       response = {
         ...(await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
           parsedOutput,
@@ -1610,7 +1610,7 @@ const deserializeAws_json1_1DeleteIPSetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -1621,7 +1621,7 @@ const deserializeAws_json1_1DeleteIPSetCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -1632,7 +1632,7 @@ const deserializeAws_json1_1DeleteIPSetCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -1643,7 +1643,7 @@ const deserializeAws_json1_1DeleteIPSetCommandError = async (
       };
       break;
     case "WAFOptimisticLockException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
+    case "com.amazonaws.wafv2#WAFOptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
           parsedOutput,
@@ -1654,7 +1654,7 @@ const deserializeAws_json1_1DeleteIPSetCommandError = async (
       };
       break;
     case "WAFTagOperationException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
+    case "com.amazonaws.wafv2#WAFTagOperationException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
           parsedOutput,
@@ -1665,7 +1665,7 @@ const deserializeAws_json1_1DeleteIPSetCommandError = async (
       };
       break;
     case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
+    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
           parsedOutput,
@@ -1731,7 +1731,7 @@ const deserializeAws_json1_1DeleteLoggingConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -1742,7 +1742,7 @@ const deserializeAws_json1_1DeleteLoggingConfigurationCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -1753,7 +1753,7 @@ const deserializeAws_json1_1DeleteLoggingConfigurationCommandError = async (
       };
       break;
     case "WAFOptimisticLockException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
+    case "com.amazonaws.wafv2#WAFOptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
           parsedOutput,
@@ -1816,7 +1816,7 @@ const deserializeAws_json1_1DeleteRegexPatternSetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -1827,7 +1827,7 @@ const deserializeAws_json1_1DeleteRegexPatternSetCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -1838,7 +1838,7 @@ const deserializeAws_json1_1DeleteRegexPatternSetCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -1849,7 +1849,7 @@ const deserializeAws_json1_1DeleteRegexPatternSetCommandError = async (
       };
       break;
     case "WAFOptimisticLockException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
+    case "com.amazonaws.wafv2#WAFOptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
           parsedOutput,
@@ -1860,7 +1860,7 @@ const deserializeAws_json1_1DeleteRegexPatternSetCommandError = async (
       };
       break;
     case "WAFTagOperationException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
+    case "com.amazonaws.wafv2#WAFTagOperationException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
           parsedOutput,
@@ -1871,7 +1871,7 @@ const deserializeAws_json1_1DeleteRegexPatternSetCommandError = async (
       };
       break;
     case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
+    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
           parsedOutput,
@@ -1931,7 +1931,7 @@ const deserializeAws_json1_1DeleteRuleGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -1942,7 +1942,7 @@ const deserializeAws_json1_1DeleteRuleGroupCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -1953,7 +1953,7 @@ const deserializeAws_json1_1DeleteRuleGroupCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -1964,7 +1964,7 @@ const deserializeAws_json1_1DeleteRuleGroupCommandError = async (
       };
       break;
     case "WAFOptimisticLockException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
+    case "com.amazonaws.wafv2#WAFOptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
           parsedOutput,
@@ -1975,7 +1975,7 @@ const deserializeAws_json1_1DeleteRuleGroupCommandError = async (
       };
       break;
     case "WAFTagOperationException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
+    case "com.amazonaws.wafv2#WAFTagOperationException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
           parsedOutput,
@@ -1986,7 +1986,7 @@ const deserializeAws_json1_1DeleteRuleGroupCommandError = async (
       };
       break;
     case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
+    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
           parsedOutput,
@@ -2046,7 +2046,7 @@ const deserializeAws_json1_1DeleteWebACLCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFAssociatedItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFAssociatedItemException":
+    case "com.amazonaws.wafv2#WAFAssociatedItemException":
       response = {
         ...(await deserializeAws_json1_1WAFAssociatedItemExceptionResponse(
           parsedOutput,
@@ -2057,7 +2057,7 @@ const deserializeAws_json1_1DeleteWebACLCommandError = async (
       };
       break;
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -2068,7 +2068,7 @@ const deserializeAws_json1_1DeleteWebACLCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -2079,7 +2079,7 @@ const deserializeAws_json1_1DeleteWebACLCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -2090,7 +2090,7 @@ const deserializeAws_json1_1DeleteWebACLCommandError = async (
       };
       break;
     case "WAFOptimisticLockException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
+    case "com.amazonaws.wafv2#WAFOptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
           parsedOutput,
@@ -2101,7 +2101,7 @@ const deserializeAws_json1_1DeleteWebACLCommandError = async (
       };
       break;
     case "WAFTagOperationException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
+    case "com.amazonaws.wafv2#WAFTagOperationException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
           parsedOutput,
@@ -2112,7 +2112,7 @@ const deserializeAws_json1_1DeleteWebACLCommandError = async (
       };
       break;
     case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
+    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
           parsedOutput,
@@ -2178,7 +2178,7 @@ const deserializeAws_json1_1DescribeManagedRuleGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -2189,7 +2189,7 @@ const deserializeAws_json1_1DescribeManagedRuleGroupCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -2200,7 +2200,7 @@ const deserializeAws_json1_1DescribeManagedRuleGroupCommandError = async (
       };
       break;
     case "WAFInvalidResourceException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidResourceException":
+    case "com.amazonaws.wafv2#WAFInvalidResourceException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidResourceExceptionResponse(
           parsedOutput,
@@ -2211,7 +2211,7 @@ const deserializeAws_json1_1DescribeManagedRuleGroupCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -2274,7 +2274,7 @@ const deserializeAws_json1_1DisassociateWebACLCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -2285,7 +2285,7 @@ const deserializeAws_json1_1DisassociateWebACLCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -2296,7 +2296,7 @@ const deserializeAws_json1_1DisassociateWebACLCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -2356,7 +2356,7 @@ const deserializeAws_json1_1GetIPSetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -2367,7 +2367,7 @@ const deserializeAws_json1_1GetIPSetCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -2378,7 +2378,7 @@ const deserializeAws_json1_1GetIPSetCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -2444,7 +2444,7 @@ const deserializeAws_json1_1GetLoggingConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -2455,7 +2455,7 @@ const deserializeAws_json1_1GetLoggingConfigurationCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -2521,7 +2521,7 @@ const deserializeAws_json1_1GetRateBasedStatementManagedKeysCommandError = async
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -2532,7 +2532,7 @@ const deserializeAws_json1_1GetRateBasedStatementManagedKeysCommandError = async
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -2543,7 +2543,7 @@ const deserializeAws_json1_1GetRateBasedStatementManagedKeysCommandError = async
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -2606,7 +2606,7 @@ const deserializeAws_json1_1GetRegexPatternSetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -2617,7 +2617,7 @@ const deserializeAws_json1_1GetRegexPatternSetCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -2628,7 +2628,7 @@ const deserializeAws_json1_1GetRegexPatternSetCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -2688,7 +2688,7 @@ const deserializeAws_json1_1GetRuleGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -2699,7 +2699,7 @@ const deserializeAws_json1_1GetRuleGroupCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -2710,7 +2710,7 @@ const deserializeAws_json1_1GetRuleGroupCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -2773,7 +2773,7 @@ const deserializeAws_json1_1GetSampledRequestsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -2784,7 +2784,7 @@ const deserializeAws_json1_1GetSampledRequestsCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -2795,7 +2795,7 @@ const deserializeAws_json1_1GetSampledRequestsCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -2855,7 +2855,7 @@ const deserializeAws_json1_1GetWebACLCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -2866,7 +2866,7 @@ const deserializeAws_json1_1GetWebACLCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -2877,7 +2877,7 @@ const deserializeAws_json1_1GetWebACLCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -2940,7 +2940,7 @@ const deserializeAws_json1_1GetWebACLForResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -2951,7 +2951,7 @@ const deserializeAws_json1_1GetWebACLForResourceCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -2962,7 +2962,7 @@ const deserializeAws_json1_1GetWebACLForResourceCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -2973,7 +2973,7 @@ const deserializeAws_json1_1GetWebACLForResourceCommandError = async (
       };
       break;
     case "WAFUnavailableEntityException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFUnavailableEntityException":
+    case "com.amazonaws.wafv2#WAFUnavailableEntityException":
       response = {
         ...(await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
           parsedOutput,
@@ -3039,7 +3039,7 @@ const deserializeAws_json1_1ListAvailableManagedRuleGroupsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -3050,7 +3050,7 @@ const deserializeAws_json1_1ListAvailableManagedRuleGroupsCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -3110,7 +3110,7 @@ const deserializeAws_json1_1ListIPSetsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -3121,7 +3121,7 @@ const deserializeAws_json1_1ListIPSetsCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -3187,7 +3187,7 @@ const deserializeAws_json1_1ListLoggingConfigurationsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -3198,7 +3198,7 @@ const deserializeAws_json1_1ListLoggingConfigurationsCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -3261,7 +3261,7 @@ const deserializeAws_json1_1ListRegexPatternSetsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -3272,7 +3272,7 @@ const deserializeAws_json1_1ListRegexPatternSetsCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -3338,7 +3338,7 @@ const deserializeAws_json1_1ListResourcesForWebACLCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -3349,7 +3349,7 @@ const deserializeAws_json1_1ListResourcesForWebACLCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -3360,7 +3360,7 @@ const deserializeAws_json1_1ListResourcesForWebACLCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -3420,7 +3420,7 @@ const deserializeAws_json1_1ListRuleGroupsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -3431,7 +3431,7 @@ const deserializeAws_json1_1ListRuleGroupsCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -3494,7 +3494,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -3505,7 +3505,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -3516,7 +3516,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -3527,7 +3527,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "WAFTagOperationException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
+    case "com.amazonaws.wafv2#WAFTagOperationException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
           parsedOutput,
@@ -3538,7 +3538,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
+    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
           parsedOutput,
@@ -3598,7 +3598,7 @@ const deserializeAws_json1_1ListWebACLsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -3609,7 +3609,7 @@ const deserializeAws_json1_1ListWebACLsCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -3675,7 +3675,7 @@ const deserializeAws_json1_1PutLoggingConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -3686,7 +3686,7 @@ const deserializeAws_json1_1PutLoggingConfigurationCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -3697,7 +3697,7 @@ const deserializeAws_json1_1PutLoggingConfigurationCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -3708,7 +3708,7 @@ const deserializeAws_json1_1PutLoggingConfigurationCommandError = async (
       };
       break;
     case "WAFOptimisticLockException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
+    case "com.amazonaws.wafv2#WAFOptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
           parsedOutput,
@@ -3719,7 +3719,7 @@ const deserializeAws_json1_1PutLoggingConfigurationCommandError = async (
       };
       break;
     case "WAFServiceLinkedRoleErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFServiceLinkedRoleErrorException":
+    case "com.amazonaws.wafv2#WAFServiceLinkedRoleErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFServiceLinkedRoleErrorExceptionResponse(
           parsedOutput,
@@ -3779,7 +3779,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -3790,7 +3790,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -3801,7 +3801,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "WAFLimitsExceededException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFLimitsExceededException":
+    case "com.amazonaws.wafv2#WAFLimitsExceededException":
       response = {
         ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
           parsedOutput,
@@ -3812,7 +3812,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -3823,7 +3823,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "WAFTagOperationException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
+    case "com.amazonaws.wafv2#WAFTagOperationException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
           parsedOutput,
@@ -3834,7 +3834,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
+    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
           parsedOutput,
@@ -3894,7 +3894,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -3905,7 +3905,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -3916,7 +3916,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -3927,7 +3927,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "WAFTagOperationException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationException":
+    case "com.amazonaws.wafv2#WAFTagOperationException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(
           parsedOutput,
@@ -3938,7 +3938,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFTagOperationInternalErrorException":
+    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
           parsedOutput,
@@ -3998,7 +3998,7 @@ const deserializeAws_json1_1UpdateIPSetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFDuplicateItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFDuplicateItemException":
+    case "com.amazonaws.wafv2#WAFDuplicateItemException":
       response = {
         ...(await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
           parsedOutput,
@@ -4009,7 +4009,7 @@ const deserializeAws_json1_1UpdateIPSetCommandError = async (
       };
       break;
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -4020,7 +4020,7 @@ const deserializeAws_json1_1UpdateIPSetCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -4031,7 +4031,7 @@ const deserializeAws_json1_1UpdateIPSetCommandError = async (
       };
       break;
     case "WAFLimitsExceededException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFLimitsExceededException":
+    case "com.amazonaws.wafv2#WAFLimitsExceededException":
       response = {
         ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
           parsedOutput,
@@ -4042,7 +4042,7 @@ const deserializeAws_json1_1UpdateIPSetCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -4053,7 +4053,7 @@ const deserializeAws_json1_1UpdateIPSetCommandError = async (
       };
       break;
     case "WAFOptimisticLockException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
+    case "com.amazonaws.wafv2#WAFOptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
           parsedOutput,
@@ -4116,7 +4116,7 @@ const deserializeAws_json1_1UpdateRegexPatternSetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFDuplicateItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFDuplicateItemException":
+    case "com.amazonaws.wafv2#WAFDuplicateItemException":
       response = {
         ...(await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
           parsedOutput,
@@ -4127,7 +4127,7 @@ const deserializeAws_json1_1UpdateRegexPatternSetCommandError = async (
       };
       break;
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -4138,7 +4138,7 @@ const deserializeAws_json1_1UpdateRegexPatternSetCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -4149,7 +4149,7 @@ const deserializeAws_json1_1UpdateRegexPatternSetCommandError = async (
       };
       break;
     case "WAFLimitsExceededException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFLimitsExceededException":
+    case "com.amazonaws.wafv2#WAFLimitsExceededException":
       response = {
         ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
           parsedOutput,
@@ -4160,7 +4160,7 @@ const deserializeAws_json1_1UpdateRegexPatternSetCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -4171,7 +4171,7 @@ const deserializeAws_json1_1UpdateRegexPatternSetCommandError = async (
       };
       break;
     case "WAFOptimisticLockException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
+    case "com.amazonaws.wafv2#WAFOptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
           parsedOutput,
@@ -4231,7 +4231,7 @@ const deserializeAws_json1_1UpdateRuleGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFDuplicateItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFDuplicateItemException":
+    case "com.amazonaws.wafv2#WAFDuplicateItemException":
       response = {
         ...(await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
           parsedOutput,
@@ -4242,7 +4242,7 @@ const deserializeAws_json1_1UpdateRuleGroupCommandError = async (
       };
       break;
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -4253,7 +4253,7 @@ const deserializeAws_json1_1UpdateRuleGroupCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -4264,7 +4264,7 @@ const deserializeAws_json1_1UpdateRuleGroupCommandError = async (
       };
       break;
     case "WAFLimitsExceededException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFLimitsExceededException":
+    case "com.amazonaws.wafv2#WAFLimitsExceededException":
       response = {
         ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
           parsedOutput,
@@ -4275,7 +4275,7 @@ const deserializeAws_json1_1UpdateRuleGroupCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -4286,7 +4286,7 @@ const deserializeAws_json1_1UpdateRuleGroupCommandError = async (
       };
       break;
     case "WAFOptimisticLockException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
+    case "com.amazonaws.wafv2#WAFOptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
           parsedOutput,
@@ -4297,7 +4297,7 @@ const deserializeAws_json1_1UpdateRuleGroupCommandError = async (
       };
       break;
     case "WAFUnavailableEntityException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFUnavailableEntityException":
+    case "com.amazonaws.wafv2#WAFUnavailableEntityException":
       response = {
         ...(await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
           parsedOutput,
@@ -4357,7 +4357,7 @@ const deserializeAws_json1_1UpdateWebACLCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFDuplicateItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFDuplicateItemException":
+    case "com.amazonaws.wafv2#WAFDuplicateItemException":
       response = {
         ...(await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(
           parsedOutput,
@@ -4368,7 +4368,7 @@ const deserializeAws_json1_1UpdateWebACLCommandError = async (
       };
       break;
     case "WAFInternalErrorException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
           parsedOutput,
@@ -4379,7 +4379,7 @@ const deserializeAws_json1_1UpdateWebACLCommandError = async (
       };
       break;
     case "WAFInvalidParameterException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
           parsedOutput,
@@ -4390,7 +4390,7 @@ const deserializeAws_json1_1UpdateWebACLCommandError = async (
       };
       break;
     case "WAFInvalidResourceException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFInvalidResourceException":
+    case "com.amazonaws.wafv2#WAFInvalidResourceException":
       response = {
         ...(await deserializeAws_json1_1WAFInvalidResourceExceptionResponse(
           parsedOutput,
@@ -4401,7 +4401,7 @@ const deserializeAws_json1_1UpdateWebACLCommandError = async (
       };
       break;
     case "WAFLimitsExceededException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFLimitsExceededException":
+    case "com.amazonaws.wafv2#WAFLimitsExceededException":
       response = {
         ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
           parsedOutput,
@@ -4412,7 +4412,7 @@ const deserializeAws_json1_1UpdateWebACLCommandError = async (
       };
       break;
     case "WAFNonexistentItemException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
         ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
           parsedOutput,
@@ -4423,7 +4423,7 @@ const deserializeAws_json1_1UpdateWebACLCommandError = async (
       };
       break;
     case "WAFOptimisticLockException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFOptimisticLockException":
+    case "com.amazonaws.wafv2#WAFOptimisticLockException":
       response = {
         ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(
           parsedOutput,
@@ -4434,7 +4434,7 @@ const deserializeAws_json1_1UpdateWebACLCommandError = async (
       };
       break;
     case "WAFUnavailableEntityException":
-    case "com.amazonaws.gokucustomerapiv2.v20190729#WAFUnavailableEntityException":
+    case "com.amazonaws.wafv2#WAFUnavailableEntityException":
       response = {
         ...(await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(
           parsedOutput,
@@ -4677,15 +4677,15 @@ const deserializeAws_json1_1WAFUnavailableEntityExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_json1_1AllQueryArguments = (
-  input: AllQueryArguments,
+const serializeAws_json1_1AllowAction = (
+  input: AllowAction,
   context: __SerdeContext
 ): any => {
   return {};
 };
 
-const serializeAws_json1_1AllowAction = (
-  input: AllowAction,
+const serializeAws_json1_1AllQueryArguments = (
+  input: AllQueryArguments,
   context: __SerdeContext
 ): any => {
   return {};
@@ -5827,21 +5827,21 @@ const serializeAws_json1_1XssMatchStatement = (
   };
 };
 
-const deserializeAws_json1_1AllQueryArguments = (
-  output: any,
-  context: __SerdeContext
-): AllQueryArguments => {
-  return {
-    __type: "AllQueryArguments"
-  } as any;
-};
-
 const deserializeAws_json1_1AllowAction = (
   output: any,
   context: __SerdeContext
 ): AllowAction => {
   return {
     __type: "AllowAction"
+  } as any;
+};
+
+const deserializeAws_json1_1AllQueryArguments = (
+  output: any,
+  context: __SerdeContext
+): AllQueryArguments => {
+  return {
+    __type: "AllQueryArguments"
   } as any;
 };
 
@@ -7072,6 +7072,15 @@ const deserializeAws_json1_1RuleGroupSummary = (
   } as any;
 };
 
+const deserializeAws_json1_1Rules = (
+  output: any,
+  context: __SerdeContext
+): Rule[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Rule(entry, context)
+  );
+};
+
 const deserializeAws_json1_1RuleSummaries = (
   output: any,
   context: __SerdeContext
@@ -7096,15 +7105,6 @@ const deserializeAws_json1_1RuleSummary = (
         ? output.Name
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1Rules = (
-  output: any,
-  context: __SerdeContext
-): Rule[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Rule(entry, context)
-  );
 };
 
 const deserializeAws_json1_1SampledHTTPRequest = (

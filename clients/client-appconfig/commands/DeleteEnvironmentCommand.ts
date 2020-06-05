@@ -5,9 +5,9 @@ import {
 } from "../AppConfigClient";
 import { DeleteEnvironmentRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteEnvironmentCommand,
-  serializeAws_restJson1_1DeleteEnvironmentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteEnvironmentCommand,
+  serializeAws_restJson1DeleteEnvironmentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteEnvironmentCommand extends $Command<
     input: DeleteEnvironmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteEnvironmentCommand(input, context);
+    return serializeAws_restJson1DeleteEnvironmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEnvironmentCommandOutput> {
-    return deserializeAws_restJson1_1DeleteEnvironmentCommand(output, context);
+    return deserializeAws_restJson1DeleteEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

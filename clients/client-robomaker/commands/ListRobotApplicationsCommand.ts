@@ -8,9 +8,9 @@ import {
   ListRobotApplicationsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListRobotApplicationsCommand,
-  serializeAws_restJson1_1ListRobotApplicationsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListRobotApplicationsCommand,
+  serializeAws_restJson1ListRobotApplicationsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class ListRobotApplicationsCommand extends $Command<
     input: ListRobotApplicationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListRobotApplicationsCommand(input, context);
+    return serializeAws_restJson1ListRobotApplicationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRobotApplicationsCommandOutput> {
-    return deserializeAws_restJson1_1ListRobotApplicationsCommand(
+    return deserializeAws_restJson1ListRobotApplicationsCommand(
       output,
       context
     );

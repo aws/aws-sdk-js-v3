@@ -715,41 +715,6 @@ export class RAM extends RAMClient {
   }
 
   /**
-   * <p>Lists the AWS RAM permissions that are associated with a resource share.</p>
-   */
-  public listResourceSharePermissions(
-    args: ListResourceSharePermissionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListResourceSharePermissionsCommandOutput>;
-  public listResourceSharePermissions(
-    args: ListResourceSharePermissionsCommandInput,
-    cb: (err: any, data?: ListResourceSharePermissionsCommandOutput) => void
-  ): void;
-  public listResourceSharePermissions(
-    args: ListResourceSharePermissionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListResourceSharePermissionsCommandOutput) => void
-  ): void;
-  public listResourceSharePermissions(
-    args: ListResourceSharePermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourceSharePermissionsCommandOutput) => void),
-    cb?: (err: any, data?: ListResourceSharePermissionsCommandOutput) => void
-  ): Promise<ListResourceSharePermissionsCommandOutput> | void {
-    const command = new ListResourceSharePermissionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Lists the resources that you added to a resource shares or the resources that are shared with you.</p>
    */
   public listResources(
@@ -773,6 +738,41 @@ export class RAM extends RAMClient {
     cb?: (err: any, data?: ListResourcesCommandOutput) => void
   ): Promise<ListResourcesCommandOutput> | void {
     const command = new ListResourcesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the AWS RAM permissions that are associated with a resource share.</p>
+   */
+  public listResourceSharePermissions(
+    args: ListResourceSharePermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourceSharePermissionsCommandOutput>;
+  public listResourceSharePermissions(
+    args: ListResourceSharePermissionsCommandInput,
+    cb: (err: any, data?: ListResourceSharePermissionsCommandOutput) => void
+  ): void;
+  public listResourceSharePermissions(
+    args: ListResourceSharePermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourceSharePermissionsCommandOutput) => void
+  ): void;
+  public listResourceSharePermissions(
+    args: ListResourceSharePermissionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListResourceSharePermissionsCommandOutput) => void),
+    cb?: (err: any, data?: ListResourceSharePermissionsCommandOutput) => void
+  ): Promise<ListResourceSharePermissionsCommandOutput> | void {
+    const command = new ListResourceSharePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

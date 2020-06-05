@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { GetIntegrationRequest, Integration } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetIntegrationCommand,
-  serializeAws_restJson1_1GetIntegrationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetIntegrationCommand,
+  serializeAws_restJson1GetIntegrationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetIntegrationCommand extends $Command<
     input: GetIntegrationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetIntegrationCommand(input, context);
+    return serializeAws_restJson1GetIntegrationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIntegrationCommandOutput> {
-    return deserializeAws_restJson1_1GetIntegrationCommand(output, context);
+    return deserializeAws_restJson1GetIntegrationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -8,9 +8,9 @@ import {
   DeleteDynamicThingGroupResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteDynamicThingGroupCommand,
-  serializeAws_restJson1_1DeleteDynamicThingGroupCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteDynamicThingGroupCommand,
+  serializeAws_restJson1DeleteDynamicThingGroupCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteDynamicThingGroupCommand extends $Command<
     input: DeleteDynamicThingGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDynamicThingGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DeleteDynamicThingGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDynamicThingGroupCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDynamicThingGroupCommand(
+    return deserializeAws_restJson1DeleteDynamicThingGroupCommand(
       output,
       context
     );

@@ -5,9 +5,9 @@ import {
 } from "../GuardDutyClient";
 import { CreateIPSetRequest, CreateIPSetResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateIPSetCommand,
-  serializeAws_restJson1_1CreateIPSetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateIPSetCommand,
+  serializeAws_restJson1CreateIPSetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateIPSetCommand extends $Command<
     input: CreateIPSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateIPSetCommand(input, context);
+    return serializeAws_restJson1CreateIPSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateIPSetCommandOutput> {
-    return deserializeAws_restJson1_1CreateIPSetCommand(output, context);
+    return deserializeAws_restJson1CreateIPSetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -2829,41 +2829,6 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Generates a sample mapping template that can be used to transform a payload into the structure of a model.</p>
-   */
-  public getModelTemplate(
-    args: GetModelTemplateCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetModelTemplateCommandOutput>;
-  public getModelTemplate(
-    args: GetModelTemplateCommandInput,
-    cb: (err: any, data?: GetModelTemplateCommandOutput) => void
-  ): void;
-  public getModelTemplate(
-    args: GetModelTemplateCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetModelTemplateCommandOutput) => void
-  ): void;
-  public getModelTemplate(
-    args: GetModelTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetModelTemplateCommandOutput) => void),
-    cb?: (err: any, data?: GetModelTemplateCommandOutput) => void
-  ): Promise<GetModelTemplateCommandOutput> | void {
-    const command = new GetModelTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Describes existing <a>Models</a> defined for a <a>RestApi</a> resource.</p>
    */
   public getModels(
@@ -2887,6 +2852,41 @@ export class APIGateway extends APIGatewayClient {
     cb?: (err: any, data?: GetModelsCommandOutput) => void
   ): Promise<GetModelsCommandOutput> | void {
     const command = new GetModelsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Generates a sample mapping template that can be used to transform a payload into the structure of a model.</p>
+   */
+  public getModelTemplate(
+    args: GetModelTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetModelTemplateCommandOutput>;
+  public getModelTemplate(
+    args: GetModelTemplateCommandInput,
+    cb: (err: any, data?: GetModelTemplateCommandOutput) => void
+  ): void;
+  public getModelTemplate(
+    args: GetModelTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetModelTemplateCommandOutput) => void
+  ): void;
+  public getModelTemplate(
+    args: GetModelTemplateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetModelTemplateCommandOutput) => void),
+    cb?: (err: any, data?: GetModelTemplateCommandOutput) => void
+  ): Promise<GetModelTemplateCommandOutput> | void {
+    const command = new GetModelTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

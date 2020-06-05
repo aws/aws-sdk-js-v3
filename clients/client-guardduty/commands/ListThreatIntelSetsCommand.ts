@@ -8,9 +8,9 @@ import {
   ListThreatIntelSetsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListThreatIntelSetsCommand,
-  serializeAws_restJson1_1ListThreatIntelSetsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListThreatIntelSetsCommand,
+  serializeAws_restJson1ListThreatIntelSetsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListThreatIntelSetsCommand extends $Command<
     input: ListThreatIntelSetsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListThreatIntelSetsCommand(input, context);
+    return serializeAws_restJson1ListThreatIntelSetsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListThreatIntelSetsCommandOutput> {
-    return deserializeAws_restJson1_1ListThreatIntelSetsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListThreatIntelSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

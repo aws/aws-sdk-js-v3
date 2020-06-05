@@ -8,9 +8,9 @@ import {
   GetIndexingConfigurationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetIndexingConfigurationCommand,
-  serializeAws_restJson1_1GetIndexingConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetIndexingConfigurationCommand,
+  serializeAws_restJson1GetIndexingConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetIndexingConfigurationCommand extends $Command<
     input: GetIndexingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetIndexingConfigurationCommand(
+    return serializeAws_restJson1GetIndexingConfigurationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetIndexingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIndexingConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1GetIndexingConfigurationCommand(
+    return deserializeAws_restJson1GetIndexingConfigurationCommand(
       output,
       context
     );

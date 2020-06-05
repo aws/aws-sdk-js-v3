@@ -31,30 +31,6 @@ export namespace AccessPoliciesStatus {
 }
 
 /**
- * <p>Container for the parameters to the <code><a>AddTags</a></code> operation. Specify the tags that you want to attach to the Elasticsearch domain.</p>
- */
-export interface AddTagsRequest {
-  __type?: "AddTagsRequest";
-  /**
-   * <p> Specify the <code>ARN</code> for which you want to add the tags.</p>
-   */
-  ARN: string | undefined;
-
-  /**
-   * <p> List of <code>Tag</code> that need to be added for the Elasticsearch domain. </p>
-   */
-  TagList: Tag[] | undefined;
-}
-
-export namespace AddTagsRequest {
-  export const filterSensitiveLog = (obj: AddTagsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AddTagsRequest =>
-    __isa(o, "AddTagsRequest");
-}
-
-/**
  * <p>
  *       List of limits that are specific to a given InstanceType and for each of it's
  *       <code>
@@ -116,6 +92,30 @@ export namespace AdditionalLimit {
 }
 
 /**
+ * <p>Container for the parameters to the <code><a>AddTags</a></code> operation. Specify the tags that you want to attach to the Elasticsearch domain.</p>
+ */
+export interface AddTagsRequest {
+  __type?: "AddTagsRequest";
+  /**
+   * <p> Specify the <code>ARN</code> for which you want to add the tags.</p>
+   */
+  ARN: string | undefined;
+
+  /**
+   * <p> List of <code>Tag</code> that need to be added for the Elasticsearch domain. </p>
+   */
+  TagList: Tag[] | undefined;
+}
+
+export namespace AddTagsRequest {
+  export const filterSensitiveLog = (obj: AddTagsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AddTagsRequest =>
+    __isa(o, "AddTagsRequest");
+}
+
+/**
  * <p> Status of the advanced options for the specified Elasticsearch domain. Currently, the following advanced options are available:</p>
  *        <ul>
  *            <li>Option to allow references to indices in an HTTP request body.  Must be <code>false</code> when configuring access to individual sub-resources.  By default, the value is <code>true</code>.
@@ -143,6 +143,25 @@ export namespace AdvancedOptionsStatus {
   });
   export const isa = (o: any): o is AdvancedOptionsStatus =>
     __isa(o, "AdvancedOptionsStatus");
+}
+
+/**
+ * <p>An error occurred while processing the request.</p>
+ */
+export interface BaseException extends __SmithyException, $MetadataBearer {
+  name: "BaseException";
+  $fault: "client";
+  /**
+   * <p>A description of the error.</p>
+   */
+  message?: string;
+}
+
+export namespace BaseException {
+  export const filterSensitiveLog = (obj: BaseException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is BaseException => __isa(o, "BaseException");
 }
 
 /**
@@ -782,6 +801,28 @@ export namespace DescribeReservedElasticsearchInstancesResponse {
 }
 
 /**
+ * <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+ */
+export interface DisabledOperationException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DisabledOperationException";
+  $fault: "client";
+  /**
+   * <p>A description of the error.</p>
+   */
+  message?: string;
+}
+
+export namespace DisabledOperationException {
+  export const filterSensitiveLog = (obj: DisabledOperationException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DisabledOperationException =>
+    __isa(o, "DisabledOperationException");
+}
+
+/**
  * <p>Options to configure endpoint for the Elasticsearch domain.</p>
  */
 export interface DomainEndpointOptions {
@@ -908,70 +949,6 @@ export namespace EBSOptionsStatus {
   export const isa = (o: any): o is EBSOptionsStatus =>
     __isa(o, "EBSOptionsStatus");
 }
-
-export type ESPartitionInstanceType =
-  | "c4.2xlarge.elasticsearch"
-  | "c4.4xlarge.elasticsearch"
-  | "c4.8xlarge.elasticsearch"
-  | "c4.large.elasticsearch"
-  | "c4.xlarge.elasticsearch"
-  | "c5.18xlarge.elasticsearch"
-  | "c5.2xlarge.elasticsearch"
-  | "c5.4xlarge.elasticsearch"
-  | "c5.9xlarge.elasticsearch"
-  | "c5.large.elasticsearch"
-  | "c5.xlarge.elasticsearch"
-  | "d2.2xlarge.elasticsearch"
-  | "d2.4xlarge.elasticsearch"
-  | "d2.8xlarge.elasticsearch"
-  | "d2.xlarge.elasticsearch"
-  | "i2.2xlarge.elasticsearch"
-  | "i2.xlarge.elasticsearch"
-  | "i3.16xlarge.elasticsearch"
-  | "i3.2xlarge.elasticsearch"
-  | "i3.4xlarge.elasticsearch"
-  | "i3.8xlarge.elasticsearch"
-  | "i3.large.elasticsearch"
-  | "i3.xlarge.elasticsearch"
-  | "m3.2xlarge.elasticsearch"
-  | "m3.large.elasticsearch"
-  | "m3.medium.elasticsearch"
-  | "m3.xlarge.elasticsearch"
-  | "m4.10xlarge.elasticsearch"
-  | "m4.2xlarge.elasticsearch"
-  | "m4.4xlarge.elasticsearch"
-  | "m4.large.elasticsearch"
-  | "m4.xlarge.elasticsearch"
-  | "m5.12xlarge.elasticsearch"
-  | "m5.2xlarge.elasticsearch"
-  | "m5.4xlarge.elasticsearch"
-  | "m5.large.elasticsearch"
-  | "m5.xlarge.elasticsearch"
-  | "r3.2xlarge.elasticsearch"
-  | "r3.4xlarge.elasticsearch"
-  | "r3.8xlarge.elasticsearch"
-  | "r3.large.elasticsearch"
-  | "r3.xlarge.elasticsearch"
-  | "r4.16xlarge.elasticsearch"
-  | "r4.2xlarge.elasticsearch"
-  | "r4.4xlarge.elasticsearch"
-  | "r4.8xlarge.elasticsearch"
-  | "r4.large.elasticsearch"
-  | "r4.xlarge.elasticsearch"
-  | "r5.12xlarge.elasticsearch"
-  | "r5.2xlarge.elasticsearch"
-  | "r5.4xlarge.elasticsearch"
-  | "r5.large.elasticsearch"
-  | "r5.xlarge.elasticsearch"
-  | "t2.medium.elasticsearch"
-  | "t2.micro.elasticsearch"
-  | "t2.small.elasticsearch"
-  | "ultrawarm1.large.elasticsearch"
-  | "ultrawarm1.medium.elasticsearch";
-
-export type ESWarmPartitionInstanceType =
-  | "ultrawarm1.large.elasticsearch"
-  | "ultrawarm1.medium.elasticsearch";
 
 /**
  * <p>Specifies the configuration for the domain cluster, such as the type and number of instances.</p>
@@ -1331,6 +1308,70 @@ export namespace EncryptionAtRestOptionsStatus {
     __isa(o, "EncryptionAtRestOptionsStatus");
 }
 
+export type ESPartitionInstanceType =
+  | "c4.2xlarge.elasticsearch"
+  | "c4.4xlarge.elasticsearch"
+  | "c4.8xlarge.elasticsearch"
+  | "c4.large.elasticsearch"
+  | "c4.xlarge.elasticsearch"
+  | "c5.18xlarge.elasticsearch"
+  | "c5.2xlarge.elasticsearch"
+  | "c5.4xlarge.elasticsearch"
+  | "c5.9xlarge.elasticsearch"
+  | "c5.large.elasticsearch"
+  | "c5.xlarge.elasticsearch"
+  | "d2.2xlarge.elasticsearch"
+  | "d2.4xlarge.elasticsearch"
+  | "d2.8xlarge.elasticsearch"
+  | "d2.xlarge.elasticsearch"
+  | "i2.2xlarge.elasticsearch"
+  | "i2.xlarge.elasticsearch"
+  | "i3.16xlarge.elasticsearch"
+  | "i3.2xlarge.elasticsearch"
+  | "i3.4xlarge.elasticsearch"
+  | "i3.8xlarge.elasticsearch"
+  | "i3.large.elasticsearch"
+  | "i3.xlarge.elasticsearch"
+  | "m3.2xlarge.elasticsearch"
+  | "m3.large.elasticsearch"
+  | "m3.medium.elasticsearch"
+  | "m3.xlarge.elasticsearch"
+  | "m4.10xlarge.elasticsearch"
+  | "m4.2xlarge.elasticsearch"
+  | "m4.4xlarge.elasticsearch"
+  | "m4.large.elasticsearch"
+  | "m4.xlarge.elasticsearch"
+  | "m5.12xlarge.elasticsearch"
+  | "m5.2xlarge.elasticsearch"
+  | "m5.4xlarge.elasticsearch"
+  | "m5.large.elasticsearch"
+  | "m5.xlarge.elasticsearch"
+  | "r3.2xlarge.elasticsearch"
+  | "r3.4xlarge.elasticsearch"
+  | "r3.8xlarge.elasticsearch"
+  | "r3.large.elasticsearch"
+  | "r3.xlarge.elasticsearch"
+  | "r4.16xlarge.elasticsearch"
+  | "r4.2xlarge.elasticsearch"
+  | "r4.4xlarge.elasticsearch"
+  | "r4.8xlarge.elasticsearch"
+  | "r4.large.elasticsearch"
+  | "r4.xlarge.elasticsearch"
+  | "r5.12xlarge.elasticsearch"
+  | "r5.2xlarge.elasticsearch"
+  | "r5.4xlarge.elasticsearch"
+  | "r5.large.elasticsearch"
+  | "r5.xlarge.elasticsearch"
+  | "t2.medium.elasticsearch"
+  | "t2.micro.elasticsearch"
+  | "t2.small.elasticsearch"
+  | "ultrawarm1.large.elasticsearch"
+  | "ultrawarm1.medium.elasticsearch";
+
+export type ESWarmPartitionInstanceType =
+  | "ultrawarm1.large.elasticsearch"
+  | "ultrawarm1.medium.elasticsearch";
+
 /**
  * <p>
  *       Container for request parameters to
@@ -1604,6 +1645,70 @@ export namespace InstanceLimits {
   });
   export const isa = (o: any): o is InstanceLimits =>
     __isa(o, "InstanceLimits");
+}
+
+/**
+ * <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ */
+export interface InternalException extends __SmithyException, $MetadataBearer {
+  name: "InternalException";
+  $fault: "server";
+  /**
+   * <p>A description of the error.</p>
+   */
+  message?: string;
+}
+
+export namespace InternalException {
+  export const filterSensitiveLog = (obj: InternalException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InternalException =>
+    __isa(o, "InternalException");
+}
+
+/**
+ * <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.</p>
+ */
+export interface InvalidTypeException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidTypeException";
+  $fault: "client";
+  /**
+   * <p>A description of the error.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidTypeException {
+  export const filterSensitiveLog = (obj: InvalidTypeException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidTypeException =>
+    __isa(o, "InvalidTypeException");
+}
+
+/**
+ * <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
+ */
+export interface LimitExceededException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  /**
+   * <p>A description of the error.</p>
+   */
+  message?: string;
+}
+
+export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 /**
@@ -2294,6 +2399,52 @@ export type ReservedElasticsearchInstancePaymentOption =
   | "PARTIAL_UPFRONT";
 
 /**
+ * <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
+ */
+export interface ResourceAlreadyExistsException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceAlreadyExistsException";
+  $fault: "client";
+  /**
+   * <p>A description of the error.</p>
+   */
+  message?: string;
+}
+
+export namespace ResourceAlreadyExistsException {
+  export const filterSensitiveLog = (
+    obj: ResourceAlreadyExistsException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceAlreadyExistsException =>
+    __isa(o, "ResourceAlreadyExistsException");
+}
+
+/**
+ * <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+ */
+export interface ResourceNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  /**
+   * <p>A description of the error.</p>
+   */
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
+}
+
+/**
  * <p>The current options of an Elasticsearch domain service software options.</p>
  */
 export interface ServiceSoftwareOptions {
@@ -2528,11 +2679,6 @@ export namespace StorageTypeLimit {
     __isa(o, "StorageTypeLimit");
 }
 
-export enum TLSSecurityPolicy {
-  POLICY_MIN_TLS_1_0_2019_07 = "Policy-Min-TLS-1-0-2019-07",
-  POLICY_MIN_TLS_1_2_2019_07 = "Policy-Min-TLS-1-2-2019-07"
-}
-
 /**
  * <p>Specifies a key value pair for a resource tag.</p>
  */
@@ -2555,6 +2701,11 @@ export namespace Tag {
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
+}
+
+export enum TLSSecurityPolicy {
+  POLICY_MIN_TLS_1_0_2019_07 = "Policy-Min-TLS-1-0-2019-07",
+  POLICY_MIN_TLS_1_2_2019_07 = "Policy-Min-TLS-1-2-2019-07"
 }
 
 /**
@@ -2831,6 +2982,30 @@ export namespace UpgradeStepItem {
 }
 
 /**
+ * <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ */
+export interface ValidationException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ValidationException";
+  $fault: "client";
+  /**
+   * <p>A description of the error.</p>
+   */
+  message?: string;
+}
+
+export namespace ValidationException {
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ValidationException =>
+    __isa(o, "ValidationException");
+}
+
+export type VolumeType = "gp2" | "io1" | "standard";
+
+/**
  * <p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html" target="_blank"> VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>
  */
 export interface VPCDerivedInfo {
@@ -2911,8 +3086,6 @@ export namespace VPCOptions {
   export const isa = (o: any): o is VPCOptions => __isa(o, "VPCOptions");
 }
 
-export type VolumeType = "gp2" | "io1" | "standard";
-
 /**
  * <p>Specifies the zone awareness configuration for the domain cluster, such as the number of availability zones.</p>
  */
@@ -2930,177 +3103,4 @@ export namespace ZoneAwarenessConfig {
   });
   export const isa = (o: any): o is ZoneAwarenessConfig =>
     __isa(o, "ZoneAwarenessConfig");
-}
-
-/**
- * <p>An error occurred while processing the request.</p>
- */
-export interface BaseException extends __SmithyException, $MetadataBearer {
-  name: "BaseException";
-  $fault: "client";
-  /**
-   * <p>A description of the error.</p>
-   */
-  message?: string;
-}
-
-export namespace BaseException {
-  export const filterSensitiveLog = (obj: BaseException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is BaseException => __isa(o, "BaseException");
-}
-
-/**
- * <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
- */
-export interface DisabledOperationException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DisabledOperationException";
-  $fault: "client";
-  /**
-   * <p>A description of the error.</p>
-   */
-  message?: string;
-}
-
-export namespace DisabledOperationException {
-  export const filterSensitiveLog = (obj: DisabledOperationException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DisabledOperationException =>
-    __isa(o, "DisabledOperationException");
-}
-
-/**
- * <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
- */
-export interface InternalException extends __SmithyException, $MetadataBearer {
-  name: "InternalException";
-  $fault: "server";
-  /**
-   * <p>A description of the error.</p>
-   */
-  message?: string;
-}
-
-export namespace InternalException {
-  export const filterSensitiveLog = (obj: InternalException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InternalException =>
-    __isa(o, "InternalException");
-}
-
-/**
- * <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.</p>
- */
-export interface InvalidTypeException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidTypeException";
-  $fault: "client";
-  /**
-   * <p>A description of the error.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidTypeException {
-  export const filterSensitiveLog = (obj: InvalidTypeException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidTypeException =>
-    __isa(o, "InvalidTypeException");
-}
-
-/**
- * <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
- */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  /**
-   * <p>A description of the error.</p>
-   */
-  message?: string;
-}
-
-export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
-}
-
-/**
- * <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
- */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
-  /**
-   * <p>A description of the error.</p>
-   */
-  message?: string;
-}
-
-export namespace ResourceAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: ResourceAlreadyExistsException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceAlreadyExistsException =>
-    __isa(o, "ResourceAlreadyExistsException");
-}
-
-/**
- * <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
- */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  /**
-   * <p>A description of the error.</p>
-   */
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
-}
-
-/**
- * <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
- */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  /**
-   * <p>A description of the error.</p>
-   */
-  message?: string;
-}
-
-export namespace ValidationException {
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
 }

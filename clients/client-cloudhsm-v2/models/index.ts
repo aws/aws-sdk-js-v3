@@ -123,6 +123,128 @@ export namespace Certificates {
 }
 
 /**
+ * <p>The request was rejected because the requester does not have permission to perform the
+ *       requested operation.</p>
+ */
+export interface CloudHsmAccessDeniedException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CloudHsmAccessDeniedException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace CloudHsmAccessDeniedException {
+  export const filterSensitiveLog = (
+    obj: CloudHsmAccessDeniedException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CloudHsmAccessDeniedException =>
+    __isa(o, "CloudHsmAccessDeniedException");
+}
+
+/**
+ * <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
+ *       be retried.</p>
+ */
+export interface CloudHsmInternalFailureException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CloudHsmInternalFailureException";
+  $fault: "server";
+  Message?: string;
+}
+
+export namespace CloudHsmInternalFailureException {
+  export const filterSensitiveLog = (
+    obj: CloudHsmInternalFailureException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CloudHsmInternalFailureException =>
+    __isa(o, "CloudHsmInternalFailureException");
+}
+
+/**
+ * <p>The request was rejected because it is not a valid request.</p>
+ */
+export interface CloudHsmInvalidRequestException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CloudHsmInvalidRequestException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace CloudHsmInvalidRequestException {
+  export const filterSensitiveLog = (
+    obj: CloudHsmInvalidRequestException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CloudHsmInvalidRequestException =>
+    __isa(o, "CloudHsmInvalidRequestException");
+}
+
+/**
+ * <p>The request was rejected because it refers to a resource that cannot be
+ *       found.</p>
+ */
+export interface CloudHsmResourceNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CloudHsmResourceNotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace CloudHsmResourceNotFoundException {
+  export const filterSensitiveLog = (
+    obj: CloudHsmResourceNotFoundException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CloudHsmResourceNotFoundException =>
+    __isa(o, "CloudHsmResourceNotFoundException");
+}
+
+/**
+ * <p>The request was rejected because an error occurred.</p>
+ */
+export interface CloudHsmServiceException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CloudHsmServiceException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace CloudHsmServiceException {
+  export const filterSensitiveLog = (obj: CloudHsmServiceException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CloudHsmServiceException =>
+    __isa(o, "CloudHsmServiceException");
+}
+
+export interface CloudHsmTagException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CloudHsmTagException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace CloudHsmTagException {
+  export const filterSensitiveLog = (obj: CloudHsmTagException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CloudHsmTagException =>
+    __isa(o, "CloudHsmTagException");
+}
+
+/**
  * <p>Contains information about an AWS CloudHSM cluster.</p>
  */
 export interface Cluster {
@@ -918,126 +1040,4 @@ export namespace UntagResourceResponse {
   });
   export const isa = (o: any): o is UntagResourceResponse =>
     __isa(o, "UntagResourceResponse");
-}
-
-/**
- * <p>The request was rejected because the requester does not have permission to perform the
- *       requested operation.</p>
- */
-export interface CloudHsmAccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CloudHsmAccessDeniedException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace CloudHsmAccessDeniedException {
-  export const filterSensitiveLog = (
-    obj: CloudHsmAccessDeniedException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CloudHsmAccessDeniedException =>
-    __isa(o, "CloudHsmAccessDeniedException");
-}
-
-/**
- * <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
- *       be retried.</p>
- */
-export interface CloudHsmInternalFailureException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CloudHsmInternalFailureException";
-  $fault: "server";
-  Message?: string;
-}
-
-export namespace CloudHsmInternalFailureException {
-  export const filterSensitiveLog = (
-    obj: CloudHsmInternalFailureException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CloudHsmInternalFailureException =>
-    __isa(o, "CloudHsmInternalFailureException");
-}
-
-/**
- * <p>The request was rejected because it is not a valid request.</p>
- */
-export interface CloudHsmInvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CloudHsmInvalidRequestException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace CloudHsmInvalidRequestException {
-  export const filterSensitiveLog = (
-    obj: CloudHsmInvalidRequestException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CloudHsmInvalidRequestException =>
-    __isa(o, "CloudHsmInvalidRequestException");
-}
-
-/**
- * <p>The request was rejected because it refers to a resource that cannot be
- *       found.</p>
- */
-export interface CloudHsmResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CloudHsmResourceNotFoundException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace CloudHsmResourceNotFoundException {
-  export const filterSensitiveLog = (
-    obj: CloudHsmResourceNotFoundException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CloudHsmResourceNotFoundException =>
-    __isa(o, "CloudHsmResourceNotFoundException");
-}
-
-/**
- * <p>The request was rejected because an error occurred.</p>
- */
-export interface CloudHsmServiceException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CloudHsmServiceException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace CloudHsmServiceException {
-  export const filterSensitiveLog = (obj: CloudHsmServiceException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CloudHsmServiceException =>
-    __isa(o, "CloudHsmServiceException");
-}
-
-export interface CloudHsmTagException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CloudHsmTagException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace CloudHsmTagException {
-  export const filterSensitiveLog = (obj: CloudHsmTagException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CloudHsmTagException =>
-    __isa(o, "CloudHsmTagException");
 }

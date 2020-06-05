@@ -8,9 +8,9 @@ import {
   DescribeFolderContentsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeFolderContentsCommand,
-  serializeAws_restJson1_1DescribeFolderContentsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeFolderContentsCommand,
+  serializeAws_restJson1DescribeFolderContentsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DescribeFolderContentsCommand extends $Command<
     input: DescribeFolderContentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeFolderContentsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DescribeFolderContentsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFolderContentsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeFolderContentsCommand(
+    return deserializeAws_restJson1DescribeFolderContentsCommand(
       output,
       context
     );

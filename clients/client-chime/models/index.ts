@@ -143,49 +143,6 @@ export namespace AlexaForBusinessMetadata {
     __isa(o, "AlexaForBusinessMetadata");
 }
 
-export interface AssociatePhoneNumberWithUserRequest {
-  __type?: "AssociatePhoneNumberWithUserRequest";
-  /**
-   * <p>The Amazon Chime account ID.</p>
-   */
-  AccountId: string | undefined;
-
-  /**
-   * <p>The phone number, in E.164 format.</p>
-   */
-  E164PhoneNumber: string | undefined;
-
-  /**
-   * <p>The user ID.</p>
-   */
-  UserId: string | undefined;
-}
-
-export namespace AssociatePhoneNumberWithUserRequest {
-  export const filterSensitiveLog = (
-    obj: AssociatePhoneNumberWithUserRequest
-  ): any => ({
-    ...obj,
-    ...(obj.E164PhoneNumber && { E164PhoneNumber: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is AssociatePhoneNumberWithUserRequest =>
-    __isa(o, "AssociatePhoneNumberWithUserRequest");
-}
-
-export interface AssociatePhoneNumberWithUserResponse {
-  __type?: "AssociatePhoneNumberWithUserResponse";
-}
-
-export namespace AssociatePhoneNumberWithUserResponse {
-  export const filterSensitiveLog = (
-    obj: AssociatePhoneNumberWithUserResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AssociatePhoneNumberWithUserResponse =>
-    __isa(o, "AssociatePhoneNumberWithUserResponse");
-}
-
 export interface AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
   __type?: "AssociatePhoneNumbersWithVoiceConnectorGroupRequest";
   /**
@@ -286,6 +243,49 @@ export namespace AssociatePhoneNumbersWithVoiceConnectorResponse {
     o: any
   ): o is AssociatePhoneNumbersWithVoiceConnectorResponse =>
     __isa(o, "AssociatePhoneNumbersWithVoiceConnectorResponse");
+}
+
+export interface AssociatePhoneNumberWithUserRequest {
+  __type?: "AssociatePhoneNumberWithUserRequest";
+  /**
+   * <p>The Amazon Chime account ID.</p>
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The phone number, in E.164 format.</p>
+   */
+  E164PhoneNumber: string | undefined;
+
+  /**
+   * <p>The user ID.</p>
+   */
+  UserId: string | undefined;
+}
+
+export namespace AssociatePhoneNumberWithUserRequest {
+  export const filterSensitiveLog = (
+    obj: AssociatePhoneNumberWithUserRequest
+  ): any => ({
+    ...obj,
+    ...(obj.E164PhoneNumber && { E164PhoneNumber: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is AssociatePhoneNumberWithUserRequest =>
+    __isa(o, "AssociatePhoneNumberWithUserRequest");
+}
+
+export interface AssociatePhoneNumberWithUserResponse {
+  __type?: "AssociatePhoneNumberWithUserResponse";
+}
+
+export namespace AssociatePhoneNumberWithUserResponse {
+  export const filterSensitiveLog = (
+    obj: AssociatePhoneNumberWithUserResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AssociatePhoneNumberWithUserResponse =>
+    __isa(o, "AssociatePhoneNumberWithUserResponse");
 }
 
 export interface AssociateSigninDelegateGroupsWithAccountRequest {
@@ -3171,47 +3171,6 @@ export namespace ListVoiceConnectorGroupsResponse {
     __isa(o, "ListVoiceConnectorGroupsResponse");
 }
 
-export interface ListVoiceConnectorTerminationCredentialsRequest {
-  __type?: "ListVoiceConnectorTerminationCredentialsRequest";
-  /**
-   * <p>The Amazon Chime Voice Connector ID.</p>
-   */
-  VoiceConnectorId: string | undefined;
-}
-
-export namespace ListVoiceConnectorTerminationCredentialsRequest {
-  export const filterSensitiveLog = (
-    obj: ListVoiceConnectorTerminationCredentialsRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is ListVoiceConnectorTerminationCredentialsRequest =>
-    __isa(o, "ListVoiceConnectorTerminationCredentialsRequest");
-}
-
-export interface ListVoiceConnectorTerminationCredentialsResponse {
-  __type?: "ListVoiceConnectorTerminationCredentialsResponse";
-  /**
-   * <p>A list of user names.</p>
-   */
-  Usernames?: string[];
-}
-
-export namespace ListVoiceConnectorTerminationCredentialsResponse {
-  export const filterSensitiveLog = (
-    obj: ListVoiceConnectorTerminationCredentialsResponse
-  ): any => ({
-    ...obj,
-    ...(obj.Usernames && { Usernames: SENSITIVE_STRING })
-  });
-  export const isa = (
-    o: any
-  ): o is ListVoiceConnectorTerminationCredentialsResponse =>
-    __isa(o, "ListVoiceConnectorTerminationCredentialsResponse");
-}
-
 export interface ListVoiceConnectorsRequest {
   __type?: "ListVoiceConnectorsRequest";
   /**
@@ -3254,6 +3213,47 @@ export namespace ListVoiceConnectorsResponse {
   });
   export const isa = (o: any): o is ListVoiceConnectorsResponse =>
     __isa(o, "ListVoiceConnectorsResponse");
+}
+
+export interface ListVoiceConnectorTerminationCredentialsRequest {
+  __type?: "ListVoiceConnectorTerminationCredentialsRequest";
+  /**
+   * <p>The Amazon Chime Voice Connector ID.</p>
+   */
+  VoiceConnectorId: string | undefined;
+}
+
+export namespace ListVoiceConnectorTerminationCredentialsRequest {
+  export const filterSensitiveLog = (
+    obj: ListVoiceConnectorTerminationCredentialsRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is ListVoiceConnectorTerminationCredentialsRequest =>
+    __isa(o, "ListVoiceConnectorTerminationCredentialsRequest");
+}
+
+export interface ListVoiceConnectorTerminationCredentialsResponse {
+  __type?: "ListVoiceConnectorTerminationCredentialsResponse";
+  /**
+   * <p>A list of user names.</p>
+   */
+  Usernames?: string[];
+}
+
+export namespace ListVoiceConnectorTerminationCredentialsResponse {
+  export const filterSensitiveLog = (
+    obj: ListVoiceConnectorTerminationCredentialsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.Usernames && { Usernames: SENSITIVE_STRING })
+  });
+  export const isa = (
+    o: any
+  ): o is ListVoiceConnectorTerminationCredentialsResponse =>
+    __isa(o, "ListVoiceConnectorTerminationCredentialsResponse");
 }
 
 /**
@@ -3476,12 +3476,6 @@ export namespace MemberError {
   export const isa = (o: any): o is MemberError => __isa(o, "MemberError");
 }
 
-export enum MemberType {
-  Bot = "Bot",
-  User = "User",
-  Webhook = "Webhook"
-}
-
 /**
  * <p>Membership details, such as member ID and member role.</p>
  */
@@ -3504,6 +3498,12 @@ export namespace MembershipItem {
   });
   export const isa = (o: any): o is MembershipItem =>
     __isa(o, "MembershipItem");
+}
+
+export enum MemberType {
+  Bot = "Bot",
+  User = "User",
+  Webhook = "Webhook"
 }
 
 /**

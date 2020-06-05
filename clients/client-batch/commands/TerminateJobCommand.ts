@@ -5,9 +5,9 @@ import {
 } from "../BatchClient";
 import { TerminateJobRequest, TerminateJobResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1TerminateJobCommand,
-  serializeAws_restJson1_1TerminateJobCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1TerminateJobCommand,
+  serializeAws_restJson1TerminateJobCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class TerminateJobCommand extends $Command<
     input: TerminateJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1TerminateJobCommand(input, context);
+    return serializeAws_restJson1TerminateJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TerminateJobCommandOutput> {
-    return deserializeAws_restJson1_1TerminateJobCommand(output, context);
+    return deserializeAws_restJson1TerminateJobCommand(output, context);
   }
 
   // Start section: command_body_extra

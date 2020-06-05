@@ -8,9 +8,9 @@ import {
   ListVoiceConnectorTerminationCredentialsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListVoiceConnectorTerminationCredentialsCommand,
-  serializeAws_restJson1_1ListVoiceConnectorTerminationCredentialsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListVoiceConnectorTerminationCredentialsCommand,
+  serializeAws_restJson1ListVoiceConnectorTerminationCredentialsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -76,7 +76,7 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command<
     input: ListVoiceConnectorTerminationCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListVoiceConnectorTerminationCredentialsCommand(
+    return serializeAws_restJson1ListVoiceConnectorTerminationCredentialsCommand(
       input,
       context
     );
@@ -86,7 +86,7 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListVoiceConnectorTerminationCredentialsCommandOutput> {
-    return deserializeAws_restJson1_1ListVoiceConnectorTerminationCredentialsCommand(
+    return deserializeAws_restJson1ListVoiceConnectorTerminationCredentialsCommand(
       output,
       context
     );

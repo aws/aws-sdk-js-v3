@@ -4140,6 +4140,52 @@ export namespace ListBulkDeploymentsResponse {
     __isa(o, "ListBulkDeploymentsResponse");
 }
 
+export interface ListConnectorDefinitionsRequest {
+  __type?: "ListConnectorDefinitionsRequest";
+  /**
+   * The maximum number of results to be returned per request.
+   */
+  MaxResults?: string;
+
+  /**
+   * The token for the next set of results, or ''null'' if there are no additional results.
+   */
+  NextToken?: string;
+}
+
+export namespace ListConnectorDefinitionsRequest {
+  export const filterSensitiveLog = (
+    obj: ListConnectorDefinitionsRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListConnectorDefinitionsRequest =>
+    __isa(o, "ListConnectorDefinitionsRequest");
+}
+
+export interface ListConnectorDefinitionsResponse {
+  __type?: "ListConnectorDefinitionsResponse";
+  /**
+   * Information about a definition.
+   */
+  Definitions?: DefinitionInformation[];
+
+  /**
+   * The token for the next set of results, or ''null'' if there are no additional results.
+   */
+  NextToken?: string;
+}
+
+export namespace ListConnectorDefinitionsResponse {
+  export const filterSensitiveLog = (
+    obj: ListConnectorDefinitionsResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListConnectorDefinitionsResponse =>
+    __isa(o, "ListConnectorDefinitionsResponse");
+}
+
 export interface ListConnectorDefinitionVersionsRequest {
   __type?: "ListConnectorDefinitionVersionsRequest";
   /**
@@ -4191,8 +4237,8 @@ export namespace ListConnectorDefinitionVersionsResponse {
     __isa(o, "ListConnectorDefinitionVersionsResponse");
 }
 
-export interface ListConnectorDefinitionsRequest {
-  __type?: "ListConnectorDefinitionsRequest";
+export interface ListCoreDefinitionsRequest {
+  __type?: "ListCoreDefinitionsRequest";
   /**
    * The maximum number of results to be returned per request.
    */
@@ -4204,18 +4250,16 @@ export interface ListConnectorDefinitionsRequest {
   NextToken?: string;
 }
 
-export namespace ListConnectorDefinitionsRequest {
-  export const filterSensitiveLog = (
-    obj: ListConnectorDefinitionsRequest
-  ): any => ({
+export namespace ListCoreDefinitionsRequest {
+  export const filterSensitiveLog = (obj: ListCoreDefinitionsRequest): any => ({
     ...obj
   });
-  export const isa = (o: any): o is ListConnectorDefinitionsRequest =>
-    __isa(o, "ListConnectorDefinitionsRequest");
+  export const isa = (o: any): o is ListCoreDefinitionsRequest =>
+    __isa(o, "ListCoreDefinitionsRequest");
 }
 
-export interface ListConnectorDefinitionsResponse {
-  __type?: "ListConnectorDefinitionsResponse";
+export interface ListCoreDefinitionsResponse {
+  __type?: "ListCoreDefinitionsResponse";
   /**
    * Information about a definition.
    */
@@ -4227,14 +4271,14 @@ export interface ListConnectorDefinitionsResponse {
   NextToken?: string;
 }
 
-export namespace ListConnectorDefinitionsResponse {
+export namespace ListCoreDefinitionsResponse {
   export const filterSensitiveLog = (
-    obj: ListConnectorDefinitionsResponse
+    obj: ListCoreDefinitionsResponse
   ): any => ({
     ...obj
   });
-  export const isa = (o: any): o is ListConnectorDefinitionsResponse =>
-    __isa(o, "ListConnectorDefinitionsResponse");
+  export const isa = (o: any): o is ListCoreDefinitionsResponse =>
+    __isa(o, "ListCoreDefinitionsResponse");
 }
 
 export interface ListCoreDefinitionVersionsRequest {
@@ -4288,50 +4332,6 @@ export namespace ListCoreDefinitionVersionsResponse {
     __isa(o, "ListCoreDefinitionVersionsResponse");
 }
 
-export interface ListCoreDefinitionsRequest {
-  __type?: "ListCoreDefinitionsRequest";
-  /**
-   * The maximum number of results to be returned per request.
-   */
-  MaxResults?: string;
-
-  /**
-   * The token for the next set of results, or ''null'' if there are no additional results.
-   */
-  NextToken?: string;
-}
-
-export namespace ListCoreDefinitionsRequest {
-  export const filterSensitiveLog = (obj: ListCoreDefinitionsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListCoreDefinitionsRequest =>
-    __isa(o, "ListCoreDefinitionsRequest");
-}
-
-export interface ListCoreDefinitionsResponse {
-  __type?: "ListCoreDefinitionsResponse";
-  /**
-   * Information about a definition.
-   */
-  Definitions?: DefinitionInformation[];
-
-  /**
-   * The token for the next set of results, or ''null'' if there are no additional results.
-   */
-  NextToken?: string;
-}
-
-export namespace ListCoreDefinitionsResponse {
-  export const filterSensitiveLog = (
-    obj: ListCoreDefinitionsResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListCoreDefinitionsResponse =>
-    __isa(o, "ListCoreDefinitionsResponse");
-}
-
 export interface ListDeploymentsRequest {
   __type?: "ListDeploymentsRequest";
   /**
@@ -4377,6 +4377,52 @@ export namespace ListDeploymentsResponse {
   });
   export const isa = (o: any): o is ListDeploymentsResponse =>
     __isa(o, "ListDeploymentsResponse");
+}
+
+export interface ListDeviceDefinitionsRequest {
+  __type?: "ListDeviceDefinitionsRequest";
+  /**
+   * The maximum number of results to be returned per request.
+   */
+  MaxResults?: string;
+
+  /**
+   * The token for the next set of results, or ''null'' if there are no additional results.
+   */
+  NextToken?: string;
+}
+
+export namespace ListDeviceDefinitionsRequest {
+  export const filterSensitiveLog = (
+    obj: ListDeviceDefinitionsRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListDeviceDefinitionsRequest =>
+    __isa(o, "ListDeviceDefinitionsRequest");
+}
+
+export interface ListDeviceDefinitionsResponse {
+  __type?: "ListDeviceDefinitionsResponse";
+  /**
+   * Information about a definition.
+   */
+  Definitions?: DefinitionInformation[];
+
+  /**
+   * The token for the next set of results, or ''null'' if there are no additional results.
+   */
+  NextToken?: string;
+}
+
+export namespace ListDeviceDefinitionsResponse {
+  export const filterSensitiveLog = (
+    obj: ListDeviceDefinitionsResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListDeviceDefinitionsResponse =>
+    __isa(o, "ListDeviceDefinitionsResponse");
 }
 
 export interface ListDeviceDefinitionVersionsRequest {
@@ -4430,8 +4476,8 @@ export namespace ListDeviceDefinitionVersionsResponse {
     __isa(o, "ListDeviceDefinitionVersionsResponse");
 }
 
-export interface ListDeviceDefinitionsRequest {
-  __type?: "ListDeviceDefinitionsRequest";
+export interface ListFunctionDefinitionsRequest {
+  __type?: "ListFunctionDefinitionsRequest";
   /**
    * The maximum number of results to be returned per request.
    */
@@ -4443,18 +4489,18 @@ export interface ListDeviceDefinitionsRequest {
   NextToken?: string;
 }
 
-export namespace ListDeviceDefinitionsRequest {
+export namespace ListFunctionDefinitionsRequest {
   export const filterSensitiveLog = (
-    obj: ListDeviceDefinitionsRequest
+    obj: ListFunctionDefinitionsRequest
   ): any => ({
     ...obj
   });
-  export const isa = (o: any): o is ListDeviceDefinitionsRequest =>
-    __isa(o, "ListDeviceDefinitionsRequest");
+  export const isa = (o: any): o is ListFunctionDefinitionsRequest =>
+    __isa(o, "ListFunctionDefinitionsRequest");
 }
 
-export interface ListDeviceDefinitionsResponse {
-  __type?: "ListDeviceDefinitionsResponse";
+export interface ListFunctionDefinitionsResponse {
+  __type?: "ListFunctionDefinitionsResponse";
   /**
    * Information about a definition.
    */
@@ -4466,14 +4512,14 @@ export interface ListDeviceDefinitionsResponse {
   NextToken?: string;
 }
 
-export namespace ListDeviceDefinitionsResponse {
+export namespace ListFunctionDefinitionsResponse {
   export const filterSensitiveLog = (
-    obj: ListDeviceDefinitionsResponse
+    obj: ListFunctionDefinitionsResponse
   ): any => ({
     ...obj
   });
-  export const isa = (o: any): o is ListDeviceDefinitionsResponse =>
-    __isa(o, "ListDeviceDefinitionsResponse");
+  export const isa = (o: any): o is ListFunctionDefinitionsResponse =>
+    __isa(o, "ListFunctionDefinitionsResponse");
 }
 
 export interface ListFunctionDefinitionVersionsRequest {
@@ -4527,52 +4573,6 @@ export namespace ListFunctionDefinitionVersionsResponse {
     __isa(o, "ListFunctionDefinitionVersionsResponse");
 }
 
-export interface ListFunctionDefinitionsRequest {
-  __type?: "ListFunctionDefinitionsRequest";
-  /**
-   * The maximum number of results to be returned per request.
-   */
-  MaxResults?: string;
-
-  /**
-   * The token for the next set of results, or ''null'' if there are no additional results.
-   */
-  NextToken?: string;
-}
-
-export namespace ListFunctionDefinitionsRequest {
-  export const filterSensitiveLog = (
-    obj: ListFunctionDefinitionsRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListFunctionDefinitionsRequest =>
-    __isa(o, "ListFunctionDefinitionsRequest");
-}
-
-export interface ListFunctionDefinitionsResponse {
-  __type?: "ListFunctionDefinitionsResponse";
-  /**
-   * Information about a definition.
-   */
-  Definitions?: DefinitionInformation[];
-
-  /**
-   * The token for the next set of results, or ''null'' if there are no additional results.
-   */
-  NextToken?: string;
-}
-
-export namespace ListFunctionDefinitionsResponse {
-  export const filterSensitiveLog = (
-    obj: ListFunctionDefinitionsResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListFunctionDefinitionsResponse =>
-    __isa(o, "ListFunctionDefinitionsResponse");
-}
-
 export interface ListGroupCertificateAuthoritiesRequest {
   __type?: "ListGroupCertificateAuthoritiesRequest";
   /**
@@ -4607,6 +4607,48 @@ export namespace ListGroupCertificateAuthoritiesResponse {
   });
   export const isa = (o: any): o is ListGroupCertificateAuthoritiesResponse =>
     __isa(o, "ListGroupCertificateAuthoritiesResponse");
+}
+
+export interface ListGroupsRequest {
+  __type?: "ListGroupsRequest";
+  /**
+   * The maximum number of results to be returned per request.
+   */
+  MaxResults?: string;
+
+  /**
+   * The token for the next set of results, or ''null'' if there are no additional results.
+   */
+  NextToken?: string;
+}
+
+export namespace ListGroupsRequest {
+  export const filterSensitiveLog = (obj: ListGroupsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListGroupsRequest =>
+    __isa(o, "ListGroupsRequest");
+}
+
+export interface ListGroupsResponse {
+  __type?: "ListGroupsResponse";
+  /**
+   * Information about a group.
+   */
+  Groups?: GroupInformation[];
+
+  /**
+   * The token for the next set of results, or ''null'' if there are no additional results.
+   */
+  NextToken?: string;
+}
+
+export namespace ListGroupsResponse {
+  export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListGroupsResponse =>
+    __isa(o, "ListGroupsResponse");
 }
 
 export interface ListGroupVersionsRequest {
@@ -4656,8 +4698,8 @@ export namespace ListGroupVersionsResponse {
     __isa(o, "ListGroupVersionsResponse");
 }
 
-export interface ListGroupsRequest {
-  __type?: "ListGroupsRequest";
+export interface ListLoggerDefinitionsRequest {
+  __type?: "ListLoggerDefinitionsRequest";
   /**
    * The maximum number of results to be returned per request.
    */
@@ -4669,20 +4711,22 @@ export interface ListGroupsRequest {
   NextToken?: string;
 }
 
-export namespace ListGroupsRequest {
-  export const filterSensitiveLog = (obj: ListGroupsRequest): any => ({
+export namespace ListLoggerDefinitionsRequest {
+  export const filterSensitiveLog = (
+    obj: ListLoggerDefinitionsRequest
+  ): any => ({
     ...obj
   });
-  export const isa = (o: any): o is ListGroupsRequest =>
-    __isa(o, "ListGroupsRequest");
+  export const isa = (o: any): o is ListLoggerDefinitionsRequest =>
+    __isa(o, "ListLoggerDefinitionsRequest");
 }
 
-export interface ListGroupsResponse {
-  __type?: "ListGroupsResponse";
+export interface ListLoggerDefinitionsResponse {
+  __type?: "ListLoggerDefinitionsResponse";
   /**
-   * Information about a group.
+   * Information about a definition.
    */
-  Groups?: GroupInformation[];
+  Definitions?: DefinitionInformation[];
 
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -4690,12 +4734,14 @@ export interface ListGroupsResponse {
   NextToken?: string;
 }
 
-export namespace ListGroupsResponse {
-  export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
+export namespace ListLoggerDefinitionsResponse {
+  export const filterSensitiveLog = (
+    obj: ListLoggerDefinitionsResponse
+  ): any => ({
     ...obj
   });
-  export const isa = (o: any): o is ListGroupsResponse =>
-    __isa(o, "ListGroupsResponse");
+  export const isa = (o: any): o is ListLoggerDefinitionsResponse =>
+    __isa(o, "ListLoggerDefinitionsResponse");
 }
 
 export interface ListLoggerDefinitionVersionsRequest {
@@ -4749,8 +4795,8 @@ export namespace ListLoggerDefinitionVersionsResponse {
     __isa(o, "ListLoggerDefinitionVersionsResponse");
 }
 
-export interface ListLoggerDefinitionsRequest {
-  __type?: "ListLoggerDefinitionsRequest";
+export interface ListResourceDefinitionsRequest {
+  __type?: "ListResourceDefinitionsRequest";
   /**
    * The maximum number of results to be returned per request.
    */
@@ -4762,18 +4808,18 @@ export interface ListLoggerDefinitionsRequest {
   NextToken?: string;
 }
 
-export namespace ListLoggerDefinitionsRequest {
+export namespace ListResourceDefinitionsRequest {
   export const filterSensitiveLog = (
-    obj: ListLoggerDefinitionsRequest
+    obj: ListResourceDefinitionsRequest
   ): any => ({
     ...obj
   });
-  export const isa = (o: any): o is ListLoggerDefinitionsRequest =>
-    __isa(o, "ListLoggerDefinitionsRequest");
+  export const isa = (o: any): o is ListResourceDefinitionsRequest =>
+    __isa(o, "ListResourceDefinitionsRequest");
 }
 
-export interface ListLoggerDefinitionsResponse {
-  __type?: "ListLoggerDefinitionsResponse";
+export interface ListResourceDefinitionsResponse {
+  __type?: "ListResourceDefinitionsResponse";
   /**
    * Information about a definition.
    */
@@ -4785,14 +4831,14 @@ export interface ListLoggerDefinitionsResponse {
   NextToken?: string;
 }
 
-export namespace ListLoggerDefinitionsResponse {
+export namespace ListResourceDefinitionsResponse {
   export const filterSensitiveLog = (
-    obj: ListLoggerDefinitionsResponse
+    obj: ListResourceDefinitionsResponse
   ): any => ({
     ...obj
   });
-  export const isa = (o: any): o is ListLoggerDefinitionsResponse =>
-    __isa(o, "ListLoggerDefinitionsResponse");
+  export const isa = (o: any): o is ListResourceDefinitionsResponse =>
+    __isa(o, "ListResourceDefinitionsResponse");
 }
 
 export interface ListResourceDefinitionVersionsRequest {
@@ -4846,8 +4892,8 @@ export namespace ListResourceDefinitionVersionsResponse {
     __isa(o, "ListResourceDefinitionVersionsResponse");
 }
 
-export interface ListResourceDefinitionsRequest {
-  __type?: "ListResourceDefinitionsRequest";
+export interface ListSubscriptionDefinitionsRequest {
+  __type?: "ListSubscriptionDefinitionsRequest";
   /**
    * The maximum number of results to be returned per request.
    */
@@ -4859,18 +4905,18 @@ export interface ListResourceDefinitionsRequest {
   NextToken?: string;
 }
 
-export namespace ListResourceDefinitionsRequest {
+export namespace ListSubscriptionDefinitionsRequest {
   export const filterSensitiveLog = (
-    obj: ListResourceDefinitionsRequest
+    obj: ListSubscriptionDefinitionsRequest
   ): any => ({
     ...obj
   });
-  export const isa = (o: any): o is ListResourceDefinitionsRequest =>
-    __isa(o, "ListResourceDefinitionsRequest");
+  export const isa = (o: any): o is ListSubscriptionDefinitionsRequest =>
+    __isa(o, "ListSubscriptionDefinitionsRequest");
 }
 
-export interface ListResourceDefinitionsResponse {
-  __type?: "ListResourceDefinitionsResponse";
+export interface ListSubscriptionDefinitionsResponse {
+  __type?: "ListSubscriptionDefinitionsResponse";
   /**
    * Information about a definition.
    */
@@ -4882,14 +4928,14 @@ export interface ListResourceDefinitionsResponse {
   NextToken?: string;
 }
 
-export namespace ListResourceDefinitionsResponse {
+export namespace ListSubscriptionDefinitionsResponse {
   export const filterSensitiveLog = (
-    obj: ListResourceDefinitionsResponse
+    obj: ListSubscriptionDefinitionsResponse
   ): any => ({
     ...obj
   });
-  export const isa = (o: any): o is ListResourceDefinitionsResponse =>
-    __isa(o, "ListResourceDefinitionsResponse");
+  export const isa = (o: any): o is ListSubscriptionDefinitionsResponse =>
+    __isa(o, "ListSubscriptionDefinitionsResponse");
 }
 
 export interface ListSubscriptionDefinitionVersionsRequest {
@@ -4943,52 +4989,6 @@ export namespace ListSubscriptionDefinitionVersionsResponse {
     o: any
   ): o is ListSubscriptionDefinitionVersionsResponse =>
     __isa(o, "ListSubscriptionDefinitionVersionsResponse");
-}
-
-export interface ListSubscriptionDefinitionsRequest {
-  __type?: "ListSubscriptionDefinitionsRequest";
-  /**
-   * The maximum number of results to be returned per request.
-   */
-  MaxResults?: string;
-
-  /**
-   * The token for the next set of results, or ''null'' if there are no additional results.
-   */
-  NextToken?: string;
-}
-
-export namespace ListSubscriptionDefinitionsRequest {
-  export const filterSensitiveLog = (
-    obj: ListSubscriptionDefinitionsRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListSubscriptionDefinitionsRequest =>
-    __isa(o, "ListSubscriptionDefinitionsRequest");
-}
-
-export interface ListSubscriptionDefinitionsResponse {
-  __type?: "ListSubscriptionDefinitionsResponse";
-  /**
-   * Information about a definition.
-   */
-  Definitions?: DefinitionInformation[];
-
-  /**
-   * The token for the next set of results, or ''null'' if there are no additional results.
-   */
-  NextToken?: string;
-}
-
-export namespace ListSubscriptionDefinitionsResponse {
-  export const filterSensitiveLog = (
-    obj: ListSubscriptionDefinitionsResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListSubscriptionDefinitionsResponse =>
-    __isa(o, "ListSubscriptionDefinitionsResponse");
 }
 
 export interface ListTagsForResourceRequest {

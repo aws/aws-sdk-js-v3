@@ -8,9 +8,9 @@ import {
   DeleteBackendEnvironmentResult
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteBackendEnvironmentCommand,
-  serializeAws_restJson1_1DeleteBackendEnvironmentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteBackendEnvironmentCommand,
+  serializeAws_restJson1DeleteBackendEnvironmentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DeleteBackendEnvironmentCommand extends $Command<
     input: DeleteBackendEnvironmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteBackendEnvironmentCommand(
+    return serializeAws_restJson1DeleteBackendEnvironmentCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DeleteBackendEnvironmentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBackendEnvironmentCommandOutput> {
-    return deserializeAws_restJson1_1DeleteBackendEnvironmentCommand(
+    return deserializeAws_restJson1DeleteBackendEnvironmentCommand(
       output,
       context
     );

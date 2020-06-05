@@ -1,8 +1,8 @@
 import { PutCodeBindingRequest, PutCodeBindingResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutCodeBindingCommand,
-  serializeAws_restJson1_1PutCodeBindingCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutCodeBindingCommand,
+  serializeAws_restJson1PutCodeBindingCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -68,14 +68,14 @@ export class PutCodeBindingCommand extends $Command<
     input: PutCodeBindingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutCodeBindingCommand(input, context);
+    return serializeAws_restJson1PutCodeBindingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutCodeBindingCommandOutput> {
-    return deserializeAws_restJson1_1PutCodeBindingCommand(output, context);
+    return deserializeAws_restJson1PutCodeBindingCommand(output, context);
   }
 
   // Start section: command_body_extra

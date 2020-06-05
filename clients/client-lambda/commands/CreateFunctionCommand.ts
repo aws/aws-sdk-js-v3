@@ -5,9 +5,9 @@ import {
 } from "../LambdaClient";
 import { CreateFunctionRequest, FunctionConfiguration } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateFunctionCommand,
-  serializeAws_restJson1_1CreateFunctionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateFunctionCommand,
+  serializeAws_restJson1CreateFunctionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class CreateFunctionCommand extends $Command<
     input: CreateFunctionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateFunctionCommand(input, context);
+    return serializeAws_restJson1CreateFunctionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateFunctionCommandOutput> {
-    return deserializeAws_restJson1_1CreateFunctionCommand(output, context);
+    return deserializeAws_restJson1CreateFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

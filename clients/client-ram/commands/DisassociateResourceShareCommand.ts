@@ -8,9 +8,9 @@ import {
   DisassociateResourceShareResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DisassociateResourceShareCommand,
-  serializeAws_restJson1_1DisassociateResourceShareCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DisassociateResourceShareCommand,
+  serializeAws_restJson1DisassociateResourceShareCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DisassociateResourceShareCommand extends $Command<
     input: DisassociateResourceShareCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociateResourceShareCommand(
+    return serializeAws_restJson1DisassociateResourceShareCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DisassociateResourceShareCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateResourceShareCommandOutput> {
-    return deserializeAws_restJson1_1DisassociateResourceShareCommand(
+    return deserializeAws_restJson1DisassociateResourceShareCommand(
       output,
       context
     );

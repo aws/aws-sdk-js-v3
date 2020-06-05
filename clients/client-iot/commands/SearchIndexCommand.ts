@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { SearchIndexRequest, SearchIndexResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1SearchIndexCommand,
-  serializeAws_restJson1_1SearchIndexCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1SearchIndexCommand,
+  serializeAws_restJson1SearchIndexCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class SearchIndexCommand extends $Command<
     input: SearchIndexCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1SearchIndexCommand(input, context);
+    return serializeAws_restJson1SearchIndexCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchIndexCommandOutput> {
-    return deserializeAws_restJson1_1SearchIndexCommand(output, context);
+    return deserializeAws_restJson1SearchIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

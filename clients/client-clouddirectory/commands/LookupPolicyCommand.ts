@@ -5,9 +5,9 @@ import {
 } from "../CloudDirectoryClient";
 import { LookupPolicyRequest, LookupPolicyResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1LookupPolicyCommand,
-  serializeAws_restJson1_1LookupPolicyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1LookupPolicyCommand,
+  serializeAws_restJson1LookupPolicyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class LookupPolicyCommand extends $Command<
     input: LookupPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1LookupPolicyCommand(input, context);
+    return serializeAws_restJson1LookupPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<LookupPolicyCommandOutput> {
-    return deserializeAws_restJson1_1LookupPolicyCommand(output, context);
+    return deserializeAws_restJson1LookupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -8,9 +8,9 @@ import {
   DescribeDashboardPermissionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeDashboardPermissionsCommand,
-  serializeAws_restJson1_1DescribeDashboardPermissionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeDashboardPermissionsCommand,
+  serializeAws_restJson1DescribeDashboardPermissionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeDashboardPermissionsCommand extends $Command<
     input: DescribeDashboardPermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeDashboardPermissionsCommand(
+    return serializeAws_restJson1DescribeDashboardPermissionsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeDashboardPermissionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDashboardPermissionsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeDashboardPermissionsCommand(
+    return deserializeAws_restJson1DescribeDashboardPermissionsCommand(
       output,
       context
     );

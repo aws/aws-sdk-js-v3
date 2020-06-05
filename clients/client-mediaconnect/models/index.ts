@@ -640,6 +640,78 @@ export enum KeyType {
   static_key = "static-key"
 }
 
+/**
+ * An entitlement that has been granted to you from other AWS accounts.
+ */
+export interface ListedEntitlement {
+  __type?: "ListedEntitlement";
+  /**
+   * Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
+   */
+  DataTransferSubscriberFeePercent?: number;
+
+  /**
+   * The ARN of the entitlement.
+   */
+  EntitlementArn: string | undefined;
+
+  /**
+   * The name of the entitlement.
+   */
+  EntitlementName: string | undefined;
+}
+
+export namespace ListedEntitlement {
+  export const filterSensitiveLog = (obj: ListedEntitlement): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListedEntitlement =>
+    __isa(o, "ListedEntitlement");
+}
+
+/**
+ * Provides a summary of a flow, including its ARN, Availability Zone, and source type.
+ */
+export interface ListedFlow {
+  __type?: "ListedFlow";
+  /**
+   * The Availability Zone that the flow was created in.
+   */
+  AvailabilityZone: string | undefined;
+
+  /**
+   * A description of the flow.
+   */
+  Description: string | undefined;
+
+  /**
+   * The ARN of the flow.
+   */
+  FlowArn: string | undefined;
+
+  /**
+   * The name of the flow.
+   */
+  Name: string | undefined;
+
+  /**
+   * The type of source. This value is either owned (originated somewhere other than an AWS Elemental MediaConnect flow owned by another AWS account) or entitled (originated at an AWS Elemental MediaConnect flow owned by another AWS account).
+   */
+  SourceType: SourceType | string | undefined;
+
+  /**
+   * The current status of the flow.
+   */
+  Status: Status | string | undefined;
+}
+
+export namespace ListedFlow {
+  export const filterSensitiveLog = (obj: ListedFlow): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListedFlow => __isa(o, "ListedFlow");
+}
+
 export interface ListEntitlementsRequest {
   __type?: "ListEntitlementsRequest";
   /**
@@ -756,78 +828,6 @@ export namespace ListTagsForResourceResponse {
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
-}
-
-/**
- * An entitlement that has been granted to you from other AWS accounts.
- */
-export interface ListedEntitlement {
-  __type?: "ListedEntitlement";
-  /**
-   * Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
-   */
-  DataTransferSubscriberFeePercent?: number;
-
-  /**
-   * The ARN of the entitlement.
-   */
-  EntitlementArn: string | undefined;
-
-  /**
-   * The name of the entitlement.
-   */
-  EntitlementName: string | undefined;
-}
-
-export namespace ListedEntitlement {
-  export const filterSensitiveLog = (obj: ListedEntitlement): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListedEntitlement =>
-    __isa(o, "ListedEntitlement");
-}
-
-/**
- * Provides a summary of a flow, including its ARN, Availability Zone, and source type.
- */
-export interface ListedFlow {
-  __type?: "ListedFlow";
-  /**
-   * The Availability Zone that the flow was created in.
-   */
-  AvailabilityZone: string | undefined;
-
-  /**
-   * A description of the flow.
-   */
-  Description: string | undefined;
-
-  /**
-   * The ARN of the flow.
-   */
-  FlowArn: string | undefined;
-
-  /**
-   * The name of the flow.
-   */
-  Name: string | undefined;
-
-  /**
-   * The type of source. This value is either owned (originated somewhere other than an AWS Elemental MediaConnect flow owned by another AWS account) or entitled (originated at an AWS Elemental MediaConnect flow owned by another AWS account).
-   */
-  SourceType: SourceType | string | undefined;
-
-  /**
-   * The current status of the flow.
-   */
-  Status: Status | string | undefined;
-}
-
-export namespace ListedFlow {
-  export const filterSensitiveLog = (obj: ListedFlow): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListedFlow => __isa(o, "ListedFlow");
 }
 
 /**

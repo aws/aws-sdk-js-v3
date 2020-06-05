@@ -5,9 +5,9 @@ import {
 } from "../BackupClient";
 import { StartCopyJobInput, StartCopyJobOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1StartCopyJobCommand,
-  serializeAws_restJson1_1StartCopyJobCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1StartCopyJobCommand,
+  serializeAws_restJson1StartCopyJobCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class StartCopyJobCommand extends $Command<
     input: StartCopyJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StartCopyJobCommand(input, context);
+    return serializeAws_restJson1StartCopyJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartCopyJobCommandOutput> {
-    return deserializeAws_restJson1_1StartCopyJobCommand(output, context);
+    return deserializeAws_restJson1StartCopyJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -4,5 +4,5 @@ export const ClientSharedValues = {
   apiVersion: "2019-11-01",
   disableHostPrefix: false,
   regionInfoProvider: defaultRegionInfoProvider,
-  signingName: "access-analyzer"
+  signingName: "replace-for-service-name"
 };

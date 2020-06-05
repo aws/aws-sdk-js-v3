@@ -8,9 +8,9 @@ import {
   AssociateCertificateResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1AssociateCertificateCommand,
-  serializeAws_restJson1_1AssociateCertificateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AssociateCertificateCommand,
+  serializeAws_restJson1AssociateCertificateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class AssociateCertificateCommand extends $Command<
     input: AssociateCertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AssociateCertificateCommand(input, context);
+    return serializeAws_restJson1AssociateCertificateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateCertificateCommandOutput> {
-    return deserializeAws_restJson1_1AssociateCertificateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1AssociateCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

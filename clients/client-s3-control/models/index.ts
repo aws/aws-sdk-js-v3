@@ -1614,11 +1614,6 @@ export enum S3Permission {
   WRITE_ACP = "WRITE_ACP"
 }
 
-export enum S3SSEAlgorithm {
-  AES256 = "AES256",
-  KMS = "KMS"
-}
-
 /**
  * <p>Contains the configuration parameters for a Set Object ACL operation. Amazon S3 batch operations passes each value through to the underlying PUT Object acl API.
  *          For more information about the parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTacl.html">PUT Object acl</a>.</p>
@@ -1659,6 +1654,11 @@ export namespace S3SetObjectTaggingOperation {
   });
   export const isa = (o: any): o is S3SetObjectTaggingOperation =>
     __isa(o, "S3SetObjectTaggingOperation");
+}
+
+export enum S3SSEAlgorithm {
+  AES256 = "AES256",
+  KMS = "KMS"
 }
 
 export enum S3StorageClass {

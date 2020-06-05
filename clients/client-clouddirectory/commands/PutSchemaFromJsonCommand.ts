@@ -8,9 +8,9 @@ import {
   PutSchemaFromJsonResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutSchemaFromJsonCommand,
-  serializeAws_restJson1_1PutSchemaFromJsonCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutSchemaFromJsonCommand,
+  serializeAws_restJson1PutSchemaFromJsonCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class PutSchemaFromJsonCommand extends $Command<
     input: PutSchemaFromJsonCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutSchemaFromJsonCommand(input, context);
+    return serializeAws_restJson1PutSchemaFromJsonCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutSchemaFromJsonCommandOutput> {
-    return deserializeAws_restJson1_1PutSchemaFromJsonCommand(output, context);
+    return deserializeAws_restJson1PutSchemaFromJsonCommand(output, context);
   }
 
   // Start section: command_body_extra

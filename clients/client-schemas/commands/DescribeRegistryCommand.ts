@@ -3,9 +3,9 @@ import {
   DescribeRegistryResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeRegistryCommand,
-  serializeAws_restJson1_1DescribeRegistryCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeRegistryCommand,
+  serializeAws_restJson1DescribeRegistryCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -71,14 +71,14 @@ export class DescribeRegistryCommand extends $Command<
     input: DescribeRegistryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeRegistryCommand(input, context);
+    return serializeAws_restJson1DescribeRegistryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRegistryCommandOutput> {
-    return deserializeAws_restJson1_1DescribeRegistryCommand(output, context);
+    return deserializeAws_restJson1DescribeRegistryCommand(output, context);
   }
 
   // Start section: command_body_extra

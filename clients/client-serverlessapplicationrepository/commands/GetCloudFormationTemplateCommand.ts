@@ -8,9 +8,9 @@ import {
   GetCloudFormationTemplateResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetCloudFormationTemplateCommand,
-  serializeAws_restJson1_1GetCloudFormationTemplateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetCloudFormationTemplateCommand,
+  serializeAws_restJson1GetCloudFormationTemplateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetCloudFormationTemplateCommand extends $Command<
     input: GetCloudFormationTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetCloudFormationTemplateCommand(
+    return serializeAws_restJson1GetCloudFormationTemplateCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetCloudFormationTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCloudFormationTemplateCommandOutput> {
-    return deserializeAws_restJson1_1GetCloudFormationTemplateCommand(
+    return deserializeAws_restJson1GetCloudFormationTemplateCommand(
       output,
       context
     );

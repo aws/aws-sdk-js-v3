@@ -5,9 +5,9 @@ import {
 } from "../AppMeshClient";
 import { DeleteRouteInput, DeleteRouteOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteRouteCommand,
-  serializeAws_restJson1_1DeleteRouteCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteRouteCommand,
+  serializeAws_restJson1DeleteRouteCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteRouteCommand extends $Command<
     input: DeleteRouteCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteRouteCommand(input, context);
+    return serializeAws_restJson1DeleteRouteCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRouteCommandOutput> {
-    return deserializeAws_restJson1_1DeleteRouteCommand(output, context);
+    return deserializeAws_restJson1DeleteRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

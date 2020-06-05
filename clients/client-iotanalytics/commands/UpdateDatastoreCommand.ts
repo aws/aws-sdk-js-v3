@@ -5,9 +5,9 @@ import {
 } from "../IoTAnalyticsClient";
 import { UpdateDatastoreRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateDatastoreCommand,
-  serializeAws_restJson1_1UpdateDatastoreCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateDatastoreCommand,
+  serializeAws_restJson1UpdateDatastoreCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class UpdateDatastoreCommand extends $Command<
     input: UpdateDatastoreCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDatastoreCommand(input, context);
+    return serializeAws_restJson1UpdateDatastoreCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDatastoreCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDatastoreCommand(output, context);
+    return deserializeAws_restJson1UpdateDatastoreCommand(output, context);
   }
 
   // Start section: command_body_extra

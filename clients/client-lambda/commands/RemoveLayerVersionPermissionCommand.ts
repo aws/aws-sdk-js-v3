@@ -5,9 +5,9 @@ import {
 } from "../LambdaClient";
 import { RemoveLayerVersionPermissionRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1RemoveLayerVersionPermissionCommand,
-  serializeAws_restJson1_1RemoveLayerVersionPermissionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1RemoveLayerVersionPermissionCommand,
+  serializeAws_restJson1RemoveLayerVersionPermissionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class RemoveLayerVersionPermissionCommand extends $Command<
     input: RemoveLayerVersionPermissionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RemoveLayerVersionPermissionCommand(
+    return serializeAws_restJson1RemoveLayerVersionPermissionCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class RemoveLayerVersionPermissionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveLayerVersionPermissionCommandOutput> {
-    return deserializeAws_restJson1_1RemoveLayerVersionPermissionCommand(
+    return deserializeAws_restJson1RemoveLayerVersionPermissionCommand(
       output,
       context
     );

@@ -8,9 +8,9 @@ import {
   ListAttachedIndicesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListAttachedIndicesCommand,
-  serializeAws_restJson1_1ListAttachedIndicesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListAttachedIndicesCommand,
+  serializeAws_restJson1ListAttachedIndicesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListAttachedIndicesCommand extends $Command<
     input: ListAttachedIndicesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListAttachedIndicesCommand(input, context);
+    return serializeAws_restJson1ListAttachedIndicesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAttachedIndicesCommandOutput> {
-    return deserializeAws_restJson1_1ListAttachedIndicesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListAttachedIndicesCommand(output, context);
   }
 
   // Start section: command_body_extra

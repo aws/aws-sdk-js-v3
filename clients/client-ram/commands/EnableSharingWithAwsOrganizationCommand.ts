@@ -8,9 +8,9 @@ import {
   EnableSharingWithAwsOrganizationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1EnableSharingWithAwsOrganizationCommand,
-  serializeAws_restJson1_1EnableSharingWithAwsOrganizationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1EnableSharingWithAwsOrganizationCommand,
+  serializeAws_restJson1EnableSharingWithAwsOrganizationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class EnableSharingWithAwsOrganizationCommand extends $Command<
     input: EnableSharingWithAwsOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1EnableSharingWithAwsOrganizationCommand(
+    return serializeAws_restJson1EnableSharingWithAwsOrganizationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class EnableSharingWithAwsOrganizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableSharingWithAwsOrganizationCommandOutput> {
-    return deserializeAws_restJson1_1EnableSharingWithAwsOrganizationCommand(
+    return deserializeAws_restJson1EnableSharingWithAwsOrganizationCommand(
       output,
       context
     );

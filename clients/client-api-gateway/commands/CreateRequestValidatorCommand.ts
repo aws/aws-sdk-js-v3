@@ -8,9 +8,9 @@ import {
   RequestValidator
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateRequestValidatorCommand,
-  serializeAws_restJson1_1CreateRequestValidatorCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateRequestValidatorCommand,
+  serializeAws_restJson1CreateRequestValidatorCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class CreateRequestValidatorCommand extends $Command<
     input: CreateRequestValidatorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateRequestValidatorCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1CreateRequestValidatorCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateRequestValidatorCommandOutput> {
-    return deserializeAws_restJson1_1CreateRequestValidatorCommand(
+    return deserializeAws_restJson1CreateRequestValidatorCommand(
       output,
       context
     );

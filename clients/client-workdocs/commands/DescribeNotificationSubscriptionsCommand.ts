@@ -8,9 +8,9 @@ import {
   DescribeNotificationSubscriptionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeNotificationSubscriptionsCommand,
-  serializeAws_restJson1_1DescribeNotificationSubscriptionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeNotificationSubscriptionsCommand,
+  serializeAws_restJson1DescribeNotificationSubscriptionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeNotificationSubscriptionsCommand extends $Command<
     input: DescribeNotificationSubscriptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeNotificationSubscriptionsCommand(
+    return serializeAws_restJson1DescribeNotificationSubscriptionsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeNotificationSubscriptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNotificationSubscriptionsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeNotificationSubscriptionsCommand(
+    return deserializeAws_restJson1DescribeNotificationSubscriptionsCommand(
       output,
       context
     );

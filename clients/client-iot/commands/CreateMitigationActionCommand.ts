@@ -8,9 +8,9 @@ import {
   CreateMitigationActionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateMitigationActionCommand,
-  serializeAws_restJson1_1CreateMitigationActionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateMitigationActionCommand,
+  serializeAws_restJson1CreateMitigationActionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class CreateMitigationActionCommand extends $Command<
     input: CreateMitigationActionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateMitigationActionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1CreateMitigationActionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMitigationActionCommandOutput> {
-    return deserializeAws_restJson1_1CreateMitigationActionCommand(
+    return deserializeAws_restJson1CreateMitigationActionCommand(
       output,
       context
     );

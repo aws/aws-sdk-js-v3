@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { GetVpcLinksRequest, VpcLinks } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetVpcLinksCommand,
-  serializeAws_restJson1_1GetVpcLinksCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetVpcLinksCommand,
+  serializeAws_restJson1GetVpcLinksCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetVpcLinksCommand extends $Command<
     input: GetVpcLinksCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetVpcLinksCommand(input, context);
+    return serializeAws_restJson1GetVpcLinksCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVpcLinksCommandOutput> {
-    return deserializeAws_restJson1_1GetVpcLinksCommand(output, context);
+    return deserializeAws_restJson1GetVpcLinksCommand(output, context);
   }
 
   // Start section: command_body_extra

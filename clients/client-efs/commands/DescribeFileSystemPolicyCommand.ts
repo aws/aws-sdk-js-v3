@@ -8,9 +8,9 @@ import {
   FileSystemPolicyDescription
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeFileSystemPolicyCommand,
-  serializeAws_restJson1_1DescribeFileSystemPolicyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeFileSystemPolicyCommand,
+  serializeAws_restJson1DescribeFileSystemPolicyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeFileSystemPolicyCommand extends $Command<
     input: DescribeFileSystemPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeFileSystemPolicyCommand(
+    return serializeAws_restJson1DescribeFileSystemPolicyCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeFileSystemPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFileSystemPolicyCommandOutput> {
-    return deserializeAws_restJson1_1DescribeFileSystemPolicyCommand(
+    return deserializeAws_restJson1DescribeFileSystemPolicyCommand(
       output,
       context
     );

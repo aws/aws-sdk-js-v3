@@ -8,9 +8,9 @@ import {
   CreateImagePipelineResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateImagePipelineCommand,
-  serializeAws_restJson1_1CreateImagePipelineCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateImagePipelineCommand,
+  serializeAws_restJson1CreateImagePipelineCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class CreateImagePipelineCommand extends $Command<
     input: CreateImagePipelineCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateImagePipelineCommand(input, context);
+    return serializeAws_restJson1CreateImagePipelineCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateImagePipelineCommandOutput> {
-    return deserializeAws_restJson1_1CreateImagePipelineCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateImagePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

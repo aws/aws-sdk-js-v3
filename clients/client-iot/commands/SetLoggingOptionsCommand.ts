@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { SetLoggingOptionsRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1SetLoggingOptionsCommand,
-  serializeAws_restJson1_1SetLoggingOptionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1SetLoggingOptionsCommand,
+  serializeAws_restJson1SetLoggingOptionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class SetLoggingOptionsCommand extends $Command<
     input: SetLoggingOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1SetLoggingOptionsCommand(input, context);
+    return serializeAws_restJson1SetLoggingOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetLoggingOptionsCommandOutput> {
-    return deserializeAws_restJson1_1SetLoggingOptionsCommand(output, context);
+    return deserializeAws_restJson1SetLoggingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -8,9 +8,9 @@ import {
   ListContactFlowsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListContactFlowsCommand,
-  serializeAws_restJson1_1ListContactFlowsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListContactFlowsCommand,
+  serializeAws_restJson1ListContactFlowsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ListContactFlowsCommand extends $Command<
     input: ListContactFlowsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListContactFlowsCommand(input, context);
+    return serializeAws_restJson1ListContactFlowsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListContactFlowsCommandOutput> {
-    return deserializeAws_restJson1_1ListContactFlowsCommand(output, context);
+    return deserializeAws_restJson1ListContactFlowsCommand(output, context);
   }
 
   // Start section: command_body_extra

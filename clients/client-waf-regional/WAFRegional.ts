@@ -442,111 +442,6 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   * <p>Removes a web ACL from the specified resource, either an application load balancer or Amazon API Gateway stage.</p>
-   */
-  public disassociateWebACL(
-    args: DisassociateWebACLCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisassociateWebACLCommandOutput>;
-  public disassociateWebACL(
-    args: DisassociateWebACLCommandInput,
-    cb: (err: any, data?: DisassociateWebACLCommandOutput) => void
-  ): void;
-  public disassociateWebACL(
-    args: DisassociateWebACLCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisassociateWebACLCommandOutput) => void
-  ): void;
-  public disassociateWebACL(
-    args: DisassociateWebACLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateWebACLCommandOutput) => void),
-    cb?: (err: any, data?: DisassociateWebACLCommandOutput) => void
-  ): Promise<DisassociateWebACLCommandOutput> | void {
-    const command = new DisassociateWebACLCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns the web ACL for the specified resource, either an application load balancer or Amazon API Gateway stage.</p>
-   */
-  public getWebACLForResource(
-    args: GetWebACLForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetWebACLForResourceCommandOutput>;
-  public getWebACLForResource(
-    args: GetWebACLForResourceCommandInput,
-    cb: (err: any, data?: GetWebACLForResourceCommandOutput) => void
-  ): void;
-  public getWebACLForResource(
-    args: GetWebACLForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetWebACLForResourceCommandOutput) => void
-  ): void;
-  public getWebACLForResource(
-    args: GetWebACLForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetWebACLForResourceCommandOutput) => void),
-    cb?: (err: any, data?: GetWebACLForResourceCommandOutput) => void
-  ): Promise<GetWebACLForResourceCommandOutput> | void {
-    const command = new GetWebACLForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns an array of resources associated with the specified web ACL.</p>
-   */
-  public listResourcesForWebACL(
-    args: ListResourcesForWebACLCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListResourcesForWebACLCommandOutput>;
-  public listResourcesForWebACL(
-    args: ListResourcesForWebACLCommandInput,
-    cb: (err: any, data?: ListResourcesForWebACLCommandOutput) => void
-  ): void;
-  public listResourcesForWebACL(
-    args: ListResourcesForWebACLCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListResourcesForWebACLCommandOutput) => void
-  ): void;
-  public listResourcesForWebACL(
-    args: ListResourcesForWebACLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourcesForWebACLCommandOutput) => void),
-    cb?: (err: any, data?: ListResourcesForWebACLCommandOutput) => void
-  ): Promise<ListResourcesForWebACLCommandOutput> | void {
-    const command = new ListResourcesForWebACLCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Creates a <code>ByteMatchSet</code>. You then use <a>UpdateByteMatchSet</a> to identify the part of a
    * 			web request that you want AWS WAF to inspect, such as the values of the <code>User-Agent</code> header or the query string.
    * 			For example, you can create a <code>ByteMatchSet</code> that matches any requests with <code>User-Agent</code> headers
@@ -1977,6 +1872,41 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
+   * <p>Removes a web ACL from the specified resource, either an application load balancer or Amazon API Gateway stage.</p>
+   */
+  public disassociateWebACL(
+    args: DisassociateWebACLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateWebACLCommandOutput>;
+  public disassociateWebACL(
+    args: DisassociateWebACLCommandInput,
+    cb: (err: any, data?: DisassociateWebACLCommandOutput) => void
+  ): void;
+  public disassociateWebACL(
+    args: DisassociateWebACLCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateWebACLCommandOutput) => void
+  ): void;
+  public disassociateWebACL(
+    args: DisassociateWebACLCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisassociateWebACLCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateWebACLCommandOutput) => void
+  ): Promise<DisassociateWebACLCommandOutput> | void {
+    const command = new DisassociateWebACLCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the <a>ByteMatchSet</a> specified by <code>ByteMatchSetId</code>.</p>
    */
   public getByteMatchSet(
@@ -2603,6 +2533,41 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
+   * <p>Returns the web ACL for the specified resource, either an application load balancer or Amazon API Gateway stage.</p>
+   */
+  public getWebACLForResource(
+    args: GetWebACLForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWebACLForResourceCommandOutput>;
+  public getWebACLForResource(
+    args: GetWebACLForResourceCommandInput,
+    cb: (err: any, data?: GetWebACLForResourceCommandOutput) => void
+  ): void;
+  public getWebACLForResource(
+    args: GetWebACLForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWebACLForResourceCommandOutput) => void
+  ): void;
+  public getWebACLForResource(
+    args: GetWebACLForResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetWebACLForResourceCommandOutput) => void),
+    cb?: (err: any, data?: GetWebACLForResourceCommandOutput) => void
+  ): Promise<GetWebACLForResourceCommandOutput> | void {
+    const command = new GetWebACLForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the <a>XssMatchSet</a> that is specified by <code>XssMatchSetId</code>.</p>
    */
   public getXssMatchSet(
@@ -2906,6 +2871,41 @@ export class WAFRegional extends WAFRegionalClient {
     cb?: (err: any, data?: ListRegexPatternSetsCommandOutput) => void
   ): Promise<ListRegexPatternSetsCommandOutput> | void {
     const command = new ListRegexPatternSetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns an array of resources associated with the specified web ACL.</p>
+   */
+  public listResourcesForWebACL(
+    args: ListResourcesForWebACLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourcesForWebACLCommandOutput>;
+  public listResourcesForWebACL(
+    args: ListResourcesForWebACLCommandInput,
+    cb: (err: any, data?: ListResourcesForWebACLCommandOutput) => void
+  ): void;
+  public listResourcesForWebACL(
+    args: ListResourcesForWebACLCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourcesForWebACLCommandOutput) => void
+  ): void;
+  public listResourcesForWebACL(
+    args: ListResourcesForWebACLCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListResourcesForWebACLCommandOutput) => void),
+    cb?: (err: any, data?: ListResourcesForWebACLCommandOutput) => void
+  ): Promise<ListResourcesForWebACLCommandOutput> | void {
+    const command = new ListResourcesForWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

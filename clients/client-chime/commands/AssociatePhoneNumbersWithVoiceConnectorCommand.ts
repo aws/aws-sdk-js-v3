@@ -8,9 +8,9 @@ import {
   AssociatePhoneNumbersWithVoiceConnectorResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnectorCommand,
-  serializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnectorCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand,
+  serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -76,7 +76,7 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
     input: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnectorCommand(
+    return serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand(
       input,
       context
     );
@@ -86,7 +86,7 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociatePhoneNumbersWithVoiceConnectorCommandOutput> {
-    return deserializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnectorCommand(
+    return deserializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand(
       output,
       context
     );

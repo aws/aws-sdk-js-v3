@@ -451,21 +451,6 @@ export const serializeAws_json1_1ListConfigurationHistoryCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListLogPatternSetsCommand = async (
-  input: ListLogPatternSetsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "EC2WindowsBarleyService.ListLogPatternSets"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListLogPatternSetsRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1ListLogPatternsCommand = async (
   input: ListLogPatternsCommandInput,
   context: __SerdeContext
@@ -477,6 +462,21 @@ export const serializeAws_json1_1ListLogPatternsCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListLogPatternsRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListLogPatternSetsCommand = async (
+  input: ListLogPatternSetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "EC2WindowsBarleyService.ListLogPatternSets"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1ListLogPatternSetsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -632,7 +632,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -643,7 +643,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.ec2windowsbarley#ResourceInUseException":
+    case "com.amazonaws.applicationinsights#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -654,7 +654,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -665,7 +665,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
       };
       break;
     case "TagsAlreadyExistException":
-    case "com.amazonaws.ec2windowsbarley#TagsAlreadyExistException":
+    case "com.amazonaws.applicationinsights#TagsAlreadyExistException":
       response = {
         ...(await deserializeAws_json1_1TagsAlreadyExistExceptionResponse(
           parsedOutput,
@@ -676,7 +676,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -736,7 +736,7 @@ const deserializeAws_json1_1CreateComponentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -747,7 +747,7 @@ const deserializeAws_json1_1CreateComponentCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.ec2windowsbarley#ResourceInUseException":
+    case "com.amazonaws.applicationinsights#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -758,7 +758,7 @@ const deserializeAws_json1_1CreateComponentCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -769,7 +769,7 @@ const deserializeAws_json1_1CreateComponentCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -829,7 +829,7 @@ const deserializeAws_json1_1CreateLogPatternCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -840,7 +840,7 @@ const deserializeAws_json1_1CreateLogPatternCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.ec2windowsbarley#ResourceInUseException":
+    case "com.amazonaws.applicationinsights#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -851,7 +851,7 @@ const deserializeAws_json1_1CreateLogPatternCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -862,7 +862,7 @@ const deserializeAws_json1_1CreateLogPatternCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -922,7 +922,7 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
-    case "com.amazonaws.ec2windowsbarley#BadRequestException":
+    case "com.amazonaws.applicationinsights#BadRequestException":
       response = {
         ...(await deserializeAws_json1_1BadRequestExceptionResponse(
           parsedOutput,
@@ -933,7 +933,7 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
       };
       break;
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -944,7 +944,7 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -955,7 +955,7 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1015,7 +1015,7 @@ const deserializeAws_json1_1DeleteComponentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1026,7 +1026,7 @@ const deserializeAws_json1_1DeleteComponentCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1037,7 +1037,7 @@ const deserializeAws_json1_1DeleteComponentCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1097,7 +1097,7 @@ const deserializeAws_json1_1DeleteLogPatternCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
-    case "com.amazonaws.ec2windowsbarley#BadRequestException":
+    case "com.amazonaws.applicationinsights#BadRequestException":
       response = {
         ...(await deserializeAws_json1_1BadRequestExceptionResponse(
           parsedOutput,
@@ -1108,7 +1108,7 @@ const deserializeAws_json1_1DeleteLogPatternCommandError = async (
       };
       break;
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1119,7 +1119,7 @@ const deserializeAws_json1_1DeleteLogPatternCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1130,7 +1130,7 @@ const deserializeAws_json1_1DeleteLogPatternCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1193,7 +1193,7 @@ const deserializeAws_json1_1DescribeApplicationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1204,7 +1204,7 @@ const deserializeAws_json1_1DescribeApplicationCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1215,7 +1215,7 @@ const deserializeAws_json1_1DescribeApplicationCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1275,7 +1275,7 @@ const deserializeAws_json1_1DescribeComponentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1286,7 +1286,7 @@ const deserializeAws_json1_1DescribeComponentCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1297,7 +1297,7 @@ const deserializeAws_json1_1DescribeComponentCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1363,7 +1363,7 @@ const deserializeAws_json1_1DescribeComponentConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1374,7 +1374,7 @@ const deserializeAws_json1_1DescribeComponentConfigurationCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1385,7 +1385,7 @@ const deserializeAws_json1_1DescribeComponentConfigurationCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1451,7 +1451,7 @@ const deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommandE
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1462,7 +1462,7 @@ const deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommandE
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1473,7 +1473,7 @@ const deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommandE
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1536,7 +1536,7 @@ const deserializeAws_json1_1DescribeLogPatternCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1547,7 +1547,7 @@ const deserializeAws_json1_1DescribeLogPatternCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1558,7 +1558,7 @@ const deserializeAws_json1_1DescribeLogPatternCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1621,7 +1621,7 @@ const deserializeAws_json1_1DescribeObservationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1632,7 +1632,7 @@ const deserializeAws_json1_1DescribeObservationCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1643,7 +1643,7 @@ const deserializeAws_json1_1DescribeObservationCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1703,7 +1703,7 @@ const deserializeAws_json1_1DescribeProblemCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1714,7 +1714,7 @@ const deserializeAws_json1_1DescribeProblemCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1725,7 +1725,7 @@ const deserializeAws_json1_1DescribeProblemCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1791,7 +1791,7 @@ const deserializeAws_json1_1DescribeProblemObservationsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1802,7 +1802,7 @@ const deserializeAws_json1_1DescribeProblemObservationsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1813,7 +1813,7 @@ const deserializeAws_json1_1DescribeProblemObservationsCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1873,7 +1873,7 @@ const deserializeAws_json1_1ListApplicationsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1884,7 +1884,7 @@ const deserializeAws_json1_1ListApplicationsCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1944,7 +1944,7 @@ const deserializeAws_json1_1ListComponentsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1955,7 +1955,7 @@ const deserializeAws_json1_1ListComponentsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1966,7 +1966,7 @@ const deserializeAws_json1_1ListComponentsCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2032,7 +2032,7 @@ const deserializeAws_json1_1ListConfigurationHistoryCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2043,7 +2043,7 @@ const deserializeAws_json1_1ListConfigurationHistoryCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2054,7 +2054,89 @@ const deserializeAws_json1_1ListConfigurationHistoryCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListLogPatternsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLogPatternsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListLogPatternsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListLogPatternsResponse(data, context);
+  const response: ListLogPatternsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListLogPatternsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListLogPatternsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLogPatternsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2117,7 +2199,7 @@ const deserializeAws_json1_1ListLogPatternSetsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2128,7 +2210,7 @@ const deserializeAws_json1_1ListLogPatternSetsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2139,89 +2221,7 @@ const deserializeAws_json1_1ListLogPatternSetsCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1ListLogPatternsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLogPatternsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListLogPatternsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1ListLogPatternsResponse(data, context);
-  const response: ListLogPatternsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "ListLogPatternsResponse",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1ListLogPatternsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLogPatternsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2281,7 +2281,7 @@ const deserializeAws_json1_1ListProblemsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2292,7 +2292,7 @@ const deserializeAws_json1_1ListProblemsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2303,7 +2303,7 @@ const deserializeAws_json1_1ListProblemsCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2366,7 +2366,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2377,7 +2377,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2437,7 +2437,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2448,7 +2448,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "TooManyTagsException":
-    case "com.amazonaws.ec2windowsbarley#TooManyTagsException":
+    case "com.amazonaws.applicationinsights#TooManyTagsException":
       response = {
         ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
           parsedOutput,
@@ -2459,7 +2459,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2519,7 +2519,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2530,7 +2530,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2590,7 +2590,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2601,7 +2601,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2612,7 +2612,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2672,7 +2672,7 @@ const deserializeAws_json1_1UpdateComponentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2683,7 +2683,7 @@ const deserializeAws_json1_1UpdateComponentCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.ec2windowsbarley#ResourceInUseException":
+    case "com.amazonaws.applicationinsights#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2694,7 +2694,7 @@ const deserializeAws_json1_1UpdateComponentCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2705,7 +2705,7 @@ const deserializeAws_json1_1UpdateComponentCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2771,7 +2771,7 @@ const deserializeAws_json1_1UpdateComponentConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2782,7 +2782,7 @@ const deserializeAws_json1_1UpdateComponentConfigurationCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2793,7 +2793,7 @@ const deserializeAws_json1_1UpdateComponentConfigurationCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2853,7 +2853,7 @@ const deserializeAws_json1_1UpdateLogPatternCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -2864,7 +2864,7 @@ const deserializeAws_json1_1UpdateLogPatternCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.ec2windowsbarley#ResourceInUseException":
+    case "com.amazonaws.applicationinsights#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2875,7 +2875,7 @@ const deserializeAws_json1_1UpdateLogPatternCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2886,7 +2886,7 @@ const deserializeAws_json1_1UpdateLogPatternCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.ec2windowsbarley#ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,

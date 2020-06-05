@@ -5,9 +5,9 @@ import {
 } from "../EFSClient";
 import { DeleteFileSystemPolicyRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteFileSystemPolicyCommand,
-  serializeAws_restJson1_1DeleteFileSystemPolicyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteFileSystemPolicyCommand,
+  serializeAws_restJson1DeleteFileSystemPolicyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,17 +70,14 @@ export class DeleteFileSystemPolicyCommand extends $Command<
     input: DeleteFileSystemPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteFileSystemPolicyCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DeleteFileSystemPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFileSystemPolicyCommandOutput> {
-    return deserializeAws_restJson1_1DeleteFileSystemPolicyCommand(
+    return deserializeAws_restJson1DeleteFileSystemPolicyCommand(
       output,
       context
     );

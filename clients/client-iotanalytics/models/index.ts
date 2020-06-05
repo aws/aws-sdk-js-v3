@@ -6,152 +6,6 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- * <p>There was an internal failure.</p>
- */
-export interface InternalFailureException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InternalFailureException";
-  $fault: "server";
-  message?: string;
-}
-
-export namespace InternalFailureException {
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InternalFailureException =>
-    __isa(o, "InternalFailureException");
-}
-
-/**
- * <p>The request was not valid.</p>
- */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidRequestException {
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
-}
-
-/**
- * <p>The command caused an internal limit to be exceeded.</p>
- */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
-}
-
-/**
- * <p>A resource with the same name already exists.</p>
- */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
-  message?: string;
-  /**
-   * <p>The ARN of the resource.</p>
-   */
-  resourceArn?: string;
-
-  /**
-   * <p>The ID of the resource.</p>
-   */
-  resourceId?: string;
-}
-
-export namespace ResourceAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: ResourceAlreadyExistsException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceAlreadyExistsException =>
-    __isa(o, "ResourceAlreadyExistsException");
-}
-
-/**
- * <p>A resource with the specified name could not be found.</p>
- */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
-}
-
-/**
- * <p>The service is temporarily unavailable.</p>
- */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (
-    obj: ServiceUnavailableException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ServiceUnavailableException =>
-    __isa(o, "ServiceUnavailableException");
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ThrottlingException {
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
-}
-
-/**
  * <p>An activity that adds other attributes based on existing attributes in the message.</p>
  */
 export interface AddAttributesActivity {
@@ -184,6 +38,100 @@ export namespace AddAttributesActivity {
   });
   export const isa = (o: any): o is AddAttributesActivity =>
     __isa(o, "AddAttributesActivity");
+}
+
+/**
+ * <p>Contains informations about errors.</p>
+ */
+export interface BatchPutMessageErrorEntry {
+  __type?: "BatchPutMessageErrorEntry";
+  /**
+   * <p>The code associated with the error.</p>
+   */
+  errorCode?: string;
+
+  /**
+   * <p>The message associated with the error.</p>
+   */
+  errorMessage?: string;
+
+  /**
+   * <p>The ID of the message that caused the error. (See the value corresponding to the
+   *           "messageId" key in the message object.)</p>
+   */
+  messageId?: string;
+}
+
+export namespace BatchPutMessageErrorEntry {
+  export const filterSensitiveLog = (obj: BatchPutMessageErrorEntry): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is BatchPutMessageErrorEntry =>
+    __isa(o, "BatchPutMessageErrorEntry");
+}
+
+export interface BatchPutMessageRequest {
+  __type?: "BatchPutMessageRequest";
+  /**
+   * <p>The name of the channel where the messages are sent.</p>
+   */
+  channelName: string | undefined;
+
+  /**
+   * <p>The list of messages to be sent. Each message has format:
+   *           '{ "messageId": "string", "payload": "string"}'.</p>
+   *          <p>Note that the field names of message payloads (data) that you send to AWS IoT Analytics:</p>
+   *         <ul>
+   *             <li>
+   *                <p>Must contain only alphanumeric characters and undescores (_); no other special
+   *               characters are allowed.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must begin with an alphabetic character or single underscore (_).</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot contain hyphens (-).</p>
+   *             </li>
+   *             <li>
+   *                <p>In regular expression terms: "^[A-Za-z_]([A-Za-z0-9]*|[A-Za-z0-9][A-Za-z0-9_]*)$".
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot be greater than 255 characters.</p>
+   *             </li>
+   *             <li>
+   *                <p>Are case-insensitive. (Fields named "foo" and "FOO" in the same payload are
+   *               considered duplicates.)</p>
+   *             </li>
+   *          </ul>
+   *          <p>For example, {"temp_01": 29} or {"_temp_01": 29} are valid, but {"temp-01": 29},
+   *  {"01_temp": 29} or {"__temp_01": 29} are invalid in message payloads.  </p>
+   */
+  messages: Message[] | undefined;
+}
+
+export namespace BatchPutMessageRequest {
+  export const filterSensitiveLog = (obj: BatchPutMessageRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is BatchPutMessageRequest =>
+    __isa(o, "BatchPutMessageRequest");
+}
+
+export interface BatchPutMessageResponse {
+  __type?: "BatchPutMessageResponse";
+  /**
+   * <p>A list of any errors encountered when sending the messages to the channel.</p>
+   */
+  batchPutMessageErrorEntries?: BatchPutMessageErrorEntry[];
+}
+
+export namespace BatchPutMessageResponse {
+  export const filterSensitiveLog = (obj: BatchPutMessageResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is BatchPutMessageResponse =>
+    __isa(o, "BatchPutMessageResponse");
 }
 
 export interface CancelPipelineReprocessingRequest {
@@ -1996,6 +1944,44 @@ export namespace GlueConfiguration {
 }
 
 /**
+ * <p>There was an internal failure.</p>
+ */
+export interface InternalFailureException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InternalFailureException";
+  $fault: "server";
+  message?: string;
+}
+
+export namespace InternalFailureException {
+  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InternalFailureException =>
+    __isa(o, "InternalFailureException");
+}
+
+/**
+ * <p>The request was not valid.</p>
+ */
+export interface InvalidRequestException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidRequestException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidRequestException {
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidRequestException =>
+    __isa(o, "InvalidRequestException");
+}
+
+/**
  * <p>Configuration information for delivery of data set contents to AWS IoT Events.</p>
  */
 export interface IotEventsDestinationConfiguration {
@@ -2056,6 +2042,25 @@ export namespace LambdaActivity {
   });
   export const isa = (o: any): o is LambdaActivity =>
     __isa(o, "LambdaActivity");
+}
+
+/**
+ * <p>The command caused an internal limit to be exceeded.</p>
+ */
+export interface LimitExceededException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 export interface ListChannelsRequest {
@@ -2399,6 +2404,31 @@ export namespace MathActivity {
 }
 
 /**
+ * <p>Information about a message.</p>
+ */
+export interface Message {
+  __type?: "Message";
+  /**
+   * <p>The ID you wish to assign to the message. Each "messageId" must be unique
+   *           within each batch sent.</p>
+   */
+  messageId: string | undefined;
+
+  /**
+   * <p>The payload of the message. This may be a JSON string or a Base64-encoded string
+   *           representing binary data (in which case you must decode it by means of a pipeline activity).</p>
+   */
+  payload: Uint8Array | undefined;
+}
+
+export namespace Message {
+  export const filterSensitiveLog = (obj: Message): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Message => __isa(o, "Message");
+}
+
+/**
  * <p>The value of the variable as a structure that specifies an output file URI.</p>
  */
 export interface OutputFileUriValue {
@@ -2662,6 +2692,36 @@ export namespace ReprocessingSummary {
 }
 
 /**
+ * <p>A resource with the same name already exists.</p>
+ */
+export interface ResourceAlreadyExistsException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceAlreadyExistsException";
+  $fault: "client";
+  message?: string;
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  resourceArn?: string;
+
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  resourceId?: string;
+}
+
+export namespace ResourceAlreadyExistsException {
+  export const filterSensitiveLog = (
+    obj: ResourceAlreadyExistsException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceAlreadyExistsException =>
+    __isa(o, "ResourceAlreadyExistsException");
+}
+
+/**
  * <p>The configuration of the resource used to execute the "containerAction".</p>
  */
 export interface ResourceConfiguration {
@@ -2685,6 +2745,25 @@ export namespace ResourceConfiguration {
   });
   export const isa = (o: any): o is ResourceConfiguration =>
     __isa(o, "ResourceConfiguration");
+}
+
+/**
+ * <p>A resource with the specified name could not be found.</p>
+ */
+export interface ResourceNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -2973,6 +3052,27 @@ export namespace ServiceManagedDatastoreS3StorageSummary {
 }
 
 /**
+ * <p>The service is temporarily unavailable.</p>
+ */
+export interface ServiceUnavailableException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ServiceUnavailableException";
+  $fault: "server";
+  message?: string;
+}
+
+export namespace ServiceUnavailableException {
+  export const filterSensitiveLog = (
+    obj: ServiceUnavailableException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ServiceUnavailableException =>
+    __isa(o, "ServiceUnavailableException");
+}
+
+/**
  * <p>The SQL query to modify the message.</p>
  */
 export interface SqlQueryDatasetAction {
@@ -3096,6 +3196,25 @@ export namespace TagResourceResponse {
   });
   export const isa = (o: any): o is TagResourceResponse =>
     __isa(o, "TagResourceResponse");
+}
+
+/**
+ * <p>The request was denied due to request throttling.</p>
+ */
+export interface ThrottlingException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ThrottlingException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
 }
 
 /**
@@ -3355,123 +3474,4 @@ export namespace VersioningConfiguration {
   });
   export const isa = (o: any): o is VersioningConfiguration =>
     __isa(o, "VersioningConfiguration");
-}
-
-/**
- * <p>Contains informations about errors.</p>
- */
-export interface BatchPutMessageErrorEntry {
-  __type?: "BatchPutMessageErrorEntry";
-  /**
-   * <p>The code associated with the error.</p>
-   */
-  errorCode?: string;
-
-  /**
-   * <p>The message associated with the error.</p>
-   */
-  errorMessage?: string;
-
-  /**
-   * <p>The ID of the message that caused the error. (See the value corresponding to the
-   *           "messageId" key in the message object.)</p>
-   */
-  messageId?: string;
-}
-
-export namespace BatchPutMessageErrorEntry {
-  export const filterSensitiveLog = (obj: BatchPutMessageErrorEntry): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is BatchPutMessageErrorEntry =>
-    __isa(o, "BatchPutMessageErrorEntry");
-}
-
-export interface BatchPutMessageRequest {
-  __type?: "BatchPutMessageRequest";
-  /**
-   * <p>The name of the channel where the messages are sent.</p>
-   */
-  channelName: string | undefined;
-
-  /**
-   * <p>The list of messages to be sent. Each message has format:
-   *           '{ "messageId": "string", "payload": "string"}'.</p>
-   *          <p>Note that the field names of message payloads (data) that you send to AWS IoT Analytics:</p>
-   *         <ul>
-   *             <li>
-   *                <p>Must contain only alphanumeric characters and undescores (_); no other special
-   *               characters are allowed.</p>
-   *             </li>
-   *             <li>
-   *                <p>Must begin with an alphabetic character or single underscore (_).</p>
-   *             </li>
-   *             <li>
-   *                <p>Cannot contain hyphens (-).</p>
-   *             </li>
-   *             <li>
-   *                <p>In regular expression terms: "^[A-Za-z_]([A-Za-z0-9]*|[A-Za-z0-9][A-Za-z0-9_]*)$".
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>Cannot be greater than 255 characters.</p>
-   *             </li>
-   *             <li>
-   *                <p>Are case-insensitive. (Fields named "foo" and "FOO" in the same payload are
-   *               considered duplicates.)</p>
-   *             </li>
-   *          </ul>
-   *          <p>For example, {"temp_01": 29} or {"_temp_01": 29} are valid, but {"temp-01": 29},
-   *  {"01_temp": 29} or {"__temp_01": 29} are invalid in message payloads.  </p>
-   */
-  messages: Message[] | undefined;
-}
-
-export namespace BatchPutMessageRequest {
-  export const filterSensitiveLog = (obj: BatchPutMessageRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is BatchPutMessageRequest =>
-    __isa(o, "BatchPutMessageRequest");
-}
-
-export interface BatchPutMessageResponse {
-  __type?: "BatchPutMessageResponse";
-  /**
-   * <p>A list of any errors encountered when sending the messages to the channel.</p>
-   */
-  batchPutMessageErrorEntries?: BatchPutMessageErrorEntry[];
-}
-
-export namespace BatchPutMessageResponse {
-  export const filterSensitiveLog = (obj: BatchPutMessageResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is BatchPutMessageResponse =>
-    __isa(o, "BatchPutMessageResponse");
-}
-
-/**
- * <p>Information about a message.</p>
- */
-export interface Message {
-  __type?: "Message";
-  /**
-   * <p>The ID you wish to assign to the message. Each "messageId" must be unique
-   *           within each batch sent.</p>
-   */
-  messageId: string | undefined;
-
-  /**
-   * <p>The payload of the message. This may be a JSON string or a Base64-encoded string
-   *           representing binary data (in which case you must decode it by means of a pipeline activity).</p>
-   */
-  payload: Uint8Array | undefined;
-}
-
-export namespace Message {
-  export const filterSensitiveLog = (obj: Message): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Message => __isa(o, "Message");
 }

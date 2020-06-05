@@ -5,9 +5,9 @@ import {
 } from "../OutpostsClient";
 import { CreateOutpostInput, CreateOutpostOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateOutpostCommand,
-  serializeAws_restJson1_1CreateOutpostCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateOutpostCommand,
+  serializeAws_restJson1CreateOutpostCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateOutpostCommand extends $Command<
     input: CreateOutpostCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateOutpostCommand(input, context);
+    return serializeAws_restJson1CreateOutpostCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateOutpostCommandOutput> {
-    return deserializeAws_restJson1_1CreateOutpostCommand(output, context);
+    return deserializeAws_restJson1CreateOutpostCommand(output, context);
   }
 
   // Start section: command_body_extra

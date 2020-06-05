@@ -1,5 +1,6 @@
 export * from "./IoTAnalyticsClient";
 export * from "./IoTAnalytics";
+export * from "./commands/BatchPutMessageCommand";
 export * from "./commands/CancelPipelineReprocessingCommand";
 export * from "./commands/CreateChannelCommand";
 export * from "./commands/CreateDatasetCommand";
@@ -33,5 +34,4 @@ export * from "./commands/UpdateChannelCommand";
 export * from "./commands/UpdateDatasetCommand";
 export * from "./commands/UpdateDatastoreCommand";
 export * from "./commands/UpdatePipelineCommand";
-export * from "./commands/BatchPutMessageCommand";
 export * from "./models/index";

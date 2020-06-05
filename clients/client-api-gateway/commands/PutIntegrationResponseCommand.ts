@@ -8,9 +8,9 @@ import {
   PutIntegrationResponseRequest
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutIntegrationResponseCommand,
-  serializeAws_restJson1_1PutIntegrationResponseCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutIntegrationResponseCommand,
+  serializeAws_restJson1PutIntegrationResponseCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class PutIntegrationResponseCommand extends $Command<
     input: PutIntegrationResponseCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutIntegrationResponseCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1PutIntegrationResponseCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutIntegrationResponseCommandOutput> {
-    return deserializeAws_restJson1_1PutIntegrationResponseCommand(
+    return deserializeAws_restJson1PutIntegrationResponseCommand(
       output,
       context
     );

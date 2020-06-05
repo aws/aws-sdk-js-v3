@@ -5,9 +5,9 @@ import {
 } from "../ChimeClient";
 import { DeleteMeetingRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteMeetingCommand,
-  serializeAws_restJson1_1DeleteMeetingCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteMeetingCommand,
+  serializeAws_restJson1DeleteMeetingCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteMeetingCommand extends $Command<
     input: DeleteMeetingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteMeetingCommand(input, context);
+    return serializeAws_restJson1DeleteMeetingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMeetingCommandOutput> {
-    return deserializeAws_restJson1_1DeleteMeetingCommand(output, context);
+    return deserializeAws_restJson1DeleteMeetingCommand(output, context);
   }
 
   // Start section: command_body_extra

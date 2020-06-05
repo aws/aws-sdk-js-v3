@@ -5,9 +5,9 @@ import {
 } from "../PinpointClient";
 import { GetSmsChannelRequest, GetSmsChannelResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetSmsChannelCommand,
-  serializeAws_restJson1_1GetSmsChannelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetSmsChannelCommand,
+  serializeAws_restJson1GetSmsChannelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetSmsChannelCommand extends $Command<
     input: GetSmsChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetSmsChannelCommand(input, context);
+    return serializeAws_restJson1GetSmsChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSmsChannelCommandOutput> {
-    return deserializeAws_restJson1_1GetSmsChannelCommand(output, context);
+    return deserializeAws_restJson1GetSmsChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

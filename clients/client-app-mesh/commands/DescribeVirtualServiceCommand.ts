@@ -8,9 +8,9 @@ import {
   DescribeVirtualServiceOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeVirtualServiceCommand,
-  serializeAws_restJson1_1DescribeVirtualServiceCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeVirtualServiceCommand,
+  serializeAws_restJson1DescribeVirtualServiceCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DescribeVirtualServiceCommand extends $Command<
     input: DescribeVirtualServiceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeVirtualServiceCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DescribeVirtualServiceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVirtualServiceCommandOutput> {
-    return deserializeAws_restJson1_1DescribeVirtualServiceCommand(
+    return deserializeAws_restJson1DescribeVirtualServiceCommand(
       output,
       context
     );

@@ -2273,45 +2273,6 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p>Deletes the specified SSH public key.</p>
-   *          <p>The SSH public key deleted by this operation is used only for authenticating the
-   *          associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to
-   *          authenticate to an AWS CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up AWS CodeCommit for SSH
-   *             Connections</a> in the <i>AWS CodeCommit User Guide</i>.</p>
-   */
-  public deleteSSHPublicKey(
-    args: DeleteSSHPublicKeyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteSSHPublicKeyCommandOutput>;
-  public deleteSSHPublicKey(
-    args: DeleteSSHPublicKeyCommandInput,
-    cb: (err: any, data?: DeleteSSHPublicKeyCommandOutput) => void
-  ): void;
-  public deleteSSHPublicKey(
-    args: DeleteSSHPublicKeyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteSSHPublicKeyCommandOutput) => void
-  ): void;
-  public deleteSSHPublicKey(
-    args: DeleteSSHPublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSSHPublicKeyCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSSHPublicKeyCommandOutput) => void
-  ): Promise<DeleteSSHPublicKeyCommandOutput> | void {
-    const command = new DeleteSSHPublicKeyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Deletes the specified server certificate.</p>
    *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working with
    *             Server Certificates</a> in the <i>IAM User Guide</i>. This topic
@@ -2474,6 +2435,45 @@ export class IAM extends IAMClient {
     cb?: (err: any, data?: DeleteSigningCertificateCommandOutput) => void
   ): Promise<DeleteSigningCertificateCommandOutput> | void {
     const command = new DeleteSigningCertificateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified SSH public key.</p>
+   *          <p>The SSH public key deleted by this operation is used only for authenticating the
+   *          associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to
+   *          authenticate to an AWS CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up AWS CodeCommit for SSH
+   *             Connections</a> in the <i>AWS CodeCommit User Guide</i>.</p>
+   */
+  public deleteSSHPublicKey(
+    args: DeleteSSHPublicKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSSHPublicKeyCommandOutput>;
+  public deleteSSHPublicKey(
+    args: DeleteSSHPublicKeyCommandInput,
+    cb: (err: any, data?: DeleteSSHPublicKeyCommandOutput) => void
+  ): void;
+  public deleteSSHPublicKey(
+    args: DeleteSSHPublicKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSSHPublicKeyCommandOutput) => void
+  ): void;
+  public deleteSSHPublicKey(
+    args: DeleteSSHPublicKeyCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteSSHPublicKeyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteSSHPublicKeyCommandOutput) => void
+  ): Promise<DeleteSSHPublicKeyCommandOutput> | void {
+    const command = new DeleteSSHPublicKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3902,45 +3902,6 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p>Retrieves the specified SSH public key, including metadata about the key.</p>
-   *          <p>The SSH public key retrieved by this operation is used only for authenticating the
-   *          associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to
-   *          authenticate to an AWS CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up AWS CodeCommit for SSH
-   *             Connections</a> in the <i>AWS CodeCommit User Guide</i>.</p>
-   */
-  public getSSHPublicKey(
-    args: GetSSHPublicKeyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSSHPublicKeyCommandOutput>;
-  public getSSHPublicKey(
-    args: GetSSHPublicKeyCommandInput,
-    cb: (err: any, data?: GetSSHPublicKeyCommandOutput) => void
-  ): void;
-  public getSSHPublicKey(
-    args: GetSSHPublicKeyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetSSHPublicKeyCommandOutput) => void
-  ): void;
-  public getSSHPublicKey(
-    args: GetSSHPublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSSHPublicKeyCommandOutput) => void),
-    cb?: (err: any, data?: GetSSHPublicKeyCommandOutput) => void
-  ): Promise<GetSSHPublicKeyCommandOutput> | void {
-    const command = new GetSSHPublicKeyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Retrieves information about the specified server certificate stored in IAM.</p>
    *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working with
    *             Server Certificates</a> in the <i>IAM User Guide</i>. This topic
@@ -4169,6 +4130,45 @@ export class IAM extends IAMClient {
     ) => void
   ): Promise<GetServiceLinkedRoleDeletionStatusCommandOutput> | void {
     const command = new GetServiceLinkedRoleDeletionStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the specified SSH public key, including metadata about the key.</p>
+   *          <p>The SSH public key retrieved by this operation is used only for authenticating the
+   *          associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to
+   *          authenticate to an AWS CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up AWS CodeCommit for SSH
+   *             Connections</a> in the <i>AWS CodeCommit User Guide</i>.</p>
+   */
+  public getSSHPublicKey(
+    args: GetSSHPublicKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSSHPublicKeyCommandOutput>;
+  public getSSHPublicKey(
+    args: GetSSHPublicKeyCommandInput,
+    cb: (err: any, data?: GetSSHPublicKeyCommandOutput) => void
+  ): void;
+  public getSSHPublicKey(
+    args: GetSSHPublicKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSSHPublicKeyCommandOutput) => void
+  ): void;
+  public getSSHPublicKey(
+    args: GetSSHPublicKeyCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSSHPublicKeyCommandOutput) => void),
+    cb?: (err: any, data?: GetSSHPublicKeyCommandOutput) => void
+  ): Promise<GetSSHPublicKeyCommandOutput> | void {
+    const command = new GetSSHPublicKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5008,43 +5008,6 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p>Lists the tags that are attached to the specified role. The returned list of tags is
-   *       sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the
-   *         <i>IAM User Guide</i>.</p>
-   */
-  public listRoleTags(
-    args: ListRoleTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListRoleTagsCommandOutput>;
-  public listRoleTags(
-    args: ListRoleTagsCommandInput,
-    cb: (err: any, data?: ListRoleTagsCommandOutput) => void
-  ): void;
-  public listRoleTags(
-    args: ListRoleTagsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListRoleTagsCommandOutput) => void
-  ): void;
-  public listRoleTags(
-    args: ListRoleTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRoleTagsCommandOutput) => void),
-    cb?: (err: any, data?: ListRoleTagsCommandOutput) => void
-  ): Promise<ListRoleTagsCommandOutput> | void {
-    const command = new ListRoleTagsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Lists the IAM roles that have the specified path prefix. If there are none, the
    *          operation returns an empty list. For more information about roles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with
    *             Roles</a>.</p>
@@ -5084,6 +5047,43 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * <p>Lists the tags that are attached to the specified role. The returned list of tags is
+   *       sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the
+   *         <i>IAM User Guide</i>.</p>
+   */
+  public listRoleTags(
+    args: ListRoleTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRoleTagsCommandOutput>;
+  public listRoleTags(
+    args: ListRoleTagsCommandInput,
+    cb: (err: any, data?: ListRoleTagsCommandOutput) => void
+  ): void;
+  public listRoleTags(
+    args: ListRoleTagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRoleTagsCommandOutput) => void
+  ): void;
+  public listRoleTags(
+    args: ListRoleTagsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListRoleTagsCommandOutput) => void),
+    cb?: (err: any, data?: ListRoleTagsCommandOutput) => void
+  ): Promise<ListRoleTagsCommandOutput> | void {
+    const command = new ListRoleTagsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the SAML provider resource objects defined in IAM in the account.</p>
    *          <note>
    *             <p> This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
@@ -5110,48 +5110,6 @@ export class IAM extends IAMClient {
     cb?: (err: any, data?: ListSAMLProvidersCommandOutput) => void
   ): Promise<ListSAMLProvidersCommandOutput> | void {
     const command = new ListSAMLProvidersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns information about the SSH public keys associated with the specified IAM user.
-   *          If none exists, the operation returns an empty list.</p>
-   *          <p>The SSH public keys returned by this operation are used only for authenticating the
-   *          IAM user to an AWS CodeCommit repository. For more information about using SSH keys to
-   *          authenticate to an AWS CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up AWS CodeCommit for SSH
-   *             Connections</a> in the <i>AWS CodeCommit User Guide</i>.</p>
-   *          <p>Although each user is limited to a small number of keys, you can still paginate the
-   *          results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
-   */
-  public listSSHPublicKeys(
-    args: ListSSHPublicKeysCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSSHPublicKeysCommandOutput>;
-  public listSSHPublicKeys(
-    args: ListSSHPublicKeysCommandInput,
-    cb: (err: any, data?: ListSSHPublicKeysCommandOutput) => void
-  ): void;
-  public listSSHPublicKeys(
-    args: ListSSHPublicKeysCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListSSHPublicKeysCommandOutput) => void
-  ): void;
-  public listSSHPublicKeys(
-    args: ListSSHPublicKeysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSSHPublicKeysCommandOutput) => void),
-    cb?: (err: any, data?: ListSSHPublicKeysCommandOutput) => void
-  ): Promise<ListSSHPublicKeysCommandOutput> | void {
-    const command = new ListSSHPublicKeysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5293,6 +5251,48 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * <p>Returns information about the SSH public keys associated with the specified IAM user.
+   *          If none exists, the operation returns an empty list.</p>
+   *          <p>The SSH public keys returned by this operation are used only for authenticating the
+   *          IAM user to an AWS CodeCommit repository. For more information about using SSH keys to
+   *          authenticate to an AWS CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up AWS CodeCommit for SSH
+   *             Connections</a> in the <i>AWS CodeCommit User Guide</i>.</p>
+   *          <p>Although each user is limited to a small number of keys, you can still paginate the
+   *          results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
+   */
+  public listSSHPublicKeys(
+    args: ListSSHPublicKeysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSSHPublicKeysCommandOutput>;
+  public listSSHPublicKeys(
+    args: ListSSHPublicKeysCommandInput,
+    cb: (err: any, data?: ListSSHPublicKeysCommandOutput) => void
+  ): void;
+  public listSSHPublicKeys(
+    args: ListSSHPublicKeysCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSSHPublicKeysCommandOutput) => void
+  ): void;
+  public listSSHPublicKeys(
+    args: ListSSHPublicKeysCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListSSHPublicKeysCommandOutput) => void),
+    cb?: (err: any, data?: ListSSHPublicKeysCommandOutput) => void
+  ): Promise<ListSSHPublicKeysCommandOutput> | void {
+    const command = new ListSSHPublicKeysCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the names of the inline policies embedded in the specified IAM user.</p>
    *          <p>An IAM user can also have managed policies attached to it. To list the managed
    *          policies that are attached to a user, use <a>ListAttachedUserPolicies</a>. For
@@ -5335,43 +5335,6 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p>Lists the tags that are attached to the specified user. The returned list of tags is
-   *       sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the
-   *         <i>IAM User Guide</i>.</p>
-   */
-  public listUserTags(
-    args: ListUserTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListUserTagsCommandOutput>;
-  public listUserTags(
-    args: ListUserTagsCommandInput,
-    cb: (err: any, data?: ListUserTagsCommandOutput) => void
-  ): void;
-  public listUserTags(
-    args: ListUserTagsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListUserTagsCommandOutput) => void
-  ): void;
-  public listUserTags(
-    args: ListUserTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUserTagsCommandOutput) => void),
-    cb?: (err: any, data?: ListUserTagsCommandOutput) => void
-  ): Promise<ListUserTagsCommandOutput> | void {
-    const command = new ListUserTagsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Lists the IAM users that have the specified path prefix. If no path prefix is
    *          specified, the operation returns all users in the AWS account. If there are none, the
    *          operation returns an empty list.</p>
@@ -5399,6 +5362,43 @@ export class IAM extends IAMClient {
     cb?: (err: any, data?: ListUsersCommandOutput) => void
   ): Promise<ListUsersCommandOutput> | void {
     const command = new ListUsersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the tags that are attached to the specified user. The returned list of tags is
+   *       sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the
+   *         <i>IAM User Guide</i>.</p>
+   */
+  public listUserTags(
+    args: ListUserTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUserTagsCommandOutput>;
+  public listUserTags(
+    args: ListUserTagsCommandInput,
+    cb: (err: any, data?: ListUserTagsCommandOutput) => void
+  ): void;
+  public listUserTags(
+    args: ListUserTagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListUserTagsCommandOutput) => void
+  ): void;
+  public listUserTags(
+    args: ListUserTagsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListUserTagsCommandOutput) => void),
+    cb?: (err: any, data?: ListUserTagsCommandOutput) => void
+  ): Promise<ListUserTagsCommandOutput> | void {
+    const command = new ListUserTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -6725,47 +6725,6 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p>Sets the status of an IAM user's SSH public key to active or inactive. SSH public keys
-   *          that are inactive cannot be used for authentication. This operation can be used to disable
-   *          a user's SSH public key as part of a key rotation work flow.</p>
-   *          <p>The SSH public key affected by this operation is used only for authenticating the
-   *          associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to
-   *          authenticate to an AWS CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up AWS CodeCommit for SSH
-   *             Connections</a> in the <i>AWS CodeCommit User Guide</i>.</p>
-   */
-  public updateSSHPublicKey(
-    args: UpdateSSHPublicKeyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateSSHPublicKeyCommandOutput>;
-  public updateSSHPublicKey(
-    args: UpdateSSHPublicKeyCommandInput,
-    cb: (err: any, data?: UpdateSSHPublicKeyCommandOutput) => void
-  ): void;
-  public updateSSHPublicKey(
-    args: UpdateSSHPublicKeyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateSSHPublicKeyCommandOutput) => void
-  ): void;
-  public updateSSHPublicKey(
-    args: UpdateSSHPublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSSHPublicKeyCommandOutput) => void),
-    cb?: (err: any, data?: UpdateSSHPublicKeyCommandOutput) => void
-  ): Promise<UpdateSSHPublicKeyCommandOutput> | void {
-    const command = new UpdateSSHPublicKeyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Updates the name and/or the path of the specified server certificate stored in
    *          IAM.</p>
    *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working with
@@ -6904,6 +6863,47 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * <p>Sets the status of an IAM user's SSH public key to active or inactive. SSH public keys
+   *          that are inactive cannot be used for authentication. This operation can be used to disable
+   *          a user's SSH public key as part of a key rotation work flow.</p>
+   *          <p>The SSH public key affected by this operation is used only for authenticating the
+   *          associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to
+   *          authenticate to an AWS CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up AWS CodeCommit for SSH
+   *             Connections</a> in the <i>AWS CodeCommit User Guide</i>.</p>
+   */
+  public updateSSHPublicKey(
+    args: UpdateSSHPublicKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSSHPublicKeyCommandOutput>;
+  public updateSSHPublicKey(
+    args: UpdateSSHPublicKeyCommandInput,
+    cb: (err: any, data?: UpdateSSHPublicKeyCommandOutput) => void
+  ): void;
+  public updateSSHPublicKey(
+    args: UpdateSSHPublicKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSSHPublicKeyCommandOutput) => void
+  ): void;
+  public updateSSHPublicKey(
+    args: UpdateSSHPublicKeyCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateSSHPublicKeyCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSSHPublicKeyCommandOutput) => void
+  ): Promise<UpdateSSHPublicKeyCommandOutput> | void {
+    const command = new UpdateSSHPublicKeyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the name and/or the path of the specified IAM user.</p>
    *          <important>
    *             <p> You should understand the implications of changing an IAM user's path or name. For
@@ -6940,45 +6940,6 @@ export class IAM extends IAMClient {
     cb?: (err: any, data?: UpdateUserCommandOutput) => void
   ): Promise<UpdateUserCommandOutput> | void {
     const command = new UpdateUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Uploads an SSH public key and associates it with the specified IAM user.</p>
-   *          <p>The SSH public key uploaded by this operation can be used only for authenticating the
-   *          associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to
-   *          authenticate to an AWS CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up AWS CodeCommit for SSH
-   *             Connections</a> in the <i>AWS CodeCommit User Guide</i>.</p>
-   */
-  public uploadSSHPublicKey(
-    args: UploadSSHPublicKeyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UploadSSHPublicKeyCommandOutput>;
-  public uploadSSHPublicKey(
-    args: UploadSSHPublicKeyCommandInput,
-    cb: (err: any, data?: UploadSSHPublicKeyCommandOutput) => void
-  ): void;
-  public uploadSSHPublicKey(
-    args: UploadSSHPublicKeyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UploadSSHPublicKeyCommandOutput) => void
-  ): void;
-  public uploadSSHPublicKey(
-    args: UploadSSHPublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UploadSSHPublicKeyCommandOutput) => void),
-    cb?: (err: any, data?: UploadSSHPublicKeyCommandOutput) => void
-  ): Promise<UploadSSHPublicKeyCommandOutput> | void {
-    const command = new UploadSSHPublicKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -7088,6 +7049,45 @@ export class IAM extends IAMClient {
     cb?: (err: any, data?: UploadSigningCertificateCommandOutput) => void
   ): Promise<UploadSigningCertificateCommandOutput> | void {
     const command = new UploadSigningCertificateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Uploads an SSH public key and associates it with the specified IAM user.</p>
+   *          <p>The SSH public key uploaded by this operation can be used only for authenticating the
+   *          associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to
+   *          authenticate to an AWS CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up AWS CodeCommit for SSH
+   *             Connections</a> in the <i>AWS CodeCommit User Guide</i>.</p>
+   */
+  public uploadSSHPublicKey(
+    args: UploadSSHPublicKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UploadSSHPublicKeyCommandOutput>;
+  public uploadSSHPublicKey(
+    args: UploadSSHPublicKeyCommandInput,
+    cb: (err: any, data?: UploadSSHPublicKeyCommandOutput) => void
+  ): void;
+  public uploadSSHPublicKey(
+    args: UploadSSHPublicKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UploadSSHPublicKeyCommandOutput) => void
+  ): void;
+  public uploadSSHPublicKey(
+    args: UploadSSHPublicKeyCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UploadSSHPublicKeyCommandOutput) => void),
+    cb?: (err: any, data?: UploadSSHPublicKeyCommandOutput) => void
+  ): Promise<UploadSSHPublicKeyCommandOutput> | void {
+    const command = new UploadSSHPublicKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

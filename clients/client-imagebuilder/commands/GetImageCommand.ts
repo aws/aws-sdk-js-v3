@@ -5,9 +5,9 @@ import {
 } from "../imagebuilderClient";
 import { GetImageRequest, GetImageResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetImageCommand,
-  serializeAws_restJson1_1GetImageCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetImageCommand,
+  serializeAws_restJson1GetImageCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetImageCommand extends $Command<
     input: GetImageCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetImageCommand(input, context);
+    return serializeAws_restJson1GetImageCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetImageCommandOutput> {
-    return deserializeAws_restJson1_1GetImageCommand(output, context);
+    return deserializeAws_restJson1GetImageCommand(output, context);
   }
 
   // Start section: command_body_extra

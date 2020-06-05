@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { UpdateCACertificateRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateCACertificateCommand,
-  serializeAws_restJson1_1UpdateCACertificateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateCACertificateCommand,
+  serializeAws_restJson1UpdateCACertificateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,17 +70,14 @@ export class UpdateCACertificateCommand extends $Command<
     input: UpdateCACertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateCACertificateCommand(input, context);
+    return serializeAws_restJson1UpdateCACertificateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCACertificateCommandOutput> {
-    return deserializeAws_restJson1_1UpdateCACertificateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateCACertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

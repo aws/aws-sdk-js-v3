@@ -5,9 +5,9 @@ import {
 } from "../ChimeClient";
 import { ListBotsRequest, ListBotsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListBotsCommand,
-  serializeAws_restJson1_1ListBotsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListBotsCommand,
+  serializeAws_restJson1ListBotsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListBotsCommand extends $Command<
     input: ListBotsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListBotsCommand(input, context);
+    return serializeAws_restJson1ListBotsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBotsCommandOutput> {
-    return deserializeAws_restJson1_1ListBotsCommand(output, context);
+    return deserializeAws_restJson1ListBotsCommand(output, context);
   }
 
   // Start section: command_body_extra

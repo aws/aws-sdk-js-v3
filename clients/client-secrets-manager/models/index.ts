@@ -934,6 +934,64 @@ export namespace LimitExceededException {
     __isa(o, "LimitExceededException");
 }
 
+export interface ListSecretsRequest {
+  __type?: "ListSecretsRequest";
+  /**
+   * <p>(Optional) Limits the number of results that you want to include in
+   *     the response. If you don't include this parameter, it defaults to a value that's
+   *     specific to the operation. If additional items exist beyond the maximum you specify, the
+   *     <code>NextToken</code> response element is present and has a value (isn't null). Include
+   *     that value as the <code>NextToken</code> request parameter in the next call to the operation to
+   *     get the next part of the results. Note that Secrets Manager might return fewer results than the maximum
+   *     even when there are more results available. You should check <code>NextToken</code> after every
+   *     operation to ensure that you receive all of the results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>(Optional) Use this parameter in a request if you receive a
+   *     <code>NextToken</code> response in a previous request that indicates that there's more
+   *     output available. In a subsequent call, set it to the value of the previous call's
+   *     <code>NextToken</code> response to indicate where the output should continue from.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSecretsRequest {
+  export const filterSensitiveLog = (obj: ListSecretsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListSecretsRequest =>
+    __isa(o, "ListSecretsRequest");
+}
+
+export interface ListSecretsResponse {
+  __type?: "ListSecretsResponse";
+  /**
+   * <p>If present in the response, this value indicates that
+   *     there's more output available than what's included in the current response. This can
+   *     occur even when the response includes no values at all, such as when you ask for a filtered view
+   *     of a very long list. Use this value in the <code>NextToken</code> request parameter in a
+   *     subsequent call to the operation to continue processing and get the next part of the output. You
+   *     should repeat this until the <code>NextToken</code> response element comes back empty (as
+   *     <code>null</code>).</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of the secrets in the account.</p>
+   */
+  SecretList?: SecretListEntry[];
+}
+
+export namespace ListSecretsResponse {
+  export const filterSensitiveLog = (obj: ListSecretsResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListSecretsResponse =>
+    __isa(o, "ListSecretsResponse");
+}
+
 export interface ListSecretVersionIdsRequest {
   __type?: "ListSecretVersionIdsRequest";
   /**
@@ -1035,64 +1093,6 @@ export namespace ListSecretVersionIdsResponse {
   });
   export const isa = (o: any): o is ListSecretVersionIdsResponse =>
     __isa(o, "ListSecretVersionIdsResponse");
-}
-
-export interface ListSecretsRequest {
-  __type?: "ListSecretsRequest";
-  /**
-   * <p>(Optional) Limits the number of results that you want to include in
-   *     the response. If you don't include this parameter, it defaults to a value that's
-   *     specific to the operation. If additional items exist beyond the maximum you specify, the
-   *     <code>NextToken</code> response element is present and has a value (isn't null). Include
-   *     that value as the <code>NextToken</code> request parameter in the next call to the operation to
-   *     get the next part of the results. Note that Secrets Manager might return fewer results than the maximum
-   *     even when there are more results available. You should check <code>NextToken</code> after every
-   *     operation to ensure that you receive all of the results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>(Optional) Use this parameter in a request if you receive a
-   *     <code>NextToken</code> response in a previous request that indicates that there's more
-   *     output available. In a subsequent call, set it to the value of the previous call's
-   *     <code>NextToken</code> response to indicate where the output should continue from.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListSecretsRequest {
-  export const filterSensitiveLog = (obj: ListSecretsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListSecretsRequest =>
-    __isa(o, "ListSecretsRequest");
-}
-
-export interface ListSecretsResponse {
-  __type?: "ListSecretsResponse";
-  /**
-   * <p>If present in the response, this value indicates that
-   *     there's more output available than what's included in the current response. This can
-   *     occur even when the response includes no values at all, such as when you ask for a filtered view
-   *     of a very long list. Use this value in the <code>NextToken</code> request parameter in a
-   *     subsequent call to the operation to continue processing and get the next part of the output. You
-   *     should repeat this until the <code>NextToken</code> response element comes back empty (as
-   *     <code>null</code>).</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A list of the secrets in the account.</p>
-   */
-  SecretList?: SecretListEntry[];
-}
-
-export namespace ListSecretsResponse {
-  export const filterSensitiveLog = (obj: ListSecretsResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListSecretsResponse =>
-    __isa(o, "ListSecretsResponse");
 }
 
 /**

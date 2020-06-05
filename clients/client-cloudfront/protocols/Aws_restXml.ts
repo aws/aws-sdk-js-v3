@@ -2026,7 +2026,7 @@ const deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommandError = a
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudFrontOriginAccessIdentityAlreadyExists":
-    case "com.amazon.edge.error#CloudFrontOriginAccessIdentityAlreadyExists":
+    case "com.amazonaws.cloudfront#CloudFrontOriginAccessIdentityAlreadyExists":
       response = {
         ...(await deserializeAws_restXmlCloudFrontOriginAccessIdentityAlreadyExistsResponse(
           parsedOutput,
@@ -2037,7 +2037,7 @@ const deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommandError = a
       };
       break;
     case "InconsistentQuantities":
-    case "com.amazon.edge.error#InconsistentQuantities":
+    case "com.amazonaws.cloudfront#InconsistentQuantities":
       response = {
         ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
           parsedOutput,
@@ -2048,7 +2048,7 @@ const deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommandError = a
       };
       break;
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -2059,7 +2059,7 @@ const deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommandError = a
       };
       break;
     case "MissingBody":
-    case "com.amazon.edge.error#MissingBody":
+    case "com.amazonaws.cloudfront#MissingBody":
       response = {
         ...(await deserializeAws_restXmlMissingBodyResponse(
           parsedOutput,
@@ -2070,7 +2070,7 @@ const deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommandError = a
       };
       break;
     case "TooManyCloudFrontOriginAccessIdentities":
-    case "com.amazon.edge.error#TooManyCloudFrontOriginAccessIdentities":
+    case "com.amazonaws.cloudfront#TooManyCloudFrontOriginAccessIdentities":
       response = {
         ...(await deserializeAws_restXmlTooManyCloudFrontOriginAccessIdentitiesResponse(
           parsedOutput,
@@ -2139,7 +2139,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -2150,7 +2150,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "CNAMEAlreadyExists":
-    case "com.amazon.edge.error#CNAMEAlreadyExists":
+    case "com.amazonaws.cloudfront#CNAMEAlreadyExists":
       response = {
         ...(await deserializeAws_restXmlCNAMEAlreadyExistsResponse(
           parsedOutput,
@@ -2161,7 +2161,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "DistributionAlreadyExists":
-    case "com.amazon.edge.error#DistributionAlreadyExists":
+    case "com.amazonaws.cloudfront#DistributionAlreadyExists":
       response = {
         ...(await deserializeAws_restXmlDistributionAlreadyExistsResponse(
           parsedOutput,
@@ -2172,7 +2172,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior":
-    case "com.amazon.edge.error#IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior":
+    case "com.amazonaws.cloudfront#IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior":
       response = {
         ...(await deserializeAws_restXmlIllegalFieldLevelEncryptionConfigAssociationWithCacheBehaviorResponse(
           parsedOutput,
@@ -2183,7 +2183,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InconsistentQuantities":
-    case "com.amazon.edge.error#InconsistentQuantities":
+    case "com.amazonaws.cloudfront#InconsistentQuantities":
       response = {
         ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
           parsedOutput,
@@ -2194,7 +2194,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -2205,7 +2205,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InvalidDefaultRootObject":
-    case "com.amazon.edge.error#InvalidDefaultRootObject":
+    case "com.amazonaws.cloudfront#InvalidDefaultRootObject":
       response = {
         ...(await deserializeAws_restXmlInvalidDefaultRootObjectResponse(
           parsedOutput,
@@ -2216,7 +2216,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InvalidErrorCode":
-    case "com.amazon.edge.error#InvalidErrorCode":
+    case "com.amazonaws.cloudfront#InvalidErrorCode":
       response = {
         ...(await deserializeAws_restXmlInvalidErrorCodeResponse(
           parsedOutput,
@@ -2227,7 +2227,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InvalidForwardCookies":
-    case "com.amazon.edge.error#InvalidForwardCookies":
+    case "com.amazonaws.cloudfront#InvalidForwardCookies":
       response = {
         ...(await deserializeAws_restXmlInvalidForwardCookiesResponse(
           parsedOutput,
@@ -2238,7 +2238,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InvalidGeoRestrictionParameter":
-    case "com.amazon.edge.error#InvalidGeoRestrictionParameter":
+    case "com.amazonaws.cloudfront#InvalidGeoRestrictionParameter":
       response = {
         ...(await deserializeAws_restXmlInvalidGeoRestrictionParameterResponse(
           parsedOutput,
@@ -2249,7 +2249,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InvalidHeadersForS3Origin":
-    case "com.amazon.edge.error#InvalidHeadersForS3Origin":
+    case "com.amazonaws.cloudfront#InvalidHeadersForS3Origin":
       response = {
         ...(await deserializeAws_restXmlInvalidHeadersForS3OriginResponse(
           parsedOutput,
@@ -2260,7 +2260,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InvalidLambdaFunctionAssociation":
-    case "com.amazon.edge.error#InvalidLambdaFunctionAssociation":
+    case "com.amazonaws.cloudfront#InvalidLambdaFunctionAssociation":
       response = {
         ...(await deserializeAws_restXmlInvalidLambdaFunctionAssociationResponse(
           parsedOutput,
@@ -2271,7 +2271,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InvalidLocationCode":
-    case "com.amazon.edge.error#InvalidLocationCode":
+    case "com.amazonaws.cloudfront#InvalidLocationCode":
       response = {
         ...(await deserializeAws_restXmlInvalidLocationCodeResponse(
           parsedOutput,
@@ -2282,7 +2282,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InvalidMinimumProtocolVersion":
-    case "com.amazon.edge.error#InvalidMinimumProtocolVersion":
+    case "com.amazonaws.cloudfront#InvalidMinimumProtocolVersion":
       response = {
         ...(await deserializeAws_restXmlInvalidMinimumProtocolVersionResponse(
           parsedOutput,
@@ -2293,7 +2293,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InvalidOrigin":
-    case "com.amazon.edge.error#InvalidOrigin":
+    case "com.amazonaws.cloudfront#InvalidOrigin":
       response = {
         ...(await deserializeAws_restXmlInvalidOriginResponse(
           parsedOutput,
@@ -2304,7 +2304,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InvalidOriginAccessIdentity":
-    case "com.amazon.edge.error#InvalidOriginAccessIdentity":
+    case "com.amazonaws.cloudfront#InvalidOriginAccessIdentity":
       response = {
         ...(await deserializeAws_restXmlInvalidOriginAccessIdentityResponse(
           parsedOutput,
@@ -2315,7 +2315,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InvalidOriginKeepaliveTimeout":
-    case "com.amazon.edge.error#InvalidOriginKeepaliveTimeout":
+    case "com.amazonaws.cloudfront#InvalidOriginKeepaliveTimeout":
       response = {
         ...(await deserializeAws_restXmlInvalidOriginKeepaliveTimeoutResponse(
           parsedOutput,
@@ -2326,7 +2326,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InvalidOriginReadTimeout":
-    case "com.amazon.edge.error#InvalidOriginReadTimeout":
+    case "com.amazonaws.cloudfront#InvalidOriginReadTimeout":
       response = {
         ...(await deserializeAws_restXmlInvalidOriginReadTimeoutResponse(
           parsedOutput,
@@ -2337,7 +2337,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InvalidProtocolSettings":
-    case "com.amazon.edge.error#InvalidProtocolSettings":
+    case "com.amazonaws.cloudfront#InvalidProtocolSettings":
       response = {
         ...(await deserializeAws_restXmlInvalidProtocolSettingsResponse(
           parsedOutput,
@@ -2348,7 +2348,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InvalidQueryStringParameters":
-    case "com.amazon.edge.error#InvalidQueryStringParameters":
+    case "com.amazonaws.cloudfront#InvalidQueryStringParameters":
       response = {
         ...(await deserializeAws_restXmlInvalidQueryStringParametersResponse(
           parsedOutput,
@@ -2359,7 +2359,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InvalidRelativePath":
-    case "com.amazon.edge.error#InvalidRelativePath":
+    case "com.amazonaws.cloudfront#InvalidRelativePath":
       response = {
         ...(await deserializeAws_restXmlInvalidRelativePathResponse(
           parsedOutput,
@@ -2370,7 +2370,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InvalidRequiredProtocol":
-    case "com.amazon.edge.error#InvalidRequiredProtocol":
+    case "com.amazonaws.cloudfront#InvalidRequiredProtocol":
       response = {
         ...(await deserializeAws_restXmlInvalidRequiredProtocolResponse(
           parsedOutput,
@@ -2381,7 +2381,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InvalidResponseCode":
-    case "com.amazon.edge.error#InvalidResponseCode":
+    case "com.amazonaws.cloudfront#InvalidResponseCode":
       response = {
         ...(await deserializeAws_restXmlInvalidResponseCodeResponse(
           parsedOutput,
@@ -2392,7 +2392,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InvalidTTLOrder":
-    case "com.amazon.edge.error#InvalidTTLOrder":
+    case "com.amazonaws.cloudfront#InvalidTTLOrder":
       response = {
         ...(await deserializeAws_restXmlInvalidTTLOrderResponse(
           parsedOutput,
@@ -2403,7 +2403,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InvalidViewerCertificate":
-    case "com.amazon.edge.error#InvalidViewerCertificate":
+    case "com.amazonaws.cloudfront#InvalidViewerCertificate":
       response = {
         ...(await deserializeAws_restXmlInvalidViewerCertificateResponse(
           parsedOutput,
@@ -2414,7 +2414,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "InvalidWebACLId":
-    case "com.amazon.edge.error#InvalidWebACLId":
+    case "com.amazonaws.cloudfront#InvalidWebACLId":
       response = {
         ...(await deserializeAws_restXmlInvalidWebACLIdResponse(
           parsedOutput,
@@ -2425,7 +2425,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "MissingBody":
-    case "com.amazon.edge.error#MissingBody":
+    case "com.amazonaws.cloudfront#MissingBody":
       response = {
         ...(await deserializeAws_restXmlMissingBodyResponse(
           parsedOutput,
@@ -2436,7 +2436,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "NoSuchFieldLevelEncryptionConfig":
-    case "com.amazon.edge.error#NoSuchFieldLevelEncryptionConfig":
+    case "com.amazonaws.cloudfront#NoSuchFieldLevelEncryptionConfig":
       response = {
         ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(
           parsedOutput,
@@ -2447,7 +2447,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "NoSuchOrigin":
-    case "com.amazon.edge.error#NoSuchOrigin":
+    case "com.amazonaws.cloudfront#NoSuchOrigin":
       response = {
         ...(await deserializeAws_restXmlNoSuchOriginResponse(
           parsedOutput,
@@ -2458,7 +2458,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "TooManyCacheBehaviors":
-    case "com.amazon.edge.error#TooManyCacheBehaviors":
+    case "com.amazonaws.cloudfront#TooManyCacheBehaviors":
       response = {
         ...(await deserializeAws_restXmlTooManyCacheBehaviorsResponse(
           parsedOutput,
@@ -2469,7 +2469,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "TooManyCertificates":
-    case "com.amazon.edge.error#TooManyCertificates":
+    case "com.amazonaws.cloudfront#TooManyCertificates":
       response = {
         ...(await deserializeAws_restXmlTooManyCertificatesResponse(
           parsedOutput,
@@ -2480,7 +2480,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "TooManyCookieNamesInWhiteList":
-    case "com.amazon.edge.error#TooManyCookieNamesInWhiteList":
+    case "com.amazonaws.cloudfront#TooManyCookieNamesInWhiteList":
       response = {
         ...(await deserializeAws_restXmlTooManyCookieNamesInWhiteListResponse(
           parsedOutput,
@@ -2491,7 +2491,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "TooManyDistributionCNAMEs":
-    case "com.amazon.edge.error#TooManyDistributionCNAMEs":
+    case "com.amazonaws.cloudfront#TooManyDistributionCNAMEs":
       response = {
         ...(await deserializeAws_restXmlTooManyDistributionCNAMEsResponse(
           parsedOutput,
@@ -2502,7 +2502,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "TooManyDistributions":
-    case "com.amazon.edge.error#TooManyDistributions":
+    case "com.amazonaws.cloudfront#TooManyDistributions":
       response = {
         ...(await deserializeAws_restXmlTooManyDistributionsResponse(
           parsedOutput,
@@ -2513,7 +2513,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig":
-    case "com.amazon.edge.error#TooManyDistributionsAssociatedToFieldLevelEncryptionConfig":
+    case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToFieldLevelEncryptionConfig":
       response = {
         ...(await deserializeAws_restXmlTooManyDistributionsAssociatedToFieldLevelEncryptionConfigResponse(
           parsedOutput,
@@ -2524,7 +2524,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "TooManyDistributionsWithLambdaAssociations":
-    case "com.amazon.edge.error#TooManyDistributionsWithLambdaAssociations":
+    case "com.amazonaws.cloudfront#TooManyDistributionsWithLambdaAssociations":
       response = {
         ...(await deserializeAws_restXmlTooManyDistributionsWithLambdaAssociationsResponse(
           parsedOutput,
@@ -2535,7 +2535,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "TooManyHeadersInForwardedValues":
-    case "com.amazon.edge.error#TooManyHeadersInForwardedValues":
+    case "com.amazonaws.cloudfront#TooManyHeadersInForwardedValues":
       response = {
         ...(await deserializeAws_restXmlTooManyHeadersInForwardedValuesResponse(
           parsedOutput,
@@ -2546,7 +2546,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "TooManyLambdaFunctionAssociations":
-    case "com.amazon.edge.error#TooManyLambdaFunctionAssociations":
+    case "com.amazonaws.cloudfront#TooManyLambdaFunctionAssociations":
       response = {
         ...(await deserializeAws_restXmlTooManyLambdaFunctionAssociationsResponse(
           parsedOutput,
@@ -2557,7 +2557,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "TooManyOriginCustomHeaders":
-    case "com.amazon.edge.error#TooManyOriginCustomHeaders":
+    case "com.amazonaws.cloudfront#TooManyOriginCustomHeaders":
       response = {
         ...(await deserializeAws_restXmlTooManyOriginCustomHeadersResponse(
           parsedOutput,
@@ -2568,7 +2568,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "TooManyOriginGroupsPerDistribution":
-    case "com.amazon.edge.error#TooManyOriginGroupsPerDistribution":
+    case "com.amazonaws.cloudfront#TooManyOriginGroupsPerDistribution":
       response = {
         ...(await deserializeAws_restXmlTooManyOriginGroupsPerDistributionResponse(
           parsedOutput,
@@ -2579,7 +2579,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "TooManyOrigins":
-    case "com.amazon.edge.error#TooManyOrigins":
+    case "com.amazonaws.cloudfront#TooManyOrigins":
       response = {
         ...(await deserializeAws_restXmlTooManyOriginsResponse(
           parsedOutput,
@@ -2590,7 +2590,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "TooManyQueryStringParameters":
-    case "com.amazon.edge.error#TooManyQueryStringParameters":
+    case "com.amazonaws.cloudfront#TooManyQueryStringParameters":
       response = {
         ...(await deserializeAws_restXmlTooManyQueryStringParametersResponse(
           parsedOutput,
@@ -2601,7 +2601,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "TooManyTrustedSigners":
-    case "com.amazon.edge.error#TooManyTrustedSigners":
+    case "com.amazonaws.cloudfront#TooManyTrustedSigners":
       response = {
         ...(await deserializeAws_restXmlTooManyTrustedSignersResponse(
           parsedOutput,
@@ -2612,7 +2612,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       };
       break;
     case "TrustedSignerDoesNotExist":
-    case "com.amazon.edge.error#TrustedSignerDoesNotExist":
+    case "com.amazonaws.cloudfront#TrustedSignerDoesNotExist":
       response = {
         ...(await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(
           parsedOutput,
@@ -2681,7 +2681,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -2692,7 +2692,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "CNAMEAlreadyExists":
-    case "com.amazon.edge.error#CNAMEAlreadyExists":
+    case "com.amazonaws.cloudfront#CNAMEAlreadyExists":
       response = {
         ...(await deserializeAws_restXmlCNAMEAlreadyExistsResponse(
           parsedOutput,
@@ -2703,7 +2703,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "DistributionAlreadyExists":
-    case "com.amazon.edge.error#DistributionAlreadyExists":
+    case "com.amazonaws.cloudfront#DistributionAlreadyExists":
       response = {
         ...(await deserializeAws_restXmlDistributionAlreadyExistsResponse(
           parsedOutput,
@@ -2714,7 +2714,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior":
-    case "com.amazon.edge.error#IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior":
+    case "com.amazonaws.cloudfront#IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior":
       response = {
         ...(await deserializeAws_restXmlIllegalFieldLevelEncryptionConfigAssociationWithCacheBehaviorResponse(
           parsedOutput,
@@ -2725,7 +2725,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "InconsistentQuantities":
-    case "com.amazon.edge.error#InconsistentQuantities":
+    case "com.amazonaws.cloudfront#InconsistentQuantities":
       response = {
         ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
           parsedOutput,
@@ -2736,7 +2736,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -2747,7 +2747,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "InvalidDefaultRootObject":
-    case "com.amazon.edge.error#InvalidDefaultRootObject":
+    case "com.amazonaws.cloudfront#InvalidDefaultRootObject":
       response = {
         ...(await deserializeAws_restXmlInvalidDefaultRootObjectResponse(
           parsedOutput,
@@ -2758,7 +2758,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "InvalidErrorCode":
-    case "com.amazon.edge.error#InvalidErrorCode":
+    case "com.amazonaws.cloudfront#InvalidErrorCode":
       response = {
         ...(await deserializeAws_restXmlInvalidErrorCodeResponse(
           parsedOutput,
@@ -2769,7 +2769,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "InvalidForwardCookies":
-    case "com.amazon.edge.error#InvalidForwardCookies":
+    case "com.amazonaws.cloudfront#InvalidForwardCookies":
       response = {
         ...(await deserializeAws_restXmlInvalidForwardCookiesResponse(
           parsedOutput,
@@ -2780,7 +2780,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "InvalidGeoRestrictionParameter":
-    case "com.amazon.edge.error#InvalidGeoRestrictionParameter":
+    case "com.amazonaws.cloudfront#InvalidGeoRestrictionParameter":
       response = {
         ...(await deserializeAws_restXmlInvalidGeoRestrictionParameterResponse(
           parsedOutput,
@@ -2791,7 +2791,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "InvalidHeadersForS3Origin":
-    case "com.amazon.edge.error#InvalidHeadersForS3Origin":
+    case "com.amazonaws.cloudfront#InvalidHeadersForS3Origin":
       response = {
         ...(await deserializeAws_restXmlInvalidHeadersForS3OriginResponse(
           parsedOutput,
@@ -2802,7 +2802,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "InvalidLambdaFunctionAssociation":
-    case "com.amazon.edge.error#InvalidLambdaFunctionAssociation":
+    case "com.amazonaws.cloudfront#InvalidLambdaFunctionAssociation":
       response = {
         ...(await deserializeAws_restXmlInvalidLambdaFunctionAssociationResponse(
           parsedOutput,
@@ -2813,7 +2813,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "InvalidLocationCode":
-    case "com.amazon.edge.error#InvalidLocationCode":
+    case "com.amazonaws.cloudfront#InvalidLocationCode":
       response = {
         ...(await deserializeAws_restXmlInvalidLocationCodeResponse(
           parsedOutput,
@@ -2824,7 +2824,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "InvalidMinimumProtocolVersion":
-    case "com.amazon.edge.error#InvalidMinimumProtocolVersion":
+    case "com.amazonaws.cloudfront#InvalidMinimumProtocolVersion":
       response = {
         ...(await deserializeAws_restXmlInvalidMinimumProtocolVersionResponse(
           parsedOutput,
@@ -2835,7 +2835,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "InvalidOrigin":
-    case "com.amazon.edge.error#InvalidOrigin":
+    case "com.amazonaws.cloudfront#InvalidOrigin":
       response = {
         ...(await deserializeAws_restXmlInvalidOriginResponse(
           parsedOutput,
@@ -2846,7 +2846,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "InvalidOriginAccessIdentity":
-    case "com.amazon.edge.error#InvalidOriginAccessIdentity":
+    case "com.amazonaws.cloudfront#InvalidOriginAccessIdentity":
       response = {
         ...(await deserializeAws_restXmlInvalidOriginAccessIdentityResponse(
           parsedOutput,
@@ -2857,7 +2857,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "InvalidOriginKeepaliveTimeout":
-    case "com.amazon.edge.error#InvalidOriginKeepaliveTimeout":
+    case "com.amazonaws.cloudfront#InvalidOriginKeepaliveTimeout":
       response = {
         ...(await deserializeAws_restXmlInvalidOriginKeepaliveTimeoutResponse(
           parsedOutput,
@@ -2868,7 +2868,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "InvalidOriginReadTimeout":
-    case "com.amazon.edge.error#InvalidOriginReadTimeout":
+    case "com.amazonaws.cloudfront#InvalidOriginReadTimeout":
       response = {
         ...(await deserializeAws_restXmlInvalidOriginReadTimeoutResponse(
           parsedOutput,
@@ -2879,7 +2879,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "InvalidProtocolSettings":
-    case "com.amazon.edge.error#InvalidProtocolSettings":
+    case "com.amazonaws.cloudfront#InvalidProtocolSettings":
       response = {
         ...(await deserializeAws_restXmlInvalidProtocolSettingsResponse(
           parsedOutput,
@@ -2890,7 +2890,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "InvalidQueryStringParameters":
-    case "com.amazon.edge.error#InvalidQueryStringParameters":
+    case "com.amazonaws.cloudfront#InvalidQueryStringParameters":
       response = {
         ...(await deserializeAws_restXmlInvalidQueryStringParametersResponse(
           parsedOutput,
@@ -2901,7 +2901,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "InvalidRelativePath":
-    case "com.amazon.edge.error#InvalidRelativePath":
+    case "com.amazonaws.cloudfront#InvalidRelativePath":
       response = {
         ...(await deserializeAws_restXmlInvalidRelativePathResponse(
           parsedOutput,
@@ -2912,7 +2912,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "InvalidRequiredProtocol":
-    case "com.amazon.edge.error#InvalidRequiredProtocol":
+    case "com.amazonaws.cloudfront#InvalidRequiredProtocol":
       response = {
         ...(await deserializeAws_restXmlInvalidRequiredProtocolResponse(
           parsedOutput,
@@ -2923,7 +2923,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "InvalidResponseCode":
-    case "com.amazon.edge.error#InvalidResponseCode":
+    case "com.amazonaws.cloudfront#InvalidResponseCode":
       response = {
         ...(await deserializeAws_restXmlInvalidResponseCodeResponse(
           parsedOutput,
@@ -2933,19 +2933,8 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "InvalidTTLOrder":
-    case "com.amazon.edge.error#InvalidTTLOrder":
-      response = {
-        ...(await deserializeAws_restXmlInvalidTTLOrderResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InvalidTagging":
-    case "com.amazon.edge.error#InvalidTagging":
+    case "com.amazonaws.cloudfront#InvalidTagging":
       response = {
         ...(await deserializeAws_restXmlInvalidTaggingResponse(
           parsedOutput,
@@ -2955,8 +2944,19 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidTTLOrder":
+    case "com.amazonaws.cloudfront#InvalidTTLOrder":
+      response = {
+        ...(await deserializeAws_restXmlInvalidTTLOrderResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "InvalidViewerCertificate":
-    case "com.amazon.edge.error#InvalidViewerCertificate":
+    case "com.amazonaws.cloudfront#InvalidViewerCertificate":
       response = {
         ...(await deserializeAws_restXmlInvalidViewerCertificateResponse(
           parsedOutput,
@@ -2967,7 +2967,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "InvalidWebACLId":
-    case "com.amazon.edge.error#InvalidWebACLId":
+    case "com.amazonaws.cloudfront#InvalidWebACLId":
       response = {
         ...(await deserializeAws_restXmlInvalidWebACLIdResponse(
           parsedOutput,
@@ -2978,7 +2978,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "MissingBody":
-    case "com.amazon.edge.error#MissingBody":
+    case "com.amazonaws.cloudfront#MissingBody":
       response = {
         ...(await deserializeAws_restXmlMissingBodyResponse(
           parsedOutput,
@@ -2989,7 +2989,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "NoSuchFieldLevelEncryptionConfig":
-    case "com.amazon.edge.error#NoSuchFieldLevelEncryptionConfig":
+    case "com.amazonaws.cloudfront#NoSuchFieldLevelEncryptionConfig":
       response = {
         ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(
           parsedOutput,
@@ -3000,7 +3000,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "NoSuchOrigin":
-    case "com.amazon.edge.error#NoSuchOrigin":
+    case "com.amazonaws.cloudfront#NoSuchOrigin":
       response = {
         ...(await deserializeAws_restXmlNoSuchOriginResponse(
           parsedOutput,
@@ -3011,7 +3011,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "TooManyCacheBehaviors":
-    case "com.amazon.edge.error#TooManyCacheBehaviors":
+    case "com.amazonaws.cloudfront#TooManyCacheBehaviors":
       response = {
         ...(await deserializeAws_restXmlTooManyCacheBehaviorsResponse(
           parsedOutput,
@@ -3022,7 +3022,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "TooManyCertificates":
-    case "com.amazon.edge.error#TooManyCertificates":
+    case "com.amazonaws.cloudfront#TooManyCertificates":
       response = {
         ...(await deserializeAws_restXmlTooManyCertificatesResponse(
           parsedOutput,
@@ -3033,7 +3033,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "TooManyCookieNamesInWhiteList":
-    case "com.amazon.edge.error#TooManyCookieNamesInWhiteList":
+    case "com.amazonaws.cloudfront#TooManyCookieNamesInWhiteList":
       response = {
         ...(await deserializeAws_restXmlTooManyCookieNamesInWhiteListResponse(
           parsedOutput,
@@ -3044,7 +3044,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "TooManyDistributionCNAMEs":
-    case "com.amazon.edge.error#TooManyDistributionCNAMEs":
+    case "com.amazonaws.cloudfront#TooManyDistributionCNAMEs":
       response = {
         ...(await deserializeAws_restXmlTooManyDistributionCNAMEsResponse(
           parsedOutput,
@@ -3055,7 +3055,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "TooManyDistributions":
-    case "com.amazon.edge.error#TooManyDistributions":
+    case "com.amazonaws.cloudfront#TooManyDistributions":
       response = {
         ...(await deserializeAws_restXmlTooManyDistributionsResponse(
           parsedOutput,
@@ -3066,7 +3066,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig":
-    case "com.amazon.edge.error#TooManyDistributionsAssociatedToFieldLevelEncryptionConfig":
+    case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToFieldLevelEncryptionConfig":
       response = {
         ...(await deserializeAws_restXmlTooManyDistributionsAssociatedToFieldLevelEncryptionConfigResponse(
           parsedOutput,
@@ -3077,7 +3077,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "TooManyDistributionsWithLambdaAssociations":
-    case "com.amazon.edge.error#TooManyDistributionsWithLambdaAssociations":
+    case "com.amazonaws.cloudfront#TooManyDistributionsWithLambdaAssociations":
       response = {
         ...(await deserializeAws_restXmlTooManyDistributionsWithLambdaAssociationsResponse(
           parsedOutput,
@@ -3088,7 +3088,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "TooManyHeadersInForwardedValues":
-    case "com.amazon.edge.error#TooManyHeadersInForwardedValues":
+    case "com.amazonaws.cloudfront#TooManyHeadersInForwardedValues":
       response = {
         ...(await deserializeAws_restXmlTooManyHeadersInForwardedValuesResponse(
           parsedOutput,
@@ -3099,7 +3099,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "TooManyLambdaFunctionAssociations":
-    case "com.amazon.edge.error#TooManyLambdaFunctionAssociations":
+    case "com.amazonaws.cloudfront#TooManyLambdaFunctionAssociations":
       response = {
         ...(await deserializeAws_restXmlTooManyLambdaFunctionAssociationsResponse(
           parsedOutput,
@@ -3110,7 +3110,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "TooManyOriginCustomHeaders":
-    case "com.amazon.edge.error#TooManyOriginCustomHeaders":
+    case "com.amazonaws.cloudfront#TooManyOriginCustomHeaders":
       response = {
         ...(await deserializeAws_restXmlTooManyOriginCustomHeadersResponse(
           parsedOutput,
@@ -3121,7 +3121,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "TooManyOriginGroupsPerDistribution":
-    case "com.amazon.edge.error#TooManyOriginGroupsPerDistribution":
+    case "com.amazonaws.cloudfront#TooManyOriginGroupsPerDistribution":
       response = {
         ...(await deserializeAws_restXmlTooManyOriginGroupsPerDistributionResponse(
           parsedOutput,
@@ -3132,7 +3132,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "TooManyOrigins":
-    case "com.amazon.edge.error#TooManyOrigins":
+    case "com.amazonaws.cloudfront#TooManyOrigins":
       response = {
         ...(await deserializeAws_restXmlTooManyOriginsResponse(
           parsedOutput,
@@ -3143,7 +3143,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "TooManyQueryStringParameters":
-    case "com.amazon.edge.error#TooManyQueryStringParameters":
+    case "com.amazonaws.cloudfront#TooManyQueryStringParameters":
       response = {
         ...(await deserializeAws_restXmlTooManyQueryStringParametersResponse(
           parsedOutput,
@@ -3154,7 +3154,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "TooManyTrustedSigners":
-    case "com.amazon.edge.error#TooManyTrustedSigners":
+    case "com.amazonaws.cloudfront#TooManyTrustedSigners":
       response = {
         ...(await deserializeAws_restXmlTooManyTrustedSignersResponse(
           parsedOutput,
@@ -3165,7 +3165,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       };
       break;
     case "TrustedSignerDoesNotExist":
-    case "com.amazon.edge.error#TrustedSignerDoesNotExist":
+    case "com.amazonaws.cloudfront#TrustedSignerDoesNotExist":
       response = {
         ...(await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(
           parsedOutput,
@@ -3237,7 +3237,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError = async
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FieldLevelEncryptionConfigAlreadyExists":
-    case "com.amazon.edge.error#FieldLevelEncryptionConfigAlreadyExists":
+    case "com.amazonaws.cloudfront#FieldLevelEncryptionConfigAlreadyExists":
       response = {
         ...(await deserializeAws_restXmlFieldLevelEncryptionConfigAlreadyExistsResponse(
           parsedOutput,
@@ -3248,7 +3248,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError = async
       };
       break;
     case "InconsistentQuantities":
-    case "com.amazon.edge.error#InconsistentQuantities":
+    case "com.amazonaws.cloudfront#InconsistentQuantities":
       response = {
         ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
           parsedOutput,
@@ -3259,7 +3259,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError = async
       };
       break;
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -3270,7 +3270,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError = async
       };
       break;
     case "NoSuchFieldLevelEncryptionProfile":
-    case "com.amazon.edge.error#NoSuchFieldLevelEncryptionProfile":
+    case "com.amazonaws.cloudfront#NoSuchFieldLevelEncryptionProfile":
       response = {
         ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(
           parsedOutput,
@@ -3281,7 +3281,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError = async
       };
       break;
     case "QueryArgProfileEmpty":
-    case "com.amazon.edge.error#QueryArgProfileEmpty":
+    case "com.amazonaws.cloudfront#QueryArgProfileEmpty":
       response = {
         ...(await deserializeAws_restXmlQueryArgProfileEmptyResponse(
           parsedOutput,
@@ -3292,7 +3292,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError = async
       };
       break;
     case "TooManyFieldLevelEncryptionConfigs":
-    case "com.amazon.edge.error#TooManyFieldLevelEncryptionConfigs":
+    case "com.amazonaws.cloudfront#TooManyFieldLevelEncryptionConfigs":
       response = {
         ...(await deserializeAws_restXmlTooManyFieldLevelEncryptionConfigsResponse(
           parsedOutput,
@@ -3303,7 +3303,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError = async
       };
       break;
     case "TooManyFieldLevelEncryptionContentTypeProfiles":
-    case "com.amazon.edge.error#TooManyFieldLevelEncryptionContentTypeProfiles":
+    case "com.amazonaws.cloudfront#TooManyFieldLevelEncryptionContentTypeProfiles":
       response = {
         ...(await deserializeAws_restXmlTooManyFieldLevelEncryptionContentTypeProfilesResponse(
           parsedOutput,
@@ -3314,7 +3314,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError = async
       };
       break;
     case "TooManyFieldLevelEncryptionQueryArgProfiles":
-    case "com.amazon.edge.error#TooManyFieldLevelEncryptionQueryArgProfiles":
+    case "com.amazonaws.cloudfront#TooManyFieldLevelEncryptionQueryArgProfiles":
       response = {
         ...(await deserializeAws_restXmlTooManyFieldLevelEncryptionQueryArgProfilesResponse(
           parsedOutput,
@@ -3386,7 +3386,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError = asyn
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FieldLevelEncryptionProfileAlreadyExists":
-    case "com.amazon.edge.error#FieldLevelEncryptionProfileAlreadyExists":
+    case "com.amazonaws.cloudfront#FieldLevelEncryptionProfileAlreadyExists":
       response = {
         ...(await deserializeAws_restXmlFieldLevelEncryptionProfileAlreadyExistsResponse(
           parsedOutput,
@@ -3397,7 +3397,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "FieldLevelEncryptionProfileSizeExceeded":
-    case "com.amazon.edge.error#FieldLevelEncryptionProfileSizeExceeded":
+    case "com.amazonaws.cloudfront#FieldLevelEncryptionProfileSizeExceeded":
       response = {
         ...(await deserializeAws_restXmlFieldLevelEncryptionProfileSizeExceededResponse(
           parsedOutput,
@@ -3408,7 +3408,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "InconsistentQuantities":
-    case "com.amazon.edge.error#InconsistentQuantities":
+    case "com.amazonaws.cloudfront#InconsistentQuantities":
       response = {
         ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
           parsedOutput,
@@ -3419,7 +3419,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -3430,7 +3430,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "NoSuchPublicKey":
-    case "com.amazon.edge.error#NoSuchPublicKey":
+    case "com.amazonaws.cloudfront#NoSuchPublicKey":
       response = {
         ...(await deserializeAws_restXmlNoSuchPublicKeyResponse(
           parsedOutput,
@@ -3441,7 +3441,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "TooManyFieldLevelEncryptionEncryptionEntities":
-    case "com.amazon.edge.error#TooManyFieldLevelEncryptionEncryptionEntities":
+    case "com.amazonaws.cloudfront#TooManyFieldLevelEncryptionEncryptionEntities":
       response = {
         ...(await deserializeAws_restXmlTooManyFieldLevelEncryptionEncryptionEntitiesResponse(
           parsedOutput,
@@ -3452,7 +3452,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "TooManyFieldLevelEncryptionFieldPatterns":
-    case "com.amazon.edge.error#TooManyFieldLevelEncryptionFieldPatterns":
+    case "com.amazonaws.cloudfront#TooManyFieldLevelEncryptionFieldPatterns":
       response = {
         ...(await deserializeAws_restXmlTooManyFieldLevelEncryptionFieldPatternsResponse(
           parsedOutput,
@@ -3463,7 +3463,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "TooManyFieldLevelEncryptionProfiles":
-    case "com.amazon.edge.error#TooManyFieldLevelEncryptionProfiles":
+    case "com.amazonaws.cloudfront#TooManyFieldLevelEncryptionProfiles":
       response = {
         ...(await deserializeAws_restXmlTooManyFieldLevelEncryptionProfilesResponse(
           parsedOutput,
@@ -3528,7 +3528,7 @@ const deserializeAws_restXmlCreateInvalidationCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -3539,7 +3539,7 @@ const deserializeAws_restXmlCreateInvalidationCommandError = async (
       };
       break;
     case "BatchTooLarge":
-    case "com.amazon.edge.error#BatchTooLarge":
+    case "com.amazonaws.cloudfront#BatchTooLarge":
       response = {
         ...(await deserializeAws_restXmlBatchTooLargeResponse(
           parsedOutput,
@@ -3550,7 +3550,7 @@ const deserializeAws_restXmlCreateInvalidationCommandError = async (
       };
       break;
     case "InconsistentQuantities":
-    case "com.amazon.edge.error#InconsistentQuantities":
+    case "com.amazonaws.cloudfront#InconsistentQuantities":
       response = {
         ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
           parsedOutput,
@@ -3561,7 +3561,7 @@ const deserializeAws_restXmlCreateInvalidationCommandError = async (
       };
       break;
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -3572,7 +3572,7 @@ const deserializeAws_restXmlCreateInvalidationCommandError = async (
       };
       break;
     case "MissingBody":
-    case "com.amazon.edge.error#MissingBody":
+    case "com.amazonaws.cloudfront#MissingBody":
       response = {
         ...(await deserializeAws_restXmlMissingBodyResponse(
           parsedOutput,
@@ -3583,7 +3583,7 @@ const deserializeAws_restXmlCreateInvalidationCommandError = async (
       };
       break;
     case "NoSuchDistribution":
-    case "com.amazon.edge.error#NoSuchDistribution":
+    case "com.amazonaws.cloudfront#NoSuchDistribution":
       response = {
         ...(await deserializeAws_restXmlNoSuchDistributionResponse(
           parsedOutput,
@@ -3594,7 +3594,7 @@ const deserializeAws_restXmlCreateInvalidationCommandError = async (
       };
       break;
     case "TooManyInvalidationsInProgress":
-    case "com.amazon.edge.error#TooManyInvalidationsInProgress":
+    case "com.amazonaws.cloudfront#TooManyInvalidationsInProgress":
       response = {
         ...(await deserializeAws_restXmlTooManyInvalidationsInProgressResponse(
           parsedOutput,
@@ -3660,7 +3660,7 @@ const deserializeAws_restXmlCreatePublicKeyCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -3671,7 +3671,7 @@ const deserializeAws_restXmlCreatePublicKeyCommandError = async (
       };
       break;
     case "PublicKeyAlreadyExists":
-    case "com.amazon.edge.error#PublicKeyAlreadyExists":
+    case "com.amazonaws.cloudfront#PublicKeyAlreadyExists":
       response = {
         ...(await deserializeAws_restXmlPublicKeyAlreadyExistsResponse(
           parsedOutput,
@@ -3682,7 +3682,7 @@ const deserializeAws_restXmlCreatePublicKeyCommandError = async (
       };
       break;
     case "TooManyPublicKeys":
-    case "com.amazon.edge.error#TooManyPublicKeys":
+    case "com.amazonaws.cloudfront#TooManyPublicKeys":
       response = {
         ...(await deserializeAws_restXmlTooManyPublicKeysResponse(
           parsedOutput,
@@ -3754,7 +3754,7 @@ const deserializeAws_restXmlCreateStreamingDistributionCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -3765,7 +3765,7 @@ const deserializeAws_restXmlCreateStreamingDistributionCommandError = async (
       };
       break;
     case "CNAMEAlreadyExists":
-    case "com.amazon.edge.error#CNAMEAlreadyExists":
+    case "com.amazonaws.cloudfront#CNAMEAlreadyExists":
       response = {
         ...(await deserializeAws_restXmlCNAMEAlreadyExistsResponse(
           parsedOutput,
@@ -3776,7 +3776,7 @@ const deserializeAws_restXmlCreateStreamingDistributionCommandError = async (
       };
       break;
     case "InconsistentQuantities":
-    case "com.amazon.edge.error#InconsistentQuantities":
+    case "com.amazonaws.cloudfront#InconsistentQuantities":
       response = {
         ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
           parsedOutput,
@@ -3787,7 +3787,7 @@ const deserializeAws_restXmlCreateStreamingDistributionCommandError = async (
       };
       break;
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -3798,7 +3798,7 @@ const deserializeAws_restXmlCreateStreamingDistributionCommandError = async (
       };
       break;
     case "InvalidOrigin":
-    case "com.amazon.edge.error#InvalidOrigin":
+    case "com.amazonaws.cloudfront#InvalidOrigin":
       response = {
         ...(await deserializeAws_restXmlInvalidOriginResponse(
           parsedOutput,
@@ -3809,7 +3809,7 @@ const deserializeAws_restXmlCreateStreamingDistributionCommandError = async (
       };
       break;
     case "InvalidOriginAccessIdentity":
-    case "com.amazon.edge.error#InvalidOriginAccessIdentity":
+    case "com.amazonaws.cloudfront#InvalidOriginAccessIdentity":
       response = {
         ...(await deserializeAws_restXmlInvalidOriginAccessIdentityResponse(
           parsedOutput,
@@ -3820,7 +3820,7 @@ const deserializeAws_restXmlCreateStreamingDistributionCommandError = async (
       };
       break;
     case "MissingBody":
-    case "com.amazon.edge.error#MissingBody":
+    case "com.amazonaws.cloudfront#MissingBody":
       response = {
         ...(await deserializeAws_restXmlMissingBodyResponse(
           parsedOutput,
@@ -3831,7 +3831,7 @@ const deserializeAws_restXmlCreateStreamingDistributionCommandError = async (
       };
       break;
     case "StreamingDistributionAlreadyExists":
-    case "com.amazon.edge.error#StreamingDistributionAlreadyExists":
+    case "com.amazonaws.cloudfront#StreamingDistributionAlreadyExists":
       response = {
         ...(await deserializeAws_restXmlStreamingDistributionAlreadyExistsResponse(
           parsedOutput,
@@ -3842,7 +3842,7 @@ const deserializeAws_restXmlCreateStreamingDistributionCommandError = async (
       };
       break;
     case "TooManyStreamingDistributionCNAMEs":
-    case "com.amazon.edge.error#TooManyStreamingDistributionCNAMEs":
+    case "com.amazonaws.cloudfront#TooManyStreamingDistributionCNAMEs":
       response = {
         ...(await deserializeAws_restXmlTooManyStreamingDistributionCNAMEsResponse(
           parsedOutput,
@@ -3853,7 +3853,7 @@ const deserializeAws_restXmlCreateStreamingDistributionCommandError = async (
       };
       break;
     case "TooManyStreamingDistributions":
-    case "com.amazon.edge.error#TooManyStreamingDistributions":
+    case "com.amazonaws.cloudfront#TooManyStreamingDistributions":
       response = {
         ...(await deserializeAws_restXmlTooManyStreamingDistributionsResponse(
           parsedOutput,
@@ -3864,7 +3864,7 @@ const deserializeAws_restXmlCreateStreamingDistributionCommandError = async (
       };
       break;
     case "TooManyTrustedSigners":
-    case "com.amazon.edge.error#TooManyTrustedSigners":
+    case "com.amazonaws.cloudfront#TooManyTrustedSigners":
       response = {
         ...(await deserializeAws_restXmlTooManyTrustedSignersResponse(
           parsedOutput,
@@ -3875,7 +3875,7 @@ const deserializeAws_restXmlCreateStreamingDistributionCommandError = async (
       };
       break;
     case "TrustedSignerDoesNotExist":
-    case "com.amazon.edge.error#TrustedSignerDoesNotExist":
+    case "com.amazonaws.cloudfront#TrustedSignerDoesNotExist":
       response = {
         ...(await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(
           parsedOutput,
@@ -3947,7 +3947,7 @@ const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = as
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -3958,7 +3958,7 @@ const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = as
       };
       break;
     case "CNAMEAlreadyExists":
-    case "com.amazon.edge.error#CNAMEAlreadyExists":
+    case "com.amazonaws.cloudfront#CNAMEAlreadyExists":
       response = {
         ...(await deserializeAws_restXmlCNAMEAlreadyExistsResponse(
           parsedOutput,
@@ -3969,7 +3969,7 @@ const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = as
       };
       break;
     case "InconsistentQuantities":
-    case "com.amazon.edge.error#InconsistentQuantities":
+    case "com.amazonaws.cloudfront#InconsistentQuantities":
       response = {
         ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
           parsedOutput,
@@ -3980,7 +3980,7 @@ const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = as
       };
       break;
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -3991,7 +3991,7 @@ const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = as
       };
       break;
     case "InvalidOrigin":
-    case "com.amazon.edge.error#InvalidOrigin":
+    case "com.amazonaws.cloudfront#InvalidOrigin":
       response = {
         ...(await deserializeAws_restXmlInvalidOriginResponse(
           parsedOutput,
@@ -4002,7 +4002,7 @@ const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = as
       };
       break;
     case "InvalidOriginAccessIdentity":
-    case "com.amazon.edge.error#InvalidOriginAccessIdentity":
+    case "com.amazonaws.cloudfront#InvalidOriginAccessIdentity":
       response = {
         ...(await deserializeAws_restXmlInvalidOriginAccessIdentityResponse(
           parsedOutput,
@@ -4013,7 +4013,7 @@ const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = as
       };
       break;
     case "InvalidTagging":
-    case "com.amazon.edge.error#InvalidTagging":
+    case "com.amazonaws.cloudfront#InvalidTagging":
       response = {
         ...(await deserializeAws_restXmlInvalidTaggingResponse(
           parsedOutput,
@@ -4024,7 +4024,7 @@ const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = as
       };
       break;
     case "MissingBody":
-    case "com.amazon.edge.error#MissingBody":
+    case "com.amazonaws.cloudfront#MissingBody":
       response = {
         ...(await deserializeAws_restXmlMissingBodyResponse(
           parsedOutput,
@@ -4035,7 +4035,7 @@ const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = as
       };
       break;
     case "StreamingDistributionAlreadyExists":
-    case "com.amazon.edge.error#StreamingDistributionAlreadyExists":
+    case "com.amazonaws.cloudfront#StreamingDistributionAlreadyExists":
       response = {
         ...(await deserializeAws_restXmlStreamingDistributionAlreadyExistsResponse(
           parsedOutput,
@@ -4046,7 +4046,7 @@ const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = as
       };
       break;
     case "TooManyStreamingDistributionCNAMEs":
-    case "com.amazon.edge.error#TooManyStreamingDistributionCNAMEs":
+    case "com.amazonaws.cloudfront#TooManyStreamingDistributionCNAMEs":
       response = {
         ...(await deserializeAws_restXmlTooManyStreamingDistributionCNAMEsResponse(
           parsedOutput,
@@ -4057,7 +4057,7 @@ const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = as
       };
       break;
     case "TooManyStreamingDistributions":
-    case "com.amazon.edge.error#TooManyStreamingDistributions":
+    case "com.amazonaws.cloudfront#TooManyStreamingDistributions":
       response = {
         ...(await deserializeAws_restXmlTooManyStreamingDistributionsResponse(
           parsedOutput,
@@ -4068,7 +4068,7 @@ const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = as
       };
       break;
     case "TooManyTrustedSigners":
-    case "com.amazon.edge.error#TooManyTrustedSigners":
+    case "com.amazonaws.cloudfront#TooManyTrustedSigners":
       response = {
         ...(await deserializeAws_restXmlTooManyTrustedSignersResponse(
           parsedOutput,
@@ -4079,7 +4079,7 @@ const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = as
       };
       break;
     case "TrustedSignerDoesNotExist":
-    case "com.amazon.edge.error#TrustedSignerDoesNotExist":
+    case "com.amazonaws.cloudfront#TrustedSignerDoesNotExist":
       response = {
         ...(await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(
           parsedOutput,
@@ -4137,7 +4137,7 @@ const deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommandError = a
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -4148,7 +4148,7 @@ const deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommandError = a
       };
       break;
     case "CloudFrontOriginAccessIdentityInUse":
-    case "com.amazon.edge.error#CloudFrontOriginAccessIdentityInUse":
+    case "com.amazonaws.cloudfront#CloudFrontOriginAccessIdentityInUse":
       response = {
         ...(await deserializeAws_restXmlCloudFrontOriginAccessIdentityInUseResponse(
           parsedOutput,
@@ -4159,7 +4159,7 @@ const deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommandError = a
       };
       break;
     case "InvalidIfMatchVersion":
-    case "com.amazon.edge.error#InvalidIfMatchVersion":
+    case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
       response = {
         ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
           parsedOutput,
@@ -4170,7 +4170,7 @@ const deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommandError = a
       };
       break;
     case "NoSuchCloudFrontOriginAccessIdentity":
-    case "com.amazon.edge.error#NoSuchCloudFrontOriginAccessIdentity":
+    case "com.amazonaws.cloudfront#NoSuchCloudFrontOriginAccessIdentity":
       response = {
         ...(await deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse(
           parsedOutput,
@@ -4181,7 +4181,7 @@ const deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommandError = a
       };
       break;
     case "PreconditionFailed":
-    case "com.amazon.edge.error#PreconditionFailed":
+    case "com.amazonaws.cloudfront#PreconditionFailed":
       response = {
         ...(await deserializeAws_restXmlPreconditionFailedResponse(
           parsedOutput,
@@ -4239,7 +4239,7 @@ const deserializeAws_restXmlDeleteDistributionCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -4250,7 +4250,7 @@ const deserializeAws_restXmlDeleteDistributionCommandError = async (
       };
       break;
     case "DistributionNotDisabled":
-    case "com.amazon.edge.error#DistributionNotDisabled":
+    case "com.amazonaws.cloudfront#DistributionNotDisabled":
       response = {
         ...(await deserializeAws_restXmlDistributionNotDisabledResponse(
           parsedOutput,
@@ -4261,7 +4261,7 @@ const deserializeAws_restXmlDeleteDistributionCommandError = async (
       };
       break;
     case "InvalidIfMatchVersion":
-    case "com.amazon.edge.error#InvalidIfMatchVersion":
+    case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
       response = {
         ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
           parsedOutput,
@@ -4272,7 +4272,7 @@ const deserializeAws_restXmlDeleteDistributionCommandError = async (
       };
       break;
     case "NoSuchDistribution":
-    case "com.amazon.edge.error#NoSuchDistribution":
+    case "com.amazonaws.cloudfront#NoSuchDistribution":
       response = {
         ...(await deserializeAws_restXmlNoSuchDistributionResponse(
           parsedOutput,
@@ -4283,7 +4283,7 @@ const deserializeAws_restXmlDeleteDistributionCommandError = async (
       };
       break;
     case "PreconditionFailed":
-    case "com.amazon.edge.error#PreconditionFailed":
+    case "com.amazonaws.cloudfront#PreconditionFailed":
       response = {
         ...(await deserializeAws_restXmlPreconditionFailedResponse(
           parsedOutput,
@@ -4341,7 +4341,7 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandError = async
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -4352,7 +4352,7 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandError = async
       };
       break;
     case "FieldLevelEncryptionConfigInUse":
-    case "com.amazon.edge.error#FieldLevelEncryptionConfigInUse":
+    case "com.amazonaws.cloudfront#FieldLevelEncryptionConfigInUse":
       response = {
         ...(await deserializeAws_restXmlFieldLevelEncryptionConfigInUseResponse(
           parsedOutput,
@@ -4363,7 +4363,7 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandError = async
       };
       break;
     case "InvalidIfMatchVersion":
-    case "com.amazon.edge.error#InvalidIfMatchVersion":
+    case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
       response = {
         ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
           parsedOutput,
@@ -4374,7 +4374,7 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandError = async
       };
       break;
     case "NoSuchFieldLevelEncryptionConfig":
-    case "com.amazon.edge.error#NoSuchFieldLevelEncryptionConfig":
+    case "com.amazonaws.cloudfront#NoSuchFieldLevelEncryptionConfig":
       response = {
         ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(
           parsedOutput,
@@ -4385,7 +4385,7 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandError = async
       };
       break;
     case "PreconditionFailed":
-    case "com.amazon.edge.error#PreconditionFailed":
+    case "com.amazonaws.cloudfront#PreconditionFailed":
       response = {
         ...(await deserializeAws_restXmlPreconditionFailedResponse(
           parsedOutput,
@@ -4443,7 +4443,7 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandError = asyn
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -4454,7 +4454,7 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "FieldLevelEncryptionProfileInUse":
-    case "com.amazon.edge.error#FieldLevelEncryptionProfileInUse":
+    case "com.amazonaws.cloudfront#FieldLevelEncryptionProfileInUse":
       response = {
         ...(await deserializeAws_restXmlFieldLevelEncryptionProfileInUseResponse(
           parsedOutput,
@@ -4465,7 +4465,7 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "InvalidIfMatchVersion":
-    case "com.amazon.edge.error#InvalidIfMatchVersion":
+    case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
       response = {
         ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
           parsedOutput,
@@ -4476,7 +4476,7 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "NoSuchFieldLevelEncryptionProfile":
-    case "com.amazon.edge.error#NoSuchFieldLevelEncryptionProfile":
+    case "com.amazonaws.cloudfront#NoSuchFieldLevelEncryptionProfile":
       response = {
         ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(
           parsedOutput,
@@ -4487,7 +4487,7 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "PreconditionFailed":
-    case "com.amazon.edge.error#PreconditionFailed":
+    case "com.amazonaws.cloudfront#PreconditionFailed":
       response = {
         ...(await deserializeAws_restXmlPreconditionFailedResponse(
           parsedOutput,
@@ -4542,7 +4542,7 @@ const deserializeAws_restXmlDeletePublicKeyCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -4553,7 +4553,7 @@ const deserializeAws_restXmlDeletePublicKeyCommandError = async (
       };
       break;
     case "InvalidIfMatchVersion":
-    case "com.amazon.edge.error#InvalidIfMatchVersion":
+    case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
       response = {
         ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
           parsedOutput,
@@ -4564,7 +4564,7 @@ const deserializeAws_restXmlDeletePublicKeyCommandError = async (
       };
       break;
     case "NoSuchPublicKey":
-    case "com.amazon.edge.error#NoSuchPublicKey":
+    case "com.amazonaws.cloudfront#NoSuchPublicKey":
       response = {
         ...(await deserializeAws_restXmlNoSuchPublicKeyResponse(
           parsedOutput,
@@ -4575,7 +4575,7 @@ const deserializeAws_restXmlDeletePublicKeyCommandError = async (
       };
       break;
     case "PreconditionFailed":
-    case "com.amazon.edge.error#PreconditionFailed":
+    case "com.amazonaws.cloudfront#PreconditionFailed":
       response = {
         ...(await deserializeAws_restXmlPreconditionFailedResponse(
           parsedOutput,
@@ -4586,7 +4586,7 @@ const deserializeAws_restXmlDeletePublicKeyCommandError = async (
       };
       break;
     case "PublicKeyInUse":
-    case "com.amazon.edge.error#PublicKeyInUse":
+    case "com.amazonaws.cloudfront#PublicKeyInUse":
       response = {
         ...(await deserializeAws_restXmlPublicKeyInUseResponse(
           parsedOutput,
@@ -4644,7 +4644,7 @@ const deserializeAws_restXmlDeleteStreamingDistributionCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -4655,7 +4655,7 @@ const deserializeAws_restXmlDeleteStreamingDistributionCommandError = async (
       };
       break;
     case "InvalidIfMatchVersion":
-    case "com.amazon.edge.error#InvalidIfMatchVersion":
+    case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
       response = {
         ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
           parsedOutput,
@@ -4666,7 +4666,7 @@ const deserializeAws_restXmlDeleteStreamingDistributionCommandError = async (
       };
       break;
     case "NoSuchStreamingDistribution":
-    case "com.amazon.edge.error#NoSuchStreamingDistribution":
+    case "com.amazonaws.cloudfront#NoSuchStreamingDistribution":
       response = {
         ...(await deserializeAws_restXmlNoSuchStreamingDistributionResponse(
           parsedOutput,
@@ -4677,7 +4677,7 @@ const deserializeAws_restXmlDeleteStreamingDistributionCommandError = async (
       };
       break;
     case "PreconditionFailed":
-    case "com.amazon.edge.error#PreconditionFailed":
+    case "com.amazonaws.cloudfront#PreconditionFailed":
       response = {
         ...(await deserializeAws_restXmlPreconditionFailedResponse(
           parsedOutput,
@@ -4688,7 +4688,7 @@ const deserializeAws_restXmlDeleteStreamingDistributionCommandError = async (
       };
       break;
     case "StreamingDistributionNotDisabled":
-    case "com.amazon.edge.error#StreamingDistributionNotDisabled":
+    case "com.amazonaws.cloudfront#StreamingDistributionNotDisabled":
       response = {
         ...(await deserializeAws_restXmlStreamingDistributionNotDisabledResponse(
           parsedOutput,
@@ -4756,7 +4756,7 @@ const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandError = asyn
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -4767,7 +4767,7 @@ const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandError = asyn
       };
       break;
     case "NoSuchCloudFrontOriginAccessIdentity":
-    case "com.amazon.edge.error#NoSuchCloudFrontOriginAccessIdentity":
+    case "com.amazonaws.cloudfront#NoSuchCloudFrontOriginAccessIdentity":
       response = {
         ...(await deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse(
           parsedOutput,
@@ -4835,7 +4835,7 @@ const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommandError 
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -4846,7 +4846,7 @@ const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommandError 
       };
       break;
     case "NoSuchCloudFrontOriginAccessIdentity":
-    case "com.amazon.edge.error#NoSuchCloudFrontOriginAccessIdentity":
+    case "com.amazonaws.cloudfront#NoSuchCloudFrontOriginAccessIdentity":
       response = {
         ...(await deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse(
           parsedOutput,
@@ -4908,7 +4908,7 @@ const deserializeAws_restXmlGetDistributionCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -4919,7 +4919,7 @@ const deserializeAws_restXmlGetDistributionCommandError = async (
       };
       break;
     case "NoSuchDistribution":
-    case "com.amazon.edge.error#NoSuchDistribution":
+    case "com.amazonaws.cloudfront#NoSuchDistribution":
       response = {
         ...(await deserializeAws_restXmlNoSuchDistributionResponse(
           parsedOutput,
@@ -4987,7 +4987,7 @@ const deserializeAws_restXmlGetDistributionConfigCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -4998,7 +4998,7 @@ const deserializeAws_restXmlGetDistributionConfigCommandError = async (
       };
       break;
     case "NoSuchDistribution":
-    case "com.amazon.edge.error#NoSuchDistribution":
+    case "com.amazonaws.cloudfront#NoSuchDistribution":
       response = {
         ...(await deserializeAws_restXmlNoSuchDistributionResponse(
           parsedOutput,
@@ -5066,7 +5066,7 @@ const deserializeAws_restXmlGetFieldLevelEncryptionCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -5077,7 +5077,7 @@ const deserializeAws_restXmlGetFieldLevelEncryptionCommandError = async (
       };
       break;
     case "NoSuchFieldLevelEncryptionConfig":
-    case "com.amazon.edge.error#NoSuchFieldLevelEncryptionConfig":
+    case "com.amazonaws.cloudfront#NoSuchFieldLevelEncryptionConfig":
       response = {
         ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(
           parsedOutput,
@@ -5145,7 +5145,7 @@ const deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -5156,7 +5156,7 @@ const deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError = async (
       };
       break;
     case "NoSuchFieldLevelEncryptionConfig":
-    case "com.amazon.edge.error#NoSuchFieldLevelEncryptionConfig":
+    case "com.amazonaws.cloudfront#NoSuchFieldLevelEncryptionConfig":
       response = {
         ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(
           parsedOutput,
@@ -5224,7 +5224,7 @@ const deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -5235,7 +5235,7 @@ const deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError = async (
       };
       break;
     case "NoSuchFieldLevelEncryptionProfile":
-    case "com.amazon.edge.error#NoSuchFieldLevelEncryptionProfile":
+    case "com.amazonaws.cloudfront#NoSuchFieldLevelEncryptionProfile":
       response = {
         ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(
           parsedOutput,
@@ -5303,7 +5303,7 @@ const deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommandError = a
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -5314,7 +5314,7 @@ const deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommandError = a
       };
       break;
     case "NoSuchFieldLevelEncryptionProfile":
-    case "com.amazon.edge.error#NoSuchFieldLevelEncryptionProfile":
+    case "com.amazonaws.cloudfront#NoSuchFieldLevelEncryptionProfile":
       response = {
         ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(
           parsedOutput,
@@ -5372,7 +5372,7 @@ const deserializeAws_restXmlGetInvalidationCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -5383,7 +5383,7 @@ const deserializeAws_restXmlGetInvalidationCommandError = async (
       };
       break;
     case "NoSuchDistribution":
-    case "com.amazon.edge.error#NoSuchDistribution":
+    case "com.amazonaws.cloudfront#NoSuchDistribution":
       response = {
         ...(await deserializeAws_restXmlNoSuchDistributionResponse(
           parsedOutput,
@@ -5394,7 +5394,7 @@ const deserializeAws_restXmlGetInvalidationCommandError = async (
       };
       break;
     case "NoSuchInvalidation":
-    case "com.amazon.edge.error#NoSuchInvalidation":
+    case "com.amazonaws.cloudfront#NoSuchInvalidation":
       response = {
         ...(await deserializeAws_restXmlNoSuchInvalidationResponse(
           parsedOutput,
@@ -5456,7 +5456,7 @@ const deserializeAws_restXmlGetPublicKeyCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -5467,7 +5467,7 @@ const deserializeAws_restXmlGetPublicKeyCommandError = async (
       };
       break;
     case "NoSuchPublicKey":
-    case "com.amazon.edge.error#NoSuchPublicKey":
+    case "com.amazonaws.cloudfront#NoSuchPublicKey":
       response = {
         ...(await deserializeAws_restXmlNoSuchPublicKeyResponse(
           parsedOutput,
@@ -5535,7 +5535,7 @@ const deserializeAws_restXmlGetPublicKeyConfigCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -5546,7 +5546,7 @@ const deserializeAws_restXmlGetPublicKeyConfigCommandError = async (
       };
       break;
     case "NoSuchPublicKey":
-    case "com.amazon.edge.error#NoSuchPublicKey":
+    case "com.amazonaws.cloudfront#NoSuchPublicKey":
       response = {
         ...(await deserializeAws_restXmlNoSuchPublicKeyResponse(
           parsedOutput,
@@ -5614,7 +5614,7 @@ const deserializeAws_restXmlGetStreamingDistributionCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -5625,7 +5625,7 @@ const deserializeAws_restXmlGetStreamingDistributionCommandError = async (
       };
       break;
     case "NoSuchStreamingDistribution":
-    case "com.amazon.edge.error#NoSuchStreamingDistribution":
+    case "com.amazonaws.cloudfront#NoSuchStreamingDistribution":
       response = {
         ...(await deserializeAws_restXmlNoSuchStreamingDistributionResponse(
           parsedOutput,
@@ -5693,7 +5693,7 @@ const deserializeAws_restXmlGetStreamingDistributionConfigCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -5704,7 +5704,7 @@ const deserializeAws_restXmlGetStreamingDistributionConfigCommandError = async (
       };
       break;
     case "NoSuchStreamingDistribution":
-    case "com.amazon.edge.error#NoSuchStreamingDistribution":
+    case "com.amazonaws.cloudfront#NoSuchStreamingDistribution":
       response = {
         ...(await deserializeAws_restXmlNoSuchStreamingDistributionResponse(
           parsedOutput,
@@ -5768,7 +5768,7 @@ const deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommandError = a
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -5829,7 +5829,7 @@ const deserializeAws_restXmlListDistributionsCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -5893,7 +5893,7 @@ const deserializeAws_restXmlListDistributionsByWebACLIdCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -5904,7 +5904,7 @@ const deserializeAws_restXmlListDistributionsByWebACLIdCommandError = async (
       };
       break;
     case "InvalidWebACLId":
-    case "com.amazon.edge.error#InvalidWebACLId":
+    case "com.amazonaws.cloudfront#InvalidWebACLId":
       response = {
         ...(await deserializeAws_restXmlInvalidWebACLIdResponse(
           parsedOutput,
@@ -5968,7 +5968,7 @@ const deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError = async 
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -6032,7 +6032,7 @@ const deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandError = async
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -6093,7 +6093,7 @@ const deserializeAws_restXmlListInvalidationsCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -6104,7 +6104,7 @@ const deserializeAws_restXmlListInvalidationsCommandError = async (
       };
       break;
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -6115,7 +6115,7 @@ const deserializeAws_restXmlListInvalidationsCommandError = async (
       };
       break;
     case "NoSuchDistribution":
-    case "com.amazon.edge.error#NoSuchDistribution":
+    case "com.amazonaws.cloudfront#NoSuchDistribution":
       response = {
         ...(await deserializeAws_restXmlNoSuchDistributionResponse(
           parsedOutput,
@@ -6173,7 +6173,7 @@ const deserializeAws_restXmlListPublicKeysCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -6237,7 +6237,7 @@ const deserializeAws_restXmlListStreamingDistributionsCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -6298,7 +6298,7 @@ const deserializeAws_restXmlListTagsForResourceCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -6309,7 +6309,7 @@ const deserializeAws_restXmlListTagsForResourceCommandError = async (
       };
       break;
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -6320,7 +6320,7 @@ const deserializeAws_restXmlListTagsForResourceCommandError = async (
       };
       break;
     case "InvalidTagging":
-    case "com.amazon.edge.error#InvalidTagging":
+    case "com.amazonaws.cloudfront#InvalidTagging":
       response = {
         ...(await deserializeAws_restXmlInvalidTaggingResponse(
           parsedOutput,
@@ -6331,7 +6331,7 @@ const deserializeAws_restXmlListTagsForResourceCommandError = async (
       };
       break;
     case "NoSuchResource":
-    case "com.amazon.edge.error#NoSuchResource":
+    case "com.amazonaws.cloudfront#NoSuchResource":
       response = {
         ...(await deserializeAws_restXmlNoSuchResourceResponse(
           parsedOutput,
@@ -6386,7 +6386,7 @@ const deserializeAws_restXmlTagResourceCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -6397,7 +6397,7 @@ const deserializeAws_restXmlTagResourceCommandError = async (
       };
       break;
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -6408,7 +6408,7 @@ const deserializeAws_restXmlTagResourceCommandError = async (
       };
       break;
     case "InvalidTagging":
-    case "com.amazon.edge.error#InvalidTagging":
+    case "com.amazonaws.cloudfront#InvalidTagging":
       response = {
         ...(await deserializeAws_restXmlInvalidTaggingResponse(
           parsedOutput,
@@ -6419,7 +6419,7 @@ const deserializeAws_restXmlTagResourceCommandError = async (
       };
       break;
     case "NoSuchResource":
-    case "com.amazon.edge.error#NoSuchResource":
+    case "com.amazonaws.cloudfront#NoSuchResource":
       response = {
         ...(await deserializeAws_restXmlNoSuchResourceResponse(
           parsedOutput,
@@ -6474,7 +6474,7 @@ const deserializeAws_restXmlUntagResourceCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -6485,7 +6485,7 @@ const deserializeAws_restXmlUntagResourceCommandError = async (
       };
       break;
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -6496,7 +6496,7 @@ const deserializeAws_restXmlUntagResourceCommandError = async (
       };
       break;
     case "InvalidTagging":
-    case "com.amazon.edge.error#InvalidTagging":
+    case "com.amazonaws.cloudfront#InvalidTagging":
       response = {
         ...(await deserializeAws_restXmlInvalidTaggingResponse(
           parsedOutput,
@@ -6507,7 +6507,7 @@ const deserializeAws_restXmlUntagResourceCommandError = async (
       };
       break;
     case "NoSuchResource":
-    case "com.amazon.edge.error#NoSuchResource":
+    case "com.amazonaws.cloudfront#NoSuchResource":
       response = {
         ...(await deserializeAws_restXmlNoSuchResourceResponse(
           parsedOutput,
@@ -6575,7 +6575,7 @@ const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError = a
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -6586,7 +6586,7 @@ const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError = a
       };
       break;
     case "IllegalUpdate":
-    case "com.amazon.edge.error#IllegalUpdate":
+    case "com.amazonaws.cloudfront#IllegalUpdate":
       response = {
         ...(await deserializeAws_restXmlIllegalUpdateResponse(
           parsedOutput,
@@ -6597,7 +6597,7 @@ const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError = a
       };
       break;
     case "InconsistentQuantities":
-    case "com.amazon.edge.error#InconsistentQuantities":
+    case "com.amazonaws.cloudfront#InconsistentQuantities":
       response = {
         ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
           parsedOutput,
@@ -6608,7 +6608,7 @@ const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError = a
       };
       break;
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -6619,7 +6619,7 @@ const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError = a
       };
       break;
     case "InvalidIfMatchVersion":
-    case "com.amazon.edge.error#InvalidIfMatchVersion":
+    case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
       response = {
         ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
           parsedOutput,
@@ -6630,7 +6630,7 @@ const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError = a
       };
       break;
     case "MissingBody":
-    case "com.amazon.edge.error#MissingBody":
+    case "com.amazonaws.cloudfront#MissingBody":
       response = {
         ...(await deserializeAws_restXmlMissingBodyResponse(
           parsedOutput,
@@ -6641,7 +6641,7 @@ const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError = a
       };
       break;
     case "NoSuchCloudFrontOriginAccessIdentity":
-    case "com.amazon.edge.error#NoSuchCloudFrontOriginAccessIdentity":
+    case "com.amazonaws.cloudfront#NoSuchCloudFrontOriginAccessIdentity":
       response = {
         ...(await deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse(
           parsedOutput,
@@ -6652,7 +6652,7 @@ const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError = a
       };
       break;
     case "PreconditionFailed":
-    case "com.amazon.edge.error#PreconditionFailed":
+    case "com.amazonaws.cloudfront#PreconditionFailed":
       response = {
         ...(await deserializeAws_restXmlPreconditionFailedResponse(
           parsedOutput,
@@ -6717,7 +6717,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -6728,7 +6728,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "CNAMEAlreadyExists":
-    case "com.amazon.edge.error#CNAMEAlreadyExists":
+    case "com.amazonaws.cloudfront#CNAMEAlreadyExists":
       response = {
         ...(await deserializeAws_restXmlCNAMEAlreadyExistsResponse(
           parsedOutput,
@@ -6739,7 +6739,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior":
-    case "com.amazon.edge.error#IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior":
+    case "com.amazonaws.cloudfront#IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior":
       response = {
         ...(await deserializeAws_restXmlIllegalFieldLevelEncryptionConfigAssociationWithCacheBehaviorResponse(
           parsedOutput,
@@ -6750,7 +6750,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "IllegalUpdate":
-    case "com.amazon.edge.error#IllegalUpdate":
+    case "com.amazonaws.cloudfront#IllegalUpdate":
       response = {
         ...(await deserializeAws_restXmlIllegalUpdateResponse(
           parsedOutput,
@@ -6761,7 +6761,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "InconsistentQuantities":
-    case "com.amazon.edge.error#InconsistentQuantities":
+    case "com.amazonaws.cloudfront#InconsistentQuantities":
       response = {
         ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
           parsedOutput,
@@ -6772,7 +6772,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -6783,7 +6783,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "InvalidDefaultRootObject":
-    case "com.amazon.edge.error#InvalidDefaultRootObject":
+    case "com.amazonaws.cloudfront#InvalidDefaultRootObject":
       response = {
         ...(await deserializeAws_restXmlInvalidDefaultRootObjectResponse(
           parsedOutput,
@@ -6794,7 +6794,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "InvalidErrorCode":
-    case "com.amazon.edge.error#InvalidErrorCode":
+    case "com.amazonaws.cloudfront#InvalidErrorCode":
       response = {
         ...(await deserializeAws_restXmlInvalidErrorCodeResponse(
           parsedOutput,
@@ -6805,7 +6805,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "InvalidForwardCookies":
-    case "com.amazon.edge.error#InvalidForwardCookies":
+    case "com.amazonaws.cloudfront#InvalidForwardCookies":
       response = {
         ...(await deserializeAws_restXmlInvalidForwardCookiesResponse(
           parsedOutput,
@@ -6816,7 +6816,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "InvalidGeoRestrictionParameter":
-    case "com.amazon.edge.error#InvalidGeoRestrictionParameter":
+    case "com.amazonaws.cloudfront#InvalidGeoRestrictionParameter":
       response = {
         ...(await deserializeAws_restXmlInvalidGeoRestrictionParameterResponse(
           parsedOutput,
@@ -6827,7 +6827,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "InvalidHeadersForS3Origin":
-    case "com.amazon.edge.error#InvalidHeadersForS3Origin":
+    case "com.amazonaws.cloudfront#InvalidHeadersForS3Origin":
       response = {
         ...(await deserializeAws_restXmlInvalidHeadersForS3OriginResponse(
           parsedOutput,
@@ -6838,7 +6838,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "InvalidIfMatchVersion":
-    case "com.amazon.edge.error#InvalidIfMatchVersion":
+    case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
       response = {
         ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
           parsedOutput,
@@ -6849,7 +6849,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "InvalidLambdaFunctionAssociation":
-    case "com.amazon.edge.error#InvalidLambdaFunctionAssociation":
+    case "com.amazonaws.cloudfront#InvalidLambdaFunctionAssociation":
       response = {
         ...(await deserializeAws_restXmlInvalidLambdaFunctionAssociationResponse(
           parsedOutput,
@@ -6860,7 +6860,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "InvalidLocationCode":
-    case "com.amazon.edge.error#InvalidLocationCode":
+    case "com.amazonaws.cloudfront#InvalidLocationCode":
       response = {
         ...(await deserializeAws_restXmlInvalidLocationCodeResponse(
           parsedOutput,
@@ -6871,7 +6871,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "InvalidMinimumProtocolVersion":
-    case "com.amazon.edge.error#InvalidMinimumProtocolVersion":
+    case "com.amazonaws.cloudfront#InvalidMinimumProtocolVersion":
       response = {
         ...(await deserializeAws_restXmlInvalidMinimumProtocolVersionResponse(
           parsedOutput,
@@ -6882,7 +6882,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "InvalidOriginAccessIdentity":
-    case "com.amazon.edge.error#InvalidOriginAccessIdentity":
+    case "com.amazonaws.cloudfront#InvalidOriginAccessIdentity":
       response = {
         ...(await deserializeAws_restXmlInvalidOriginAccessIdentityResponse(
           parsedOutput,
@@ -6893,7 +6893,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "InvalidOriginKeepaliveTimeout":
-    case "com.amazon.edge.error#InvalidOriginKeepaliveTimeout":
+    case "com.amazonaws.cloudfront#InvalidOriginKeepaliveTimeout":
       response = {
         ...(await deserializeAws_restXmlInvalidOriginKeepaliveTimeoutResponse(
           parsedOutput,
@@ -6904,7 +6904,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "InvalidOriginReadTimeout":
-    case "com.amazon.edge.error#InvalidOriginReadTimeout":
+    case "com.amazonaws.cloudfront#InvalidOriginReadTimeout":
       response = {
         ...(await deserializeAws_restXmlInvalidOriginReadTimeoutResponse(
           parsedOutput,
@@ -6915,7 +6915,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "InvalidQueryStringParameters":
-    case "com.amazon.edge.error#InvalidQueryStringParameters":
+    case "com.amazonaws.cloudfront#InvalidQueryStringParameters":
       response = {
         ...(await deserializeAws_restXmlInvalidQueryStringParametersResponse(
           parsedOutput,
@@ -6926,7 +6926,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "InvalidRelativePath":
-    case "com.amazon.edge.error#InvalidRelativePath":
+    case "com.amazonaws.cloudfront#InvalidRelativePath":
       response = {
         ...(await deserializeAws_restXmlInvalidRelativePathResponse(
           parsedOutput,
@@ -6937,7 +6937,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "InvalidRequiredProtocol":
-    case "com.amazon.edge.error#InvalidRequiredProtocol":
+    case "com.amazonaws.cloudfront#InvalidRequiredProtocol":
       response = {
         ...(await deserializeAws_restXmlInvalidRequiredProtocolResponse(
           parsedOutput,
@@ -6948,7 +6948,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "InvalidResponseCode":
-    case "com.amazon.edge.error#InvalidResponseCode":
+    case "com.amazonaws.cloudfront#InvalidResponseCode":
       response = {
         ...(await deserializeAws_restXmlInvalidResponseCodeResponse(
           parsedOutput,
@@ -6959,7 +6959,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "InvalidTTLOrder":
-    case "com.amazon.edge.error#InvalidTTLOrder":
+    case "com.amazonaws.cloudfront#InvalidTTLOrder":
       response = {
         ...(await deserializeAws_restXmlInvalidTTLOrderResponse(
           parsedOutput,
@@ -6970,7 +6970,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "InvalidViewerCertificate":
-    case "com.amazon.edge.error#InvalidViewerCertificate":
+    case "com.amazonaws.cloudfront#InvalidViewerCertificate":
       response = {
         ...(await deserializeAws_restXmlInvalidViewerCertificateResponse(
           parsedOutput,
@@ -6981,7 +6981,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "InvalidWebACLId":
-    case "com.amazon.edge.error#InvalidWebACLId":
+    case "com.amazonaws.cloudfront#InvalidWebACLId":
       response = {
         ...(await deserializeAws_restXmlInvalidWebACLIdResponse(
           parsedOutput,
@@ -6992,7 +6992,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "MissingBody":
-    case "com.amazon.edge.error#MissingBody":
+    case "com.amazonaws.cloudfront#MissingBody":
       response = {
         ...(await deserializeAws_restXmlMissingBodyResponse(
           parsedOutput,
@@ -7003,7 +7003,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "NoSuchDistribution":
-    case "com.amazon.edge.error#NoSuchDistribution":
+    case "com.amazonaws.cloudfront#NoSuchDistribution":
       response = {
         ...(await deserializeAws_restXmlNoSuchDistributionResponse(
           parsedOutput,
@@ -7014,7 +7014,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "NoSuchFieldLevelEncryptionConfig":
-    case "com.amazon.edge.error#NoSuchFieldLevelEncryptionConfig":
+    case "com.amazonaws.cloudfront#NoSuchFieldLevelEncryptionConfig":
       response = {
         ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(
           parsedOutput,
@@ -7025,7 +7025,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "NoSuchOrigin":
-    case "com.amazon.edge.error#NoSuchOrigin":
+    case "com.amazonaws.cloudfront#NoSuchOrigin":
       response = {
         ...(await deserializeAws_restXmlNoSuchOriginResponse(
           parsedOutput,
@@ -7036,7 +7036,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "PreconditionFailed":
-    case "com.amazon.edge.error#PreconditionFailed":
+    case "com.amazonaws.cloudfront#PreconditionFailed":
       response = {
         ...(await deserializeAws_restXmlPreconditionFailedResponse(
           parsedOutput,
@@ -7047,7 +7047,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "TooManyCacheBehaviors":
-    case "com.amazon.edge.error#TooManyCacheBehaviors":
+    case "com.amazonaws.cloudfront#TooManyCacheBehaviors":
       response = {
         ...(await deserializeAws_restXmlTooManyCacheBehaviorsResponse(
           parsedOutput,
@@ -7058,7 +7058,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "TooManyCertificates":
-    case "com.amazon.edge.error#TooManyCertificates":
+    case "com.amazonaws.cloudfront#TooManyCertificates":
       response = {
         ...(await deserializeAws_restXmlTooManyCertificatesResponse(
           parsedOutput,
@@ -7069,7 +7069,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "TooManyCookieNamesInWhiteList":
-    case "com.amazon.edge.error#TooManyCookieNamesInWhiteList":
+    case "com.amazonaws.cloudfront#TooManyCookieNamesInWhiteList":
       response = {
         ...(await deserializeAws_restXmlTooManyCookieNamesInWhiteListResponse(
           parsedOutput,
@@ -7080,7 +7080,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "TooManyDistributionCNAMEs":
-    case "com.amazon.edge.error#TooManyDistributionCNAMEs":
+    case "com.amazonaws.cloudfront#TooManyDistributionCNAMEs":
       response = {
         ...(await deserializeAws_restXmlTooManyDistributionCNAMEsResponse(
           parsedOutput,
@@ -7091,7 +7091,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig":
-    case "com.amazon.edge.error#TooManyDistributionsAssociatedToFieldLevelEncryptionConfig":
+    case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToFieldLevelEncryptionConfig":
       response = {
         ...(await deserializeAws_restXmlTooManyDistributionsAssociatedToFieldLevelEncryptionConfigResponse(
           parsedOutput,
@@ -7102,7 +7102,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "TooManyDistributionsWithLambdaAssociations":
-    case "com.amazon.edge.error#TooManyDistributionsWithLambdaAssociations":
+    case "com.amazonaws.cloudfront#TooManyDistributionsWithLambdaAssociations":
       response = {
         ...(await deserializeAws_restXmlTooManyDistributionsWithLambdaAssociationsResponse(
           parsedOutput,
@@ -7113,7 +7113,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "TooManyHeadersInForwardedValues":
-    case "com.amazon.edge.error#TooManyHeadersInForwardedValues":
+    case "com.amazonaws.cloudfront#TooManyHeadersInForwardedValues":
       response = {
         ...(await deserializeAws_restXmlTooManyHeadersInForwardedValuesResponse(
           parsedOutput,
@@ -7124,7 +7124,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "TooManyLambdaFunctionAssociations":
-    case "com.amazon.edge.error#TooManyLambdaFunctionAssociations":
+    case "com.amazonaws.cloudfront#TooManyLambdaFunctionAssociations":
       response = {
         ...(await deserializeAws_restXmlTooManyLambdaFunctionAssociationsResponse(
           parsedOutput,
@@ -7135,7 +7135,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "TooManyOriginCustomHeaders":
-    case "com.amazon.edge.error#TooManyOriginCustomHeaders":
+    case "com.amazonaws.cloudfront#TooManyOriginCustomHeaders":
       response = {
         ...(await deserializeAws_restXmlTooManyOriginCustomHeadersResponse(
           parsedOutput,
@@ -7146,7 +7146,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "TooManyOriginGroupsPerDistribution":
-    case "com.amazon.edge.error#TooManyOriginGroupsPerDistribution":
+    case "com.amazonaws.cloudfront#TooManyOriginGroupsPerDistribution":
       response = {
         ...(await deserializeAws_restXmlTooManyOriginGroupsPerDistributionResponse(
           parsedOutput,
@@ -7157,7 +7157,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "TooManyOrigins":
-    case "com.amazon.edge.error#TooManyOrigins":
+    case "com.amazonaws.cloudfront#TooManyOrigins":
       response = {
         ...(await deserializeAws_restXmlTooManyOriginsResponse(
           parsedOutput,
@@ -7168,7 +7168,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "TooManyQueryStringParameters":
-    case "com.amazon.edge.error#TooManyQueryStringParameters":
+    case "com.amazonaws.cloudfront#TooManyQueryStringParameters":
       response = {
         ...(await deserializeAws_restXmlTooManyQueryStringParametersResponse(
           parsedOutput,
@@ -7179,7 +7179,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "TooManyTrustedSigners":
-    case "com.amazon.edge.error#TooManyTrustedSigners":
+    case "com.amazonaws.cloudfront#TooManyTrustedSigners":
       response = {
         ...(await deserializeAws_restXmlTooManyTrustedSignersResponse(
           parsedOutput,
@@ -7190,7 +7190,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       };
       break;
     case "TrustedSignerDoesNotExist":
-    case "com.amazon.edge.error#TrustedSignerDoesNotExist":
+    case "com.amazonaws.cloudfront#TrustedSignerDoesNotExist":
       response = {
         ...(await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(
           parsedOutput,
@@ -7258,7 +7258,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError = async
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -7269,7 +7269,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError = async
       };
       break;
     case "IllegalUpdate":
-    case "com.amazon.edge.error#IllegalUpdate":
+    case "com.amazonaws.cloudfront#IllegalUpdate":
       response = {
         ...(await deserializeAws_restXmlIllegalUpdateResponse(
           parsedOutput,
@@ -7280,7 +7280,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError = async
       };
       break;
     case "InconsistentQuantities":
-    case "com.amazon.edge.error#InconsistentQuantities":
+    case "com.amazonaws.cloudfront#InconsistentQuantities":
       response = {
         ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
           parsedOutput,
@@ -7291,7 +7291,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError = async
       };
       break;
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -7302,7 +7302,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError = async
       };
       break;
     case "InvalidIfMatchVersion":
-    case "com.amazon.edge.error#InvalidIfMatchVersion":
+    case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
       response = {
         ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
           parsedOutput,
@@ -7313,7 +7313,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError = async
       };
       break;
     case "NoSuchFieldLevelEncryptionConfig":
-    case "com.amazon.edge.error#NoSuchFieldLevelEncryptionConfig":
+    case "com.amazonaws.cloudfront#NoSuchFieldLevelEncryptionConfig":
       response = {
         ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(
           parsedOutput,
@@ -7324,7 +7324,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError = async
       };
       break;
     case "NoSuchFieldLevelEncryptionProfile":
-    case "com.amazon.edge.error#NoSuchFieldLevelEncryptionProfile":
+    case "com.amazonaws.cloudfront#NoSuchFieldLevelEncryptionProfile":
       response = {
         ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(
           parsedOutput,
@@ -7335,7 +7335,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError = async
       };
       break;
     case "PreconditionFailed":
-    case "com.amazon.edge.error#PreconditionFailed":
+    case "com.amazonaws.cloudfront#PreconditionFailed":
       response = {
         ...(await deserializeAws_restXmlPreconditionFailedResponse(
           parsedOutput,
@@ -7346,7 +7346,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError = async
       };
       break;
     case "QueryArgProfileEmpty":
-    case "com.amazon.edge.error#QueryArgProfileEmpty":
+    case "com.amazonaws.cloudfront#QueryArgProfileEmpty":
       response = {
         ...(await deserializeAws_restXmlQueryArgProfileEmptyResponse(
           parsedOutput,
@@ -7357,7 +7357,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError = async
       };
       break;
     case "TooManyFieldLevelEncryptionContentTypeProfiles":
-    case "com.amazon.edge.error#TooManyFieldLevelEncryptionContentTypeProfiles":
+    case "com.amazonaws.cloudfront#TooManyFieldLevelEncryptionContentTypeProfiles":
       response = {
         ...(await deserializeAws_restXmlTooManyFieldLevelEncryptionContentTypeProfilesResponse(
           parsedOutput,
@@ -7368,7 +7368,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError = async
       };
       break;
     case "TooManyFieldLevelEncryptionQueryArgProfiles":
-    case "com.amazon.edge.error#TooManyFieldLevelEncryptionQueryArgProfiles":
+    case "com.amazonaws.cloudfront#TooManyFieldLevelEncryptionQueryArgProfiles":
       response = {
         ...(await deserializeAws_restXmlTooManyFieldLevelEncryptionQueryArgProfilesResponse(
           parsedOutput,
@@ -7436,7 +7436,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError = asyn
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -7447,7 +7447,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "FieldLevelEncryptionProfileAlreadyExists":
-    case "com.amazon.edge.error#FieldLevelEncryptionProfileAlreadyExists":
+    case "com.amazonaws.cloudfront#FieldLevelEncryptionProfileAlreadyExists":
       response = {
         ...(await deserializeAws_restXmlFieldLevelEncryptionProfileAlreadyExistsResponse(
           parsedOutput,
@@ -7458,7 +7458,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "FieldLevelEncryptionProfileSizeExceeded":
-    case "com.amazon.edge.error#FieldLevelEncryptionProfileSizeExceeded":
+    case "com.amazonaws.cloudfront#FieldLevelEncryptionProfileSizeExceeded":
       response = {
         ...(await deserializeAws_restXmlFieldLevelEncryptionProfileSizeExceededResponse(
           parsedOutput,
@@ -7469,7 +7469,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "IllegalUpdate":
-    case "com.amazon.edge.error#IllegalUpdate":
+    case "com.amazonaws.cloudfront#IllegalUpdate":
       response = {
         ...(await deserializeAws_restXmlIllegalUpdateResponse(
           parsedOutput,
@@ -7480,7 +7480,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "InconsistentQuantities":
-    case "com.amazon.edge.error#InconsistentQuantities":
+    case "com.amazonaws.cloudfront#InconsistentQuantities":
       response = {
         ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
           parsedOutput,
@@ -7491,7 +7491,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -7502,7 +7502,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "InvalidIfMatchVersion":
-    case "com.amazon.edge.error#InvalidIfMatchVersion":
+    case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
       response = {
         ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
           parsedOutput,
@@ -7513,7 +7513,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "NoSuchFieldLevelEncryptionProfile":
-    case "com.amazon.edge.error#NoSuchFieldLevelEncryptionProfile":
+    case "com.amazonaws.cloudfront#NoSuchFieldLevelEncryptionProfile":
       response = {
         ...(await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(
           parsedOutput,
@@ -7524,7 +7524,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "NoSuchPublicKey":
-    case "com.amazon.edge.error#NoSuchPublicKey":
+    case "com.amazonaws.cloudfront#NoSuchPublicKey":
       response = {
         ...(await deserializeAws_restXmlNoSuchPublicKeyResponse(
           parsedOutput,
@@ -7535,7 +7535,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "PreconditionFailed":
-    case "com.amazon.edge.error#PreconditionFailed":
+    case "com.amazonaws.cloudfront#PreconditionFailed":
       response = {
         ...(await deserializeAws_restXmlPreconditionFailedResponse(
           parsedOutput,
@@ -7546,7 +7546,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "TooManyFieldLevelEncryptionEncryptionEntities":
-    case "com.amazon.edge.error#TooManyFieldLevelEncryptionEncryptionEntities":
+    case "com.amazonaws.cloudfront#TooManyFieldLevelEncryptionEncryptionEntities":
       response = {
         ...(await deserializeAws_restXmlTooManyFieldLevelEncryptionEncryptionEntitiesResponse(
           parsedOutput,
@@ -7557,7 +7557,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError = asyn
       };
       break;
     case "TooManyFieldLevelEncryptionFieldPatterns":
-    case "com.amazon.edge.error#TooManyFieldLevelEncryptionFieldPatterns":
+    case "com.amazonaws.cloudfront#TooManyFieldLevelEncryptionFieldPatterns":
       response = {
         ...(await deserializeAws_restXmlTooManyFieldLevelEncryptionFieldPatternsResponse(
           parsedOutput,
@@ -7619,7 +7619,7 @@ const deserializeAws_restXmlUpdatePublicKeyCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -7630,7 +7630,7 @@ const deserializeAws_restXmlUpdatePublicKeyCommandError = async (
       };
       break;
     case "CannotChangeImmutablePublicKeyFields":
-    case "com.amazon.edge.error#CannotChangeImmutablePublicKeyFields":
+    case "com.amazonaws.cloudfront#CannotChangeImmutablePublicKeyFields":
       response = {
         ...(await deserializeAws_restXmlCannotChangeImmutablePublicKeyFieldsResponse(
           parsedOutput,
@@ -7641,7 +7641,7 @@ const deserializeAws_restXmlUpdatePublicKeyCommandError = async (
       };
       break;
     case "IllegalUpdate":
-    case "com.amazon.edge.error#IllegalUpdate":
+    case "com.amazonaws.cloudfront#IllegalUpdate":
       response = {
         ...(await deserializeAws_restXmlIllegalUpdateResponse(
           parsedOutput,
@@ -7652,7 +7652,7 @@ const deserializeAws_restXmlUpdatePublicKeyCommandError = async (
       };
       break;
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -7663,7 +7663,7 @@ const deserializeAws_restXmlUpdatePublicKeyCommandError = async (
       };
       break;
     case "InvalidIfMatchVersion":
-    case "com.amazon.edge.error#InvalidIfMatchVersion":
+    case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
       response = {
         ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
           parsedOutput,
@@ -7674,7 +7674,7 @@ const deserializeAws_restXmlUpdatePublicKeyCommandError = async (
       };
       break;
     case "NoSuchPublicKey":
-    case "com.amazon.edge.error#NoSuchPublicKey":
+    case "com.amazonaws.cloudfront#NoSuchPublicKey":
       response = {
         ...(await deserializeAws_restXmlNoSuchPublicKeyResponse(
           parsedOutput,
@@ -7685,7 +7685,7 @@ const deserializeAws_restXmlUpdatePublicKeyCommandError = async (
       };
       break;
     case "PreconditionFailed":
-    case "com.amazon.edge.error#PreconditionFailed":
+    case "com.amazonaws.cloudfront#PreconditionFailed":
       response = {
         ...(await deserializeAws_restXmlPreconditionFailedResponse(
           parsedOutput,
@@ -7753,7 +7753,7 @@ const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
-    case "com.amazon.edge.error#AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
       response = {
         ...(await deserializeAws_restXmlAccessDeniedResponse(
           parsedOutput,
@@ -7764,7 +7764,7 @@ const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
       };
       break;
     case "CNAMEAlreadyExists":
-    case "com.amazon.edge.error#CNAMEAlreadyExists":
+    case "com.amazonaws.cloudfront#CNAMEAlreadyExists":
       response = {
         ...(await deserializeAws_restXmlCNAMEAlreadyExistsResponse(
           parsedOutput,
@@ -7775,7 +7775,7 @@ const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
       };
       break;
     case "IllegalUpdate":
-    case "com.amazon.edge.error#IllegalUpdate":
+    case "com.amazonaws.cloudfront#IllegalUpdate":
       response = {
         ...(await deserializeAws_restXmlIllegalUpdateResponse(
           parsedOutput,
@@ -7786,7 +7786,7 @@ const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
       };
       break;
     case "InconsistentQuantities":
-    case "com.amazon.edge.error#InconsistentQuantities":
+    case "com.amazonaws.cloudfront#InconsistentQuantities":
       response = {
         ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(
           parsedOutput,
@@ -7797,7 +7797,7 @@ const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
       };
       break;
     case "InvalidArgument":
-    case "com.amazon.edge.error#InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(
           parsedOutput,
@@ -7808,7 +7808,7 @@ const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
       };
       break;
     case "InvalidIfMatchVersion":
-    case "com.amazon.edge.error#InvalidIfMatchVersion":
+    case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
       response = {
         ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(
           parsedOutput,
@@ -7819,7 +7819,7 @@ const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
       };
       break;
     case "InvalidOriginAccessIdentity":
-    case "com.amazon.edge.error#InvalidOriginAccessIdentity":
+    case "com.amazonaws.cloudfront#InvalidOriginAccessIdentity":
       response = {
         ...(await deserializeAws_restXmlInvalidOriginAccessIdentityResponse(
           parsedOutput,
@@ -7830,7 +7830,7 @@ const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
       };
       break;
     case "MissingBody":
-    case "com.amazon.edge.error#MissingBody":
+    case "com.amazonaws.cloudfront#MissingBody":
       response = {
         ...(await deserializeAws_restXmlMissingBodyResponse(
           parsedOutput,
@@ -7841,7 +7841,7 @@ const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
       };
       break;
     case "NoSuchStreamingDistribution":
-    case "com.amazon.edge.error#NoSuchStreamingDistribution":
+    case "com.amazonaws.cloudfront#NoSuchStreamingDistribution":
       response = {
         ...(await deserializeAws_restXmlNoSuchStreamingDistributionResponse(
           parsedOutput,
@@ -7852,7 +7852,7 @@ const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
       };
       break;
     case "PreconditionFailed":
-    case "com.amazon.edge.error#PreconditionFailed":
+    case "com.amazonaws.cloudfront#PreconditionFailed":
       response = {
         ...(await deserializeAws_restXmlPreconditionFailedResponse(
           parsedOutput,
@@ -7863,7 +7863,7 @@ const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
       };
       break;
     case "TooManyStreamingDistributionCNAMEs":
-    case "com.amazon.edge.error#TooManyStreamingDistributionCNAMEs":
+    case "com.amazonaws.cloudfront#TooManyStreamingDistributionCNAMEs":
       response = {
         ...(await deserializeAws_restXmlTooManyStreamingDistributionCNAMEsResponse(
           parsedOutput,
@@ -7874,7 +7874,7 @@ const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
       };
       break;
     case "TooManyTrustedSigners":
-    case "com.amazon.edge.error#TooManyTrustedSigners":
+    case "com.amazonaws.cloudfront#TooManyTrustedSigners":
       response = {
         ...(await deserializeAws_restXmlTooManyTrustedSignersResponse(
           parsedOutput,
@@ -7885,7 +7885,7 @@ const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
       };
       break;
     case "TrustedSignerDoesNotExist":
-    case "com.amazon.edge.error#TrustedSignerDoesNotExist":
+    case "com.amazonaws.cloudfront#TrustedSignerDoesNotExist":
       response = {
         ...(await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(
           parsedOutput,
@@ -7947,23 +7947,6 @@ const deserializeAws_restXmlBatchTooLargeResponse = async (
   return contents;
 };
 
-const deserializeAws_restXmlCNAMEAlreadyExistsResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<CNAMEAlreadyExists> => {
-  const contents: CNAMEAlreadyExists = {
-    name: "CNAMEAlreadyExists",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
-  };
-  const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = data["Message"];
-  }
-  return contents;
-};
-
 const deserializeAws_restXmlCannotChangeImmutablePublicKeyFieldsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -8004,6 +7987,23 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityInUseResponse = async 
 ): Promise<CloudFrontOriginAccessIdentityInUse> => {
   const contents: CloudFrontOriginAccessIdentityInUse = {
     name: "CloudFrontOriginAccessIdentityInUse",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined
+  };
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlCNAMEAlreadyExistsResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CNAMEAlreadyExists> => {
+  const contents: CNAMEAlreadyExists = {
+    name: "CNAMEAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -8508,12 +8508,12 @@ const deserializeAws_restXmlInvalidResponseCodeResponse = async (
   return contents;
 };
 
-const deserializeAws_restXmlInvalidTTLOrderResponse = async (
+const deserializeAws_restXmlInvalidTaggingResponse = async (
   parsedOutput: any,
   context: __SerdeContext
-): Promise<InvalidTTLOrder> => {
-  const contents: InvalidTTLOrder = {
-    name: "InvalidTTLOrder",
+): Promise<InvalidTagging> => {
+  const contents: InvalidTagging = {
+    name: "InvalidTagging",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -8525,12 +8525,12 @@ const deserializeAws_restXmlInvalidTTLOrderResponse = async (
   return contents;
 };
 
-const deserializeAws_restXmlInvalidTaggingResponse = async (
+const deserializeAws_restXmlInvalidTTLOrderResponse = async (
   parsedOutput: any,
   context: __SerdeContext
-): Promise<InvalidTagging> => {
-  const contents: InvalidTagging = {
-    name: "InvalidTagging",
+): Promise<InvalidTTLOrder> => {
+  const contents: InvalidTTLOrder = {
+    name: "InvalidTTLOrder",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -9290,16 +9290,6 @@ const deserializeAws_restXmlTrustedSignerDoesNotExistResponse = async (
   return contents;
 };
 
-const serializeAws_restXmlAliasList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
-    return node.withName("CNAME");
-  });
-};
-
 const serializeAws_restXmlAliases = (
   input: Aliases,
   context: __SerdeContext
@@ -9320,6 +9310,16 @@ const serializeAws_restXmlAliases = (
     bodyNode.addChildNode(node);
   }
   return bodyNode;
+};
+
+const serializeAws_restXmlAliasList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => {
+    const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+    return node.withName("CNAME");
+  });
 };
 
 const serializeAws_restXmlAllowedMethods = (
@@ -10618,13 +10618,13 @@ const serializeAws_restXmlOriginList = (
   });
 };
 
-const serializeAws_restXmlOriginSslProtocols = (
-  input: OriginSslProtocols,
+const serializeAws_restXmlOrigins = (
+  input: Origins,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("OriginSslProtocols");
+  const bodyNode = new __XmlNode("Origins");
   if (input.Items !== undefined) {
-    const nodes = serializeAws_restXmlSslProtocolsList(input.Items, context);
+    const nodes = serializeAws_restXmlOriginList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
@@ -10640,13 +10640,13 @@ const serializeAws_restXmlOriginSslProtocols = (
   return bodyNode;
 };
 
-const serializeAws_restXmlOrigins = (
-  input: Origins,
+const serializeAws_restXmlOriginSslProtocols = (
+  input: OriginSslProtocols,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("Origins");
+  const bodyNode = new __XmlNode("OriginSslProtocols");
   if (input.Items !== undefined) {
-    const nodes = serializeAws_restXmlOriginList(input.Items, context);
+    const nodes = serializeAws_restXmlSslProtocolsList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
@@ -11215,6 +11215,30 @@ const deserializeAws_restXmlActiveTrustedSigners = (
   return contents;
 };
 
+const deserializeAws_restXmlAliases = (
+  output: any,
+  context: __SerdeContext
+): Aliases => {
+  let contents: any = {
+    __type: "Aliases",
+    Items: undefined,
+    Quantity: undefined
+  };
+  if (output.Items === "") {
+    contents.Items = [];
+  }
+  if (output["Items"] !== undefined && output["Items"]["CNAME"] !== undefined) {
+    contents.Items = deserializeAws_restXmlAliasList(
+      __getArrayIfSingleItem(output["Items"]["CNAME"]),
+      context
+    );
+  }
+  if (output["Quantity"] !== undefined) {
+    contents.Quantity = parseInt(output["Quantity"]);
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlAliasICPRecordal = (
   output: any,
   context: __SerdeContext
@@ -11247,30 +11271,6 @@ const deserializeAws_restXmlAliasList = (
   context: __SerdeContext
 ): string[] => {
   return (output || []).map((entry: any) => entry);
-};
-
-const deserializeAws_restXmlAliases = (
-  output: any,
-  context: __SerdeContext
-): Aliases => {
-  let contents: any = {
-    __type: "Aliases",
-    Items: undefined,
-    Quantity: undefined
-  };
-  if (output.Items === "") {
-    contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["CNAME"] !== undefined) {
-    contents.Items = deserializeAws_restXmlAliasList(
-      __getArrayIfSingleItem(output["Items"]["CNAME"]),
-      context
-    );
-  }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
-  }
-  return contents;
 };
 
 const deserializeAws_restXmlAllowedMethods = (
@@ -13168,33 +13168,6 @@ const deserializeAws_restXmlOriginList = (
   );
 };
 
-const deserializeAws_restXmlOriginSslProtocols = (
-  output: any,
-  context: __SerdeContext
-): OriginSslProtocols => {
-  let contents: any = {
-    __type: "OriginSslProtocols",
-    Items: undefined,
-    Quantity: undefined
-  };
-  if (output.Items === "") {
-    contents.Items = [];
-  }
-  if (
-    output["Items"] !== undefined &&
-    output["Items"]["SslProtocol"] !== undefined
-  ) {
-    contents.Items = deserializeAws_restXmlSslProtocolsList(
-      __getArrayIfSingleItem(output["Items"]["SslProtocol"]),
-      context
-    );
-  }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
-  }
-  return contents;
-};
-
 const deserializeAws_restXmlOrigins = (
   output: any,
   context: __SerdeContext
@@ -13213,6 +13186,33 @@ const deserializeAws_restXmlOrigins = (
   ) {
     contents.Items = deserializeAws_restXmlOriginList(
       __getArrayIfSingleItem(output["Items"]["Origin"]),
+      context
+    );
+  }
+  if (output["Quantity"] !== undefined) {
+    contents.Quantity = parseInt(output["Quantity"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlOriginSslProtocols = (
+  output: any,
+  context: __SerdeContext
+): OriginSslProtocols => {
+  let contents: any = {
+    __type: "OriginSslProtocols",
+    Items: undefined,
+    Quantity: undefined
+  };
+  if (output.Items === "") {
+    contents.Items = [];
+  }
+  if (
+    output["Items"] !== undefined &&
+    output["Items"]["SslProtocol"] !== undefined
+  ) {
+    contents.Items = deserializeAws_restXmlSslProtocolsList(
+      __getArrayIfSingleItem(output["Items"]["SslProtocol"]),
       context
     );
   }

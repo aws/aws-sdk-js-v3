@@ -5,9 +5,9 @@ import {
 } from "../MediaConvertClient";
 import { ListQueuesRequest, ListQueuesResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListQueuesCommand,
-  serializeAws_restJson1_1ListQueuesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListQueuesCommand,
+  serializeAws_restJson1ListQueuesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListQueuesCommand extends $Command<
     input: ListQueuesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListQueuesCommand(input, context);
+    return serializeAws_restJson1ListQueuesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListQueuesCommandOutput> {
-    return deserializeAws_restJson1_1ListQueuesCommand(output, context);
+    return deserializeAws_restJson1ListQueuesCommand(output, context);
   }
 
   // Start section: command_body_extra

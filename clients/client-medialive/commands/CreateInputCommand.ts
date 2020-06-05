@@ -5,9 +5,9 @@ import {
 } from "../MediaLiveClient";
 import { CreateInputRequest, CreateInputResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateInputCommand,
-  serializeAws_restJson1_1CreateInputCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateInputCommand,
+  serializeAws_restJson1CreateInputCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateInputCommand extends $Command<
     input: CreateInputCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateInputCommand(input, context);
+    return serializeAws_restJson1CreateInputCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateInputCommandOutput> {
-    return deserializeAws_restJson1_1CreateInputCommand(output, context);
+    return deserializeAws_restJson1CreateInputCommand(output, context);
   }
 
   // Start section: command_body_extra

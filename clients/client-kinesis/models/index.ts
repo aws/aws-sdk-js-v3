@@ -1955,6 +1955,21 @@ export namespace SplitShardInput {
     __isa(o, "SplitShardInput");
 }
 
+export interface StartingPosition {
+  __type?: "StartingPosition";
+  SequenceNumber?: string;
+  Timestamp?: Date;
+  Type: ShardIteratorType | string | undefined;
+}
+
+export namespace StartingPosition {
+  export const filterSensitiveLog = (obj: StartingPosition): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is StartingPosition =>
+    __isa(o, "StartingPosition");
+}
+
 export interface StartStreamEncryptionInput {
   __type?: "StartStreamEncryptionInput";
   /**
@@ -2007,21 +2022,6 @@ export namespace StartStreamEncryptionInput {
   });
   export const isa = (o: any): o is StartStreamEncryptionInput =>
     __isa(o, "StartStreamEncryptionInput");
-}
-
-export interface StartingPosition {
-  __type?: "StartingPosition";
-  SequenceNumber?: string;
-  Timestamp?: Date;
-  Type: ShardIteratorType | string | undefined;
-}
-
-export namespace StartingPosition {
-  export const filterSensitiveLog = (obj: StartingPosition): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is StartingPosition =>
-    __isa(o, "StartingPosition");
 }
 
 export interface StopStreamEncryptionInput {
@@ -2636,7 +2636,7 @@ export interface SubscribeToShardOutput {
   /**
    * <p>The event stream that your consumer can use to read records from the shard.</p>
    */
-  EventStream?: AsyncIterable<SubscribeToShardEventStream>;
+  EventStream: AsyncIterable<SubscribeToShardEventStream> | undefined;
 }
 
 export namespace SubscribeToShardOutput {

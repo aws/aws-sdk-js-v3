@@ -5,9 +5,9 @@ import {
 } from "../SecurityHubClient";
 import { CreateInsightRequest, CreateInsightResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateInsightCommand,
-  serializeAws_restJson1_1CreateInsightCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateInsightCommand,
+  serializeAws_restJson1CreateInsightCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class CreateInsightCommand extends $Command<
     input: CreateInsightCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateInsightCommand(input, context);
+    return serializeAws_restJson1CreateInsightCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateInsightCommandOutput> {
-    return deserializeAws_restJson1_1CreateInsightCommand(output, context);
+    return deserializeAws_restJson1CreateInsightCommand(output, context);
   }
 
   // Start section: command_body_extra

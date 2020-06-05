@@ -5,9 +5,9 @@ import {
 } from "../CloudDirectoryClient";
 import { ListFacetNamesRequest, ListFacetNamesResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListFacetNamesCommand,
-  serializeAws_restJson1_1ListFacetNamesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListFacetNamesCommand,
+  serializeAws_restJson1ListFacetNamesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class ListFacetNamesCommand extends $Command<
     input: ListFacetNamesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListFacetNamesCommand(input, context);
+    return serializeAws_restJson1ListFacetNamesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFacetNamesCommandOutput> {
-    return deserializeAws_restJson1_1ListFacetNamesCommand(output, context);
+    return deserializeAws_restJson1ListFacetNamesCommand(output, context);
   }
 
   // Start section: command_body_extra

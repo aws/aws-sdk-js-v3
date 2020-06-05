@@ -8,9 +8,9 @@ import {
   ClearDefaultAuthorizerResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ClearDefaultAuthorizerCommand,
-  serializeAws_restJson1_1ClearDefaultAuthorizerCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ClearDefaultAuthorizerCommand,
+  serializeAws_restJson1ClearDefaultAuthorizerCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ClearDefaultAuthorizerCommand extends $Command<
     input: ClearDefaultAuthorizerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ClearDefaultAuthorizerCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1ClearDefaultAuthorizerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ClearDefaultAuthorizerCommandOutput> {
-    return deserializeAws_restJson1_1ClearDefaultAuthorizerCommand(
+    return deserializeAws_restJson1ClearDefaultAuthorizerCommand(
       output,
       context
     );

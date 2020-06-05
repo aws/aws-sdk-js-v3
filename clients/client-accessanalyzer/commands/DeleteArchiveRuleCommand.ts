@@ -5,9 +5,9 @@ import {
 } from "../AccessAnalyzerClient";
 import { DeleteArchiveRuleRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteArchiveRuleCommand,
-  serializeAws_restJson1_1DeleteArchiveRuleCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteArchiveRuleCommand,
+  serializeAws_restJson1DeleteArchiveRuleCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteArchiveRuleCommand extends $Command<
     input: DeleteArchiveRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteArchiveRuleCommand(input, context);
+    return serializeAws_restJson1DeleteArchiveRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteArchiveRuleCommandOutput> {
-    return deserializeAws_restJson1_1DeleteArchiveRuleCommand(output, context);
+    return deserializeAws_restJson1DeleteArchiveRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

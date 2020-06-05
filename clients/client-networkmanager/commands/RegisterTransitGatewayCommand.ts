@@ -8,9 +8,9 @@ import {
   RegisterTransitGatewayResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1RegisterTransitGatewayCommand,
-  serializeAws_restJson1_1RegisterTransitGatewayCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1RegisterTransitGatewayCommand,
+  serializeAws_restJson1RegisterTransitGatewayCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class RegisterTransitGatewayCommand extends $Command<
     input: RegisterTransitGatewayCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RegisterTransitGatewayCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1RegisterTransitGatewayCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterTransitGatewayCommandOutput> {
-    return deserializeAws_restJson1_1RegisterTransitGatewayCommand(
+    return deserializeAws_restJson1RegisterTransitGatewayCommand(
       output,
       context
     );

@@ -5,9 +5,9 @@ import {
 } from "../ResourceGroupsClient";
 import { TagInput, TagOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1TagCommand,
-  serializeAws_restJson1_1TagCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1TagCommand,
+  serializeAws_restJson1TagCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class TagCommand extends $Command<
     input: TagCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1TagCommand(input, context);
+    return serializeAws_restJson1TagCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TagCommandOutput> {
-    return deserializeAws_restJson1_1TagCommand(output, context);
+    return deserializeAws_restJson1TagCommand(output, context);
   }
 
   // Start section: command_body_extra

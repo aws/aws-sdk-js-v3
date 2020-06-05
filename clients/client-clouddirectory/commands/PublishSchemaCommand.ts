@@ -5,9 +5,9 @@ import {
 } from "../CloudDirectoryClient";
 import { PublishSchemaRequest, PublishSchemaResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1PublishSchemaCommand,
-  serializeAws_restJson1_1PublishSchemaCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PublishSchemaCommand,
+  serializeAws_restJson1PublishSchemaCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class PublishSchemaCommand extends $Command<
     input: PublishSchemaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PublishSchemaCommand(input, context);
+    return serializeAws_restJson1PublishSchemaCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PublishSchemaCommandOutput> {
-    return deserializeAws_restJson1_1PublishSchemaCommand(output, context);
+    return deserializeAws_restJson1PublishSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -375,22 +375,6 @@ export const serializeAws_queryAttachInstancesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryAttachLoadBalancerTargetGroupsCommand = async (
-  input: AttachLoadBalancerTargetGroupsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
-  };
-  let body: any;
-  body = buildFormUrlencodedString({
-    ...serializeAws_queryAttachLoadBalancerTargetGroupsType(input, context),
-    Action: "AttachLoadBalancerTargetGroups",
-    Version: "2011-01-01"
-  });
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_queryAttachLoadBalancersCommand = async (
   input: AttachLoadBalancersCommandInput,
   context: __SerdeContext
@@ -402,6 +386,22 @@ export const serializeAws_queryAttachLoadBalancersCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryAttachLoadBalancersType(input, context),
     Action: "AttachLoadBalancers",
+    Version: "2011-01-01"
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryAttachLoadBalancerTargetGroupsCommand = async (
+  input: AttachLoadBalancerTargetGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryAttachLoadBalancerTargetGroupsType(input, context),
+    Action: "AttachLoadBalancerTargetGroups",
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -705,6 +705,22 @@ export const serializeAws_queryDescribeLaunchConfigurationsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryDescribeLifecycleHooksCommand = async (
+  input: DescribeLifecycleHooksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeLifecycleHooksType(input, context),
+    Action: "DescribeLifecycleHooks",
+    Version: "2011-01-01"
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryDescribeLifecycleHookTypesCommand = async (
   input: DescribeLifecycleHookTypesCommandInput,
   context: __SerdeContext
@@ -719,8 +735,8 @@ export const serializeAws_queryDescribeLifecycleHookTypesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeLifecycleHooksCommand = async (
-  input: DescribeLifecycleHooksCommandInput,
+export const serializeAws_queryDescribeLoadBalancersCommand = async (
+  input: DescribeLoadBalancersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
@@ -728,8 +744,8 @@ export const serializeAws_queryDescribeLifecycleHooksCommand = async (
   };
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeLifecycleHooksType(input, context),
-    Action: "DescribeLifecycleHooks",
+    ...serializeAws_queryDescribeLoadBalancersRequest(input, context),
+    Action: "DescribeLoadBalancers",
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -749,22 +765,6 @@ export const serializeAws_queryDescribeLoadBalancerTargetGroupsCommand = async (
       context
     ),
     Action: "DescribeLoadBalancerTargetGroups",
-    Version: "2011-01-01"
-  });
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_queryDescribeLoadBalancersCommand = async (
-  input: DescribeLoadBalancersCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
-  };
-  let body: any;
-  body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeLoadBalancersRequest(input, context),
-    Action: "DescribeLoadBalancers",
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -908,22 +908,6 @@ export const serializeAws_queryDetachInstancesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDetachLoadBalancerTargetGroupsCommand = async (
-  input: DetachLoadBalancerTargetGroupsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
-  };
-  let body: any;
-  body = buildFormUrlencodedString({
-    ...serializeAws_queryDetachLoadBalancerTargetGroupsType(input, context),
-    Action: "DetachLoadBalancerTargetGroups",
-    Version: "2011-01-01"
-  });
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_queryDetachLoadBalancersCommand = async (
   input: DetachLoadBalancersCommandInput,
   context: __SerdeContext
@@ -935,6 +919,22 @@ export const serializeAws_queryDetachLoadBalancersCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDetachLoadBalancersType(input, context),
     Action: "DetachLoadBalancers",
+    Version: "2011-01-01"
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDetachLoadBalancerTargetGroupsCommand = async (
+  input: DetachLoadBalancerTargetGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDetachLoadBalancerTargetGroupsType(input, context),
+    Action: "DetachLoadBalancerTargetGroups",
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1242,7 +1242,7 @@ const deserializeAws_queryAttachInstancesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -1253,7 +1253,80 @@ const deserializeAws_queryAttachInstancesCommandError = async (
       };
       break;
     case "ServiceLinkedRoleFailure":
-    case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
+    case "com.amazonaws.autoscaling#ServiceLinkedRoleFailure":
+      response = {
+        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryAttachLoadBalancersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AttachLoadBalancersCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_queryAttachLoadBalancersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryAttachLoadBalancersResultType(
+    data.AttachLoadBalancersResult,
+    context
+  );
+  const response: AttachLoadBalancersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "AttachLoadBalancersResultType",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryAttachLoadBalancersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AttachLoadBalancersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ServiceLinkedRoleFailure":
+    case "com.amazonaws.autoscaling#ServiceLinkedRoleFailure":
       response = {
         ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
           parsedOutput,
@@ -1318,7 +1391,7 @@ const deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -1329,80 +1402,7 @@ const deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError = async (
       };
       break;
     case "ServiceLinkedRoleFailure":
-    case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
-      response = {
-        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_queryAttachLoadBalancersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachLoadBalancersCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_queryAttachLoadBalancersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_queryAttachLoadBalancersResultType(
-    data.AttachLoadBalancersResult,
-    context
-  );
-  const response: AttachLoadBalancersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "AttachLoadBalancersResultType",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_queryAttachLoadBalancersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachLoadBalancersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ServiceLinkedRoleFailure":
-    case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
+    case "com.amazonaws.autoscaling#ServiceLinkedRoleFailure":
       response = {
         ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
           parsedOutput,
@@ -1467,7 +1467,7 @@ const deserializeAws_queryBatchDeleteScheduledActionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -1532,7 +1532,7 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError = async
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
-    case "com.amazon.fws.csls.version_2011_01_01#AlreadyExistsFault":
+    case "com.amazonaws.autoscaling#AlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryAlreadyExistsFaultResponse(
           parsedOutput,
@@ -1543,7 +1543,7 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError = async
       };
       break;
     case "LimitExceededFault":
-    case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
+    case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(
           parsedOutput,
@@ -1554,7 +1554,7 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError = async
       };
       break;
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -1619,7 +1619,7 @@ const deserializeAws_queryCompleteLifecycleActionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -1677,7 +1677,7 @@ const deserializeAws_queryCreateAutoScalingGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
-    case "com.amazon.fws.csls.version_2011_01_01#AlreadyExistsFault":
+    case "com.amazonaws.autoscaling#AlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryAlreadyExistsFaultResponse(
           parsedOutput,
@@ -1688,7 +1688,7 @@ const deserializeAws_queryCreateAutoScalingGroupCommandError = async (
       };
       break;
     case "LimitExceededFault":
-    case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
+    case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(
           parsedOutput,
@@ -1699,7 +1699,7 @@ const deserializeAws_queryCreateAutoScalingGroupCommandError = async (
       };
       break;
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -1710,7 +1710,7 @@ const deserializeAws_queryCreateAutoScalingGroupCommandError = async (
       };
       break;
     case "ServiceLinkedRoleFailure":
-    case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
+    case "com.amazonaws.autoscaling#ServiceLinkedRoleFailure":
       response = {
         ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
           parsedOutput,
@@ -1768,7 +1768,7 @@ const deserializeAws_queryCreateLaunchConfigurationCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
-    case "com.amazon.fws.csls.version_2011_01_01#AlreadyExistsFault":
+    case "com.amazonaws.autoscaling#AlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryAlreadyExistsFaultResponse(
           parsedOutput,
@@ -1779,7 +1779,7 @@ const deserializeAws_queryCreateLaunchConfigurationCommandError = async (
       };
       break;
     case "LimitExceededFault":
-    case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
+    case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(
           parsedOutput,
@@ -1790,7 +1790,7 @@ const deserializeAws_queryCreateLaunchConfigurationCommandError = async (
       };
       break;
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -1845,7 +1845,7 @@ const deserializeAws_queryCreateOrUpdateTagsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
-    case "com.amazon.fws.csls.version_2011_01_01#AlreadyExistsFault":
+    case "com.amazonaws.autoscaling#AlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryAlreadyExistsFaultResponse(
           parsedOutput,
@@ -1856,7 +1856,7 @@ const deserializeAws_queryCreateOrUpdateTagsCommandError = async (
       };
       break;
     case "LimitExceededFault":
-    case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
+    case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(
           parsedOutput,
@@ -1867,7 +1867,7 @@ const deserializeAws_queryCreateOrUpdateTagsCommandError = async (
       };
       break;
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -1878,7 +1878,7 @@ const deserializeAws_queryCreateOrUpdateTagsCommandError = async (
       };
       break;
     case "ResourceInUseFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceInUseFault":
+    case "com.amazonaws.autoscaling#ResourceInUseFault":
       response = {
         ...(await deserializeAws_queryResourceInUseFaultResponse(
           parsedOutput,
@@ -1936,7 +1936,7 @@ const deserializeAws_queryDeleteAutoScalingGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -1947,7 +1947,7 @@ const deserializeAws_queryDeleteAutoScalingGroupCommandError = async (
       };
       break;
     case "ResourceInUseFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceInUseFault":
+    case "com.amazonaws.autoscaling#ResourceInUseFault":
       response = {
         ...(await deserializeAws_queryResourceInUseFaultResponse(
           parsedOutput,
@@ -1958,7 +1958,7 @@ const deserializeAws_queryDeleteAutoScalingGroupCommandError = async (
       };
       break;
     case "ScalingActivityInProgressFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ScalingActivityInProgressFault":
+    case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
       response = {
         ...(await deserializeAws_queryScalingActivityInProgressFaultResponse(
           parsedOutput,
@@ -2016,7 +2016,7 @@ const deserializeAws_queryDeleteLaunchConfigurationCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -2027,7 +2027,7 @@ const deserializeAws_queryDeleteLaunchConfigurationCommandError = async (
       };
       break;
     case "ResourceInUseFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceInUseFault":
+    case "com.amazonaws.autoscaling#ResourceInUseFault":
       response = {
         ...(await deserializeAws_queryResourceInUseFaultResponse(
           parsedOutput,
@@ -2089,7 +2089,7 @@ const deserializeAws_queryDeleteLifecycleHookCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -2147,7 +2147,7 @@ const deserializeAws_queryDeleteNotificationConfigurationCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -2202,7 +2202,7 @@ const deserializeAws_queryDeletePolicyCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -2213,7 +2213,7 @@ const deserializeAws_queryDeletePolicyCommandError = async (
       };
       break;
     case "ServiceLinkedRoleFailure":
-    case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
+    case "com.amazonaws.autoscaling#ServiceLinkedRoleFailure":
       response = {
         ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
           parsedOutput,
@@ -2271,7 +2271,7 @@ const deserializeAws_queryDeleteScheduledActionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -2326,7 +2326,7 @@ const deserializeAws_queryDeleteTagsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -2337,7 +2337,7 @@ const deserializeAws_queryDeleteTagsCommandError = async (
       };
       break;
     case "ResourceInUseFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceInUseFault":
+    case "com.amazonaws.autoscaling#ResourceInUseFault":
       response = {
         ...(await deserializeAws_queryResourceInUseFaultResponse(
           parsedOutput,
@@ -2402,7 +2402,7 @@ const deserializeAws_queryDescribeAccountLimitsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -2467,7 +2467,7 @@ const deserializeAws_queryDescribeAdjustmentTypesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -2532,7 +2532,7 @@ const deserializeAws_queryDescribeAutoScalingGroupsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
-    case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
+    case "com.amazonaws.autoscaling#InvalidNextToken":
       response = {
         ...(await deserializeAws_queryInvalidNextTokenResponse(
           parsedOutput,
@@ -2543,7 +2543,7 @@ const deserializeAws_queryDescribeAutoScalingGroupsCommandError = async (
       };
       break;
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -2608,7 +2608,7 @@ const deserializeAws_queryDescribeAutoScalingInstancesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
-    case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
+    case "com.amazonaws.autoscaling#InvalidNextToken":
       response = {
         ...(await deserializeAws_queryInvalidNextTokenResponse(
           parsedOutput,
@@ -2619,7 +2619,7 @@ const deserializeAws_queryDescribeAutoScalingInstancesCommandError = async (
       };
       break;
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -2684,7 +2684,7 @@ const deserializeAws_queryDescribeAutoScalingNotificationTypesCommandError = asy
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -2749,7 +2749,7 @@ const deserializeAws_queryDescribeLaunchConfigurationsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
-    case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
+    case "com.amazonaws.autoscaling#InvalidNextToken":
       response = {
         ...(await deserializeAws_queryInvalidNextTokenResponse(
           parsedOutput,
@@ -2760,72 +2760,7 @@ const deserializeAws_queryDescribeLaunchConfigurationsCommandError = async (
       };
       break;
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_queryDescribeLifecycleHookTypesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLifecycleHookTypesCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeLifecycleHookTypesCommandError(
-      output,
-      context
-    );
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_queryDescribeLifecycleHookTypesAnswer(
-    data.DescribeLifecycleHookTypesResult,
-    context
-  );
-  const response: DescribeLifecycleHookTypesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DescribeLifecycleHookTypesAnswer",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_queryDescribeLifecycleHookTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLifecycleHookTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -2890,7 +2825,7 @@ const deserializeAws_queryDescribeLifecycleHooksCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -2918,34 +2853,34 @@ const deserializeAws_queryDescribeLifecycleHooksCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeLoadBalancerTargetGroupsCommand = async (
+export const deserializeAws_queryDescribeLifecycleHookTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLoadBalancerTargetGroupsCommandOutput> => {
+): Promise<DescribeLifecycleHookTypesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError(
+    return deserializeAws_queryDescribeLifecycleHookTypesCommandError(
       output,
       context
     );
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeLoadBalancerTargetGroupsResponse(
-    data.DescribeLoadBalancerTargetGroupsResult,
+  contents = deserializeAws_queryDescribeLifecycleHookTypesAnswer(
+    data.DescribeLifecycleHookTypesResult,
     context
   );
-  const response: DescribeLoadBalancerTargetGroupsCommandOutput = {
+  const response: DescribeLifecycleHookTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLoadBalancerTargetGroupsResponse",
+    __type: "DescribeLifecycleHookTypesAnswer",
     ...contents
   };
   return Promise.resolve(response);
 };
 
-const deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError = async (
+const deserializeAws_queryDescribeLifecycleHookTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLoadBalancerTargetGroupsCommandOutput> => {
+): Promise<DescribeLifecycleHookTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2955,7 +2890,7 @@ const deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -3020,7 +2955,72 @@ const deserializeAws_queryDescribeLoadBalancersCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDescribeLoadBalancerTargetGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLoadBalancerTargetGroupsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDescribeLoadBalancerTargetGroupsResponse(
+    data.DescribeLoadBalancerTargetGroupsResult,
+    context
+  );
+  const response: DescribeLoadBalancerTargetGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeLoadBalancerTargetGroupsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLoadBalancerTargetGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -3085,7 +3085,7 @@ const deserializeAws_queryDescribeMetricCollectionTypesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -3150,7 +3150,7 @@ const deserializeAws_queryDescribeNotificationConfigurationsCommandError = async
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
-    case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
+    case "com.amazonaws.autoscaling#InvalidNextToken":
       response = {
         ...(await deserializeAws_queryInvalidNextTokenResponse(
           parsedOutput,
@@ -3161,7 +3161,7 @@ const deserializeAws_queryDescribeNotificationConfigurationsCommandError = async
       };
       break;
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -3223,7 +3223,7 @@ const deserializeAws_queryDescribePoliciesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
-    case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
+    case "com.amazonaws.autoscaling#InvalidNextToken":
       response = {
         ...(await deserializeAws_queryInvalidNextTokenResponse(
           parsedOutput,
@@ -3234,7 +3234,7 @@ const deserializeAws_queryDescribePoliciesCommandError = async (
       };
       break;
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -3245,7 +3245,7 @@ const deserializeAws_queryDescribePoliciesCommandError = async (
       };
       break;
     case "ServiceLinkedRoleFailure":
-    case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
+    case "com.amazonaws.autoscaling#ServiceLinkedRoleFailure":
       response = {
         ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
           parsedOutput,
@@ -3310,7 +3310,7 @@ const deserializeAws_queryDescribeScalingActivitiesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
-    case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
+    case "com.amazonaws.autoscaling#InvalidNextToken":
       response = {
         ...(await deserializeAws_queryInvalidNextTokenResponse(
           parsedOutput,
@@ -3321,7 +3321,7 @@ const deserializeAws_queryDescribeScalingActivitiesCommandError = async (
       };
       break;
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -3386,7 +3386,7 @@ const deserializeAws_queryDescribeScalingProcessTypesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -3451,7 +3451,7 @@ const deserializeAws_queryDescribeScheduledActionsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
-    case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
+    case "com.amazonaws.autoscaling#InvalidNextToken":
       response = {
         ...(await deserializeAws_queryInvalidNextTokenResponse(
           parsedOutput,
@@ -3462,7 +3462,7 @@ const deserializeAws_queryDescribeScheduledActionsCommandError = async (
       };
       break;
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -3521,7 +3521,7 @@ const deserializeAws_queryDescribeTagsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
-    case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
+    case "com.amazonaws.autoscaling#InvalidNextToken":
       response = {
         ...(await deserializeAws_queryInvalidNextTokenResponse(
           parsedOutput,
@@ -3532,7 +3532,7 @@ const deserializeAws_queryDescribeTagsCommandError = async (
       };
       break;
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -3597,7 +3597,7 @@ const deserializeAws_queryDescribeTerminationPolicyTypesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -3659,7 +3659,69 @@ const deserializeAws_queryDetachInstancesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message:
+          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDetachLoadBalancersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetachLoadBalancersCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_queryDetachLoadBalancersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDetachLoadBalancersResultType(
+    data.DetachLoadBalancersResult,
+    context
+  );
+  const response: DetachLoadBalancersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DetachLoadBalancersResultType",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDetachLoadBalancersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetachLoadBalancersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -3724,69 +3786,7 @@ const deserializeAws_queryDetachLoadBalancerTargetGroupsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_queryDetachLoadBalancersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachLoadBalancersCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_queryDetachLoadBalancersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_queryDetachLoadBalancersResultType(
-    data.DetachLoadBalancersResult,
-    context
-  );
-  const response: DetachLoadBalancersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DetachLoadBalancersResultType",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_queryDetachLoadBalancersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachLoadBalancersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -3844,7 +3844,7 @@ const deserializeAws_queryDisableMetricsCollectionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -3902,7 +3902,7 @@ const deserializeAws_queryEnableMetricsCollectionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -3964,7 +3964,7 @@ const deserializeAws_queryEnterStandbyCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -4019,7 +4019,7 @@ const deserializeAws_queryExecutePolicyCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -4030,7 +4030,7 @@ const deserializeAws_queryExecutePolicyCommandError = async (
       };
       break;
     case "ScalingActivityInProgressFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ScalingActivityInProgressFault":
+    case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
       response = {
         ...(await deserializeAws_queryScalingActivityInProgressFaultResponse(
           parsedOutput,
@@ -4092,7 +4092,7 @@ const deserializeAws_queryExitStandbyCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -4154,7 +4154,7 @@ const deserializeAws_queryPutLifecycleHookCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
-    case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
+    case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(
           parsedOutput,
@@ -4165,7 +4165,7 @@ const deserializeAws_queryPutLifecycleHookCommandError = async (
       };
       break;
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -4223,7 +4223,7 @@ const deserializeAws_queryPutNotificationConfigurationCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
-    case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
+    case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(
           parsedOutput,
@@ -4234,7 +4234,7 @@ const deserializeAws_queryPutNotificationConfigurationCommandError = async (
       };
       break;
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -4245,7 +4245,7 @@ const deserializeAws_queryPutNotificationConfigurationCommandError = async (
       };
       break;
     case "ServiceLinkedRoleFailure":
-    case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
+    case "com.amazonaws.autoscaling#ServiceLinkedRoleFailure":
       response = {
         ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
           parsedOutput,
@@ -4307,7 +4307,7 @@ const deserializeAws_queryPutScalingPolicyCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
-    case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
+    case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(
           parsedOutput,
@@ -4318,7 +4318,7 @@ const deserializeAws_queryPutScalingPolicyCommandError = async (
       };
       break;
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -4329,7 +4329,7 @@ const deserializeAws_queryPutScalingPolicyCommandError = async (
       };
       break;
     case "ServiceLinkedRoleFailure":
-    case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
+    case "com.amazonaws.autoscaling#ServiceLinkedRoleFailure":
       response = {
         ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
           parsedOutput,
@@ -4387,7 +4387,7 @@ const deserializeAws_queryPutScheduledUpdateGroupActionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
-    case "com.amazon.fws.csls.version_2011_01_01#AlreadyExistsFault":
+    case "com.amazonaws.autoscaling#AlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryAlreadyExistsFaultResponse(
           parsedOutput,
@@ -4398,7 +4398,7 @@ const deserializeAws_queryPutScheduledUpdateGroupActionCommandError = async (
       };
       break;
     case "LimitExceededFault":
-    case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
+    case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(
           parsedOutput,
@@ -4409,7 +4409,7 @@ const deserializeAws_queryPutScheduledUpdateGroupActionCommandError = async (
       };
       break;
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -4474,7 +4474,7 @@ const deserializeAws_queryRecordLifecycleActionHeartbeatCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -4529,7 +4529,7 @@ const deserializeAws_queryResumeProcessesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -4540,7 +4540,7 @@ const deserializeAws_queryResumeProcessesCommandError = async (
       };
       break;
     case "ResourceInUseFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceInUseFault":
+    case "com.amazonaws.autoscaling#ResourceInUseFault":
       response = {
         ...(await deserializeAws_queryResourceInUseFaultResponse(
           parsedOutput,
@@ -4595,7 +4595,7 @@ const deserializeAws_querySetDesiredCapacityCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -4606,7 +4606,7 @@ const deserializeAws_querySetDesiredCapacityCommandError = async (
       };
       break;
     case "ScalingActivityInProgressFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ScalingActivityInProgressFault":
+    case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
       response = {
         ...(await deserializeAws_queryScalingActivityInProgressFaultResponse(
           parsedOutput,
@@ -4661,7 +4661,7 @@ const deserializeAws_querySetInstanceHealthCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -4726,7 +4726,7 @@ const deserializeAws_querySetInstanceProtectionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
-    case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
+    case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(
           parsedOutput,
@@ -4737,7 +4737,7 @@ const deserializeAws_querySetInstanceProtectionCommandError = async (
       };
       break;
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -4792,7 +4792,7 @@ const deserializeAws_querySuspendProcessesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -4803,7 +4803,7 @@ const deserializeAws_querySuspendProcessesCommandError = async (
       };
       break;
     case "ResourceInUseFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceInUseFault":
+    case "com.amazonaws.autoscaling#ResourceInUseFault":
       response = {
         ...(await deserializeAws_queryResourceInUseFaultResponse(
           parsedOutput,
@@ -4868,7 +4868,7 @@ const deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandError = asyn
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -4879,7 +4879,7 @@ const deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandError = asyn
       };
       break;
     case "ScalingActivityInProgressFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ScalingActivityInProgressFault":
+    case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
       response = {
         ...(await deserializeAws_queryScalingActivityInProgressFaultResponse(
           parsedOutput,
@@ -4937,7 +4937,7 @@ const deserializeAws_queryUpdateAutoScalingGroupCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(
           parsedOutput,
@@ -4948,7 +4948,7 @@ const deserializeAws_queryUpdateAutoScalingGroupCommandError = async (
       };
       break;
     case "ScalingActivityInProgressFault":
-    case "com.amazon.fws.csls.version_2011_01_01#ScalingActivityInProgressFault":
+    case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
       response = {
         ...(await deserializeAws_queryScalingActivityInProgressFaultResponse(
           parsedOutput,
@@ -4959,7 +4959,7 @@ const deserializeAws_queryUpdateAutoScalingGroupCommandError = async (
       };
       break;
     case "ServiceLinkedRoleFailure":
-    case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
+    case "com.amazonaws.autoscaling#ServiceLinkedRoleFailure":
       response = {
         ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
           parsedOutput,
@@ -5147,27 +5147,6 @@ const serializeAws_queryAttachInstancesQuery = (
   return entries;
 };
 
-const serializeAws_queryAttachLoadBalancerTargetGroupsType = (
-  input: AttachLoadBalancerTargetGroupsType,
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
-  if (input.TargetGroupARNs !== undefined) {
-    const memberEntries = serializeAws_queryTargetGroupARNs(
-      input.TargetGroupARNs,
-      context
-    );
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `TargetGroupARNs.${key}`;
-      entries[loc] = value;
-    });
-  }
-  return entries;
-};
-
 const serializeAws_queryAttachLoadBalancersType = (
   input: AttachLoadBalancersType,
   context: __SerdeContext
@@ -5183,6 +5162,27 @@ const serializeAws_queryAttachLoadBalancersType = (
     );
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryAttachLoadBalancerTargetGroupsType = (
+  input: AttachLoadBalancerTargetGroupsType,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  }
+  if (input.TargetGroupARNs !== undefined) {
+    const memberEntries = serializeAws_queryTargetGroupARNs(
+      input.TargetGroupARNs,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TargetGroupARNs.${key}`;
       entries[loc] = value;
     });
   }
@@ -5763,8 +5763,8 @@ const serializeAws_queryDescribeLifecycleHooksType = (
   return entries;
 };
 
-const serializeAws_queryDescribeLoadBalancerTargetGroupsRequest = (
-  input: DescribeLoadBalancerTargetGroupsRequest,
+const serializeAws_queryDescribeLoadBalancersRequest = (
+  input: DescribeLoadBalancersRequest,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5780,8 +5780,8 @@ const serializeAws_queryDescribeLoadBalancerTargetGroupsRequest = (
   return entries;
 };
 
-const serializeAws_queryDescribeLoadBalancersRequest = (
-  input: DescribeLoadBalancersRequest,
+const serializeAws_queryDescribeLoadBalancerTargetGroupsRequest = (
+  input: DescribeLoadBalancerTargetGroupsRequest,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5964,27 +5964,6 @@ const serializeAws_queryDetachInstancesQuery = (
   return entries;
 };
 
-const serializeAws_queryDetachLoadBalancerTargetGroupsType = (
-  input: DetachLoadBalancerTargetGroupsType,
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
-  if (input.TargetGroupARNs !== undefined) {
-    const memberEntries = serializeAws_queryTargetGroupARNs(
-      input.TargetGroupARNs,
-      context
-    );
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `TargetGroupARNs.${key}`;
-      entries[loc] = value;
-    });
-  }
-  return entries;
-};
-
 const serializeAws_queryDetachLoadBalancersType = (
   input: DetachLoadBalancersType,
   context: __SerdeContext
@@ -6000,6 +5979,27 @@ const serializeAws_queryDetachLoadBalancersType = (
     );
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryDetachLoadBalancerTargetGroupsType = (
+  input: DetachLoadBalancerTargetGroupsType,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  }
+  if (input.TargetGroupARNs !== undefined) {
+    const memberEntries = serializeAws_queryTargetGroupARNs(
+      input.TargetGroupARNs,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TargetGroupARNs.${key}`;
       entries[loc] = value;
     });
   }
@@ -6222,17 +6222,6 @@ const serializeAws_queryInstancesDistribution = (
   return entries;
 };
 
-const serializeAws_queryLaunchConfigurationNameType = (
-  input: LaunchConfigurationNameType,
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  if (input.LaunchConfigurationName !== undefined) {
-    entries["LaunchConfigurationName"] = input.LaunchConfigurationName;
-  }
-  return entries;
-};
-
 const serializeAws_queryLaunchConfigurationNames = (
   input: string[],
   context: __SerdeContext
@@ -6266,6 +6255,17 @@ const serializeAws_queryLaunchConfigurationNamesType = (
   }
   if (input.NextToken !== undefined) {
     entries["NextToken"] = input.NextToken;
+  }
+  return entries;
+};
+
+const serializeAws_queryLaunchConfigurationNameType = (
+  input: LaunchConfigurationNameType,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.LaunchConfigurationName !== undefined) {
+    entries["LaunchConfigurationName"] = input.LaunchConfigurationName;
   }
   return entries;
 };
@@ -7274,22 +7274,22 @@ const deserializeAws_queryAlreadyExistsFault = (
   return contents;
 };
 
-const deserializeAws_queryAttachLoadBalancerTargetGroupsResultType = (
-  output: any,
-  context: __SerdeContext
-): AttachLoadBalancerTargetGroupsResultType => {
-  let contents: any = {
-    __type: "AttachLoadBalancerTargetGroupsResultType"
-  };
-  return contents;
-};
-
 const deserializeAws_queryAttachLoadBalancersResultType = (
   output: any,
   context: __SerdeContext
 ): AttachLoadBalancersResultType => {
   let contents: any = {
     __type: "AttachLoadBalancersResultType"
+  };
+  return contents;
+};
+
+const deserializeAws_queryAttachLoadBalancerTargetGroupsResultType = (
+  output: any,
+  context: __SerdeContext
+): AttachLoadBalancerTargetGroupsResultType => {
+  let contents: any = {
+    __type: "AttachLoadBalancerTargetGroupsResultType"
   };
   return contents;
 };
@@ -7854,29 +7854,6 @@ const deserializeAws_queryDescribeAutoScalingNotificationTypesAnswer = (
   return contents;
 };
 
-const deserializeAws_queryDescribeLifecycleHookTypesAnswer = (
-  output: any,
-  context: __SerdeContext
-): DescribeLifecycleHookTypesAnswer => {
-  let contents: any = {
-    __type: "DescribeLifecycleHookTypesAnswer",
-    LifecycleHookTypes: undefined
-  };
-  if (output.LifecycleHookTypes === "") {
-    contents.LifecycleHookTypes = [];
-  }
-  if (
-    output["LifecycleHookTypes"] !== undefined &&
-    output["LifecycleHookTypes"]["member"] !== undefined
-  ) {
-    contents.LifecycleHookTypes = deserializeAws_queryAutoScalingNotificationTypes(
-      __getArrayIfSingleItem(output["LifecycleHookTypes"]["member"]),
-      context
-    );
-  }
-  return contents;
-};
-
 const deserializeAws_queryDescribeLifecycleHooksAnswer = (
   output: any,
   context: __SerdeContext
@@ -7900,29 +7877,25 @@ const deserializeAws_queryDescribeLifecycleHooksAnswer = (
   return contents;
 };
 
-const deserializeAws_queryDescribeLoadBalancerTargetGroupsResponse = (
+const deserializeAws_queryDescribeLifecycleHookTypesAnswer = (
   output: any,
   context: __SerdeContext
-): DescribeLoadBalancerTargetGroupsResponse => {
+): DescribeLifecycleHookTypesAnswer => {
   let contents: any = {
-    __type: "DescribeLoadBalancerTargetGroupsResponse",
-    LoadBalancerTargetGroups: undefined,
-    NextToken: undefined
+    __type: "DescribeLifecycleHookTypesAnswer",
+    LifecycleHookTypes: undefined
   };
-  if (output.LoadBalancerTargetGroups === "") {
-    contents.LoadBalancerTargetGroups = [];
+  if (output.LifecycleHookTypes === "") {
+    contents.LifecycleHookTypes = [];
   }
   if (
-    output["LoadBalancerTargetGroups"] !== undefined &&
-    output["LoadBalancerTargetGroups"]["member"] !== undefined
+    output["LifecycleHookTypes"] !== undefined &&
+    output["LifecycleHookTypes"]["member"] !== undefined
   ) {
-    contents.LoadBalancerTargetGroups = deserializeAws_queryLoadBalancerTargetGroupStates(
-      __getArrayIfSingleItem(output["LoadBalancerTargetGroups"]["member"]),
+    contents.LifecycleHookTypes = deserializeAws_queryAutoScalingNotificationTypes(
+      __getArrayIfSingleItem(output["LifecycleHookTypes"]["member"]),
       context
     );
-  }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -7945,6 +7918,33 @@ const deserializeAws_queryDescribeLoadBalancersResponse = (
   ) {
     contents.LoadBalancers = deserializeAws_queryLoadBalancerStates(
       __getArrayIfSingleItem(output["LoadBalancers"]["member"]),
+      context
+    );
+  }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryDescribeLoadBalancerTargetGroupsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeLoadBalancerTargetGroupsResponse => {
+  let contents: any = {
+    __type: "DescribeLoadBalancerTargetGroupsResponse",
+    LoadBalancerTargetGroups: undefined,
+    NextToken: undefined
+  };
+  if (output.LoadBalancerTargetGroups === "") {
+    contents.LoadBalancerTargetGroups = [];
+  }
+  if (
+    output["LoadBalancerTargetGroups"] !== undefined &&
+    output["LoadBalancerTargetGroups"]["member"] !== undefined
+  ) {
+    contents.LoadBalancerTargetGroups = deserializeAws_queryLoadBalancerTargetGroupStates(
+      __getArrayIfSingleItem(output["LoadBalancerTargetGroups"]["member"]),
       context
     );
   }
@@ -8063,22 +8063,22 @@ const deserializeAws_queryDetachInstancesAnswer = (
   return contents;
 };
 
-const deserializeAws_queryDetachLoadBalancerTargetGroupsResultType = (
-  output: any,
-  context: __SerdeContext
-): DetachLoadBalancerTargetGroupsResultType => {
-  let contents: any = {
-    __type: "DetachLoadBalancerTargetGroupsResultType"
-  };
-  return contents;
-};
-
 const deserializeAws_queryDetachLoadBalancersResultType = (
   output: any,
   context: __SerdeContext
 ): DetachLoadBalancersResultType => {
   let contents: any = {
     __type: "DetachLoadBalancersResultType"
+  };
+  return contents;
+};
+
+const deserializeAws_queryDetachLoadBalancerTargetGroupsResultType = (
+  output: any,
+  context: __SerdeContext
+): DetachLoadBalancerTargetGroupsResultType => {
+  let contents: any = {
+    __type: "DetachLoadBalancerTargetGroupsResultType"
   };
   return contents;
 };
@@ -8902,20 +8902,6 @@ const deserializeAws_queryPredefinedMetricSpecification = (
   return contents;
 };
 
-const deserializeAws_queryProcessType = (
-  output: any,
-  context: __SerdeContext
-): ProcessType => {
-  let contents: any = {
-    __type: "ProcessType",
-    ProcessName: undefined
-  };
-  if (output["ProcessName"] !== undefined) {
-    contents.ProcessName = output["ProcessName"];
-  }
-  return contents;
-};
-
 const deserializeAws_queryProcesses = (
   output: any,
   context: __SerdeContext
@@ -8944,6 +8930,20 @@ const deserializeAws_queryProcessesType = (
       __getArrayIfSingleItem(output["Processes"]["member"]),
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_queryProcessType = (
+  output: any,
+  context: __SerdeContext
+): ProcessType => {
+  let contents: any = {
+    __type: "ProcessType",
+    ProcessName: undefined
+  };
+  if (output["ProcessName"] !== undefined) {
+    contents.ProcessName = output["ProcessName"];
   }
   return contents;
 };

@@ -5,9 +5,9 @@ import {
 } from "../LexModelBuildingServiceClient";
 import { DeleteUtterancesRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteUtterancesCommand,
-  serializeAws_restJson1_1DeleteUtterancesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteUtterancesCommand,
+  serializeAws_restJson1DeleteUtterancesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteUtterancesCommand extends $Command<
     input: DeleteUtterancesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteUtterancesCommand(input, context);
+    return serializeAws_restJson1DeleteUtterancesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteUtterancesCommandOutput> {
-    return deserializeAws_restJson1_1DeleteUtterancesCommand(output, context);
+    return deserializeAws_restJson1DeleteUtterancesCommand(output, context);
   }
 
   // Start section: command_body_extra

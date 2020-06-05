@@ -5,9 +5,9 @@ import {
 } from "../GroundStationClient";
 import { ListSatellitesRequest, ListSatellitesResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListSatellitesCommand,
-  serializeAws_restJson1_1ListSatellitesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListSatellitesCommand,
+  serializeAws_restJson1ListSatellitesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class ListSatellitesCommand extends $Command<
     input: ListSatellitesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListSatellitesCommand(input, context);
+    return serializeAws_restJson1ListSatellitesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSatellitesCommandOutput> {
-    return deserializeAws_restJson1_1ListSatellitesCommand(output, context);
+    return deserializeAws_restJson1ListSatellitesCommand(output, context);
   }
 
   // Start section: command_body_extra

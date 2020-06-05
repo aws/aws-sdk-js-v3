@@ -8,9 +8,9 @@ import {
   DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnectorGroupCommand,
-  serializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnectorGroupCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorGroupCommand,
+  serializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorGroupCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -76,7 +76,7 @@ export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends $Com
     input: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnectorGroupCommand(
+    return serializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorGroupCommand(
       input,
       context
     );
@@ -86,7 +86,7 @@ export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends $Com
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput> {
-    return deserializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnectorGroupCommand(
+    return deserializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorGroupCommand(
       output,
       context
     );

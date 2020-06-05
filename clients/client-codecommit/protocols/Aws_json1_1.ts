@@ -19615,24 +19615,6 @@ const deserializeAws_json1_1NoChangeExceptionResponse = async (
   return contents;
 };
 
-const deserializeAws_json1_1NumberOfRuleTemplatesExceededExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NumberOfRuleTemplatesExceededException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NumberOfRuleTemplatesExceededException(
-    body,
-    context
-  );
-  const contents: NumberOfRuleTemplatesExceededException = {
-    name: "NumberOfRuleTemplatesExceededException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
 const deserializeAws_json1_1NumberOfRulesExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -19644,6 +19626,24 @@ const deserializeAws_json1_1NumberOfRulesExceededExceptionResponse = async (
   );
   const contents: NumberOfRulesExceededException = {
     name: "NumberOfRulesExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1NumberOfRuleTemplatesExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<NumberOfRuleTemplatesExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1NumberOfRuleTemplatesExceededException(
+    body,
+    context
+  );
+  const contents: NumberOfRuleTemplatesExceededException = {
+    name: "NumberOfRuleTemplatesExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -22221,6 +22221,29 @@ const deserializeAws_json1_1ApprovalRuleOverriddenEventMetadata = (
   } as any;
 };
 
+const deserializeAws_json1_1ApprovalRulesList = (
+  output: any,
+  context: __SerdeContext
+): ApprovalRule[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ApprovalRule(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ApprovalRulesNotSatisfiedList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1ApprovalRulesSatisfiedList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_1ApprovalRuleTemplate = (
   output: any,
   context: __SerdeContext
@@ -22337,29 +22360,6 @@ const deserializeAws_json1_1ApprovalRuleTemplateNameRequiredException = (
         ? output.message
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1ApprovalRulesList = (
-  output: any,
-  context: __SerdeContext
-): ApprovalRule[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ApprovalRule(entry, context)
-  );
-};
-
-const deserializeAws_json1_1ApprovalRulesNotSatisfiedList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
-const deserializeAws_json1_1ApprovalRulesSatisfiedList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1ApprovalStateChangedEventMetadata = (
@@ -23922,6 +23922,15 @@ const deserializeAws_json1_1FileSizes = (
   } as any;
 };
 
+const deserializeAws_json1_1FilesMetadata = (
+  output: any,
+  context: __SerdeContext
+): FileMetadata[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1FileMetadata(entry, context)
+  );
+};
+
 const deserializeAws_json1_1FileTooLargeException = (
   output: any,
   context: __SerdeContext
@@ -23933,15 +23942,6 @@ const deserializeAws_json1_1FileTooLargeException = (
         ? output.message
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1FilesMetadata = (
-  output: any,
-  context: __SerdeContext
-): FileMetadata[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1FileMetadata(entry, context)
-  );
 };
 
 const deserializeAws_json1_1Folder = (
@@ -25752,12 +25752,12 @@ const deserializeAws_json1_1NoChangeException = (
   } as any;
 };
 
-const deserializeAws_json1_1NumberOfRuleTemplatesExceededException = (
+const deserializeAws_json1_1NumberOfRulesExceededException = (
   output: any,
   context: __SerdeContext
-): NumberOfRuleTemplatesExceededException => {
+): NumberOfRulesExceededException => {
   return {
-    __type: "NumberOfRuleTemplatesExceededException",
+    __type: "NumberOfRulesExceededException",
     message:
       output.message !== undefined && output.message !== null
         ? output.message
@@ -25765,12 +25765,12 @@ const deserializeAws_json1_1NumberOfRuleTemplatesExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1NumberOfRulesExceededException = (
+const deserializeAws_json1_1NumberOfRuleTemplatesExceededException = (
   output: any,
   context: __SerdeContext
-): NumberOfRulesExceededException => {
+): NumberOfRuleTemplatesExceededException => {
   return {
-    __type: "NumberOfRulesExceededException",
+    __type: "NumberOfRuleTemplatesExceededException",
     message:
       output.message !== undefined && output.message !== null
         ? output.message

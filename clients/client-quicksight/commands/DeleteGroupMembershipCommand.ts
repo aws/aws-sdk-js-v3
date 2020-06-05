@@ -8,9 +8,9 @@ import {
   DeleteGroupMembershipResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteGroupMembershipCommand,
-  serializeAws_restJson1_1DeleteGroupMembershipCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteGroupMembershipCommand,
+  serializeAws_restJson1DeleteGroupMembershipCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class DeleteGroupMembershipCommand extends $Command<
     input: DeleteGroupMembershipCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteGroupMembershipCommand(input, context);
+    return serializeAws_restJson1DeleteGroupMembershipCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteGroupMembershipCommandOutput> {
-    return deserializeAws_restJson1_1DeleteGroupMembershipCommand(
+    return deserializeAws_restJson1DeleteGroupMembershipCommand(
       output,
       context
     );

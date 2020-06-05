@@ -8,9 +8,9 @@ import {
   DeleteTopicRuleDestinationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteTopicRuleDestinationCommand,
-  serializeAws_restJson1_1DeleteTopicRuleDestinationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteTopicRuleDestinationCommand,
+  serializeAws_restJson1DeleteTopicRuleDestinationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DeleteTopicRuleDestinationCommand extends $Command<
     input: DeleteTopicRuleDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteTopicRuleDestinationCommand(
+    return serializeAws_restJson1DeleteTopicRuleDestinationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DeleteTopicRuleDestinationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTopicRuleDestinationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteTopicRuleDestinationCommand(
+    return deserializeAws_restJson1DeleteTopicRuleDestinationCommand(
       output,
       context
     );

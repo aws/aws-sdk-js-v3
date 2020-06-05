@@ -8,9 +8,9 @@ import {
   GetApplicationDateRangeKpiResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetApplicationDateRangeKpiCommand,
-  serializeAws_restJson1_1GetApplicationDateRangeKpiCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetApplicationDateRangeKpiCommand,
+  serializeAws_restJson1GetApplicationDateRangeKpiCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetApplicationDateRangeKpiCommand extends $Command<
     input: GetApplicationDateRangeKpiCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetApplicationDateRangeKpiCommand(
+    return serializeAws_restJson1GetApplicationDateRangeKpiCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetApplicationDateRangeKpiCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetApplicationDateRangeKpiCommandOutput> {
-    return deserializeAws_restJson1_1GetApplicationDateRangeKpiCommand(
+    return deserializeAws_restJson1GetApplicationDateRangeKpiCommand(
       output,
       context
     );

@@ -8,9 +8,9 @@ import {
   BatchUpdatePhoneNumberResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1BatchUpdatePhoneNumberCommand,
-  serializeAws_restJson1_1BatchUpdatePhoneNumberCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1BatchUpdatePhoneNumberCommand,
+  serializeAws_restJson1BatchUpdatePhoneNumberCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class BatchUpdatePhoneNumberCommand extends $Command<
     input: BatchUpdatePhoneNumberCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1BatchUpdatePhoneNumberCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1BatchUpdatePhoneNumberCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchUpdatePhoneNumberCommandOutput> {
-    return deserializeAws_restJson1_1BatchUpdatePhoneNumberCommand(
+    return deserializeAws_restJson1BatchUpdatePhoneNumberCommand(
       output,
       context
     );

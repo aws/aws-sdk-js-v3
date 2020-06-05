@@ -8,9 +8,9 @@ import {
   DeleteAdmChannelResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteAdmChannelCommand,
-  serializeAws_restJson1_1DeleteAdmChannelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteAdmChannelCommand,
+  serializeAws_restJson1DeleteAdmChannelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DeleteAdmChannelCommand extends $Command<
     input: DeleteAdmChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteAdmChannelCommand(input, context);
+    return serializeAws_restJson1DeleteAdmChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAdmChannelCommandOutput> {
-    return deserializeAws_restJson1_1DeleteAdmChannelCommand(output, context);
+    return deserializeAws_restJson1DeleteAdmChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

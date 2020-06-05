@@ -8,9 +8,9 @@ import {
   ListImageBuildVersionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListImageBuildVersionsCommand,
-  serializeAws_restJson1_1ListImageBuildVersionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListImageBuildVersionsCommand,
+  serializeAws_restJson1ListImageBuildVersionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListImageBuildVersionsCommand extends $Command<
     input: ListImageBuildVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListImageBuildVersionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1ListImageBuildVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListImageBuildVersionsCommandOutput> {
-    return deserializeAws_restJson1_1ListImageBuildVersionsCommand(
+    return deserializeAws_restJson1ListImageBuildVersionsCommand(
       output,
       context
     );

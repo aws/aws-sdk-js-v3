@@ -8,9 +8,9 @@ import {
   DescribeDocumentVersionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeDocumentVersionsCommand,
-  serializeAws_restJson1_1DescribeDocumentVersionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeDocumentVersionsCommand,
+  serializeAws_restJson1DescribeDocumentVersionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeDocumentVersionsCommand extends $Command<
     input: DescribeDocumentVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeDocumentVersionsCommand(
+    return serializeAws_restJson1DescribeDocumentVersionsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeDocumentVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDocumentVersionsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeDocumentVersionsCommand(
+    return deserializeAws_restJson1DescribeDocumentVersionsCommand(
       output,
       context
     );

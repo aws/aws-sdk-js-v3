@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { FlushStageCacheRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1FlushStageCacheCommand,
-  serializeAws_restJson1_1FlushStageCacheCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1FlushStageCacheCommand,
+  serializeAws_restJson1FlushStageCacheCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class FlushStageCacheCommand extends $Command<
     input: FlushStageCacheCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1FlushStageCacheCommand(input, context);
+    return serializeAws_restJson1FlushStageCacheCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<FlushStageCacheCommandOutput> {
-    return deserializeAws_restJson1_1FlushStageCacheCommand(output, context);
+    return deserializeAws_restJson1FlushStageCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

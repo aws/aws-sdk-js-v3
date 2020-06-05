@@ -8,9 +8,9 @@ import {
   UpdateDataSourcePermissionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateDataSourcePermissionsCommand,
-  serializeAws_restJson1_1UpdateDataSourcePermissionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateDataSourcePermissionsCommand,
+  serializeAws_restJson1UpdateDataSourcePermissionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdateDataSourcePermissionsCommand extends $Command<
     input: UpdateDataSourcePermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDataSourcePermissionsCommand(
+    return serializeAws_restJson1UpdateDataSourcePermissionsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdateDataSourcePermissionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDataSourcePermissionsCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDataSourcePermissionsCommand(
+    return deserializeAws_restJson1UpdateDataSourcePermissionsCommand(
       output,
       context
     );

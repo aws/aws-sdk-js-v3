@@ -8,9 +8,9 @@ import {
   GetSlotTypeVersionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetSlotTypeVersionsCommand,
-  serializeAws_restJson1_1GetSlotTypeVersionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetSlotTypeVersionsCommand,
+  serializeAws_restJson1GetSlotTypeVersionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetSlotTypeVersionsCommand extends $Command<
     input: GetSlotTypeVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetSlotTypeVersionsCommand(input, context);
+    return serializeAws_restJson1GetSlotTypeVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSlotTypeVersionsCommandOutput> {
-    return deserializeAws_restJson1_1GetSlotTypeVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetSlotTypeVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

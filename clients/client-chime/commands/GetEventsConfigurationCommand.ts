@@ -8,9 +8,9 @@ import {
   GetEventsConfigurationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetEventsConfigurationCommand,
-  serializeAws_restJson1_1GetEventsConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetEventsConfigurationCommand,
+  serializeAws_restJson1GetEventsConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetEventsConfigurationCommand extends $Command<
     input: GetEventsConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetEventsConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1GetEventsConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEventsConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1GetEventsConfigurationCommand(
+    return deserializeAws_restJson1GetEventsConfigurationCommand(
       output,
       context
     );

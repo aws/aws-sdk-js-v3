@@ -8,9 +8,9 @@ import {
   UpdateIAMPolicyAssignmentResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommand,
-  serializeAws_restJson1_1UpdateIAMPolicyAssignmentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateIAMPolicyAssignmentCommand,
+  serializeAws_restJson1UpdateIAMPolicyAssignmentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdateIAMPolicyAssignmentCommand extends $Command<
     input: UpdateIAMPolicyAssignmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateIAMPolicyAssignmentCommand(
+    return serializeAws_restJson1UpdateIAMPolicyAssignmentCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdateIAMPolicyAssignmentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateIAMPolicyAssignmentCommandOutput> {
-    return deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommand(
+    return deserializeAws_restJson1UpdateIAMPolicyAssignmentCommand(
       output,
       context
     );

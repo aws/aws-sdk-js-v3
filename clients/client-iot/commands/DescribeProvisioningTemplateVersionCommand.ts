@@ -8,9 +8,9 @@ import {
   DescribeProvisioningTemplateVersionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeProvisioningTemplateVersionCommand,
-  serializeAws_restJson1_1DescribeProvisioningTemplateVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeProvisioningTemplateVersionCommand,
+  serializeAws_restJson1DescribeProvisioningTemplateVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeProvisioningTemplateVersionCommand extends $Command<
     input: DescribeProvisioningTemplateVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeProvisioningTemplateVersionCommand(
+    return serializeAws_restJson1DescribeProvisioningTemplateVersionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeProvisioningTemplateVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeProvisioningTemplateVersionCommandOutput> {
-    return deserializeAws_restJson1_1DescribeProvisioningTemplateVersionCommand(
+    return deserializeAws_restJson1DescribeProvisioningTemplateVersionCommand(
       output,
       context
     );

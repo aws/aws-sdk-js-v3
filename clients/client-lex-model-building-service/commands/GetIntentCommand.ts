@@ -5,9 +5,9 @@ import {
 } from "../LexModelBuildingServiceClient";
 import { GetIntentRequest, GetIntentResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetIntentCommand,
-  serializeAws_restJson1_1GetIntentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetIntentCommand,
+  serializeAws_restJson1GetIntentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetIntentCommand extends $Command<
     input: GetIntentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetIntentCommand(input, context);
+    return serializeAws_restJson1GetIntentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIntentCommandOutput> {
-    return deserializeAws_restJson1_1GetIntentCommand(output, context);
+    return deserializeAws_restJson1GetIntentCommand(output, context);
   }
 
   // Start section: command_body_extra

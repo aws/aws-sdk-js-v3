@@ -8,9 +8,9 @@ import {
   mqClientResolvedConfig
 } from "../mqClient";
 import {
-  deserializeAws_restJson1_1DescribeBrokerEngineTypesCommand,
-  serializeAws_restJson1_1DescribeBrokerEngineTypesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeBrokerEngineTypesCommand,
+  serializeAws_restJson1DescribeBrokerEngineTypesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeBrokerEngineTypesCommand extends $Command<
     input: DescribeBrokerEngineTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeBrokerEngineTypesCommand(
+    return serializeAws_restJson1DescribeBrokerEngineTypesCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeBrokerEngineTypesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBrokerEngineTypesCommandOutput> {
-    return deserializeAws_restJson1_1DescribeBrokerEngineTypesCommand(
+    return deserializeAws_restJson1DescribeBrokerEngineTypesCommand(
       output,
       context
     );

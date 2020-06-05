@@ -5,9 +5,9 @@ import {
 } from "../GuardDutyClient";
 import { GetFilterRequest, GetFilterResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetFilterCommand,
-  serializeAws_restJson1_1GetFilterCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetFilterCommand,
+  serializeAws_restJson1GetFilterCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetFilterCommand extends $Command<
     input: GetFilterCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetFilterCommand(input, context);
+    return serializeAws_restJson1GetFilterCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFilterCommandOutput> {
-    return deserializeAws_restJson1_1GetFilterCommand(output, context);
+    return deserializeAws_restJson1GetFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

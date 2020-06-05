@@ -876,41 +876,6 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
-   * <p>Retrieve a list of application versions.</p>
-   */
-  public describeApplicationVersions(
-    args: DescribeApplicationVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeApplicationVersionsCommandOutput>;
-  public describeApplicationVersions(
-    args: DescribeApplicationVersionsCommandInput,
-    cb: (err: any, data?: DescribeApplicationVersionsCommandOutput) => void
-  ): void;
-  public describeApplicationVersions(
-    args: DescribeApplicationVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeApplicationVersionsCommandOutput) => void
-  ): void;
-  public describeApplicationVersions(
-    args: DescribeApplicationVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeApplicationVersionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeApplicationVersionsCommandOutput) => void
-  ): Promise<DescribeApplicationVersionsCommandOutput> | void {
-    const command = new DescribeApplicationVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Returns the descriptions of existing applications.</p>
    */
   public describeApplications(
@@ -934,6 +899,41 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
     cb?: (err: any, data?: DescribeApplicationsCommandOutput) => void
   ): Promise<DescribeApplicationsCommandOutput> | void {
     const command = new DescribeApplicationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieve a list of application versions.</p>
+   */
+  public describeApplicationVersions(
+    args: DescribeApplicationVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeApplicationVersionsCommandOutput>;
+  public describeApplicationVersions(
+    args: DescribeApplicationVersionsCommandInput,
+    cb: (err: any, data?: DescribeApplicationVersionsCommandOutput) => void
+  ): void;
+  public describeApplicationVersions(
+    args: DescribeApplicationVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeApplicationVersionsCommandOutput) => void
+  ): void;
+  public describeApplicationVersions(
+    args: DescribeApplicationVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeApplicationVersionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeApplicationVersionsCommandOutput) => void
+  ): Promise<DescribeApplicationVersionsCommandOutput> | void {
+    const command = new DescribeApplicationVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

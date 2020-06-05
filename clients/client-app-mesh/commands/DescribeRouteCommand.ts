@@ -5,9 +5,9 @@ import {
 } from "../AppMeshClient";
 import { DescribeRouteInput, DescribeRouteOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeRouteCommand,
-  serializeAws_restJson1_1DescribeRouteCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeRouteCommand,
+  serializeAws_restJson1DescribeRouteCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DescribeRouteCommand extends $Command<
     input: DescribeRouteCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeRouteCommand(input, context);
+    return serializeAws_restJson1DescribeRouteCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRouteCommandOutput> {
-    return deserializeAws_restJson1_1DescribeRouteCommand(output, context);
+    return deserializeAws_restJson1DescribeRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

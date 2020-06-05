@@ -6,118 +6,6 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- * <p>An internal failure occured.</p>
- */
-export interface InternalFailureException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InternalFailureException";
-  $fault: "server";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InternalFailureException {
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InternalFailureException =>
-    __isa(o, "InternalFailureException");
-}
-
-/**
- * <p>The request was invalid.</p>
- */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidRequestException {
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
-}
-
-/**
- * <p>The resource was not found.</p>
- */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
-}
-
-/**
- * <p>The service is currently unavailable.</p>
- */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (
-    obj: ServiceUnavailableException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ServiceUnavailableException =>
-    __isa(o, "ServiceUnavailableException");
-}
-
-/**
- * <p>The request could not be completed due to throttling.</p>
- */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ThrottlingException {
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
-}
-
-/**
  * <p>Contains information about the errors encountered.</p>
  */
 export interface BatchPutMessageErrorEntry {
@@ -459,6 +347,50 @@ export enum ErrorCode {
   ThrottlingException = "ThrottlingException"
 }
 
+/**
+ * <p>An internal failure occured.</p>
+ */
+export interface InternalFailureException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InternalFailureException";
+  $fault: "server";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace InternalFailureException {
+  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InternalFailureException =>
+    __isa(o, "InternalFailureException");
+}
+
+/**
+ * <p>The request was invalid.</p>
+ */
+export interface InvalidRequestException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidRequestException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidRequestException {
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidRequestException =>
+    __isa(o, "InvalidRequestException");
+}
+
 export interface ListDetectorsRequest {
   __type?: "ListDetectorsRequest";
   /**
@@ -540,6 +472,74 @@ export namespace Message {
     ...obj
   });
   export const isa = (o: any): o is Message => __isa(o, "Message");
+}
+
+/**
+ * <p>The resource was not found.</p>
+ */
+export interface ResourceNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
+}
+
+/**
+ * <p>The service is currently unavailable.</p>
+ */
+export interface ServiceUnavailableException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ServiceUnavailableException";
+  $fault: "server";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace ServiceUnavailableException {
+  export const filterSensitiveLog = (
+    obj: ServiceUnavailableException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ServiceUnavailableException =>
+    __isa(o, "ServiceUnavailableException");
+}
+
+/**
+ * <p>The request could not be completed due to throttling.</p>
+ */
+export interface ThrottlingException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ThrottlingException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
 }
 
 /**

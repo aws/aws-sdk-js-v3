@@ -8,9 +8,9 @@ import {
   UpdateIdentityProviderConfigurationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateIdentityProviderConfigurationCommand,
-  serializeAws_restJson1_1UpdateIdentityProviderConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateIdentityProviderConfigurationCommand,
+  serializeAws_restJson1UpdateIdentityProviderConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdateIdentityProviderConfigurationCommand extends $Command<
     input: UpdateIdentityProviderConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateIdentityProviderConfigurationCommand(
+    return serializeAws_restJson1UpdateIdentityProviderConfigurationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdateIdentityProviderConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateIdentityProviderConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1UpdateIdentityProviderConfigurationCommand(
+    return deserializeAws_restJson1UpdateIdentityProviderConfigurationCommand(
       output,
       context
     );

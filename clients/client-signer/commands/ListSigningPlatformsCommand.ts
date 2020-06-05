@@ -3,9 +3,9 @@ import {
   ListSigningPlatformsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListSigningPlatformsCommand,
-  serializeAws_restJson1_1ListSigningPlatformsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListSigningPlatformsCommand,
+  serializeAws_restJson1ListSigningPlatformsCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -74,17 +74,14 @@ export class ListSigningPlatformsCommand extends $Command<
     input: ListSigningPlatformsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListSigningPlatformsCommand(input, context);
+    return serializeAws_restJson1ListSigningPlatformsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSigningPlatformsCommandOutput> {
-    return deserializeAws_restJson1_1ListSigningPlatformsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListSigningPlatformsCommand(output, context);
   }
 
   // Start section: command_body_extra

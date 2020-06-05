@@ -5,9 +5,9 @@ import {
 } from "../AccessAnalyzerClient";
 import { StartResourceScanRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1StartResourceScanCommand,
-  serializeAws_restJson1_1StartResourceScanCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1StartResourceScanCommand,
+  serializeAws_restJson1StartResourceScanCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class StartResourceScanCommand extends $Command<
     input: StartResourceScanCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StartResourceScanCommand(input, context);
+    return serializeAws_restJson1StartResourceScanCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartResourceScanCommandOutput> {
-    return deserializeAws_restJson1_1StartResourceScanCommand(output, context);
+    return deserializeAws_restJson1StartResourceScanCommand(output, context);
   }
 
   // Start section: command_body_extra

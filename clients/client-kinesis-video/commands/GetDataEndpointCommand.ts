@@ -5,9 +5,9 @@ import {
 } from "../KinesisVideoClient";
 import { GetDataEndpointInput, GetDataEndpointOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetDataEndpointCommand,
-  serializeAws_restJson1_1GetDataEndpointCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetDataEndpointCommand,
+  serializeAws_restJson1GetDataEndpointCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetDataEndpointCommand extends $Command<
     input: GetDataEndpointCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDataEndpointCommand(input, context);
+    return serializeAws_restJson1GetDataEndpointCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDataEndpointCommandOutput> {
-    return deserializeAws_restJson1_1GetDataEndpointCommand(output, context);
+    return deserializeAws_restJson1GetDataEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

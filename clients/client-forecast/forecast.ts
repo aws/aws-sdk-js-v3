@@ -172,8 +172,8 @@ export class forecast extends forecastClient {
    *         <a>howitworks-datasets-groups</a>.</p>
    *          <p>To get a list of all your datasets, use the <a>ListDatasets</a>
    *       operation.</p>
-   *          <p>For example Forecast datasets, see the <a href="https://github.com/aws-samples/amazon-forecast-samples/tree/master/data">Amazon Forecast
-   *         Sample GitHub repository</a>.</p>
+   *          <p>For example Forecast datasets, see the <a href="https://github.com/aws-samples/amazon-forecast-samples">Amazon Forecast Sample GitHub
+   *         repository</a>.</p>
    *          <note>
    *             <p>The <code>Status</code> of a dataset must be <code>ACTIVE</code> before you can import
    *         training data. Use the <a>DescribeDataset</a> operation to get the status.</p>
@@ -265,6 +265,13 @@ export class forecast extends forecastClient {
    *          <p>You can specify the path to a specific CSV file, the S3 bucket, or to a folder in the S3
    *       bucket. For the latter two cases, Amazon Forecast imports all files up to the limit of 10,000
    *       files.</p>
+   *
+   *
+   *          <p>Because dataset imports are not aggregated, your most recent dataset import is the one
+   *       that is used when training a predictor or generating a forecast. Make sure that your most
+   *       recent dataset import contains all of the data you want to model off of, and not just the new
+   *       data collected since the previous import.</p>
+   *
    *
    *          <p>To get a list of all your dataset import jobs, filtered by specified criteria, use the
    *         <a>ListDatasetImportJobs</a> operation.</p>
@@ -499,6 +506,11 @@ export class forecast extends forecastClient {
    *       operation. You can only delete datasets that have a status of <code>ACTIVE</code> or
    *         <code>CREATE_FAILED</code>. To get the status use the <a>DescribeDataset</a>
    *       operation.</p>
+   *          <note>
+   *             <p>Forecast does not automatically update any dataset groups that contain the deleted dataset.
+   *         In order to update the dataset group, use the
+   *         operation, omitting the deleted dataset's ARN.</p>
+   *          </note>
    */
   public deleteDataset(
     args: DeleteDatasetCommandInput,

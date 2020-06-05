@@ -752,7 +752,7 @@ const deserializeAws_json1_1AssociateDelegateToResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -763,7 +763,7 @@ const deserializeAws_json1_1AssociateDelegateToResourceCommandError = async (
       };
       break;
     case "EntityStateException":
-    case "com.amazonaws.workmail.service#EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
       response = {
         ...(await deserializeAws_json1_1EntityStateExceptionResponse(
           parsedOutput,
@@ -774,7 +774,7 @@ const deserializeAws_json1_1AssociateDelegateToResourceCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -785,7 +785,7 @@ const deserializeAws_json1_1AssociateDelegateToResourceCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -796,7 +796,7 @@ const deserializeAws_json1_1AssociateDelegateToResourceCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -862,7 +862,7 @@ const deserializeAws_json1_1AssociateMemberToGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
-    case "com.amazonaws.workmail.service#DirectoryServiceAuthenticationFailedException":
+    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
       response = {
         ...(await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
           parsedOutput,
@@ -873,7 +873,7 @@ const deserializeAws_json1_1AssociateMemberToGroupCommandError = async (
       };
       break;
     case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail.service#DirectoryUnavailableException":
+    case "com.amazonaws.workmail#DirectoryUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
           parsedOutput,
@@ -884,7 +884,7 @@ const deserializeAws_json1_1AssociateMemberToGroupCommandError = async (
       };
       break;
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -895,7 +895,7 @@ const deserializeAws_json1_1AssociateMemberToGroupCommandError = async (
       };
       break;
     case "EntityStateException":
-    case "com.amazonaws.workmail.service#EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
       response = {
         ...(await deserializeAws_json1_1EntityStateExceptionResponse(
           parsedOutput,
@@ -906,7 +906,7 @@ const deserializeAws_json1_1AssociateMemberToGroupCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -917,7 +917,7 @@ const deserializeAws_json1_1AssociateMemberToGroupCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -928,7 +928,7 @@ const deserializeAws_json1_1AssociateMemberToGroupCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -939,7 +939,7 @@ const deserializeAws_json1_1AssociateMemberToGroupCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.workmail.service#UnsupportedOperationException":
+    case "com.amazonaws.workmail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -999,7 +999,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EmailAddressInUseException":
-    case "com.amazonaws.workmail.service#EmailAddressInUseException":
+    case "com.amazonaws.workmail#EmailAddressInUseException":
       response = {
         ...(await deserializeAws_json1_1EmailAddressInUseExceptionResponse(
           parsedOutput,
@@ -1010,7 +1010,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
       };
       break;
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -1021,7 +1021,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
       };
       break;
     case "EntityStateException":
-    case "com.amazonaws.workmail.service#EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
       response = {
         ...(await deserializeAws_json1_1EntityStateExceptionResponse(
           parsedOutput,
@@ -1032,7 +1032,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1043,7 +1043,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
       };
       break;
     case "MailDomainNotFoundException":
-    case "com.amazonaws.workmail.service#MailDomainNotFoundException":
+    case "com.amazonaws.workmail#MailDomainNotFoundException":
       response = {
         ...(await deserializeAws_json1_1MailDomainNotFoundExceptionResponse(
           parsedOutput,
@@ -1054,7 +1054,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
       };
       break;
     case "MailDomainStateException":
-    case "com.amazonaws.workmail.service#MailDomainStateException":
+    case "com.amazonaws.workmail#MailDomainStateException":
       response = {
         ...(await deserializeAws_json1_1MailDomainStateExceptionResponse(
           parsedOutput,
@@ -1065,7 +1065,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -1076,7 +1076,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -1136,7 +1136,7 @@ const deserializeAws_json1_1CreateGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
-    case "com.amazonaws.workmail.service#DirectoryServiceAuthenticationFailedException":
+    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
       response = {
         ...(await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
           parsedOutput,
@@ -1147,7 +1147,7 @@ const deserializeAws_json1_1CreateGroupCommandError = async (
       };
       break;
     case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail.service#DirectoryUnavailableException":
+    case "com.amazonaws.workmail#DirectoryUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
           parsedOutput,
@@ -1158,7 +1158,7 @@ const deserializeAws_json1_1CreateGroupCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1169,7 +1169,7 @@ const deserializeAws_json1_1CreateGroupCommandError = async (
       };
       break;
     case "NameAvailabilityException":
-    case "com.amazonaws.workmail.service#NameAvailabilityException":
+    case "com.amazonaws.workmail#NameAvailabilityException":
       response = {
         ...(await deserializeAws_json1_1NameAvailabilityExceptionResponse(
           parsedOutput,
@@ -1180,7 +1180,7 @@ const deserializeAws_json1_1CreateGroupCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -1191,7 +1191,7 @@ const deserializeAws_json1_1CreateGroupCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -1202,7 +1202,7 @@ const deserializeAws_json1_1CreateGroupCommandError = async (
       };
       break;
     case "ReservedNameException":
-    case "com.amazonaws.workmail.service#ReservedNameException":
+    case "com.amazonaws.workmail#ReservedNameException":
       response = {
         ...(await deserializeAws_json1_1ReservedNameExceptionResponse(
           parsedOutput,
@@ -1213,7 +1213,7 @@ const deserializeAws_json1_1CreateGroupCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.workmail.service#UnsupportedOperationException":
+    case "com.amazonaws.workmail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -1273,7 +1273,7 @@ const deserializeAws_json1_1CreateResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
-    case "com.amazonaws.workmail.service#DirectoryServiceAuthenticationFailedException":
+    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
       response = {
         ...(await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
           parsedOutput,
@@ -1284,7 +1284,7 @@ const deserializeAws_json1_1CreateResourceCommandError = async (
       };
       break;
     case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail.service#DirectoryUnavailableException":
+    case "com.amazonaws.workmail#DirectoryUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
           parsedOutput,
@@ -1295,7 +1295,7 @@ const deserializeAws_json1_1CreateResourceCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1306,7 +1306,7 @@ const deserializeAws_json1_1CreateResourceCommandError = async (
       };
       break;
     case "NameAvailabilityException":
-    case "com.amazonaws.workmail.service#NameAvailabilityException":
+    case "com.amazonaws.workmail#NameAvailabilityException":
       response = {
         ...(await deserializeAws_json1_1NameAvailabilityExceptionResponse(
           parsedOutput,
@@ -1317,7 +1317,7 @@ const deserializeAws_json1_1CreateResourceCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -1328,7 +1328,7 @@ const deserializeAws_json1_1CreateResourceCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -1339,7 +1339,7 @@ const deserializeAws_json1_1CreateResourceCommandError = async (
       };
       break;
     case "ReservedNameException":
-    case "com.amazonaws.workmail.service#ReservedNameException":
+    case "com.amazonaws.workmail#ReservedNameException":
       response = {
         ...(await deserializeAws_json1_1ReservedNameExceptionResponse(
           parsedOutput,
@@ -1399,7 +1399,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
-    case "com.amazonaws.workmail.service#DirectoryServiceAuthenticationFailedException":
+    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
       response = {
         ...(await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
           parsedOutput,
@@ -1410,7 +1410,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
       };
       break;
     case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail.service#DirectoryUnavailableException":
+    case "com.amazonaws.workmail#DirectoryUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
           parsedOutput,
@@ -1421,7 +1421,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1432,7 +1432,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
       };
       break;
     case "InvalidPasswordException":
-    case "com.amazonaws.workmail.service#InvalidPasswordException":
+    case "com.amazonaws.workmail#InvalidPasswordException":
       response = {
         ...(await deserializeAws_json1_1InvalidPasswordExceptionResponse(
           parsedOutput,
@@ -1443,7 +1443,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
       };
       break;
     case "NameAvailabilityException":
-    case "com.amazonaws.workmail.service#NameAvailabilityException":
+    case "com.amazonaws.workmail#NameAvailabilityException":
       response = {
         ...(await deserializeAws_json1_1NameAvailabilityExceptionResponse(
           parsedOutput,
@@ -1454,7 +1454,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -1465,7 +1465,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -1476,7 +1476,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
       };
       break;
     case "ReservedNameException":
-    case "com.amazonaws.workmail.service#ReservedNameException":
+    case "com.amazonaws.workmail#ReservedNameException":
       response = {
         ...(await deserializeAws_json1_1ReservedNameExceptionResponse(
           parsedOutput,
@@ -1487,7 +1487,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.workmail.service#UnsupportedOperationException":
+    case "com.amazonaws.workmail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -1547,7 +1547,7 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -1558,7 +1558,7 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
       };
       break;
     case "EntityStateException":
-    case "com.amazonaws.workmail.service#EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
       response = {
         ...(await deserializeAws_json1_1EntityStateExceptionResponse(
           parsedOutput,
@@ -1569,7 +1569,7 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1580,7 +1580,7 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -1591,7 +1591,7 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -1651,7 +1651,7 @@ const deserializeAws_json1_1DeleteGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
-    case "com.amazonaws.workmail.service#DirectoryServiceAuthenticationFailedException":
+    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
       response = {
         ...(await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
           parsedOutput,
@@ -1662,7 +1662,7 @@ const deserializeAws_json1_1DeleteGroupCommandError = async (
       };
       break;
     case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail.service#DirectoryUnavailableException":
+    case "com.amazonaws.workmail#DirectoryUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
           parsedOutput,
@@ -1673,7 +1673,7 @@ const deserializeAws_json1_1DeleteGroupCommandError = async (
       };
       break;
     case "EntityStateException":
-    case "com.amazonaws.workmail.service#EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
       response = {
         ...(await deserializeAws_json1_1EntityStateExceptionResponse(
           parsedOutput,
@@ -1684,7 +1684,7 @@ const deserializeAws_json1_1DeleteGroupCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1695,7 +1695,7 @@ const deserializeAws_json1_1DeleteGroupCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -1706,7 +1706,7 @@ const deserializeAws_json1_1DeleteGroupCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -1717,7 +1717,7 @@ const deserializeAws_json1_1DeleteGroupCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.workmail.service#UnsupportedOperationException":
+    case "com.amazonaws.workmail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -1783,7 +1783,7 @@ const deserializeAws_json1_1DeleteMailboxPermissionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -1794,7 +1794,7 @@ const deserializeAws_json1_1DeleteMailboxPermissionsCommandError = async (
       };
       break;
     case "EntityStateException":
-    case "com.amazonaws.workmail.service#EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
       response = {
         ...(await deserializeAws_json1_1EntityStateExceptionResponse(
           parsedOutput,
@@ -1805,7 +1805,7 @@ const deserializeAws_json1_1DeleteMailboxPermissionsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1816,7 +1816,7 @@ const deserializeAws_json1_1DeleteMailboxPermissionsCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -1827,7 +1827,7 @@ const deserializeAws_json1_1DeleteMailboxPermissionsCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -1887,7 +1887,7 @@ const deserializeAws_json1_1DeleteResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityStateException":
-    case "com.amazonaws.workmail.service#EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
       response = {
         ...(await deserializeAws_json1_1EntityStateExceptionResponse(
           parsedOutput,
@@ -1898,7 +1898,7 @@ const deserializeAws_json1_1DeleteResourceCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1909,7 +1909,7 @@ const deserializeAws_json1_1DeleteResourceCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -1920,7 +1920,7 @@ const deserializeAws_json1_1DeleteResourceCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -1980,7 +1980,7 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
-    case "com.amazonaws.workmail.service#DirectoryServiceAuthenticationFailedException":
+    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
       response = {
         ...(await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
           parsedOutput,
@@ -1991,7 +1991,7 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
       };
       break;
     case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail.service#DirectoryUnavailableException":
+    case "com.amazonaws.workmail#DirectoryUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
           parsedOutput,
@@ -2002,7 +2002,7 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
       };
       break;
     case "EntityStateException":
-    case "com.amazonaws.workmail.service#EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
       response = {
         ...(await deserializeAws_json1_1EntityStateExceptionResponse(
           parsedOutput,
@@ -2013,7 +2013,7 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2024,7 +2024,7 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -2035,7 +2035,7 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -2046,7 +2046,7 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.workmail.service#UnsupportedOperationException":
+    case "com.amazonaws.workmail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -2112,7 +2112,7 @@ const deserializeAws_json1_1DeregisterFromWorkMailCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -2123,7 +2123,7 @@ const deserializeAws_json1_1DeregisterFromWorkMailCommandError = async (
       };
       break;
     case "EntityStateException":
-    case "com.amazonaws.workmail.service#EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
       response = {
         ...(await deserializeAws_json1_1EntityStateExceptionResponse(
           parsedOutput,
@@ -2134,7 +2134,7 @@ const deserializeAws_json1_1DeregisterFromWorkMailCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2145,7 +2145,7 @@ const deserializeAws_json1_1DeregisterFromWorkMailCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -2156,7 +2156,7 @@ const deserializeAws_json1_1DeregisterFromWorkMailCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -2216,7 +2216,7 @@ const deserializeAws_json1_1DescribeGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -2227,7 +2227,7 @@ const deserializeAws_json1_1DescribeGroupCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2238,7 +2238,7 @@ const deserializeAws_json1_1DescribeGroupCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -2249,7 +2249,7 @@ const deserializeAws_json1_1DescribeGroupCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -2312,7 +2312,7 @@ const deserializeAws_json1_1DescribeOrganizationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2323,7 +2323,7 @@ const deserializeAws_json1_1DescribeOrganizationCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -2383,7 +2383,7 @@ const deserializeAws_json1_1DescribeResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -2394,7 +2394,7 @@ const deserializeAws_json1_1DescribeResourceCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2405,7 +2405,7 @@ const deserializeAws_json1_1DescribeResourceCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -2416,7 +2416,7 @@ const deserializeAws_json1_1DescribeResourceCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -2476,7 +2476,7 @@ const deserializeAws_json1_1DescribeUserCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -2487,7 +2487,7 @@ const deserializeAws_json1_1DescribeUserCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2498,7 +2498,7 @@ const deserializeAws_json1_1DescribeUserCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -2509,7 +2509,7 @@ const deserializeAws_json1_1DescribeUserCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -2575,7 +2575,7 @@ const deserializeAws_json1_1DisassociateDelegateFromResourceCommandError = async
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -2586,7 +2586,7 @@ const deserializeAws_json1_1DisassociateDelegateFromResourceCommandError = async
       };
       break;
     case "EntityStateException":
-    case "com.amazonaws.workmail.service#EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
       response = {
         ...(await deserializeAws_json1_1EntityStateExceptionResponse(
           parsedOutput,
@@ -2597,7 +2597,7 @@ const deserializeAws_json1_1DisassociateDelegateFromResourceCommandError = async
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2608,7 +2608,7 @@ const deserializeAws_json1_1DisassociateDelegateFromResourceCommandError = async
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -2619,7 +2619,7 @@ const deserializeAws_json1_1DisassociateDelegateFromResourceCommandError = async
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -2685,7 +2685,7 @@ const deserializeAws_json1_1DisassociateMemberFromGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
-    case "com.amazonaws.workmail.service#DirectoryServiceAuthenticationFailedException":
+    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
       response = {
         ...(await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
           parsedOutput,
@@ -2696,7 +2696,7 @@ const deserializeAws_json1_1DisassociateMemberFromGroupCommandError = async (
       };
       break;
     case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail.service#DirectoryUnavailableException":
+    case "com.amazonaws.workmail#DirectoryUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
           parsedOutput,
@@ -2707,7 +2707,7 @@ const deserializeAws_json1_1DisassociateMemberFromGroupCommandError = async (
       };
       break;
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -2718,7 +2718,7 @@ const deserializeAws_json1_1DisassociateMemberFromGroupCommandError = async (
       };
       break;
     case "EntityStateException":
-    case "com.amazonaws.workmail.service#EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
       response = {
         ...(await deserializeAws_json1_1EntityStateExceptionResponse(
           parsedOutput,
@@ -2729,7 +2729,7 @@ const deserializeAws_json1_1DisassociateMemberFromGroupCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2740,7 +2740,7 @@ const deserializeAws_json1_1DisassociateMemberFromGroupCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -2751,7 +2751,7 @@ const deserializeAws_json1_1DisassociateMemberFromGroupCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -2762,7 +2762,7 @@ const deserializeAws_json1_1DisassociateMemberFromGroupCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.workmail.service#UnsupportedOperationException":
+    case "com.amazonaws.workmail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -2822,7 +2822,7 @@ const deserializeAws_json1_1GetMailboxDetailsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -2833,7 +2833,7 @@ const deserializeAws_json1_1GetMailboxDetailsCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -2844,7 +2844,7 @@ const deserializeAws_json1_1GetMailboxDetailsCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -2904,7 +2904,7 @@ const deserializeAws_json1_1ListAliasesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -2915,7 +2915,7 @@ const deserializeAws_json1_1ListAliasesCommandError = async (
       };
       break;
     case "EntityStateException":
-    case "com.amazonaws.workmail.service#EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
       response = {
         ...(await deserializeAws_json1_1EntityStateExceptionResponse(
           parsedOutput,
@@ -2926,7 +2926,7 @@ const deserializeAws_json1_1ListAliasesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2937,7 +2937,7 @@ const deserializeAws_json1_1ListAliasesCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -2948,7 +2948,7 @@ const deserializeAws_json1_1ListAliasesCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -3008,7 +3008,7 @@ const deserializeAws_json1_1ListGroupMembersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -3019,7 +3019,7 @@ const deserializeAws_json1_1ListGroupMembersCommandError = async (
       };
       break;
     case "EntityStateException":
-    case "com.amazonaws.workmail.service#EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
       response = {
         ...(await deserializeAws_json1_1EntityStateExceptionResponse(
           parsedOutput,
@@ -3030,7 +3030,7 @@ const deserializeAws_json1_1ListGroupMembersCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3041,7 +3041,7 @@ const deserializeAws_json1_1ListGroupMembersCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -3052,7 +3052,7 @@ const deserializeAws_json1_1ListGroupMembersCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -3112,7 +3112,7 @@ const deserializeAws_json1_1ListGroupsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -3123,7 +3123,7 @@ const deserializeAws_json1_1ListGroupsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3134,7 +3134,7 @@ const deserializeAws_json1_1ListGroupsCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -3145,7 +3145,7 @@ const deserializeAws_json1_1ListGroupsCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -3211,7 +3211,7 @@ const deserializeAws_json1_1ListMailboxPermissionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -3222,7 +3222,7 @@ const deserializeAws_json1_1ListMailboxPermissionsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3233,7 +3233,7 @@ const deserializeAws_json1_1ListMailboxPermissionsCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -3244,7 +3244,7 @@ const deserializeAws_json1_1ListMailboxPermissionsCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -3304,7 +3304,7 @@ const deserializeAws_json1_1ListOrganizationsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3367,7 +3367,7 @@ const deserializeAws_json1_1ListResourceDelegatesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -3378,7 +3378,7 @@ const deserializeAws_json1_1ListResourceDelegatesCommandError = async (
       };
       break;
     case "EntityStateException":
-    case "com.amazonaws.workmail.service#EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
       response = {
         ...(await deserializeAws_json1_1EntityStateExceptionResponse(
           parsedOutput,
@@ -3389,7 +3389,7 @@ const deserializeAws_json1_1ListResourceDelegatesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3400,7 +3400,7 @@ const deserializeAws_json1_1ListResourceDelegatesCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -3411,7 +3411,7 @@ const deserializeAws_json1_1ListResourceDelegatesCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -3471,7 +3471,7 @@ const deserializeAws_json1_1ListResourcesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3482,7 +3482,7 @@ const deserializeAws_json1_1ListResourcesCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -3493,7 +3493,7 @@ const deserializeAws_json1_1ListResourcesCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -3553,7 +3553,7 @@ const deserializeAws_json1_1ListUsersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3564,7 +3564,7 @@ const deserializeAws_json1_1ListUsersCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -3575,7 +3575,7 @@ const deserializeAws_json1_1ListUsersCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -3638,7 +3638,7 @@ const deserializeAws_json1_1PutMailboxPermissionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -3649,7 +3649,7 @@ const deserializeAws_json1_1PutMailboxPermissionsCommandError = async (
       };
       break;
     case "EntityStateException":
-    case "com.amazonaws.workmail.service#EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
       response = {
         ...(await deserializeAws_json1_1EntityStateExceptionResponse(
           parsedOutput,
@@ -3660,7 +3660,7 @@ const deserializeAws_json1_1PutMailboxPermissionsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3671,7 +3671,7 @@ const deserializeAws_json1_1PutMailboxPermissionsCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -3682,7 +3682,7 @@ const deserializeAws_json1_1PutMailboxPermissionsCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -3745,7 +3745,7 @@ const deserializeAws_json1_1RegisterToWorkMailCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
-    case "com.amazonaws.workmail.service#DirectoryServiceAuthenticationFailedException":
+    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
       response = {
         ...(await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
           parsedOutput,
@@ -3756,7 +3756,7 @@ const deserializeAws_json1_1RegisterToWorkMailCommandError = async (
       };
       break;
     case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail.service#DirectoryUnavailableException":
+    case "com.amazonaws.workmail#DirectoryUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
           parsedOutput,
@@ -3767,7 +3767,7 @@ const deserializeAws_json1_1RegisterToWorkMailCommandError = async (
       };
       break;
     case "EmailAddressInUseException":
-    case "com.amazonaws.workmail.service#EmailAddressInUseException":
+    case "com.amazonaws.workmail#EmailAddressInUseException":
       response = {
         ...(await deserializeAws_json1_1EmailAddressInUseExceptionResponse(
           parsedOutput,
@@ -3778,7 +3778,7 @@ const deserializeAws_json1_1RegisterToWorkMailCommandError = async (
       };
       break;
     case "EntityAlreadyRegisteredException":
-    case "com.amazonaws.workmail.service#EntityAlreadyRegisteredException":
+    case "com.amazonaws.workmail#EntityAlreadyRegisteredException":
       response = {
         ...(await deserializeAws_json1_1EntityAlreadyRegisteredExceptionResponse(
           parsedOutput,
@@ -3789,7 +3789,7 @@ const deserializeAws_json1_1RegisterToWorkMailCommandError = async (
       };
       break;
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -3800,7 +3800,7 @@ const deserializeAws_json1_1RegisterToWorkMailCommandError = async (
       };
       break;
     case "EntityStateException":
-    case "com.amazonaws.workmail.service#EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
       response = {
         ...(await deserializeAws_json1_1EntityStateExceptionResponse(
           parsedOutput,
@@ -3811,7 +3811,7 @@ const deserializeAws_json1_1RegisterToWorkMailCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3822,7 +3822,7 @@ const deserializeAws_json1_1RegisterToWorkMailCommandError = async (
       };
       break;
     case "MailDomainNotFoundException":
-    case "com.amazonaws.workmail.service#MailDomainNotFoundException":
+    case "com.amazonaws.workmail#MailDomainNotFoundException":
       response = {
         ...(await deserializeAws_json1_1MailDomainNotFoundExceptionResponse(
           parsedOutput,
@@ -3833,7 +3833,7 @@ const deserializeAws_json1_1RegisterToWorkMailCommandError = async (
       };
       break;
     case "MailDomainStateException":
-    case "com.amazonaws.workmail.service#MailDomainStateException":
+    case "com.amazonaws.workmail#MailDomainStateException":
       response = {
         ...(await deserializeAws_json1_1MailDomainStateExceptionResponse(
           parsedOutput,
@@ -3844,7 +3844,7 @@ const deserializeAws_json1_1RegisterToWorkMailCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -3855,7 +3855,7 @@ const deserializeAws_json1_1RegisterToWorkMailCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -3915,7 +3915,7 @@ const deserializeAws_json1_1ResetPasswordCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
-    case "com.amazonaws.workmail.service#DirectoryServiceAuthenticationFailedException":
+    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
       response = {
         ...(await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
           parsedOutput,
@@ -3926,7 +3926,7 @@ const deserializeAws_json1_1ResetPasswordCommandError = async (
       };
       break;
     case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail.service#DirectoryUnavailableException":
+    case "com.amazonaws.workmail#DirectoryUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
           parsedOutput,
@@ -3937,7 +3937,7 @@ const deserializeAws_json1_1ResetPasswordCommandError = async (
       };
       break;
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -3948,7 +3948,7 @@ const deserializeAws_json1_1ResetPasswordCommandError = async (
       };
       break;
     case "EntityStateException":
-    case "com.amazonaws.workmail.service#EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
       response = {
         ...(await deserializeAws_json1_1EntityStateExceptionResponse(
           parsedOutput,
@@ -3959,7 +3959,7 @@ const deserializeAws_json1_1ResetPasswordCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3970,7 +3970,7 @@ const deserializeAws_json1_1ResetPasswordCommandError = async (
       };
       break;
     case "InvalidPasswordException":
-    case "com.amazonaws.workmail.service#InvalidPasswordException":
+    case "com.amazonaws.workmail#InvalidPasswordException":
       response = {
         ...(await deserializeAws_json1_1InvalidPasswordExceptionResponse(
           parsedOutput,
@@ -3981,7 +3981,7 @@ const deserializeAws_json1_1ResetPasswordCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -3992,7 +3992,7 @@ const deserializeAws_json1_1ResetPasswordCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -4003,7 +4003,7 @@ const deserializeAws_json1_1ResetPasswordCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.workmail.service#UnsupportedOperationException":
+    case "com.amazonaws.workmail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -4066,7 +4066,7 @@ const deserializeAws_json1_1UpdateMailboxQuotaCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -4077,7 +4077,7 @@ const deserializeAws_json1_1UpdateMailboxQuotaCommandError = async (
       };
       break;
     case "EntityStateException":
-    case "com.amazonaws.workmail.service#EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
       response = {
         ...(await deserializeAws_json1_1EntityStateExceptionResponse(
           parsedOutput,
@@ -4088,7 +4088,7 @@ const deserializeAws_json1_1UpdateMailboxQuotaCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -4099,7 +4099,7 @@ const deserializeAws_json1_1UpdateMailboxQuotaCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -4110,7 +4110,7 @@ const deserializeAws_json1_1UpdateMailboxQuotaCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -4176,7 +4176,7 @@ const deserializeAws_json1_1UpdatePrimaryEmailAddressCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
-    case "com.amazonaws.workmail.service#DirectoryServiceAuthenticationFailedException":
+    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
       response = {
         ...(await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(
           parsedOutput,
@@ -4187,7 +4187,7 @@ const deserializeAws_json1_1UpdatePrimaryEmailAddressCommandError = async (
       };
       break;
     case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail.service#DirectoryUnavailableException":
+    case "com.amazonaws.workmail#DirectoryUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
           parsedOutput,
@@ -4198,7 +4198,7 @@ const deserializeAws_json1_1UpdatePrimaryEmailAddressCommandError = async (
       };
       break;
     case "EmailAddressInUseException":
-    case "com.amazonaws.workmail.service#EmailAddressInUseException":
+    case "com.amazonaws.workmail#EmailAddressInUseException":
       response = {
         ...(await deserializeAws_json1_1EmailAddressInUseExceptionResponse(
           parsedOutput,
@@ -4209,7 +4209,7 @@ const deserializeAws_json1_1UpdatePrimaryEmailAddressCommandError = async (
       };
       break;
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -4220,7 +4220,7 @@ const deserializeAws_json1_1UpdatePrimaryEmailAddressCommandError = async (
       };
       break;
     case "EntityStateException":
-    case "com.amazonaws.workmail.service#EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
       response = {
         ...(await deserializeAws_json1_1EntityStateExceptionResponse(
           parsedOutput,
@@ -4231,7 +4231,7 @@ const deserializeAws_json1_1UpdatePrimaryEmailAddressCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.workmail.service#InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -4242,7 +4242,7 @@ const deserializeAws_json1_1UpdatePrimaryEmailAddressCommandError = async (
       };
       break;
     case "MailDomainNotFoundException":
-    case "com.amazonaws.workmail.service#MailDomainNotFoundException":
+    case "com.amazonaws.workmail#MailDomainNotFoundException":
       response = {
         ...(await deserializeAws_json1_1MailDomainNotFoundExceptionResponse(
           parsedOutput,
@@ -4253,7 +4253,7 @@ const deserializeAws_json1_1UpdatePrimaryEmailAddressCommandError = async (
       };
       break;
     case "MailDomainStateException":
-    case "com.amazonaws.workmail.service#MailDomainStateException":
+    case "com.amazonaws.workmail#MailDomainStateException":
       response = {
         ...(await deserializeAws_json1_1MailDomainStateExceptionResponse(
           parsedOutput,
@@ -4264,7 +4264,7 @@ const deserializeAws_json1_1UpdatePrimaryEmailAddressCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -4275,7 +4275,7 @@ const deserializeAws_json1_1UpdatePrimaryEmailAddressCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -4286,7 +4286,7 @@ const deserializeAws_json1_1UpdatePrimaryEmailAddressCommandError = async (
       };
       break;
     case "UnsupportedOperationException":
-    case "com.amazonaws.workmail.service#UnsupportedOperationException":
+    case "com.amazonaws.workmail#UnsupportedOperationException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(
           parsedOutput,
@@ -4346,7 +4346,7 @@ const deserializeAws_json1_1UpdateResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail.service#DirectoryUnavailableException":
+    case "com.amazonaws.workmail#DirectoryUnavailableException":
       response = {
         ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(
           parsedOutput,
@@ -4357,7 +4357,7 @@ const deserializeAws_json1_1UpdateResourceCommandError = async (
       };
       break;
     case "EmailAddressInUseException":
-    case "com.amazonaws.workmail.service#EmailAddressInUseException":
+    case "com.amazonaws.workmail#EmailAddressInUseException":
       response = {
         ...(await deserializeAws_json1_1EmailAddressInUseExceptionResponse(
           parsedOutput,
@@ -4368,7 +4368,7 @@ const deserializeAws_json1_1UpdateResourceCommandError = async (
       };
       break;
     case "EntityNotFoundException":
-    case "com.amazonaws.workmail.service#EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
           parsedOutput,
@@ -4379,7 +4379,7 @@ const deserializeAws_json1_1UpdateResourceCommandError = async (
       };
       break;
     case "EntityStateException":
-    case "com.amazonaws.workmail.service#EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
       response = {
         ...(await deserializeAws_json1_1EntityStateExceptionResponse(
           parsedOutput,
@@ -4390,7 +4390,7 @@ const deserializeAws_json1_1UpdateResourceCommandError = async (
       };
       break;
     case "InvalidConfigurationException":
-    case "com.amazonaws.workmail.service#InvalidConfigurationException":
+    case "com.amazonaws.workmail#InvalidConfigurationException":
       response = {
         ...(await deserializeAws_json1_1InvalidConfigurationExceptionResponse(
           parsedOutput,
@@ -4401,7 +4401,7 @@ const deserializeAws_json1_1UpdateResourceCommandError = async (
       };
       break;
     case "MailDomainNotFoundException":
-    case "com.amazonaws.workmail.service#MailDomainNotFoundException":
+    case "com.amazonaws.workmail#MailDomainNotFoundException":
       response = {
         ...(await deserializeAws_json1_1MailDomainNotFoundExceptionResponse(
           parsedOutput,
@@ -4412,7 +4412,7 @@ const deserializeAws_json1_1UpdateResourceCommandError = async (
       };
       break;
     case "MailDomainStateException":
-    case "com.amazonaws.workmail.service#MailDomainStateException":
+    case "com.amazonaws.workmail#MailDomainStateException":
       response = {
         ...(await deserializeAws_json1_1MailDomainStateExceptionResponse(
           parsedOutput,
@@ -4423,7 +4423,7 @@ const deserializeAws_json1_1UpdateResourceCommandError = async (
       };
       break;
     case "NameAvailabilityException":
-    case "com.amazonaws.workmail.service#NameAvailabilityException":
+    case "com.amazonaws.workmail#NameAvailabilityException":
       response = {
         ...(await deserializeAws_json1_1NameAvailabilityExceptionResponse(
           parsedOutput,
@@ -4434,7 +4434,7 @@ const deserializeAws_json1_1UpdateResourceCommandError = async (
       };
       break;
     case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail.service#OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(
           parsedOutput,
@@ -4445,7 +4445,7 @@ const deserializeAws_json1_1UpdateResourceCommandError = async (
       };
       break;
     case "OrganizationStateException":
-    case "com.amazonaws.workmail.service#OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(
           parsedOutput,
@@ -6033,13 +6033,6 @@ const deserializeAws_json1_1Permission = (
   } as any;
 };
 
-const deserializeAws_json1_1PermissionValues = (
-  output: any,
-  context: __SerdeContext
-): (PermissionType | string)[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
 const deserializeAws_json1_1Permissions = (
   output: any,
   context: __SerdeContext
@@ -6047,6 +6040,13 @@ const deserializeAws_json1_1Permissions = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Permission(entry, context)
   );
+};
+
+const deserializeAws_json1_1PermissionValues = (
+  output: any,
+  context: __SerdeContext
+): (PermissionType | string)[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1PutMailboxPermissionsResponse = (

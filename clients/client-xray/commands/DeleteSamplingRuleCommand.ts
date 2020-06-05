@@ -8,9 +8,9 @@ import {
   DeleteSamplingRuleResult
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteSamplingRuleCommand,
-  serializeAws_restJson1_1DeleteSamplingRuleCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteSamplingRuleCommand,
+  serializeAws_restJson1DeleteSamplingRuleCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DeleteSamplingRuleCommand extends $Command<
     input: DeleteSamplingRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteSamplingRuleCommand(input, context);
+    return serializeAws_restJson1DeleteSamplingRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSamplingRuleCommandOutput> {
-    return deserializeAws_restJson1_1DeleteSamplingRuleCommand(output, context);
+    return deserializeAws_restJson1DeleteSamplingRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

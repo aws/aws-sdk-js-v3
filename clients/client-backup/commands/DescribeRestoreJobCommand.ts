@@ -8,9 +8,9 @@ import {
   DescribeRestoreJobOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeRestoreJobCommand,
-  serializeAws_restJson1_1DescribeRestoreJobCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeRestoreJobCommand,
+  serializeAws_restJson1DescribeRestoreJobCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DescribeRestoreJobCommand extends $Command<
     input: DescribeRestoreJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeRestoreJobCommand(input, context);
+    return serializeAws_restJson1DescribeRestoreJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRestoreJobCommandOutput> {
-    return deserializeAws_restJson1_1DescribeRestoreJobCommand(output, context);
+    return deserializeAws_restJson1DescribeRestoreJobCommand(output, context);
   }
 
   // Start section: command_body_extra

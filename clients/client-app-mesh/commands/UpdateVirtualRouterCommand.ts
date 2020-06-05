@@ -8,9 +8,9 @@ import {
   UpdateVirtualRouterOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateVirtualRouterCommand,
-  serializeAws_restJson1_1UpdateVirtualRouterCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateVirtualRouterCommand,
+  serializeAws_restJson1UpdateVirtualRouterCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class UpdateVirtualRouterCommand extends $Command<
     input: UpdateVirtualRouterCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateVirtualRouterCommand(input, context);
+    return serializeAws_restJson1UpdateVirtualRouterCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateVirtualRouterCommandOutput> {
-    return deserializeAws_restJson1_1UpdateVirtualRouterCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateVirtualRouterCommand(output, context);
   }
 
   // Start section: command_body_extra

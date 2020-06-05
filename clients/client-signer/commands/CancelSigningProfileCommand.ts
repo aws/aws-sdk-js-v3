@@ -1,8 +1,8 @@
 import { CancelSigningProfileRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1CancelSigningProfileCommand,
-  serializeAws_restJson1_1CancelSigningProfileCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CancelSigningProfileCommand,
+  serializeAws_restJson1CancelSigningProfileCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -70,17 +70,14 @@ export class CancelSigningProfileCommand extends $Command<
     input: CancelSigningProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CancelSigningProfileCommand(input, context);
+    return serializeAws_restJson1CancelSigningProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelSigningProfileCommandOutput> {
-    return deserializeAws_restJson1_1CancelSigningProfileCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CancelSigningProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

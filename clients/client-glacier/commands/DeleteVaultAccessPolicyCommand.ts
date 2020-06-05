@@ -5,9 +5,9 @@ import {
 } from "../GlacierClient";
 import { DeleteVaultAccessPolicyInput } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteVaultAccessPolicyCommand,
-  serializeAws_restJson1_1DeleteVaultAccessPolicyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteVaultAccessPolicyCommand,
+  serializeAws_restJson1DeleteVaultAccessPolicyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,17 +70,14 @@ export class DeleteVaultAccessPolicyCommand extends $Command<
     input: DeleteVaultAccessPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteVaultAccessPolicyCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DeleteVaultAccessPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVaultAccessPolicyCommandOutput> {
-    return deserializeAws_restJson1_1DeleteVaultAccessPolicyCommand(
+    return deserializeAws_restJson1DeleteVaultAccessPolicyCommand(
       output,
       context
     );

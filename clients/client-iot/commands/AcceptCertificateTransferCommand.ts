@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { AcceptCertificateTransferRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1AcceptCertificateTransferCommand,
-  serializeAws_restJson1_1AcceptCertificateTransferCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AcceptCertificateTransferCommand,
+  serializeAws_restJson1AcceptCertificateTransferCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class AcceptCertificateTransferCommand extends $Command<
     input: AcceptCertificateTransferCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AcceptCertificateTransferCommand(
+    return serializeAws_restJson1AcceptCertificateTransferCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class AcceptCertificateTransferCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptCertificateTransferCommandOutput> {
-    return deserializeAws_restJson1_1AcceptCertificateTransferCommand(
+    return deserializeAws_restJson1AcceptCertificateTransferCommand(
       output,
       context
     );

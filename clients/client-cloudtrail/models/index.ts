@@ -48,6 +48,32 @@ export namespace AddTagsResponse {
 }
 
 /**
+ * <p>This exception is thrown when trusted access has not been enabled between AWS CloudTrail and AWS Organizations. For more information,
+ *          see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Enabling Trusted Access with Other AWS Services</a>
+ *          and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>. </p>
+ */
+export interface CloudTrailAccessNotEnabledException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CloudTrailAccessNotEnabledException";
+  $fault: "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+}
+
+export namespace CloudTrailAccessNotEnabledException {
+  export const filterSensitiveLog = (
+    obj: CloudTrailAccessNotEnabledException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CloudTrailAccessNotEnabledException =>
+    __isa(o, "CloudTrailAccessNotEnabledException");
+}
+
+/**
  * <p>This exception is thrown when an operation is called with an invalid trail ARN. The format of a trail ARN is:</p>
  *          <p>
  *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
@@ -72,32 +98,6 @@ export namespace CloudTrailARNInvalidException {
   });
   export const isa = (o: any): o is CloudTrailARNInvalidException =>
     __isa(o, "CloudTrailARNInvalidException");
-}
-
-/**
- * <p>This exception is thrown when trusted access has not been enabled between AWS CloudTrail and AWS Organizations. For more information,
- *          see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Enabling Trusted Access with Other AWS Services</a>
- *          and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>. </p>
- */
-export interface CloudTrailAccessNotEnabledException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CloudTrailAccessNotEnabledException";
-  $fault: "client";
-  /**
-   * <p>Brief description of the exception returned by the request.</p>
-   */
-  Message?: string;
-}
-
-export namespace CloudTrailAccessNotEnabledException {
-  export const filterSensitiveLog = (
-    obj: CloudTrailAccessNotEnabledException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CloudTrailAccessNotEnabledException =>
-    __isa(o, "CloudTrailAccessNotEnabledException");
 }
 
 /**

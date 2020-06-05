@@ -8,9 +8,9 @@ import {
   GetHLSStreamingSessionURLOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetHLSStreamingSessionURLCommand,
-  serializeAws_restJson1_1GetHLSStreamingSessionURLCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetHLSStreamingSessionURLCommand,
+  serializeAws_restJson1GetHLSStreamingSessionURLCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetHLSStreamingSessionURLCommand extends $Command<
     input: GetHLSStreamingSessionURLCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetHLSStreamingSessionURLCommand(
+    return serializeAws_restJson1GetHLSStreamingSessionURLCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetHLSStreamingSessionURLCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetHLSStreamingSessionURLCommandOutput> {
-    return deserializeAws_restJson1_1GetHLSStreamingSessionURLCommand(
+    return deserializeAws_restJson1GetHLSStreamingSessionURLCommand(
       output,
       context
     );

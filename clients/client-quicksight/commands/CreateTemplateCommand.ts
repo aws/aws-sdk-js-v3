@@ -5,9 +5,9 @@ import {
 } from "../QuickSightClient";
 import { CreateTemplateRequest, CreateTemplateResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateTemplateCommand,
-  serializeAws_restJson1_1CreateTemplateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateTemplateCommand,
+  serializeAws_restJson1CreateTemplateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class CreateTemplateCommand extends $Command<
     input: CreateTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateTemplateCommand(input, context);
+    return serializeAws_restJson1CreateTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTemplateCommandOutput> {
-    return deserializeAws_restJson1_1CreateTemplateCommand(output, context);
+    return deserializeAws_restJson1CreateTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

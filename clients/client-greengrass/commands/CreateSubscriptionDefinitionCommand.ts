@@ -8,9 +8,9 @@ import {
   CreateSubscriptionDefinitionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateSubscriptionDefinitionCommand,
-  serializeAws_restJson1_1CreateSubscriptionDefinitionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateSubscriptionDefinitionCommand,
+  serializeAws_restJson1CreateSubscriptionDefinitionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CreateSubscriptionDefinitionCommand extends $Command<
     input: CreateSubscriptionDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateSubscriptionDefinitionCommand(
+    return serializeAws_restJson1CreateSubscriptionDefinitionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CreateSubscriptionDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSubscriptionDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1CreateSubscriptionDefinitionCommand(
+    return deserializeAws_restJson1CreateSubscriptionDefinitionCommand(
       output,
       context
     );

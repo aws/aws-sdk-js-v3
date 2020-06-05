@@ -8,9 +8,9 @@ import {
   DescribeElasticsearchInstanceTypeLimitsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsCommand,
-  serializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsCommand,
+  serializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -76,7 +76,7 @@ export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command<
     input: DescribeElasticsearchInstanceTypeLimitsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsCommand(
+    return serializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsCommand(
       input,
       context
     );
@@ -86,7 +86,7 @@ export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeElasticsearchInstanceTypeLimitsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsCommand(
+    return deserializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsCommand(
       output,
       context
     );

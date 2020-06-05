@@ -8,9 +8,9 @@ import {
   ListPublishingDestinationsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListPublishingDestinationsCommand,
-  serializeAws_restJson1_1ListPublishingDestinationsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListPublishingDestinationsCommand,
+  serializeAws_restJson1ListPublishingDestinationsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListPublishingDestinationsCommand extends $Command<
     input: ListPublishingDestinationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListPublishingDestinationsCommand(
+    return serializeAws_restJson1ListPublishingDestinationsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListPublishingDestinationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPublishingDestinationsCommandOutput> {
-    return deserializeAws_restJson1_1ListPublishingDestinationsCommand(
+    return deserializeAws_restJson1ListPublishingDestinationsCommand(
       output,
       context
     );

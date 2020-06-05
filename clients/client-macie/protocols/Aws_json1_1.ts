@@ -201,7 +201,7 @@ const deserializeAws_json1_1AssociateMemberAccountCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.macie.service#InternalException":
+    case "com.amazonaws.macie#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -212,7 +212,7 @@ const deserializeAws_json1_1AssociateMemberAccountCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.macie.service#InvalidInputException":
+    case "com.amazonaws.macie#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -223,7 +223,7 @@ const deserializeAws_json1_1AssociateMemberAccountCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.macie.service#LimitExceededException":
+    case "com.amazonaws.macie#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -286,7 +286,7 @@ const deserializeAws_json1_1AssociateS3ResourcesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.macie.service#AccessDeniedException":
+    case "com.amazonaws.macie#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -297,7 +297,7 @@ const deserializeAws_json1_1AssociateS3ResourcesCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.amazonaws.macie.service#InternalException":
+    case "com.amazonaws.macie#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -308,7 +308,7 @@ const deserializeAws_json1_1AssociateS3ResourcesCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.macie.service#InvalidInputException":
+    case "com.amazonaws.macie#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -319,7 +319,7 @@ const deserializeAws_json1_1AssociateS3ResourcesCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.macie.service#LimitExceededException":
+    case "com.amazonaws.macie#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -378,7 +378,7 @@ const deserializeAws_json1_1DisassociateMemberAccountCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.macie.service#InternalException":
+    case "com.amazonaws.macie#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -389,7 +389,7 @@ const deserializeAws_json1_1DisassociateMemberAccountCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.macie.service#InvalidInputException":
+    case "com.amazonaws.macie#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -452,7 +452,7 @@ const deserializeAws_json1_1DisassociateS3ResourcesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.macie.service#AccessDeniedException":
+    case "com.amazonaws.macie#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -463,7 +463,7 @@ const deserializeAws_json1_1DisassociateS3ResourcesCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.amazonaws.macie.service#InternalException":
+    case "com.amazonaws.macie#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -474,7 +474,7 @@ const deserializeAws_json1_1DisassociateS3ResourcesCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.macie.service#InvalidInputException":
+    case "com.amazonaws.macie#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -537,7 +537,7 @@ const deserializeAws_json1_1ListMemberAccountsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
-    case "com.amazonaws.macie.service#InternalException":
+    case "com.amazonaws.macie#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -548,7 +548,7 @@ const deserializeAws_json1_1ListMemberAccountsCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.macie.service#InvalidInputException":
+    case "com.amazonaws.macie#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -608,7 +608,7 @@ const deserializeAws_json1_1ListS3ResourcesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.macie.service#AccessDeniedException":
+    case "com.amazonaws.macie#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -619,7 +619,7 @@ const deserializeAws_json1_1ListS3ResourcesCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.amazonaws.macie.service#InternalException":
+    case "com.amazonaws.macie#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -630,7 +630,7 @@ const deserializeAws_json1_1ListS3ResourcesCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.macie.service#InvalidInputException":
+    case "com.amazonaws.macie#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -690,7 +690,7 @@ const deserializeAws_json1_1UpdateS3ResourcesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.macie.service#AccessDeniedException":
+    case "com.amazonaws.macie#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -701,7 +701,7 @@ const deserializeAws_json1_1UpdateS3ResourcesCommandError = async (
       };
       break;
     case "InternalException":
-    case "com.amazonaws.macie.service#InternalException":
+    case "com.amazonaws.macie#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(
           parsedOutput,
@@ -712,7 +712,7 @@ const deserializeAws_json1_1UpdateS3ResourcesCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.macie.service#InvalidInputException":
+    case "com.amazonaws.macie#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,

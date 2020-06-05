@@ -5,9 +5,9 @@ import {
 } from "../WorkDocsClient";
 import { UpdateDocumentRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateDocumentCommand,
-  serializeAws_restJson1_1UpdateDocumentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateDocumentCommand,
+  serializeAws_restJson1UpdateDocumentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class UpdateDocumentCommand extends $Command<
     input: UpdateDocumentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDocumentCommand(input, context);
+    return serializeAws_restJson1UpdateDocumentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDocumentCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDocumentCommand(output, context);
+    return deserializeAws_restJson1UpdateDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

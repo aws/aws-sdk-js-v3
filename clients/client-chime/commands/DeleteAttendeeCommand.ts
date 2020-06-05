@@ -5,9 +5,9 @@ import {
 } from "../ChimeClient";
 import { DeleteAttendeeRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteAttendeeCommand,
-  serializeAws_restJson1_1DeleteAttendeeCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteAttendeeCommand,
+  serializeAws_restJson1DeleteAttendeeCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteAttendeeCommand extends $Command<
     input: DeleteAttendeeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteAttendeeCommand(input, context);
+    return serializeAws_restJson1DeleteAttendeeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAttendeeCommandOutput> {
-    return deserializeAws_restJson1_1DeleteAttendeeCommand(output, context);
+    return deserializeAws_restJson1DeleteAttendeeCommand(output, context);
   }
 
   // Start section: command_body_extra

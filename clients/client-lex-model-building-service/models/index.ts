@@ -26,102 +26,6 @@ export namespace BadRequestException {
 }
 
 /**
- * <p> There was a conflict processing the request. Try your request again. </p>
- */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ConflictException {
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ConflictException =>
-    __isa(o, "ConflictException");
-}
-
-/**
- * <p>An internal Amazon Lex error occurred. Try your request again.</p>
- */
-export interface InternalFailureException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InternalFailureException";
-  $fault: "server";
-  message?: string;
-}
-
-export namespace InternalFailureException {
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InternalFailureException =>
-    __isa(o, "InternalFailureException");
-}
-
-/**
- * <p>The request exceeded a limit. Try your request again.</p>
- */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
-  retryAfterSeconds?: string;
-}
-
-export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
-}
-
-/**
- * <p>The resource specified in the request was not found. Check the resource and try
- *       again.</p>
- */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NotFoundException {
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
-}
-
-/**
- * <p> The checksum of the resource that you are trying to change does not match the checksum
- *       in the request. Check the resource's checksum and try again.</p>
- */
-export interface PreconditionFailedException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "PreconditionFailedException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace PreconditionFailedException {
-  export const filterSensitiveLog = (
-    obj: PreconditionFailedException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is PreconditionFailedException =>
-    __isa(o, "PreconditionFailedException");
-}
-
-/**
  * <p>Provides information about a bot alias.</p>
  */
 export interface BotAliasMetadata {
@@ -410,6 +314,23 @@ export namespace CodeHook {
     ...obj
   });
   export const isa = (o: any): o is CodeHook => __isa(o, "CodeHook");
+}
+
+/**
+ * <p> There was a conflict processing the request. Try your request again. </p>
+ */
+export interface ConflictException extends __SmithyException, $MetadataBearer {
+  name: "ConflictException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ConflictException {
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ConflictException =>
+    __isa(o, "ConflictException");
 }
 
 export enum ContentType {
@@ -1140,6 +1061,65 @@ export enum FulfillmentActivityType {
   RETURN_INTENT = "ReturnIntent"
 }
 
+export interface GetBotAliasesRequest {
+  __type?: "GetBotAliasesRequest";
+  /**
+   * <p>The name of the bot.</p>
+   */
+  botName: string | undefined;
+
+  /**
+   * <p>The maximum number of aliases to return in the response. The default is 50. .
+   *     </p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>Substring to match in bot alias names. An alias will be returned if any part of its
+   *       name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."</p>
+   */
+  nameContains?: string;
+
+  /**
+   * <p>A pagination token for fetching the next page of aliases. If the response to this call
+   *       is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of
+   *       aliases, specify the pagination token in the next request. </p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetBotAliasesRequest {
+  export const filterSensitiveLog = (obj: GetBotAliasesRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetBotAliasesRequest =>
+    __isa(o, "GetBotAliasesRequest");
+}
+
+export interface GetBotAliasesResponse {
+  __type?: "GetBotAliasesResponse";
+  /**
+   * <p>An array of <code>BotAliasMetadata</code> objects, each describing a bot
+   *       alias.</p>
+   */
+  BotAliases?: BotAliasMetadata[];
+
+  /**
+   * <p>A pagination token for fetching next page of aliases. If the response to this call is
+   *       truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of
+   *       aliases, specify the pagination token in the next request. </p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetBotAliasesResponse {
+  export const filterSensitiveLog = (obj: GetBotAliasesResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetBotAliasesResponse =>
+    __isa(o, "GetBotAliasesResponse");
+}
+
 export interface GetBotAliasRequest {
   __type?: "GetBotAliasRequest";
   /**
@@ -1211,65 +1191,6 @@ export namespace GetBotAliasResponse {
   });
   export const isa = (o: any): o is GetBotAliasResponse =>
     __isa(o, "GetBotAliasResponse");
-}
-
-export interface GetBotAliasesRequest {
-  __type?: "GetBotAliasesRequest";
-  /**
-   * <p>The name of the bot.</p>
-   */
-  botName: string | undefined;
-
-  /**
-   * <p>The maximum number of aliases to return in the response. The default is 50. .
-   *     </p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>Substring to match in bot alias names. An alias will be returned if any part of its
-   *       name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."</p>
-   */
-  nameContains?: string;
-
-  /**
-   * <p>A pagination token for fetching the next page of aliases. If the response to this call
-   *       is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of
-   *       aliases, specify the pagination token in the next request. </p>
-   */
-  nextToken?: string;
-}
-
-export namespace GetBotAliasesRequest {
-  export const filterSensitiveLog = (obj: GetBotAliasesRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetBotAliasesRequest =>
-    __isa(o, "GetBotAliasesRequest");
-}
-
-export interface GetBotAliasesResponse {
-  __type?: "GetBotAliasesResponse";
-  /**
-   * <p>An array of <code>BotAliasMetadata</code> objects, each describing a bot
-   *       alias.</p>
-   */
-  BotAliases?: BotAliasMetadata[];
-
-  /**
-   * <p>A pagination token for fetching next page of aliases. If the response to this call is
-   *       truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of
-   *       aliases, specify the pagination token in the next request. </p>
-   */
-  nextToken?: string;
-}
-
-export namespace GetBotAliasesResponse {
-  export const filterSensitiveLog = (obj: GetBotAliasesResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetBotAliasesResponse =>
-    __isa(o, "GetBotAliasesResponse");
 }
 
 export interface GetBotChannelAssociationRequest {
@@ -1602,6 +1523,58 @@ export namespace GetBotResponse {
     __isa(o, "GetBotResponse");
 }
 
+export interface GetBotsRequest {
+  __type?: "GetBotsRequest";
+  /**
+   * <p>The maximum number of bots to return in the response that the request will return. The
+   *       default is 10.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>Substring to match in bot names. A bot will be returned if any part of its name matches
+   *       the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."</p>
+   */
+  nameContains?: string;
+
+  /**
+   * <p>A pagination token that fetches the next page of bots. If the response to this call is
+   *       truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of bots,
+   *       specify the pagination token in the next request. </p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetBotsRequest {
+  export const filterSensitiveLog = (obj: GetBotsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetBotsRequest =>
+    __isa(o, "GetBotsRequest");
+}
+
+export interface GetBotsResponse {
+  __type?: "GetBotsResponse";
+  /**
+   * <p>An array of <code>botMetadata</code> objects, with one entry for each bot. </p>
+   */
+  bots?: BotMetadata[];
+
+  /**
+   * <p>If the response is truncated, it includes a pagination token that you can specify in
+   *       your next request to fetch the next page of bots. </p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetBotsResponse {
+  export const filterSensitiveLog = (obj: GetBotsResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetBotsResponse =>
+    __isa(o, "GetBotsResponse");
+}
+
 export interface GetBotVersionsRequest {
   __type?: "GetBotVersionsRequest";
   /**
@@ -1653,58 +1626,6 @@ export namespace GetBotVersionsResponse {
   });
   export const isa = (o: any): o is GetBotVersionsResponse =>
     __isa(o, "GetBotVersionsResponse");
-}
-
-export interface GetBotsRequest {
-  __type?: "GetBotsRequest";
-  /**
-   * <p>The maximum number of bots to return in the response that the request will return. The
-   *       default is 10.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>Substring to match in bot names. A bot will be returned if any part of its name matches
-   *       the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."</p>
-   */
-  nameContains?: string;
-
-  /**
-   * <p>A pagination token that fetches the next page of bots. If the response to this call is
-   *       truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of bots,
-   *       specify the pagination token in the next request. </p>
-   */
-  nextToken?: string;
-}
-
-export namespace GetBotsRequest {
-  export const filterSensitiveLog = (obj: GetBotsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetBotsRequest =>
-    __isa(o, "GetBotsRequest");
-}
-
-export interface GetBotsResponse {
-  __type?: "GetBotsResponse";
-  /**
-   * <p>An array of <code>botMetadata</code> objects, with one entry for each bot. </p>
-   */
-  bots?: BotMetadata[];
-
-  /**
-   * <p>If the response is truncated, it includes a pagination token that you can specify in
-   *       your next request to fetch the next page of bots. </p>
-   */
-  nextToken?: string;
-}
-
-export namespace GetBotsResponse {
-  export const filterSensitiveLog = (obj: GetBotsResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetBotsResponse =>
-    __isa(o, "GetBotsResponse");
 }
 
 export interface GetBuiltinIntentRequest {
@@ -2142,6 +2063,57 @@ export namespace GetIntentResponse {
     __isa(o, "GetIntentResponse");
 }
 
+export interface GetIntentsRequest {
+  __type?: "GetIntentsRequest";
+  /**
+   * <p>The maximum number of intents to return in the response. The default is 10.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>Substring to match in intent names. An intent will be returned if any part of its name
+   *       matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."</p>
+   */
+  nameContains?: string;
+
+  /**
+   * <p>A pagination token that fetches the next page of intents. If the response to this API
+   *       call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of
+   *       intents, specify the pagination token in the next request. </p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetIntentsRequest {
+  export const filterSensitiveLog = (obj: GetIntentsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetIntentsRequest =>
+    __isa(o, "GetIntentsRequest");
+}
+
+export interface GetIntentsResponse {
+  __type?: "GetIntentsResponse";
+  /**
+   * <p>An array of <code>Intent</code> objects. For more information, see <a>PutBot</a>.</p>
+   */
+  intents?: IntentMetadata[];
+
+  /**
+   * <p>If the response is truncated, the response includes a pagination token that you can
+   *       specify in your next request to fetch the next page of intents. </p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetIntentsResponse {
+  export const filterSensitiveLog = (obj: GetIntentsResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetIntentsResponse =>
+    __isa(o, "GetIntentsResponse");
+}
+
 export interface GetIntentVersionsRequest {
   __type?: "GetIntentVersionsRequest";
   /**
@@ -2193,57 +2165,6 @@ export namespace GetIntentVersionsResponse {
   });
   export const isa = (o: any): o is GetIntentVersionsResponse =>
     __isa(o, "GetIntentVersionsResponse");
-}
-
-export interface GetIntentsRequest {
-  __type?: "GetIntentsRequest";
-  /**
-   * <p>The maximum number of intents to return in the response. The default is 10.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>Substring to match in intent names. An intent will be returned if any part of its name
-   *       matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."</p>
-   */
-  nameContains?: string;
-
-  /**
-   * <p>A pagination token that fetches the next page of intents. If the response to this API
-   *       call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of
-   *       intents, specify the pagination token in the next request. </p>
-   */
-  nextToken?: string;
-}
-
-export namespace GetIntentsRequest {
-  export const filterSensitiveLog = (obj: GetIntentsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetIntentsRequest =>
-    __isa(o, "GetIntentsRequest");
-}
-
-export interface GetIntentsResponse {
-  __type?: "GetIntentsResponse";
-  /**
-   * <p>An array of <code>Intent</code> objects. For more information, see <a>PutBot</a>.</p>
-   */
-  intents?: IntentMetadata[];
-
-  /**
-   * <p>If the response is truncated, the response includes a pagination token that you can
-   *       specify in your next request to fetch the next page of intents. </p>
-   */
-  nextToken?: string;
-}
-
-export namespace GetIntentsResponse {
-  export const filterSensitiveLog = (obj: GetIntentsResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetIntentsResponse =>
-    __isa(o, "GetIntentsResponse");
 }
 
 export interface GetSlotTypeRequest {
@@ -2321,6 +2242,59 @@ export namespace GetSlotTypeResponse {
     __isa(o, "GetSlotTypeResponse");
 }
 
+export interface GetSlotTypesRequest {
+  __type?: "GetSlotTypesRequest";
+  /**
+   * <p>The maximum number of slot types to return in the response. The default is
+   *       10.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>Substring to match in slot type names. A slot type will be returned if any part of its
+   *       name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."</p>
+   */
+  nameContains?: string;
+
+  /**
+   * <p>A pagination token that fetches the next page of slot types. If the response to this
+   *       API call is truncated, Amazon Lex returns a pagination token in the response. To fetch next page of
+   *       slot types, specify the pagination token in the next request.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetSlotTypesRequest {
+  export const filterSensitiveLog = (obj: GetSlotTypesRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetSlotTypesRequest =>
+    __isa(o, "GetSlotTypesRequest");
+}
+
+export interface GetSlotTypesResponse {
+  __type?: "GetSlotTypesResponse";
+  /**
+   * <p>If the response is truncated, it includes a pagination token that you can specify in
+   *       your next request to fetch the next page of slot types.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>An array of objects, one for each slot type, that provides information such as the name
+   *       of the slot type, the version, and a description.</p>
+   */
+  slotTypes?: SlotTypeMetadata[];
+}
+
+export namespace GetSlotTypesResponse {
+  export const filterSensitiveLog = (obj: GetSlotTypesResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetSlotTypesResponse =>
+    __isa(o, "GetSlotTypesResponse");
+}
+
 export interface GetSlotTypeVersionsRequest {
   __type?: "GetSlotTypeVersionsRequest";
   /**
@@ -2374,59 +2348,6 @@ export namespace GetSlotTypeVersionsResponse {
   });
   export const isa = (o: any): o is GetSlotTypeVersionsResponse =>
     __isa(o, "GetSlotTypeVersionsResponse");
-}
-
-export interface GetSlotTypesRequest {
-  __type?: "GetSlotTypesRequest";
-  /**
-   * <p>The maximum number of slot types to return in the response. The default is
-   *       10.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>Substring to match in slot type names. A slot type will be returned if any part of its
-   *       name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."</p>
-   */
-  nameContains?: string;
-
-  /**
-   * <p>A pagination token that fetches the next page of slot types. If the response to this
-   *       API call is truncated, Amazon Lex returns a pagination token in the response. To fetch next page of
-   *       slot types, specify the pagination token in the next request.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace GetSlotTypesRequest {
-  export const filterSensitiveLog = (obj: GetSlotTypesRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetSlotTypesRequest =>
-    __isa(o, "GetSlotTypesRequest");
-}
-
-export interface GetSlotTypesResponse {
-  __type?: "GetSlotTypesResponse";
-  /**
-   * <p>If the response is truncated, it includes a pagination token that you can specify in
-   *       your next request to fetch the next page of slot types.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>An array of objects, one for each slot type, that provides information such as the name
-   *       of the slot type, the version, and a description.</p>
-   */
-  slotTypes?: SlotTypeMetadata[];
-}
-
-export namespace GetSlotTypesResponse {
-  export const filterSensitiveLog = (obj: GetSlotTypesResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetSlotTypesResponse =>
-    __isa(o, "GetSlotTypesResponse");
 }
 
 export interface GetUtterancesViewRequest {
@@ -2547,6 +2468,45 @@ export namespace IntentMetadata {
   });
   export const isa = (o: any): o is IntentMetadata =>
     __isa(o, "IntentMetadata");
+}
+
+/**
+ * <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ */
+export interface InternalFailureException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InternalFailureException";
+  $fault: "server";
+  message?: string;
+}
+
+export namespace InternalFailureException {
+  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InternalFailureException =>
+    __isa(o, "InternalFailureException");
+}
+
+/**
+ * <p>The request exceeded a limit. Try your request again.</p>
+ */
+export interface LimitExceededException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  message?: string;
+  retryAfterSeconds?: string;
+}
+
+export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 export enum Locale {
@@ -2676,9 +2636,49 @@ export namespace Message {
   export const isa = (o: any): o is Message => __isa(o, "Message");
 }
 
+/**
+ * <p>The resource specified in the request was not found. Check the resource and try
+ *       again.</p>
+ */
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
+  name: "NotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NotFoundException {
+  export const filterSensitiveLog = (obj: NotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NotFoundException =>
+    __isa(o, "NotFoundException");
+}
+
 export enum ObfuscationSetting {
   DEFAULT_OBFUSCATION = "DEFAULT_OBFUSCATION",
   NONE = "NONE"
+}
+
+/**
+ * <p> The checksum of the resource that you are trying to change does not match the checksum
+ *       in the request. Check the resource's checksum and try again.</p>
+ */
+export interface PreconditionFailedException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "PreconditionFailedException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace PreconditionFailedException {
+  export const filterSensitiveLog = (
+    obj: PreconditionFailedException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is PreconditionFailedException =>
+    __isa(o, "PreconditionFailedException");
 }
 
 export enum ProcessBehavior {

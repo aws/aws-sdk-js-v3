@@ -8,9 +8,9 @@ import {
   ListElasticsearchInstanceTypesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommand,
-  serializeAws_restJson1_1ListElasticsearchInstanceTypesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListElasticsearchInstanceTypesCommand,
+  serializeAws_restJson1ListElasticsearchInstanceTypesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListElasticsearchInstanceTypesCommand extends $Command<
     input: ListElasticsearchInstanceTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListElasticsearchInstanceTypesCommand(
+    return serializeAws_restJson1ListElasticsearchInstanceTypesCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListElasticsearchInstanceTypesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListElasticsearchInstanceTypesCommandOutput> {
-    return deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommand(
+    return deserializeAws_restJson1ListElasticsearchInstanceTypesCommand(
       output,
       context
     );

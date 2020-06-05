@@ -8,9 +8,9 @@ import {
   EventSourceMappingConfiguration
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateEventSourceMappingCommand,
-  serializeAws_restJson1_1CreateEventSourceMappingCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateEventSourceMappingCommand,
+  serializeAws_restJson1CreateEventSourceMappingCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CreateEventSourceMappingCommand extends $Command<
     input: CreateEventSourceMappingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateEventSourceMappingCommand(
+    return serializeAws_restJson1CreateEventSourceMappingCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CreateEventSourceMappingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateEventSourceMappingCommandOutput> {
-    return deserializeAws_restJson1_1CreateEventSourceMappingCommand(
+    return deserializeAws_restJson1CreateEventSourceMappingCommand(
       output,
       context
     );

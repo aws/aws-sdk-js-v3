@@ -1354,58 +1354,6 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   * <p>Enables the integration of an AWS service (the service that is specified by
-   *         <code>ServicePrincipal</code>) with AWS Organizations. When you enable integration, you allow the
-   *       specified service to create a <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked role</a> in all the accounts in your organization. This allows the
-   *       service to perform operations on your behalf in your organization and its accounts.</p>
-   *          <important>
-   *             <p>We recommend that you enable integration between AWS Organizations and the specified AWS
-   *         service by using the console or commands that are provided by the specified service. Doing
-   *         so ensures that the service is aware that it can create the resources that are required for
-   *         the integration. How the service creates those resources in the organization's accounts
-   *         depends on that service. For more information, see the documentation for the other AWS
-   *         service.</p>
-   *          </important>
-   *          <p>For more information about enabling services to integrate with AWS Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating AWS Organizations with Other AWS
-   *         Services</a> in the <i>AWS Organizations User Guide.</i>
-   *          </p>
-   *          <p>This operation can be called only from the organization's master account and only if the
-   *       organization has <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">enabled
-   *         all features</a>.</p>
-   */
-  public enableAWSServiceAccess(
-    args: EnableAWSServiceAccessCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<EnableAWSServiceAccessCommandOutput>;
-  public enableAWSServiceAccess(
-    args: EnableAWSServiceAccessCommandInput,
-    cb: (err: any, data?: EnableAWSServiceAccessCommandOutput) => void
-  ): void;
-  public enableAWSServiceAccess(
-    args: EnableAWSServiceAccessCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: EnableAWSServiceAccessCommandOutput) => void
-  ): void;
-  public enableAWSServiceAccess(
-    args: EnableAWSServiceAccessCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableAWSServiceAccessCommandOutput) => void),
-    cb?: (err: any, data?: EnableAWSServiceAccessCommandOutput) => void
-  ): Promise<EnableAWSServiceAccessCommandOutput> | void {
-    const command = new EnableAWSServiceAccessCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Enables all features in an organization. This enables the use of organization policies
    *       that can restrict the services and actions that can be called in each account. Until you
    *       enable all features, you have access only to consolidated billing. You can't use any of the
@@ -1453,6 +1401,58 @@ export class Organizations extends OrganizationsClient {
     cb?: (err: any, data?: EnableAllFeaturesCommandOutput) => void
   ): Promise<EnableAllFeaturesCommandOutput> | void {
     const command = new EnableAllFeaturesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Enables the integration of an AWS service (the service that is specified by
+   *         <code>ServicePrincipal</code>) with AWS Organizations. When you enable integration, you allow the
+   *       specified service to create a <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked role</a> in all the accounts in your organization. This allows the
+   *       service to perform operations on your behalf in your organization and its accounts.</p>
+   *          <important>
+   *             <p>We recommend that you enable integration between AWS Organizations and the specified AWS
+   *         service by using the console or commands that are provided by the specified service. Doing
+   *         so ensures that the service is aware that it can create the resources that are required for
+   *         the integration. How the service creates those resources in the organization's accounts
+   *         depends on that service. For more information, see the documentation for the other AWS
+   *         service.</p>
+   *          </important>
+   *          <p>For more information about enabling services to integrate with AWS Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating AWS Organizations with Other AWS
+   *         Services</a> in the <i>AWS Organizations User Guide.</i>
+   *          </p>
+   *          <p>This operation can be called only from the organization's master account and only if the
+   *       organization has <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">enabled
+   *         all features</a>.</p>
+   */
+  public enableAWSServiceAccess(
+    args: EnableAWSServiceAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableAWSServiceAccessCommandOutput>;
+  public enableAWSServiceAccess(
+    args: EnableAWSServiceAccessCommandInput,
+    cb: (err: any, data?: EnableAWSServiceAccessCommandOutput) => void
+  ): void;
+  public enableAWSServiceAccess(
+    args: EnableAWSServiceAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableAWSServiceAccessCommandOutput) => void
+  ): void;
+  public enableAWSServiceAccess(
+    args: EnableAWSServiceAccessCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: EnableAWSServiceAccessCommandOutput) => void),
+    cb?: (err: any, data?: EnableAWSServiceAccessCommandOutput) => void
+  ): Promise<EnableAWSServiceAccessCommandOutput> | void {
+    const command = new EnableAWSServiceAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1634,60 +1634,6 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   * <p>Returns a list of the AWS services that you enabled to integrate with your organization.
-   *       After a service on this list creates the resources that it requires for the integration, it
-   *       can perform operations on your organization and its accounts.</p>
-   *          <p>For more information about integrating other services with AWS Organizations, including the list of
-   *       services that currently work with Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating AWS Organizations with Other AWS
-   *         Services</a> in the <i>AWS Organizations User Guide.</i>
-   *          </p>
-   *          <p>This operation can be called only from the organization's master account.</p>
-   */
-  public listAWSServiceAccessForOrganization(
-    args: ListAWSServiceAccessForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAWSServiceAccessForOrganizationCommandOutput>;
-  public listAWSServiceAccessForOrganization(
-    args: ListAWSServiceAccessForOrganizationCommandInput,
-    cb: (
-      err: any,
-      data?: ListAWSServiceAccessForOrganizationCommandOutput
-    ) => void
-  ): void;
-  public listAWSServiceAccessForOrganization(
-    args: ListAWSServiceAccessForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListAWSServiceAccessForOrganizationCommandOutput
-    ) => void
-  ): void;
-  public listAWSServiceAccessForOrganization(
-    args: ListAWSServiceAccessForOrganizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListAWSServiceAccessForOrganizationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListAWSServiceAccessForOrganizationCommandOutput
-    ) => void
-  ): Promise<ListAWSServiceAccessForOrganizationCommandOutput> | void {
-    const command = new ListAWSServiceAccessForOrganizationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Lists all the accounts in the organization. To request only the accounts in a specified
    *       root or organizational unit (OU), use the <a>ListAccountsForParent</a> operation
    *       instead.</p>
@@ -1769,6 +1715,60 @@ export class Organizations extends OrganizationsClient {
     cb?: (err: any, data?: ListAccountsForParentCommandOutput) => void
   ): Promise<ListAccountsForParentCommandOutput> | void {
     const command = new ListAccountsForParentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of the AWS services that you enabled to integrate with your organization.
+   *       After a service on this list creates the resources that it requires for the integration, it
+   *       can perform operations on your organization and its accounts.</p>
+   *          <p>For more information about integrating other services with AWS Organizations, including the list of
+   *       services that currently work with Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating AWS Organizations with Other AWS
+   *         Services</a> in the <i>AWS Organizations User Guide.</i>
+   *          </p>
+   *          <p>This operation can be called only from the organization's master account.</p>
+   */
+  public listAWSServiceAccessForOrganization(
+    args: ListAWSServiceAccessForOrganizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAWSServiceAccessForOrganizationCommandOutput>;
+  public listAWSServiceAccessForOrganization(
+    args: ListAWSServiceAccessForOrganizationCommandInput,
+    cb: (
+      err: any,
+      data?: ListAWSServiceAccessForOrganizationCommandOutput
+    ) => void
+  ): void;
+  public listAWSServiceAccessForOrganization(
+    args: ListAWSServiceAccessForOrganizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: ListAWSServiceAccessForOrganizationCommandOutput
+    ) => void
+  ): void;
+  public listAWSServiceAccessForOrganization(
+    args: ListAWSServiceAccessForOrganizationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: ListAWSServiceAccessForOrganizationCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: ListAWSServiceAccessForOrganizationCommandOutput
+    ) => void
+  ): Promise<ListAWSServiceAccessForOrganizationCommandOutput> | void {
+    const command = new ListAWSServiceAccessForOrganizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

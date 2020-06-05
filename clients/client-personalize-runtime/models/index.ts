@@ -122,6 +122,25 @@ export namespace GetRecommendationsResponse {
 }
 
 /**
+ * <p>Provide a valid value for the field or parameter.</p>
+ */
+export interface InvalidInputException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidInputException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidInputException {
+  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidInputException =>
+    __isa(o, "InvalidInputException");
+}
+
+/**
  * <p>An object that identifies an item.</p>
  *          <p>The  and  APIs return a list of
  *       <code>PredictedItem</code>s.</p>
@@ -139,25 +158,6 @@ export namespace PredictedItem {
     ...obj
   });
   export const isa = (o: any): o is PredictedItem => __isa(o, "PredictedItem");
-}
-
-/**
- * <p>Provide a valid value for the field or parameter.</p>
- */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidInputException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidInputException {
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
 }
 
 /**

@@ -5,9 +5,9 @@ import {
 } from "../WorkDocsClient";
 import { UpdateDocumentVersionRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateDocumentVersionCommand,
-  serializeAws_restJson1_1UpdateDocumentVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateDocumentVersionCommand,
+  serializeAws_restJson1UpdateDocumentVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,14 +70,14 @@ export class UpdateDocumentVersionCommand extends $Command<
     input: UpdateDocumentVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDocumentVersionCommand(input, context);
+    return serializeAws_restJson1UpdateDocumentVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDocumentVersionCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDocumentVersionCommand(
+    return deserializeAws_restJson1UpdateDocumentVersionCommand(
       output,
       context
     );

@@ -5,9 +5,9 @@ import {
   mqClientResolvedConfig
 } from "../mqClient";
 import {
-  deserializeAws_restJson1_1CreateTagsCommand,
-  serializeAws_restJson1_1CreateTagsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateTagsCommand,
+  serializeAws_restJson1CreateTagsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateTagsCommand extends $Command<
     input: CreateTagsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateTagsCommand(input, context);
+    return serializeAws_restJson1CreateTagsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTagsCommandOutput> {
-    return deserializeAws_restJson1_1CreateTagsCommand(output, context);
+    return deserializeAws_restJson1CreateTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

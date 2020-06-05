@@ -5,9 +5,9 @@ import {
 } from "../MediaLiveClient";
 import { DeleteScheduleRequest, DeleteScheduleResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteScheduleCommand,
-  serializeAws_restJson1_1DeleteScheduleCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteScheduleCommand,
+  serializeAws_restJson1DeleteScheduleCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class DeleteScheduleCommand extends $Command<
     input: DeleteScheduleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteScheduleCommand(input, context);
+    return serializeAws_restJson1DeleteScheduleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteScheduleCommandOutput> {
-    return deserializeAws_restJson1_1DeleteScheduleCommand(output, context);
+    return deserializeAws_restJson1DeleteScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

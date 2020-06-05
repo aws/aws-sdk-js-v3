@@ -8,9 +8,9 @@ import {
   StartNextPendingJobExecutionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1StartNextPendingJobExecutionCommand,
-  serializeAws_restJson1_1StartNextPendingJobExecutionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1StartNextPendingJobExecutionCommand,
+  serializeAws_restJson1StartNextPendingJobExecutionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class StartNextPendingJobExecutionCommand extends $Command<
     input: StartNextPendingJobExecutionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StartNextPendingJobExecutionCommand(
+    return serializeAws_restJson1StartNextPendingJobExecutionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class StartNextPendingJobExecutionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartNextPendingJobExecutionCommandOutput> {
-    return deserializeAws_restJson1_1StartNextPendingJobExecutionCommand(
+    return deserializeAws_restJson1StartNextPendingJobExecutionCommand(
       output,
       context
     );

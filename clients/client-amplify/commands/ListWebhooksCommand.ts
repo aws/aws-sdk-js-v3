@@ -5,9 +5,9 @@ import {
 } from "../AmplifyClient";
 import { ListWebhooksRequest, ListWebhooksResult } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListWebhooksCommand,
-  serializeAws_restJson1_1ListWebhooksCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListWebhooksCommand,
+  serializeAws_restJson1ListWebhooksCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListWebhooksCommand extends $Command<
     input: ListWebhooksCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListWebhooksCommand(input, context);
+    return serializeAws_restJson1ListWebhooksCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListWebhooksCommandOutput> {
-    return deserializeAws_restJson1_1ListWebhooksCommand(output, context);
+    return deserializeAws_restJson1ListWebhooksCommand(output, context);
   }
 
   // Start section: command_body_extra

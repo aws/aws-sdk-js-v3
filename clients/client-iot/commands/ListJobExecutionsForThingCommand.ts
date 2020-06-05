@@ -8,9 +8,9 @@ import {
   ListJobExecutionsForThingResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListJobExecutionsForThingCommand,
-  serializeAws_restJson1_1ListJobExecutionsForThingCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListJobExecutionsForThingCommand,
+  serializeAws_restJson1ListJobExecutionsForThingCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListJobExecutionsForThingCommand extends $Command<
     input: ListJobExecutionsForThingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListJobExecutionsForThingCommand(
+    return serializeAws_restJson1ListJobExecutionsForThingCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListJobExecutionsForThingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListJobExecutionsForThingCommandOutput> {
-    return deserializeAws_restJson1_1ListJobExecutionsForThingCommand(
+    return deserializeAws_restJson1ListJobExecutionsForThingCommand(
       output,
       context
     );

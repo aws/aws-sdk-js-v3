@@ -8,9 +8,9 @@ import {
   CreatePolicyVersionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreatePolicyVersionCommand,
-  serializeAws_restJson1_1CreatePolicyVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreatePolicyVersionCommand,
+  serializeAws_restJson1CreatePolicyVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class CreatePolicyVersionCommand extends $Command<
     input: CreatePolicyVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreatePolicyVersionCommand(input, context);
+    return serializeAws_restJson1CreatePolicyVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePolicyVersionCommandOutput> {
-    return deserializeAws_restJson1_1CreatePolicyVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreatePolicyVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,9 +5,9 @@ import {
 } from "../AmplifyClient";
 import { StopJobRequest, StopJobResult } from "../models/index";
 import {
-  deserializeAws_restJson1_1StopJobCommand,
-  serializeAws_restJson1_1StopJobCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1StopJobCommand,
+  serializeAws_restJson1StopJobCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class StopJobCommand extends $Command<
     input: StopJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StopJobCommand(input, context);
+    return serializeAws_restJson1StopJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopJobCommandOutput> {
-    return deserializeAws_restJson1_1StopJobCommand(output, context);
+    return deserializeAws_restJson1StopJobCommand(output, context);
   }
 
   // Start section: command_body_extra

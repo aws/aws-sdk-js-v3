@@ -5,9 +5,9 @@ import {
 } from "../AccessAnalyzerClient";
 import { ListFindingsRequest, ListFindingsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListFindingsCommand,
-  serializeAws_restJson1_1ListFindingsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListFindingsCommand,
+  serializeAws_restJson1ListFindingsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListFindingsCommand extends $Command<
     input: ListFindingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListFindingsCommand(input, context);
+    return serializeAws_restJson1ListFindingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFindingsCommandOutput> {
-    return deserializeAws_restJson1_1ListFindingsCommand(output, context);
+    return deserializeAws_restJson1ListFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

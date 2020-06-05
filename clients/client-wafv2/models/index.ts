@@ -9,6 +9,23 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  * <note>
  *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
  *          </note>
+ *          <p>Specifies that AWS WAF should allow requests.</p>
+ */
+export interface AllowAction {
+  __type?: "AllowAction";
+}
+
+export namespace AllowAction {
+  export const filterSensitiveLog = (obj: AllowAction): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AllowAction => __isa(o, "AllowAction");
+}
+
+/**
+ * <note>
+ *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
+ *          </note>
  *          <p>All query arguments of a web request. </p>
  */
 export interface AllQueryArguments {
@@ -21,23 +38,6 @@ export namespace AllQueryArguments {
   });
   export const isa = (o: any): o is AllQueryArguments =>
     __isa(o, "AllQueryArguments");
-}
-
-/**
- * <note>
- *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
- *          </note>
- *          <p>Specifies that AWS WAF should allow requests.</p>
- */
-export interface AllowAction {
-  __type?: "AllowAction";
-}
-
-export namespace AllowAction {
-  export const filterSensitiveLog = (obj: AllowAction): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AllowAction => __isa(o, "AllowAction");
 }
 
 /**

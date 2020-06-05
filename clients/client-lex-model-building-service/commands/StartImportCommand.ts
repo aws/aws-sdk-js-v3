@@ -5,9 +5,9 @@ import {
 } from "../LexModelBuildingServiceClient";
 import { StartImportRequest, StartImportResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1StartImportCommand,
-  serializeAws_restJson1_1StartImportCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1StartImportCommand,
+  serializeAws_restJson1StartImportCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class StartImportCommand extends $Command<
     input: StartImportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StartImportCommand(input, context);
+    return serializeAws_restJson1StartImportCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartImportCommandOutput> {
-    return deserializeAws_restJson1_1StartImportCommand(output, context);
+    return deserializeAws_restJson1StartImportCommand(output, context);
   }
 
   // Start section: command_body_extra

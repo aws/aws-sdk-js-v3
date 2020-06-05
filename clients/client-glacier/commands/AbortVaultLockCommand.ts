@@ -5,9 +5,9 @@ import {
 } from "../GlacierClient";
 import { AbortVaultLockInput } from "../models/index";
 import {
-  deserializeAws_restJson1_1AbortVaultLockCommand,
-  serializeAws_restJson1_1AbortVaultLockCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AbortVaultLockCommand,
+  serializeAws_restJson1AbortVaultLockCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class AbortVaultLockCommand extends $Command<
     input: AbortVaultLockCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AbortVaultLockCommand(input, context);
+    return serializeAws_restJson1AbortVaultLockCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AbortVaultLockCommandOutput> {
-    return deserializeAws_restJson1_1AbortVaultLockCommand(output, context);
+    return deserializeAws_restJson1AbortVaultLockCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,9 +5,9 @@ import {
 } from "../PinpointClient";
 import { ListJourneysRequest, ListJourneysResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListJourneysCommand,
-  serializeAws_restJson1_1ListJourneysCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListJourneysCommand,
+  serializeAws_restJson1ListJourneysCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListJourneysCommand extends $Command<
     input: ListJourneysCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListJourneysCommand(input, context);
+    return serializeAws_restJson1ListJourneysCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListJourneysCommandOutput> {
-    return deserializeAws_restJson1_1ListJourneysCommand(output, context);
+    return deserializeAws_restJson1ListJourneysCommand(output, context);
   }
 
   // Start section: command_body_extra

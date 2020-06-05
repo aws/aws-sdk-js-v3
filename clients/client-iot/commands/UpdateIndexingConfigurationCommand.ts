@@ -8,9 +8,9 @@ import {
   UpdateIndexingConfigurationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateIndexingConfigurationCommand,
-  serializeAws_restJson1_1UpdateIndexingConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateIndexingConfigurationCommand,
+  serializeAws_restJson1UpdateIndexingConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdateIndexingConfigurationCommand extends $Command<
     input: UpdateIndexingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateIndexingConfigurationCommand(
+    return serializeAws_restJson1UpdateIndexingConfigurationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdateIndexingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateIndexingConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1UpdateIndexingConfigurationCommand(
+    return deserializeAws_restJson1UpdateIndexingConfigurationCommand(
       output,
       context
     );

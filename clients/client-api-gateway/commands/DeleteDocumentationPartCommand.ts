@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { DeleteDocumentationPartRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteDocumentationPartCommand,
-  serializeAws_restJson1_1DeleteDocumentationPartCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteDocumentationPartCommand,
+  serializeAws_restJson1DeleteDocumentationPartCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,17 +70,14 @@ export class DeleteDocumentationPartCommand extends $Command<
     input: DeleteDocumentationPartCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDocumentationPartCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DeleteDocumentationPartCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDocumentationPartCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDocumentationPartCommand(
+    return deserializeAws_restJson1DeleteDocumentationPartCommand(
       output,
       context
     );

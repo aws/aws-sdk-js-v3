@@ -8,9 +8,9 @@ import {
   DescribeMountTargetSecurityGroupsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeMountTargetSecurityGroupsCommand,
-  serializeAws_restJson1_1DescribeMountTargetSecurityGroupsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeMountTargetSecurityGroupsCommand,
+  serializeAws_restJson1DescribeMountTargetSecurityGroupsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command<
     input: DescribeMountTargetSecurityGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeMountTargetSecurityGroupsCommand(
+    return serializeAws_restJson1DescribeMountTargetSecurityGroupsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMountTargetSecurityGroupsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeMountTargetSecurityGroupsCommand(
+    return deserializeAws_restJson1DescribeMountTargetSecurityGroupsCommand(
       output,
       context
     );

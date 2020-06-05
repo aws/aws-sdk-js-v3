@@ -129,6 +129,35 @@ export namespace Budget {
 }
 
 /**
+ * <p>The amount of cost or usage that you created the budget for, compared to your actual costs or usage.</p>
+ */
+export interface BudgetedAndActualAmounts {
+  __type?: "BudgetedAndActualAmounts";
+  /**
+   * <p>Your actual costs or usage for a budget period.</p>
+   */
+  ActualAmount?: Spend;
+
+  /**
+   * <p>The amount of cost or usage that you created the budget for.</p>
+   */
+  BudgetedAmount?: Spend;
+
+  /**
+   * <p>The time period covered by this budget comparison.</p>
+   */
+  TimePeriod?: TimePeriod;
+}
+
+export namespace BudgetedAndActualAmounts {
+  export const filterSensitiveLog = (obj: BudgetedAndActualAmounts): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is BudgetedAndActualAmounts =>
+    __isa(o, "BudgetedAndActualAmounts");
+}
+
+/**
  * <p>A history of the state of a budget at the end of the budget's specified time period.</p>
  */
 export interface BudgetPerformanceHistory {
@@ -181,35 +210,6 @@ export enum BudgetType {
   SPCoverage = "SAVINGS_PLANS_COVERAGE",
   SPUtilization = "SAVINGS_PLANS_UTILIZATION",
   Usage = "USAGE"
-}
-
-/**
- * <p>The amount of cost or usage that you created the budget for, compared to your actual costs or usage.</p>
- */
-export interface BudgetedAndActualAmounts {
-  __type?: "BudgetedAndActualAmounts";
-  /**
-   * <p>Your actual costs or usage for a budget period.</p>
-   */
-  ActualAmount?: Spend;
-
-  /**
-   * <p>The amount of cost or usage that you created the budget for.</p>
-   */
-  BudgetedAmount?: Spend;
-
-  /**
-   * <p>The time period covered by this budget comparison.</p>
-   */
-  TimePeriod?: TimePeriod;
-}
-
-export namespace BudgetedAndActualAmounts {
-  export const filterSensitiveLog = (obj: BudgetedAndActualAmounts): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is BudgetedAndActualAmounts =>
-    __isa(o, "BudgetedAndActualAmounts");
 }
 
 /**

@@ -8,9 +8,9 @@ import {
   PutSuppressedDestinationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutSuppressedDestinationCommand,
-  serializeAws_restJson1_1PutSuppressedDestinationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutSuppressedDestinationCommand,
+  serializeAws_restJson1PutSuppressedDestinationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class PutSuppressedDestinationCommand extends $Command<
     input: PutSuppressedDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutSuppressedDestinationCommand(
+    return serializeAws_restJson1PutSuppressedDestinationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class PutSuppressedDestinationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutSuppressedDestinationCommandOutput> {
-    return deserializeAws_restJson1_1PutSuppressedDestinationCommand(
+    return deserializeAws_restJson1PutSuppressedDestinationCommand(
       output,
       context
     );

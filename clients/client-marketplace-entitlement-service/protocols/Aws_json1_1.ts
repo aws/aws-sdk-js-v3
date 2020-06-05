@@ -73,7 +73,7 @@ const deserializeAws_json1_1GetEntitlementsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceErrorException":
-    case "com.amazonaws.marketplace.entitlement#InternalServiceErrorException":
+    case "com.amazonaws.marketplaceentitlementservice#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
           parsedOutput,
@@ -84,7 +84,7 @@ const deserializeAws_json1_1GetEntitlementsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.marketplace.entitlement#InvalidParameterException":
+    case "com.amazonaws.marketplaceentitlementservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -95,7 +95,7 @@ const deserializeAws_json1_1GetEntitlementsCommandError = async (
       };
       break;
     case "ThrottlingException":
-    case "com.amazonaws.marketplace.entitlement#ThrottlingException":
+    case "com.amazonaws.marketplaceentitlementservice#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
           parsedOutput,

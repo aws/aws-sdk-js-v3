@@ -8,9 +8,9 @@ import {
   CreateProvisioningClaimResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateProvisioningClaimCommand,
-  serializeAws_restJson1_1CreateProvisioningClaimCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateProvisioningClaimCommand,
+  serializeAws_restJson1CreateProvisioningClaimCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class CreateProvisioningClaimCommand extends $Command<
     input: CreateProvisioningClaimCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateProvisioningClaimCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1CreateProvisioningClaimCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateProvisioningClaimCommandOutput> {
-    return deserializeAws_restJson1_1CreateProvisioningClaimCommand(
+    return deserializeAws_restJson1CreateProvisioningClaimCommand(
       output,
       context
     );

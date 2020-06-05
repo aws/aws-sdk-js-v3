@@ -8,9 +8,9 @@ import {
   CancelImageCreationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CancelImageCreationCommand,
-  serializeAws_restJson1_1CancelImageCreationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CancelImageCreationCommand,
+  serializeAws_restJson1CancelImageCreationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class CancelImageCreationCommand extends $Command<
     input: CancelImageCreationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CancelImageCreationCommand(input, context);
+    return serializeAws_restJson1CancelImageCreationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelImageCreationCommandOutput> {
-    return deserializeAws_restJson1_1CancelImageCreationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CancelImageCreationCommand(output, context);
   }
 
   // Start section: command_body_extra

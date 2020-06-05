@@ -8,9 +8,9 @@ import {
   CreateConfigurationProfileRequest
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateConfigurationProfileCommand,
-  serializeAws_restJson1_1CreateConfigurationProfileCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateConfigurationProfileCommand,
+  serializeAws_restJson1CreateConfigurationProfileCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CreateConfigurationProfileCommand extends $Command<
     input: CreateConfigurationProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateConfigurationProfileCommand(
+    return serializeAws_restJson1CreateConfigurationProfileCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CreateConfigurationProfileCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateConfigurationProfileCommandOutput> {
-    return deserializeAws_restJson1_1CreateConfigurationProfileCommand(
+    return deserializeAws_restJson1CreateConfigurationProfileCommand(
       output,
       context
     );

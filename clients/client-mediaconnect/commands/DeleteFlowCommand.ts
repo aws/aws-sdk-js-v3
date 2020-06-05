@@ -5,9 +5,9 @@ import {
 } from "../MediaConnectClient";
 import { DeleteFlowRequest, DeleteFlowResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteFlowCommand,
-  serializeAws_restJson1_1DeleteFlowCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteFlowCommand,
+  serializeAws_restJson1DeleteFlowCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteFlowCommand extends $Command<
     input: DeleteFlowCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteFlowCommand(input, context);
+    return serializeAws_restJson1DeleteFlowCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFlowCommandOutput> {
-    return deserializeAws_restJson1_1DeleteFlowCommand(output, context);
+    return deserializeAws_restJson1DeleteFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

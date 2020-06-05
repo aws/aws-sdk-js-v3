@@ -5,9 +5,9 @@ import {
 } from "../DataExchangeClient";
 import { GetDataSetRequest, GetDataSetResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetDataSetCommand,
-  serializeAws_restJson1_1GetDataSetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetDataSetCommand,
+  serializeAws_restJson1GetDataSetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetDataSetCommand extends $Command<
     input: GetDataSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDataSetCommand(input, context);
+    return serializeAws_restJson1GetDataSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDataSetCommandOutput> {
-    return deserializeAws_restJson1_1GetDataSetCommand(output, context);
+    return deserializeAws_restJson1GetDataSetCommand(output, context);
   }
 
   // Start section: command_body_extra

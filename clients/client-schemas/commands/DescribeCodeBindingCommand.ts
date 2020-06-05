@@ -3,9 +3,9 @@ import {
   DescribeCodeBindingResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeCodeBindingCommand,
-  serializeAws_restJson1_1DescribeCodeBindingCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeCodeBindingCommand,
+  serializeAws_restJson1DescribeCodeBindingCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -74,17 +74,14 @@ export class DescribeCodeBindingCommand extends $Command<
     input: DescribeCodeBindingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeCodeBindingCommand(input, context);
+    return serializeAws_restJson1DescribeCodeBindingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCodeBindingCommandOutput> {
-    return deserializeAws_restJson1_1DescribeCodeBindingCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DescribeCodeBindingCommand(output, context);
   }
 
   // Start section: command_body_extra

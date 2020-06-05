@@ -630,7 +630,7 @@ const deserializeAws_json1_1AddTagsToStreamCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -641,7 +641,7 @@ const deserializeAws_json1_1AddTagsToStreamCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -652,7 +652,7 @@ const deserializeAws_json1_1AddTagsToStreamCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
+    case "com.amazonaws.kinesis#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -663,7 +663,7 @@ const deserializeAws_json1_1AddTagsToStreamCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -719,7 +719,7 @@ const deserializeAws_json1_1CreateStreamCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -730,7 +730,7 @@ const deserializeAws_json1_1CreateStreamCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -741,7 +741,7 @@ const deserializeAws_json1_1CreateStreamCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
+    case "com.amazonaws.kinesis#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -800,7 +800,7 @@ const deserializeAws_json1_1DecreaseStreamRetentionPeriodCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -811,7 +811,7 @@ const deserializeAws_json1_1DecreaseStreamRetentionPeriodCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -822,7 +822,7 @@ const deserializeAws_json1_1DecreaseStreamRetentionPeriodCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
+    case "com.amazonaws.kinesis#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -833,7 +833,7 @@ const deserializeAws_json1_1DecreaseStreamRetentionPeriodCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -889,7 +889,7 @@ const deserializeAws_json1_1DeleteStreamCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -900,7 +900,7 @@ const deserializeAws_json1_1DeleteStreamCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
+    case "com.amazonaws.kinesis#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -911,7 +911,7 @@ const deserializeAws_json1_1DeleteStreamCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -970,7 +970,7 @@ const deserializeAws_json1_1DeregisterStreamConsumerCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -981,7 +981,7 @@ const deserializeAws_json1_1DeregisterStreamConsumerCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -992,7 +992,7 @@ const deserializeAws_json1_1DeregisterStreamConsumerCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1052,7 +1052,7 @@ const deserializeAws_json1_1DescribeLimitsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1112,7 +1112,7 @@ const deserializeAws_json1_1DescribeStreamCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1123,7 +1123,7 @@ const deserializeAws_json1_1DescribeStreamCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1186,7 +1186,7 @@ const deserializeAws_json1_1DescribeStreamConsumerCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1197,7 +1197,7 @@ const deserializeAws_json1_1DescribeStreamConsumerCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1208,7 +1208,7 @@ const deserializeAws_json1_1DescribeStreamConsumerCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1271,7 +1271,7 @@ const deserializeAws_json1_1DescribeStreamSummaryCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1282,7 +1282,7 @@ const deserializeAws_json1_1DescribeStreamSummaryCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1345,7 +1345,7 @@ const deserializeAws_json1_1DisableEnhancedMonitoringCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1356,7 +1356,7 @@ const deserializeAws_json1_1DisableEnhancedMonitoringCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1367,7 +1367,7 @@ const deserializeAws_json1_1DisableEnhancedMonitoringCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
+    case "com.amazonaws.kinesis#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1378,7 +1378,7 @@ const deserializeAws_json1_1DisableEnhancedMonitoringCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1441,7 +1441,7 @@ const deserializeAws_json1_1EnableEnhancedMonitoringCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1452,7 +1452,7 @@ const deserializeAws_json1_1EnableEnhancedMonitoringCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1463,7 +1463,7 @@ const deserializeAws_json1_1EnableEnhancedMonitoringCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
+    case "com.amazonaws.kinesis#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1474,7 +1474,7 @@ const deserializeAws_json1_1EnableEnhancedMonitoringCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1534,7 +1534,7 @@ const deserializeAws_json1_1GetRecordsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExpiredIteratorException":
-    case "com.amazonaws.kinesis.v20131202#ExpiredIteratorException":
+    case "com.amazonaws.kinesis#ExpiredIteratorException":
       response = {
         ...(await deserializeAws_json1_1ExpiredIteratorExceptionResponse(
           parsedOutput,
@@ -1545,7 +1545,7 @@ const deserializeAws_json1_1GetRecordsCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1556,7 +1556,7 @@ const deserializeAws_json1_1GetRecordsCommandError = async (
       };
       break;
     case "KMSAccessDeniedException":
-    case "com.amazonaws.kinesis.v20131202#KMSAccessDeniedException":
+    case "com.amazonaws.kinesis#KMSAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1KMSAccessDeniedExceptionResponse(
           parsedOutput,
@@ -1567,7 +1567,7 @@ const deserializeAws_json1_1GetRecordsCommandError = async (
       };
       break;
     case "KMSDisabledException":
-    case "com.amazonaws.kinesis.v20131202#KMSDisabledException":
+    case "com.amazonaws.kinesis#KMSDisabledException":
       response = {
         ...(await deserializeAws_json1_1KMSDisabledExceptionResponse(
           parsedOutput,
@@ -1578,7 +1578,7 @@ const deserializeAws_json1_1GetRecordsCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazonaws.kinesis.v20131202#KMSInvalidStateException":
+    case "com.amazonaws.kinesis#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -1589,7 +1589,7 @@ const deserializeAws_json1_1GetRecordsCommandError = async (
       };
       break;
     case "KMSNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#KMSNotFoundException":
+    case "com.amazonaws.kinesis#KMSNotFoundException":
       response = {
         ...(await deserializeAws_json1_1KMSNotFoundExceptionResponse(
           parsedOutput,
@@ -1600,7 +1600,7 @@ const deserializeAws_json1_1GetRecordsCommandError = async (
       };
       break;
     case "KMSOptInRequired":
-    case "com.amazonaws.kinesis.v20131202#KMSOptInRequired":
+    case "com.amazonaws.kinesis#KMSOptInRequired":
       response = {
         ...(await deserializeAws_json1_1KMSOptInRequiredResponse(
           parsedOutput,
@@ -1611,7 +1611,7 @@ const deserializeAws_json1_1GetRecordsCommandError = async (
       };
       break;
     case "KMSThrottlingException":
-    case "com.amazonaws.kinesis.v20131202#KMSThrottlingException":
+    case "com.amazonaws.kinesis#KMSThrottlingException":
       response = {
         ...(await deserializeAws_json1_1KMSThrottlingExceptionResponse(
           parsedOutput,
@@ -1622,7 +1622,7 @@ const deserializeAws_json1_1GetRecordsCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.kinesis.v20131202#ProvisionedThroughputExceededException":
+    case "com.amazonaws.kinesis#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -1633,7 +1633,7 @@ const deserializeAws_json1_1GetRecordsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1693,7 +1693,7 @@ const deserializeAws_json1_1GetShardIteratorCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1704,7 +1704,7 @@ const deserializeAws_json1_1GetShardIteratorCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.kinesis.v20131202#ProvisionedThroughputExceededException":
+    case "com.amazonaws.kinesis#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -1715,7 +1715,7 @@ const deserializeAws_json1_1GetShardIteratorCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1774,7 +1774,7 @@ const deserializeAws_json1_1IncreaseStreamRetentionPeriodCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1785,7 +1785,7 @@ const deserializeAws_json1_1IncreaseStreamRetentionPeriodCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1796,7 +1796,7 @@ const deserializeAws_json1_1IncreaseStreamRetentionPeriodCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
+    case "com.amazonaws.kinesis#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1807,7 +1807,7 @@ const deserializeAws_json1_1IncreaseStreamRetentionPeriodCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1867,7 +1867,7 @@ const deserializeAws_json1_1ListShardsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExpiredNextTokenException":
-    case "com.amazonaws.kinesis.v20131202#ExpiredNextTokenException":
+    case "com.amazonaws.kinesis#ExpiredNextTokenException":
       response = {
         ...(await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(
           parsedOutput,
@@ -1878,7 +1878,7 @@ const deserializeAws_json1_1ListShardsCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1889,7 +1889,7 @@ const deserializeAws_json1_1ListShardsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1900,7 +1900,7 @@ const deserializeAws_json1_1ListShardsCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
+    case "com.amazonaws.kinesis#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1911,7 +1911,7 @@ const deserializeAws_json1_1ListShardsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1974,7 +1974,7 @@ const deserializeAws_json1_1ListStreamConsumersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExpiredNextTokenException":
-    case "com.amazonaws.kinesis.v20131202#ExpiredNextTokenException":
+    case "com.amazonaws.kinesis#ExpiredNextTokenException":
       response = {
         ...(await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(
           parsedOutput,
@@ -1985,7 +1985,7 @@ const deserializeAws_json1_1ListStreamConsumersCommandError = async (
       };
       break;
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -1996,7 +1996,7 @@ const deserializeAws_json1_1ListStreamConsumersCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2007,7 +2007,7 @@ const deserializeAws_json1_1ListStreamConsumersCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
+    case "com.amazonaws.kinesis#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2018,7 +2018,7 @@ const deserializeAws_json1_1ListStreamConsumersCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2078,7 +2078,7 @@ const deserializeAws_json1_1ListStreamsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2138,7 +2138,7 @@ const deserializeAws_json1_1ListTagsForStreamCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -2149,7 +2149,7 @@ const deserializeAws_json1_1ListTagsForStreamCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2160,7 +2160,7 @@ const deserializeAws_json1_1ListTagsForStreamCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2216,7 +2216,7 @@ const deserializeAws_json1_1MergeShardsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -2227,7 +2227,7 @@ const deserializeAws_json1_1MergeShardsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2238,7 +2238,7 @@ const deserializeAws_json1_1MergeShardsCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
+    case "com.amazonaws.kinesis#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2249,7 +2249,7 @@ const deserializeAws_json1_1MergeShardsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2309,7 +2309,7 @@ const deserializeAws_json1_1PutRecordCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -2320,7 +2320,7 @@ const deserializeAws_json1_1PutRecordCommandError = async (
       };
       break;
     case "KMSAccessDeniedException":
-    case "com.amazonaws.kinesis.v20131202#KMSAccessDeniedException":
+    case "com.amazonaws.kinesis#KMSAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1KMSAccessDeniedExceptionResponse(
           parsedOutput,
@@ -2331,7 +2331,7 @@ const deserializeAws_json1_1PutRecordCommandError = async (
       };
       break;
     case "KMSDisabledException":
-    case "com.amazonaws.kinesis.v20131202#KMSDisabledException":
+    case "com.amazonaws.kinesis#KMSDisabledException":
       response = {
         ...(await deserializeAws_json1_1KMSDisabledExceptionResponse(
           parsedOutput,
@@ -2342,7 +2342,7 @@ const deserializeAws_json1_1PutRecordCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazonaws.kinesis.v20131202#KMSInvalidStateException":
+    case "com.amazonaws.kinesis#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -2353,7 +2353,7 @@ const deserializeAws_json1_1PutRecordCommandError = async (
       };
       break;
     case "KMSNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#KMSNotFoundException":
+    case "com.amazonaws.kinesis#KMSNotFoundException":
       response = {
         ...(await deserializeAws_json1_1KMSNotFoundExceptionResponse(
           parsedOutput,
@@ -2364,7 +2364,7 @@ const deserializeAws_json1_1PutRecordCommandError = async (
       };
       break;
     case "KMSOptInRequired":
-    case "com.amazonaws.kinesis.v20131202#KMSOptInRequired":
+    case "com.amazonaws.kinesis#KMSOptInRequired":
       response = {
         ...(await deserializeAws_json1_1KMSOptInRequiredResponse(
           parsedOutput,
@@ -2375,7 +2375,7 @@ const deserializeAws_json1_1PutRecordCommandError = async (
       };
       break;
     case "KMSThrottlingException":
-    case "com.amazonaws.kinesis.v20131202#KMSThrottlingException":
+    case "com.amazonaws.kinesis#KMSThrottlingException":
       response = {
         ...(await deserializeAws_json1_1KMSThrottlingExceptionResponse(
           parsedOutput,
@@ -2386,7 +2386,7 @@ const deserializeAws_json1_1PutRecordCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.kinesis.v20131202#ProvisionedThroughputExceededException":
+    case "com.amazonaws.kinesis#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -2397,7 +2397,7 @@ const deserializeAws_json1_1PutRecordCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2457,7 +2457,7 @@ const deserializeAws_json1_1PutRecordsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -2468,7 +2468,7 @@ const deserializeAws_json1_1PutRecordsCommandError = async (
       };
       break;
     case "KMSAccessDeniedException":
-    case "com.amazonaws.kinesis.v20131202#KMSAccessDeniedException":
+    case "com.amazonaws.kinesis#KMSAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1KMSAccessDeniedExceptionResponse(
           parsedOutput,
@@ -2479,7 +2479,7 @@ const deserializeAws_json1_1PutRecordsCommandError = async (
       };
       break;
     case "KMSDisabledException":
-    case "com.amazonaws.kinesis.v20131202#KMSDisabledException":
+    case "com.amazonaws.kinesis#KMSDisabledException":
       response = {
         ...(await deserializeAws_json1_1KMSDisabledExceptionResponse(
           parsedOutput,
@@ -2490,7 +2490,7 @@ const deserializeAws_json1_1PutRecordsCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazonaws.kinesis.v20131202#KMSInvalidStateException":
+    case "com.amazonaws.kinesis#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -2501,7 +2501,7 @@ const deserializeAws_json1_1PutRecordsCommandError = async (
       };
       break;
     case "KMSNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#KMSNotFoundException":
+    case "com.amazonaws.kinesis#KMSNotFoundException":
       response = {
         ...(await deserializeAws_json1_1KMSNotFoundExceptionResponse(
           parsedOutput,
@@ -2512,7 +2512,7 @@ const deserializeAws_json1_1PutRecordsCommandError = async (
       };
       break;
     case "KMSOptInRequired":
-    case "com.amazonaws.kinesis.v20131202#KMSOptInRequired":
+    case "com.amazonaws.kinesis#KMSOptInRequired":
       response = {
         ...(await deserializeAws_json1_1KMSOptInRequiredResponse(
           parsedOutput,
@@ -2523,7 +2523,7 @@ const deserializeAws_json1_1PutRecordsCommandError = async (
       };
       break;
     case "KMSThrottlingException":
-    case "com.amazonaws.kinesis.v20131202#KMSThrottlingException":
+    case "com.amazonaws.kinesis#KMSThrottlingException":
       response = {
         ...(await deserializeAws_json1_1KMSThrottlingExceptionResponse(
           parsedOutput,
@@ -2534,7 +2534,7 @@ const deserializeAws_json1_1PutRecordsCommandError = async (
       };
       break;
     case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.kinesis.v20131202#ProvisionedThroughputExceededException":
+    case "com.amazonaws.kinesis#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
           parsedOutput,
@@ -2545,7 +2545,7 @@ const deserializeAws_json1_1PutRecordsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2608,7 +2608,7 @@ const deserializeAws_json1_1RegisterStreamConsumerCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -2619,7 +2619,7 @@ const deserializeAws_json1_1RegisterStreamConsumerCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2630,7 +2630,7 @@ const deserializeAws_json1_1RegisterStreamConsumerCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
+    case "com.amazonaws.kinesis#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2641,7 +2641,7 @@ const deserializeAws_json1_1RegisterStreamConsumerCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2700,7 +2700,7 @@ const deserializeAws_json1_1RemoveTagsFromStreamCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -2711,7 +2711,7 @@ const deserializeAws_json1_1RemoveTagsFromStreamCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2722,7 +2722,7 @@ const deserializeAws_json1_1RemoveTagsFromStreamCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
+    case "com.amazonaws.kinesis#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2733,7 +2733,7 @@ const deserializeAws_json1_1RemoveTagsFromStreamCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2789,7 +2789,7 @@ const deserializeAws_json1_1SplitShardCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -2800,7 +2800,7 @@ const deserializeAws_json1_1SplitShardCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2811,7 +2811,7 @@ const deserializeAws_json1_1SplitShardCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
+    case "com.amazonaws.kinesis#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2822,7 +2822,7 @@ const deserializeAws_json1_1SplitShardCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2881,7 +2881,7 @@ const deserializeAws_json1_1StartStreamEncryptionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -2892,7 +2892,7 @@ const deserializeAws_json1_1StartStreamEncryptionCommandError = async (
       };
       break;
     case "KMSAccessDeniedException":
-    case "com.amazonaws.kinesis.v20131202#KMSAccessDeniedException":
+    case "com.amazonaws.kinesis#KMSAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1KMSAccessDeniedExceptionResponse(
           parsedOutput,
@@ -2903,7 +2903,7 @@ const deserializeAws_json1_1StartStreamEncryptionCommandError = async (
       };
       break;
     case "KMSDisabledException":
-    case "com.amazonaws.kinesis.v20131202#KMSDisabledException":
+    case "com.amazonaws.kinesis#KMSDisabledException":
       response = {
         ...(await deserializeAws_json1_1KMSDisabledExceptionResponse(
           parsedOutput,
@@ -2914,7 +2914,7 @@ const deserializeAws_json1_1StartStreamEncryptionCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazonaws.kinesis.v20131202#KMSInvalidStateException":
+    case "com.amazonaws.kinesis#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -2925,7 +2925,7 @@ const deserializeAws_json1_1StartStreamEncryptionCommandError = async (
       };
       break;
     case "KMSNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#KMSNotFoundException":
+    case "com.amazonaws.kinesis#KMSNotFoundException":
       response = {
         ...(await deserializeAws_json1_1KMSNotFoundExceptionResponse(
           parsedOutput,
@@ -2936,7 +2936,7 @@ const deserializeAws_json1_1StartStreamEncryptionCommandError = async (
       };
       break;
     case "KMSOptInRequired":
-    case "com.amazonaws.kinesis.v20131202#KMSOptInRequired":
+    case "com.amazonaws.kinesis#KMSOptInRequired":
       response = {
         ...(await deserializeAws_json1_1KMSOptInRequiredResponse(
           parsedOutput,
@@ -2947,7 +2947,7 @@ const deserializeAws_json1_1StartStreamEncryptionCommandError = async (
       };
       break;
     case "KMSThrottlingException":
-    case "com.amazonaws.kinesis.v20131202#KMSThrottlingException":
+    case "com.amazonaws.kinesis#KMSThrottlingException":
       response = {
         ...(await deserializeAws_json1_1KMSThrottlingExceptionResponse(
           parsedOutput,
@@ -2958,7 +2958,7 @@ const deserializeAws_json1_1StartStreamEncryptionCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2969,7 +2969,7 @@ const deserializeAws_json1_1StartStreamEncryptionCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
+    case "com.amazonaws.kinesis#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2980,7 +2980,7 @@ const deserializeAws_json1_1StartStreamEncryptionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3039,7 +3039,7 @@ const deserializeAws_json1_1StopStreamEncryptionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -3050,7 +3050,7 @@ const deserializeAws_json1_1StopStreamEncryptionCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3061,7 +3061,7 @@ const deserializeAws_json1_1StopStreamEncryptionCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
+    case "com.amazonaws.kinesis#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -3072,7 +3072,7 @@ const deserializeAws_json1_1StopStreamEncryptionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3132,7 +3132,7 @@ const deserializeAws_json1_1SubscribeToShardCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -3143,7 +3143,7 @@ const deserializeAws_json1_1SubscribeToShardCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3154,7 +3154,7 @@ const deserializeAws_json1_1SubscribeToShardCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
+    case "com.amazonaws.kinesis#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -3165,7 +3165,7 @@ const deserializeAws_json1_1SubscribeToShardCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3225,7 +3225,7 @@ const deserializeAws_json1_1UpdateShardCountCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
-    case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
           parsedOutput,
@@ -3236,7 +3236,7 @@ const deserializeAws_json1_1UpdateShardCountCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.kinesis.v20131202#LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3247,7 +3247,7 @@ const deserializeAws_json1_1UpdateShardCountCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
+    case "com.amazonaws.kinesis#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -3258,7 +3258,7 @@ const deserializeAws_json1_1UpdateShardCountCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3876,19 +3876,6 @@ const serializeAws_json1_1SplitShardInput = (
   };
 };
 
-const serializeAws_json1_1StartStreamEncryptionInput = (
-  input: StartStreamEncryptionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EncryptionType !== undefined && {
-      EncryptionType: input.EncryptionType
-    }),
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
-  };
-};
-
 const serializeAws_json1_1StartingPosition = (
   input: StartingPosition,
   context: __SerdeContext
@@ -3901,6 +3888,19 @@ const serializeAws_json1_1StartingPosition = (
       Timestamp: Math.round(input.Timestamp.getTime() / 1000)
     }),
     ...(input.Type !== undefined && { Type: input.Type })
+  };
+};
+
+const serializeAws_json1_1StartStreamEncryptionInput = (
+  input: StartStreamEncryptionInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EncryptionType !== undefined && {
+      EncryptionType: input.EncryptionType
+    }),
+    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
   };
 };
 

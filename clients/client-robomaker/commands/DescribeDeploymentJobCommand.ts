@@ -8,9 +8,9 @@ import {
   DescribeDeploymentJobResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeDeploymentJobCommand,
-  serializeAws_restJson1_1DescribeDeploymentJobCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeDeploymentJobCommand,
+  serializeAws_restJson1DescribeDeploymentJobCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class DescribeDeploymentJobCommand extends $Command<
     input: DescribeDeploymentJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeDeploymentJobCommand(input, context);
+    return serializeAws_restJson1DescribeDeploymentJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDeploymentJobCommandOutput> {
-    return deserializeAws_restJson1_1DescribeDeploymentJobCommand(
+    return deserializeAws_restJson1DescribeDeploymentJobCommand(
       output,
       context
     );

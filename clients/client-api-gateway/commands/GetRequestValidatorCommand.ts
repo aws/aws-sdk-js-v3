@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { GetRequestValidatorRequest, RequestValidator } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetRequestValidatorCommand,
-  serializeAws_restJson1_1GetRequestValidatorCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetRequestValidatorCommand,
+  serializeAws_restJson1GetRequestValidatorCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,17 +71,14 @@ export class GetRequestValidatorCommand extends $Command<
     input: GetRequestValidatorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetRequestValidatorCommand(input, context);
+    return serializeAws_restJson1GetRequestValidatorCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRequestValidatorCommandOutput> {
-    return deserializeAws_restJson1_1GetRequestValidatorCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetRequestValidatorCommand(output, context);
   }
 
   // Start section: command_body_extra

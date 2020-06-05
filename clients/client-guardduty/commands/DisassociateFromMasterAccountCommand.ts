@@ -8,9 +8,9 @@ import {
   DisassociateFromMasterAccountResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DisassociateFromMasterAccountCommand,
-  serializeAws_restJson1_1DisassociateFromMasterAccountCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DisassociateFromMasterAccountCommand,
+  serializeAws_restJson1DisassociateFromMasterAccountCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DisassociateFromMasterAccountCommand extends $Command<
     input: DisassociateFromMasterAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociateFromMasterAccountCommand(
+    return serializeAws_restJson1DisassociateFromMasterAccountCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DisassociateFromMasterAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateFromMasterAccountCommandOutput> {
-    return deserializeAws_restJson1_1DisassociateFromMasterAccountCommand(
+    return deserializeAws_restJson1DisassociateFromMasterAccountCommand(
       output,
       context
     );

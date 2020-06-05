@@ -426,7 +426,7 @@ const deserializeAws_json1_1AssociateCreatedArtifactCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazon.aws.migration#AccessDeniedException":
+    case "com.amazonaws.migrationhub#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -437,7 +437,7 @@ const deserializeAws_json1_1AssociateCreatedArtifactCommandError = async (
       };
       break;
     case "DryRunOperation":
-    case "com.amazon.aws.migration#DryRunOperation":
+    case "com.amazonaws.migrationhub#DryRunOperation":
       response = {
         ...(await deserializeAws_json1_1DryRunOperationResponse(
           parsedOutput,
@@ -448,7 +448,7 @@ const deserializeAws_json1_1AssociateCreatedArtifactCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazon.aws.migration#HomeRegionNotSetException":
+    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -459,7 +459,7 @@ const deserializeAws_json1_1AssociateCreatedArtifactCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazon.aws.migration#InternalServerError":
+    case "com.amazonaws.migrationhub#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -470,7 +470,7 @@ const deserializeAws_json1_1AssociateCreatedArtifactCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.aws.migration#InvalidInputException":
+    case "com.amazonaws.migrationhub#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -481,7 +481,7 @@ const deserializeAws_json1_1AssociateCreatedArtifactCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.aws.migration#ResourceNotFoundException":
+    case "com.amazonaws.migrationhub#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -492,7 +492,7 @@ const deserializeAws_json1_1AssociateCreatedArtifactCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazon.aws.migration#ServiceUnavailableException":
+    case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -503,7 +503,7 @@ const deserializeAws_json1_1AssociateCreatedArtifactCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "com.amazon.aws.migration#UnauthorizedOperation":
+    case "com.amazonaws.migrationhub#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationResponse(
           parsedOutput,
@@ -569,7 +569,7 @@ const deserializeAws_json1_1AssociateDiscoveredResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazon.aws.migration#AccessDeniedException":
+    case "com.amazonaws.migrationhub#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -580,7 +580,7 @@ const deserializeAws_json1_1AssociateDiscoveredResourceCommandError = async (
       };
       break;
     case "DryRunOperation":
-    case "com.amazon.aws.migration#DryRunOperation":
+    case "com.amazonaws.migrationhub#DryRunOperation":
       response = {
         ...(await deserializeAws_json1_1DryRunOperationResponse(
           parsedOutput,
@@ -591,7 +591,7 @@ const deserializeAws_json1_1AssociateDiscoveredResourceCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazon.aws.migration#HomeRegionNotSetException":
+    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -602,7 +602,7 @@ const deserializeAws_json1_1AssociateDiscoveredResourceCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazon.aws.migration#InternalServerError":
+    case "com.amazonaws.migrationhub#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -613,7 +613,7 @@ const deserializeAws_json1_1AssociateDiscoveredResourceCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.aws.migration#InvalidInputException":
+    case "com.amazonaws.migrationhub#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -624,7 +624,7 @@ const deserializeAws_json1_1AssociateDiscoveredResourceCommandError = async (
       };
       break;
     case "PolicyErrorException":
-    case "com.amazon.aws.migration#PolicyErrorException":
+    case "com.amazonaws.migrationhub#PolicyErrorException":
       response = {
         ...(await deserializeAws_json1_1PolicyErrorExceptionResponse(
           parsedOutput,
@@ -635,7 +635,7 @@ const deserializeAws_json1_1AssociateDiscoveredResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.aws.migration#ResourceNotFoundException":
+    case "com.amazonaws.migrationhub#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -646,7 +646,7 @@ const deserializeAws_json1_1AssociateDiscoveredResourceCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazon.aws.migration#ServiceUnavailableException":
+    case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -657,7 +657,7 @@ const deserializeAws_json1_1AssociateDiscoveredResourceCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "com.amazon.aws.migration#UnauthorizedOperation":
+    case "com.amazonaws.migrationhub#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationResponse(
           parsedOutput,
@@ -723,7 +723,7 @@ const deserializeAws_json1_1CreateProgressUpdateStreamCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazon.aws.migration#AccessDeniedException":
+    case "com.amazonaws.migrationhub#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -734,7 +734,7 @@ const deserializeAws_json1_1CreateProgressUpdateStreamCommandError = async (
       };
       break;
     case "DryRunOperation":
-    case "com.amazon.aws.migration#DryRunOperation":
+    case "com.amazonaws.migrationhub#DryRunOperation":
       response = {
         ...(await deserializeAws_json1_1DryRunOperationResponse(
           parsedOutput,
@@ -745,7 +745,7 @@ const deserializeAws_json1_1CreateProgressUpdateStreamCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazon.aws.migration#HomeRegionNotSetException":
+    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -756,7 +756,7 @@ const deserializeAws_json1_1CreateProgressUpdateStreamCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazon.aws.migration#InternalServerError":
+    case "com.amazonaws.migrationhub#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -767,7 +767,7 @@ const deserializeAws_json1_1CreateProgressUpdateStreamCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.aws.migration#InvalidInputException":
+    case "com.amazonaws.migrationhub#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -778,7 +778,7 @@ const deserializeAws_json1_1CreateProgressUpdateStreamCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazon.aws.migration#ServiceUnavailableException":
+    case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -789,7 +789,7 @@ const deserializeAws_json1_1CreateProgressUpdateStreamCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "com.amazon.aws.migration#UnauthorizedOperation":
+    case "com.amazonaws.migrationhub#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationResponse(
           parsedOutput,
@@ -855,7 +855,7 @@ const deserializeAws_json1_1DeleteProgressUpdateStreamCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazon.aws.migration#AccessDeniedException":
+    case "com.amazonaws.migrationhub#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -866,7 +866,7 @@ const deserializeAws_json1_1DeleteProgressUpdateStreamCommandError = async (
       };
       break;
     case "DryRunOperation":
-    case "com.amazon.aws.migration#DryRunOperation":
+    case "com.amazonaws.migrationhub#DryRunOperation":
       response = {
         ...(await deserializeAws_json1_1DryRunOperationResponse(
           parsedOutput,
@@ -877,7 +877,7 @@ const deserializeAws_json1_1DeleteProgressUpdateStreamCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazon.aws.migration#HomeRegionNotSetException":
+    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -888,7 +888,7 @@ const deserializeAws_json1_1DeleteProgressUpdateStreamCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazon.aws.migration#InternalServerError":
+    case "com.amazonaws.migrationhub#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -899,7 +899,7 @@ const deserializeAws_json1_1DeleteProgressUpdateStreamCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.aws.migration#InvalidInputException":
+    case "com.amazonaws.migrationhub#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -910,7 +910,7 @@ const deserializeAws_json1_1DeleteProgressUpdateStreamCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.aws.migration#ResourceNotFoundException":
+    case "com.amazonaws.migrationhub#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -921,7 +921,7 @@ const deserializeAws_json1_1DeleteProgressUpdateStreamCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazon.aws.migration#ServiceUnavailableException":
+    case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -932,7 +932,7 @@ const deserializeAws_json1_1DeleteProgressUpdateStreamCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "com.amazon.aws.migration#UnauthorizedOperation":
+    case "com.amazonaws.migrationhub#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationResponse(
           parsedOutput,
@@ -998,7 +998,7 @@ const deserializeAws_json1_1DescribeApplicationStateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazon.aws.migration#AccessDeniedException":
+    case "com.amazonaws.migrationhub#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1009,7 +1009,7 @@ const deserializeAws_json1_1DescribeApplicationStateCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazon.aws.migration#HomeRegionNotSetException":
+    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -1020,7 +1020,7 @@ const deserializeAws_json1_1DescribeApplicationStateCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazon.aws.migration#InternalServerError":
+    case "com.amazonaws.migrationhub#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -1031,7 +1031,7 @@ const deserializeAws_json1_1DescribeApplicationStateCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.aws.migration#InvalidInputException":
+    case "com.amazonaws.migrationhub#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1042,7 +1042,7 @@ const deserializeAws_json1_1DescribeApplicationStateCommandError = async (
       };
       break;
     case "PolicyErrorException":
-    case "com.amazon.aws.migration#PolicyErrorException":
+    case "com.amazonaws.migrationhub#PolicyErrorException":
       response = {
         ...(await deserializeAws_json1_1PolicyErrorExceptionResponse(
           parsedOutput,
@@ -1053,7 +1053,7 @@ const deserializeAws_json1_1DescribeApplicationStateCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.aws.migration#ResourceNotFoundException":
+    case "com.amazonaws.migrationhub#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1064,7 +1064,7 @@ const deserializeAws_json1_1DescribeApplicationStateCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazon.aws.migration#ServiceUnavailableException":
+    case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -1127,7 +1127,7 @@ const deserializeAws_json1_1DescribeMigrationTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazon.aws.migration#AccessDeniedException":
+    case "com.amazonaws.migrationhub#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1138,7 +1138,7 @@ const deserializeAws_json1_1DescribeMigrationTaskCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazon.aws.migration#HomeRegionNotSetException":
+    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -1149,7 +1149,7 @@ const deserializeAws_json1_1DescribeMigrationTaskCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazon.aws.migration#InternalServerError":
+    case "com.amazonaws.migrationhub#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -1160,7 +1160,7 @@ const deserializeAws_json1_1DescribeMigrationTaskCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.aws.migration#InvalidInputException":
+    case "com.amazonaws.migrationhub#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1171,7 +1171,7 @@ const deserializeAws_json1_1DescribeMigrationTaskCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.aws.migration#ResourceNotFoundException":
+    case "com.amazonaws.migrationhub#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1182,7 +1182,7 @@ const deserializeAws_json1_1DescribeMigrationTaskCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazon.aws.migration#ServiceUnavailableException":
+    case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -1248,7 +1248,7 @@ const deserializeAws_json1_1DisassociateCreatedArtifactCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazon.aws.migration#AccessDeniedException":
+    case "com.amazonaws.migrationhub#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1259,7 +1259,7 @@ const deserializeAws_json1_1DisassociateCreatedArtifactCommandError = async (
       };
       break;
     case "DryRunOperation":
-    case "com.amazon.aws.migration#DryRunOperation":
+    case "com.amazonaws.migrationhub#DryRunOperation":
       response = {
         ...(await deserializeAws_json1_1DryRunOperationResponse(
           parsedOutput,
@@ -1270,7 +1270,7 @@ const deserializeAws_json1_1DisassociateCreatedArtifactCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazon.aws.migration#HomeRegionNotSetException":
+    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -1281,7 +1281,7 @@ const deserializeAws_json1_1DisassociateCreatedArtifactCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazon.aws.migration#InternalServerError":
+    case "com.amazonaws.migrationhub#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -1292,7 +1292,7 @@ const deserializeAws_json1_1DisassociateCreatedArtifactCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.aws.migration#InvalidInputException":
+    case "com.amazonaws.migrationhub#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1303,7 +1303,7 @@ const deserializeAws_json1_1DisassociateCreatedArtifactCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.aws.migration#ResourceNotFoundException":
+    case "com.amazonaws.migrationhub#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1314,7 +1314,7 @@ const deserializeAws_json1_1DisassociateCreatedArtifactCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazon.aws.migration#ServiceUnavailableException":
+    case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -1325,7 +1325,7 @@ const deserializeAws_json1_1DisassociateCreatedArtifactCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "com.amazon.aws.migration#UnauthorizedOperation":
+    case "com.amazonaws.migrationhub#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationResponse(
           parsedOutput,
@@ -1391,7 +1391,7 @@ const deserializeAws_json1_1DisassociateDiscoveredResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazon.aws.migration#AccessDeniedException":
+    case "com.amazonaws.migrationhub#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1402,7 +1402,7 @@ const deserializeAws_json1_1DisassociateDiscoveredResourceCommandError = async (
       };
       break;
     case "DryRunOperation":
-    case "com.amazon.aws.migration#DryRunOperation":
+    case "com.amazonaws.migrationhub#DryRunOperation":
       response = {
         ...(await deserializeAws_json1_1DryRunOperationResponse(
           parsedOutput,
@@ -1413,7 +1413,7 @@ const deserializeAws_json1_1DisassociateDiscoveredResourceCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazon.aws.migration#HomeRegionNotSetException":
+    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -1424,7 +1424,7 @@ const deserializeAws_json1_1DisassociateDiscoveredResourceCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazon.aws.migration#InternalServerError":
+    case "com.amazonaws.migrationhub#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -1435,7 +1435,7 @@ const deserializeAws_json1_1DisassociateDiscoveredResourceCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.aws.migration#InvalidInputException":
+    case "com.amazonaws.migrationhub#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1446,7 +1446,7 @@ const deserializeAws_json1_1DisassociateDiscoveredResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.aws.migration#ResourceNotFoundException":
+    case "com.amazonaws.migrationhub#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1457,7 +1457,7 @@ const deserializeAws_json1_1DisassociateDiscoveredResourceCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazon.aws.migration#ServiceUnavailableException":
+    case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -1468,7 +1468,7 @@ const deserializeAws_json1_1DisassociateDiscoveredResourceCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "com.amazon.aws.migration#UnauthorizedOperation":
+    case "com.amazonaws.migrationhub#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationResponse(
           parsedOutput,
@@ -1531,7 +1531,7 @@ const deserializeAws_json1_1ImportMigrationTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazon.aws.migration#AccessDeniedException":
+    case "com.amazonaws.migrationhub#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1542,7 +1542,7 @@ const deserializeAws_json1_1ImportMigrationTaskCommandError = async (
       };
       break;
     case "DryRunOperation":
-    case "com.amazon.aws.migration#DryRunOperation":
+    case "com.amazonaws.migrationhub#DryRunOperation":
       response = {
         ...(await deserializeAws_json1_1DryRunOperationResponse(
           parsedOutput,
@@ -1553,7 +1553,7 @@ const deserializeAws_json1_1ImportMigrationTaskCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazon.aws.migration#HomeRegionNotSetException":
+    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -1564,7 +1564,7 @@ const deserializeAws_json1_1ImportMigrationTaskCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazon.aws.migration#InternalServerError":
+    case "com.amazonaws.migrationhub#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -1575,7 +1575,7 @@ const deserializeAws_json1_1ImportMigrationTaskCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.aws.migration#InvalidInputException":
+    case "com.amazonaws.migrationhub#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1586,7 +1586,7 @@ const deserializeAws_json1_1ImportMigrationTaskCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.aws.migration#ResourceNotFoundException":
+    case "com.amazonaws.migrationhub#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1597,7 +1597,7 @@ const deserializeAws_json1_1ImportMigrationTaskCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazon.aws.migration#ServiceUnavailableException":
+    case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -1608,7 +1608,7 @@ const deserializeAws_json1_1ImportMigrationTaskCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "com.amazon.aws.migration#UnauthorizedOperation":
+    case "com.amazonaws.migrationhub#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationResponse(
           parsedOutput,
@@ -1671,7 +1671,7 @@ const deserializeAws_json1_1ListApplicationStatesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazon.aws.migration#AccessDeniedException":
+    case "com.amazonaws.migrationhub#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1682,7 +1682,7 @@ const deserializeAws_json1_1ListApplicationStatesCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazon.aws.migration#HomeRegionNotSetException":
+    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -1693,7 +1693,7 @@ const deserializeAws_json1_1ListApplicationStatesCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazon.aws.migration#InternalServerError":
+    case "com.amazonaws.migrationhub#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -1704,7 +1704,7 @@ const deserializeAws_json1_1ListApplicationStatesCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.aws.migration#InvalidInputException":
+    case "com.amazonaws.migrationhub#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1715,7 +1715,7 @@ const deserializeAws_json1_1ListApplicationStatesCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazon.aws.migration#ServiceUnavailableException":
+    case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -1778,7 +1778,7 @@ const deserializeAws_json1_1ListCreatedArtifactsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazon.aws.migration#AccessDeniedException":
+    case "com.amazonaws.migrationhub#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1789,7 +1789,7 @@ const deserializeAws_json1_1ListCreatedArtifactsCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazon.aws.migration#HomeRegionNotSetException":
+    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -1800,7 +1800,7 @@ const deserializeAws_json1_1ListCreatedArtifactsCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazon.aws.migration#InternalServerError":
+    case "com.amazonaws.migrationhub#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -1811,7 +1811,7 @@ const deserializeAws_json1_1ListCreatedArtifactsCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.aws.migration#InvalidInputException":
+    case "com.amazonaws.migrationhub#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1822,7 +1822,7 @@ const deserializeAws_json1_1ListCreatedArtifactsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.aws.migration#ResourceNotFoundException":
+    case "com.amazonaws.migrationhub#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1833,7 +1833,7 @@ const deserializeAws_json1_1ListCreatedArtifactsCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazon.aws.migration#ServiceUnavailableException":
+    case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -1896,7 +1896,7 @@ const deserializeAws_json1_1ListDiscoveredResourcesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazon.aws.migration#AccessDeniedException":
+    case "com.amazonaws.migrationhub#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1907,7 +1907,7 @@ const deserializeAws_json1_1ListDiscoveredResourcesCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazon.aws.migration#HomeRegionNotSetException":
+    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -1918,7 +1918,7 @@ const deserializeAws_json1_1ListDiscoveredResourcesCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazon.aws.migration#InternalServerError":
+    case "com.amazonaws.migrationhub#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -1929,7 +1929,7 @@ const deserializeAws_json1_1ListDiscoveredResourcesCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.aws.migration#InvalidInputException":
+    case "com.amazonaws.migrationhub#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1940,7 +1940,7 @@ const deserializeAws_json1_1ListDiscoveredResourcesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.aws.migration#ResourceNotFoundException":
+    case "com.amazonaws.migrationhub#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1951,7 +1951,7 @@ const deserializeAws_json1_1ListDiscoveredResourcesCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazon.aws.migration#ServiceUnavailableException":
+    case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -2014,7 +2014,7 @@ const deserializeAws_json1_1ListMigrationTasksCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazon.aws.migration#AccessDeniedException":
+    case "com.amazonaws.migrationhub#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -2025,7 +2025,7 @@ const deserializeAws_json1_1ListMigrationTasksCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazon.aws.migration#HomeRegionNotSetException":
+    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -2036,7 +2036,7 @@ const deserializeAws_json1_1ListMigrationTasksCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazon.aws.migration#InternalServerError":
+    case "com.amazonaws.migrationhub#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -2047,7 +2047,7 @@ const deserializeAws_json1_1ListMigrationTasksCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.aws.migration#InvalidInputException":
+    case "com.amazonaws.migrationhub#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2058,7 +2058,7 @@ const deserializeAws_json1_1ListMigrationTasksCommandError = async (
       };
       break;
     case "PolicyErrorException":
-    case "com.amazon.aws.migration#PolicyErrorException":
+    case "com.amazonaws.migrationhub#PolicyErrorException":
       response = {
         ...(await deserializeAws_json1_1PolicyErrorExceptionResponse(
           parsedOutput,
@@ -2069,7 +2069,7 @@ const deserializeAws_json1_1ListMigrationTasksCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.aws.migration#ResourceNotFoundException":
+    case "com.amazonaws.migrationhub#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2080,7 +2080,7 @@ const deserializeAws_json1_1ListMigrationTasksCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazon.aws.migration#ServiceUnavailableException":
+    case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -2146,7 +2146,7 @@ const deserializeAws_json1_1ListProgressUpdateStreamsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazon.aws.migration#AccessDeniedException":
+    case "com.amazonaws.migrationhub#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -2157,7 +2157,7 @@ const deserializeAws_json1_1ListProgressUpdateStreamsCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazon.aws.migration#HomeRegionNotSetException":
+    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -2168,7 +2168,7 @@ const deserializeAws_json1_1ListProgressUpdateStreamsCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazon.aws.migration#InternalServerError":
+    case "com.amazonaws.migrationhub#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -2179,7 +2179,7 @@ const deserializeAws_json1_1ListProgressUpdateStreamsCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.aws.migration#InvalidInputException":
+    case "com.amazonaws.migrationhub#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2190,7 +2190,7 @@ const deserializeAws_json1_1ListProgressUpdateStreamsCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazon.aws.migration#ServiceUnavailableException":
+    case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -2253,7 +2253,7 @@ const deserializeAws_json1_1NotifyApplicationStateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazon.aws.migration#AccessDeniedException":
+    case "com.amazonaws.migrationhub#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -2264,7 +2264,7 @@ const deserializeAws_json1_1NotifyApplicationStateCommandError = async (
       };
       break;
     case "DryRunOperation":
-    case "com.amazon.aws.migration#DryRunOperation":
+    case "com.amazonaws.migrationhub#DryRunOperation":
       response = {
         ...(await deserializeAws_json1_1DryRunOperationResponse(
           parsedOutput,
@@ -2275,7 +2275,7 @@ const deserializeAws_json1_1NotifyApplicationStateCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazon.aws.migration#HomeRegionNotSetException":
+    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -2286,7 +2286,7 @@ const deserializeAws_json1_1NotifyApplicationStateCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazon.aws.migration#InternalServerError":
+    case "com.amazonaws.migrationhub#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -2297,7 +2297,7 @@ const deserializeAws_json1_1NotifyApplicationStateCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.aws.migration#InvalidInputException":
+    case "com.amazonaws.migrationhub#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2308,7 +2308,7 @@ const deserializeAws_json1_1NotifyApplicationStateCommandError = async (
       };
       break;
     case "PolicyErrorException":
-    case "com.amazon.aws.migration#PolicyErrorException":
+    case "com.amazonaws.migrationhub#PolicyErrorException":
       response = {
         ...(await deserializeAws_json1_1PolicyErrorExceptionResponse(
           parsedOutput,
@@ -2319,7 +2319,7 @@ const deserializeAws_json1_1NotifyApplicationStateCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.aws.migration#ResourceNotFoundException":
+    case "com.amazonaws.migrationhub#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2330,7 +2330,7 @@ const deserializeAws_json1_1NotifyApplicationStateCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazon.aws.migration#ServiceUnavailableException":
+    case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -2341,7 +2341,7 @@ const deserializeAws_json1_1NotifyApplicationStateCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "com.amazon.aws.migration#UnauthorizedOperation":
+    case "com.amazonaws.migrationhub#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationResponse(
           parsedOutput,
@@ -2407,7 +2407,7 @@ const deserializeAws_json1_1NotifyMigrationTaskStateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazon.aws.migration#AccessDeniedException":
+    case "com.amazonaws.migrationhub#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -2418,7 +2418,7 @@ const deserializeAws_json1_1NotifyMigrationTaskStateCommandError = async (
       };
       break;
     case "DryRunOperation":
-    case "com.amazon.aws.migration#DryRunOperation":
+    case "com.amazonaws.migrationhub#DryRunOperation":
       response = {
         ...(await deserializeAws_json1_1DryRunOperationResponse(
           parsedOutput,
@@ -2429,7 +2429,7 @@ const deserializeAws_json1_1NotifyMigrationTaskStateCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazon.aws.migration#HomeRegionNotSetException":
+    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -2440,7 +2440,7 @@ const deserializeAws_json1_1NotifyMigrationTaskStateCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazon.aws.migration#InternalServerError":
+    case "com.amazonaws.migrationhub#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -2451,7 +2451,7 @@ const deserializeAws_json1_1NotifyMigrationTaskStateCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.aws.migration#InvalidInputException":
+    case "com.amazonaws.migrationhub#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2462,7 +2462,7 @@ const deserializeAws_json1_1NotifyMigrationTaskStateCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.aws.migration#ResourceNotFoundException":
+    case "com.amazonaws.migrationhub#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2473,7 +2473,7 @@ const deserializeAws_json1_1NotifyMigrationTaskStateCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazon.aws.migration#ServiceUnavailableException":
+    case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -2484,7 +2484,7 @@ const deserializeAws_json1_1NotifyMigrationTaskStateCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "com.amazon.aws.migration#UnauthorizedOperation":
+    case "com.amazonaws.migrationhub#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationResponse(
           parsedOutput,
@@ -2547,7 +2547,7 @@ const deserializeAws_json1_1PutResourceAttributesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazon.aws.migration#AccessDeniedException":
+    case "com.amazonaws.migrationhub#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -2558,7 +2558,7 @@ const deserializeAws_json1_1PutResourceAttributesCommandError = async (
       };
       break;
     case "DryRunOperation":
-    case "com.amazon.aws.migration#DryRunOperation":
+    case "com.amazonaws.migrationhub#DryRunOperation":
       response = {
         ...(await deserializeAws_json1_1DryRunOperationResponse(
           parsedOutput,
@@ -2569,7 +2569,7 @@ const deserializeAws_json1_1PutResourceAttributesCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazon.aws.migration#HomeRegionNotSetException":
+    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -2580,7 +2580,7 @@ const deserializeAws_json1_1PutResourceAttributesCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazon.aws.migration#InternalServerError":
+    case "com.amazonaws.migrationhub#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -2591,7 +2591,7 @@ const deserializeAws_json1_1PutResourceAttributesCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazon.aws.migration#InvalidInputException":
+    case "com.amazonaws.migrationhub#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2602,7 +2602,7 @@ const deserializeAws_json1_1PutResourceAttributesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.aws.migration#ResourceNotFoundException":
+    case "com.amazonaws.migrationhub#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2613,7 +2613,7 @@ const deserializeAws_json1_1PutResourceAttributesCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazon.aws.migration#ServiceUnavailableException":
+    case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -2624,7 +2624,7 @@ const deserializeAws_json1_1PutResourceAttributesCommandError = async (
       };
       break;
     case "UnauthorizedOperation":
-    case "com.amazon.aws.migration#UnauthorizedOperation":
+    case "com.amazonaws.migrationhub#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedOperationResponse(
           parsedOutput,
@@ -2862,6 +2862,16 @@ const serializeAws_json1_1AssociateDiscoveredResourceRequest = (
   };
 };
 
+const serializeAws_json1_1CreatedArtifact = (
+  input: CreatedArtifact,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Name !== undefined && { Name: input.Name })
+  };
+};
+
 const serializeAws_json1_1CreateProgressUpdateStreamRequest = (
   input: CreateProgressUpdateStreamRequest,
   context: __SerdeContext
@@ -2871,16 +2881,6 @@ const serializeAws_json1_1CreateProgressUpdateStreamRequest = (
     ...(input.ProgressUpdateStreamName !== undefined && {
       ProgressUpdateStreamName: input.ProgressUpdateStreamName
     })
-  };
-};
-
-const serializeAws_json1_1CreatedArtifact = (
-  input: CreatedArtifact,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Name !== undefined && { Name: input.Name })
   };
 };
 
@@ -3212,15 +3212,6 @@ const deserializeAws_json1_1AssociateDiscoveredResourceResult = (
   } as any;
 };
 
-const deserializeAws_json1_1CreateProgressUpdateStreamResult = (
-  output: any,
-  context: __SerdeContext
-): CreateProgressUpdateStreamResult => {
-  return {
-    __type: "CreateProgressUpdateStreamResult"
-  } as any;
-};
-
 const deserializeAws_json1_1CreatedArtifact = (
   output: any,
   context: __SerdeContext
@@ -3245,6 +3236,15 @@ const deserializeAws_json1_1CreatedArtifactList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CreatedArtifact(entry, context)
   );
+};
+
+const deserializeAws_json1_1CreateProgressUpdateStreamResult = (
+  output: any,
+  context: __SerdeContext
+): CreateProgressUpdateStreamResult => {
+  return {
+    __type: "CreateProgressUpdateStreamResult"
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteProgressUpdateStreamResult = (

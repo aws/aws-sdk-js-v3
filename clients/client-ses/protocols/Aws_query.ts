@@ -1729,7 +1729,7 @@ const deserializeAws_queryCloneReceiptRuleSetCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
-    case "com.amazon.bacon.frontend.svc.common#AlreadyExistsException":
+    case "com.amazonaws.ses#AlreadyExistsException":
       response = {
         ...(await deserializeAws_queryAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1740,7 +1740,7 @@ const deserializeAws_queryCloneReceiptRuleSetCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.bacon.frontend.svc.common#LimitExceededException":
+    case "com.amazonaws.ses#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
@@ -1751,7 +1751,7 @@ const deserializeAws_queryCloneReceiptRuleSetCommandError = async (
       };
       break;
     case "RuleSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#RuleSetDoesNotExistException":
+    case "com.amazonaws.ses#RuleSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -1816,7 +1816,7 @@ const deserializeAws_queryCreateConfigurationSetCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetAlreadyExistsException":
-    case "com.amazon.bacon.frontend.svc.common#ConfigurationSetAlreadyExistsException":
+    case "com.amazonaws.ses#ConfigurationSetAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryConfigurationSetAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1827,7 +1827,7 @@ const deserializeAws_queryCreateConfigurationSetCommandError = async (
       };
       break;
     case "InvalidConfigurationSetException":
-    case "com.amazon.bacon.frontend.svc.common#InvalidConfigurationSetException":
+    case "com.amazonaws.ses#InvalidConfigurationSetException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationSetExceptionResponse(
           parsedOutput,
@@ -1838,7 +1838,7 @@ const deserializeAws_queryCreateConfigurationSetCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.bacon.frontend.svc.common#LimitExceededException":
+    case "com.amazonaws.ses#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
@@ -1903,7 +1903,7 @@ const deserializeAws_queryCreateConfigurationSetEventDestinationCommandError = a
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#ConfigurationSetDoesNotExistException":
+    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -1914,7 +1914,7 @@ const deserializeAws_queryCreateConfigurationSetEventDestinationCommandError = a
       };
       break;
     case "EventDestinationAlreadyExistsException":
-    case "com.amazon.bacon.frontend.svc.common#EventDestinationAlreadyExistsException":
+    case "com.amazonaws.ses#EventDestinationAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEventDestinationAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1925,7 +1925,7 @@ const deserializeAws_queryCreateConfigurationSetEventDestinationCommandError = a
       };
       break;
     case "InvalidCloudWatchDestinationException":
-    case "com.amazon.bacon.frontend.svc.common#InvalidCloudWatchDestinationException":
+    case "com.amazonaws.ses#InvalidCloudWatchDestinationException":
       response = {
         ...(await deserializeAws_queryInvalidCloudWatchDestinationExceptionResponse(
           parsedOutput,
@@ -1936,7 +1936,7 @@ const deserializeAws_queryCreateConfigurationSetEventDestinationCommandError = a
       };
       break;
     case "InvalidFirehoseDestinationException":
-    case "com.amazon.bacon.frontend.svc.common#InvalidFirehoseDestinationException":
+    case "com.amazonaws.ses#InvalidFirehoseDestinationException":
       response = {
         ...(await deserializeAws_queryInvalidFirehoseDestinationExceptionResponse(
           parsedOutput,
@@ -1947,7 +1947,7 @@ const deserializeAws_queryCreateConfigurationSetEventDestinationCommandError = a
       };
       break;
     case "InvalidSNSDestinationException":
-    case "com.amazon.bacon.frontend.svc.common#InvalidSNSDestinationException":
+    case "com.amazonaws.ses#InvalidSNSDestinationException":
       response = {
         ...(await deserializeAws_queryInvalidSNSDestinationExceptionResponse(
           parsedOutput,
@@ -1958,7 +1958,7 @@ const deserializeAws_queryCreateConfigurationSetEventDestinationCommandError = a
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.bacon.frontend.svc.common#LimitExceededException":
+    case "com.amazonaws.ses#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
@@ -2023,7 +2023,7 @@ const deserializeAws_queryCreateConfigurationSetTrackingOptionsCommandError = as
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#ConfigurationSetDoesNotExistException":
+    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -2034,7 +2034,7 @@ const deserializeAws_queryCreateConfigurationSetTrackingOptionsCommandError = as
       };
       break;
     case "InvalidTrackingOptionsException":
-    case "com.amazon.bacon.frontend.svc.common#InvalidTrackingOptionsException":
+    case "com.amazonaws.ses#InvalidTrackingOptionsException":
       response = {
         ...(await deserializeAws_queryInvalidTrackingOptionsExceptionResponse(
           parsedOutput,
@@ -2045,7 +2045,7 @@ const deserializeAws_queryCreateConfigurationSetTrackingOptionsCommandError = as
       };
       break;
     case "TrackingOptionsAlreadyExistsException":
-    case "com.amazon.bacon.frontend.svc.common#TrackingOptionsAlreadyExistsException":
+    case "com.amazonaws.ses#TrackingOptionsAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryTrackingOptionsAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -2103,7 +2103,7 @@ const deserializeAws_queryCreateCustomVerificationEmailTemplateCommandError = as
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomVerificationEmailInvalidContentException":
-    case "com.amazon.bacon.frontend.svc.common#CustomVerificationEmailInvalidContentException":
+    case "com.amazonaws.ses#CustomVerificationEmailInvalidContentException":
       response = {
         ...(await deserializeAws_queryCustomVerificationEmailInvalidContentExceptionResponse(
           parsedOutput,
@@ -2114,7 +2114,7 @@ const deserializeAws_queryCreateCustomVerificationEmailTemplateCommandError = as
       };
       break;
     case "CustomVerificationEmailTemplateAlreadyExistsException":
-    case "com.amazon.bacon.frontend.svc.common#CustomVerificationEmailTemplateAlreadyExistsException":
+    case "com.amazonaws.ses#CustomVerificationEmailTemplateAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryCustomVerificationEmailTemplateAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -2125,7 +2125,7 @@ const deserializeAws_queryCreateCustomVerificationEmailTemplateCommandError = as
       };
       break;
     case "FromEmailAddressNotVerifiedException":
-    case "com.amazon.bacon.frontend.svc.common#FromEmailAddressNotVerifiedException":
+    case "com.amazonaws.ses#FromEmailAddressNotVerifiedException":
       response = {
         ...(await deserializeAws_queryFromEmailAddressNotVerifiedExceptionResponse(
           parsedOutput,
@@ -2136,7 +2136,7 @@ const deserializeAws_queryCreateCustomVerificationEmailTemplateCommandError = as
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.bacon.frontend.svc.common#LimitExceededException":
+    case "com.amazonaws.ses#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
@@ -2198,7 +2198,7 @@ const deserializeAws_queryCreateReceiptFilterCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
-    case "com.amazon.bacon.frontend.svc.common#AlreadyExistsException":
+    case "com.amazonaws.ses#AlreadyExistsException":
       response = {
         ...(await deserializeAws_queryAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -2209,7 +2209,7 @@ const deserializeAws_queryCreateReceiptFilterCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.bacon.frontend.svc.common#LimitExceededException":
+    case "com.amazonaws.ses#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
@@ -2271,7 +2271,7 @@ const deserializeAws_queryCreateReceiptRuleCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
-    case "com.amazon.bacon.frontend.svc.common#AlreadyExistsException":
+    case "com.amazonaws.ses#AlreadyExistsException":
       response = {
         ...(await deserializeAws_queryAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -2282,7 +2282,7 @@ const deserializeAws_queryCreateReceiptRuleCommandError = async (
       };
       break;
     case "InvalidLambdaFunctionException":
-    case "com.amazon.bacon.frontend.svc.common#InvalidLambdaFunctionException":
+    case "com.amazonaws.ses#InvalidLambdaFunctionException":
       response = {
         ...(await deserializeAws_queryInvalidLambdaFunctionExceptionResponse(
           parsedOutput,
@@ -2293,7 +2293,7 @@ const deserializeAws_queryCreateReceiptRuleCommandError = async (
       };
       break;
     case "InvalidS3ConfigurationException":
-    case "com.amazon.bacon.frontend.svc.common#InvalidS3ConfigurationException":
+    case "com.amazonaws.ses#InvalidS3ConfigurationException":
       response = {
         ...(await deserializeAws_queryInvalidS3ConfigurationExceptionResponse(
           parsedOutput,
@@ -2304,7 +2304,7 @@ const deserializeAws_queryCreateReceiptRuleCommandError = async (
       };
       break;
     case "InvalidSnsTopicException":
-    case "com.amazon.bacon.frontend.svc.common#InvalidSnsTopicException":
+    case "com.amazonaws.ses#InvalidSnsTopicException":
       response = {
         ...(await deserializeAws_queryInvalidSnsTopicExceptionResponse(
           parsedOutput,
@@ -2315,7 +2315,7 @@ const deserializeAws_queryCreateReceiptRuleCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.bacon.frontend.svc.common#LimitExceededException":
+    case "com.amazonaws.ses#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
@@ -2326,7 +2326,7 @@ const deserializeAws_queryCreateReceiptRuleCommandError = async (
       };
       break;
     case "RuleDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#RuleDoesNotExistException":
+    case "com.amazonaws.ses#RuleDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleDoesNotExistExceptionResponse(
           parsedOutput,
@@ -2337,7 +2337,7 @@ const deserializeAws_queryCreateReceiptRuleCommandError = async (
       };
       break;
     case "RuleSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#RuleSetDoesNotExistException":
+    case "com.amazonaws.ses#RuleSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -2402,7 +2402,7 @@ const deserializeAws_queryCreateReceiptRuleSetCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
-    case "com.amazon.bacon.frontend.svc.common#AlreadyExistsException":
+    case "com.amazonaws.ses#AlreadyExistsException":
       response = {
         ...(await deserializeAws_queryAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -2413,7 +2413,7 @@ const deserializeAws_queryCreateReceiptRuleSetCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.bacon.frontend.svc.common#LimitExceededException":
+    case "com.amazonaws.ses#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
@@ -2475,7 +2475,7 @@ const deserializeAws_queryCreateTemplateCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
-    case "com.amazon.bacon.frontend.svc.common#AlreadyExistsException":
+    case "com.amazonaws.ses#AlreadyExistsException":
       response = {
         ...(await deserializeAws_queryAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -2486,7 +2486,7 @@ const deserializeAws_queryCreateTemplateCommandError = async (
       };
       break;
     case "InvalidTemplateException":
-    case "com.amazon.bacon.frontend.svc.common#InvalidTemplateException":
+    case "com.amazonaws.ses#InvalidTemplateException":
       response = {
         ...(await deserializeAws_queryInvalidTemplateExceptionResponse(
           parsedOutput,
@@ -2497,7 +2497,7 @@ const deserializeAws_queryCreateTemplateCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.bacon.frontend.svc.common#LimitExceededException":
+    case "com.amazonaws.ses#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
@@ -2562,7 +2562,7 @@ const deserializeAws_queryDeleteConfigurationSetCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#ConfigurationSetDoesNotExistException":
+    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -2627,7 +2627,7 @@ const deserializeAws_queryDeleteConfigurationSetEventDestinationCommandError = a
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#ConfigurationSetDoesNotExistException":
+    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -2638,7 +2638,7 @@ const deserializeAws_queryDeleteConfigurationSetEventDestinationCommandError = a
       };
       break;
     case "EventDestinationDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#EventDestinationDoesNotExistException":
+    case "com.amazonaws.ses#EventDestinationDoesNotExistException":
       response = {
         ...(await deserializeAws_queryEventDestinationDoesNotExistExceptionResponse(
           parsedOutput,
@@ -2703,7 +2703,7 @@ const deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommandError = as
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#ConfigurationSetDoesNotExistException":
+    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -2714,7 +2714,7 @@ const deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommandError = as
       };
       break;
     case "TrackingOptionsDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#TrackingOptionsDoesNotExistException":
+    case "com.amazonaws.ses#TrackingOptionsDoesNotExistException":
       response = {
         ...(await deserializeAws_queryTrackingOptionsDoesNotExistExceptionResponse(
           parsedOutput,
@@ -2979,7 +2979,7 @@ const deserializeAws_queryDeleteReceiptRuleCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RuleSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#RuleSetDoesNotExistException":
+    case "com.amazonaws.ses#RuleSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -3044,7 +3044,7 @@ const deserializeAws_queryDeleteReceiptRuleSetCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CannotDeleteException":
-    case "com.amazon.bacon.frontend.svc.common#CannotDeleteException":
+    case "com.amazonaws.ses#CannotDeleteException":
       response = {
         ...(await deserializeAws_queryCannotDeleteExceptionResponse(
           parsedOutput,
@@ -3261,7 +3261,7 @@ const deserializeAws_queryDescribeConfigurationSetCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#ConfigurationSetDoesNotExistException":
+    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -3323,7 +3323,7 @@ const deserializeAws_queryDescribeReceiptRuleCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RuleDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#RuleDoesNotExistException":
+    case "com.amazonaws.ses#RuleDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleDoesNotExistExceptionResponse(
           parsedOutput,
@@ -3334,7 +3334,7 @@ const deserializeAws_queryDescribeReceiptRuleCommandError = async (
       };
       break;
     case "RuleSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#RuleSetDoesNotExistException":
+    case "com.amazonaws.ses#RuleSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -3399,7 +3399,7 @@ const deserializeAws_queryDescribeReceiptRuleSetCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RuleSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#RuleSetDoesNotExistException":
+    case "com.amazonaws.ses#RuleSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -3518,7 +3518,7 @@ const deserializeAws_queryGetCustomVerificationEmailTemplateCommandError = async
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomVerificationEmailTemplateDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#CustomVerificationEmailTemplateDoesNotExistException":
+    case "com.amazonaws.ses#CustomVerificationEmailTemplateDoesNotExistException":
       response = {
         ...(await deserializeAws_queryCustomVerificationEmailTemplateDoesNotExistExceptionResponse(
           parsedOutput,
@@ -3949,7 +3949,7 @@ const deserializeAws_queryGetTemplateCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "TemplateDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#TemplateDoesNotExistException":
+    case "com.amazonaws.ses#TemplateDoesNotExistException":
       response = {
         ...(await deserializeAws_queryTemplateDoesNotExistExceptionResponse(
           parsedOutput,
@@ -4434,7 +4434,7 @@ const deserializeAws_queryPutConfigurationSetDeliveryOptionsCommandError = async
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#ConfigurationSetDoesNotExistException":
+    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -4445,7 +4445,7 @@ const deserializeAws_queryPutConfigurationSetDeliveryOptionsCommandError = async
       };
       break;
     case "InvalidDeliveryOptionsException":
-    case "com.amazon.bacon.frontend.svc.common#InvalidDeliveryOptionsException":
+    case "com.amazonaws.ses#InvalidDeliveryOptionsException":
       response = {
         ...(await deserializeAws_queryInvalidDeliveryOptionsExceptionResponse(
           parsedOutput,
@@ -4507,7 +4507,7 @@ const deserializeAws_queryPutIdentityPolicyCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidPolicyException":
-    case "com.amazon.bacon.frontend.svc.common#InvalidPolicyException":
+    case "com.amazonaws.ses#InvalidPolicyException":
       response = {
         ...(await deserializeAws_queryInvalidPolicyExceptionResponse(
           parsedOutput,
@@ -4572,7 +4572,7 @@ const deserializeAws_queryReorderReceiptRuleSetCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RuleDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#RuleDoesNotExistException":
+    case "com.amazonaws.ses#RuleDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleDoesNotExistExceptionResponse(
           parsedOutput,
@@ -4583,7 +4583,7 @@ const deserializeAws_queryReorderReceiptRuleSetCommandError = async (
       };
       break;
     case "RuleSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#RuleSetDoesNotExistException":
+    case "com.amazonaws.ses#RuleSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -4645,7 +4645,7 @@ const deserializeAws_querySendBounceCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "MessageRejected":
-    case "com.amazon.bacon.frontend.svc.common#MessageRejected":
+    case "com.amazonaws.ses#MessageRejected":
       response = {
         ...(await deserializeAws_queryMessageRejectedResponse(
           parsedOutput,
@@ -4710,7 +4710,7 @@ const deserializeAws_querySendBulkTemplatedEmailCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccountSendingPausedException":
-    case "com.amazon.bacon.frontend.svc.common#AccountSendingPausedException":
+    case "com.amazonaws.ses#AccountSendingPausedException":
       response = {
         ...(await deserializeAws_queryAccountSendingPausedExceptionResponse(
           parsedOutput,
@@ -4721,7 +4721,7 @@ const deserializeAws_querySendBulkTemplatedEmailCommandError = async (
       };
       break;
     case "ConfigurationSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#ConfigurationSetDoesNotExistException":
+    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -4732,7 +4732,7 @@ const deserializeAws_querySendBulkTemplatedEmailCommandError = async (
       };
       break;
     case "ConfigurationSetSendingPausedException":
-    case "com.amazon.bacon.frontend.svc.common#ConfigurationSetSendingPausedException":
+    case "com.amazonaws.ses#ConfigurationSetSendingPausedException":
       response = {
         ...(await deserializeAws_queryConfigurationSetSendingPausedExceptionResponse(
           parsedOutput,
@@ -4743,7 +4743,7 @@ const deserializeAws_querySendBulkTemplatedEmailCommandError = async (
       };
       break;
     case "MailFromDomainNotVerifiedException":
-    case "com.amazon.bacon.frontend.svc.common#MailFromDomainNotVerifiedException":
+    case "com.amazonaws.ses#MailFromDomainNotVerifiedException":
       response = {
         ...(await deserializeAws_queryMailFromDomainNotVerifiedExceptionResponse(
           parsedOutput,
@@ -4754,7 +4754,7 @@ const deserializeAws_querySendBulkTemplatedEmailCommandError = async (
       };
       break;
     case "MessageRejected":
-    case "com.amazon.bacon.frontend.svc.common#MessageRejected":
+    case "com.amazonaws.ses#MessageRejected":
       response = {
         ...(await deserializeAws_queryMessageRejectedResponse(
           parsedOutput,
@@ -4765,7 +4765,7 @@ const deserializeAws_querySendBulkTemplatedEmailCommandError = async (
       };
       break;
     case "TemplateDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#TemplateDoesNotExistException":
+    case "com.amazonaws.ses#TemplateDoesNotExistException":
       response = {
         ...(await deserializeAws_queryTemplateDoesNotExistExceptionResponse(
           parsedOutput,
@@ -4830,7 +4830,7 @@ const deserializeAws_querySendCustomVerificationEmailCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#ConfigurationSetDoesNotExistException":
+    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -4841,7 +4841,7 @@ const deserializeAws_querySendCustomVerificationEmailCommandError = async (
       };
       break;
     case "CustomVerificationEmailTemplateDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#CustomVerificationEmailTemplateDoesNotExistException":
+    case "com.amazonaws.ses#CustomVerificationEmailTemplateDoesNotExistException":
       response = {
         ...(await deserializeAws_queryCustomVerificationEmailTemplateDoesNotExistExceptionResponse(
           parsedOutput,
@@ -4852,7 +4852,7 @@ const deserializeAws_querySendCustomVerificationEmailCommandError = async (
       };
       break;
     case "FromEmailAddressNotVerifiedException":
-    case "com.amazon.bacon.frontend.svc.common#FromEmailAddressNotVerifiedException":
+    case "com.amazonaws.ses#FromEmailAddressNotVerifiedException":
       response = {
         ...(await deserializeAws_queryFromEmailAddressNotVerifiedExceptionResponse(
           parsedOutput,
@@ -4863,7 +4863,7 @@ const deserializeAws_querySendCustomVerificationEmailCommandError = async (
       };
       break;
     case "MessageRejected":
-    case "com.amazon.bacon.frontend.svc.common#MessageRejected":
+    case "com.amazonaws.ses#MessageRejected":
       response = {
         ...(await deserializeAws_queryMessageRejectedResponse(
           parsedOutput,
@@ -4874,7 +4874,7 @@ const deserializeAws_querySendCustomVerificationEmailCommandError = async (
       };
       break;
     case "ProductionAccessNotGrantedException":
-    case "com.amazon.bacon.frontend.svc.common#ProductionAccessNotGrantedException":
+    case "com.amazonaws.ses#ProductionAccessNotGrantedException":
       response = {
         ...(await deserializeAws_queryProductionAccessNotGrantedExceptionResponse(
           parsedOutput,
@@ -4936,7 +4936,7 @@ const deserializeAws_querySendEmailCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccountSendingPausedException":
-    case "com.amazon.bacon.frontend.svc.common#AccountSendingPausedException":
+    case "com.amazonaws.ses#AccountSendingPausedException":
       response = {
         ...(await deserializeAws_queryAccountSendingPausedExceptionResponse(
           parsedOutput,
@@ -4947,7 +4947,7 @@ const deserializeAws_querySendEmailCommandError = async (
       };
       break;
     case "ConfigurationSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#ConfigurationSetDoesNotExistException":
+    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -4958,7 +4958,7 @@ const deserializeAws_querySendEmailCommandError = async (
       };
       break;
     case "ConfigurationSetSendingPausedException":
-    case "com.amazon.bacon.frontend.svc.common#ConfigurationSetSendingPausedException":
+    case "com.amazonaws.ses#ConfigurationSetSendingPausedException":
       response = {
         ...(await deserializeAws_queryConfigurationSetSendingPausedExceptionResponse(
           parsedOutput,
@@ -4969,7 +4969,7 @@ const deserializeAws_querySendEmailCommandError = async (
       };
       break;
     case "MailFromDomainNotVerifiedException":
-    case "com.amazon.bacon.frontend.svc.common#MailFromDomainNotVerifiedException":
+    case "com.amazonaws.ses#MailFromDomainNotVerifiedException":
       response = {
         ...(await deserializeAws_queryMailFromDomainNotVerifiedExceptionResponse(
           parsedOutput,
@@ -4980,7 +4980,7 @@ const deserializeAws_querySendEmailCommandError = async (
       };
       break;
     case "MessageRejected":
-    case "com.amazon.bacon.frontend.svc.common#MessageRejected":
+    case "com.amazonaws.ses#MessageRejected":
       response = {
         ...(await deserializeAws_queryMessageRejectedResponse(
           parsedOutput,
@@ -5042,7 +5042,7 @@ const deserializeAws_querySendRawEmailCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccountSendingPausedException":
-    case "com.amazon.bacon.frontend.svc.common#AccountSendingPausedException":
+    case "com.amazonaws.ses#AccountSendingPausedException":
       response = {
         ...(await deserializeAws_queryAccountSendingPausedExceptionResponse(
           parsedOutput,
@@ -5053,7 +5053,7 @@ const deserializeAws_querySendRawEmailCommandError = async (
       };
       break;
     case "ConfigurationSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#ConfigurationSetDoesNotExistException":
+    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -5064,7 +5064,7 @@ const deserializeAws_querySendRawEmailCommandError = async (
       };
       break;
     case "ConfigurationSetSendingPausedException":
-    case "com.amazon.bacon.frontend.svc.common#ConfigurationSetSendingPausedException":
+    case "com.amazonaws.ses#ConfigurationSetSendingPausedException":
       response = {
         ...(await deserializeAws_queryConfigurationSetSendingPausedExceptionResponse(
           parsedOutput,
@@ -5075,7 +5075,7 @@ const deserializeAws_querySendRawEmailCommandError = async (
       };
       break;
     case "MailFromDomainNotVerifiedException":
-    case "com.amazon.bacon.frontend.svc.common#MailFromDomainNotVerifiedException":
+    case "com.amazonaws.ses#MailFromDomainNotVerifiedException":
       response = {
         ...(await deserializeAws_queryMailFromDomainNotVerifiedExceptionResponse(
           parsedOutput,
@@ -5086,7 +5086,7 @@ const deserializeAws_querySendRawEmailCommandError = async (
       };
       break;
     case "MessageRejected":
-    case "com.amazon.bacon.frontend.svc.common#MessageRejected":
+    case "com.amazonaws.ses#MessageRejected":
       response = {
         ...(await deserializeAws_queryMessageRejectedResponse(
           parsedOutput,
@@ -5148,7 +5148,7 @@ const deserializeAws_querySendTemplatedEmailCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccountSendingPausedException":
-    case "com.amazon.bacon.frontend.svc.common#AccountSendingPausedException":
+    case "com.amazonaws.ses#AccountSendingPausedException":
       response = {
         ...(await deserializeAws_queryAccountSendingPausedExceptionResponse(
           parsedOutput,
@@ -5159,7 +5159,7 @@ const deserializeAws_querySendTemplatedEmailCommandError = async (
       };
       break;
     case "ConfigurationSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#ConfigurationSetDoesNotExistException":
+    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -5170,7 +5170,7 @@ const deserializeAws_querySendTemplatedEmailCommandError = async (
       };
       break;
     case "ConfigurationSetSendingPausedException":
-    case "com.amazon.bacon.frontend.svc.common#ConfigurationSetSendingPausedException":
+    case "com.amazonaws.ses#ConfigurationSetSendingPausedException":
       response = {
         ...(await deserializeAws_queryConfigurationSetSendingPausedExceptionResponse(
           parsedOutput,
@@ -5181,7 +5181,7 @@ const deserializeAws_querySendTemplatedEmailCommandError = async (
       };
       break;
     case "MailFromDomainNotVerifiedException":
-    case "com.amazon.bacon.frontend.svc.common#MailFromDomainNotVerifiedException":
+    case "com.amazonaws.ses#MailFromDomainNotVerifiedException":
       response = {
         ...(await deserializeAws_queryMailFromDomainNotVerifiedExceptionResponse(
           parsedOutput,
@@ -5192,7 +5192,7 @@ const deserializeAws_querySendTemplatedEmailCommandError = async (
       };
       break;
     case "MessageRejected":
-    case "com.amazon.bacon.frontend.svc.common#MessageRejected":
+    case "com.amazonaws.ses#MessageRejected":
       response = {
         ...(await deserializeAws_queryMessageRejectedResponse(
           parsedOutput,
@@ -5203,7 +5203,7 @@ const deserializeAws_querySendTemplatedEmailCommandError = async (
       };
       break;
     case "TemplateDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#TemplateDoesNotExistException":
+    case "com.amazonaws.ses#TemplateDoesNotExistException":
       response = {
         ...(await deserializeAws_queryTemplateDoesNotExistExceptionResponse(
           parsedOutput,
@@ -5268,7 +5268,7 @@ const deserializeAws_querySetActiveReceiptRuleSetCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RuleSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#RuleSetDoesNotExistException":
+    case "com.amazonaws.ses#RuleSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -5603,7 +5603,7 @@ const deserializeAws_querySetReceiptRulePositionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RuleDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#RuleDoesNotExistException":
+    case "com.amazonaws.ses#RuleDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleDoesNotExistExceptionResponse(
           parsedOutput,
@@ -5614,7 +5614,7 @@ const deserializeAws_querySetReceiptRulePositionCommandError = async (
       };
       break;
     case "RuleSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#RuleSetDoesNotExistException":
+    case "com.amazonaws.ses#RuleSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -5676,7 +5676,7 @@ const deserializeAws_queryTestRenderTemplateCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRenderingParameterException":
-    case "com.amazon.bacon.frontend.svc.common#InvalidRenderingParameterException":
+    case "com.amazonaws.ses#InvalidRenderingParameterException":
       response = {
         ...(await deserializeAws_queryInvalidRenderingParameterExceptionResponse(
           parsedOutput,
@@ -5687,7 +5687,7 @@ const deserializeAws_queryTestRenderTemplateCommandError = async (
       };
       break;
     case "MissingRenderingAttributeException":
-    case "com.amazon.bacon.frontend.svc.common#MissingRenderingAttributeException":
+    case "com.amazonaws.ses#MissingRenderingAttributeException":
       response = {
         ...(await deserializeAws_queryMissingRenderingAttributeExceptionResponse(
           parsedOutput,
@@ -5698,7 +5698,7 @@ const deserializeAws_queryTestRenderTemplateCommandError = async (
       };
       break;
     case "TemplateDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#TemplateDoesNotExistException":
+    case "com.amazonaws.ses#TemplateDoesNotExistException":
       response = {
         ...(await deserializeAws_queryTemplateDoesNotExistExceptionResponse(
           parsedOutput,
@@ -5810,7 +5810,7 @@ const deserializeAws_queryUpdateConfigurationSetEventDestinationCommandError = a
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#ConfigurationSetDoesNotExistException":
+    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -5821,7 +5821,7 @@ const deserializeAws_queryUpdateConfigurationSetEventDestinationCommandError = a
       };
       break;
     case "EventDestinationDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#EventDestinationDoesNotExistException":
+    case "com.amazonaws.ses#EventDestinationDoesNotExistException":
       response = {
         ...(await deserializeAws_queryEventDestinationDoesNotExistExceptionResponse(
           parsedOutput,
@@ -5832,7 +5832,7 @@ const deserializeAws_queryUpdateConfigurationSetEventDestinationCommandError = a
       };
       break;
     case "InvalidCloudWatchDestinationException":
-    case "com.amazon.bacon.frontend.svc.common#InvalidCloudWatchDestinationException":
+    case "com.amazonaws.ses#InvalidCloudWatchDestinationException":
       response = {
         ...(await deserializeAws_queryInvalidCloudWatchDestinationExceptionResponse(
           parsedOutput,
@@ -5843,7 +5843,7 @@ const deserializeAws_queryUpdateConfigurationSetEventDestinationCommandError = a
       };
       break;
     case "InvalidFirehoseDestinationException":
-    case "com.amazon.bacon.frontend.svc.common#InvalidFirehoseDestinationException":
+    case "com.amazonaws.ses#InvalidFirehoseDestinationException":
       response = {
         ...(await deserializeAws_queryInvalidFirehoseDestinationExceptionResponse(
           parsedOutput,
@@ -5854,7 +5854,7 @@ const deserializeAws_queryUpdateConfigurationSetEventDestinationCommandError = a
       };
       break;
     case "InvalidSNSDestinationException":
-    case "com.amazon.bacon.frontend.svc.common#InvalidSNSDestinationException":
+    case "com.amazonaws.ses#InvalidSNSDestinationException":
       response = {
         ...(await deserializeAws_queryInvalidSNSDestinationExceptionResponse(
           parsedOutput,
@@ -5912,7 +5912,7 @@ const deserializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommandE
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#ConfigurationSetDoesNotExistException":
+    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -5970,7 +5970,7 @@ const deserializeAws_queryUpdateConfigurationSetSendingEnabledCommandError = asy
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#ConfigurationSetDoesNotExistException":
+    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -6035,7 +6035,7 @@ const deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommandError = as
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#ConfigurationSetDoesNotExistException":
+    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -6046,7 +6046,7 @@ const deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommandError = as
       };
       break;
     case "InvalidTrackingOptionsException":
-    case "com.amazon.bacon.frontend.svc.common#InvalidTrackingOptionsException":
+    case "com.amazonaws.ses#InvalidTrackingOptionsException":
       response = {
         ...(await deserializeAws_queryInvalidTrackingOptionsExceptionResponse(
           parsedOutput,
@@ -6057,7 +6057,7 @@ const deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommandError = as
       };
       break;
     case "TrackingOptionsDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#TrackingOptionsDoesNotExistException":
+    case "com.amazonaws.ses#TrackingOptionsDoesNotExistException":
       response = {
         ...(await deserializeAws_queryTrackingOptionsDoesNotExistExceptionResponse(
           parsedOutput,
@@ -6115,7 +6115,7 @@ const deserializeAws_queryUpdateCustomVerificationEmailTemplateCommandError = as
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomVerificationEmailInvalidContentException":
-    case "com.amazon.bacon.frontend.svc.common#CustomVerificationEmailInvalidContentException":
+    case "com.amazonaws.ses#CustomVerificationEmailInvalidContentException":
       response = {
         ...(await deserializeAws_queryCustomVerificationEmailInvalidContentExceptionResponse(
           parsedOutput,
@@ -6126,7 +6126,7 @@ const deserializeAws_queryUpdateCustomVerificationEmailTemplateCommandError = as
       };
       break;
     case "CustomVerificationEmailTemplateDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#CustomVerificationEmailTemplateDoesNotExistException":
+    case "com.amazonaws.ses#CustomVerificationEmailTemplateDoesNotExistException":
       response = {
         ...(await deserializeAws_queryCustomVerificationEmailTemplateDoesNotExistExceptionResponse(
           parsedOutput,
@@ -6137,7 +6137,7 @@ const deserializeAws_queryUpdateCustomVerificationEmailTemplateCommandError = as
       };
       break;
     case "FromEmailAddressNotVerifiedException":
-    case "com.amazon.bacon.frontend.svc.common#FromEmailAddressNotVerifiedException":
+    case "com.amazonaws.ses#FromEmailAddressNotVerifiedException":
       response = {
         ...(await deserializeAws_queryFromEmailAddressNotVerifiedExceptionResponse(
           parsedOutput,
@@ -6199,7 +6199,7 @@ const deserializeAws_queryUpdateReceiptRuleCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLambdaFunctionException":
-    case "com.amazon.bacon.frontend.svc.common#InvalidLambdaFunctionException":
+    case "com.amazonaws.ses#InvalidLambdaFunctionException":
       response = {
         ...(await deserializeAws_queryInvalidLambdaFunctionExceptionResponse(
           parsedOutput,
@@ -6210,7 +6210,7 @@ const deserializeAws_queryUpdateReceiptRuleCommandError = async (
       };
       break;
     case "InvalidS3ConfigurationException":
-    case "com.amazon.bacon.frontend.svc.common#InvalidS3ConfigurationException":
+    case "com.amazonaws.ses#InvalidS3ConfigurationException":
       response = {
         ...(await deserializeAws_queryInvalidS3ConfigurationExceptionResponse(
           parsedOutput,
@@ -6221,7 +6221,7 @@ const deserializeAws_queryUpdateReceiptRuleCommandError = async (
       };
       break;
     case "InvalidSnsTopicException":
-    case "com.amazon.bacon.frontend.svc.common#InvalidSnsTopicException":
+    case "com.amazonaws.ses#InvalidSnsTopicException":
       response = {
         ...(await deserializeAws_queryInvalidSnsTopicExceptionResponse(
           parsedOutput,
@@ -6232,7 +6232,7 @@ const deserializeAws_queryUpdateReceiptRuleCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.bacon.frontend.svc.common#LimitExceededException":
+    case "com.amazonaws.ses#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(
           parsedOutput,
@@ -6243,7 +6243,7 @@ const deserializeAws_queryUpdateReceiptRuleCommandError = async (
       };
       break;
     case "RuleDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#RuleDoesNotExistException":
+    case "com.amazonaws.ses#RuleDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleDoesNotExistExceptionResponse(
           parsedOutput,
@@ -6254,7 +6254,7 @@ const deserializeAws_queryUpdateReceiptRuleCommandError = async (
       };
       break;
     case "RuleSetDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#RuleSetDoesNotExistException":
+    case "com.amazonaws.ses#RuleSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(
           parsedOutput,
@@ -6316,7 +6316,7 @@ const deserializeAws_queryUpdateTemplateCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTemplateException":
-    case "com.amazon.bacon.frontend.svc.common#InvalidTemplateException":
+    case "com.amazonaws.ses#InvalidTemplateException":
       response = {
         ...(await deserializeAws_queryInvalidTemplateExceptionResponse(
           parsedOutput,
@@ -6327,7 +6327,7 @@ const deserializeAws_queryUpdateTemplateCommandError = async (
       };
       break;
     case "TemplateDoesNotExistException":
-    case "com.amazon.bacon.frontend.svc.common#TemplateDoesNotExistException":
+    case "com.amazonaws.ses#TemplateDoesNotExistException":
       response = {
         ...(await deserializeAws_queryTemplateDoesNotExistExceptionResponse(
           parsedOutput,
@@ -7165,20 +7165,6 @@ const deserializeAws_queryTrackingOptionsDoesNotExistExceptionResponse = async (
     ...deserialized
   };
   return contents;
-};
-
-const serializeAws_queryMessageTag = (
-  input: MessageTag,
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  if (input.Name !== undefined) {
-    entries["Name"] = input.Name;
-  }
-  if (input.Value !== undefined) {
-    entries["Value"] = input.Value;
-  }
-  return entries;
 };
 
 const serializeAws_queryAddHeaderAction = (
@@ -8228,6 +8214,20 @@ const serializeAws_queryMessageDsn = (
   return entries;
 };
 
+const serializeAws_queryMessageTag = (
+  input: MessageTag,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Name !== undefined) {
+    entries["Name"] = input.Name;
+  }
+  if (input.Value !== undefined) {
+    entries["Value"] = input.Value;
+  }
+  return entries;
+};
+
 const serializeAws_queryMessageTagList = (
   input: MessageTag[],
   context: __SerdeContext
@@ -8569,31 +8569,6 @@ const serializeAws_queryS3Action = (
   }
   if (input.TopicArn !== undefined) {
     entries["TopicArn"] = input.TopicArn;
-  }
-  return entries;
-};
-
-const serializeAws_querySNSAction = (
-  input: SNSAction,
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  if (input.Encoding !== undefined) {
-    entries["Encoding"] = input.Encoding;
-  }
-  if (input.TopicArn !== undefined) {
-    entries["TopicArn"] = input.TopicArn;
-  }
-  return entries;
-};
-
-const serializeAws_querySNSDestination = (
-  input: SNSDestination,
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  if (input.TopicARN !== undefined) {
-    entries["TopicARN"] = input.TopicARN;
   }
   return entries;
 };
@@ -8986,6 +8961,31 @@ const serializeAws_querySetReceiptRulePositionRequest = (
   }
   if (input.RuleSetName !== undefined) {
     entries["RuleSetName"] = input.RuleSetName;
+  }
+  return entries;
+};
+
+const serializeAws_querySNSAction = (
+  input: SNSAction,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Encoding !== undefined) {
+    entries["Encoding"] = input.Encoding;
+  }
+  if (input.TopicArn !== undefined) {
+    entries["TopicArn"] = input.TopicArn;
+  }
+  return entries;
+};
+
+const serializeAws_querySNSDestination = (
+  input: SNSDestination,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TopicARN !== undefined) {
+    entries["TopicARN"] = input.TopicARN;
   }
   return entries;
 };
@@ -9497,6 +9497,15 @@ const deserializeAws_queryConfigurationSetDoesNotExistException = (
   return contents;
 };
 
+const deserializeAws_queryConfigurationSets = (
+  output: any,
+  context: __SerdeContext
+): ConfigurationSet[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryConfigurationSet(entry, context)
+  );
+};
+
 const deserializeAws_queryConfigurationSetSendingPausedException = (
   output: any,
   context: __SerdeContext
@@ -9513,15 +9522,6 @@ const deserializeAws_queryConfigurationSetSendingPausedException = (
     contents.message = output["message"];
   }
   return contents;
-};
-
-const deserializeAws_queryConfigurationSets = (
-  output: any,
-  context: __SerdeContext
-): ConfigurationSet[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryConfigurationSet(entry, context)
-  );
 };
 
 const deserializeAws_queryCreateConfigurationSetEventDestinationResponse = (
@@ -11314,38 +11314,6 @@ const deserializeAws_queryS3Action = (
   return contents;
 };
 
-const deserializeAws_querySNSAction = (
-  output: any,
-  context: __SerdeContext
-): SNSAction => {
-  let contents: any = {
-    __type: "SNSAction",
-    Encoding: undefined,
-    TopicArn: undefined
-  };
-  if (output["Encoding"] !== undefined) {
-    contents.Encoding = output["Encoding"];
-  }
-  if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = output["TopicArn"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySNSDestination = (
-  output: any,
-  context: __SerdeContext
-): SNSDestination => {
-  let contents: any = {
-    __type: "SNSDestination",
-    TopicARN: undefined
-  };
-  if (output["TopicARN"] !== undefined) {
-    contents.TopicARN = output["TopicARN"];
-  }
-  return contents;
-};
-
 const deserializeAws_querySendBounceResponse = (
   output: any,
   context: __SerdeContext
@@ -11545,6 +11513,38 @@ const deserializeAws_querySetReceiptRulePositionResponse = (
   let contents: any = {
     __type: "SetReceiptRulePositionResponse"
   };
+  return contents;
+};
+
+const deserializeAws_querySNSAction = (
+  output: any,
+  context: __SerdeContext
+): SNSAction => {
+  let contents: any = {
+    __type: "SNSAction",
+    Encoding: undefined,
+    TopicArn: undefined
+  };
+  if (output["Encoding"] !== undefined) {
+    contents.Encoding = output["Encoding"];
+  }
+  if (output["TopicArn"] !== undefined) {
+    contents.TopicArn = output["TopicArn"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySNSDestination = (
+  output: any,
+  context: __SerdeContext
+): SNSDestination => {
+  let contents: any = {
+    __type: "SNSDestination",
+    TopicARN: undefined
+  };
+  if (output["TopicARN"] !== undefined) {
+    contents.TopicARN = output["TopicARN"];
+  }
   return contents;
 };
 

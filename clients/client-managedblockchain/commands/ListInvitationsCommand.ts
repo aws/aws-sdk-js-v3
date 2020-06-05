@@ -5,9 +5,9 @@ import {
 } from "../ManagedBlockchainClient";
 import { ListInvitationsInput, ListInvitationsOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListInvitationsCommand,
-  serializeAws_restJson1_1ListInvitationsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListInvitationsCommand,
+  serializeAws_restJson1ListInvitationsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class ListInvitationsCommand extends $Command<
     input: ListInvitationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListInvitationsCommand(input, context);
+    return serializeAws_restJson1ListInvitationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListInvitationsCommandOutput> {
-    return deserializeAws_restJson1_1ListInvitationsCommand(output, context);
+    return deserializeAws_restJson1ListInvitationsCommand(output, context);
   }
 
   // Start section: command_body_extra

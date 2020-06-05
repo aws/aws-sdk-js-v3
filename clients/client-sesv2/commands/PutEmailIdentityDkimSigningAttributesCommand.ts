@@ -8,9 +8,9 @@ import {
   PutEmailIdentityDkimSigningAttributesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutEmailIdentityDkimSigningAttributesCommand,
-  serializeAws_restJson1_1PutEmailIdentityDkimSigningAttributesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutEmailIdentityDkimSigningAttributesCommand,
+  serializeAws_restJson1PutEmailIdentityDkimSigningAttributesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -76,7 +76,7 @@ export class PutEmailIdentityDkimSigningAttributesCommand extends $Command<
     input: PutEmailIdentityDkimSigningAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutEmailIdentityDkimSigningAttributesCommand(
+    return serializeAws_restJson1PutEmailIdentityDkimSigningAttributesCommand(
       input,
       context
     );
@@ -86,7 +86,7 @@ export class PutEmailIdentityDkimSigningAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutEmailIdentityDkimSigningAttributesCommandOutput> {
-    return deserializeAws_restJson1_1PutEmailIdentityDkimSigningAttributesCommand(
+    return deserializeAws_restJson1PutEmailIdentityDkimSigningAttributesCommand(
       output,
       context
     );

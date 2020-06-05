@@ -5,9 +5,9 @@ import {
 } from "../ResourceGroupsClient";
 import { GetGroupQueryInput, GetGroupQueryOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetGroupQueryCommand,
-  serializeAws_restJson1_1GetGroupQueryCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetGroupQueryCommand,
+  serializeAws_restJson1GetGroupQueryCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetGroupQueryCommand extends $Command<
     input: GetGroupQueryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetGroupQueryCommand(input, context);
+    return serializeAws_restJson1GetGroupQueryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetGroupQueryCommandOutput> {
-    return deserializeAws_restJson1_1GetGroupQueryCommand(output, context);
+    return deserializeAws_restJson1GetGroupQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

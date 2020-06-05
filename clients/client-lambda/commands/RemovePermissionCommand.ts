@@ -5,9 +5,9 @@ import {
 } from "../LambdaClient";
 import { RemovePermissionRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1RemovePermissionCommand,
-  serializeAws_restJson1_1RemovePermissionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1RemovePermissionCommand,
+  serializeAws_restJson1RemovePermissionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class RemovePermissionCommand extends $Command<
     input: RemovePermissionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RemovePermissionCommand(input, context);
+    return serializeAws_restJson1RemovePermissionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemovePermissionCommandOutput> {
-    return deserializeAws_restJson1_1RemovePermissionCommand(output, context);
+    return deserializeAws_restJson1RemovePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

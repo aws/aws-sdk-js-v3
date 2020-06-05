@@ -5,9 +5,9 @@ import {
 } from "../BackupClient";
 import { DeleteBackupVaultNotificationsInput } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteBackupVaultNotificationsCommand,
-  serializeAws_restJson1_1DeleteBackupVaultNotificationsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteBackupVaultNotificationsCommand,
+  serializeAws_restJson1DeleteBackupVaultNotificationsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class DeleteBackupVaultNotificationsCommand extends $Command<
     input: DeleteBackupVaultNotificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteBackupVaultNotificationsCommand(
+    return serializeAws_restJson1DeleteBackupVaultNotificationsCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class DeleteBackupVaultNotificationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBackupVaultNotificationsCommandOutput> {
-    return deserializeAws_restJson1_1DeleteBackupVaultNotificationsCommand(
+    return deserializeAws_restJson1DeleteBackupVaultNotificationsCommand(
       output,
       context
     );

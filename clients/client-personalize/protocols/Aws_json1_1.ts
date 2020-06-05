@@ -825,21 +825,6 @@ export const serializeAws_json1_1ListSchemasCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListSolutionVersionsCommand = async (
-  input: ListSolutionVersionsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.ListSolutionVersions"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListSolutionVersionsRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1ListSolutionsCommand = async (
   input: ListSolutionsCommandInput,
   context: __SerdeContext
@@ -851,6 +836,21 @@ export const serializeAws_json1_1ListSolutionsCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListSolutionsRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListSolutionVersionsCommand = async (
+  input: ListSolutionVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonPersonalize.ListSolutionVersions"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1ListSolutionVersionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -909,7 +909,7 @@ const deserializeAws_json1_1CreateBatchInferenceJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -920,7 +920,7 @@ const deserializeAws_json1_1CreateBatchInferenceJobCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.services.personalize.exceptions#LimitExceededException":
+    case "com.amazonaws.personalize#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -931,7 +931,7 @@ const deserializeAws_json1_1CreateBatchInferenceJobCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceAlreadyExistsException":
+    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -942,7 +942,7 @@ const deserializeAws_json1_1CreateBatchInferenceJobCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -953,7 +953,7 @@ const deserializeAws_json1_1CreateBatchInferenceJobCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1013,7 +1013,7 @@ const deserializeAws_json1_1CreateCampaignCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1024,7 +1024,7 @@ const deserializeAws_json1_1CreateCampaignCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.services.personalize.exceptions#LimitExceededException":
+    case "com.amazonaws.personalize#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1035,7 +1035,7 @@ const deserializeAws_json1_1CreateCampaignCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceAlreadyExistsException":
+    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1046,7 +1046,7 @@ const deserializeAws_json1_1CreateCampaignCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1057,7 +1057,7 @@ const deserializeAws_json1_1CreateCampaignCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1117,7 +1117,7 @@ const deserializeAws_json1_1CreateDatasetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1128,7 +1128,7 @@ const deserializeAws_json1_1CreateDatasetCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.services.personalize.exceptions#LimitExceededException":
+    case "com.amazonaws.personalize#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1139,7 +1139,7 @@ const deserializeAws_json1_1CreateDatasetCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceAlreadyExistsException":
+    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1150,7 +1150,7 @@ const deserializeAws_json1_1CreateDatasetCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1161,7 +1161,7 @@ const deserializeAws_json1_1CreateDatasetCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1224,7 +1224,7 @@ const deserializeAws_json1_1CreateDatasetGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1235,7 +1235,7 @@ const deserializeAws_json1_1CreateDatasetGroupCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.services.personalize.exceptions#LimitExceededException":
+    case "com.amazonaws.personalize#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1246,7 +1246,7 @@ const deserializeAws_json1_1CreateDatasetGroupCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceAlreadyExistsException":
+    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1312,7 +1312,7 @@ const deserializeAws_json1_1CreateDatasetImportJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1323,7 +1323,7 @@ const deserializeAws_json1_1CreateDatasetImportJobCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.services.personalize.exceptions#LimitExceededException":
+    case "com.amazonaws.personalize#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1334,7 +1334,7 @@ const deserializeAws_json1_1CreateDatasetImportJobCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceAlreadyExistsException":
+    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1345,7 +1345,7 @@ const deserializeAws_json1_1CreateDatasetImportJobCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1356,7 +1356,7 @@ const deserializeAws_json1_1CreateDatasetImportJobCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1419,7 +1419,7 @@ const deserializeAws_json1_1CreateEventTrackerCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1430,7 +1430,7 @@ const deserializeAws_json1_1CreateEventTrackerCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.services.personalize.exceptions#LimitExceededException":
+    case "com.amazonaws.personalize#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1441,7 +1441,7 @@ const deserializeAws_json1_1CreateEventTrackerCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceAlreadyExistsException":
+    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1452,7 +1452,7 @@ const deserializeAws_json1_1CreateEventTrackerCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1463,7 +1463,7 @@ const deserializeAws_json1_1CreateEventTrackerCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1523,7 +1523,7 @@ const deserializeAws_json1_1CreateSchemaCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1534,7 +1534,7 @@ const deserializeAws_json1_1CreateSchemaCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.services.personalize.exceptions#LimitExceededException":
+    case "com.amazonaws.personalize#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1545,7 +1545,7 @@ const deserializeAws_json1_1CreateSchemaCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceAlreadyExistsException":
+    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1605,7 +1605,7 @@ const deserializeAws_json1_1CreateSolutionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1616,7 +1616,7 @@ const deserializeAws_json1_1CreateSolutionCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.services.personalize.exceptions#LimitExceededException":
+    case "com.amazonaws.personalize#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1627,7 +1627,7 @@ const deserializeAws_json1_1CreateSolutionCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceAlreadyExistsException":
+    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1638,7 +1638,7 @@ const deserializeAws_json1_1CreateSolutionCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1649,7 +1649,7 @@ const deserializeAws_json1_1CreateSolutionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1712,7 +1712,7 @@ const deserializeAws_json1_1CreateSolutionVersionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1723,7 +1723,7 @@ const deserializeAws_json1_1CreateSolutionVersionCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1734,7 +1734,7 @@ const deserializeAws_json1_1CreateSolutionVersionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1790,7 +1790,7 @@ const deserializeAws_json1_1DeleteCampaignCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1801,7 +1801,7 @@ const deserializeAws_json1_1DeleteCampaignCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1812,7 +1812,7 @@ const deserializeAws_json1_1DeleteCampaignCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1868,7 +1868,7 @@ const deserializeAws_json1_1DeleteDatasetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1879,7 +1879,7 @@ const deserializeAws_json1_1DeleteDatasetCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1890,7 +1890,7 @@ const deserializeAws_json1_1DeleteDatasetCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1949,7 +1949,7 @@ const deserializeAws_json1_1DeleteDatasetGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -1960,7 +1960,7 @@ const deserializeAws_json1_1DeleteDatasetGroupCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -1971,7 +1971,7 @@ const deserializeAws_json1_1DeleteDatasetGroupCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2030,7 +2030,7 @@ const deserializeAws_json1_1DeleteEventTrackerCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2041,7 +2041,7 @@ const deserializeAws_json1_1DeleteEventTrackerCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2052,7 +2052,7 @@ const deserializeAws_json1_1DeleteEventTrackerCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2108,7 +2108,7 @@ const deserializeAws_json1_1DeleteSchemaCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2119,7 +2119,7 @@ const deserializeAws_json1_1DeleteSchemaCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2130,7 +2130,7 @@ const deserializeAws_json1_1DeleteSchemaCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2186,7 +2186,7 @@ const deserializeAws_json1_1DeleteSolutionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2197,7 +2197,7 @@ const deserializeAws_json1_1DeleteSolutionCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2208,7 +2208,7 @@ const deserializeAws_json1_1DeleteSolutionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2268,7 +2268,7 @@ const deserializeAws_json1_1DescribeAlgorithmCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2279,7 +2279,7 @@ const deserializeAws_json1_1DescribeAlgorithmCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2345,7 +2345,7 @@ const deserializeAws_json1_1DescribeBatchInferenceJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2356,7 +2356,7 @@ const deserializeAws_json1_1DescribeBatchInferenceJobCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2416,7 +2416,7 @@ const deserializeAws_json1_1DescribeCampaignCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2427,7 +2427,7 @@ const deserializeAws_json1_1DescribeCampaignCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2487,7 +2487,7 @@ const deserializeAws_json1_1DescribeDatasetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2498,7 +2498,7 @@ const deserializeAws_json1_1DescribeDatasetCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2561,7 +2561,7 @@ const deserializeAws_json1_1DescribeDatasetGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2572,7 +2572,7 @@ const deserializeAws_json1_1DescribeDatasetGroupCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2638,7 +2638,7 @@ const deserializeAws_json1_1DescribeDatasetImportJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2649,7 +2649,7 @@ const deserializeAws_json1_1DescribeDatasetImportJobCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2712,7 +2712,7 @@ const deserializeAws_json1_1DescribeEventTrackerCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2723,7 +2723,7 @@ const deserializeAws_json1_1DescribeEventTrackerCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2789,7 +2789,7 @@ const deserializeAws_json1_1DescribeFeatureTransformationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2800,7 +2800,7 @@ const deserializeAws_json1_1DescribeFeatureTransformationCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2860,7 +2860,7 @@ const deserializeAws_json1_1DescribeRecipeCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2871,7 +2871,7 @@ const deserializeAws_json1_1DescribeRecipeCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2931,7 +2931,7 @@ const deserializeAws_json1_1DescribeSchemaCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -2942,7 +2942,7 @@ const deserializeAws_json1_1DescribeSchemaCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3002,7 +3002,7 @@ const deserializeAws_json1_1DescribeSolutionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -3013,7 +3013,7 @@ const deserializeAws_json1_1DescribeSolutionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3079,7 +3079,7 @@ const deserializeAws_json1_1DescribeSolutionVersionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -3090,7 +3090,7 @@ const deserializeAws_json1_1DescribeSolutionVersionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3153,7 +3153,7 @@ const deserializeAws_json1_1GetSolutionMetricsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -3164,7 +3164,7 @@ const deserializeAws_json1_1GetSolutionMetricsCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -3175,7 +3175,7 @@ const deserializeAws_json1_1GetSolutionMetricsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3241,7 +3241,7 @@ const deserializeAws_json1_1ListBatchInferenceJobsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -3252,7 +3252,7 @@ const deserializeAws_json1_1ListBatchInferenceJobsCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidNextTokenException":
+    case "com.amazonaws.personalize#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -3312,7 +3312,7 @@ const deserializeAws_json1_1ListCampaignsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -3323,7 +3323,7 @@ const deserializeAws_json1_1ListCampaignsCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidNextTokenException":
+    case "com.amazonaws.personalize#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -3383,7 +3383,7 @@ const deserializeAws_json1_1ListDatasetGroupsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNextTokenException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidNextTokenException":
+    case "com.amazonaws.personalize#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -3446,7 +3446,7 @@ const deserializeAws_json1_1ListDatasetImportJobsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -3457,7 +3457,7 @@ const deserializeAws_json1_1ListDatasetImportJobsCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidNextTokenException":
+    case "com.amazonaws.personalize#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -3517,7 +3517,7 @@ const deserializeAws_json1_1ListDatasetsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -3528,7 +3528,7 @@ const deserializeAws_json1_1ListDatasetsCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidNextTokenException":
+    case "com.amazonaws.personalize#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -3588,7 +3588,7 @@ const deserializeAws_json1_1ListEventTrackersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -3599,7 +3599,7 @@ const deserializeAws_json1_1ListEventTrackersCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidNextTokenException":
+    case "com.amazonaws.personalize#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -3659,7 +3659,7 @@ const deserializeAws_json1_1ListRecipesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNextTokenException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidNextTokenException":
+    case "com.amazonaws.personalize#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -3719,7 +3719,78 @@ const deserializeAws_json1_1ListSchemasCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNextTokenException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidNextTokenException":
+    case "com.amazonaws.personalize#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListSolutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSolutionsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListSolutionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListSolutionsResponse(data, context);
+  const response: ListSolutionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListSolutionsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListSolutionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSolutionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.personalize#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -3782,7 +3853,7 @@ const deserializeAws_json1_1ListSolutionVersionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -3793,7 +3864,7 @@ const deserializeAws_json1_1ListSolutionVersionsCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidNextTokenException":
+    case "com.amazonaws.personalize#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -3804,80 +3875,9 @@ const deserializeAws_json1_1ListSolutionVersionsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1ListSolutionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSolutionsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListSolutionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1ListSolutionsResponse(data, context);
-  const response: ListSolutionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "ListSolutionsResponse",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1ListSolutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSolutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidNextTokenException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
           context
         )),
@@ -3935,7 +3935,7 @@ const deserializeAws_json1_1UpdateCampaignCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
-    case "com.amazonaws.services.personalize.exceptions#InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -3946,7 +3946,7 @@ const deserializeAws_json1_1UpdateCampaignCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -3957,7 +3957,7 @@ const deserializeAws_json1_1UpdateCampaignCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4744,17 +4744,6 @@ const serializeAws_json1_1ListSchemasRequest = (
   };
 };
 
-const serializeAws_json1_1ListSolutionVersionsRequest = (
-  input: ListSolutionVersionsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.solutionArn !== undefined && { solutionArn: input.solutionArn })
-  };
-};
-
 const serializeAws_json1_1ListSolutionsRequest = (
   input: ListSolutionsRequest,
   context: __SerdeContext
@@ -4765,6 +4754,17 @@ const serializeAws_json1_1ListSolutionsRequest = (
     }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
+};
+
+const serializeAws_json1_1ListSolutionVersionsRequest = (
+  input: ListSolutionVersionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.solutionArn !== undefined && { solutionArn: input.solutionArn })
   };
 };
 
@@ -5028,6 +5028,15 @@ const deserializeAws_json1_1BatchInferenceJobOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1BatchInferenceJobs = (
+  output: any,
+  context: __SerdeContext
+): BatchInferenceJobSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1BatchInferenceJobSummary(entry, context)
+  );
+};
+
 const deserializeAws_json1_1BatchInferenceJobSummary = (
   output: any,
   context: __SerdeContext
@@ -5061,15 +5070,6 @@ const deserializeAws_json1_1BatchInferenceJobSummary = (
         ? output.status
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1BatchInferenceJobs = (
-  output: any,
-  context: __SerdeContext
-): BatchInferenceJobSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1BatchInferenceJobSummary(entry, context)
-  );
 };
 
 const deserializeAws_json1_1Campaign = (
@@ -5122,6 +5122,15 @@ const deserializeAws_json1_1Campaign = (
         ? output.status
         : undefined
   } as any;
+};
+
+const deserializeAws_json1_1Campaigns = (
+  output: any,
+  context: __SerdeContext
+): CampaignSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1CampaignSummary(entry, context)
+  );
 };
 
 const deserializeAws_json1_1CampaignSummary = (
@@ -5192,15 +5201,6 @@ const deserializeAws_json1_1CampaignUpdateSummary = (
         ? output.status
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1Campaigns = (
-  output: any,
-  context: __SerdeContext
-): CampaignSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1CampaignSummary(entry, context)
-  );
 };
 
 const deserializeAws_json1_1CategoricalHyperParameterRange = (
@@ -5390,19 +5390,6 @@ const deserializeAws_json1_1CreateSolutionVersionResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1DataSource = (
-  output: any,
-  context: __SerdeContext
-): DataSource => {
-  return {
-    __type: "DataSource",
-    dataLocation:
-      output.dataLocation !== undefined && output.dataLocation !== null
-        ? output.dataLocation
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1Dataset = (
   output: any,
   context: __SerdeContext
@@ -5487,6 +5474,15 @@ const deserializeAws_json1_1DatasetGroup = (
   } as any;
 };
 
+const deserializeAws_json1_1DatasetGroups = (
+  output: any,
+  context: __SerdeContext
+): DatasetGroupSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1DatasetGroupSummary(entry, context)
+  );
+};
+
 const deserializeAws_json1_1DatasetGroupSummary = (
   output: any,
   context: __SerdeContext
@@ -5519,15 +5515,6 @@ const deserializeAws_json1_1DatasetGroupSummary = (
         ? output.status
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1DatasetGroups = (
-  output: any,
-  context: __SerdeContext
-): DatasetGroupSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1DatasetGroupSummary(entry, context)
-  );
 };
 
 const deserializeAws_json1_1DatasetImportJob = (
@@ -5577,6 +5564,15 @@ const deserializeAws_json1_1DatasetImportJob = (
   } as any;
 };
 
+const deserializeAws_json1_1DatasetImportJobs = (
+  output: any,
+  context: __SerdeContext
+): DatasetImportJobSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1DatasetImportJobSummary(entry, context)
+  );
+};
+
 const deserializeAws_json1_1DatasetImportJobSummary = (
   output: any,
   context: __SerdeContext
@@ -5612,12 +5608,12 @@ const deserializeAws_json1_1DatasetImportJobSummary = (
   } as any;
 };
 
-const deserializeAws_json1_1DatasetImportJobs = (
+const deserializeAws_json1_1Datasets = (
   output: any,
   context: __SerdeContext
-): DatasetImportJobSummary[] => {
+): DatasetSummary[] => {
   return (output || []).map((entry: any) =>
-    deserializeAws_json1_1DatasetImportJobSummary(entry, context)
+    deserializeAws_json1_1DatasetSummary(entry, context)
   );
 };
 
@@ -5711,13 +5707,17 @@ const deserializeAws_json1_1DatasetSummary = (
   } as any;
 };
 
-const deserializeAws_json1_1Datasets = (
+const deserializeAws_json1_1DataSource = (
   output: any,
   context: __SerdeContext
-): DatasetSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1DatasetSummary(entry, context)
-  );
+): DataSource => {
+  return {
+    __type: "DataSource",
+    dataLocation:
+      output.dataLocation !== undefined && output.dataLocation !== null
+        ? output.dataLocation
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DefaultCategoricalHyperParameterRange = (
@@ -6060,6 +6060,15 @@ const deserializeAws_json1_1EventTracker = (
   } as any;
 };
 
+const deserializeAws_json1_1EventTrackers = (
+  output: any,
+  context: __SerdeContext
+): EventTrackerSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1EventTrackerSummary(entry, context)
+  );
+};
+
 const deserializeAws_json1_1EventTrackerSummary = (
   output: any,
   context: __SerdeContext
@@ -6088,15 +6097,6 @@ const deserializeAws_json1_1EventTrackerSummary = (
         ? output.status
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1EventTrackers = (
-  output: any,
-  context: __SerdeContext
-): EventTrackerSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1EventTrackerSummary(entry, context)
-  );
 };
 
 const deserializeAws_json1_1FeatureTransformation = (
@@ -6327,6 +6327,45 @@ const deserializeAws_json1_1IntegerHyperParameterRanges = (
   );
 };
 
+const deserializeAws_json1_1InvalidInputException = (
+  output: any,
+  context: __SerdeContext
+): InvalidInputException => {
+  return {
+    __type: "InvalidInputException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidNextTokenException = (
+  output: any,
+  context: __SerdeContext
+): InvalidNextTokenException => {
+  return {
+    __type: "InvalidNextTokenException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1LimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): LimitExceededException => {
+  return {
+    __type: "LimitExceededException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1ListBatchInferenceJobsResponse = (
   output: any,
   context: __SerdeContext
@@ -6471,6 +6510,23 @@ const deserializeAws_json1_1ListSchemasResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListSolutionsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListSolutionsResponse => {
+  return {
+    __type: "ListSolutionsResponse",
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    solutions:
+      output.solutions !== undefined && output.solutions !== null
+        ? deserializeAws_json1_1Solutions(output.solutions, context)
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1ListSolutionVersionsResponse = (
   output: any,
   context: __SerdeContext
@@ -6487,23 +6543,6 @@ const deserializeAws_json1_1ListSolutionVersionsResponse = (
             output.solutionVersions,
             context
           )
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ListSolutionsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListSolutionsResponse => {
-  return {
-    __type: "ListSolutionsResponse",
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
-    solutions:
-      output.solutions !== undefined && output.solutions !== null
-        ? deserializeAws_json1_1Solutions(output.solutions, context)
         : undefined
   } as any;
 };
@@ -6568,6 +6607,15 @@ const deserializeAws_json1_1Recipe = (
   } as any;
 };
 
+const deserializeAws_json1_1Recipes = (
+  output: any,
+  context: __SerdeContext
+): RecipeSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1RecipeSummary(entry, context)
+  );
+};
+
 const deserializeAws_json1_1RecipeSummary = (
   output: any,
   context: __SerdeContext
@@ -6598,13 +6646,17 @@ const deserializeAws_json1_1RecipeSummary = (
   } as any;
 };
 
-const deserializeAws_json1_1Recipes = (
+const deserializeAws_json1_1ResourceAlreadyExistsException = (
   output: any,
   context: __SerdeContext
-): RecipeSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1RecipeSummary(entry, context)
-  );
+): ResourceAlreadyExistsException => {
+  return {
+    __type: "ResourceAlreadyExistsException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceConfig = (
@@ -6618,6 +6670,32 @@ const deserializeAws_json1_1ResourceConfig = (
     }),
     {}
   );
+};
+
+const deserializeAws_json1_1ResourceInUseException = (
+  output: any,
+  context: __SerdeContext
+): ResourceInUseException => {
+  return {
+    __type: "ResourceInUseException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ResourceNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): ResourceNotFoundException => {
+  return {
+    __type: "ResourceNotFoundException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1S3DataConfig = (
@@ -6750,6 +6828,15 @@ const deserializeAws_json1_1SolutionConfig = (
   } as any;
 };
 
+const deserializeAws_json1_1Solutions = (
+  output: any,
+  context: __SerdeContext
+): SolutionSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1SolutionSummary(entry, context)
+  );
+};
+
 const deserializeAws_json1_1SolutionSummary = (
   output: any,
   context: __SerdeContext
@@ -6847,6 +6934,15 @@ const deserializeAws_json1_1SolutionVersion = (
   } as any;
 };
 
+const deserializeAws_json1_1SolutionVersions = (
+  output: any,
+  context: __SerdeContext
+): SolutionVersionSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1SolutionVersionSummary(entry, context)
+  );
+};
+
 const deserializeAws_json1_1SolutionVersionSummary = (
   output: any,
   context: __SerdeContext
@@ -6878,24 +6974,6 @@ const deserializeAws_json1_1SolutionVersionSummary = (
   } as any;
 };
 
-const deserializeAws_json1_1SolutionVersions = (
-  output: any,
-  context: __SerdeContext
-): SolutionVersionSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1SolutionVersionSummary(entry, context)
-  );
-};
-
-const deserializeAws_json1_1Solutions = (
-  output: any,
-  context: __SerdeContext
-): SolutionSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1SolutionSummary(entry, context)
-  );
-};
-
 const deserializeAws_json1_1UpdateCampaignResponse = (
   output: any,
   context: __SerdeContext
@@ -6905,84 +6983,6 @@ const deserializeAws_json1_1UpdateCampaignResponse = (
     campaignArn:
       output.campaignArn !== undefined && output.campaignArn !== null
         ? output.campaignArn
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidInputException = (
-  output: any,
-  context: __SerdeContext
-): InvalidInputException => {
-  return {
-    __type: "InvalidInputException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidNextTokenException = (
-  output: any,
-  context: __SerdeContext
-): InvalidNextTokenException => {
-  return {
-    __type: "InvalidNextTokenException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1LimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): LimitExceededException => {
-  return {
-    __type: "LimitExceededException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): ResourceAlreadyExistsException => {
-  return {
-    __type: "ResourceAlreadyExistsException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceInUseException = (
-  output: any,
-  context: __SerdeContext
-): ResourceInUseException => {
-  return {
-    __type: "ResourceInUseException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    __type: "ResourceNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
         : undefined
   } as any;
 };

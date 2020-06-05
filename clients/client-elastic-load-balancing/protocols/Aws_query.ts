@@ -742,7 +742,7 @@ const deserializeAws_queryAddTagsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -753,7 +753,7 @@ const deserializeAws_queryAddTagsCommandError = async (
       };
       break;
     case "DuplicateTagKeysException":
-    case "com.amazon.elb.version_2012_06_01#DuplicateTagKeysException":
+    case "com.amazonaws.elasticloadbalancing#DuplicateTagKeysException":
       response = {
         ...(await deserializeAws_queryDuplicateTagKeysExceptionResponse(
           parsedOutput,
@@ -764,7 +764,7 @@ const deserializeAws_queryAddTagsCommandError = async (
       };
       break;
     case "TooManyTagsException":
-    case "com.amazon.elb.version_2012_06_01#TooManyTagsException":
+    case "com.amazonaws.elasticloadbalancing#TooManyTagsException":
       response = {
         ...(await deserializeAws_queryTooManyTagsExceptionResponse(
           parsedOutput,
@@ -829,7 +829,7 @@ const deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError = async 
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -840,7 +840,7 @@ const deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError = async 
       };
       break;
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -851,7 +851,7 @@ const deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError = async 
       };
       break;
     case "InvalidSecurityGroupException":
-    case "com.amazon.elb.version_2012_06_01#InvalidSecurityGroupException":
+    case "com.amazonaws.elasticloadbalancing#InvalidSecurityGroupException":
       response = {
         ...(await deserializeAws_queryInvalidSecurityGroupExceptionResponse(
           parsedOutput,
@@ -916,7 +916,7 @@ const deserializeAws_queryAttachLoadBalancerToSubnetsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -927,7 +927,7 @@ const deserializeAws_queryAttachLoadBalancerToSubnetsCommandError = async (
       };
       break;
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -938,7 +938,7 @@ const deserializeAws_queryAttachLoadBalancerToSubnetsCommandError = async (
       };
       break;
     case "InvalidSubnetException":
-    case "com.amazon.elb.version_2012_06_01#InvalidSubnetException":
+    case "com.amazonaws.elasticloadbalancing#InvalidSubnetException":
       response = {
         ...(await deserializeAws_queryInvalidSubnetExceptionResponse(
           parsedOutput,
@@ -949,7 +949,7 @@ const deserializeAws_queryAttachLoadBalancerToSubnetsCommandError = async (
       };
       break;
     case "SubnetNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#SubnetNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#SubnetNotFoundException":
       response = {
         ...(await deserializeAws_querySubnetNotFoundExceptionResponse(
           parsedOutput,
@@ -1014,7 +1014,7 @@ const deserializeAws_queryConfigureHealthCheckCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -1079,7 +1079,7 @@ const deserializeAws_queryCreateAppCookieStickinessPolicyCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -1090,7 +1090,7 @@ const deserializeAws_queryCreateAppCookieStickinessPolicyCommandError = async (
       };
       break;
     case "DuplicatePolicyNameException":
-    case "com.amazon.elb.version_2012_06_01#DuplicatePolicyNameException":
+    case "com.amazonaws.elasticloadbalancing#DuplicatePolicyNameException":
       response = {
         ...(await deserializeAws_queryDuplicatePolicyNameExceptionResponse(
           parsedOutput,
@@ -1101,7 +1101,7 @@ const deserializeAws_queryCreateAppCookieStickinessPolicyCommandError = async (
       };
       break;
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -1112,7 +1112,7 @@ const deserializeAws_queryCreateAppCookieStickinessPolicyCommandError = async (
       };
       break;
     case "TooManyPoliciesException":
-    case "com.amazon.elb.version_2012_06_01#TooManyPoliciesException":
+    case "com.amazonaws.elasticloadbalancing#TooManyPoliciesException":
       response = {
         ...(await deserializeAws_queryTooManyPoliciesExceptionResponse(
           parsedOutput,
@@ -1177,7 +1177,7 @@ const deserializeAws_queryCreateLBCookieStickinessPolicyCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -1188,7 +1188,7 @@ const deserializeAws_queryCreateLBCookieStickinessPolicyCommandError = async (
       };
       break;
     case "DuplicatePolicyNameException":
-    case "com.amazon.elb.version_2012_06_01#DuplicatePolicyNameException":
+    case "com.amazonaws.elasticloadbalancing#DuplicatePolicyNameException":
       response = {
         ...(await deserializeAws_queryDuplicatePolicyNameExceptionResponse(
           parsedOutput,
@@ -1199,7 +1199,7 @@ const deserializeAws_queryCreateLBCookieStickinessPolicyCommandError = async (
       };
       break;
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -1210,7 +1210,7 @@ const deserializeAws_queryCreateLBCookieStickinessPolicyCommandError = async (
       };
       break;
     case "TooManyPoliciesException":
-    case "com.amazon.elb.version_2012_06_01#TooManyPoliciesException":
+    case "com.amazonaws.elasticloadbalancing#TooManyPoliciesException":
       response = {
         ...(await deserializeAws_queryTooManyPoliciesExceptionResponse(
           parsedOutput,
@@ -1272,7 +1272,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#CertificateNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#CertificateNotFoundException":
       response = {
         ...(await deserializeAws_queryCertificateNotFoundExceptionResponse(
           parsedOutput,
@@ -1283,7 +1283,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "DuplicateAccessPointNameException":
-    case "com.amazon.elb.version_2012_06_01#DuplicateAccessPointNameException":
+    case "com.amazonaws.elasticloadbalancing#DuplicateAccessPointNameException":
       response = {
         ...(await deserializeAws_queryDuplicateAccessPointNameExceptionResponse(
           parsedOutput,
@@ -1294,7 +1294,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "DuplicateTagKeysException":
-    case "com.amazon.elb.version_2012_06_01#DuplicateTagKeysException":
+    case "com.amazonaws.elasticloadbalancing#DuplicateTagKeysException":
       response = {
         ...(await deserializeAws_queryDuplicateTagKeysExceptionResponse(
           parsedOutput,
@@ -1305,7 +1305,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -1316,7 +1316,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "InvalidSchemeException":
-    case "com.amazon.elb.version_2012_06_01#InvalidSchemeException":
+    case "com.amazonaws.elasticloadbalancing#InvalidSchemeException":
       response = {
         ...(await deserializeAws_queryInvalidSchemeExceptionResponse(
           parsedOutput,
@@ -1327,7 +1327,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "InvalidSecurityGroupException":
-    case "com.amazon.elb.version_2012_06_01#InvalidSecurityGroupException":
+    case "com.amazonaws.elasticloadbalancing#InvalidSecurityGroupException":
       response = {
         ...(await deserializeAws_queryInvalidSecurityGroupExceptionResponse(
           parsedOutput,
@@ -1338,7 +1338,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "InvalidSubnetException":
-    case "com.amazon.elb.version_2012_06_01#InvalidSubnetException":
+    case "com.amazonaws.elasticloadbalancing#InvalidSubnetException":
       response = {
         ...(await deserializeAws_queryInvalidSubnetExceptionResponse(
           parsedOutput,
@@ -1349,7 +1349,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazon.elb.version_2012_06_01#OperationNotPermittedException":
+    case "com.amazonaws.elasticloadbalancing#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_queryOperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1360,7 +1360,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "SubnetNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#SubnetNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#SubnetNotFoundException":
       response = {
         ...(await deserializeAws_querySubnetNotFoundExceptionResponse(
           parsedOutput,
@@ -1371,7 +1371,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "TooManyAccessPointsException":
-    case "com.amazon.elb.version_2012_06_01#TooManyAccessPointsException":
+    case "com.amazonaws.elasticloadbalancing#TooManyAccessPointsException":
       response = {
         ...(await deserializeAws_queryTooManyAccessPointsExceptionResponse(
           parsedOutput,
@@ -1382,7 +1382,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "TooManyTagsException":
-    case "com.amazon.elb.version_2012_06_01#TooManyTagsException":
+    case "com.amazonaws.elasticloadbalancing#TooManyTagsException":
       response = {
         ...(await deserializeAws_queryTooManyTagsExceptionResponse(
           parsedOutput,
@@ -1393,7 +1393,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       };
       break;
     case "UnsupportedProtocolException":
-    case "com.amazon.elb.version_2012_06_01#UnsupportedProtocolException":
+    case "com.amazonaws.elasticloadbalancing#UnsupportedProtocolException":
       response = {
         ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(
           parsedOutput,
@@ -1458,7 +1458,7 @@ const deserializeAws_queryCreateLoadBalancerListenersCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -1469,7 +1469,7 @@ const deserializeAws_queryCreateLoadBalancerListenersCommandError = async (
       };
       break;
     case "CertificateNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#CertificateNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#CertificateNotFoundException":
       response = {
         ...(await deserializeAws_queryCertificateNotFoundExceptionResponse(
           parsedOutput,
@@ -1480,7 +1480,7 @@ const deserializeAws_queryCreateLoadBalancerListenersCommandError = async (
       };
       break;
     case "DuplicateListenerException":
-    case "com.amazon.elb.version_2012_06_01#DuplicateListenerException":
+    case "com.amazonaws.elasticloadbalancing#DuplicateListenerException":
       response = {
         ...(await deserializeAws_queryDuplicateListenerExceptionResponse(
           parsedOutput,
@@ -1491,7 +1491,7 @@ const deserializeAws_queryCreateLoadBalancerListenersCommandError = async (
       };
       break;
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -1502,7 +1502,7 @@ const deserializeAws_queryCreateLoadBalancerListenersCommandError = async (
       };
       break;
     case "UnsupportedProtocolException":
-    case "com.amazon.elb.version_2012_06_01#UnsupportedProtocolException":
+    case "com.amazonaws.elasticloadbalancing#UnsupportedProtocolException":
       response = {
         ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(
           parsedOutput,
@@ -1567,7 +1567,7 @@ const deserializeAws_queryCreateLoadBalancerPolicyCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -1578,7 +1578,7 @@ const deserializeAws_queryCreateLoadBalancerPolicyCommandError = async (
       };
       break;
     case "DuplicatePolicyNameException":
-    case "com.amazon.elb.version_2012_06_01#DuplicatePolicyNameException":
+    case "com.amazonaws.elasticloadbalancing#DuplicatePolicyNameException":
       response = {
         ...(await deserializeAws_queryDuplicatePolicyNameExceptionResponse(
           parsedOutput,
@@ -1589,7 +1589,7 @@ const deserializeAws_queryCreateLoadBalancerPolicyCommandError = async (
       };
       break;
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -1600,7 +1600,7 @@ const deserializeAws_queryCreateLoadBalancerPolicyCommandError = async (
       };
       break;
     case "PolicyTypeNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#PolicyTypeNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#PolicyTypeNotFoundException":
       response = {
         ...(await deserializeAws_queryPolicyTypeNotFoundExceptionResponse(
           parsedOutput,
@@ -1611,7 +1611,7 @@ const deserializeAws_queryCreateLoadBalancerPolicyCommandError = async (
       };
       break;
     case "TooManyPoliciesException":
-    case "com.amazon.elb.version_2012_06_01#TooManyPoliciesException":
+    case "com.amazonaws.elasticloadbalancing#TooManyPoliciesException":
       response = {
         ...(await deserializeAws_queryTooManyPoliciesExceptionResponse(
           parsedOutput,
@@ -1727,7 +1727,7 @@ const deserializeAws_queryDeleteLoadBalancerListenersCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -1792,7 +1792,7 @@ const deserializeAws_queryDeleteLoadBalancerPolicyCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -1803,7 +1803,7 @@ const deserializeAws_queryDeleteLoadBalancerPolicyCommandError = async (
       };
       break;
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -1868,7 +1868,7 @@ const deserializeAws_queryDeregisterInstancesFromLoadBalancerCommandError = asyn
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -1879,7 +1879,7 @@ const deserializeAws_queryDeregisterInstancesFromLoadBalancerCommandError = asyn
       };
       break;
     case "InvalidEndPointException":
-    case "com.amazon.elb.version_2012_06_01#InvalidEndPointException":
+    case "com.amazonaws.elasticloadbalancing#InvalidEndPointException":
       response = {
         ...(await deserializeAws_queryInvalidEndPointExceptionResponse(
           parsedOutput,
@@ -1998,7 +1998,7 @@ const deserializeAws_queryDescribeInstanceHealthCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -2009,7 +2009,7 @@ const deserializeAws_queryDescribeInstanceHealthCommandError = async (
       };
       break;
     case "InvalidEndPointException":
-    case "com.amazon.elb.version_2012_06_01#InvalidEndPointException":
+    case "com.amazonaws.elasticloadbalancing#InvalidEndPointException":
       response = {
         ...(await deserializeAws_queryInvalidEndPointExceptionResponse(
           parsedOutput,
@@ -2074,7 +2074,7 @@ const deserializeAws_queryDescribeLoadBalancerAttributesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -2085,7 +2085,7 @@ const deserializeAws_queryDescribeLoadBalancerAttributesCommandError = async (
       };
       break;
     case "LoadBalancerAttributeNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#LoadBalancerAttributeNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#LoadBalancerAttributeNotFoundException":
       response = {
         ...(await deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse(
           parsedOutput,
@@ -2150,7 +2150,7 @@ const deserializeAws_queryDescribeLoadBalancerPoliciesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -2161,7 +2161,7 @@ const deserializeAws_queryDescribeLoadBalancerPoliciesCommandError = async (
       };
       break;
     case "PolicyNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#PolicyNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#PolicyNotFoundException":
       response = {
         ...(await deserializeAws_queryPolicyNotFoundExceptionResponse(
           parsedOutput,
@@ -2226,7 +2226,7 @@ const deserializeAws_queryDescribeLoadBalancerPolicyTypesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "PolicyTypeNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#PolicyTypeNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#PolicyTypeNotFoundException":
       response = {
         ...(await deserializeAws_queryPolicyTypeNotFoundExceptionResponse(
           parsedOutput,
@@ -2291,7 +2291,7 @@ const deserializeAws_queryDescribeLoadBalancersCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -2302,7 +2302,7 @@ const deserializeAws_queryDescribeLoadBalancersCommandError = async (
       };
       break;
     case "DependencyThrottleException":
-    case "com.amazon.elb.version_2012_06_01#DependencyThrottleException":
+    case "com.amazonaws.elasticloadbalancing#DependencyThrottleException":
       response = {
         ...(await deserializeAws_queryDependencyThrottleExceptionResponse(
           parsedOutput,
@@ -2364,7 +2364,7 @@ const deserializeAws_queryDescribeTagsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -2429,7 +2429,7 @@ const deserializeAws_queryDetachLoadBalancerFromSubnetsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -2440,7 +2440,7 @@ const deserializeAws_queryDetachLoadBalancerFromSubnetsCommandError = async (
       };
       break;
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -2505,7 +2505,7 @@ const deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommandError = 
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -2516,7 +2516,7 @@ const deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommandError = 
       };
       break;
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -2581,7 +2581,7 @@ const deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommandError = a
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -2646,7 +2646,7 @@ const deserializeAws_queryModifyLoadBalancerAttributesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -2657,7 +2657,7 @@ const deserializeAws_queryModifyLoadBalancerAttributesCommandError = async (
       };
       break;
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -2668,7 +2668,7 @@ const deserializeAws_queryModifyLoadBalancerAttributesCommandError = async (
       };
       break;
     case "LoadBalancerAttributeNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#LoadBalancerAttributeNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#LoadBalancerAttributeNotFoundException":
       response = {
         ...(await deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse(
           parsedOutput,
@@ -2733,7 +2733,7 @@ const deserializeAws_queryRegisterInstancesWithLoadBalancerCommandError = async 
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -2744,7 +2744,7 @@ const deserializeAws_queryRegisterInstancesWithLoadBalancerCommandError = async 
       };
       break;
     case "InvalidEndPointException":
-    case "com.amazon.elb.version_2012_06_01#InvalidEndPointException":
+    case "com.amazonaws.elasticloadbalancing#InvalidEndPointException":
       response = {
         ...(await deserializeAws_queryInvalidEndPointExceptionResponse(
           parsedOutput,
@@ -2806,7 +2806,7 @@ const deserializeAws_queryRemoveTagsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -2871,7 +2871,7 @@ const deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandError = as
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -2882,7 +2882,7 @@ const deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandError = as
       };
       break;
     case "CertificateNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#CertificateNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#CertificateNotFoundException":
       response = {
         ...(await deserializeAws_queryCertificateNotFoundExceptionResponse(
           parsedOutput,
@@ -2893,7 +2893,7 @@ const deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandError = as
       };
       break;
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -2904,7 +2904,7 @@ const deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandError = as
       };
       break;
     case "ListenerNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#ListenerNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#ListenerNotFoundException":
       response = {
         ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
           parsedOutput,
@@ -2915,7 +2915,7 @@ const deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandError = as
       };
       break;
     case "UnsupportedProtocolException":
-    case "com.amazon.elb.version_2012_06_01#UnsupportedProtocolException":
+    case "com.amazonaws.elasticloadbalancing#UnsupportedProtocolException":
       response = {
         ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(
           parsedOutput,
@@ -2980,7 +2980,7 @@ const deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommandError = 
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -2991,7 +2991,7 @@ const deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommandError = 
       };
       break;
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -3002,7 +3002,7 @@ const deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommandError = 
       };
       break;
     case "PolicyNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#PolicyNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#PolicyNotFoundException":
       response = {
         ...(await deserializeAws_queryPolicyNotFoundExceptionResponse(
           parsedOutput,
@@ -3067,7 +3067,7 @@ const deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError = async 
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       response = {
         ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(
           parsedOutput,
@@ -3078,7 +3078,7 @@ const deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError = async 
       };
       break;
     case "InvalidConfigurationRequestException":
-    case "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException":
+    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
           parsedOutput,
@@ -3089,7 +3089,7 @@ const deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError = async 
       };
       break;
     case "ListenerNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#ListenerNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#ListenerNotFoundException":
       response = {
         ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
           parsedOutput,
@@ -3100,7 +3100,7 @@ const deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError = async 
       };
       break;
     case "PolicyNotFoundException":
-    case "com.amazon.elb.version_2012_06_01#PolicyNotFoundException":
+    case "com.amazonaws.elasticloadbalancing#PolicyNotFoundException":
       response = {
         ...(await deserializeAws_queryPolicyNotFoundExceptionResponse(
           parsedOutput,
@@ -3565,31 +3565,6 @@ const serializeAws_queryAddAvailabilityZonesInput = (
   return entries;
 };
 
-const serializeAws_queryAddTagsInput = (
-  input: AddTagsInput,
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  if (input.LoadBalancerNames !== undefined) {
-    const memberEntries = serializeAws_queryLoadBalancerNames(
-      input.LoadBalancerNames,
-      context
-    );
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `LoadBalancerNames.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.Tags !== undefined) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Tags.${key}`;
-      entries[loc] = value;
-    });
-  }
-  return entries;
-};
-
 const serializeAws_queryAdditionalAttribute = (
   input: AdditionalAttribute,
   context: __SerdeContext
@@ -3616,6 +3591,31 @@ const serializeAws_queryAdditionalAttributes = (
       entries[`member.${counter}.${key}`] = value;
     });
     counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryAddTagsInput = (
+  input: AddTagsInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.LoadBalancerNames !== undefined) {
+    const memberEntries = serializeAws_queryLoadBalancerNames(
+      input.LoadBalancerNames,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `LoadBalancerNames.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Tags !== undefined) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -4601,16 +4601,6 @@ const deserializeAws_queryAddAvailabilityZonesOutput = (
   return contents;
 };
 
-const deserializeAws_queryAddTagsOutput = (
-  output: any,
-  context: __SerdeContext
-): AddTagsOutput => {
-  let contents: any = {
-    __type: "AddTagsOutput"
-  };
-  return contents;
-};
-
 const deserializeAws_queryAdditionalAttribute = (
   output: any,
   context: __SerdeContext
@@ -4636,6 +4626,16 @@ const deserializeAws_queryAdditionalAttributes = (
   return (output || []).map((entry: any) =>
     deserializeAws_queryAdditionalAttribute(entry, context)
   );
+};
+
+const deserializeAws_queryAddTagsOutput = (
+  output: any,
+  context: __SerdeContext
+): AddTagsOutput => {
+  let contents: any = {
+    __type: "AddTagsOutput"
+  };
+  return contents;
 };
 
 const deserializeAws_queryAppCookieStickinessPolicies = (
@@ -5238,6 +5238,15 @@ const deserializeAws_queryInstance = (
   return contents;
 };
 
+const deserializeAws_queryInstances = (
+  output: any,
+  context: __SerdeContext
+): Instance[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryInstance(entry, context)
+  );
+};
+
 const deserializeAws_queryInstanceState = (
   output: any,
   context: __SerdeContext
@@ -5270,15 +5279,6 @@ const deserializeAws_queryInstanceStates = (
 ): InstanceState[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_queryInstanceState(entry, context)
-  );
-};
-
-const deserializeAws_queryInstances = (
-  output: any,
-  context: __SerdeContext
-): Instance[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryInstance(entry, context)
   );
 };
 

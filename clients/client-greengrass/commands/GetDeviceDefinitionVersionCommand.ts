@@ -8,9 +8,9 @@ import {
   GetDeviceDefinitionVersionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetDeviceDefinitionVersionCommand,
-  serializeAws_restJson1_1GetDeviceDefinitionVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetDeviceDefinitionVersionCommand,
+  serializeAws_restJson1GetDeviceDefinitionVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetDeviceDefinitionVersionCommand extends $Command<
     input: GetDeviceDefinitionVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDeviceDefinitionVersionCommand(
+    return serializeAws_restJson1GetDeviceDefinitionVersionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetDeviceDefinitionVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDeviceDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1_1GetDeviceDefinitionVersionCommand(
+    return deserializeAws_restJson1GetDeviceDefinitionVersionCommand(
       output,
       context
     );

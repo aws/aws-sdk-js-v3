@@ -8,9 +8,9 @@ import {
   UpdateDomainMetadataResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateDomainMetadataCommand,
-  serializeAws_restJson1_1UpdateDomainMetadataCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateDomainMetadataCommand,
+  serializeAws_restJson1UpdateDomainMetadataCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class UpdateDomainMetadataCommand extends $Command<
     input: UpdateDomainMetadataCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDomainMetadataCommand(input, context);
+    return serializeAws_restJson1UpdateDomainMetadataCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDomainMetadataCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDomainMetadataCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateDomainMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

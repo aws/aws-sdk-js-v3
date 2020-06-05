@@ -5,9 +5,9 @@ import {
 } from "../RoboMakerClient";
 import { TagResourceRequest, TagResourceResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1TagResourceCommand,
-  serializeAws_restJson1_1TagResourceCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1TagResourceCommand,
+  serializeAws_restJson1TagResourceCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class TagResourceCommand extends $Command<
     input: TagResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1TagResourceCommand(input, context);
+    return serializeAws_restJson1TagResourceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TagResourceCommandOutput> {
-    return deserializeAws_restJson1_1TagResourceCommand(output, context);
+    return deserializeAws_restJson1TagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

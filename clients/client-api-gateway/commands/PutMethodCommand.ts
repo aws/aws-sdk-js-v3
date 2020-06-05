@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { Method, PutMethodRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutMethodCommand,
-  serializeAws_restJson1_1PutMethodCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutMethodCommand,
+  serializeAws_restJson1PutMethodCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class PutMethodCommand extends $Command<
     input: PutMethodCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutMethodCommand(input, context);
+    return serializeAws_restJson1PutMethodCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutMethodCommandOutput> {
-    return deserializeAws_restJson1_1PutMethodCommand(output, context);
+    return deserializeAws_restJson1PutMethodCommand(output, context);
   }
 
   // Start section: command_body_extra

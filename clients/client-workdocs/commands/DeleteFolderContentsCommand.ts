@@ -5,9 +5,9 @@ import {
 } from "../WorkDocsClient";
 import { DeleteFolderContentsRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteFolderContentsCommand,
-  serializeAws_restJson1_1DeleteFolderContentsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteFolderContentsCommand,
+  serializeAws_restJson1DeleteFolderContentsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,17 +70,14 @@ export class DeleteFolderContentsCommand extends $Command<
     input: DeleteFolderContentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteFolderContentsCommand(input, context);
+    return serializeAws_restJson1DeleteFolderContentsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFolderContentsCommandOutput> {
-    return deserializeAws_restJson1_1DeleteFolderContentsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteFolderContentsCommand(output, context);
   }
 
   // Start section: command_body_extra

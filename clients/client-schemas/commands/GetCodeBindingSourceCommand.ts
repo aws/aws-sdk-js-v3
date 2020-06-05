@@ -3,9 +3,9 @@ import {
   GetCodeBindingSourceResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetCodeBindingSourceCommand,
-  serializeAws_restJson1_1GetCodeBindingSourceCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetCodeBindingSourceCommand,
+  serializeAws_restJson1GetCodeBindingSourceCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -74,17 +74,14 @@ export class GetCodeBindingSourceCommand extends $Command<
     input: GetCodeBindingSourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetCodeBindingSourceCommand(input, context);
+    return serializeAws_restJson1GetCodeBindingSourceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCodeBindingSourceCommandOutput> {
-    return deserializeAws_restJson1_1GetCodeBindingSourceCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetCodeBindingSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

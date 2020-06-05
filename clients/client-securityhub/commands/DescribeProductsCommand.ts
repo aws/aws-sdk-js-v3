@@ -8,9 +8,9 @@ import {
   DescribeProductsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeProductsCommand,
-  serializeAws_restJson1_1DescribeProductsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeProductsCommand,
+  serializeAws_restJson1DescribeProductsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DescribeProductsCommand extends $Command<
     input: DescribeProductsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeProductsCommand(input, context);
+    return serializeAws_restJson1DescribeProductsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeProductsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeProductsCommand(output, context);
+    return deserializeAws_restJson1DescribeProductsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -8,9 +8,9 @@ import {
   DescribeReservationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeReservationCommand,
-  serializeAws_restJson1_1DescribeReservationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeReservationCommand,
+  serializeAws_restJson1DescribeReservationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DescribeReservationCommand extends $Command<
     input: DescribeReservationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeReservationCommand(input, context);
+    return serializeAws_restJson1DescribeReservationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservationCommandOutput> {
-    return deserializeAws_restJson1_1DescribeReservationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DescribeReservationCommand(output, context);
   }
 
   // Start section: command_body_extra

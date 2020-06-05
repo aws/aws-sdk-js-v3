@@ -5,9 +5,9 @@ import {
 } from "../AmplifyClient";
 import { GetArtifactUrlRequest, GetArtifactUrlResult } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetArtifactUrlCommand,
-  serializeAws_restJson1_1GetArtifactUrlCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetArtifactUrlCommand,
+  serializeAws_restJson1GetArtifactUrlCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetArtifactUrlCommand extends $Command<
     input: GetArtifactUrlCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetArtifactUrlCommand(input, context);
+    return serializeAws_restJson1GetArtifactUrlCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetArtifactUrlCommandOutput> {
-    return deserializeAws_restJson1_1GetArtifactUrlCommand(output, context);
+    return deserializeAws_restJson1GetArtifactUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

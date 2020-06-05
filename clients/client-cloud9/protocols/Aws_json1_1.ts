@@ -162,6 +162,21 @@ export const serializeAws_json1_1DescribeEnvironmentMembershipsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeEnvironmentsCommand = async (
+  input: DescribeEnvironmentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.DescribeEnvironments"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEnvironmentsRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeEnvironmentStatusCommand = async (
   input: DescribeEnvironmentStatusCommandInput,
   context: __SerdeContext
@@ -174,21 +189,6 @@ export const serializeAws_json1_1DescribeEnvironmentStatusCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEnvironmentStatusRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1DescribeEnvironmentsCommand = async (
-  input: DescribeEnvironmentsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.DescribeEnvironments"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeEnvironmentsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -275,7 +275,7 @@ const deserializeAws_json1_1CreateEnvironmentEC2CommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException":
+    case "com.amazonaws.cloud9#BadRequestException":
       response = {
         ...(await deserializeAws_json1_1BadRequestExceptionResponse(
           parsedOutput,
@@ -286,7 +286,7 @@ const deserializeAws_json1_1CreateEnvironmentEC2CommandError = async (
       };
       break;
     case "ConflictException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#ConflictException":
+    case "com.amazonaws.cloud9#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -297,7 +297,7 @@ const deserializeAws_json1_1CreateEnvironmentEC2CommandError = async (
       };
       break;
     case "ForbiddenException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException":
+    case "com.amazonaws.cloud9#ForbiddenException":
       response = {
         ...(await deserializeAws_json1_1ForbiddenExceptionResponse(
           parsedOutput,
@@ -308,7 +308,7 @@ const deserializeAws_json1_1CreateEnvironmentEC2CommandError = async (
       };
       break;
     case "InternalServerErrorException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#InternalServerErrorException":
+    case "com.amazonaws.cloud9#InternalServerErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorExceptionResponse(
           parsedOutput,
@@ -319,7 +319,7 @@ const deserializeAws_json1_1CreateEnvironmentEC2CommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException":
+    case "com.amazonaws.cloud9#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -330,7 +330,7 @@ const deserializeAws_json1_1CreateEnvironmentEC2CommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException":
+    case "com.amazonaws.cloud9#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -341,7 +341,7 @@ const deserializeAws_json1_1CreateEnvironmentEC2CommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException":
+    case "com.amazonaws.cloud9#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -407,7 +407,7 @@ const deserializeAws_json1_1CreateEnvironmentMembershipCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException":
+    case "com.amazonaws.cloud9#BadRequestException":
       response = {
         ...(await deserializeAws_json1_1BadRequestExceptionResponse(
           parsedOutput,
@@ -418,7 +418,7 @@ const deserializeAws_json1_1CreateEnvironmentMembershipCommandError = async (
       };
       break;
     case "ConflictException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#ConflictException":
+    case "com.amazonaws.cloud9#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -429,7 +429,7 @@ const deserializeAws_json1_1CreateEnvironmentMembershipCommandError = async (
       };
       break;
     case "ForbiddenException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException":
+    case "com.amazonaws.cloud9#ForbiddenException":
       response = {
         ...(await deserializeAws_json1_1ForbiddenExceptionResponse(
           parsedOutput,
@@ -440,7 +440,7 @@ const deserializeAws_json1_1CreateEnvironmentMembershipCommandError = async (
       };
       break;
     case "InternalServerErrorException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#InternalServerErrorException":
+    case "com.amazonaws.cloud9#InternalServerErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorExceptionResponse(
           parsedOutput,
@@ -451,7 +451,7 @@ const deserializeAws_json1_1CreateEnvironmentMembershipCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException":
+    case "com.amazonaws.cloud9#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -462,7 +462,7 @@ const deserializeAws_json1_1CreateEnvironmentMembershipCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException":
+    case "com.amazonaws.cloud9#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -473,7 +473,7 @@ const deserializeAws_json1_1CreateEnvironmentMembershipCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException":
+    case "com.amazonaws.cloud9#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -533,7 +533,7 @@ const deserializeAws_json1_1DeleteEnvironmentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException":
+    case "com.amazonaws.cloud9#BadRequestException":
       response = {
         ...(await deserializeAws_json1_1BadRequestExceptionResponse(
           parsedOutput,
@@ -544,7 +544,7 @@ const deserializeAws_json1_1DeleteEnvironmentCommandError = async (
       };
       break;
     case "ConflictException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#ConflictException":
+    case "com.amazonaws.cloud9#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -555,7 +555,7 @@ const deserializeAws_json1_1DeleteEnvironmentCommandError = async (
       };
       break;
     case "ForbiddenException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException":
+    case "com.amazonaws.cloud9#ForbiddenException":
       response = {
         ...(await deserializeAws_json1_1ForbiddenExceptionResponse(
           parsedOutput,
@@ -566,7 +566,7 @@ const deserializeAws_json1_1DeleteEnvironmentCommandError = async (
       };
       break;
     case "InternalServerErrorException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#InternalServerErrorException":
+    case "com.amazonaws.cloud9#InternalServerErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorExceptionResponse(
           parsedOutput,
@@ -577,7 +577,7 @@ const deserializeAws_json1_1DeleteEnvironmentCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException":
+    case "com.amazonaws.cloud9#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -588,7 +588,7 @@ const deserializeAws_json1_1DeleteEnvironmentCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException":
+    case "com.amazonaws.cloud9#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -599,7 +599,7 @@ const deserializeAws_json1_1DeleteEnvironmentCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException":
+    case "com.amazonaws.cloud9#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -665,7 +665,7 @@ const deserializeAws_json1_1DeleteEnvironmentMembershipCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException":
+    case "com.amazonaws.cloud9#BadRequestException":
       response = {
         ...(await deserializeAws_json1_1BadRequestExceptionResponse(
           parsedOutput,
@@ -676,7 +676,7 @@ const deserializeAws_json1_1DeleteEnvironmentMembershipCommandError = async (
       };
       break;
     case "ConflictException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#ConflictException":
+    case "com.amazonaws.cloud9#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -687,7 +687,7 @@ const deserializeAws_json1_1DeleteEnvironmentMembershipCommandError = async (
       };
       break;
     case "ForbiddenException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException":
+    case "com.amazonaws.cloud9#ForbiddenException":
       response = {
         ...(await deserializeAws_json1_1ForbiddenExceptionResponse(
           parsedOutput,
@@ -698,7 +698,7 @@ const deserializeAws_json1_1DeleteEnvironmentMembershipCommandError = async (
       };
       break;
     case "InternalServerErrorException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#InternalServerErrorException":
+    case "com.amazonaws.cloud9#InternalServerErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorExceptionResponse(
           parsedOutput,
@@ -709,7 +709,7 @@ const deserializeAws_json1_1DeleteEnvironmentMembershipCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException":
+    case "com.amazonaws.cloud9#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -720,7 +720,7 @@ const deserializeAws_json1_1DeleteEnvironmentMembershipCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException":
+    case "com.amazonaws.cloud9#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -731,7 +731,7 @@ const deserializeAws_json1_1DeleteEnvironmentMembershipCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException":
+    case "com.amazonaws.cloud9#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -797,7 +797,7 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException":
+    case "com.amazonaws.cloud9#BadRequestException":
       response = {
         ...(await deserializeAws_json1_1BadRequestExceptionResponse(
           parsedOutput,
@@ -808,7 +808,7 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError = async (
       };
       break;
     case "ConflictException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#ConflictException":
+    case "com.amazonaws.cloud9#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -819,7 +819,7 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError = async (
       };
       break;
     case "ForbiddenException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException":
+    case "com.amazonaws.cloud9#ForbiddenException":
       response = {
         ...(await deserializeAws_json1_1ForbiddenExceptionResponse(
           parsedOutput,
@@ -830,7 +830,7 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError = async (
       };
       break;
     case "InternalServerErrorException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#InternalServerErrorException":
+    case "com.amazonaws.cloud9#InternalServerErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorExceptionResponse(
           parsedOutput,
@@ -841,7 +841,7 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException":
+    case "com.amazonaws.cloud9#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -852,7 +852,7 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException":
+    case "com.amazonaws.cloud9#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -863,7 +863,136 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException":
+    case "com.amazonaws.cloud9#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeEnvironmentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEnvironmentsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeEnvironmentsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeEnvironmentsResult(data, context);
+  const response: DescribeEnvironmentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeEnvironmentsResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeEnvironmentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEnvironmentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.cloud9#BadRequestException":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.cloud9#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.cloud9#ForbiddenException":
+      response = {
+        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.cloud9#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.cloud9#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.cloud9#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.cloud9#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -929,7 +1058,7 @@ const deserializeAws_json1_1DescribeEnvironmentStatusCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException":
+    case "com.amazonaws.cloud9#BadRequestException":
       response = {
         ...(await deserializeAws_json1_1BadRequestExceptionResponse(
           parsedOutput,
@@ -940,7 +1069,7 @@ const deserializeAws_json1_1DescribeEnvironmentStatusCommandError = async (
       };
       break;
     case "ConflictException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#ConflictException":
+    case "com.amazonaws.cloud9#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -951,7 +1080,7 @@ const deserializeAws_json1_1DescribeEnvironmentStatusCommandError = async (
       };
       break;
     case "ForbiddenException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException":
+    case "com.amazonaws.cloud9#ForbiddenException":
       response = {
         ...(await deserializeAws_json1_1ForbiddenExceptionResponse(
           parsedOutput,
@@ -962,7 +1091,7 @@ const deserializeAws_json1_1DescribeEnvironmentStatusCommandError = async (
       };
       break;
     case "InternalServerErrorException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#InternalServerErrorException":
+    case "com.amazonaws.cloud9#InternalServerErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorExceptionResponse(
           parsedOutput,
@@ -973,7 +1102,7 @@ const deserializeAws_json1_1DescribeEnvironmentStatusCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException":
+    case "com.amazonaws.cloud9#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -984,7 +1113,7 @@ const deserializeAws_json1_1DescribeEnvironmentStatusCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException":
+    case "com.amazonaws.cloud9#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -995,136 +1124,7 @@ const deserializeAws_json1_1DescribeEnvironmentStatusCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1DescribeEnvironmentsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEnvironmentsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeEnvironmentsCommandError(
-      output,
-      context
-    );
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEnvironmentsResult(data, context);
-  const response: DescribeEnvironmentsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DescribeEnvironmentsResult",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DescribeEnvironmentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEnvironmentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException":
-      response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ConflictException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#ConflictException":
-      response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ForbiddenException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException":
-      response = {
-        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InternalServerErrorException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#InternalServerErrorException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "LimitExceededException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "NotFoundException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "TooManyRequestsException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException":
+    case "com.amazonaws.cloud9#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1184,7 +1184,7 @@ const deserializeAws_json1_1ListEnvironmentsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException":
+    case "com.amazonaws.cloud9#BadRequestException":
       response = {
         ...(await deserializeAws_json1_1BadRequestExceptionResponse(
           parsedOutput,
@@ -1195,7 +1195,7 @@ const deserializeAws_json1_1ListEnvironmentsCommandError = async (
       };
       break;
     case "ConflictException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#ConflictException":
+    case "com.amazonaws.cloud9#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -1206,7 +1206,7 @@ const deserializeAws_json1_1ListEnvironmentsCommandError = async (
       };
       break;
     case "ForbiddenException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException":
+    case "com.amazonaws.cloud9#ForbiddenException":
       response = {
         ...(await deserializeAws_json1_1ForbiddenExceptionResponse(
           parsedOutput,
@@ -1217,7 +1217,7 @@ const deserializeAws_json1_1ListEnvironmentsCommandError = async (
       };
       break;
     case "InternalServerErrorException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#InternalServerErrorException":
+    case "com.amazonaws.cloud9#InternalServerErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorExceptionResponse(
           parsedOutput,
@@ -1228,7 +1228,7 @@ const deserializeAws_json1_1ListEnvironmentsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException":
+    case "com.amazonaws.cloud9#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1239,7 +1239,7 @@ const deserializeAws_json1_1ListEnvironmentsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException":
+    case "com.amazonaws.cloud9#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -1250,7 +1250,7 @@ const deserializeAws_json1_1ListEnvironmentsCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException":
+    case "com.amazonaws.cloud9#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1310,7 +1310,7 @@ const deserializeAws_json1_1UpdateEnvironmentCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException":
+    case "com.amazonaws.cloud9#BadRequestException":
       response = {
         ...(await deserializeAws_json1_1BadRequestExceptionResponse(
           parsedOutput,
@@ -1321,7 +1321,7 @@ const deserializeAws_json1_1UpdateEnvironmentCommandError = async (
       };
       break;
     case "ConflictException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#ConflictException":
+    case "com.amazonaws.cloud9#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -1332,7 +1332,7 @@ const deserializeAws_json1_1UpdateEnvironmentCommandError = async (
       };
       break;
     case "ForbiddenException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException":
+    case "com.amazonaws.cloud9#ForbiddenException":
       response = {
         ...(await deserializeAws_json1_1ForbiddenExceptionResponse(
           parsedOutput,
@@ -1343,7 +1343,7 @@ const deserializeAws_json1_1UpdateEnvironmentCommandError = async (
       };
       break;
     case "InternalServerErrorException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#InternalServerErrorException":
+    case "com.amazonaws.cloud9#InternalServerErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorExceptionResponse(
           parsedOutput,
@@ -1354,7 +1354,7 @@ const deserializeAws_json1_1UpdateEnvironmentCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException":
+    case "com.amazonaws.cloud9#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1365,7 +1365,7 @@ const deserializeAws_json1_1UpdateEnvironmentCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException":
+    case "com.amazonaws.cloud9#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -1376,7 +1376,7 @@ const deserializeAws_json1_1UpdateEnvironmentCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException":
+    case "com.amazonaws.cloud9#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1442,7 +1442,7 @@ const deserializeAws_json1_1UpdateEnvironmentMembershipCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException":
+    case "com.amazonaws.cloud9#BadRequestException":
       response = {
         ...(await deserializeAws_json1_1BadRequestExceptionResponse(
           parsedOutput,
@@ -1453,7 +1453,7 @@ const deserializeAws_json1_1UpdateEnvironmentMembershipCommandError = async (
       };
       break;
     case "ConflictException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#ConflictException":
+    case "com.amazonaws.cloud9#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(
           parsedOutput,
@@ -1464,7 +1464,7 @@ const deserializeAws_json1_1UpdateEnvironmentMembershipCommandError = async (
       };
       break;
     case "ForbiddenException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException":
+    case "com.amazonaws.cloud9#ForbiddenException":
       response = {
         ...(await deserializeAws_json1_1ForbiddenExceptionResponse(
           parsedOutput,
@@ -1475,7 +1475,7 @@ const deserializeAws_json1_1UpdateEnvironmentMembershipCommandError = async (
       };
       break;
     case "InternalServerErrorException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#InternalServerErrorException":
+    case "com.amazonaws.cloud9#InternalServerErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorExceptionResponse(
           parsedOutput,
@@ -1486,7 +1486,7 @@ const deserializeAws_json1_1UpdateEnvironmentMembershipCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException":
+    case "com.amazonaws.cloud9#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1497,7 +1497,7 @@ const deserializeAws_json1_1UpdateEnvironmentMembershipCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException":
+    case "com.amazonaws.cloud9#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -1508,7 +1508,7 @@ const deserializeAws_json1_1UpdateEnvironmentMembershipCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException":
+    case "com.amazonaws.cloud9#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1745,17 +1745,6 @@ const serializeAws_json1_1DescribeEnvironmentMembershipsRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeEnvironmentStatusRequest = (
-  input: DescribeEnvironmentStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.environmentId !== undefined && {
-      environmentId: input.environmentId
-    })
-  };
-};
-
 const serializeAws_json1_1DescribeEnvironmentsRequest = (
   input: DescribeEnvironmentsRequest,
   context: __SerdeContext
@@ -1766,6 +1755,17 @@ const serializeAws_json1_1DescribeEnvironmentsRequest = (
         input.environmentIds,
         context
       )
+    })
+  };
+};
+
+const serializeAws_json1_1DescribeEnvironmentStatusRequest = (
+  input: DescribeEnvironmentStatusRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.environmentId !== undefined && {
+      environmentId: input.environmentId
     })
   };
 };
@@ -1919,6 +1919,19 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsResult = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeEnvironmentsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeEnvironmentsResult => {
+  return {
+    __type: "DescribeEnvironmentsResult",
+    environments:
+      output.environments !== undefined && output.environments !== null
+        ? deserializeAws_json1_1EnvironmentList(output.environments, context)
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeEnvironmentStatusResult = (
   output: any,
   context: __SerdeContext
@@ -1932,19 +1945,6 @@ const deserializeAws_json1_1DescribeEnvironmentStatusResult = (
     status:
       output.status !== undefined && output.status !== null
         ? output.status
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeEnvironmentsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeEnvironmentsResult => {
-  return {
-    __type: "DescribeEnvironmentsResult",
-    environments:
-      output.environments !== undefined && output.environments !== null
-        ? deserializeAws_json1_1EnvironmentList(output.environments, context)
         : undefined
   } as any;
 };

@@ -8,9 +8,9 @@ import {
   DeleteResourceDefinitionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteResourceDefinitionCommand,
-  serializeAws_restJson1_1DeleteResourceDefinitionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteResourceDefinitionCommand,
+  serializeAws_restJson1DeleteResourceDefinitionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DeleteResourceDefinitionCommand extends $Command<
     input: DeleteResourceDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteResourceDefinitionCommand(
+    return serializeAws_restJson1DeleteResourceDefinitionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DeleteResourceDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteResourceDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteResourceDefinitionCommand(
+    return deserializeAws_restJson1DeleteResourceDefinitionCommand(
       output,
       context
     );

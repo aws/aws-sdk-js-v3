@@ -8,9 +8,9 @@ import {
   DeleteCACertificateResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteCACertificateCommand,
-  serializeAws_restJson1_1DeleteCACertificateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteCACertificateCommand,
+  serializeAws_restJson1DeleteCACertificateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteCACertificateCommand extends $Command<
     input: DeleteCACertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteCACertificateCommand(input, context);
+    return serializeAws_restJson1DeleteCACertificateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCACertificateCommandOutput> {
-    return deserializeAws_restJson1_1DeleteCACertificateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteCACertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

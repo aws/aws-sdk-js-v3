@@ -8,9 +8,9 @@ import {
   GetSnapshotBlockResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetSnapshotBlockCommand,
-  serializeAws_restJson1_1GetSnapshotBlockCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetSnapshotBlockCommand,
+  serializeAws_restJson1GetSnapshotBlockCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetSnapshotBlockCommand extends $Command<
     input: GetSnapshotBlockCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetSnapshotBlockCommand(input, context);
+    return serializeAws_restJson1GetSnapshotBlockCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSnapshotBlockCommandOutput> {
-    return deserializeAws_restJson1_1GetSnapshotBlockCommand(output, context);
+    return deserializeAws_restJson1GetSnapshotBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

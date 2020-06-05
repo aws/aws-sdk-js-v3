@@ -8,9 +8,9 @@ import {
   CreateSlotTypeVersionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateSlotTypeVersionCommand,
-  serializeAws_restJson1_1CreateSlotTypeVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateSlotTypeVersionCommand,
+  serializeAws_restJson1CreateSlotTypeVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class CreateSlotTypeVersionCommand extends $Command<
     input: CreateSlotTypeVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateSlotTypeVersionCommand(input, context);
+    return serializeAws_restJson1CreateSlotTypeVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSlotTypeVersionCommandOutput> {
-    return deserializeAws_restJson1_1CreateSlotTypeVersionCommand(
+    return deserializeAws_restJson1CreateSlotTypeVersionCommand(
       output,
       context
     );

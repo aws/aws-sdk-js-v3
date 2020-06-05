@@ -361,7 +361,7 @@ const deserializeAws_json1_1CreateBudgetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.awsbudgetservicegateway#AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -372,7 +372,7 @@ const deserializeAws_json1_1CreateBudgetCommandError = async (
       };
       break;
     case "CreationLimitExceededException":
-    case "com.amazonaws.awsbudgetservicegateway#CreationLimitExceededException":
+    case "com.amazonaws.budgets#CreationLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1CreationLimitExceededExceptionResponse(
           parsedOutput,
@@ -383,7 +383,7 @@ const deserializeAws_json1_1CreateBudgetCommandError = async (
       };
       break;
     case "DuplicateRecordException":
-    case "com.amazonaws.awsbudgetservicegateway#DuplicateRecordException":
+    case "com.amazonaws.budgets#DuplicateRecordException":
       response = {
         ...(await deserializeAws_json1_1DuplicateRecordExceptionResponse(
           parsedOutput,
@@ -394,7 +394,7 @@ const deserializeAws_json1_1CreateBudgetCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.awsbudgetservicegateway#InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -405,7 +405,7 @@ const deserializeAws_json1_1CreateBudgetCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsbudgetservicegateway#InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -468,7 +468,7 @@ const deserializeAws_json1_1CreateNotificationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.awsbudgetservicegateway#AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -479,7 +479,7 @@ const deserializeAws_json1_1CreateNotificationCommandError = async (
       };
       break;
     case "CreationLimitExceededException":
-    case "com.amazonaws.awsbudgetservicegateway#CreationLimitExceededException":
+    case "com.amazonaws.budgets#CreationLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1CreationLimitExceededExceptionResponse(
           parsedOutput,
@@ -490,7 +490,7 @@ const deserializeAws_json1_1CreateNotificationCommandError = async (
       };
       break;
     case "DuplicateRecordException":
-    case "com.amazonaws.awsbudgetservicegateway#DuplicateRecordException":
+    case "com.amazonaws.budgets#DuplicateRecordException":
       response = {
         ...(await deserializeAws_json1_1DuplicateRecordExceptionResponse(
           parsedOutput,
@@ -501,7 +501,7 @@ const deserializeAws_json1_1CreateNotificationCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.awsbudgetservicegateway#InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -512,7 +512,7 @@ const deserializeAws_json1_1CreateNotificationCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsbudgetservicegateway#InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -523,7 +523,7 @@ const deserializeAws_json1_1CreateNotificationCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.awsbudgetservicegateway#NotFoundException":
+    case "com.amazonaws.budgets#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -583,7 +583,7 @@ const deserializeAws_json1_1CreateSubscriberCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.awsbudgetservicegateway#AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -594,7 +594,7 @@ const deserializeAws_json1_1CreateSubscriberCommandError = async (
       };
       break;
     case "CreationLimitExceededException":
-    case "com.amazonaws.awsbudgetservicegateway#CreationLimitExceededException":
+    case "com.amazonaws.budgets#CreationLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1CreationLimitExceededExceptionResponse(
           parsedOutput,
@@ -605,7 +605,7 @@ const deserializeAws_json1_1CreateSubscriberCommandError = async (
       };
       break;
     case "DuplicateRecordException":
-    case "com.amazonaws.awsbudgetservicegateway#DuplicateRecordException":
+    case "com.amazonaws.budgets#DuplicateRecordException":
       response = {
         ...(await deserializeAws_json1_1DuplicateRecordExceptionResponse(
           parsedOutput,
@@ -616,7 +616,7 @@ const deserializeAws_json1_1CreateSubscriberCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.awsbudgetservicegateway#InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -627,7 +627,7 @@ const deserializeAws_json1_1CreateSubscriberCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsbudgetservicegateway#InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -638,7 +638,7 @@ const deserializeAws_json1_1CreateSubscriberCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.awsbudgetservicegateway#NotFoundException":
+    case "com.amazonaws.budgets#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -698,7 +698,7 @@ const deserializeAws_json1_1DeleteBudgetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.awsbudgetservicegateway#AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -709,7 +709,7 @@ const deserializeAws_json1_1DeleteBudgetCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.awsbudgetservicegateway#InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -720,7 +720,7 @@ const deserializeAws_json1_1DeleteBudgetCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsbudgetservicegateway#InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -731,7 +731,7 @@ const deserializeAws_json1_1DeleteBudgetCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.awsbudgetservicegateway#NotFoundException":
+    case "com.amazonaws.budgets#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -794,7 +794,7 @@ const deserializeAws_json1_1DeleteNotificationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.awsbudgetservicegateway#AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -805,7 +805,7 @@ const deserializeAws_json1_1DeleteNotificationCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.awsbudgetservicegateway#InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -816,7 +816,7 @@ const deserializeAws_json1_1DeleteNotificationCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsbudgetservicegateway#InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -827,7 +827,7 @@ const deserializeAws_json1_1DeleteNotificationCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.awsbudgetservicegateway#NotFoundException":
+    case "com.amazonaws.budgets#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -887,7 +887,7 @@ const deserializeAws_json1_1DeleteSubscriberCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.awsbudgetservicegateway#AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -898,7 +898,7 @@ const deserializeAws_json1_1DeleteSubscriberCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.awsbudgetservicegateway#InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -909,7 +909,7 @@ const deserializeAws_json1_1DeleteSubscriberCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsbudgetservicegateway#InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -920,7 +920,7 @@ const deserializeAws_json1_1DeleteSubscriberCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.awsbudgetservicegateway#NotFoundException":
+    case "com.amazonaws.budgets#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -980,7 +980,7 @@ const deserializeAws_json1_1DescribeBudgetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.awsbudgetservicegateway#AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -991,7 +991,7 @@ const deserializeAws_json1_1DescribeBudgetCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.awsbudgetservicegateway#InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1002,7 +1002,7 @@ const deserializeAws_json1_1DescribeBudgetCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsbudgetservicegateway#InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1013,7 +1013,7 @@ const deserializeAws_json1_1DescribeBudgetCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.awsbudgetservicegateway#NotFoundException":
+    case "com.amazonaws.budgets#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -1079,7 +1079,7 @@ const deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommandError = async
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.awsbudgetservicegateway#AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1090,7 +1090,7 @@ const deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommandError = async
       };
       break;
     case "ExpiredNextTokenException":
-    case "com.amazonaws.awsbudgetservicegateway#ExpiredNextTokenException":
+    case "com.amazonaws.budgets#ExpiredNextTokenException":
       response = {
         ...(await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(
           parsedOutput,
@@ -1101,7 +1101,7 @@ const deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommandError = async
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.awsbudgetservicegateway#InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1112,7 +1112,7 @@ const deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommandError = async
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.awsbudgetservicegateway#InvalidNextTokenException":
+    case "com.amazonaws.budgets#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1123,7 +1123,7 @@ const deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommandError = async
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsbudgetservicegateway#InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1134,7 +1134,7 @@ const deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommandError = async
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.awsbudgetservicegateway#NotFoundException":
+    case "com.amazonaws.budgets#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -1194,7 +1194,7 @@ const deserializeAws_json1_1DescribeBudgetsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.awsbudgetservicegateway#AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1205,7 +1205,7 @@ const deserializeAws_json1_1DescribeBudgetsCommandError = async (
       };
       break;
     case "ExpiredNextTokenException":
-    case "com.amazonaws.awsbudgetservicegateway#ExpiredNextTokenException":
+    case "com.amazonaws.budgets#ExpiredNextTokenException":
       response = {
         ...(await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(
           parsedOutput,
@@ -1216,7 +1216,7 @@ const deserializeAws_json1_1DescribeBudgetsCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.awsbudgetservicegateway#InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1227,7 +1227,7 @@ const deserializeAws_json1_1DescribeBudgetsCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.awsbudgetservicegateway#InvalidNextTokenException":
+    case "com.amazonaws.budgets#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1238,7 +1238,7 @@ const deserializeAws_json1_1DescribeBudgetsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsbudgetservicegateway#InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1249,7 +1249,7 @@ const deserializeAws_json1_1DescribeBudgetsCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.awsbudgetservicegateway#NotFoundException":
+    case "com.amazonaws.budgets#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -1315,7 +1315,7 @@ const deserializeAws_json1_1DescribeNotificationsForBudgetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.awsbudgetservicegateway#AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1326,7 +1326,7 @@ const deserializeAws_json1_1DescribeNotificationsForBudgetCommandError = async (
       };
       break;
     case "ExpiredNextTokenException":
-    case "com.amazonaws.awsbudgetservicegateway#ExpiredNextTokenException":
+    case "com.amazonaws.budgets#ExpiredNextTokenException":
       response = {
         ...(await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(
           parsedOutput,
@@ -1337,7 +1337,7 @@ const deserializeAws_json1_1DescribeNotificationsForBudgetCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.awsbudgetservicegateway#InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1348,7 +1348,7 @@ const deserializeAws_json1_1DescribeNotificationsForBudgetCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.awsbudgetservicegateway#InvalidNextTokenException":
+    case "com.amazonaws.budgets#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1359,7 +1359,7 @@ const deserializeAws_json1_1DescribeNotificationsForBudgetCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsbudgetservicegateway#InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1370,7 +1370,7 @@ const deserializeAws_json1_1DescribeNotificationsForBudgetCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.awsbudgetservicegateway#NotFoundException":
+    case "com.amazonaws.budgets#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -1436,7 +1436,7 @@ const deserializeAws_json1_1DescribeSubscribersForNotificationCommandError = asy
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.awsbudgetservicegateway#AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1447,7 +1447,7 @@ const deserializeAws_json1_1DescribeSubscribersForNotificationCommandError = asy
       };
       break;
     case "ExpiredNextTokenException":
-    case "com.amazonaws.awsbudgetservicegateway#ExpiredNextTokenException":
+    case "com.amazonaws.budgets#ExpiredNextTokenException":
       response = {
         ...(await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(
           parsedOutput,
@@ -1458,7 +1458,7 @@ const deserializeAws_json1_1DescribeSubscribersForNotificationCommandError = asy
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.awsbudgetservicegateway#InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1469,7 +1469,7 @@ const deserializeAws_json1_1DescribeSubscribersForNotificationCommandError = asy
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.awsbudgetservicegateway#InvalidNextTokenException":
+    case "com.amazonaws.budgets#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1480,7 +1480,7 @@ const deserializeAws_json1_1DescribeSubscribersForNotificationCommandError = asy
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsbudgetservicegateway#InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1491,7 +1491,7 @@ const deserializeAws_json1_1DescribeSubscribersForNotificationCommandError = asy
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.awsbudgetservicegateway#NotFoundException":
+    case "com.amazonaws.budgets#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -1551,7 +1551,7 @@ const deserializeAws_json1_1UpdateBudgetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.awsbudgetservicegateway#AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1562,7 +1562,7 @@ const deserializeAws_json1_1UpdateBudgetCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.awsbudgetservicegateway#InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1573,7 +1573,7 @@ const deserializeAws_json1_1UpdateBudgetCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsbudgetservicegateway#InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1584,7 +1584,7 @@ const deserializeAws_json1_1UpdateBudgetCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.awsbudgetservicegateway#NotFoundException":
+    case "com.amazonaws.budgets#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -1647,7 +1647,7 @@ const deserializeAws_json1_1UpdateNotificationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.awsbudgetservicegateway#AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1658,7 +1658,7 @@ const deserializeAws_json1_1UpdateNotificationCommandError = async (
       };
       break;
     case "DuplicateRecordException":
-    case "com.amazonaws.awsbudgetservicegateway#DuplicateRecordException":
+    case "com.amazonaws.budgets#DuplicateRecordException":
       response = {
         ...(await deserializeAws_json1_1DuplicateRecordExceptionResponse(
           parsedOutput,
@@ -1669,7 +1669,7 @@ const deserializeAws_json1_1UpdateNotificationCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.awsbudgetservicegateway#InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1680,7 +1680,7 @@ const deserializeAws_json1_1UpdateNotificationCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsbudgetservicegateway#InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1691,7 +1691,7 @@ const deserializeAws_json1_1UpdateNotificationCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.awsbudgetservicegateway#NotFoundException":
+    case "com.amazonaws.budgets#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -1751,7 +1751,7 @@ const deserializeAws_json1_1UpdateSubscriberCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.awsbudgetservicegateway#AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -1762,7 +1762,7 @@ const deserializeAws_json1_1UpdateSubscriberCommandError = async (
       };
       break;
     case "DuplicateRecordException":
-    case "com.amazonaws.awsbudgetservicegateway#DuplicateRecordException":
+    case "com.amazonaws.budgets#DuplicateRecordException":
       response = {
         ...(await deserializeAws_json1_1DuplicateRecordExceptionResponse(
           parsedOutput,
@@ -1773,7 +1773,7 @@ const deserializeAws_json1_1UpdateSubscriberCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazonaws.awsbudgetservicegateway#InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
           parsedOutput,
@@ -1784,7 +1784,7 @@ const deserializeAws_json1_1UpdateSubscriberCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsbudgetservicegateway#InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1795,7 +1795,7 @@ const deserializeAws_json1_1UpdateSubscriberCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazonaws.awsbudgetservicegateway#NotFoundException":
+    case "com.amazonaws.budgets#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(
           parsedOutput,
@@ -2473,6 +2473,36 @@ const deserializeAws_json1_1Budget = (
   } as any;
 };
 
+const deserializeAws_json1_1BudgetedAndActualAmounts = (
+  output: any,
+  context: __SerdeContext
+): BudgetedAndActualAmounts => {
+  return {
+    __type: "BudgetedAndActualAmounts",
+    ActualAmount:
+      output.ActualAmount !== undefined && output.ActualAmount !== null
+        ? deserializeAws_json1_1Spend(output.ActualAmount, context)
+        : undefined,
+    BudgetedAmount:
+      output.BudgetedAmount !== undefined && output.BudgetedAmount !== null
+        ? deserializeAws_json1_1Spend(output.BudgetedAmount, context)
+        : undefined,
+    TimePeriod:
+      output.TimePeriod !== undefined && output.TimePeriod !== null
+        ? deserializeAws_json1_1TimePeriod(output.TimePeriod, context)
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1BudgetedAndActualAmountsList = (
+  output: any,
+  context: __SerdeContext
+): BudgetedAndActualAmounts[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1BudgetedAndActualAmounts(entry, context)
+  );
+};
+
 const deserializeAws_json1_1BudgetPerformanceHistory = (
   output: any,
   context: __SerdeContext
@@ -2508,36 +2538,6 @@ const deserializeAws_json1_1BudgetPerformanceHistory = (
         ? output.TimeUnit
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1BudgetedAndActualAmounts = (
-  output: any,
-  context: __SerdeContext
-): BudgetedAndActualAmounts => {
-  return {
-    __type: "BudgetedAndActualAmounts",
-    ActualAmount:
-      output.ActualAmount !== undefined && output.ActualAmount !== null
-        ? deserializeAws_json1_1Spend(output.ActualAmount, context)
-        : undefined,
-    BudgetedAmount:
-      output.BudgetedAmount !== undefined && output.BudgetedAmount !== null
-        ? deserializeAws_json1_1Spend(output.BudgetedAmount, context)
-        : undefined,
-    TimePeriod:
-      output.TimePeriod !== undefined && output.TimePeriod !== null
-        ? deserializeAws_json1_1TimePeriod(output.TimePeriod, context)
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1BudgetedAndActualAmountsList = (
-  output: any,
-  context: __SerdeContext
-): BudgetedAndActualAmounts[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1BudgetedAndActualAmounts(entry, context)
-  );
 };
 
 const deserializeAws_json1_1Budgets = (

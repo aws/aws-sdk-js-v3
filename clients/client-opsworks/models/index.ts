@@ -3090,6 +3090,42 @@ export namespace DescribeStackProvisioningParametersResult {
     __isa(o, "DescribeStackProvisioningParametersResult");
 }
 
+export interface DescribeStacksRequest {
+  __type?: "DescribeStacksRequest";
+  /**
+   * <p>An array of stack IDs that specify the stacks to be described. If you omit this parameter,
+   *         <code>DescribeStacks</code> returns a description of every stack.</p>
+   */
+  StackIds?: string[];
+}
+
+export namespace DescribeStacksRequest {
+  export const filterSensitiveLog = (obj: DescribeStacksRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeStacksRequest =>
+    __isa(o, "DescribeStacksRequest");
+}
+
+/**
+ * <p>Contains the response to a <code>DescribeStacks</code> request.</p>
+ */
+export interface DescribeStacksResult {
+  __type?: "DescribeStacksResult";
+  /**
+   * <p>An array of <code>Stack</code> objects that describe the stacks.</p>
+   */
+  Stacks?: Stack[];
+}
+
+export namespace DescribeStacksResult {
+  export const filterSensitiveLog = (obj: DescribeStacksResult): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeStacksResult =>
+    __isa(o, "DescribeStacksResult");
+}
+
 export interface DescribeStackSummaryRequest {
   __type?: "DescribeStackSummaryRequest";
   /**
@@ -3125,42 +3161,6 @@ export namespace DescribeStackSummaryResult {
   });
   export const isa = (o: any): o is DescribeStackSummaryResult =>
     __isa(o, "DescribeStackSummaryResult");
-}
-
-export interface DescribeStacksRequest {
-  __type?: "DescribeStacksRequest";
-  /**
-   * <p>An array of stack IDs that specify the stacks to be described. If you omit this parameter,
-   *         <code>DescribeStacks</code> returns a description of every stack.</p>
-   */
-  StackIds?: string[];
-}
-
-export namespace DescribeStacksRequest {
-  export const filterSensitiveLog = (obj: DescribeStacksRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeStacksRequest =>
-    __isa(o, "DescribeStacksRequest");
-}
-
-/**
- * <p>Contains the response to a <code>DescribeStacks</code> request.</p>
- */
-export interface DescribeStacksResult {
-  __type?: "DescribeStacksResult";
-  /**
-   * <p>An array of <code>Stack</code> objects that describe the stacks.</p>
-   */
-  Stacks?: Stack[];
-}
-
-export namespace DescribeStacksResult {
-  export const filterSensitiveLog = (obj: DescribeStacksResult): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeStacksResult =>
-    __isa(o, "DescribeStacksResult");
 }
 
 export interface DescribeTimeBasedAutoScalingRequest {

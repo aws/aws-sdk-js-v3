@@ -5,9 +5,9 @@ import {
 } from "../SecurityHubClient";
 import { DeleteInsightRequest, DeleteInsightResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteInsightCommand,
-  serializeAws_restJson1_1DeleteInsightCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteInsightCommand,
+  serializeAws_restJson1DeleteInsightCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class DeleteInsightCommand extends $Command<
     input: DeleteInsightCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteInsightCommand(input, context);
+    return serializeAws_restJson1DeleteInsightCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteInsightCommandOutput> {
-    return deserializeAws_restJson1_1DeleteInsightCommand(output, context);
+    return deserializeAws_restJson1DeleteInsightCommand(output, context);
   }
 
   // Start section: command_body_extra

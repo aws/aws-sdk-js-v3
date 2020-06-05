@@ -5,9 +5,9 @@ import {
 } from "../imagebuilderClient";
 import { PutImagePolicyRequest, PutImagePolicyResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutImagePolicyCommand,
-  serializeAws_restJson1_1PutImagePolicyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutImagePolicyCommand,
+  serializeAws_restJson1PutImagePolicyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class PutImagePolicyCommand extends $Command<
     input: PutImagePolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutImagePolicyCommand(input, context);
+    return serializeAws_restJson1PutImagePolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutImagePolicyCommandOutput> {
-    return deserializeAws_restJson1_1PutImagePolicyCommand(output, context);
+    return deserializeAws_restJson1PutImagePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

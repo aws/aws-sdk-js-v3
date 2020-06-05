@@ -5,9 +5,9 @@ import {
 } from "../ApiGatewayV2Client";
 import { ReimportApiRequest, ReimportApiResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ReimportApiCommand,
-  serializeAws_restJson1_1ReimportApiCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ReimportApiCommand,
+  serializeAws_restJson1ReimportApiCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ReimportApiCommand extends $Command<
     input: ReimportApiCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ReimportApiCommand(input, context);
+    return serializeAws_restJson1ReimportApiCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ReimportApiCommandOutput> {
-    return deserializeAws_restJson1_1ReimportApiCommand(output, context);
+    return deserializeAws_restJson1ReimportApiCommand(output, context);
   }
 
   // Start section: command_body_extra

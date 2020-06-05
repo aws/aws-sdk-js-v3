@@ -8,9 +8,9 @@ import {
   GetResourceShareInvitationsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetResourceShareInvitationsCommand,
-  serializeAws_restJson1_1GetResourceShareInvitationsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetResourceShareInvitationsCommand,
+  serializeAws_restJson1GetResourceShareInvitationsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetResourceShareInvitationsCommand extends $Command<
     input: GetResourceShareInvitationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetResourceShareInvitationsCommand(
+    return serializeAws_restJson1GetResourceShareInvitationsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetResourceShareInvitationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetResourceShareInvitationsCommandOutput> {
-    return deserializeAws_restJson1_1GetResourceShareInvitationsCommand(
+    return deserializeAws_restJson1GetResourceShareInvitationsCommand(
       output,
       context
     );

@@ -8,9 +8,9 @@ import {
   UpdateFileSystemRequest
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateFileSystemCommand,
-  serializeAws_restJson1_1UpdateFileSystemCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateFileSystemCommand,
+  serializeAws_restJson1UpdateFileSystemCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class UpdateFileSystemCommand extends $Command<
     input: UpdateFileSystemCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateFileSystemCommand(input, context);
+    return serializeAws_restJson1UpdateFileSystemCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFileSystemCommandOutput> {
-    return deserializeAws_restJson1_1UpdateFileSystemCommand(output, context);
+    return deserializeAws_restJson1UpdateFileSystemCommand(output, context);
   }
 
   // Start section: command_body_extra

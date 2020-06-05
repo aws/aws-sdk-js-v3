@@ -1419,27 +1419,6 @@ export namespace InvalidKMSResourceException {
     __isa(o, "InvalidKMSResourceException");
 }
 
-/**
- * <p>Describes an encryption key for a destination in Amazon S3.</p>
- */
-export interface KMSEncryptionConfig {
-  __type?: "KMSEncryptionConfig";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the encryption key. Must belong to the same AWS Region
-   *          as the destination Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *             Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
-   */
-  AWSKMSKeyARN: string | undefined;
-}
-
-export namespace KMSEncryptionConfig {
-  export const filterSensitiveLog = (obj: KMSEncryptionConfig): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is KMSEncryptionConfig =>
-    __isa(o, "KMSEncryptionConfig");
-}
-
 export enum KeyType {
   AWS_OWNED_CMK = "AWS_OWNED_CMK",
   CUSTOMER_MANAGED_CMK = "CUSTOMER_MANAGED_CMK"
@@ -1506,6 +1485,27 @@ export namespace KinesisStreamSourceDescription {
   });
   export const isa = (o: any): o is KinesisStreamSourceDescription =>
     __isa(o, "KinesisStreamSourceDescription");
+}
+
+/**
+ * <p>Describes an encryption key for a destination in Amazon S3.</p>
+ */
+export interface KMSEncryptionConfig {
+  __type?: "KMSEncryptionConfig";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the encryption key. Must belong to the same AWS Region
+   *          as the destination Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+   *             Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   */
+  AWSKMSKeyARN: string | undefined;
+}
+
+export namespace KMSEncryptionConfig {
+  export const filterSensitiveLog = (obj: KMSEncryptionConfig): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is KMSEncryptionConfig =>
+    __isa(o, "KMSEncryptionConfig");
 }
 
 /**

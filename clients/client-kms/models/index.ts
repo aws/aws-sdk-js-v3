@@ -735,6 +735,17 @@ export namespace CreateKeyResponse {
     __isa(o, "CreateKeyResponse");
 }
 
+export enum CustomerMasterKeySpec {
+  ECC_NIST_P256 = "ECC_NIST_P256",
+  ECC_NIST_P384 = "ECC_NIST_P384",
+  ECC_NIST_P521 = "ECC_NIST_P521",
+  ECC_SECG_P256K1 = "ECC_SECG_P256K1",
+  RSA_2048 = "RSA_2048",
+  RSA_3072 = "RSA_3072",
+  RSA_4096 = "RSA_4096",
+  SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT"
+}
+
 /**
  * <p>The request was rejected because the custom key store contains AWS KMS customer master keys
  *       (CMKs). After verifying that you do not need to use the CMKs, use the <a>ScheduleKeyDeletion</a> operation to delete the CMKs. After they are deleted, you
@@ -956,17 +967,6 @@ export namespace CustomKeyStoresListEntry {
   });
   export const isa = (o: any): o is CustomKeyStoresListEntry =>
     __isa(o, "CustomKeyStoresListEntry");
-}
-
-export enum CustomerMasterKeySpec {
-  ECC_NIST_P256 = "ECC_NIST_P256",
-  ECC_NIST_P384 = "ECC_NIST_P384",
-  ECC_NIST_P521 = "ECC_NIST_P521",
-  ECC_SECG_P256K1 = "ECC_SECG_P256K1",
-  RSA_2048 = "RSA_2048",
-  RSA_3072 = "RSA_3072",
-  RSA_4096 = "RSA_4096",
-  SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT"
 }
 
 export enum DataKeyPairSpec {
@@ -1330,6 +1330,23 @@ export namespace DescribeKeyResponse {
     __isa(o, "DescribeKeyResponse");
 }
 
+/**
+ * <p>The request was rejected because the specified CMK is not enabled.</p>
+ */
+export interface DisabledException extends __SmithyException, $MetadataBearer {
+  name: "DisabledException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace DisabledException {
+  export const filterSensitiveLog = (obj: DisabledException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DisabledException =>
+    __isa(o, "DisabledException");
+}
+
 export interface DisableKeyRequest {
   __type?: "DisableKeyRequest";
   /**
@@ -1388,23 +1405,6 @@ export namespace DisableKeyRotationRequest {
   });
   export const isa = (o: any): o is DisableKeyRotationRequest =>
     __isa(o, "DisableKeyRotationRequest");
-}
-
-/**
- * <p>The request was rejected because the specified CMK is not enabled.</p>
- */
-export interface DisabledException extends __SmithyException, $MetadataBearer {
-  name: "DisabledException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace DisabledException {
-  export const filterSensitiveLog = (obj: DisabledException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DisabledException =>
-    __isa(o, "DisabledException");
 }
 
 export interface DisconnectCustomKeyStoreRequest {
@@ -1496,6 +1496,12 @@ export namespace EnableKeyRotationRequest {
   });
   export const isa = (o: any): o is EnableKeyRotationRequest =>
     __isa(o, "EnableKeyRotationRequest");
+}
+
+export enum EncryptionAlgorithmSpec {
+  RSAES_OAEP_SHA_1 = "RSAES_OAEP_SHA_1",
+  RSAES_OAEP_SHA_256 = "RSAES_OAEP_SHA_256",
+  SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT"
 }
 
 export interface EncryptRequest {
@@ -1591,12 +1597,6 @@ export namespace EncryptResponse {
   });
   export const isa = (o: any): o is EncryptResponse =>
     __isa(o, "EncryptResponse");
-}
-
-export enum EncryptionAlgorithmSpec {
-  RSAES_OAEP_SHA_1 = "RSAES_OAEP_SHA_1",
-  RSAES_OAEP_SHA_256 = "RSAES_OAEP_SHA_256",
-  SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT"
 }
 
 export enum ExpirationModelType {
@@ -2835,73 +2835,6 @@ export namespace InvalidMarkerException {
 }
 
 /**
- * <p>The request was rejected because an internal exception occurred. The request can be
- *       retried.</p>
- */
-export interface KMSInternalException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "KMSInternalException";
-  $fault: "server";
-  message?: string;
-}
-
-export namespace KMSInternalException {
-  export const filterSensitiveLog = (obj: KMSInternalException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is KMSInternalException =>
-    __isa(o, "KMSInternalException");
-}
-
-/**
- * <p>The request was rejected because the signature verification failed. Signature
- *       verification fails when it cannot confirm that signature was produced by signing the specified
- *       message with the specified CMK and signing algorithm.</p>
- */
-export interface KMSInvalidSignatureException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "KMSInvalidSignatureException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace KMSInvalidSignatureException {
-  export const filterSensitiveLog = (
-    obj: KMSInvalidSignatureException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is KMSInvalidSignatureException =>
-    __isa(o, "KMSInvalidSignatureException");
-}
-
-/**
- * <p>The request was rejected because the state of the specified resource is not valid for this
- *       request.</p>
- *          <p>For more information about how key state affects the use of a CMK, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a
- *         Customer Master Key</a> in the <i>
- *                <i>AWS Key Management Service Developer Guide</i>
- *             </i>.</p>
- */
-export interface KMSInvalidStateException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "KMSInvalidStateException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace KMSInvalidStateException {
-  export const filterSensitiveLog = (obj: KMSInvalidStateException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is KMSInvalidStateException =>
-    __isa(o, "KMSInvalidStateException");
-}
-
-/**
  * <p>Contains information about each entry in the key list.</p>
  */
 export interface KeyListEntry {
@@ -3090,6 +3023,73 @@ export namespace KeyUnavailableException {
 export enum KeyUsageType {
   ENCRYPT_DECRYPT = "ENCRYPT_DECRYPT",
   SIGN_VERIFY = "SIGN_VERIFY"
+}
+
+/**
+ * <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ */
+export interface KMSInternalException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "KMSInternalException";
+  $fault: "server";
+  message?: string;
+}
+
+export namespace KMSInternalException {
+  export const filterSensitiveLog = (obj: KMSInternalException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is KMSInternalException =>
+    __isa(o, "KMSInternalException");
+}
+
+/**
+ * <p>The request was rejected because the signature verification failed. Signature
+ *       verification fails when it cannot confirm that signature was produced by signing the specified
+ *       message with the specified CMK and signing algorithm.</p>
+ */
+export interface KMSInvalidSignatureException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "KMSInvalidSignatureException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace KMSInvalidSignatureException {
+  export const filterSensitiveLog = (
+    obj: KMSInvalidSignatureException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is KMSInvalidSignatureException =>
+    __isa(o, "KMSInvalidSignatureException");
+}
+
+/**
+ * <p>The request was rejected because the state of the specified resource is not valid for this
+ *       request.</p>
+ *          <p>For more information about how key state affects the use of a CMK, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a
+ *         Customer Master Key</a> in the <i>
+ *                <i>AWS Key Management Service Developer Guide</i>
+ *             </i>.</p>
+ */
+export interface KMSInvalidStateException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "KMSInvalidStateException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace KMSInvalidStateException {
+  export const filterSensitiveLog = (obj: KMSInvalidStateException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is KMSInvalidStateException =>
+    __isa(o, "KMSInvalidStateException");
 }
 
 /**
@@ -3921,6 +3921,18 @@ export namespace ScheduleKeyDeletionResponse {
     __isa(o, "ScheduleKeyDeletionResponse");
 }
 
+export enum SigningAlgorithmSpec {
+  ECDSA_SHA_256 = "ECDSA_SHA_256",
+  ECDSA_SHA_384 = "ECDSA_SHA_384",
+  ECDSA_SHA_512 = "ECDSA_SHA_512",
+  RSASSA_PKCS1_V1_5_SHA_256 = "RSASSA_PKCS1_V1_5_SHA_256",
+  RSASSA_PKCS1_V1_5_SHA_384 = "RSASSA_PKCS1_V1_5_SHA_384",
+  RSASSA_PKCS1_V1_5_SHA_512 = "RSASSA_PKCS1_V1_5_SHA_512",
+  RSASSA_PSS_SHA_256 = "RSASSA_PSS_SHA_256",
+  RSASSA_PSS_SHA_384 = "RSASSA_PSS_SHA_384",
+  RSASSA_PSS_SHA_512 = "RSASSA_PSS_SHA_512"
+}
+
 export interface SignRequest {
   __type?: "SignRequest";
   /**
@@ -4014,18 +4026,6 @@ export namespace SignResponse {
     ...obj
   });
   export const isa = (o: any): o is SignResponse => __isa(o, "SignResponse");
-}
-
-export enum SigningAlgorithmSpec {
-  ECDSA_SHA_256 = "ECDSA_SHA_256",
-  ECDSA_SHA_384 = "ECDSA_SHA_384",
-  ECDSA_SHA_512 = "ECDSA_SHA_512",
-  RSASSA_PKCS1_V1_5_SHA_256 = "RSASSA_PKCS1_V1_5_SHA_256",
-  RSASSA_PKCS1_V1_5_SHA_384 = "RSASSA_PKCS1_V1_5_SHA_384",
-  RSASSA_PKCS1_V1_5_SHA_512 = "RSASSA_PKCS1_V1_5_SHA_512",
-  RSASSA_PSS_SHA_256 = "RSASSA_PSS_SHA_256",
-  RSASSA_PSS_SHA_384 = "RSASSA_PSS_SHA_384",
-  RSASSA_PSS_SHA_512 = "RSASSA_PSS_SHA_512"
 }
 
 /**

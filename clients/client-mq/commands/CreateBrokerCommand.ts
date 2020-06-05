@@ -5,9 +5,9 @@ import {
   mqClientResolvedConfig
 } from "../mqClient";
 import {
-  deserializeAws_restJson1_1CreateBrokerCommand,
-  serializeAws_restJson1_1CreateBrokerCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateBrokerCommand,
+  serializeAws_restJson1CreateBrokerCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateBrokerCommand extends $Command<
     input: CreateBrokerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateBrokerCommand(input, context);
+    return serializeAws_restJson1CreateBrokerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateBrokerCommandOutput> {
-    return deserializeAws_restJson1_1CreateBrokerCommand(output, context);
+    return deserializeAws_restJson1CreateBrokerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,9 +5,9 @@ import {
 } from "../LexModelBuildingServiceClient";
 import { DeleteIntentVersionRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteIntentVersionCommand,
-  serializeAws_restJson1_1DeleteIntentVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteIntentVersionCommand,
+  serializeAws_restJson1DeleteIntentVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,17 +70,14 @@ export class DeleteIntentVersionCommand extends $Command<
     input: DeleteIntentVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteIntentVersionCommand(input, context);
+    return serializeAws_restJson1DeleteIntentVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteIntentVersionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteIntentVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteIntentVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

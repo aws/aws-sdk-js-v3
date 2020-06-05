@@ -5,6 +5,12 @@ import {
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum AdditionalArtifact {
+  ATHENA = "ATHENA",
+  QUICKSIGHT = "QUICKSIGHT",
+  REDSHIFT = "REDSHIFT"
+}
+
 export enum AWSRegion {
   FRANKFURT = "eu-central-1",
   HONG_KONG = "ap-east-1",
@@ -17,12 +23,6 @@ export enum AWSRegion {
   SYDNEY = "ap-southeast-2",
   TOKYO = "ap-northeast-1",
   US_STANDARD = "us-east-1"
-}
-
-export enum AdditionalArtifact {
-  ATHENA = "ATHENA",
-  QUICKSIGHT = "QUICKSIGHT",
-  REDSHIFT = "REDSHIFT"
 }
 
 export enum CompressionFormat {

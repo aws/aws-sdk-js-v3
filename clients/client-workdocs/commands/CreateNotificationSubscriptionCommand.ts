@@ -8,9 +8,9 @@ import {
   CreateNotificationSubscriptionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateNotificationSubscriptionCommand,
-  serializeAws_restJson1_1CreateNotificationSubscriptionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateNotificationSubscriptionCommand,
+  serializeAws_restJson1CreateNotificationSubscriptionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CreateNotificationSubscriptionCommand extends $Command<
     input: CreateNotificationSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateNotificationSubscriptionCommand(
+    return serializeAws_restJson1CreateNotificationSubscriptionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CreateNotificationSubscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateNotificationSubscriptionCommandOutput> {
-    return deserializeAws_restJson1_1CreateNotificationSubscriptionCommand(
+    return deserializeAws_restJson1CreateNotificationSubscriptionCommand(
       output,
       context
     );

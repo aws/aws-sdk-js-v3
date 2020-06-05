@@ -8,9 +8,9 @@ import {
   ListRoleAliasesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListRoleAliasesCommand,
-  serializeAws_restJson1_1ListRoleAliasesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListRoleAliasesCommand,
+  serializeAws_restJson1ListRoleAliasesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ListRoleAliasesCommand extends $Command<
     input: ListRoleAliasesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListRoleAliasesCommand(input, context);
+    return serializeAws_restJson1ListRoleAliasesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRoleAliasesCommandOutput> {
-    return deserializeAws_restJson1_1ListRoleAliasesCommand(output, context);
+    return deserializeAws_restJson1ListRoleAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

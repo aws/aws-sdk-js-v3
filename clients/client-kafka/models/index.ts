@@ -904,6 +904,30 @@ export namespace EncryptionAtRest {
 }
 
 /**
+ * <p>Includes encryption-related information, such as the AWS KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.</p>
+ */
+export interface EncryptionInfo {
+  __type?: "EncryptionInfo";
+  /**
+   * <p>The data-volume encryption details.</p>
+   */
+  EncryptionAtRest?: EncryptionAtRest;
+
+  /**
+   * <p>The details for encryption in transit.</p>
+   */
+  EncryptionInTransit?: EncryptionInTransit;
+}
+
+export namespace EncryptionInfo {
+  export const filterSensitiveLog = (obj: EncryptionInfo): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is EncryptionInfo =>
+    __isa(o, "EncryptionInfo");
+}
+
+/**
  * <p>The settings for encrypting data in transit.</p>
  */
 export interface EncryptionInTransit {
@@ -933,30 +957,6 @@ export namespace EncryptionInTransit {
   });
   export const isa = (o: any): o is EncryptionInTransit =>
     __isa(o, "EncryptionInTransit");
-}
-
-/**
- * <p>Includes encryption-related information, such as the AWS KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.</p>
- */
-export interface EncryptionInfo {
-  __type?: "EncryptionInfo";
-  /**
-   * <p>The data-volume encryption details.</p>
-   */
-  EncryptionAtRest?: EncryptionAtRest;
-
-  /**
-   * <p>The details for encryption in transit.</p>
-   */
-  EncryptionInTransit?: EncryptionInTransit;
-}
-
-export namespace EncryptionInfo {
-  export const filterSensitiveLog = (obj: EncryptionInfo): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is EncryptionInfo =>
-    __isa(o, "EncryptionInfo");
 }
 
 export enum EnhancedMonitoring {

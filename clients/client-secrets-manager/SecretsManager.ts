@@ -740,69 +740,6 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Lists all of the versions attached to the specified secret. The output does not include
-   *       the <code>SecretString</code> or <code>SecretBinary</code> fields. By default, the list
-   *       includes only versions that have at least one staging label in <code>VersionStage</code>
-   *       attached.</p>
-   *          <note>
-   *             <p>Always check the <code>NextToken</code> response parameter
-   *     when calling any of the <code>List*</code> operations. These operations can occasionally return
-   *     an empty or shorter than expected list of results even when there are more results available.
-   *     When this happens, the <code>NextToken</code> response parameter contains a value to pass to the
-   *     next call to the same API to request the next part of the list.</p>
-   *          </note>
-   *          <p>
-   *             <b>Minimum
-   *       permissions</b>
-   *          </p>
-   *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>secretsmanager:ListSecretVersionIds</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>Related operations</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>To list the secrets in an account, use <a>ListSecrets</a>.</p>
-   *             </li>
-   *          </ul>
-   */
-  public listSecretVersionIds(
-    args: ListSecretVersionIdsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSecretVersionIdsCommandOutput>;
-  public listSecretVersionIds(
-    args: ListSecretVersionIdsCommandInput,
-    cb: (err: any, data?: ListSecretVersionIdsCommandOutput) => void
-  ): void;
-  public listSecretVersionIds(
-    args: ListSecretVersionIdsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListSecretVersionIdsCommandOutput) => void
-  ): void;
-  public listSecretVersionIds(
-    args: ListSecretVersionIdsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSecretVersionIdsCommandOutput) => void),
-    cb?: (err: any, data?: ListSecretVersionIdsCommandOutput) => void
-  ): Promise<ListSecretVersionIdsCommandOutput> | void {
-    const command = new ListSecretVersionIdsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Lists all of the secrets that are stored by Secrets Manager in the AWS account. To list the
    *       versions currently stored for a specific secret, use <a>ListSecretVersionIds</a>.
    *       The encrypted fields <code>SecretString</code> and <code>SecretBinary</code> are not included
@@ -855,6 +792,69 @@ export class SecretsManager extends SecretsManagerClient {
     cb?: (err: any, data?: ListSecretsCommandOutput) => void
   ): Promise<ListSecretsCommandOutput> | void {
     const command = new ListSecretsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all of the versions attached to the specified secret. The output does not include
+   *       the <code>SecretString</code> or <code>SecretBinary</code> fields. By default, the list
+   *       includes only versions that have at least one staging label in <code>VersionStage</code>
+   *       attached.</p>
+   *          <note>
+   *             <p>Always check the <code>NextToken</code> response parameter
+   *     when calling any of the <code>List*</code> operations. These operations can occasionally return
+   *     an empty or shorter than expected list of results even when there are more results available.
+   *     When this happens, the <code>NextToken</code> response parameter contains a value to pass to the
+   *     next call to the same API to request the next part of the list.</p>
+   *          </note>
+   *          <p>
+   *             <b>Minimum
+   *       permissions</b>
+   *          </p>
+   *          <p>To run this command, you must have the following permissions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>secretsmanager:ListSecretVersionIds</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>Related operations</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>To list the secrets in an account, use <a>ListSecrets</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  public listSecretVersionIds(
+    args: ListSecretVersionIdsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSecretVersionIdsCommandOutput>;
+  public listSecretVersionIds(
+    args: ListSecretVersionIdsCommandInput,
+    cb: (err: any, data?: ListSecretVersionIdsCommandOutput) => void
+  ): void;
+  public listSecretVersionIds(
+    args: ListSecretVersionIdsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSecretVersionIdsCommandOutput) => void
+  ): void;
+  public listSecretVersionIds(
+    args: ListSecretVersionIdsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListSecretVersionIdsCommandOutput) => void),
+    cb?: (err: any, data?: ListSecretVersionIdsCommandOutput) => void
+  ): Promise<ListSecretVersionIdsCommandOutput> | void {
+    const command = new ListSecretVersionIdsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

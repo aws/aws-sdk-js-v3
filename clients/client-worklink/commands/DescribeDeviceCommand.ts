@@ -5,9 +5,9 @@ import {
 } from "../WorkLinkClient";
 import { DescribeDeviceRequest, DescribeDeviceResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeDeviceCommand,
-  serializeAws_restJson1_1DescribeDeviceCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeDeviceCommand,
+  serializeAws_restJson1DescribeDeviceCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class DescribeDeviceCommand extends $Command<
     input: DescribeDeviceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeDeviceCommand(input, context);
+    return serializeAws_restJson1DescribeDeviceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDeviceCommandOutput> {
-    return deserializeAws_restJson1_1DescribeDeviceCommand(output, context);
+    return deserializeAws_restJson1DescribeDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

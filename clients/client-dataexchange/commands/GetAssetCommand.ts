@@ -5,9 +5,9 @@ import {
 } from "../DataExchangeClient";
 import { GetAssetRequest, GetAssetResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetAssetCommand,
-  serializeAws_restJson1_1GetAssetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetAssetCommand,
+  serializeAws_restJson1GetAssetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetAssetCommand extends $Command<
     input: GetAssetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetAssetCommand(input, context);
+    return serializeAws_restJson1GetAssetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAssetCommandOutput> {
-    return deserializeAws_restJson1_1GetAssetCommand(output, context);
+    return deserializeAws_restJson1GetAssetCommand(output, context);
   }
 
   // Start section: command_body_extra

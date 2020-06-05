@@ -5,9 +5,9 @@ import {
 } from "../DataExchangeClient";
 import { UpdateAssetRequest, UpdateAssetResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateAssetCommand,
-  serializeAws_restJson1_1UpdateAssetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateAssetCommand,
+  serializeAws_restJson1UpdateAssetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class UpdateAssetCommand extends $Command<
     input: UpdateAssetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateAssetCommand(input, context);
+    return serializeAws_restJson1UpdateAssetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAssetCommandOutput> {
-    return deserializeAws_restJson1_1UpdateAssetCommand(output, context);
+    return deserializeAws_restJson1UpdateAssetCommand(output, context);
   }
 
   // Start section: command_body_extra

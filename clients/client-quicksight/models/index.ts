@@ -6,6 +6,32 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
+ * <p>You don't have access to this item. The provided credentials couldn't be
+ * 			validated. You might not be authorized to carry out the request. Make sure that your
+ * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			correct permissions, and that you are using the correct access keys.</p>
+ */
+export interface AccessDeniedException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "AccessDeniedException";
+  $fault: "client";
+  Message?: string;
+  /**
+   * <p>The AWS request ID for this request.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace AccessDeniedException {
+  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AccessDeniedException =>
+    __isa(o, "AccessDeniedException");
+}
+
+/**
  * <p>The active AWS Identity and Access Management (IAM) policy assignment.</p>
  */
 export interface ActiveIAMPolicyAssignment {
@@ -284,6 +310,13 @@ export namespace CastColumnTypeOperation {
     __isa(o, "CastColumnTypeOperation");
 }
 
+export enum ColumnDataType {
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  INTEGER = "INTEGER",
+  STRING = "STRING"
+}
+
 /**
  * <p>Groupings of columns that work together in certain Amazon QuickSight features. This is a
  * 			variant type structure. For this structure to be valid, only one of the attributes can
@@ -416,6 +449,27 @@ export namespace ConcurrentUpdatingException {
   });
   export const isa = (o: any): o is ConcurrentUpdatingException =>
     __isa(o, "ConcurrentUpdatingException");
+}
+
+/**
+ * <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ */
+export interface ConflictException extends __SmithyException, $MetadataBearer {
+  name: "ConflictException";
+  $fault: "client";
+  Message?: string;
+  /**
+   * <p>The AWS request ID for this request.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace ConflictException {
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ConflictException =>
+    __isa(o, "ConflictException");
 }
 
 /**
@@ -3293,6 +3347,18 @@ export namespace ErrorInfo {
   export const isa = (o: any): o is ErrorInfo => __isa(o, "ErrorInfo");
 }
 
+export enum ExceptionResourceType {
+  ACCOUNT_SETTINGS = "ACCOUNT_SETTINGS",
+  DATA_SET = "DATA_SET",
+  DATA_SOURCE = "DATA_SOURCE",
+  GROUP = "GROUP",
+  IAMPOLICY_ASSIGNMENT = "IAMPOLICY_ASSIGNMENT",
+  INGESTION = "INGESTION",
+  NAMESPACE = "NAMESPACE",
+  USER = "USER",
+  VPC_CONNECTION = "VPC_CONNECTION"
+}
+
 /**
  * <p>Export to .csv option.</p>
  */
@@ -3601,6 +3667,11 @@ export namespace IAMPolicyAssignmentSummary {
     __isa(o, "IAMPolicyAssignmentSummary");
 }
 
+export enum IdentityType {
+  IAM = "IAM",
+  QUICKSIGHT = "QUICKSIGHT"
+}
+
 /**
  * <p>The identity type specified isn't supported. Supported identity types include
  * 				<code>IAM</code> and <code>QUICKSIGHT</code>.</p>
@@ -3817,6 +3888,77 @@ export namespace IntegerParameter {
 }
 
 /**
+ * <p>An internal failure occurred.</p>
+ */
+export interface InternalFailureException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InternalFailureException";
+  $fault: "server";
+  Message?: string;
+  /**
+   * <p>The AWS request ID for this request.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace InternalFailureException {
+  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InternalFailureException =>
+    __isa(o, "InternalFailureException");
+}
+
+/**
+ * <p>The <code>NextToken</code> value isn't valid.</p>
+ */
+export interface InvalidNextTokenException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidNextTokenException";
+  $fault: "client";
+  Message?: string;
+  /**
+   * <p>The AWS request ID for this request.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace InvalidNextTokenException {
+  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidNextTokenException =>
+    __isa(o, "InvalidNextTokenException");
+}
+
+/**
+ * <p>One or more parameters has a value that isn't valid.</p>
+ */
+export interface InvalidParameterValueException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidParameterValueException";
+  $fault: "client";
+  Message?: string;
+  /**
+   * <p>The AWS request ID for this request.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace InvalidParameterValueException {
+  export const filterSensitiveLog = (
+    obj: InvalidParameterValueException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidParameterValueException =>
+    __isa(o, "InvalidParameterValueException");
+}
+
+/**
  * <p>Jira parameters.</p>
  */
 export interface JiraParameters {
@@ -3874,6 +4016,87 @@ export enum JoinType {
   LEFT = "LEFT",
   OUTER = "OUTER",
   RIGHT = "RIGHT"
+}
+
+/**
+ * <p>A limit is exceeded.</p>
+ */
+export interface LimitExceededException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  Message?: string;
+  /**
+   * <p>The AWS request ID for this request.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>Limit exceeded.</p>
+   */
+  ResourceType?: ExceptionResourceType | string;
+}
+
+export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
+}
+
+export interface ListDashboardsRequest {
+  __type?: "ListDashboardsRequest";
+  /**
+   * <p>The ID of the AWS account that contains the dashboards that you're listing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListDashboardsRequest {
+  export const filterSensitiveLog = (obj: ListDashboardsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListDashboardsRequest =>
+    __isa(o, "ListDashboardsRequest");
+}
+
+export interface ListDashboardsResponse {
+  __type?: "ListDashboardsResponse";
+  /**
+   * <p>A structure that contains all of the dashboards shared with the user. This structure
+   * 			provides basic information about the dashboards.</p>
+   */
+  DashboardSummaryList?: DashboardSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The AWS request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace ListDashboardsResponse {
+  export const filterSensitiveLog = (obj: ListDashboardsResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListDashboardsResponse =>
+    __isa(o, "ListDashboardsResponse");
 }
 
 export interface ListDashboardVersionsRequest {
@@ -3936,59 +4159,6 @@ export namespace ListDashboardVersionsResponse {
   });
   export const isa = (o: any): o is ListDashboardVersionsResponse =>
     __isa(o, "ListDashboardVersionsResponse");
-}
-
-export interface ListDashboardsRequest {
-  __type?: "ListDashboardsRequest";
-  /**
-   * <p>The ID of the AWS account that contains the dashboards that you're listing.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListDashboardsRequest {
-  export const filterSensitiveLog = (obj: ListDashboardsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListDashboardsRequest =>
-    __isa(o, "ListDashboardsRequest");
-}
-
-export interface ListDashboardsResponse {
-  __type?: "ListDashboardsResponse";
-  /**
-   * <p>A structure that contains all of the dashboards shared with the user. This structure
-   * 			provides basic information about the dashboards.</p>
-   */
-  DashboardSummaryList?: DashboardSummary[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace ListDashboardsResponse {
-  export const filterSensitiveLog = (obj: ListDashboardsResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListDashboardsResponse =>
-    __isa(o, "ListDashboardsResponse");
 }
 
 export interface ListDataSetsRequest {
@@ -4508,6 +4678,58 @@ export namespace ListTemplateAliasesResponse {
     __isa(o, "ListTemplateAliasesResponse");
 }
 
+export interface ListTemplatesRequest {
+  __type?: "ListTemplatesRequest";
+  /**
+   * <p>The ID of the AWS account that contains the templates that you're listing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListTemplatesRequest {
+  export const filterSensitiveLog = (obj: ListTemplatesRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListTemplatesRequest =>
+    __isa(o, "ListTemplatesRequest");
+}
+
+export interface ListTemplatesResponse {
+  __type?: "ListTemplatesResponse";
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The AWS request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>A structure containing information about the templates in the list.</p>
+   */
+  TemplateSummaryList?: TemplateSummary[];
+}
+
+export namespace ListTemplatesResponse {
+  export const filterSensitiveLog = (obj: ListTemplatesResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListTemplatesResponse =>
+    __isa(o, "ListTemplatesResponse");
+}
+
 export interface ListTemplateVersionsRequest {
   __type?: "ListTemplateVersionsRequest";
   /**
@@ -4567,58 +4789,6 @@ export namespace ListTemplateVersionsResponse {
   });
   export const isa = (o: any): o is ListTemplateVersionsResponse =>
     __isa(o, "ListTemplateVersionsResponse");
-}
-
-export interface ListTemplatesRequest {
-  __type?: "ListTemplatesRequest";
-  /**
-   * <p>The ID of the AWS account that contains the templates that you're listing.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListTemplatesRequest {
-  export const filterSensitiveLog = (obj: ListTemplatesRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListTemplatesRequest =>
-    __isa(o, "ListTemplatesRequest");
-}
-
-export interface ListTemplatesResponse {
-  __type?: "ListTemplatesResponse";
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>A structure containing information about the templates in the list.</p>
-   */
-  TemplateSummaryList?: TemplateSummary[];
-}
-
-export namespace ListTemplatesResponse {
-  export const filterSensitiveLog = (obj: ListTemplatesResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListTemplatesResponse =>
-    __isa(o, "ListTemplatesResponse");
 }
 
 export interface ListUserGroupsRequest {
@@ -4996,6 +5166,31 @@ export namespace PostgreSqlParameters {
 }
 
 /**
+ * <p>One or more preconditions aren't met.</p>
+ */
+export interface PreconditionNotMetException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "PreconditionNotMetException";
+  $fault: "client";
+  Message?: string;
+  /**
+   * <p>The AWS request ID for this request.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace PreconditionNotMetException {
+  export const filterSensitiveLog = (
+    obj: PreconditionNotMetException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is PreconditionNotMetException =>
+    __isa(o, "PreconditionNotMetException");
+}
+
+/**
  * <p>Presto parameters.</p>
  */
 export interface PrestoParameters {
@@ -5342,6 +5537,128 @@ export namespace RenameColumnOperation {
 }
 
 /**
+ * <p>The resource specified already exists. </p>
+ */
+export interface ResourceExistsException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceExistsException";
+  $fault: "client";
+  Message?: string;
+  /**
+   * <p>The AWS request ID for this request.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The AWS request ID for this request.</p>
+   */
+  ResourceType?: ExceptionResourceType | string;
+}
+
+export namespace ResourceExistsException {
+  export const filterSensitiveLog = (obj: ResourceExistsException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceExistsException =>
+    __isa(o, "ResourceExistsException");
+}
+
+/**
+ * <p>One or more resources can't be found.</p>
+ */
+export interface ResourceNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  Message?: string;
+  /**
+   * <p>The AWS request ID for this request.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The AWS request ID for this request.</p>
+   */
+  ResourceType?: ExceptionResourceType | string;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
+}
+
+/**
+ * <p>Permission for the resource.</p>
+ */
+export interface ResourcePermission {
+  __type?: "ResourcePermission";
+  /**
+   * <p>The action to grant or revoke permissions on, for example
+   * 				<code>"quicksight:DescribeDashboard"</code>.</p>
+   */
+  Actions: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an Amazon QuickSight user or group, or an IAM ARN. If you
+   * 			are using cross-account resource sharing, this is the IAM ARN of an account root.
+   * 			Otherwise, it is the ARN of a QuickSight user or group. .</p>
+   */
+  Principal: string | undefined;
+}
+
+export namespace ResourcePermission {
+  export const filterSensitiveLog = (obj: ResourcePermission): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourcePermission =>
+    __isa(o, "ResourcePermission");
+}
+
+export enum ResourceStatus {
+  CREATION_FAILED = "CREATION_FAILED",
+  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
+  CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL",
+  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
+  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
+}
+
+/**
+ * <p>This resource is currently unavailable.</p>
+ */
+export interface ResourceUnavailableException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceUnavailableException";
+  $fault: "server";
+  Message?: string;
+  /**
+   * <p>The AWS request ID for this request.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The resource type for this request.</p>
+   */
+  ResourceType?: ExceptionResourceType | string;
+}
+
+export namespace ResourceUnavailableException {
+  export const filterSensitiveLog = (
+    obj: ResourceUnavailableException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceUnavailableException =>
+    __isa(o, "ResourceUnavailableException");
+}
+
+/**
  * <p>Information about rows for a data set SPICE ingestion.</p>
  */
 export interface RowInfo {
@@ -5627,6 +5944,30 @@ export namespace StringParameter {
   });
   export const isa = (o: any): o is StringParameter =>
     __isa(o, "StringParameter");
+}
+
+/**
+ * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+ * 			resource.</p>
+ */
+export interface Tag {
+  __type?: "Tag";
+  /**
+   * <p>Tag key.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>Tag value.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -6037,6 +6378,29 @@ export enum TextQualifier {
 }
 
 /**
+ * <p>Access is throttled.</p>
+ */
+export interface ThrottlingException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ThrottlingException";
+  $fault: "client";
+  Message?: string;
+  /**
+   * <p>The AWS request ID for this request.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
+}
+
+/**
  * <p>A data transformation on a logical table. This is a variant type structure. For this
  * 			structure to be valid, only one of the attributes can be non-null.</p>
  */
@@ -6105,6 +6469,34 @@ export namespace TwitterParameters {
   });
   export const isa = (o: any): o is TwitterParameters =>
     __isa(o, "TwitterParameters");
+}
+
+/**
+ * <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ * 			subscription where the edition doesn't include support for that operation. Amazon
+ * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			capability is available in every edition.</p>
+ */
+export interface UnsupportedUserEditionException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "UnsupportedUserEditionException";
+  $fault: "client";
+  Message?: string;
+  /**
+   * <p>The AWS request ID for this request.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace UnsupportedUserEditionException {
+  export const filterSensitiveLog = (
+    obj: UnsupportedUserEditionException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UnsupportedUserEditionException =>
+    __isa(o, "UnsupportedUserEditionException");
 }
 
 export interface UntagResourceRequest {
@@ -7266,396 +7658,4 @@ export namespace VpcConnectionProperties {
   });
   export const isa = (o: any): o is VpcConnectionProperties =>
     __isa(o, "VpcConnectionProperties");
-}
-
-/**
- * <p>You don't have access to this item. The provided credentials couldn't be
- * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
- * 			correct permissions, and that you are using the correct access keys.</p>
- */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
-  Message?: string;
-  /**
-   * <p>The AWS request ID for this request.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace AccessDeniedException {
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
-}
-
-export enum ColumnDataType {
-  DATETIME = "DATETIME",
-  DECIMAL = "DECIMAL",
-  INTEGER = "INTEGER",
-  STRING = "STRING"
-}
-
-/**
- * <p>Updating or deleting a resource can cause an inconsistent state.</p>
- */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  Message?: string;
-  /**
-   * <p>The AWS request ID for this request.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace ConflictException {
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ConflictException =>
-    __isa(o, "ConflictException");
-}
-
-export enum ExceptionResourceType {
-  ACCOUNT_SETTINGS = "ACCOUNT_SETTINGS",
-  DATA_SET = "DATA_SET",
-  DATA_SOURCE = "DATA_SOURCE",
-  GROUP = "GROUP",
-  IAMPOLICY_ASSIGNMENT = "IAMPOLICY_ASSIGNMENT",
-  INGESTION = "INGESTION",
-  NAMESPACE = "NAMESPACE",
-  USER = "USER",
-  VPC_CONNECTION = "VPC_CONNECTION"
-}
-
-export enum IdentityType {
-  IAM = "IAM",
-  QUICKSIGHT = "QUICKSIGHT"
-}
-
-/**
- * <p>An internal failure occurred.</p>
- */
-export interface InternalFailureException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InternalFailureException";
-  $fault: "server";
-  Message?: string;
-  /**
-   * <p>The AWS request ID for this request.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace InternalFailureException {
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InternalFailureException =>
-    __isa(o, "InternalFailureException");
-}
-
-/**
- * <p>The <code>NextToken</code> value isn't valid.</p>
- */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
-  Message?: string;
-  /**
-   * <p>The AWS request ID for this request.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace InvalidNextTokenException {
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidNextTokenException =>
-    __isa(o, "InvalidNextTokenException");
-}
-
-/**
- * <p>One or more parameters has a value that isn't valid.</p>
- */
-export interface InvalidParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidParameterValueException";
-  $fault: "client";
-  Message?: string;
-  /**
-   * <p>The AWS request ID for this request.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace InvalidParameterValueException {
-  export const filterSensitiveLog = (
-    obj: InvalidParameterValueException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidParameterValueException =>
-    __isa(o, "InvalidParameterValueException");
-}
-
-/**
- * <p>A limit is exceeded.</p>
- */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  Message?: string;
-  /**
-   * <p>The AWS request ID for this request.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>Limit exceeded.</p>
-   */
-  ResourceType?: ExceptionResourceType | string;
-}
-
-export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
-}
-
-/**
- * <p>One or more preconditions aren't met.</p>
- */
-export interface PreconditionNotMetException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "PreconditionNotMetException";
-  $fault: "client";
-  Message?: string;
-  /**
-   * <p>The AWS request ID for this request.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace PreconditionNotMetException {
-  export const filterSensitiveLog = (
-    obj: PreconditionNotMetException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is PreconditionNotMetException =>
-    __isa(o, "PreconditionNotMetException");
-}
-
-/**
- * <p>The resource specified already exists. </p>
- */
-export interface ResourceExistsException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceExistsException";
-  $fault: "client";
-  Message?: string;
-  /**
-   * <p>The AWS request ID for this request.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The AWS request ID for this request.</p>
-   */
-  ResourceType?: ExceptionResourceType | string;
-}
-
-export namespace ResourceExistsException {
-  export const filterSensitiveLog = (obj: ResourceExistsException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceExistsException =>
-    __isa(o, "ResourceExistsException");
-}
-
-/**
- * <p>One or more resources can't be found.</p>
- */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  Message?: string;
-  /**
-   * <p>The AWS request ID for this request.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The AWS request ID for this request.</p>
-   */
-  ResourceType?: ExceptionResourceType | string;
-}
-
-export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
-}
-
-/**
- * <p>Permission for the resource.</p>
- */
-export interface ResourcePermission {
-  __type?: "ResourcePermission";
-  /**
-   * <p>The action to grant or revoke permissions on, for example
-   * 				<code>"quicksight:DescribeDashboard"</code>.</p>
-   */
-  Actions: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an Amazon QuickSight user or group, or an IAM ARN. If you
-   * 			are using cross-account resource sharing, this is the IAM ARN of an account root.
-   * 			Otherwise, it is the ARN of a QuickSight user or group. .</p>
-   */
-  Principal: string | undefined;
-}
-
-export namespace ResourcePermission {
-  export const filterSensitiveLog = (obj: ResourcePermission): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourcePermission =>
-    __isa(o, "ResourcePermission");
-}
-
-export enum ResourceStatus {
-  CREATION_FAILED = "CREATION_FAILED",
-  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
-  CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
-}
-
-/**
- * <p>This resource is currently unavailable.</p>
- */
-export interface ResourceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceUnavailableException";
-  $fault: "server";
-  Message?: string;
-  /**
-   * <p>The AWS request ID for this request.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The resource type for this request.</p>
-   */
-  ResourceType?: ExceptionResourceType | string;
-}
-
-export namespace ResourceUnavailableException {
-  export const filterSensitiveLog = (
-    obj: ResourceUnavailableException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceUnavailableException =>
-    __isa(o, "ResourceUnavailableException");
-}
-
-/**
- * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
- * 			resource.</p>
- */
-export interface Tag {
-  __type?: "Tag";
-  /**
-   * <p>Tag key.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>Tag value.</p>
-   */
-  Value: string | undefined;
-}
-
-export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
-}
-
-/**
- * <p>Access is throttled.</p>
- */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  Message?: string;
-  /**
-   * <p>The AWS request ID for this request.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace ThrottlingException {
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
-}
-
-/**
- * <p>This error indicates that you are calling an operation on an Amazon QuickSight
- * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
- * 			capability is available in every edition.</p>
- */
-export interface UnsupportedUserEditionException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "UnsupportedUserEditionException";
-  $fault: "client";
-  Message?: string;
-  /**
-   * <p>The AWS request ID for this request.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace UnsupportedUserEditionException {
-  export const filterSensitiveLog = (
-    obj: UnsupportedUserEditionException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UnsupportedUserEditionException =>
-    __isa(o, "UnsupportedUserEditionException");
 }

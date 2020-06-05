@@ -120,7 +120,7 @@ const deserializeAws_json1_1CreateHomeRegionControlCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.awsmigrationhubmultiaccount#AccessDeniedException":
+    case "com.amazonaws.migrationhubconfig#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -131,7 +131,7 @@ const deserializeAws_json1_1CreateHomeRegionControlCommandError = async (
       };
       break;
     case "DryRunOperation":
-    case "com.amazonaws.awsmigrationhubmultiaccount#DryRunOperation":
+    case "com.amazonaws.migrationhubconfig#DryRunOperation":
       response = {
         ...(await deserializeAws_json1_1DryRunOperationResponse(
           parsedOutput,
@@ -142,7 +142,7 @@ const deserializeAws_json1_1CreateHomeRegionControlCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.awsmigrationhubmultiaccount#InternalServerError":
+    case "com.amazonaws.migrationhubconfig#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -153,7 +153,7 @@ const deserializeAws_json1_1CreateHomeRegionControlCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.awsmigrationhubmultiaccount#InvalidInputException":
+    case "com.amazonaws.migrationhubconfig#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -164,7 +164,7 @@ const deserializeAws_json1_1CreateHomeRegionControlCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.awsmigrationhubmultiaccount#ServiceUnavailableException":
+    case "com.amazonaws.migrationhubconfig#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -230,7 +230,7 @@ const deserializeAws_json1_1DescribeHomeRegionControlsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.awsmigrationhubmultiaccount#AccessDeniedException":
+    case "com.amazonaws.migrationhubconfig#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -241,7 +241,7 @@ const deserializeAws_json1_1DescribeHomeRegionControlsCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.awsmigrationhubmultiaccount#InternalServerError":
+    case "com.amazonaws.migrationhubconfig#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -252,7 +252,7 @@ const deserializeAws_json1_1DescribeHomeRegionControlsCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.awsmigrationhubmultiaccount#InvalidInputException":
+    case "com.amazonaws.migrationhubconfig#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -263,7 +263,7 @@ const deserializeAws_json1_1DescribeHomeRegionControlsCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.awsmigrationhubmultiaccount#ServiceUnavailableException":
+    case "com.amazonaws.migrationhubconfig#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -323,7 +323,7 @@ const deserializeAws_json1_1GetHomeRegionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
-    case "com.amazonaws.awsmigrationhubmultiaccount#AccessDeniedException":
+    case "com.amazonaws.migrationhubconfig#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
           parsedOutput,
@@ -334,7 +334,7 @@ const deserializeAws_json1_1GetHomeRegionCommandError = async (
       };
       break;
     case "InternalServerError":
-    case "com.amazonaws.awsmigrationhubmultiaccount#InternalServerError":
+    case "com.amazonaws.migrationhubconfig#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(
           parsedOutput,
@@ -345,7 +345,7 @@ const deserializeAws_json1_1GetHomeRegionCommandError = async (
       };
       break;
     case "InvalidInputException":
-    case "com.amazonaws.awsmigrationhubmultiaccount#InvalidInputException":
+    case "com.amazonaws.migrationhubconfig#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
           parsedOutput,
@@ -356,7 +356,7 @@ const deserializeAws_json1_1GetHomeRegionCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.awsmigrationhubmultiaccount#ServiceUnavailableException":
+    case "com.amazonaws.migrationhubconfig#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,

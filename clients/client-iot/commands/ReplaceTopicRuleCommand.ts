@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { ReplaceTopicRuleRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1ReplaceTopicRuleCommand,
-  serializeAws_restJson1_1ReplaceTopicRuleCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ReplaceTopicRuleCommand,
+  serializeAws_restJson1ReplaceTopicRuleCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ReplaceTopicRuleCommand extends $Command<
     input: ReplaceTopicRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ReplaceTopicRuleCommand(input, context);
+    return serializeAws_restJson1ReplaceTopicRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ReplaceTopicRuleCommandOutput> {
-    return deserializeAws_restJson1_1ReplaceTopicRuleCommand(output, context);
+    return deserializeAws_restJson1ReplaceTopicRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

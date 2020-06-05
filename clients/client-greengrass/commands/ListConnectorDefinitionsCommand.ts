@@ -8,9 +8,9 @@ import {
   ListConnectorDefinitionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListConnectorDefinitionsCommand,
-  serializeAws_restJson1_1ListConnectorDefinitionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListConnectorDefinitionsCommand,
+  serializeAws_restJson1ListConnectorDefinitionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListConnectorDefinitionsCommand extends $Command<
     input: ListConnectorDefinitionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListConnectorDefinitionsCommand(
+    return serializeAws_restJson1ListConnectorDefinitionsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListConnectorDefinitionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListConnectorDefinitionsCommandOutput> {
-    return deserializeAws_restJson1_1ListConnectorDefinitionsCommand(
+    return deserializeAws_restJson1ListConnectorDefinitionsCommand(
       output,
       context
     );

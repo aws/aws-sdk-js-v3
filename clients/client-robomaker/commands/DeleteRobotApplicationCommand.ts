@@ -8,9 +8,9 @@ import {
   DeleteRobotApplicationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteRobotApplicationCommand,
-  serializeAws_restJson1_1DeleteRobotApplicationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteRobotApplicationCommand,
+  serializeAws_restJson1DeleteRobotApplicationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteRobotApplicationCommand extends $Command<
     input: DeleteRobotApplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteRobotApplicationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DeleteRobotApplicationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRobotApplicationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteRobotApplicationCommand(
+    return deserializeAws_restJson1DeleteRobotApplicationCommand(
       output,
       context
     );

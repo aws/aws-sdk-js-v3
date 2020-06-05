@@ -8,9 +8,9 @@ import {
   BatchUpdateScheduleResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1BatchUpdateScheduleCommand,
-  serializeAws_restJson1_1BatchUpdateScheduleCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1BatchUpdateScheduleCommand,
+  serializeAws_restJson1BatchUpdateScheduleCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class BatchUpdateScheduleCommand extends $Command<
     input: BatchUpdateScheduleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1BatchUpdateScheduleCommand(input, context);
+    return serializeAws_restJson1BatchUpdateScheduleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchUpdateScheduleCommandOutput> {
-    return deserializeAws_restJson1_1BatchUpdateScheduleCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1BatchUpdateScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

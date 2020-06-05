@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { DeleteDomainNameRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteDomainNameCommand,
-  serializeAws_restJson1_1DeleteDomainNameCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteDomainNameCommand,
+  serializeAws_restJson1DeleteDomainNameCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteDomainNameCommand extends $Command<
     input: DeleteDomainNameCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDomainNameCommand(input, context);
+    return serializeAws_restJson1DeleteDomainNameCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDomainNameCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDomainNameCommand(output, context);
+    return deserializeAws_restJson1DeleteDomainNameCommand(output, context);
   }
 
   // Start section: command_body_extra

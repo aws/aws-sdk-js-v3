@@ -5,9 +5,9 @@ import {
 } from "../AmplifyClient";
 import { DeleteWebhookRequest, DeleteWebhookResult } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteWebhookCommand,
-  serializeAws_restJson1_1DeleteWebhookCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteWebhookCommand,
+  serializeAws_restJson1DeleteWebhookCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteWebhookCommand extends $Command<
     input: DeleteWebhookCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteWebhookCommand(input, context);
+    return serializeAws_restJson1DeleteWebhookCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteWebhookCommandOutput> {
-    return deserializeAws_restJson1_1DeleteWebhookCommand(output, context);
+    return deserializeAws_restJson1DeleteWebhookCommand(output, context);
   }
 
   // Start section: command_body_extra

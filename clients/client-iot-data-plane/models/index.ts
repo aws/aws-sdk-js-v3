@@ -6,6 +6,102 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
+ * <p>The specified version does not match the version of the document.</p>
+ */
+export interface ConflictException extends __SmithyException, $MetadataBearer {
+  name: "ConflictException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace ConflictException {
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ConflictException =>
+    __isa(o, "ConflictException");
+}
+
+/**
+ * <p>The input for the DeleteThingShadow operation.</p>
+ */
+export interface DeleteThingShadowRequest {
+  __type?: "DeleteThingShadowRequest";
+  /**
+   * <p>The name of the thing.</p>
+   */
+  thingName: string | undefined;
+}
+
+export namespace DeleteThingShadowRequest {
+  export const filterSensitiveLog = (obj: DeleteThingShadowRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteThingShadowRequest =>
+    __isa(o, "DeleteThingShadowRequest");
+}
+
+/**
+ * <p>The output from the DeleteThingShadow operation.</p>
+ */
+export interface DeleteThingShadowResponse {
+  __type?: "DeleteThingShadowResponse";
+  /**
+   * <p>The state information, in JSON format.</p>
+   */
+  payload: Uint8Array | undefined;
+}
+
+export namespace DeleteThingShadowResponse {
+  export const filterSensitiveLog = (obj: DeleteThingShadowResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteThingShadowResponse =>
+    __isa(o, "DeleteThingShadowResponse");
+}
+
+/**
+ * <p>The input for the GetThingShadow operation.</p>
+ */
+export interface GetThingShadowRequest {
+  __type?: "GetThingShadowRequest";
+  /**
+   * <p>The name of the thing.</p>
+   */
+  thingName: string | undefined;
+}
+
+export namespace GetThingShadowRequest {
+  export const filterSensitiveLog = (obj: GetThingShadowRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetThingShadowRequest =>
+    __isa(o, "GetThingShadowRequest");
+}
+
+/**
+ * <p>The output from the GetThingShadow operation.</p>
+ */
+export interface GetThingShadowResponse {
+  __type?: "GetThingShadowResponse";
+  /**
+   * <p>The state information, in JSON format.</p>
+   */
+  payload?: Uint8Array;
+}
+
+export namespace GetThingShadowResponse {
+  export const filterSensitiveLog = (obj: GetThingShadowResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetThingShadowResponse =>
+    __isa(o, "GetThingShadowResponse");
+}
+
+/**
  * <p>An unexpected error has occurred.</p>
  */
 export interface InternalFailureException
@@ -47,6 +143,81 @@ export namespace InvalidRequestException {
   });
   export const isa = (o: any): o is InvalidRequestException =>
     __isa(o, "InvalidRequestException");
+}
+
+/**
+ * <p>The specified combination of HTTP verb and URI is not supported.</p>
+ */
+export interface MethodNotAllowedException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "MethodNotAllowedException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace MethodNotAllowedException {
+  export const filterSensitiveLog = (obj: MethodNotAllowedException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is MethodNotAllowedException =>
+    __isa(o, "MethodNotAllowedException");
+}
+
+/**
+ * <p>The input for the Publish operation.</p>
+ */
+export interface PublishRequest {
+  __type?: "PublishRequest";
+  /**
+   * <p>The state information, in JSON format.</p>
+   */
+  payload?: Uint8Array;
+
+  /**
+   * <p>The Quality of Service (QoS) level.</p>
+   */
+  qos?: number;
+
+  /**
+   * <p>The name of the MQTT topic.</p>
+   */
+  topic: string | undefined;
+}
+
+export namespace PublishRequest {
+  export const filterSensitiveLog = (obj: PublishRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is PublishRequest =>
+    __isa(o, "PublishRequest");
+}
+
+/**
+ * <p>The payload exceeds the maximum size allowed.</p>
+ */
+export interface RequestEntityTooLargeException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "RequestEntityTooLargeException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace RequestEntityTooLargeException {
+  export const filterSensitiveLog = (
+    obj: RequestEntityTooLargeException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RequestEntityTooLargeException =>
+    __isa(o, "RequestEntityTooLargeException");
 }
 
 /**
@@ -161,177 +332,6 @@ export namespace UnsupportedDocumentEncodingException {
   });
   export const isa = (o: any): o is UnsupportedDocumentEncodingException =>
     __isa(o, "UnsupportedDocumentEncodingException");
-}
-
-/**
- * <p>The specified version does not match the version of the document.</p>
- */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ConflictException {
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ConflictException =>
-    __isa(o, "ConflictException");
-}
-
-/**
- * <p>The input for the DeleteThingShadow operation.</p>
- */
-export interface DeleteThingShadowRequest {
-  __type?: "DeleteThingShadowRequest";
-  /**
-   * <p>The name of the thing.</p>
-   */
-  thingName: string | undefined;
-}
-
-export namespace DeleteThingShadowRequest {
-  export const filterSensitiveLog = (obj: DeleteThingShadowRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteThingShadowRequest =>
-    __isa(o, "DeleteThingShadowRequest");
-}
-
-/**
- * <p>The output from the DeleteThingShadow operation.</p>
- */
-export interface DeleteThingShadowResponse {
-  __type?: "DeleteThingShadowResponse";
-  /**
-   * <p>The state information, in JSON format.</p>
-   */
-  payload: Uint8Array | undefined;
-}
-
-export namespace DeleteThingShadowResponse {
-  export const filterSensitiveLog = (obj: DeleteThingShadowResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteThingShadowResponse =>
-    __isa(o, "DeleteThingShadowResponse");
-}
-
-/**
- * <p>The input for the GetThingShadow operation.</p>
- */
-export interface GetThingShadowRequest {
-  __type?: "GetThingShadowRequest";
-  /**
-   * <p>The name of the thing.</p>
-   */
-  thingName: string | undefined;
-}
-
-export namespace GetThingShadowRequest {
-  export const filterSensitiveLog = (obj: GetThingShadowRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetThingShadowRequest =>
-    __isa(o, "GetThingShadowRequest");
-}
-
-/**
- * <p>The output from the GetThingShadow operation.</p>
- */
-export interface GetThingShadowResponse {
-  __type?: "GetThingShadowResponse";
-  /**
-   * <p>The state information, in JSON format.</p>
-   */
-  payload?: Uint8Array;
-}
-
-export namespace GetThingShadowResponse {
-  export const filterSensitiveLog = (obj: GetThingShadowResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetThingShadowResponse =>
-    __isa(o, "GetThingShadowResponse");
-}
-
-/**
- * <p>The specified combination of HTTP verb and URI is not supported.</p>
- */
-export interface MethodNotAllowedException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "MethodNotAllowedException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace MethodNotAllowedException {
-  export const filterSensitiveLog = (obj: MethodNotAllowedException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is MethodNotAllowedException =>
-    __isa(o, "MethodNotAllowedException");
-}
-
-/**
- * <p>The input for the Publish operation.</p>
- */
-export interface PublishRequest {
-  __type?: "PublishRequest";
-  /**
-   * <p>The state information, in JSON format.</p>
-   */
-  payload?: Uint8Array;
-
-  /**
-   * <p>The Quality of Service (QoS) level.</p>
-   */
-  qos?: number;
-
-  /**
-   * <p>The name of the MQTT topic.</p>
-   */
-  topic: string | undefined;
-}
-
-export namespace PublishRequest {
-  export const filterSensitiveLog = (obj: PublishRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is PublishRequest =>
-    __isa(o, "PublishRequest");
-}
-
-/**
- * <p>The payload exceeds the maximum size allowed.</p>
- */
-export interface RequestEntityTooLargeException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "RequestEntityTooLargeException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace RequestEntityTooLargeException {
-  export const filterSensitiveLog = (
-    obj: RequestEntityTooLargeException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RequestEntityTooLargeException =>
-    __isa(o, "RequestEntityTooLargeException");
 }
 
 /**

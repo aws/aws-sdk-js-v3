@@ -5,9 +5,9 @@ import {
 } from "../RAMClient";
 import { ListResourcesRequest, ListResourcesResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListResourcesCommand,
-  serializeAws_restJson1_1ListResourcesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListResourcesCommand,
+  serializeAws_restJson1ListResourcesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class ListResourcesCommand extends $Command<
     input: ListResourcesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListResourcesCommand(input, context);
+    return serializeAws_restJson1ListResourcesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResourcesCommandOutput> {
-    return deserializeAws_restJson1_1ListResourcesCommand(output, context);
+    return deserializeAws_restJson1ListResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

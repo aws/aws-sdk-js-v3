@@ -5,9 +5,9 @@ import {
 } from "../LexModelBuildingServiceClient";
 import { DeleteBotChannelAssociationRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteBotChannelAssociationCommand,
-  serializeAws_restJson1_1DeleteBotChannelAssociationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteBotChannelAssociationCommand,
+  serializeAws_restJson1DeleteBotChannelAssociationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class DeleteBotChannelAssociationCommand extends $Command<
     input: DeleteBotChannelAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteBotChannelAssociationCommand(
+    return serializeAws_restJson1DeleteBotChannelAssociationCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class DeleteBotChannelAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBotChannelAssociationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteBotChannelAssociationCommand(
+    return deserializeAws_restJson1DeleteBotChannelAssociationCommand(
       output,
       context
     );

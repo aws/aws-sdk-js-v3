@@ -2081,6 +2081,41 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * <p>Retrieves information about the status, configuration, and other settings for all the campaigns that are associated with an application.</p>
+   */
+  public getCampaigns(
+    args: GetCampaignsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCampaignsCommandOutput>;
+  public getCampaigns(
+    args: GetCampaignsCommandInput,
+    cb: (err: any, data?: GetCampaignsCommandOutput) => void
+  ): void;
+  public getCampaigns(
+    args: GetCampaignsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCampaignsCommandOutput) => void
+  ): void;
+  public getCampaigns(
+    args: GetCampaignsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetCampaignsCommandOutput) => void),
+    cb?: (err: any, data?: GetCampaignsCommandOutput) => void
+  ): Promise<GetCampaignsCommandOutput> | void {
+    const command = new GetCampaignsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves information about the status, configuration, and other settings for a specific version of a campaign.</p>
    */
   public getCampaignVersion(
@@ -2139,41 +2174,6 @@ export class Pinpoint extends PinpointClient {
     cb?: (err: any, data?: GetCampaignVersionsCommandOutput) => void
   ): Promise<GetCampaignVersionsCommandOutput> | void {
     const command = new GetCampaignVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves information about the status, configuration, and other settings for all the campaigns that are associated with an application.</p>
-   */
-  public getCampaigns(
-    args: GetCampaignsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetCampaignsCommandOutput>;
-  public getCampaigns(
-    args: GetCampaignsCommandInput,
-    cb: (err: any, data?: GetCampaignsCommandOutput) => void
-  ): void;
-  public getCampaigns(
-    args: GetCampaignsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetCampaignsCommandOutput) => void
-  ): void;
-  public getCampaigns(
-    args: GetCampaignsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCampaignsCommandOutput) => void),
-    cb?: (err: any, data?: GetCampaignsCommandOutput) => void
-  ): Promise<GetCampaignsCommandOutput> | void {
-    const command = new GetCampaignsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2828,6 +2828,41 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * <p>Retrieves information about the configuration, dimension, and other settings for all the segments that are associated with an application.</p>
+   */
+  public getSegments(
+    args: GetSegmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSegmentsCommandOutput>;
+  public getSegments(
+    args: GetSegmentsCommandInput,
+    cb: (err: any, data?: GetSegmentsCommandOutput) => void
+  ): void;
+  public getSegments(
+    args: GetSegmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSegmentsCommandOutput) => void
+  ): void;
+  public getSegments(
+    args: GetSegmentsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSegmentsCommandOutput) => void),
+    cb?: (err: any, data?: GetSegmentsCommandOutput) => void
+  ): Promise<GetSegmentsCommandOutput> | void {
+    const command = new GetSegmentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves information about the configuration, dimension, and other settings for a specific version of a segment that's associated with an application.</p>
    */
   public getSegmentVersion(
@@ -2886,41 +2921,6 @@ export class Pinpoint extends PinpointClient {
     cb?: (err: any, data?: GetSegmentVersionsCommandOutput) => void
   ): Promise<GetSegmentVersionsCommandOutput> | void {
     const command = new GetSegmentVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves information about the configuration, dimension, and other settings for all the segments that are associated with an application.</p>
-   */
-  public getSegments(
-    args: GetSegmentsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSegmentsCommandOutput>;
-  public getSegments(
-    args: GetSegmentsCommandInput,
-    cb: (err: any, data?: GetSegmentsCommandOutput) => void
-  ): void;
-  public getSegments(
-    args: GetSegmentsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetSegmentsCommandOutput) => void
-  ): void;
-  public getSegments(
-    args: GetSegmentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSegmentsCommandOutput) => void),
-    cb?: (err: any, data?: GetSegmentsCommandOutput) => void
-  ): Promise<GetSegmentsCommandOutput> | void {
-    const command = new GetSegmentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3178,41 +3178,6 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Retrieves information about all the versions of a specific message template.</p>
-   */
-  public listTemplateVersions(
-    args: ListTemplateVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTemplateVersionsCommandOutput>;
-  public listTemplateVersions(
-    args: ListTemplateVersionsCommandInput,
-    cb: (err: any, data?: ListTemplateVersionsCommandOutput) => void
-  ): void;
-  public listTemplateVersions(
-    args: ListTemplateVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTemplateVersionsCommandOutput) => void
-  ): void;
-  public listTemplateVersions(
-    args: ListTemplateVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTemplateVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListTemplateVersionsCommandOutput) => void
-  ): Promise<ListTemplateVersionsCommandOutput> | void {
-    const command = new ListTemplateVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Retrieves information about all the message templates that are associated with your Amazon Pinpoint account.</p>
    */
   public listTemplates(
@@ -3236,6 +3201,41 @@ export class Pinpoint extends PinpointClient {
     cb?: (err: any, data?: ListTemplatesCommandOutput) => void
   ): Promise<ListTemplatesCommandOutput> | void {
     const command = new ListTemplatesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves information about all the versions of a specific message template.</p>
+   */
+  public listTemplateVersions(
+    args: ListTemplateVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTemplateVersionsCommandOutput>;
+  public listTemplateVersions(
+    args: ListTemplateVersionsCommandInput,
+    cb: (err: any, data?: ListTemplateVersionsCommandOutput) => void
+  ): void;
+  public listTemplateVersions(
+    args: ListTemplateVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTemplateVersionsCommandOutput) => void
+  ): void;
+  public listTemplateVersions(
+    args: ListTemplateVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTemplateVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListTemplateVersionsCommandOutput) => void
+  ): Promise<ListTemplateVersionsCommandOutput> | void {
+    const command = new ListTemplateVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3283,41 +3283,6 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Creates a new event stream for an application or updates the settings of an existing event stream for an application.</p>
-   */
-  public putEventStream(
-    args: PutEventStreamCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutEventStreamCommandOutput>;
-  public putEventStream(
-    args: PutEventStreamCommandInput,
-    cb: (err: any, data?: PutEventStreamCommandOutput) => void
-  ): void;
-  public putEventStream(
-    args: PutEventStreamCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutEventStreamCommandOutput) => void
-  ): void;
-  public putEventStream(
-    args: PutEventStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutEventStreamCommandOutput) => void),
-    cb?: (err: any, data?: PutEventStreamCommandOutput) => void
-  ): Promise<PutEventStreamCommandOutput> | void {
-    const command = new PutEventStreamCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Creates a new event to record for endpoints, or creates or updates endpoint data that existing events are associated with.</p>
    */
   public putEvents(
@@ -3341,6 +3306,41 @@ export class Pinpoint extends PinpointClient {
     cb?: (err: any, data?: PutEventsCommandOutput) => void
   ): Promise<PutEventsCommandOutput> | void {
     const command = new PutEventsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new event stream for an application or updates the settings of an existing event stream for an application.</p>
+   */
+  public putEventStream(
+    args: PutEventStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutEventStreamCommandOutput>;
+  public putEventStream(
+    args: PutEventStreamCommandInput,
+    cb: (err: any, data?: PutEventStreamCommandOutput) => void
+  ): void;
+  public putEventStream(
+    args: PutEventStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutEventStreamCommandOutput) => void
+  ): void;
+  public putEventStream(
+    args: PutEventStreamCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutEventStreamCommandOutput) => void),
+    cb?: (err: any, data?: PutEventStreamCommandOutput) => void
+  ): Promise<PutEventStreamCommandOutput> | void {
+    const command = new PutEventStreamCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

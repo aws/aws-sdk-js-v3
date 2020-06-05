@@ -8,9 +8,9 @@ import {
   DeprecateThingTypeResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeprecateThingTypeCommand,
-  serializeAws_restJson1_1DeprecateThingTypeCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeprecateThingTypeCommand,
+  serializeAws_restJson1DeprecateThingTypeCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DeprecateThingTypeCommand extends $Command<
     input: DeprecateThingTypeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeprecateThingTypeCommand(input, context);
+    return serializeAws_restJson1DeprecateThingTypeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeprecateThingTypeCommandOutput> {
-    return deserializeAws_restJson1_1DeprecateThingTypeCommand(output, context);
+    return deserializeAws_restJson1DeprecateThingTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

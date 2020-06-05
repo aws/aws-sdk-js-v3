@@ -5,9 +5,9 @@ import {
 } from "../DataExchangeClient";
 import { DeleteDataSetRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteDataSetCommand,
-  serializeAws_restJson1_1DeleteDataSetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteDataSetCommand,
+  serializeAws_restJson1DeleteDataSetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteDataSetCommand extends $Command<
     input: DeleteDataSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDataSetCommand(input, context);
+    return serializeAws_restJson1DeleteDataSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDataSetCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDataSetCommand(output, context);
+    return deserializeAws_restJson1DeleteDataSetCommand(output, context);
   }
 
   // Start section: command_body_extra

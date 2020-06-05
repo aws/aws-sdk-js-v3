@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { CancelJobExecutionRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1CancelJobExecutionCommand,
-  serializeAws_restJson1_1CancelJobExecutionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CancelJobExecutionCommand,
+  serializeAws_restJson1CancelJobExecutionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CancelJobExecutionCommand extends $Command<
     input: CancelJobExecutionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CancelJobExecutionCommand(input, context);
+    return serializeAws_restJson1CancelJobExecutionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelJobExecutionCommandOutput> {
-    return deserializeAws_restJson1_1CancelJobExecutionCommand(output, context);
+    return deserializeAws_restJson1CancelJobExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

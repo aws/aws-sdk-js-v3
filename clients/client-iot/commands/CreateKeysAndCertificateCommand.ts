@@ -8,9 +8,9 @@ import {
   CreateKeysAndCertificateResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateKeysAndCertificateCommand,
-  serializeAws_restJson1_1CreateKeysAndCertificateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateKeysAndCertificateCommand,
+  serializeAws_restJson1CreateKeysAndCertificateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CreateKeysAndCertificateCommand extends $Command<
     input: CreateKeysAndCertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateKeysAndCertificateCommand(
+    return serializeAws_restJson1CreateKeysAndCertificateCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CreateKeysAndCertificateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateKeysAndCertificateCommandOutput> {
-    return deserializeAws_restJson1_1CreateKeysAndCertificateCommand(
+    return deserializeAws_restJson1CreateKeysAndCertificateCommand(
       output,
       context
     );

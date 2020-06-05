@@ -795,41 +795,6 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>List deployment strategies.</p>
-   */
-  public listDeploymentStrategies(
-    args: ListDeploymentStrategiesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDeploymentStrategiesCommandOutput>;
-  public listDeploymentStrategies(
-    args: ListDeploymentStrategiesCommandInput,
-    cb: (err: any, data?: ListDeploymentStrategiesCommandOutput) => void
-  ): void;
-  public listDeploymentStrategies(
-    args: ListDeploymentStrategiesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDeploymentStrategiesCommandOutput) => void
-  ): void;
-  public listDeploymentStrategies(
-    args: ListDeploymentStrategiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDeploymentStrategiesCommandOutput) => void),
-    cb?: (err: any, data?: ListDeploymentStrategiesCommandOutput) => void
-  ): Promise<ListDeploymentStrategiesCommandOutput> | void {
-    const command = new ListDeploymentStrategiesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Lists the deployments for an environment.</p>
    */
   public listDeployments(
@@ -853,6 +818,41 @@ export class AppConfig extends AppConfigClient {
     cb?: (err: any, data?: ListDeploymentsCommandOutput) => void
   ): Promise<ListDeploymentsCommandOutput> | void {
     const command = new ListDeploymentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List deployment strategies.</p>
+   */
+  public listDeploymentStrategies(
+    args: ListDeploymentStrategiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDeploymentStrategiesCommandOutput>;
+  public listDeploymentStrategies(
+    args: ListDeploymentStrategiesCommandInput,
+    cb: (err: any, data?: ListDeploymentStrategiesCommandOutput) => void
+  ): void;
+  public listDeploymentStrategies(
+    args: ListDeploymentStrategiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDeploymentStrategiesCommandOutput) => void
+  ): void;
+  public listDeploymentStrategies(
+    args: ListDeploymentStrategiesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDeploymentStrategiesCommandOutput) => void),
+    cb?: (err: any, data?: ListDeploymentStrategiesCommandOutput) => void
+  ): Promise<ListDeploymentStrategiesCommandOutput> | void {
+    const command = new ListDeploymentStrategiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

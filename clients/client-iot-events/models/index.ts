@@ -833,6 +833,50 @@ export namespace InputSummary {
 }
 
 /**
+ * <p>An internal failure occurred.</p>
+ */
+export interface InternalFailureException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InternalFailureException";
+  $fault: "server";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace InternalFailureException {
+  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InternalFailureException =>
+    __isa(o, "InternalFailureException");
+}
+
+/**
+ * <p>The request was invalid.</p>
+ */
+export interface InvalidRequestException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidRequestException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidRequestException {
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidRequestException =>
+    __isa(o, "InvalidRequestException");
+}
+
+/**
  * <p>Sends an AWS IoT Events input, passing in information about the detector model instance
  *       and the event that triggered the action.</p>
  */
@@ -890,6 +934,71 @@ export namespace LambdaAction {
   export const isa = (o: any): o is LambdaAction => __isa(o, "LambdaAction");
 }
 
+/**
+ * <p>A limit was exceeded.</p>
+ */
+export interface LimitExceededException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
+}
+
+export interface ListDetectorModelsRequest {
+  __type?: "ListDetectorModelsRequest";
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListDetectorModelsRequest {
+  export const filterSensitiveLog = (obj: ListDetectorModelsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListDetectorModelsRequest =>
+    __isa(o, "ListDetectorModelsRequest");
+}
+
+export interface ListDetectorModelsResponse {
+  __type?: "ListDetectorModelsResponse";
+  /**
+   * <p>Summary information about the detector models.</p>
+   */
+  detectorModelSummaries?: DetectorModelSummary[];
+
+  /**
+   * <p>A token to retrieve the next set of results, or <code>null</code> if there are no additional
+   *           results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListDetectorModelsResponse {
+  export const filterSensitiveLog = (obj: ListDetectorModelsResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListDetectorModelsResponse =>
+    __isa(o, "ListDetectorModelsResponse");
+}
+
 export interface ListDetectorModelVersionsRequest {
   __type?: "ListDetectorModelVersionsRequest";
   /**
@@ -940,49 +1049,6 @@ export namespace ListDetectorModelVersionsResponse {
   });
   export const isa = (o: any): o is ListDetectorModelVersionsResponse =>
     __isa(o, "ListDetectorModelVersionsResponse");
-}
-
-export interface ListDetectorModelsRequest {
-  __type?: "ListDetectorModelsRequest";
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListDetectorModelsRequest {
-  export const filterSensitiveLog = (obj: ListDetectorModelsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListDetectorModelsRequest =>
-    __isa(o, "ListDetectorModelsRequest");
-}
-
-export interface ListDetectorModelsResponse {
-  __type?: "ListDetectorModelsResponse";
-  /**
-   * <p>Summary information about the detector models.</p>
-   */
-  detectorModelSummaries?: DetectorModelSummary[];
-
-  /**
-   * <p>A token to retrieve the next set of results, or <code>null</code> if there are no additional
-   *           results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListDetectorModelsResponse {
-  export const filterSensitiveLog = (obj: ListDetectorModelsResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListDetectorModelsResponse =>
-    __isa(o, "ListDetectorModelsResponse");
 }
 
 export interface ListInputsRequest {
@@ -1206,22 +1272,105 @@ export namespace ResetTimerAction {
 }
 
 /**
- * <p>Information required to publish the Amazon SNS message.</p>
+ * <p>The resource already exists.</p>
  */
-export interface SNSTopicPublishAction {
-  __type?: "SNSTopicPublishAction";
+export interface ResourceAlreadyExistsException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceAlreadyExistsException";
+  $fault: "client";
   /**
-   * <p>The ARN of the Amazon SNS target where the message is sent.</p>
+   * <p>The message for the exception.</p>
    */
-  targetArn: string | undefined;
+  message?: string;
+
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  resourceArn?: string;
+
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  resourceId?: string;
 }
 
-export namespace SNSTopicPublishAction {
-  export const filterSensitiveLog = (obj: SNSTopicPublishAction): any => ({
+export namespace ResourceAlreadyExistsException {
+  export const filterSensitiveLog = (
+    obj: ResourceAlreadyExistsException
+  ): any => ({
     ...obj
   });
-  export const isa = (o: any): o is SNSTopicPublishAction =>
-    __isa(o, "SNSTopicPublishAction");
+  export const isa = (o: any): o is ResourceAlreadyExistsException =>
+    __isa(o, "ResourceAlreadyExistsException");
+}
+
+/**
+ * <p>The resource is in use.</p>
+ */
+export interface ResourceInUseException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceInUseException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace ResourceInUseException {
+  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceInUseException =>
+    __isa(o, "ResourceInUseException");
+}
+
+/**
+ * <p>The resource was not found.</p>
+ */
+export interface ResourceNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
+}
+
+/**
+ * <p>The service is currently unavailable.</p>
+ */
+export interface ServiceUnavailableException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ServiceUnavailableException";
+  $fault: "server";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace ServiceUnavailableException {
+  export const filterSensitiveLog = (
+    obj: ServiceUnavailableException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ServiceUnavailableException =>
+    __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -1270,6 +1419,25 @@ export namespace SetVariableAction {
   });
   export const isa = (o: any): o is SetVariableAction =>
     __isa(o, "SetVariableAction");
+}
+
+/**
+ * <p>Information required to publish the Amazon SNS message.</p>
+ */
+export interface SNSTopicPublishAction {
+  __type?: "SNSTopicPublishAction";
+  /**
+   * <p>The ARN of the Amazon SNS target where the message is sent.</p>
+   */
+  targetArn: string | undefined;
+}
+
+export namespace SNSTopicPublishAction {
+  export const filterSensitiveLog = (obj: SNSTopicPublishAction): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SNSTopicPublishAction =>
+    __isa(o, "SNSTopicPublishAction");
 }
 
 /**
@@ -1390,6 +1558,28 @@ export namespace TagResourceResponse {
 }
 
 /**
+ * <p>The request could not be completed due to throttling.</p>
+ */
+export interface ThrottlingException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ThrottlingException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
+}
+
+/**
  * <p>Specifies the actions performed and the next state entered when a <code>"condition"</code>
  *         evaluates to TRUE.</p>
  */
@@ -1423,6 +1613,30 @@ export namespace TransitionEvent {
   });
   export const isa = (o: any): o is TransitionEvent =>
     __isa(o, "TransitionEvent");
+}
+
+/**
+ * <p>The requested operation is not supported.</p>
+ */
+export interface UnsupportedOperationException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "UnsupportedOperationException";
+  $fault: "server";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace UnsupportedOperationException {
+  export const filterSensitiveLog = (
+    obj: UnsupportedOperationException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UnsupportedOperationException =>
+    __isa(o, "UnsupportedOperationException");
 }
 
 export interface UntagResourceRequest {
@@ -1553,218 +1767,4 @@ export namespace UpdateInputResponse {
   });
   export const isa = (o: any): o is UpdateInputResponse =>
     __isa(o, "UpdateInputResponse");
-}
-
-/**
- * <p>An internal failure occurred.</p>
- */
-export interface InternalFailureException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InternalFailureException";
-  $fault: "server";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InternalFailureException {
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InternalFailureException =>
-    __isa(o, "InternalFailureException");
-}
-
-/**
- * <p>The request was invalid.</p>
- */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidRequestException {
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
-}
-
-/**
- * <p>A limit was exceeded.</p>
- */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
-}
-
-/**
- * <p>The resource already exists.</p>
- */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-
-  /**
-   * <p>The ARN of the resource.</p>
-   */
-  resourceArn?: string;
-
-  /**
-   * <p>The ID of the resource.</p>
-   */
-  resourceId?: string;
-}
-
-export namespace ResourceAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: ResourceAlreadyExistsException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceAlreadyExistsException =>
-    __isa(o, "ResourceAlreadyExistsException");
-}
-
-/**
- * <p>The resource is in use.</p>
- */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ResourceInUseException {
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
-}
-
-/**
- * <p>The resource was not found.</p>
- */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
-}
-
-/**
- * <p>The service is currently unavailable.</p>
- */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (
-    obj: ServiceUnavailableException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ServiceUnavailableException =>
-    __isa(o, "ServiceUnavailableException");
-}
-
-/**
- * <p>The request could not be completed due to throttling.</p>
- */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ThrottlingException {
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
-}
-
-/**
- * <p>The requested operation is not supported.</p>
- */
-export interface UnsupportedOperationException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "UnsupportedOperationException";
-  $fault: "server";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace UnsupportedOperationException {
-  export const filterSensitiveLog = (
-    obj: UnsupportedOperationException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UnsupportedOperationException =>
-    __isa(o, "UnsupportedOperationException");
 }

@@ -8,9 +8,9 @@ import {
   UpdateConfigurationProfileRequest
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateConfigurationProfileCommand,
-  serializeAws_restJson1_1UpdateConfigurationProfileCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateConfigurationProfileCommand,
+  serializeAws_restJson1UpdateConfigurationProfileCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdateConfigurationProfileCommand extends $Command<
     input: UpdateConfigurationProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateConfigurationProfileCommand(
+    return serializeAws_restJson1UpdateConfigurationProfileCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdateConfigurationProfileCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfigurationProfileCommandOutput> {
-    return deserializeAws_restJson1_1UpdateConfigurationProfileCommand(
+    return deserializeAws_restJson1UpdateConfigurationProfileCommand(
       output,
       context
     );

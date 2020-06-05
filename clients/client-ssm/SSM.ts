@@ -1680,6 +1680,41 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * <p>Use this API action to view all executions for a specific association ID. </p>
+   */
+  public describeAssociationExecutions(
+    args: DescribeAssociationExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAssociationExecutionsCommandOutput>;
+  public describeAssociationExecutions(
+    args: DescribeAssociationExecutionsCommandInput,
+    cb: (err: any, data?: DescribeAssociationExecutionsCommandOutput) => void
+  ): void;
+  public describeAssociationExecutions(
+    args: DescribeAssociationExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAssociationExecutionsCommandOutput) => void
+  ): void;
+  public describeAssociationExecutions(
+    args: DescribeAssociationExecutionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeAssociationExecutionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAssociationExecutionsCommandOutput) => void
+  ): Promise<DescribeAssociationExecutionsCommandOutput> | void {
+    const command = new DescribeAssociationExecutionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Use this API action to view information about a specific execution of a specific
    *    association.</p>
    */
@@ -1716,41 +1751,6 @@ export class SSM extends SSMClient {
     ) => void
   ): Promise<DescribeAssociationExecutionTargetsCommandOutput> | void {
     const command = new DescribeAssociationExecutionTargetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Use this API action to view all executions for a specific association ID. </p>
-   */
-  public describeAssociationExecutions(
-    args: DescribeAssociationExecutionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAssociationExecutionsCommandOutput>;
-  public describeAssociationExecutions(
-    args: DescribeAssociationExecutionsCommandInput,
-    cb: (err: any, data?: DescribeAssociationExecutionsCommandOutput) => void
-  ): void;
-  public describeAssociationExecutions(
-    args: DescribeAssociationExecutionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeAssociationExecutionsCommandOutput) => void
-  ): void;
-  public describeAssociationExecutions(
-    args: DescribeAssociationExecutionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAssociationExecutionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAssociationExecutionsCommandOutput) => void
-  ): Promise<DescribeAssociationExecutionsCommandOutput> | void {
-    const command = new DescribeAssociationExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2133,6 +2133,42 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * <p>Retrieves information about the patches on the specified instance and their state relative
+   *    to the patch baseline being used for the instance.</p>
+   */
+  public describeInstancePatches(
+    args: DescribeInstancePatchesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstancePatchesCommandOutput>;
+  public describeInstancePatches(
+    args: DescribeInstancePatchesCommandInput,
+    cb: (err: any, data?: DescribeInstancePatchesCommandOutput) => void
+  ): void;
+  public describeInstancePatches(
+    args: DescribeInstancePatchesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstancePatchesCommandOutput) => void
+  ): void;
+  public describeInstancePatches(
+    args: DescribeInstancePatchesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeInstancePatchesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeInstancePatchesCommandOutput) => void
+  ): Promise<DescribeInstancePatchesCommandOutput> | void {
+    const command = new DescribeInstancePatchesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the high-level patch state of one or more instances.</p>
    */
   public describeInstancePatchStates(
@@ -2215,42 +2251,6 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Retrieves information about the patches on the specified instance and their state relative
-   *    to the patch baseline being used for the instance.</p>
-   */
-  public describeInstancePatches(
-    args: DescribeInstancePatchesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeInstancePatchesCommandOutput>;
-  public describeInstancePatches(
-    args: DescribeInstancePatchesCommandInput,
-    cb: (err: any, data?: DescribeInstancePatchesCommandOutput) => void
-  ): void;
-  public describeInstancePatches(
-    args: DescribeInstancePatchesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeInstancePatchesCommandOutput) => void
-  ): void;
-  public describeInstancePatches(
-    args: DescribeInstancePatchesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInstancePatchesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeInstancePatchesCommandOutput) => void
-  ): Promise<DescribeInstancePatchesCommandOutput> | void {
-    const command = new DescribeInstancePatchesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Describes a specific delete inventory operation.</p>
    */
   public describeInventoryDeletions(
@@ -2274,6 +2274,55 @@ export class SSM extends SSMClient {
     cb?: (err: any, data?: DescribeInventoryDeletionsCommandOutput) => void
   ): Promise<DescribeInventoryDeletionsCommandOutput> | void {
     const command = new DescribeInventoryDeletionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the executions of a maintenance window. This includes information about when the
+   *    maintenance window was scheduled to be active, and information about tasks registered and run
+   *    with the maintenance window.</p>
+   */
+  public describeMaintenanceWindowExecutions(
+    args: DescribeMaintenanceWindowExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMaintenanceWindowExecutionsCommandOutput>;
+  public describeMaintenanceWindowExecutions(
+    args: DescribeMaintenanceWindowExecutionsCommandInput,
+    cb: (
+      err: any,
+      data?: DescribeMaintenanceWindowExecutionsCommandOutput
+    ) => void
+  ): void;
+  public describeMaintenanceWindowExecutions(
+    args: DescribeMaintenanceWindowExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: DescribeMaintenanceWindowExecutionsCommandOutput
+    ) => void
+  ): void;
+  public describeMaintenanceWindowExecutions(
+    args: DescribeMaintenanceWindowExecutionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DescribeMaintenanceWindowExecutionsCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DescribeMaintenanceWindowExecutionsCommandOutput
+    ) => void
+  ): Promise<DescribeMaintenanceWindowExecutionsCommandOutput> | void {
+    const command = new DescribeMaintenanceWindowExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2385,43 +2434,29 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Lists the executions of a maintenance window. This includes information about when the
-   *    maintenance window was scheduled to be active, and information about tasks registered and run
-   *    with the maintenance window.</p>
+   * <p>Retrieves the maintenance windows in an AWS account.</p>
    */
-  public describeMaintenanceWindowExecutions(
-    args: DescribeMaintenanceWindowExecutionsCommandInput,
+  public describeMaintenanceWindows(
+    args: DescribeMaintenanceWindowsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeMaintenanceWindowExecutionsCommandOutput>;
-  public describeMaintenanceWindowExecutions(
-    args: DescribeMaintenanceWindowExecutionsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowExecutionsCommandOutput
-    ) => void
+  ): Promise<DescribeMaintenanceWindowsCommandOutput>;
+  public describeMaintenanceWindows(
+    args: DescribeMaintenanceWindowsCommandInput,
+    cb: (err: any, data?: DescribeMaintenanceWindowsCommandOutput) => void
   ): void;
-  public describeMaintenanceWindowExecutions(
-    args: DescribeMaintenanceWindowExecutionsCommandInput,
+  public describeMaintenanceWindows(
+    args: DescribeMaintenanceWindowsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowExecutionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMaintenanceWindowsCommandOutput) => void
   ): void;
-  public describeMaintenanceWindowExecutions(
-    args: DescribeMaintenanceWindowExecutionsCommandInput,
+  public describeMaintenanceWindows(
+    args: DescribeMaintenanceWindowsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMaintenanceWindowExecutionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeMaintenanceWindowExecutionsCommandOutput
-    ) => void
-  ): Promise<DescribeMaintenanceWindowExecutionsCommandOutput> | void {
-    const command = new DescribeMaintenanceWindowExecutionsCommand(args);
+      | ((err: any, data?: DescribeMaintenanceWindowsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMaintenanceWindowsCommandOutput) => void
+  ): Promise<DescribeMaintenanceWindowsCommandOutput> | void {
+    const command = new DescribeMaintenanceWindowsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2469,6 +2504,54 @@ export class SSM extends SSMClient {
     ) => void
   ): Promise<DescribeMaintenanceWindowScheduleCommandOutput> | void {
     const command = new DescribeMaintenanceWindowScheduleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves information about the maintenance window targets or tasks that an instance is
+   *    associated with.</p>
+   */
+  public describeMaintenanceWindowsForTarget(
+    args: DescribeMaintenanceWindowsForTargetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMaintenanceWindowsForTargetCommandOutput>;
+  public describeMaintenanceWindowsForTarget(
+    args: DescribeMaintenanceWindowsForTargetCommandInput,
+    cb: (
+      err: any,
+      data?: DescribeMaintenanceWindowsForTargetCommandOutput
+    ) => void
+  ): void;
+  public describeMaintenanceWindowsForTarget(
+    args: DescribeMaintenanceWindowsForTargetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: DescribeMaintenanceWindowsForTargetCommandOutput
+    ) => void
+  ): void;
+  public describeMaintenanceWindowsForTarget(
+    args: DescribeMaintenanceWindowsForTargetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DescribeMaintenanceWindowsForTargetCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DescribeMaintenanceWindowsForTargetCommandOutput
+    ) => void
+  ): Promise<DescribeMaintenanceWindowsForTargetCommandOutput> | void {
+    const command = new DescribeMaintenanceWindowsForTargetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2548,89 +2631,6 @@ export class SSM extends SSMClient {
     cb?: (err: any, data?: DescribeMaintenanceWindowTasksCommandOutput) => void
   ): Promise<DescribeMaintenanceWindowTasksCommandOutput> | void {
     const command = new DescribeMaintenanceWindowTasksCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves the maintenance windows in an AWS account.</p>
-   */
-  public describeMaintenanceWindows(
-    args: DescribeMaintenanceWindowsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeMaintenanceWindowsCommandOutput>;
-  public describeMaintenanceWindows(
-    args: DescribeMaintenanceWindowsCommandInput,
-    cb: (err: any, data?: DescribeMaintenanceWindowsCommandOutput) => void
-  ): void;
-  public describeMaintenanceWindows(
-    args: DescribeMaintenanceWindowsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeMaintenanceWindowsCommandOutput) => void
-  ): void;
-  public describeMaintenanceWindows(
-    args: DescribeMaintenanceWindowsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMaintenanceWindowsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeMaintenanceWindowsCommandOutput) => void
-  ): Promise<DescribeMaintenanceWindowsCommandOutput> | void {
-    const command = new DescribeMaintenanceWindowsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves information about the maintenance window targets or tasks that an instance is
-   *    associated with.</p>
-   */
-  public describeMaintenanceWindowsForTarget(
-    args: DescribeMaintenanceWindowsForTargetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeMaintenanceWindowsForTargetCommandOutput>;
-  public describeMaintenanceWindowsForTarget(
-    args: DescribeMaintenanceWindowsForTargetCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowsForTargetCommandOutput
-    ) => void
-  ): void;
-  public describeMaintenanceWindowsForTarget(
-    args: DescribeMaintenanceWindowsForTargetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowsForTargetCommandOutput
-    ) => void
-  ): void;
-  public describeMaintenanceWindowsForTarget(
-    args: DescribeMaintenanceWindowsForTargetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMaintenanceWindowsForTargetCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeMaintenanceWindowsForTargetCommandOutput
-    ) => void
-  ): Promise<DescribeMaintenanceWindowsForTargetCommandOutput> | void {
-    const command = new DescribeMaintenanceWindowsForTargetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2762,41 +2762,6 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Returns high-level aggregated patch compliance state for a patch group.</p>
-   */
-  public describePatchGroupState(
-    args: DescribePatchGroupStateCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribePatchGroupStateCommandOutput>;
-  public describePatchGroupState(
-    args: DescribePatchGroupStateCommandInput,
-    cb: (err: any, data?: DescribePatchGroupStateCommandOutput) => void
-  ): void;
-  public describePatchGroupState(
-    args: DescribePatchGroupStateCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribePatchGroupStateCommandOutput) => void
-  ): void;
-  public describePatchGroupState(
-    args: DescribePatchGroupStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePatchGroupStateCommandOutput) => void),
-    cb?: (err: any, data?: DescribePatchGroupStateCommandOutput) => void
-  ): Promise<DescribePatchGroupStateCommandOutput> | void {
-    const command = new DescribePatchGroupStateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Lists all patch groups that have been registered with patch baselines.</p>
    */
   public describePatchGroups(
@@ -2820,6 +2785,41 @@ export class SSM extends SSMClient {
     cb?: (err: any, data?: DescribePatchGroupsCommandOutput) => void
   ): Promise<DescribePatchGroupsCommandOutput> | void {
     const command = new DescribePatchGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns high-level aggregated patch compliance state for a patch group.</p>
+   */
+  public describePatchGroupState(
+    args: DescribePatchGroupStateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePatchGroupStateCommandOutput>;
+  public describePatchGroupState(
+    args: DescribePatchGroupStateCommandInput,
+    cb: (err: any, data?: DescribePatchGroupStateCommandOutput) => void
+  ): void;
+  public describePatchGroupState(
+    args: DescribePatchGroupStateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePatchGroupStateCommandOutput) => void
+  ): void;
+  public describePatchGroupState(
+    args: DescribePatchGroupStateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribePatchGroupStateCommandOutput) => void),
+    cb?: (err: any, data?: DescribePatchGroupStateCommandOutput) => void
+  ): Promise<DescribePatchGroupStateCommandOutput> | void {
+    const command = new DescribePatchGroupStateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3893,41 +3893,6 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Retrieves all versions of an association for a specific association ID.</p>
-   */
-  public listAssociationVersions(
-    args: ListAssociationVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAssociationVersionsCommandOutput>;
-  public listAssociationVersions(
-    args: ListAssociationVersionsCommandInput,
-    cb: (err: any, data?: ListAssociationVersionsCommandOutput) => void
-  ): void;
-  public listAssociationVersions(
-    args: ListAssociationVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAssociationVersionsCommandOutput) => void
-  ): void;
-  public listAssociationVersions(
-    args: ListAssociationVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAssociationVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListAssociationVersionsCommandOutput) => void
-  ): Promise<ListAssociationVersionsCommandOutput> | void {
-    const command = new ListAssociationVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Returns all State Manager associations in the current AWS account and Region. You can limit
    *    the results to a specific State Manager association document or instance by specifying a
    *    filter.</p>
@@ -3953,6 +3918,41 @@ export class SSM extends SSMClient {
     cb?: (err: any, data?: ListAssociationsCommandOutput) => void
   ): Promise<ListAssociationsCommandOutput> | void {
     const command = new ListAssociationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves all versions of an association for a specific association ID.</p>
+   */
+  public listAssociationVersions(
+    args: ListAssociationVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssociationVersionsCommandOutput>;
+  public listAssociationVersions(
+    args: ListAssociationVersionsCommandInput,
+    cb: (err: any, data?: ListAssociationVersionsCommandOutput) => void
+  ): void;
+  public listAssociationVersions(
+    args: ListAssociationVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssociationVersionsCommandOutput) => void
+  ): void;
+  public listAssociationVersions(
+    args: ListAssociationVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListAssociationVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListAssociationVersionsCommandOutput) => void
+  ): Promise<ListAssociationVersionsCommandOutput> | void {
+    const command = new ListAssociationVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4112,41 +4112,6 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>List all versions for a document.</p>
-   */
-  public listDocumentVersions(
-    args: ListDocumentVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDocumentVersionsCommandOutput>;
-  public listDocumentVersions(
-    args: ListDocumentVersionsCommandInput,
-    cb: (err: any, data?: ListDocumentVersionsCommandOutput) => void
-  ): void;
-  public listDocumentVersions(
-    args: ListDocumentVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDocumentVersionsCommandOutput) => void
-  ): void;
-  public listDocumentVersions(
-    args: ListDocumentVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDocumentVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListDocumentVersionsCommandOutput) => void
-  ): Promise<ListDocumentVersionsCommandOutput> | void {
-    const command = new ListDocumentVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Returns all Systems Manager (SSM) documents in the current AWS account and Region. You can
    *    limit the results of this request by using a filter.</p>
    */
@@ -4171,6 +4136,41 @@ export class SSM extends SSMClient {
     cb?: (err: any, data?: ListDocumentsCommandOutput) => void
   ): Promise<ListDocumentsCommandOutput> | void {
     const command = new ListDocumentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List all versions for a document.</p>
+   */
+  public listDocumentVersions(
+    args: ListDocumentVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDocumentVersionsCommandOutput>;
+  public listDocumentVersions(
+    args: ListDocumentVersionsCommandInput,
+    cb: (err: any, data?: ListDocumentVersionsCommandOutput) => void
+  ): void;
+  public listDocumentVersions(
+    args: ListDocumentVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDocumentVersionsCommandOutput) => void
+  ): void;
+  public listDocumentVersions(
+    args: ListDocumentVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDocumentVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListDocumentVersionsCommandOutput) => void
+  ): Promise<ListDocumentVersionsCommandOutput> | void {
+    const command = new ListDocumentVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

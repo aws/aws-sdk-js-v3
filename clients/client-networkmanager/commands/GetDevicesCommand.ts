@@ -5,9 +5,9 @@ import {
 } from "../NetworkManagerClient";
 import { GetDevicesRequest, GetDevicesResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetDevicesCommand,
-  serializeAws_restJson1_1GetDevicesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetDevicesCommand,
+  serializeAws_restJson1GetDevicesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetDevicesCommand extends $Command<
     input: GetDevicesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDevicesCommand(input, context);
+    return serializeAws_restJson1GetDevicesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDevicesCommandOutput> {
-    return deserializeAws_restJson1_1GetDevicesCommand(output, context);
+    return deserializeAws_restJson1GetDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

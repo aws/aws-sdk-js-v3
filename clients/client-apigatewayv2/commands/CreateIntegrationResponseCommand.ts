@@ -8,9 +8,9 @@ import {
   CreateIntegrationResponseResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateIntegrationResponseCommand,
-  serializeAws_restJson1_1CreateIntegrationResponseCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateIntegrationResponseCommand,
+  serializeAws_restJson1CreateIntegrationResponseCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CreateIntegrationResponseCommand extends $Command<
     input: CreateIntegrationResponseCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateIntegrationResponseCommand(
+    return serializeAws_restJson1CreateIntegrationResponseCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CreateIntegrationResponseCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateIntegrationResponseCommandOutput> {
-    return deserializeAws_restJson1_1CreateIntegrationResponseCommand(
+    return deserializeAws_restJson1CreateIntegrationResponseCommand(
       output,
       context
     );

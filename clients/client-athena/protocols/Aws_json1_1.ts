@@ -465,7 +465,7 @@ const deserializeAws_json1_1BatchGetNamedQueryCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.athena.webservice#InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -476,7 +476,7 @@ const deserializeAws_json1_1BatchGetNamedQueryCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.athena.webservice#InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -539,7 +539,7 @@ const deserializeAws_json1_1BatchGetQueryExecutionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.athena.webservice#InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -550,7 +550,7 @@ const deserializeAws_json1_1BatchGetQueryExecutionCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.athena.webservice#InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -610,7 +610,7 @@ const deserializeAws_json1_1CreateNamedQueryCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.athena.webservice#InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -621,7 +621,7 @@ const deserializeAws_json1_1CreateNamedQueryCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.athena.webservice#InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -681,7 +681,7 @@ const deserializeAws_json1_1CreateWorkGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.athena.webservice#InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -692,7 +692,7 @@ const deserializeAws_json1_1CreateWorkGroupCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.athena.webservice#InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -752,7 +752,7 @@ const deserializeAws_json1_1DeleteNamedQueryCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.athena.webservice#InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -763,7 +763,7 @@ const deserializeAws_json1_1DeleteNamedQueryCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.athena.webservice#InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -823,7 +823,7 @@ const deserializeAws_json1_1DeleteWorkGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.athena.webservice#InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -834,7 +834,7 @@ const deserializeAws_json1_1DeleteWorkGroupCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.athena.webservice#InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -894,7 +894,7 @@ const deserializeAws_json1_1GetNamedQueryCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.athena.webservice#InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -905,7 +905,7 @@ const deserializeAws_json1_1GetNamedQueryCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.athena.webservice#InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -965,7 +965,7 @@ const deserializeAws_json1_1GetQueryExecutionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.athena.webservice#InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -976,7 +976,7 @@ const deserializeAws_json1_1GetQueryExecutionCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.athena.webservice#InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1036,7 +1036,7 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.athena.webservice#InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1047,7 +1047,7 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.athena.webservice#InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1107,7 +1107,7 @@ const deserializeAws_json1_1GetWorkGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.athena.webservice#InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1118,7 +1118,7 @@ const deserializeAws_json1_1GetWorkGroupCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.athena.webservice#InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1178,7 +1178,7 @@ const deserializeAws_json1_1ListNamedQueriesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.athena.webservice#InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1189,7 +1189,7 @@ const deserializeAws_json1_1ListNamedQueriesCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.athena.webservice#InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1252,7 +1252,7 @@ const deserializeAws_json1_1ListQueryExecutionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.athena.webservice#InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1263,7 +1263,7 @@ const deserializeAws_json1_1ListQueryExecutionsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.athena.webservice#InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1326,7 +1326,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.athena.webservice#InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1337,7 +1337,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.athena.webservice#InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1348,7 +1348,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.athena.webservice#ResourceNotFoundException":
+    case "com.amazonaws.athena#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1408,7 +1408,7 @@ const deserializeAws_json1_1ListWorkGroupsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.athena.webservice#InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1419,7 +1419,7 @@ const deserializeAws_json1_1ListWorkGroupsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.athena.webservice#InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1482,7 +1482,7 @@ const deserializeAws_json1_1StartQueryExecutionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.athena.webservice#InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1493,7 +1493,7 @@ const deserializeAws_json1_1StartQueryExecutionCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.athena.webservice#InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1504,7 +1504,7 @@ const deserializeAws_json1_1StartQueryExecutionCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.athena.webservice#TooManyRequestsException":
+    case "com.amazonaws.athena#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1567,7 +1567,7 @@ const deserializeAws_json1_1StopQueryExecutionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.athena.webservice#InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1578,7 +1578,7 @@ const deserializeAws_json1_1StopQueryExecutionCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.athena.webservice#InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1638,7 +1638,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.athena.webservice#InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1649,7 +1649,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.athena.webservice#InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1660,7 +1660,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.athena.webservice#ResourceNotFoundException":
+    case "com.amazonaws.athena#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1720,7 +1720,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.athena.webservice#InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1731,7 +1731,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.athena.webservice#InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1742,7 +1742,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.athena.webservice#ResourceNotFoundException":
+    case "com.amazonaws.athena#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1802,7 +1802,7 @@ const deserializeAws_json1_1UpdateWorkGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.athena.webservice#InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1813,7 +1813,7 @@ const deserializeAws_json1_1UpdateWorkGroupCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.athena.webservice#InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2441,6 +2441,15 @@ const deserializeAws_json1_1Datum = (
         ? output.VarCharValue
         : undefined
   } as any;
+};
+
+const deserializeAws_json1_1datumList = (
+  output: any,
+  context: __SerdeContext
+): Datum[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Datum(entry, context)
+  );
 };
 
 const deserializeAws_json1_1DeleteNamedQueryOutput = (
@@ -3155,6 +3164,15 @@ const deserializeAws_json1_1WorkGroupConfiguration = (
   } as any;
 };
 
+const deserializeAws_json1_1WorkGroupsList = (
+  output: any,
+  context: __SerdeContext
+): WorkGroupSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1WorkGroupSummary(entry, context)
+  );
+};
+
 const deserializeAws_json1_1WorkGroupSummary = (
   output: any,
   context: __SerdeContext
@@ -3178,24 +3196,6 @@ const deserializeAws_json1_1WorkGroupSummary = (
         ? output.State
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1WorkGroupsList = (
-  output: any,
-  context: __SerdeContext
-): WorkGroupSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1WorkGroupSummary(entry, context)
-  );
-};
-
-const deserializeAws_json1_1datumList = (
-  output: any,
-  context: __SerdeContext
-): Datum[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Datum(entry, context)
-  );
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

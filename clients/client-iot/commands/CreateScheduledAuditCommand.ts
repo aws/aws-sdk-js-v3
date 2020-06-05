@@ -8,9 +8,9 @@ import {
   CreateScheduledAuditResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateScheduledAuditCommand,
-  serializeAws_restJson1_1CreateScheduledAuditCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateScheduledAuditCommand,
+  serializeAws_restJson1CreateScheduledAuditCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class CreateScheduledAuditCommand extends $Command<
     input: CreateScheduledAuditCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateScheduledAuditCommand(input, context);
+    return serializeAws_restJson1CreateScheduledAuditCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateScheduledAuditCommandOutput> {
-    return deserializeAws_restJson1_1CreateScheduledAuditCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateScheduledAuditCommand(output, context);
   }
 
   // Start section: command_body_extra

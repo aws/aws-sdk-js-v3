@@ -1912,6 +1912,76 @@ export namespace ListQualificationTypesResponse {
     __isa(o, "ListQualificationTypesResponse");
 }
 
+export interface ListReviewableHITsRequest {
+  __type?: "ListReviewableHITsRequest";
+  /**
+   * <p>
+   *             The ID of the HIT type of the HITs to consider for the query.
+   *             If not specified, all HITs for the Reviewer are considered
+   *         </p>
+   */
+  HITTypeId?: string;
+
+  /**
+   * <p>
+   *             Limit the number of results returned.
+   *         </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Pagination Token</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>
+   *             Can be either <code>Reviewable</code> or <code>Reviewing</code>.
+   *             Reviewable is the default value.
+   *         </p>
+   */
+  Status?: ReviewableHITStatus | string;
+}
+
+export namespace ListReviewableHITsRequest {
+  export const filterSensitiveLog = (obj: ListReviewableHITsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListReviewableHITsRequest =>
+    __isa(o, "ListReviewableHITsRequest");
+}
+
+export interface ListReviewableHITsResponse {
+  __type?: "ListReviewableHITsResponse";
+  /**
+   * <p> The list of HIT elements returned by the query.</p>
+   */
+  HITs?: HIT[];
+
+  /**
+   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
+   *             returns a pagination token in the response. You can use this pagination token
+   *             to retrieve the next set of results.
+   *         </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p> The number of HITs on this page in the filtered results
+   *             list, equivalent to the number of HITs being returned by this call.
+   *         </p>
+   */
+  NumResults?: number;
+}
+
+export namespace ListReviewableHITsResponse {
+  export const filterSensitiveLog = (obj: ListReviewableHITsResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListReviewableHITsResponse =>
+    __isa(o, "ListReviewableHITsResponse");
+}
+
 export interface ListReviewPolicyResultsForHITRequest {
   __type?: "ListReviewPolicyResultsForHITRequest";
   /**
@@ -2014,76 +2084,6 @@ export namespace ListReviewPolicyResultsForHITResponse {
   });
   export const isa = (o: any): o is ListReviewPolicyResultsForHITResponse =>
     __isa(o, "ListReviewPolicyResultsForHITResponse");
-}
-
-export interface ListReviewableHITsRequest {
-  __type?: "ListReviewableHITsRequest";
-  /**
-   * <p>
-   *             The ID of the HIT type of the HITs to consider for the query.
-   *             If not specified, all HITs for the Reviewer are considered
-   *         </p>
-   */
-  HITTypeId?: string;
-
-  /**
-   * <p>
-   *             Limit the number of results returned.
-   *         </p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Pagination Token</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>
-   *             Can be either <code>Reviewable</code> or <code>Reviewing</code>.
-   *             Reviewable is the default value.
-   *         </p>
-   */
-  Status?: ReviewableHITStatus | string;
-}
-
-export namespace ListReviewableHITsRequest {
-  export const filterSensitiveLog = (obj: ListReviewableHITsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListReviewableHITsRequest =>
-    __isa(o, "ListReviewableHITsRequest");
-}
-
-export interface ListReviewableHITsResponse {
-  __type?: "ListReviewableHITsResponse";
-  /**
-   * <p> The list of HIT elements returned by the query.</p>
-   */
-  HITs?: HIT[];
-
-  /**
-   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
-   *             returns a pagination token in the response. You can use this pagination token
-   *             to retrieve the next set of results.
-   *         </p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p> The number of HITs on this page in the filtered results
-   *             list, equivalent to the number of HITs being returned by this call.
-   *         </p>
-   */
-  NumResults?: number;
-}
-
-export namespace ListReviewableHITsResponse {
-  export const filterSensitiveLog = (obj: ListReviewableHITsResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListReviewableHITsResponse =>
-    __isa(o, "ListReviewableHITsResponse");
 }
 
 export interface ListWorkerBlocksRequest {
@@ -2879,6 +2879,28 @@ export namespace RejectQualificationRequestResponse {
 }
 
 /**
+ * <p>Your request is invalid.</p>
+ */
+export interface RequestError extends __SmithyException, $MetadataBearer {
+  name: "RequestError";
+  $fault: "client";
+  Message?: string;
+  TurkErrorCode?: string;
+}
+
+export namespace RequestError {
+  export const filterSensitiveLog = (obj: RequestError): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is RequestError => __isa(o, "RequestError");
+}
+
+export enum ReviewableHITStatus {
+  Reviewable = "Reviewable",
+  Reviewing = "Reviewing"
+}
+
+/**
  * <p> Both the AssignmentReviewReport and the HITReviewReport
  *             elements contains the ReviewActionDetail data structure. This
  *             structure is returned multiple times for each action specified in the
@@ -3070,11 +3092,6 @@ export namespace ReviewResultDetail {
     __isa(o, "ReviewResultDetail");
 }
 
-export enum ReviewableHITStatus {
-  Reviewable = "Reviewable",
-  Reviewing = "Reviewing"
-}
-
 export interface SendBonusRequest {
   __type?: "SendBonusRequest";
   /**
@@ -3177,6 +3194,23 @@ export namespace SendTestEventNotificationResponse {
   });
   export const isa = (o: any): o is SendTestEventNotificationResponse =>
     __isa(o, "SendTestEventNotificationResponse");
+}
+
+/**
+ * <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ */
+export interface ServiceFault extends __SmithyException, $MetadataBearer {
+  name: "ServiceFault";
+  $fault: "server";
+  Message?: string;
+  TurkErrorCode?: string;
+}
+
+export namespace ServiceFault {
+  export const filterSensitiveLog = (obj: ServiceFault): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ServiceFault => __isa(o, "ServiceFault");
 }
 
 export interface UpdateExpirationForHITRequest {
@@ -3468,38 +3502,4 @@ export namespace WorkerBlock {
     ...obj
   });
   export const isa = (o: any): o is WorkerBlock => __isa(o, "WorkerBlock");
-}
-
-/**
- * <p>Your request is invalid.</p>
- */
-export interface RequestError extends __SmithyException, $MetadataBearer {
-  name: "RequestError";
-  $fault: "client";
-  Message?: string;
-  TurkErrorCode?: string;
-}
-
-export namespace RequestError {
-  export const filterSensitiveLog = (obj: RequestError): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is RequestError => __isa(o, "RequestError");
-}
-
-/**
- * <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
- */
-export interface ServiceFault extends __SmithyException, $MetadataBearer {
-  name: "ServiceFault";
-  $fault: "server";
-  Message?: string;
-  TurkErrorCode?: string;
-}
-
-export namespace ServiceFault {
-  export const filterSensitiveLog = (obj: ServiceFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ServiceFault => __isa(o, "ServiceFault");
 }

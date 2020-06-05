@@ -398,34 +398,6 @@ export namespace CertificateDoesNotExistException {
 }
 
 /**
- * <p>The certificate is being used for the LDAP security connection and cannot be removed
- *       without disabling LDAP security.</p>
- */
-export interface CertificateInUseException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "CertificateInUseException";
-  $fault: "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>The AWS request identifier.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace CertificateInUseException {
-  export const filterSensitiveLog = (obj: CertificateInUseException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CertificateInUseException =>
-    __isa(o, "CertificateInUseException");
-}
-
-/**
  * <p>Contains general information about a certificate.</p>
  */
 export interface CertificateInfo {
@@ -452,6 +424,34 @@ export namespace CertificateInfo {
   });
   export const isa = (o: any): o is CertificateInfo =>
     __isa(o, "CertificateInfo");
+}
+
+/**
+ * <p>The certificate is being used for the LDAP security connection and cannot be removed
+ *       without disabling LDAP security.</p>
+ */
+export interface CertificateInUseException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "CertificateInUseException";
+  $fault: "client";
+  /**
+   * <p>The descriptive message for the exception.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The AWS request identifier.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace CertificateInUseException {
+  export const filterSensitiveLog = (obj: CertificateInUseException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CertificateInUseException =>
+    __isa(o, "CertificateInUseException");
 }
 
 /**
@@ -4080,6 +4080,71 @@ export namespace ServiceException {
     __isa(o, "ServiceException");
 }
 
+/**
+ * <p>Details about the shared directory in the directory owner account for which the share request in the directory consumer account has been accepted.</p>
+ */
+export interface SharedDirectory {
+  __type?: "SharedDirectory";
+  /**
+   * <p>The date and time that the shared directory was created.</p>
+   */
+  CreatedDateTime?: Date;
+
+  /**
+   * <p>The date and time that the shared directory was last updated.</p>
+   */
+  LastUpdatedDateTime?: Date;
+
+  /**
+   * <p>Identifier of the directory owner account, which contains the directory that has been
+   *       shared to the consumer account.</p>
+   */
+  OwnerAccountId?: string;
+
+  /**
+   * <p>Identifier of the directory in the directory owner account. </p>
+   */
+  OwnerDirectoryId?: string;
+
+  /**
+   * <p>The method used when sharing a directory to determine whether the directory should be
+   *       shared within your AWS organization (<code>ORGANIZATIONS</code>) or with any AWS account by
+   *       sending a shared directory request (<code>HANDSHAKE</code>).</p>
+   */
+  ShareMethod?: ShareMethod | string;
+
+  /**
+   * <p>A directory share request that is sent by the directory owner to the directory consumer.
+   *       The request includes a typed message to help the directory consumer administrator determine
+   *       whether to approve or reject the share invitation.</p>
+   */
+  ShareNotes?: string;
+
+  /**
+   * <p>Current directory status of the shared AWS Managed Microsoft AD directory.</p>
+   */
+  ShareStatus?: ShareStatus | string;
+
+  /**
+   * <p>Identifier of the directory consumer account that has access to the shared directory (<code>OwnerDirectoryId</code>) in the directory owner account.</p>
+   */
+  SharedAccountId?: string;
+
+  /**
+   * <p>Identifier of the shared directory in the directory consumer account. This identifier is different for each directory owner account.</p>
+   */
+  SharedDirectoryId?: string;
+}
+
+export namespace SharedDirectory {
+  export const filterSensitiveLog = (obj: SharedDirectory): any => ({
+    ...obj,
+    ...(obj.ShareNotes && { ShareNotes: SENSITIVE_STRING })
+  });
+  export const isa = (o: any): o is SharedDirectory =>
+    __isa(o, "SharedDirectory");
+}
+
 export interface ShareDirectoryRequest {
   __type?: "ShareDirectoryRequest";
   /**
@@ -4200,71 +4265,6 @@ export namespace ShareTarget {
     ...obj
   });
   export const isa = (o: any): o is ShareTarget => __isa(o, "ShareTarget");
-}
-
-/**
- * <p>Details about the shared directory in the directory owner account for which the share request in the directory consumer account has been accepted.</p>
- */
-export interface SharedDirectory {
-  __type?: "SharedDirectory";
-  /**
-   * <p>The date and time that the shared directory was created.</p>
-   */
-  CreatedDateTime?: Date;
-
-  /**
-   * <p>The date and time that the shared directory was last updated.</p>
-   */
-  LastUpdatedDateTime?: Date;
-
-  /**
-   * <p>Identifier of the directory owner account, which contains the directory that has been
-   *       shared to the consumer account.</p>
-   */
-  OwnerAccountId?: string;
-
-  /**
-   * <p>Identifier of the directory in the directory owner account. </p>
-   */
-  OwnerDirectoryId?: string;
-
-  /**
-   * <p>The method used when sharing a directory to determine whether the directory should be
-   *       shared within your AWS organization (<code>ORGANIZATIONS</code>) or with any AWS account by
-   *       sending a shared directory request (<code>HANDSHAKE</code>).</p>
-   */
-  ShareMethod?: ShareMethod | string;
-
-  /**
-   * <p>A directory share request that is sent by the directory owner to the directory consumer.
-   *       The request includes a typed message to help the directory consumer administrator determine
-   *       whether to approve or reject the share invitation.</p>
-   */
-  ShareNotes?: string;
-
-  /**
-   * <p>Current directory status of the shared AWS Managed Microsoft AD directory.</p>
-   */
-  ShareStatus?: ShareStatus | string;
-
-  /**
-   * <p>Identifier of the directory consumer account that has access to the shared directory (<code>OwnerDirectoryId</code>) in the directory owner account.</p>
-   */
-  SharedAccountId?: string;
-
-  /**
-   * <p>Identifier of the shared directory in the directory consumer account. This identifier is different for each directory owner account.</p>
-   */
-  SharedDirectoryId?: string;
-}
-
-export namespace SharedDirectory {
-  export const filterSensitiveLog = (obj: SharedDirectory): any => ({
-    ...obj,
-    ...(obj.ShareNotes && { ShareNotes: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is SharedDirectory =>
-    __isa(o, "SharedDirectory");
 }
 
 /**

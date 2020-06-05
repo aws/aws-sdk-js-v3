@@ -8,9 +8,9 @@ import {
   DeleteNotificationRuleResult
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteNotificationRuleCommand,
-  serializeAws_restJson1_1DeleteNotificationRuleCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteNotificationRuleCommand,
+  serializeAws_restJson1DeleteNotificationRuleCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteNotificationRuleCommand extends $Command<
     input: DeleteNotificationRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteNotificationRuleCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DeleteNotificationRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNotificationRuleCommandOutput> {
-    return deserializeAws_restJson1_1DeleteNotificationRuleCommand(
+    return deserializeAws_restJson1DeleteNotificationRuleCommand(
       output,
       context
     );

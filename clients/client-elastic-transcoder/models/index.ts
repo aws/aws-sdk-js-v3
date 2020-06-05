@@ -24,122 +24,6 @@ export namespace AccessDeniedException {
     __isa(o, "AccessDeniedException");
 }
 
-export interface IncompatibleVersionException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "IncompatibleVersionException";
-  $fault: "client";
-  message: string | undefined;
-}
-
-export namespace IncompatibleVersionException {
-  export const filterSensitiveLog = (
-    obj: IncompatibleVersionException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is IncompatibleVersionException =>
-    __isa(o, "IncompatibleVersionException");
-}
-
-/**
- * <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
- */
-export interface InternalServiceException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InternalServiceException";
-  $fault: "server";
-  message: string | undefined;
-}
-
-export namespace InternalServiceException {
-  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InternalServiceException =>
-    __isa(o, "InternalServiceException");
-}
-
-/**
- * <p>Too many operations for a given AWS account. For example, the number of pipelines
- *             exceeds the maximum allowed.</p>
- */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message: string | undefined;
-}
-
-export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
-}
-
-/**
- * <p>The resource you are attempting to change is in use. For example, you are attempting
- *             to delete a pipeline that is currently in use.</p>
- */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
-  message: string | undefined;
-}
-
-export namespace ResourceInUseException {
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
-}
-
-/**
- * <p>The requested resource does not exist or is not available. For example, the pipeline
- *             to which you're trying to add a job doesn't exist or is still being created.</p>
- */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
-}
-
-/**
- * <p>One or more required parameter values were not provided in the request.</p>
- */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  message: string | undefined;
-}
-
-export namespace ValidationException {
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
-}
-
 /**
  * <p>The file to be used as album art. There can be multiple artworks associated with an
  *             audio file, to a maximum of 20.</p>
@@ -730,59 +614,6 @@ export namespace CaptionFormat {
 }
 
 /**
- * <p>A source file for the input sidecar captions used during the transcoding process.</p>
- */
-export interface CaptionSource {
-  __type?: "CaptionSource";
-  /**
-   * <p>The encryption settings, if any, that Elastic Transcoder needs to decyrpt your caption sources, or that you
-   *             want Elastic Transcoder to apply to your caption sources.</p>
-   */
-  Encryption?: Encryption;
-
-  /**
-   * <p>The name of the sidecar caption file that you want Elastic Transcoder to include in the output file.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>The label of the caption shown in the player when choosing a language. We recommend that you
-   *             put the caption language name here, in the language of the captions.</p>
-   */
-  Label?: string;
-
-  /**
-   * <p>A string that specifies the language of the caption. If you specified multiple inputs with captions,
-   *             the caption language must match in order to be included in the output. Specify this as one of:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>2-character ISO 639-1 code</p>
-   *             </li>
-   *             <li>
-   *                 <p>3-character ISO 639-2 code</p>
-   *             </li>
-   *          </ul>
-   *         <p>For more information on ISO language codes and language names, see the List of ISO 639-1 codes.</p>
-   */
-  Language?: string;
-
-  /**
-   * <p>For clip generation or captions that do not start at the same time
-   *             as the associated video file, the <code>TimeOffset</code> tells Elastic Transcoder how much of the video to encode
-   *             before including captions.</p>
-   *         <p>Specify the TimeOffset in the form [+-]SS.sss or [+-]HH:mm:SS.ss.</p>
-   */
-  TimeOffset?: string;
-}
-
-export namespace CaptionSource {
-  export const filterSensitiveLog = (obj: CaptionSource): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CaptionSource => __isa(o, "CaptionSource");
-}
-
-/**
  * <p>The captions to be created, if any.</p>
  */
 export interface Captions {
@@ -833,6 +664,59 @@ export namespace Captions {
     ...obj
   });
   export const isa = (o: any): o is Captions => __isa(o, "Captions");
+}
+
+/**
+ * <p>A source file for the input sidecar captions used during the transcoding process.</p>
+ */
+export interface CaptionSource {
+  __type?: "CaptionSource";
+  /**
+   * <p>The encryption settings, if any, that Elastic Transcoder needs to decyrpt your caption sources, or that you
+   *             want Elastic Transcoder to apply to your caption sources.</p>
+   */
+  Encryption?: Encryption;
+
+  /**
+   * <p>The name of the sidecar caption file that you want Elastic Transcoder to include in the output file.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The label of the caption shown in the player when choosing a language. We recommend that you
+   *             put the caption language name here, in the language of the captions.</p>
+   */
+  Label?: string;
+
+  /**
+   * <p>A string that specifies the language of the caption. If you specified multiple inputs with captions,
+   *             the caption language must match in order to be included in the output. Specify this as one of:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>2-character ISO 639-1 code</p>
+   *             </li>
+   *             <li>
+   *                 <p>3-character ISO 639-2 code</p>
+   *             </li>
+   *          </ul>
+   *         <p>For more information on ISO language codes and language names, see the List of ISO 639-1 codes.</p>
+   */
+  Language?: string;
+
+  /**
+   * <p>For clip generation or captions that do not start at the same time
+   *             as the associated video file, the <code>TimeOffset</code> tells Elastic Transcoder how much of the video to encode
+   *             before including captions.</p>
+   *         <p>Specify the TimeOffset in the form [+-]SS.sss or [+-]HH:mm:SS.ss.</p>
+   */
+  TimeOffset?: string;
+}
+
+export namespace CaptionSource {
+  export const filterSensitiveLog = (obj: CaptionSource): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CaptionSource => __isa(o, "CaptionSource");
 }
 
 /**
@@ -1896,6 +1780,24 @@ export namespace HlsContentProtection {
     __isa(o, "HlsContentProtection");
 }
 
+export interface IncompatibleVersionException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "IncompatibleVersionException";
+  $fault: "client";
+  message: string | undefined;
+}
+
+export namespace IncompatibleVersionException {
+  export const filterSensitiveLog = (
+    obj: IncompatibleVersionException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is IncompatibleVersionException =>
+    __isa(o, "IncompatibleVersionException");
+}
+
 /**
  * <p>The captions to be created, if any.</p>
  */
@@ -1942,6 +1844,25 @@ export namespace InputCaptions {
     ...obj
   });
   export const isa = (o: any): o is InputCaptions => __isa(o, "InputCaptions");
+}
+
+/**
+ * <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+ */
+export interface InternalServiceException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InternalServiceException";
+  $fault: "server";
+  message: string | undefined;
+}
+
+export namespace InternalServiceException {
+  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InternalServiceException =>
+    __isa(o, "InternalServiceException");
 }
 
 /**
@@ -2566,6 +2487,26 @@ export namespace JobWatermark {
     ...obj
   });
   export const isa = (o: any): o is JobWatermark => __isa(o, "JobWatermark");
+}
+
+/**
+ * <p>Too many operations for a given AWS account. For example, the number of pipelines
+ *             exceeds the maximum allowed.</p>
+ */
+export interface LimitExceededException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  message: string | undefined;
+}
+
+export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 /**
@@ -3250,69 +3191,6 @@ export namespace PipelineOutputConfig {
 }
 
 /**
- * <p>The PlayReady DRM settings, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.</p>
- *          <p>PlayReady DRM encrypts your media files
- * using <code>aes-ctr</code> encryption.</p>
- *          <p>If you use DRM for an <code>HLSv3</code> playlist, your outputs must have a master playlist.</p>
- */
-export interface PlayReadyDrm {
-  __type?: "PlayReadyDrm";
-  /**
-   * <p>The type of DRM, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.</p>
-   */
-  Format?: string;
-
-  /**
-   * <p>The series of random bits created by a random bit generator, unique for every encryption operation,
-   *     that you want Elastic Transcoder to use to encrypt your files. The initialization vector must be base64-encoded, and it
-   *     must be exactly 8 bytes long before being base64-encoded. If no initialization vector is provided, Elastic Transcoder
-   *     generates one for you.</p>
-   */
-  InitializationVector?: string;
-
-  /**
-   * <p>The DRM key for your file, provided by your DRM license provider. The key must be base64-encoded,
-   *     and it must be one of the following bit lengths before being base64-encoded:</p>
-   *          <p>
-   *             <code>128</code>, <code>192</code>, or <code>256</code>. </p>
-   *          <p>The key must also be encrypted by using AWS KMS.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>The ID for your DRM key, so that your DRM license provider knows which key to provide.</p>
-   *          <p>The key ID must be provided in big endian, and Elastic Transcoder converts it to little endian before inserting
-   *     it into the PlayReady DRM headers. If you are unsure whether your license server provides your key ID in
-   *     big or little endian, check with your DRM provider.</p>
-   */
-  KeyId?: string;
-
-  /**
-   * <p>The MD5 digest of the key used for DRM on your file, and that you want Elastic Transcoder to use as a checksum
-   *     to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded, and it must be
-   *     exactly 16 bytes before being base64-encoded.</p>
-   */
-  KeyMd5?: string;
-
-  /**
-   * <p>The location of the license key required to play DRM content. The URL must be an absolute path,
-   * and is referenced by the PlayReady header. The PlayReady header is referenced in the protection
-   * header of the client manifest for Smooth Streaming outputs, and in the EXT-X-DXDRM and EXT-XDXDRMINFO
-   * metadata tags for HLS playlist outputs. An example URL looks like this:
-   * <code>https://www.example.com/exampleKey/</code>
-   *          </p>
-   */
-  LicenseAcquisitionUrl?: string;
-}
-
-export namespace PlayReadyDrm {
-  export const filterSensitiveLog = (obj: PlayReadyDrm): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is PlayReadyDrm => __isa(o, "PlayReadyDrm");
-}
-
-/**
  * <p> Use Only for Fragmented MP4 or MPEG-TS Outputs. If you specify a preset for which the value of Container
  *             is <code>fmp4</code> (Fragmented MP4) or <code>ts</code> (MPEG-TS), Playlists
  *             contains information about the master playlists
@@ -3409,6 +3287,69 @@ export namespace Playlist {
     ...obj
   });
   export const isa = (o: any): o is Playlist => __isa(o, "Playlist");
+}
+
+/**
+ * <p>The PlayReady DRM settings, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.</p>
+ *          <p>PlayReady DRM encrypts your media files
+ * using <code>aes-ctr</code> encryption.</p>
+ *          <p>If you use DRM for an <code>HLSv3</code> playlist, your outputs must have a master playlist.</p>
+ */
+export interface PlayReadyDrm {
+  __type?: "PlayReadyDrm";
+  /**
+   * <p>The type of DRM, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.</p>
+   */
+  Format?: string;
+
+  /**
+   * <p>The series of random bits created by a random bit generator, unique for every encryption operation,
+   *     that you want Elastic Transcoder to use to encrypt your files. The initialization vector must be base64-encoded, and it
+   *     must be exactly 8 bytes long before being base64-encoded. If no initialization vector is provided, Elastic Transcoder
+   *     generates one for you.</p>
+   */
+  InitializationVector?: string;
+
+  /**
+   * <p>The DRM key for your file, provided by your DRM license provider. The key must be base64-encoded,
+   *     and it must be one of the following bit lengths before being base64-encoded:</p>
+   *          <p>
+   *             <code>128</code>, <code>192</code>, or <code>256</code>. </p>
+   *          <p>The key must also be encrypted by using AWS KMS.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The ID for your DRM key, so that your DRM license provider knows which key to provide.</p>
+   *          <p>The key ID must be provided in big endian, and Elastic Transcoder converts it to little endian before inserting
+   *     it into the PlayReady DRM headers. If you are unsure whether your license server provides your key ID in
+   *     big or little endian, check with your DRM provider.</p>
+   */
+  KeyId?: string;
+
+  /**
+   * <p>The MD5 digest of the key used for DRM on your file, and that you want Elastic Transcoder to use as a checksum
+   *     to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded, and it must be
+   *     exactly 16 bytes before being base64-encoded.</p>
+   */
+  KeyMd5?: string;
+
+  /**
+   * <p>The location of the license key required to play DRM content. The URL must be an absolute path,
+   * and is referenced by the PlayReady header. The PlayReady header is referenced in the protection
+   * header of the client manifest for Smooth Streaming outputs, and in the EXT-X-DXDRM and EXT-XDXDRMINFO
+   * metadata tags for HLS playlist outputs. An example URL looks like this:
+   * <code>https://www.example.com/exampleKey/</code>
+   *          </p>
+   */
+  LicenseAcquisitionUrl?: string;
+}
+
+export namespace PlayReadyDrm {
+  export const filterSensitiveLog = (obj: PlayReadyDrm): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is PlayReadyDrm => __isa(o, "PlayReadyDrm");
 }
 
 /**
@@ -3833,6 +3774,46 @@ export namespace ReadPresetResponse {
   });
   export const isa = (o: any): o is ReadPresetResponse =>
     __isa(o, "ReadPresetResponse");
+}
+
+/**
+ * <p>The resource you are attempting to change is in use. For example, you are attempting
+ *             to delete a pipeline that is currently in use.</p>
+ */
+export interface ResourceInUseException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceInUseException";
+  $fault: "client";
+  message: string | undefined;
+}
+
+export namespace ResourceInUseException {
+  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceInUseException =>
+    __isa(o, "ResourceInUseException");
+}
+
+/**
+ * <p>The requested resource does not exist or is not available. For example, the pipeline
+ *             to which you're trying to add a job doesn't exist or is still being created.</p>
+ */
+export interface ResourceNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  message: string | undefined;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -4527,6 +4508,25 @@ export namespace UpdatePipelineStatusResponse {
   });
   export const isa = (o: any): o is UpdatePipelineStatusResponse =>
     __isa(o, "UpdatePipelineStatusResponse");
+}
+
+/**
+ * <p>One or more required parameter values were not provided in the request.</p>
+ */
+export interface ValidationException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ValidationException";
+  $fault: "client";
+  message: string | undefined;
+}
+
+export namespace ValidationException {
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ValidationException =>
+    __isa(o, "ValidationException");
 }
 
 /**

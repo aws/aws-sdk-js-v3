@@ -8,9 +8,9 @@ import {
   UnsubscribeFromDatasetResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UnsubscribeFromDatasetCommand,
-  serializeAws_restJson1_1UnsubscribeFromDatasetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UnsubscribeFromDatasetCommand,
+  serializeAws_restJson1UnsubscribeFromDatasetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class UnsubscribeFromDatasetCommand extends $Command<
     input: UnsubscribeFromDatasetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UnsubscribeFromDatasetCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1UnsubscribeFromDatasetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UnsubscribeFromDatasetCommandOutput> {
-    return deserializeAws_restJson1_1UnsubscribeFromDatasetCommand(
+    return deserializeAws_restJson1UnsubscribeFromDatasetCommand(
       output,
       context
     );

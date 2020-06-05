@@ -859,6 +859,48 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * <p>Returns the descriptions of all the current mount targets, or a specific mount target,
+   *       for a file system. When requesting all of the current mount targets, the order of mount
+   *       targets returned in the response is unspecified.</p>
+   *
+   *          <p>This operation requires permissions for the
+   *         <code>elasticfilesystem:DescribeMountTargets</code> action, on either the file system ID
+   *       that you specify in <code>FileSystemId</code>, or on the file system of the mount target that
+   *       you specify in <code>MountTargetId</code>.</p>
+   */
+  public describeMountTargets(
+    args: DescribeMountTargetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMountTargetsCommandOutput>;
+  public describeMountTargets(
+    args: DescribeMountTargetsCommandInput,
+    cb: (err: any, data?: DescribeMountTargetsCommandOutput) => void
+  ): void;
+  public describeMountTargets(
+    args: DescribeMountTargetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMountTargetsCommandOutput) => void
+  ): void;
+  public describeMountTargets(
+    args: DescribeMountTargetsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeMountTargetsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMountTargetsCommandOutput) => void
+  ): Promise<DescribeMountTargetsCommandOutput> | void {
+    const command = new DescribeMountTargetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the security groups currently in effect for a mount target. This operation
    *       requires that the network interface of the mount target has been created and the lifecycle
    *       state of the mount target is not <code>deleted</code>.</p>
@@ -909,48 +951,6 @@ export class EFS extends EFSClient {
     ) => void
   ): Promise<DescribeMountTargetSecurityGroupsCommandOutput> | void {
     const command = new DescribeMountTargetSecurityGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns the descriptions of all the current mount targets, or a specific mount target,
-   *       for a file system. When requesting all of the current mount targets, the order of mount
-   *       targets returned in the response is unspecified.</p>
-   *
-   *          <p>This operation requires permissions for the
-   *         <code>elasticfilesystem:DescribeMountTargets</code> action, on either the file system ID
-   *       that you specify in <code>FileSystemId</code>, or on the file system of the mount target that
-   *       you specify in <code>MountTargetId</code>.</p>
-   */
-  public describeMountTargets(
-    args: DescribeMountTargetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeMountTargetsCommandOutput>;
-  public describeMountTargets(
-    args: DescribeMountTargetsCommandInput,
-    cb: (err: any, data?: DescribeMountTargetsCommandOutput) => void
-  ): void;
-  public describeMountTargets(
-    args: DescribeMountTargetsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeMountTargetsCommandOutput) => void
-  ): void;
-  public describeMountTargets(
-    args: DescribeMountTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMountTargetsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeMountTargetsCommandOutput) => void
-  ): Promise<DescribeMountTargetsCommandOutput> | void {
-    const command = new DescribeMountTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -346,7 +346,7 @@ const deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.deepinsight.medical#InternalServerException":
+    case "com.amazonaws.comprehendmedical#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -357,7 +357,7 @@ const deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.deepinsight.medical#InvalidRequestException":
+    case "com.amazonaws.comprehendmedical#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -368,7 +368,7 @@ const deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.deepinsight.medical#ResourceNotFoundException":
+    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -379,7 +379,7 @@ const deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
+    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -445,7 +445,7 @@ const deserializeAws_json1_1DescribePHIDetectionJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.deepinsight.medical#InternalServerException":
+    case "com.amazonaws.comprehendmedical#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -456,7 +456,7 @@ const deserializeAws_json1_1DescribePHIDetectionJobCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.deepinsight.medical#InvalidRequestException":
+    case "com.amazonaws.comprehendmedical#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -467,7 +467,7 @@ const deserializeAws_json1_1DescribePHIDetectionJobCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.deepinsight.medical#ResourceNotFoundException":
+    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -478,7 +478,7 @@ const deserializeAws_json1_1DescribePHIDetectionJobCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
+    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -538,7 +538,7 @@ const deserializeAws_json1_1DetectEntitiesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.deepinsight.medical#InternalServerException":
+    case "com.amazonaws.comprehendmedical#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -549,7 +549,7 @@ const deserializeAws_json1_1DetectEntitiesCommandError = async (
       };
       break;
     case "InvalidEncodingException":
-    case "com.amazonaws.deepinsight.medical#InvalidEncodingException":
+    case "com.amazonaws.comprehendmedical#InvalidEncodingException":
       response = {
         ...(await deserializeAws_json1_1InvalidEncodingExceptionResponse(
           parsedOutput,
@@ -560,7 +560,7 @@ const deserializeAws_json1_1DetectEntitiesCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.deepinsight.medical#InvalidRequestException":
+    case "com.amazonaws.comprehendmedical#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -571,7 +571,7 @@ const deserializeAws_json1_1DetectEntitiesCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.deepinsight.medical#ServiceUnavailableException":
+    case "com.amazonaws.comprehendmedical#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -582,7 +582,7 @@ const deserializeAws_json1_1DetectEntitiesCommandError = async (
       };
       break;
     case "TextSizeLimitExceededException":
-    case "com.amazonaws.deepinsight.medical#TextSizeLimitExceededException":
+    case "com.amazonaws.comprehendmedical#TextSizeLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
           parsedOutput,
@@ -593,7 +593,7 @@ const deserializeAws_json1_1DetectEntitiesCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
+    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -653,7 +653,7 @@ const deserializeAws_json1_1DetectEntitiesV2CommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.deepinsight.medical#InternalServerException":
+    case "com.amazonaws.comprehendmedical#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -664,7 +664,7 @@ const deserializeAws_json1_1DetectEntitiesV2CommandError = async (
       };
       break;
     case "InvalidEncodingException":
-    case "com.amazonaws.deepinsight.medical#InvalidEncodingException":
+    case "com.amazonaws.comprehendmedical#InvalidEncodingException":
       response = {
         ...(await deserializeAws_json1_1InvalidEncodingExceptionResponse(
           parsedOutput,
@@ -675,7 +675,7 @@ const deserializeAws_json1_1DetectEntitiesV2CommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.deepinsight.medical#InvalidRequestException":
+    case "com.amazonaws.comprehendmedical#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -686,7 +686,7 @@ const deserializeAws_json1_1DetectEntitiesV2CommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.deepinsight.medical#ServiceUnavailableException":
+    case "com.amazonaws.comprehendmedical#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -697,7 +697,7 @@ const deserializeAws_json1_1DetectEntitiesV2CommandError = async (
       };
       break;
     case "TextSizeLimitExceededException":
-    case "com.amazonaws.deepinsight.medical#TextSizeLimitExceededException":
+    case "com.amazonaws.comprehendmedical#TextSizeLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
           parsedOutput,
@@ -708,7 +708,7 @@ const deserializeAws_json1_1DetectEntitiesV2CommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
+    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -768,7 +768,7 @@ const deserializeAws_json1_1DetectPHICommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.deepinsight.medical#InternalServerException":
+    case "com.amazonaws.comprehendmedical#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -779,7 +779,7 @@ const deserializeAws_json1_1DetectPHICommandError = async (
       };
       break;
     case "InvalidEncodingException":
-    case "com.amazonaws.deepinsight.medical#InvalidEncodingException":
+    case "com.amazonaws.comprehendmedical#InvalidEncodingException":
       response = {
         ...(await deserializeAws_json1_1InvalidEncodingExceptionResponse(
           parsedOutput,
@@ -790,7 +790,7 @@ const deserializeAws_json1_1DetectPHICommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.deepinsight.medical#InvalidRequestException":
+    case "com.amazonaws.comprehendmedical#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -801,7 +801,7 @@ const deserializeAws_json1_1DetectPHICommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.deepinsight.medical#ServiceUnavailableException":
+    case "com.amazonaws.comprehendmedical#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -812,7 +812,7 @@ const deserializeAws_json1_1DetectPHICommandError = async (
       };
       break;
     case "TextSizeLimitExceededException":
-    case "com.amazonaws.deepinsight.medical#TextSizeLimitExceededException":
+    case "com.amazonaws.comprehendmedical#TextSizeLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
           parsedOutput,
@@ -823,7 +823,7 @@ const deserializeAws_json1_1DetectPHICommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
+    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -883,7 +883,7 @@ const deserializeAws_json1_1InferICD10CMCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.deepinsight.medical#InternalServerException":
+    case "com.amazonaws.comprehendmedical#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -894,7 +894,7 @@ const deserializeAws_json1_1InferICD10CMCommandError = async (
       };
       break;
     case "InvalidEncodingException":
-    case "com.amazonaws.deepinsight.medical#InvalidEncodingException":
+    case "com.amazonaws.comprehendmedical#InvalidEncodingException":
       response = {
         ...(await deserializeAws_json1_1InvalidEncodingExceptionResponse(
           parsedOutput,
@@ -905,7 +905,7 @@ const deserializeAws_json1_1InferICD10CMCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.deepinsight.medical#InvalidRequestException":
+    case "com.amazonaws.comprehendmedical#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -916,7 +916,7 @@ const deserializeAws_json1_1InferICD10CMCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.deepinsight.medical#ServiceUnavailableException":
+    case "com.amazonaws.comprehendmedical#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -927,7 +927,7 @@ const deserializeAws_json1_1InferICD10CMCommandError = async (
       };
       break;
     case "TextSizeLimitExceededException":
-    case "com.amazonaws.deepinsight.medical#TextSizeLimitExceededException":
+    case "com.amazonaws.comprehendmedical#TextSizeLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
           parsedOutput,
@@ -938,7 +938,7 @@ const deserializeAws_json1_1InferICD10CMCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
+    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -998,7 +998,7 @@ const deserializeAws_json1_1InferRxNormCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.deepinsight.medical#InternalServerException":
+    case "com.amazonaws.comprehendmedical#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1009,7 +1009,7 @@ const deserializeAws_json1_1InferRxNormCommandError = async (
       };
       break;
     case "InvalidEncodingException":
-    case "com.amazonaws.deepinsight.medical#InvalidEncodingException":
+    case "com.amazonaws.comprehendmedical#InvalidEncodingException":
       response = {
         ...(await deserializeAws_json1_1InvalidEncodingExceptionResponse(
           parsedOutput,
@@ -1020,7 +1020,7 @@ const deserializeAws_json1_1InferRxNormCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.deepinsight.medical#InvalidRequestException":
+    case "com.amazonaws.comprehendmedical#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1031,7 +1031,7 @@ const deserializeAws_json1_1InferRxNormCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.deepinsight.medical#ServiceUnavailableException":
+    case "com.amazonaws.comprehendmedical#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -1042,7 +1042,7 @@ const deserializeAws_json1_1InferRxNormCommandError = async (
       };
       break;
     case "TextSizeLimitExceededException":
-    case "com.amazonaws.deepinsight.medical#TextSizeLimitExceededException":
+    case "com.amazonaws.comprehendmedical#TextSizeLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
           parsedOutput,
@@ -1053,7 +1053,7 @@ const deserializeAws_json1_1InferRxNormCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
+    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1119,7 +1119,7 @@ const deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.deepinsight.medical#InternalServerException":
+    case "com.amazonaws.comprehendmedical#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1130,7 +1130,7 @@ const deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.deepinsight.medical#InvalidRequestException":
+    case "com.amazonaws.comprehendmedical#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1141,7 +1141,7 @@ const deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
+    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1152,7 +1152,7 @@ const deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.deepinsight.medical#ValidationException":
+    case "com.amazonaws.comprehendmedical#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1215,7 +1215,7 @@ const deserializeAws_json1_1ListPHIDetectionJobsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.deepinsight.medical#InternalServerException":
+    case "com.amazonaws.comprehendmedical#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1226,7 +1226,7 @@ const deserializeAws_json1_1ListPHIDetectionJobsCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.deepinsight.medical#InvalidRequestException":
+    case "com.amazonaws.comprehendmedical#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1237,7 +1237,7 @@ const deserializeAws_json1_1ListPHIDetectionJobsCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
+    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1248,7 +1248,7 @@ const deserializeAws_json1_1ListPHIDetectionJobsCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.deepinsight.medical#ValidationException":
+    case "com.amazonaws.comprehendmedical#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1314,7 +1314,7 @@ const deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.deepinsight.medical#InternalServerException":
+    case "com.amazonaws.comprehendmedical#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1325,7 +1325,7 @@ const deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.deepinsight.medical#InvalidRequestException":
+    case "com.amazonaws.comprehendmedical#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1336,7 +1336,7 @@ const deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.deepinsight.medical#ResourceNotFoundException":
+    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1347,7 +1347,7 @@ const deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
+    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1410,7 +1410,7 @@ const deserializeAws_json1_1StartPHIDetectionJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.deepinsight.medical#InternalServerException":
+    case "com.amazonaws.comprehendmedical#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1421,7 +1421,7 @@ const deserializeAws_json1_1StartPHIDetectionJobCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.deepinsight.medical#InvalidRequestException":
+    case "com.amazonaws.comprehendmedical#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1432,7 +1432,7 @@ const deserializeAws_json1_1StartPHIDetectionJobCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.deepinsight.medical#ResourceNotFoundException":
+    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1443,7 +1443,7 @@ const deserializeAws_json1_1StartPHIDetectionJobCommandError = async (
       };
       break;
     case "TooManyRequestsException":
-    case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
+    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
           parsedOutput,
@@ -1509,7 +1509,7 @@ const deserializeAws_json1_1StopEntitiesDetectionV2JobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.deepinsight.medical#InternalServerException":
+    case "com.amazonaws.comprehendmedical#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1520,7 +1520,7 @@ const deserializeAws_json1_1StopEntitiesDetectionV2JobCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.deepinsight.medical#InvalidRequestException":
+    case "com.amazonaws.comprehendmedical#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1531,7 +1531,7 @@ const deserializeAws_json1_1StopEntitiesDetectionV2JobCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.deepinsight.medical#ResourceNotFoundException":
+    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1594,7 +1594,7 @@ const deserializeAws_json1_1StopPHIDetectionJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazonaws.deepinsight.medical#InternalServerException":
+    case "com.amazonaws.comprehendmedical#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(
           parsedOutput,
@@ -1605,7 +1605,7 @@ const deserializeAws_json1_1StopPHIDetectionJobCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.deepinsight.medical#InvalidRequestException":
+    case "com.amazonaws.comprehendmedical#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1616,7 +1616,7 @@ const deserializeAws_json1_1StopPHIDetectionJobCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.deepinsight.medical#ResourceNotFoundException":
+    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,

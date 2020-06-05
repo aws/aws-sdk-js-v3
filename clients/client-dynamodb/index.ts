@@ -1,6 +1,5 @@
 export * from "./DynamoDBClient";
 export * from "./DynamoDB";
-export * from "./commands/DescribeEndpointsCommand";
 export * from "./commands/BatchGetItemCommand";
 export * from "./commands/BatchWriteItemCommand";
 export * from "./commands/CreateBackupCommand";
@@ -12,6 +11,7 @@ export * from "./commands/DeleteTableCommand";
 export * from "./commands/DescribeBackupCommand";
 export * from "./commands/DescribeContinuousBackupsCommand";
 export * from "./commands/DescribeContributorInsightsCommand";
+export * from "./commands/DescribeEndpointsCommand";
 export * from "./commands/DescribeGlobalTableCommand";
 export * from "./commands/DescribeGlobalTableSettingsCommand";
 export * from "./commands/DescribeLimitsCommand";

@@ -8,9 +8,9 @@ import {
   ListBackupPlanVersionsOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListBackupPlanVersionsCommand,
-  serializeAws_restJson1_1ListBackupPlanVersionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListBackupPlanVersionsCommand,
+  serializeAws_restJson1ListBackupPlanVersionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListBackupPlanVersionsCommand extends $Command<
     input: ListBackupPlanVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListBackupPlanVersionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1ListBackupPlanVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBackupPlanVersionsCommandOutput> {
-    return deserializeAws_restJson1_1ListBackupPlanVersionsCommand(
+    return deserializeAws_restJson1ListBackupPlanVersionsCommand(
       output,
       context
     );

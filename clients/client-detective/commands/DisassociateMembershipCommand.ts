@@ -5,9 +5,9 @@ import {
 } from "../DetectiveClient";
 import { DisassociateMembershipRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DisassociateMembershipCommand,
-  serializeAws_restJson1_1DisassociateMembershipCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DisassociateMembershipCommand,
+  serializeAws_restJson1DisassociateMembershipCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,17 +70,14 @@ export class DisassociateMembershipCommand extends $Command<
     input: DisassociateMembershipCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociateMembershipCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DisassociateMembershipCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateMembershipCommandOutput> {
-    return deserializeAws_restJson1_1DisassociateMembershipCommand(
+    return deserializeAws_restJson1DisassociateMembershipCommand(
       output,
       context
     );

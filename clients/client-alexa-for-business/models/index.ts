@@ -6,545 +6,6 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- * <p>The resource being created already exists.</p>
- */
-export interface AlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "AlreadyExistsException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace AlreadyExistsException {
-  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AlreadyExistsException =>
-    __isa(o, "AlreadyExistsException");
-}
-
-/**
- * <p>There is a concurrent modification of resources.</p>
- */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ConcurrentModificationException {
-  export const filterSensitiveLog = (
-    obj: ConcurrentModificationException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ConcurrentModificationException =>
-    __isa(o, "ConcurrentModificationException");
-}
-
-/**
- * <p>The request failed because this device is no longer registered and therefore no longer managed by this account.</p>
- */
-export interface DeviceNotRegisteredException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "DeviceNotRegisteredException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace DeviceNotRegisteredException {
-  export const filterSensitiveLog = (
-    obj: DeviceNotRegisteredException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeviceNotRegisteredException =>
-    __isa(o, "DeviceNotRegisteredException");
-}
-
-/**
- * <p>A filter name and value pair that is used to return a more specific list of results.
- *          Filters can be used to match a set of resources by various criteria.</p>
- */
-export interface Filter {
-  __type?: "Filter";
-  /**
-   * <p>The key of a filter.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The values of a filter.</p>
-   */
-  Values: string[] | undefined;
-}
-
-export namespace Filter {
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Filter => __isa(o, "Filter");
-}
-
-/**
- * <p>You are performing an action that would put you beyond your account's limits.</p>
- */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
-}
-
-/**
- * <p>The name sent in the request is already in use.</p>
- */
-export interface NameInUseException extends __SmithyException, $MetadataBearer {
-  name: "NameInUseException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NameInUseException {
-  export const filterSensitiveLog = (obj: NameInUseException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NameInUseException =>
-    __isa(o, "NameInUseException");
-}
-
-/**
- * <p>The resource is not found.</p>
- */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NotFoundException {
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
-}
-
-/**
- * <p>The resource in the request is already in use.</p>
- */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
-  /**
-   * <p>A unique, user-specified identifier for the request that ensures idempotency.</p>
-   */
-  ClientRequestToken?: string;
-
-  Message?: string;
-}
-
-export namespace ResourceInUseException {
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
-}
-
-/**
- * <p>The caller has no permissions to operate on the resource involved in the API call.</p>
- */
-export interface UnauthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "UnauthorizedException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace UnauthorizedException {
-  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UnauthorizedException =>
-    __isa(o, "UnauthorizedException");
-}
-
-export enum CommsProtocol {
-  H323 = "H323",
-  SIP = "SIP",
-  SIPS = "SIPS"
-}
-
-/**
- * <p>An entity that provides a conferencing solution. Alexa for Business acts as the voice interface and mediator that connects users to their preferred conference provider. Examples of conference providers include Amazon Chime, Zoom, Cisco, and Polycom. </p>
- */
-export interface ConferenceProvider {
-  __type?: "ConferenceProvider";
-  /**
-   * <p>The ARN of the newly created conference provider.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The IP endpoint and protocol for calling.</p>
-   */
-  IPDialIn?: IPDialIn;
-
-  /**
-   * <p>The meeting settings for the conference provider.</p>
-   */
-  MeetingSetting?: MeetingSetting;
-
-  /**
-   * <p>The name of the conference provider.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The information for PSTN conferencing.</p>
-   */
-  PSTNDialIn?: PSTNDialIn;
-
-  /**
-   * <p>The type of conference providers.</p>
-   */
-  Type?: ConferenceProviderType | string;
-}
-
-export namespace ConferenceProvider {
-  export const filterSensitiveLog = (obj: ConferenceProvider): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ConferenceProvider =>
-    __isa(o, "ConferenceProvider");
-}
-
-export enum ConferenceProviderType {
-  BLUEJEANS = "BLUEJEANS",
-  CHIME = "CHIME",
-  CUSTOM = "CUSTOM",
-  FUZE = "FUZE",
-  GOOGLE_HANGOUTS = "GOOGLE_HANGOUTS",
-  POLYCOM = "POLYCOM",
-  RINGCENTRAL = "RINGCENTRAL",
-  SKYPE_FOR_BUSINESS = "SKYPE_FOR_BUSINESS",
-  WEBEX = "WEBEX",
-  ZOOM = "ZOOM"
-}
-
-/**
- * <p>The IP endpoint and protocol for calling.</p>
- */
-export interface IPDialIn {
-  __type?: "IPDialIn";
-  /**
-   * <p>The protocol, including SIP, SIPS, and H323.</p>
-   */
-  CommsProtocol: CommsProtocol | string | undefined;
-
-  /**
-   * <p>The IP address.</p>
-   */
-  Endpoint: string | undefined;
-}
-
-export namespace IPDialIn {
-  export const filterSensitiveLog = (obj: IPDialIn): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is IPDialIn => __isa(o, "IPDialIn");
-}
-
-/**
- * <p>The values that indicate whether a pin is always required (YES), never required (NO),
- *             or OPTIONAL.</p>
- *         <ul>
- *             <li>
- *                 <p>If YES, Alexa will always ask for a meeting pin.</p>
- *             </li>
- *             <li>
- *                 <p>If NO, Alexa will never ask for a meeting pin.</p>
- *             </li>
- *             <li>
- *                 <p>If OPTIONAL, Alexa will ask if you have a meeting pin and if the customer responds
- *                     with yes, it will ask for the meeting pin.</p>
- *             </li>
- *          </ul>
- */
-export interface MeetingSetting {
-  __type?: "MeetingSetting";
-  /**
-   * <p>The values that indicate whether the pin is always required.</p>
-   */
-  RequirePin: RequirePin | string | undefined;
-}
-
-export namespace MeetingSetting {
-  export const filterSensitiveLog = (obj: MeetingSetting): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is MeetingSetting =>
-    __isa(o, "MeetingSetting");
-}
-
-/**
- * <p>The information for public switched telephone network (PSTN) conferencing.</p>
- */
-export interface PSTNDialIn {
-  __type?: "PSTNDialIn";
-  /**
-   * <p>The zip code.</p>
-   */
-  CountryCode: string | undefined;
-
-  /**
-   * <p>The delay duration before Alexa enters the conference ID with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.</p>
-   */
-  OneClickIdDelay: string | undefined;
-
-  /**
-   * <p>The delay duration before Alexa enters the conference pin with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.</p>
-   */
-  OneClickPinDelay: string | undefined;
-
-  /**
-   * <p>The phone number to call to join the conference.</p>
-   */
-  PhoneNumber: string | undefined;
-}
-
-export namespace PSTNDialIn {
-  export const filterSensitiveLog = (obj: PSTNDialIn): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is PSTNDialIn => __isa(o, "PSTNDialIn");
-}
-
-export enum RequirePin {
-  NO = "NO",
-  OPTIONAL = "OPTIONAL",
-  YES = "YES"
-}
-
-/**
- * <p>The audio message. There is a 1 MB limit on the audio file input and the only supported
- *          format is MP3. To convert your MP3 audio files to an Alexa-friendly,  </p>
- *          <p>required codec version (MPEG version 2) and bit rate (48 kbps), you might use converter
- *          software. One option for this is a command-line tool, FFmpeg. For more information, see
- *             <a href="https://www.ffmpeg.org/">FFmpeg</a>. The following command converts the
- *          provided <input-file> to an MP3 file that is played in the announcement:</p>
- *          <p>
- *             <code>ffmpeg -i <input-file> -ac 2 -codec:a libmp3lame -b:a 48k -ar 16000
- *             <output-file.mp3></code>
- *          </p>
- */
-export interface Audio {
-  __type?: "Audio";
-  /**
-   * <p>The locale of the audio message. Currently, en-US is supported.</p>
-   */
-  Locale: Locale | string | undefined;
-
-  /**
-   * <p>The location of the audio file. Currently, S3 URLs are supported. Only S3 locations
-   *          comprised of safe characters are valid. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#Safe%20Characters">Safe Characters</a>.</p>
-   */
-  Location: string | undefined;
-}
-
-export namespace Audio {
-  export const filterSensitiveLog = (obj: Audio): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Audio => __isa(o, "Audio");
-}
-
-/**
- * <p>The content definition. This can contain only one text, SSML, or audio list
- *          object.</p>
- */
-export interface Content {
-  __type?: "Content";
-  /**
-   * <p>The list of audio messages.</p>
-   */
-  AudioList?: Audio[];
-
-  /**
-   * <p>The list of SSML messages.</p>
-   */
-  SsmlList?: Ssml[];
-
-  /**
-   * <p>The list of text messages.</p>
-   */
-  TextList?: Text[];
-}
-
-export namespace Content {
-  export const filterSensitiveLog = (obj: Content): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Content => __isa(o, "Content");
-}
-
-export enum Locale {
-  en_US = "en-US"
-}
-
-export interface SendAnnouncementRequest {
-  __type?: "SendAnnouncementRequest";
-  /**
-   * <p>The unique, user-specified identifier for the request that ensures idempotency.</p>
-   */
-  ClientRequestToken?: string;
-
-  /**
-   * <p>The announcement content. This can contain only one of the three possible announcement types (text, SSML or audio).</p>
-   */
-  Content: Content | undefined;
-
-  /**
-   * <p>The filters to use to send an announcement to a specified list of rooms. The supported filter keys are RoomName, ProfileName, RoomArn, and ProfileArn. To send to all rooms, specify an empty RoomFilters list.</p>
-   */
-  RoomFilters: Filter[] | undefined;
-
-  /**
-   * <p>The time to live for an announcement. Default is 300. If delivery doesn't occur within this time, the
-   *          announcement is not delivered.</p>
-   */
-  TimeToLiveInSeconds?: number;
-}
-
-export namespace SendAnnouncementRequest {
-  export const filterSensitiveLog = (obj: SendAnnouncementRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SendAnnouncementRequest =>
-    __isa(o, "SendAnnouncementRequest");
-}
-
-export interface SendAnnouncementResponse {
-  __type?: "SendAnnouncementResponse";
-  /**
-   * <p>The identifier of the announcement.</p>
-   */
-  AnnouncementArn?: string;
-}
-
-export namespace SendAnnouncementResponse {
-  export const filterSensitiveLog = (obj: SendAnnouncementResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SendAnnouncementResponse =>
-    __isa(o, "SendAnnouncementResponse");
-}
-
-/**
- * <p>The SSML message. For more information, see <a href="https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html">SSML Reference</a>.</p>
- */
-export interface Ssml {
-  __type?: "Ssml";
-  /**
-   * <p>The locale of the SSML message. Currently, en-US is supported.</p>
-   */
-  Locale: Locale | string | undefined;
-
-  /**
-   * <p>The value of the SSML message in the correct SSML format. The audio tag is not supported.</p>
-   */
-  Value: string | undefined;
-}
-
-export namespace Ssml {
-  export const filterSensitiveLog = (obj: Ssml): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Ssml => __isa(o, "Ssml");
-}
-
-/**
- * <p>The text message.</p>
- */
-export interface Text {
-  __type?: "Text";
-  /**
-   * <p>The locale of the text message. Currently, en-US is supported.</p>
-   */
-  Locale: Locale | string | undefined;
-
-  /**
-   * <p>The value of the text message.</p>
-   */
-  Value: string | undefined;
-}
-
-export namespace Text {
-  export const filterSensitiveLog = (obj: Text): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Text => __isa(o, "Text");
-}
-
-export interface DeleteDeviceUsageDataRequest {
-  __type?: "DeleteDeviceUsageDataRequest";
-  /**
-   * <p>The ARN of the device.</p>
-   */
-  DeviceArn: string | undefined;
-
-  /**
-   * <p>The type of usage data to delete.</p>
-   */
-  DeviceUsageType: DeviceUsageType | string | undefined;
-}
-
-export namespace DeleteDeviceUsageDataRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteDeviceUsageDataRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteDeviceUsageDataRequest =>
-    __isa(o, "DeleteDeviceUsageDataRequest");
-}
-
-export interface DeleteDeviceUsageDataResponse {
-  __type?: "DeleteDeviceUsageDataResponse";
-}
-
-export namespace DeleteDeviceUsageDataResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteDeviceUsageDataResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteDeviceUsageDataResponse =>
-    __isa(o, "DeleteDeviceUsageDataResponse");
-}
-
-export enum DeviceUsageType {
-  VOICE = "VOICE"
-}
-
-/**
  * <p>An address book with attributes.</p>
  */
 export interface AddressBook {
@@ -599,6 +60,25 @@ export namespace AddressBookData {
   });
   export const isa = (o: any): o is AddressBookData =>
     __isa(o, "AddressBookData");
+}
+
+/**
+ * <p>The resource being created already exists.</p>
+ */
+export interface AlreadyExistsException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "AlreadyExistsException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace AlreadyExistsException {
+  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AlreadyExistsException =>
+    __isa(o, "AlreadyExistsException");
 }
 
 export interface ApproveSkillRequest {
@@ -847,6 +327,39 @@ export namespace AssociateSkillWithUsersResponse {
 }
 
 /**
+ * <p>The audio message. There is a 1 MB limit on the audio file input and the only supported
+ *          format is MP3. To convert your MP3 audio files to an Alexa-friendly,  </p>
+ *          <p>required codec version (MPEG version 2) and bit rate (48 kbps), you might use converter
+ *          software. One option for this is a command-line tool, FFmpeg. For more information, see
+ *             <a href="https://www.ffmpeg.org/">FFmpeg</a>. The following command converts the
+ *          provided <input-file> to an MP3 file that is played in the announcement:</p>
+ *          <p>
+ *             <code>ffmpeg -i <input-file> -ac 2 -codec:a libmp3lame -b:a 48k -ar 16000
+ *             <output-file.mp3></code>
+ *          </p>
+ */
+export interface Audio {
+  __type?: "Audio";
+  /**
+   * <p>The locale of the audio message. Currently, en-US is supported.</p>
+   */
+  Locale: Locale | string | undefined;
+
+  /**
+   * <p>The location of the audio file. Currently, S3 URLs are supported. Only S3 locations
+   *          comprised of safe characters are valid. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#Safe%20Characters">Safe Characters</a>.</p>
+   */
+  Location: string | undefined;
+}
+
+export namespace Audio {
+  export const filterSensitiveLog = (obj: Audio): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Audio => __isa(o, "Audio");
+}
+
+/**
  * <p>Usage report with specified parameters.</p>
  */
 export interface BusinessReport {
@@ -1051,6 +564,33 @@ export namespace Category {
   export const isa = (o: any): o is Category => __isa(o, "Category");
 }
 
+export enum CommsProtocol {
+  H323 = "H323",
+  SIP = "SIP",
+  SIPS = "SIPS"
+}
+
+/**
+ * <p>There is a concurrent modification of resources.</p>
+ */
+export interface ConcurrentModificationException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ConcurrentModificationException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ConcurrentModificationException {
+  export const filterSensitiveLog = (
+    obj: ConcurrentModificationException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ConcurrentModificationException =>
+    __isa(o, "ConcurrentModificationException");
+}
+
 /**
  * <p>The default conference provider that is used if no other scheduled meetings are
  *          detected.</p>
@@ -1069,6 +609,63 @@ export namespace ConferencePreference {
   });
   export const isa = (o: any): o is ConferencePreference =>
     __isa(o, "ConferencePreference");
+}
+
+/**
+ * <p>An entity that provides a conferencing solution. Alexa for Business acts as the voice interface and mediator that connects users to their preferred conference provider. Examples of conference providers include Amazon Chime, Zoom, Cisco, and Polycom. </p>
+ */
+export interface ConferenceProvider {
+  __type?: "ConferenceProvider";
+  /**
+   * <p>The ARN of the newly created conference provider.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The IP endpoint and protocol for calling.</p>
+   */
+  IPDialIn?: IPDialIn;
+
+  /**
+   * <p>The meeting settings for the conference provider.</p>
+   */
+  MeetingSetting?: MeetingSetting;
+
+  /**
+   * <p>The name of the conference provider.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The information for PSTN conferencing.</p>
+   */
+  PSTNDialIn?: PSTNDialIn;
+
+  /**
+   * <p>The type of conference providers.</p>
+   */
+  Type?: ConferenceProviderType | string;
+}
+
+export namespace ConferenceProvider {
+  export const filterSensitiveLog = (obj: ConferenceProvider): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ConferenceProvider =>
+    __isa(o, "ConferenceProvider");
+}
+
+export enum ConferenceProviderType {
+  BLUEJEANS = "BLUEJEANS",
+  CHIME = "CHIME",
+  CUSTOM = "CUSTOM",
+  FUZE = "FUZE",
+  GOOGLE_HANGOUTS = "GOOGLE_HANGOUTS",
+  POLYCOM = "POLYCOM",
+  RINGCENTRAL = "RINGCENTRAL",
+  SKYPE_FOR_BUSINESS = "SKYPE_FOR_BUSINESS",
+  WEBEX = "WEBEX",
+  ZOOM = "ZOOM"
 }
 
 export enum ConnectionStatus {
@@ -1196,6 +793,35 @@ export namespace ContactData {
     })
   });
   export const isa = (o: any): o is ContactData => __isa(o, "ContactData");
+}
+
+/**
+ * <p>The content definition. This can contain only one text, SSML, or audio list
+ *          object.</p>
+ */
+export interface Content {
+  __type?: "Content";
+  /**
+   * <p>The list of audio messages.</p>
+   */
+  AudioList?: Audio[];
+
+  /**
+   * <p>The list of SSML messages.</p>
+   */
+  SsmlList?: Ssml[];
+
+  /**
+   * <p>The list of text messages.</p>
+   */
+  TextList?: Text[];
+}
+
+export namespace Content {
+  export const filterSensitiveLog = (obj: Content): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Content => __isa(o, "Content");
 }
 
 export interface CreateAddressBookRequest {
@@ -2094,6 +1720,43 @@ export namespace DeleteDeviceResponse {
     __isa(o, "DeleteDeviceResponse");
 }
 
+export interface DeleteDeviceUsageDataRequest {
+  __type?: "DeleteDeviceUsageDataRequest";
+  /**
+   * <p>The ARN of the device.</p>
+   */
+  DeviceArn: string | undefined;
+
+  /**
+   * <p>The type of usage data to delete.</p>
+   */
+  DeviceUsageType: DeviceUsageType | string | undefined;
+}
+
+export namespace DeleteDeviceUsageDataRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteDeviceUsageDataRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteDeviceUsageDataRequest =>
+    __isa(o, "DeleteDeviceUsageDataRequest");
+}
+
+export interface DeleteDeviceUsageDataResponse {
+  __type?: "DeleteDeviceUsageDataResponse";
+}
+
+export namespace DeleteDeviceUsageDataResponse {
+  export const filterSensitiveLog = (
+    obj: DeleteDeviceUsageDataResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteDeviceUsageDataResponse =>
+    __isa(o, "DeleteDeviceUsageDataResponse");
+}
+
 export interface DeleteGatewayGroupRequest {
   __type?: "DeleteGatewayGroupRequest";
   /**
@@ -2587,6 +2250,27 @@ export namespace DeviceNetworkProfileInfo {
     __isa(o, "DeviceNetworkProfileInfo");
 }
 
+/**
+ * <p>The request failed because this device is no longer registered and therefore no longer managed by this account.</p>
+ */
+export interface DeviceNotRegisteredException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "DeviceNotRegisteredException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace DeviceNotRegisteredException {
+  export const filterSensitiveLog = (
+    obj: DeviceNotRegisteredException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeviceNotRegisteredException =>
+    __isa(o, "DeviceNotRegisteredException");
+}
+
 export enum DeviceStatus {
   DEREGISTERED = "DEREGISTERED",
   FAILED = "FAILED",
@@ -2664,6 +2348,10 @@ export namespace DeviceStatusInfo {
   });
   export const isa = (o: any): o is DeviceStatusInfo =>
     __isa(o, "DeviceStatusInfo");
+}
+
+export enum DeviceUsageType {
+  VOICE = "VOICE"
 }
 
 export interface DisassociateContactFromAddressBookRequest {
@@ -2913,6 +2601,30 @@ export enum Feature {
   SETTINGS = "SETTINGS",
   SKILLS = "SKILLS",
   VOLUME = "VOLUME"
+}
+
+/**
+ * <p>A filter name and value pair that is used to return a more specific list of results.
+ *          Filters can be used to match a set of resources by various criteria.</p>
+ */
+export interface Filter {
+  __type?: "Filter";
+  /**
+   * <p>The key of a filter.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The values of a filter.</p>
+   */
+  Values: string[] | undefined;
+}
+
+export namespace Filter {
+  export const filterSensitiveLog = (obj: Filter): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 export interface ForgetSmartHomeAppliancesRequest {
@@ -3662,6 +3374,48 @@ export namespace InvalidUserStatusException {
     __isa(o, "InvalidUserStatusException");
 }
 
+/**
+ * <p>The IP endpoint and protocol for calling.</p>
+ */
+export interface IPDialIn {
+  __type?: "IPDialIn";
+  /**
+   * <p>The protocol, including SIP, SIPS, and H323.</p>
+   */
+  CommsProtocol: CommsProtocol | string | undefined;
+
+  /**
+   * <p>The IP address.</p>
+   */
+  Endpoint: string | undefined;
+}
+
+export namespace IPDialIn {
+  export const filterSensitiveLog = (obj: IPDialIn): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is IPDialIn => __isa(o, "IPDialIn");
+}
+
+/**
+ * <p>You are performing an action that would put you beyond your account's limits.</p>
+ */
+export interface LimitExceededException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
+}
+
 export interface ListBusinessReportSchedulesRequest {
   __type?: "ListBusinessReportSchedulesRequest";
   /**
@@ -4165,6 +3919,10 @@ export namespace ListTagsResponse {
     __isa(o, "ListTagsResponse");
 }
 
+export enum Locale {
+  en_US = "en-US"
+}
+
 /**
  * <p>Meeting room settings of a room profile.</p>
  */
@@ -4202,6 +3960,55 @@ export namespace MeetingRoomConfiguration {
   });
   export const isa = (o: any): o is MeetingRoomConfiguration =>
     __isa(o, "MeetingRoomConfiguration");
+}
+
+/**
+ * <p>The values that indicate whether a pin is always required (YES), never required (NO),
+ *             or OPTIONAL.</p>
+ *         <ul>
+ *             <li>
+ *                 <p>If YES, Alexa will always ask for a meeting pin.</p>
+ *             </li>
+ *             <li>
+ *                 <p>If NO, Alexa will never ask for a meeting pin.</p>
+ *             </li>
+ *             <li>
+ *                 <p>If OPTIONAL, Alexa will ask if you have a meeting pin and if the customer responds
+ *                     with yes, it will ask for the meeting pin.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface MeetingSetting {
+  __type?: "MeetingSetting";
+  /**
+   * <p>The values that indicate whether the pin is always required.</p>
+   */
+  RequirePin: RequirePin | string | undefined;
+}
+
+export namespace MeetingSetting {
+  export const filterSensitiveLog = (obj: MeetingSetting): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is MeetingSetting =>
+    __isa(o, "MeetingSetting");
+}
+
+/**
+ * <p>The name sent in the request is already in use.</p>
+ */
+export interface NameInUseException extends __SmithyException, $MetadataBearer {
+  name: "NameInUseException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NameInUseException {
+  export const filterSensitiveLog = (obj: NameInUseException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NameInUseException =>
+    __isa(o, "NameInUseException");
 }
 
 export enum NetworkEapMethod {
@@ -4338,6 +4145,23 @@ export enum NetworkSecurityType {
   WPA2_ENTERPRISE = "WPA2_ENTERPRISE",
   WPA2_PSK = "WPA2_PSK",
   WPA_PSK = "WPA_PSK"
+}
+
+/**
+ * <p>The resource is not found.</p>
+ */
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
+  name: "NotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NotFoundException {
+  export const filterSensitiveLog = (obj: NotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NotFoundException =>
+    __isa(o, "NotFoundException");
 }
 
 /**
@@ -4512,6 +4336,39 @@ export namespace ProfileData {
     ...obj
   });
   export const isa = (o: any): o is ProfileData => __isa(o, "ProfileData");
+}
+
+/**
+ * <p>The information for public switched telephone network (PSTN) conferencing.</p>
+ */
+export interface PSTNDialIn {
+  __type?: "PSTNDialIn";
+  /**
+   * <p>The zip code.</p>
+   */
+  CountryCode: string | undefined;
+
+  /**
+   * <p>The delay duration before Alexa enters the conference ID with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.</p>
+   */
+  OneClickIdDelay: string | undefined;
+
+  /**
+   * <p>The delay duration before Alexa enters the conference pin with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.</p>
+   */
+  OneClickPinDelay: string | undefined;
+
+  /**
+   * <p>The phone number to call to join the conference.</p>
+   */
+  PhoneNumber: string | undefined;
+}
+
+export namespace PSTNDialIn {
+  export const filterSensitiveLog = (obj: PSTNDialIn): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is PSTNDialIn => __isa(o, "PSTNDialIn");
 }
 
 export interface PutConferencePreferenceRequest {
@@ -4785,6 +4642,12 @@ export namespace RequireCheckIn {
     __isa(o, "RequireCheckIn");
 }
 
+export enum RequirePin {
+  NO = "NO",
+  OPTIONAL = "OPTIONAL",
+  YES = "YES"
+}
+
 export interface ResolveRoomRequest {
   __type?: "ResolveRoomRequest";
   /**
@@ -4851,6 +4714,30 @@ export namespace ResourceAssociatedException {
   });
   export const isa = (o: any): o is ResourceAssociatedException =>
     __isa(o, "ResourceAssociatedException");
+}
+
+/**
+ * <p>The resource in the request is already in use.</p>
+ */
+export interface ResourceInUseException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceInUseException";
+  $fault: "client";
+  /**
+   * <p>A unique, user-specified identifier for the request that ensures idempotency.</p>
+   */
+  ClientRequestToken?: string;
+
+  Message?: string;
+}
+
+export namespace ResourceInUseException {
+  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceInUseException =>
+    __isa(o, "ResourceInUseException");
 }
 
 export interface RevokeInvitationRequest {
@@ -5512,6 +5399,54 @@ export namespace SearchUsersResponse {
     __isa(o, "SearchUsersResponse");
 }
 
+export interface SendAnnouncementRequest {
+  __type?: "SendAnnouncementRequest";
+  /**
+   * <p>The unique, user-specified identifier for the request that ensures idempotency.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The announcement content. This can contain only one of the three possible announcement types (text, SSML or audio).</p>
+   */
+  Content: Content | undefined;
+
+  /**
+   * <p>The filters to use to send an announcement to a specified list of rooms. The supported filter keys are RoomName, ProfileName, RoomArn, and ProfileArn. To send to all rooms, specify an empty RoomFilters list.</p>
+   */
+  RoomFilters: Filter[] | undefined;
+
+  /**
+   * <p>The time to live for an announcement. Default is 300. If delivery doesn't occur within this time, the
+   *          announcement is not delivered.</p>
+   */
+  TimeToLiveInSeconds?: number;
+}
+
+export namespace SendAnnouncementRequest {
+  export const filterSensitiveLog = (obj: SendAnnouncementRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SendAnnouncementRequest =>
+    __isa(o, "SendAnnouncementRequest");
+}
+
+export interface SendAnnouncementResponse {
+  __type?: "SendAnnouncementResponse";
+  /**
+   * <p>The identifier of the announcement.</p>
+   */
+  AnnouncementArn?: string;
+}
+
+export namespace SendAnnouncementResponse {
+  export const filterSensitiveLog = (obj: SendAnnouncementResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SendAnnouncementResponse =>
+    __isa(o, "SendAnnouncementResponse");
+}
+
 export interface SendInvitationRequest {
   __type?: "SendInvitationRequest";
   /**
@@ -5710,6 +5645,55 @@ export namespace SkillNotLinkedException {
 }
 
 /**
+ * <p>The detailed information about an Alexa skill.</p>
+ */
+export interface SkillsStoreSkill {
+  __type?: "SkillsStoreSkill";
+  /**
+   * <p>The URL where the skill icon resides.</p>
+   */
+  IconUrl?: string;
+
+  /**
+   * <p>Sample utterances that interact with the skill.</p>
+   */
+  SampleUtterances?: string[];
+
+  /**
+   * <p>Short description about the skill.</p>
+   */
+  ShortDescription?: string;
+
+  /**
+   * <p>Information about the skill.</p>
+   */
+  SkillDetails?: SkillDetails;
+
+  /**
+   * <p>The ARN of the skill.</p>
+   */
+  SkillId?: string;
+
+  /**
+   * <p>The name of the skill.</p>
+   */
+  SkillName?: string;
+
+  /**
+   * <p>Linking support for a skill.</p>
+   */
+  SupportsLinking?: boolean;
+}
+
+export namespace SkillsStoreSkill {
+  export const filterSensitiveLog = (obj: SkillsStoreSkill): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SkillsStoreSkill =>
+    __isa(o, "SkillsStoreSkill");
+}
+
+/**
  * <p>The summary of skills.</p>
  */
 export interface SkillSummary {
@@ -5757,55 +5741,6 @@ export enum SkillTypeFilter {
   ALL = "ALL",
   PRIVATE = "PRIVATE",
   PUBLIC = "PUBLIC"
-}
-
-/**
- * <p>The detailed information about an Alexa skill.</p>
- */
-export interface SkillsStoreSkill {
-  __type?: "SkillsStoreSkill";
-  /**
-   * <p>The URL where the skill icon resides.</p>
-   */
-  IconUrl?: string;
-
-  /**
-   * <p>Sample utterances that interact with the skill.</p>
-   */
-  SampleUtterances?: string[];
-
-  /**
-   * <p>Short description about the skill.</p>
-   */
-  ShortDescription?: string;
-
-  /**
-   * <p>Information about the skill.</p>
-   */
-  SkillDetails?: SkillDetails;
-
-  /**
-   * <p>The ARN of the skill.</p>
-   */
-  SkillId?: string;
-
-  /**
-   * <p>The name of the skill.</p>
-   */
-  SkillName?: string;
-
-  /**
-   * <p>Linking support for a skill.</p>
-   */
-  SupportsLinking?: boolean;
-}
-
-export namespace SkillsStoreSkill {
-  export const filterSensitiveLog = (obj: SkillsStoreSkill): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SkillsStoreSkill =>
-    __isa(o, "SkillsStoreSkill");
 }
 
 /**
@@ -5864,6 +5799,29 @@ export namespace Sort {
 export enum SortValue {
   ASC = "ASC",
   DESC = "DESC"
+}
+
+/**
+ * <p>The SSML message. For more information, see <a href="https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html">SSML Reference</a>.</p>
+ */
+export interface Ssml {
+  __type?: "Ssml";
+  /**
+   * <p>The locale of the SSML message. Currently, en-US is supported.</p>
+   */
+  Locale: Locale | string | undefined;
+
+  /**
+   * <p>The value of the SSML message in the correct SSML format. The audio tag is not supported.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace Ssml {
+  export const filterSensitiveLog = (obj: Ssml): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Ssml => __isa(o, "Ssml");
 }
 
 export interface StartDeviceSyncRequest {
@@ -5996,6 +5954,48 @@ export namespace TagResourceResponse {
 export enum TemperatureUnit {
   CELSIUS = "CELSIUS",
   FAHRENHEIT = "FAHRENHEIT"
+}
+
+/**
+ * <p>The text message.</p>
+ */
+export interface Text {
+  __type?: "Text";
+  /**
+   * <p>The locale of the text message. Currently, en-US is supported.</p>
+   */
+  Locale: Locale | string | undefined;
+
+  /**
+   * <p>The value of the text message.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace Text {
+  export const filterSensitiveLog = (obj: Text): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Text => __isa(o, "Text");
+}
+
+/**
+ * <p>The caller has no permissions to operate on the resource involved in the API call.</p>
+ */
+export interface UnauthorizedException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "UnauthorizedException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace UnauthorizedException {
+  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UnauthorizedException =>
+    __isa(o, "UnauthorizedException");
 }
 
 export interface UntagResourceRequest {

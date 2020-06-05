@@ -8,9 +8,9 @@ import {
   DetachFromIndexResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DetachFromIndexCommand,
-  serializeAws_restJson1_1DetachFromIndexCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DetachFromIndexCommand,
+  serializeAws_restJson1DetachFromIndexCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DetachFromIndexCommand extends $Command<
     input: DetachFromIndexCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DetachFromIndexCommand(input, context);
+    return serializeAws_restJson1DetachFromIndexCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DetachFromIndexCommandOutput> {
-    return deserializeAws_restJson1_1DetachFromIndexCommand(output, context);
+    return deserializeAws_restJson1DetachFromIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

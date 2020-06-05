@@ -8,9 +8,9 @@ import {
   GetVoiceConnectorTerminationHealthResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetVoiceConnectorTerminationHealthCommand,
-  serializeAws_restJson1_1GetVoiceConnectorTerminationHealthCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetVoiceConnectorTerminationHealthCommand,
+  serializeAws_restJson1GetVoiceConnectorTerminationHealthCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetVoiceConnectorTerminationHealthCommand extends $Command<
     input: GetVoiceConnectorTerminationHealthCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetVoiceConnectorTerminationHealthCommand(
+    return serializeAws_restJson1GetVoiceConnectorTerminationHealthCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetVoiceConnectorTerminationHealthCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVoiceConnectorTerminationHealthCommandOutput> {
-    return deserializeAws_restJson1_1GetVoiceConnectorTerminationHealthCommand(
+    return deserializeAws_restJson1GetVoiceConnectorTerminationHealthCommand(
       output,
       context
     );

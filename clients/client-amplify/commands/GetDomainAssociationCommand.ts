@@ -8,9 +8,9 @@ import {
   GetDomainAssociationResult
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetDomainAssociationCommand,
-  serializeAws_restJson1_1GetDomainAssociationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetDomainAssociationCommand,
+  serializeAws_restJson1GetDomainAssociationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetDomainAssociationCommand extends $Command<
     input: GetDomainAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDomainAssociationCommand(input, context);
+    return serializeAws_restJson1GetDomainAssociationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDomainAssociationCommandOutput> {
-    return deserializeAws_restJson1_1GetDomainAssociationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetDomainAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

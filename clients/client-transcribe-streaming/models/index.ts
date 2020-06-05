@@ -213,6 +213,10 @@ export namespace LimitExceededException {
     __isa(o, "LimitExceededException");
 }
 
+export enum MediaEncoding {
+  PCM = "pcm"
+}
+
 /**
  * <p>The result of transcribing a portion of the input audio stream. </p>
  */
@@ -264,7 +268,7 @@ export interface StartStreamTranscriptionRequest {
    * <p>PCM-encoded stream of audio blobs. The audio stream is encoded as an HTTP2 data
    *       frame.</p>
    */
-  AudioStream?: AsyncIterable<AudioStream>;
+  AudioStream: AsyncIterable<AudioStream> | undefined;
 
   /**
    * <p>Indicates the source language used in the input audio stream.</p>
@@ -503,8 +507,4 @@ export namespace TranscriptResultStream {
       return visitor.TranscriptEvent(value.TranscriptEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-}
-
-export enum MediaEncoding {
-  PCM = "pcm"
 }

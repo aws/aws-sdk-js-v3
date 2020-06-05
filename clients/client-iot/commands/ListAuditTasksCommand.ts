@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { ListAuditTasksRequest, ListAuditTasksResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListAuditTasksCommand,
-  serializeAws_restJson1_1ListAuditTasksCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListAuditTasksCommand,
+  serializeAws_restJson1ListAuditTasksCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class ListAuditTasksCommand extends $Command<
     input: ListAuditTasksCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListAuditTasksCommand(input, context);
+    return serializeAws_restJson1ListAuditTasksCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAuditTasksCommandOutput> {
-    return deserializeAws_restJson1_1ListAuditTasksCommand(output, context);
+    return deserializeAws_restJson1ListAuditTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

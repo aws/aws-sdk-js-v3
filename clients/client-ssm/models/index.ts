@@ -4035,6 +4035,67 @@ export namespace DescribeActivationsResult {
     __isa(o, "DescribeActivationsResult");
 }
 
+export interface DescribeAssociationExecutionsRequest {
+  __type?: "DescribeAssociationExecutionsRequest";
+  /**
+   * <p>The association ID for which you want to view execution history details.</p>
+   */
+  AssociationId: string | undefined;
+
+  /**
+   * <p>Filters for the request. You can specify the following filters and values.</p>
+   *          <p>ExecutionId (EQUAL)</p>
+   *          <p>Status (EQUAL)</p>
+   *          <p>CreatedTime (EQUAL, GREATER_THAN, LESS_THAN)</p>
+   */
+  Filters?: AssociationExecutionFilter[];
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token to start the list. Use this token to get the next set of results. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeAssociationExecutionsRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeAssociationExecutionsRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeAssociationExecutionsRequest =>
+    __isa(o, "DescribeAssociationExecutionsRequest");
+}
+
+export interface DescribeAssociationExecutionsResult {
+  __type?: "DescribeAssociationExecutionsResult";
+  /**
+   * <p>A list of the executions for the specified association ID.</p>
+   */
+  AssociationExecutions?: AssociationExecution[];
+
+  /**
+   * <p>The token for the next set of items to return. Use this token to get the next set of
+   *    results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeAssociationExecutionsResult {
+  export const filterSensitiveLog = (
+    obj: DescribeAssociationExecutionsResult
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeAssociationExecutionsResult =>
+    __isa(o, "DescribeAssociationExecutionsResult");
+}
+
 export interface DescribeAssociationExecutionTargetsRequest {
   __type?: "DescribeAssociationExecutionTargetsRequest";
   /**
@@ -4101,67 +4162,6 @@ export namespace DescribeAssociationExecutionTargetsResult {
   });
   export const isa = (o: any): o is DescribeAssociationExecutionTargetsResult =>
     __isa(o, "DescribeAssociationExecutionTargetsResult");
-}
-
-export interface DescribeAssociationExecutionsRequest {
-  __type?: "DescribeAssociationExecutionsRequest";
-  /**
-   * <p>The association ID for which you want to view execution history details.</p>
-   */
-  AssociationId: string | undefined;
-
-  /**
-   * <p>Filters for the request. You can specify the following filters and values.</p>
-   *          <p>ExecutionId (EQUAL)</p>
-   *          <p>Status (EQUAL)</p>
-   *          <p>CreatedTime (EQUAL, GREATER_THAN, LESS_THAN)</p>
-   */
-  Filters?: AssociationExecutionFilter[];
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A token to start the list. Use this token to get the next set of results. </p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeAssociationExecutionsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeAssociationExecutionsRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeAssociationExecutionsRequest =>
-    __isa(o, "DescribeAssociationExecutionsRequest");
-}
-
-export interface DescribeAssociationExecutionsResult {
-  __type?: "DescribeAssociationExecutionsResult";
-  /**
-   * <p>A list of the executions for the specified association ID.</p>
-   */
-  AssociationExecutions?: AssociationExecution[];
-
-  /**
-   * <p>The token for the next set of items to return. Use this token to get the next set of
-   *    results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeAssociationExecutionsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeAssociationExecutionsResult
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeAssociationExecutionsResult =>
-    __isa(o, "DescribeAssociationExecutionsResult");
 }
 
 export interface DescribeAssociationRequest {
@@ -4715,6 +4715,73 @@ export namespace DescribeInstanceInformationResult {
     __isa(o, "DescribeInstanceInformationResult");
 }
 
+export interface DescribeInstancePatchesRequest {
+  __type?: "DescribeInstancePatchesRequest";
+  /**
+   * <p>An array of structures. Each entry in the array is a structure containing a Key, Value
+   *    combination. Valid values for Key are <code>Classification</code> | <code>KBId</code> |
+   *     <code>Severity</code> | <code>State</code>.</p>
+   */
+  Filters?: PatchOrchestratorFilter[];
+
+  /**
+   * <p>The ID of the instance whose patch state information should be retrieved.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The maximum number of patches to return (per page).</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *    call.)</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeInstancePatchesRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeInstancePatchesRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeInstancePatchesRequest =>
+    __isa(o, "DescribeInstancePatchesRequest");
+}
+
+export interface DescribeInstancePatchesResult {
+  __type?: "DescribeInstancePatchesResult";
+  /**
+   * <p>The token to use when requesting the next set of items. If there are no additional items to
+   *    return, the string is empty.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Each entry in the array is a structure containing:</p>
+   *          <p>Title (string)</p>
+   *          <p>KBId (string)</p>
+   *          <p>Classification (string)</p>
+   *          <p>Severity (string)</p>
+   *          <p>State (string, such as "INSTALLED" or "FAILED")</p>
+   *          <p>InstalledTime (DateTime)</p>
+   *          <p>InstalledBy (string)</p>
+   */
+  Patches?: PatchComplianceData[];
+}
+
+export namespace DescribeInstancePatchesResult {
+  export const filterSensitiveLog = (
+    obj: DescribeInstancePatchesResult
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeInstancePatchesResult =>
+    __isa(o, "DescribeInstancePatchesResult");
+}
+
 export interface DescribeInstancePatchStatesForPatchGroupRequest {
   __type?: "DescribeInstancePatchStatesForPatchGroupRequest";
   /**
@@ -4844,73 +4911,6 @@ export namespace DescribeInstancePatchStatesResult {
     __isa(o, "DescribeInstancePatchStatesResult");
 }
 
-export interface DescribeInstancePatchesRequest {
-  __type?: "DescribeInstancePatchesRequest";
-  /**
-   * <p>An array of structures. Each entry in the array is a structure containing a Key, Value
-   *    combination. Valid values for Key are <code>Classification</code> | <code>KBId</code> |
-   *     <code>Severity</code> | <code>State</code>.</p>
-   */
-  Filters?: PatchOrchestratorFilter[];
-
-  /**
-   * <p>The ID of the instance whose patch state information should be retrieved.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The maximum number of patches to return (per page).</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *    call.)</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstancePatchesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeInstancePatchesRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeInstancePatchesRequest =>
-    __isa(o, "DescribeInstancePatchesRequest");
-}
-
-export interface DescribeInstancePatchesResult {
-  __type?: "DescribeInstancePatchesResult";
-  /**
-   * <p>The token to use when requesting the next set of items. If there are no additional items to
-   *    return, the string is empty.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Each entry in the array is a structure containing:</p>
-   *          <p>Title (string)</p>
-   *          <p>KBId (string)</p>
-   *          <p>Classification (string)</p>
-   *          <p>Severity (string)</p>
-   *          <p>State (string, such as "INSTALLED" or "FAILED")</p>
-   *          <p>InstalledTime (DateTime)</p>
-   *          <p>InstalledBy (string)</p>
-   */
-  Patches?: PatchComplianceData[];
-}
-
-export namespace DescribeInstancePatchesResult {
-  export const filterSensitiveLog = (
-    obj: DescribeInstancePatchesResult
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeInstancePatchesResult =>
-    __isa(o, "DescribeInstancePatchesResult");
-}
-
 export interface DescribeInventoryDeletionsRequest {
   __type?: "DescribeInventoryDeletionsRequest";
   /**
@@ -4963,6 +4963,71 @@ export namespace DescribeInventoryDeletionsResult {
   });
   export const isa = (o: any): o is DescribeInventoryDeletionsResult =>
     __isa(o, "DescribeInventoryDeletionsResult");
+}
+
+export interface DescribeMaintenanceWindowExecutionsRequest {
+  __type?: "DescribeMaintenanceWindowExecutionsRequest";
+  /**
+   * <p>Each entry in the array is a structure containing:</p>
+   *          <p>Key (string, between 1 and 128 characters)</p>
+   *          <p>Values (array of strings, each string is between 1 and 256 characters)</p>
+   *          <p>The supported Keys are ExecutedBefore and ExecutedAfter with the value being a date/time
+   *    string such as 2016-11-04T05:00:00Z.</p>
+   */
+  Filters?: MaintenanceWindowFilter[];
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *    call.)</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The ID of the maintenance window whose executions should be retrieved.</p>
+   */
+  WindowId: string | undefined;
+}
+
+export namespace DescribeMaintenanceWindowExecutionsRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeMaintenanceWindowExecutionsRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is DescribeMaintenanceWindowExecutionsRequest =>
+    __isa(o, "DescribeMaintenanceWindowExecutionsRequest");
+}
+
+export interface DescribeMaintenanceWindowExecutionsResult {
+  __type?: "DescribeMaintenanceWindowExecutionsResult";
+  /**
+   * <p>The token to use when requesting the next set of items. If there are no additional items to
+   *    return, the string is empty.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the maintenance window executions.</p>
+   */
+  WindowExecutions?: MaintenanceWindowExecution[];
+}
+
+export namespace DescribeMaintenanceWindowExecutionsResult {
+  export const filterSensitiveLog = (
+    obj: DescribeMaintenanceWindowExecutionsResult
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeMaintenanceWindowExecutionsResult =>
+    __isa(o, "DescribeMaintenanceWindowExecutionsResult");
 }
 
 export interface DescribeMaintenanceWindowExecutionTaskInvocationsRequest {
@@ -5108,71 +5173,6 @@ export namespace DescribeMaintenanceWindowExecutionTasksResult {
     __isa(o, "DescribeMaintenanceWindowExecutionTasksResult");
 }
 
-export interface DescribeMaintenanceWindowExecutionsRequest {
-  __type?: "DescribeMaintenanceWindowExecutionsRequest";
-  /**
-   * <p>Each entry in the array is a structure containing:</p>
-   *          <p>Key (string, between 1 and 128 characters)</p>
-   *          <p>Values (array of strings, each string is between 1 and 256 characters)</p>
-   *          <p>The supported Keys are ExecutedBefore and ExecutedAfter with the value being a date/time
-   *    string such as 2016-11-04T05:00:00Z.</p>
-   */
-  Filters?: MaintenanceWindowFilter[];
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *    call.)</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The ID of the maintenance window whose executions should be retrieved.</p>
-   */
-  WindowId: string | undefined;
-}
-
-export namespace DescribeMaintenanceWindowExecutionsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeMaintenanceWindowExecutionsRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is DescribeMaintenanceWindowExecutionsRequest =>
-    __isa(o, "DescribeMaintenanceWindowExecutionsRequest");
-}
-
-export interface DescribeMaintenanceWindowExecutionsResult {
-  __type?: "DescribeMaintenanceWindowExecutionsResult";
-  /**
-   * <p>The token to use when requesting the next set of items. If there are no additional items to
-   *    return, the string is empty.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the maintenance window executions.</p>
-   */
-  WindowExecutions?: MaintenanceWindowExecution[];
-}
-
-export namespace DescribeMaintenanceWindowExecutionsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeMaintenanceWindowExecutionsResult
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeMaintenanceWindowExecutionsResult =>
-    __isa(o, "DescribeMaintenanceWindowExecutionsResult");
-}
-
 export interface DescribeMaintenanceWindowScheduleRequest {
   __type?: "DescribeMaintenanceWindowScheduleRequest";
   /**
@@ -5241,6 +5241,127 @@ export namespace DescribeMaintenanceWindowScheduleResult {
   });
   export const isa = (o: any): o is DescribeMaintenanceWindowScheduleResult =>
     __isa(o, "DescribeMaintenanceWindowScheduleResult");
+}
+
+export interface DescribeMaintenanceWindowsForTargetRequest {
+  __type?: "DescribeMaintenanceWindowsForTargetRequest";
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *    call.)</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The type of resource you want to retrieve information about. For example, "INSTANCE".</p>
+   */
+  ResourceType: MaintenanceWindowResourceType | string | undefined;
+
+  /**
+   * <p>The instance ID or key/value pair to retrieve information about.</p>
+   */
+  Targets: Target[] | undefined;
+}
+
+export namespace DescribeMaintenanceWindowsForTargetRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeMaintenanceWindowsForTargetRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is DescribeMaintenanceWindowsForTargetRequest =>
+    __isa(o, "DescribeMaintenanceWindowsForTargetRequest");
+}
+
+export interface DescribeMaintenanceWindowsForTargetResult {
+  __type?: "DescribeMaintenanceWindowsForTargetResult";
+  /**
+   * <p>The token for the next set of items to return. (You use this token in the next call.)</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the maintenance window targets and tasks an instance is associated
+   *    with.</p>
+   */
+  WindowIdentities?: MaintenanceWindowIdentityForTarget[];
+}
+
+export namespace DescribeMaintenanceWindowsForTargetResult {
+  export const filterSensitiveLog = (
+    obj: DescribeMaintenanceWindowsForTargetResult
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeMaintenanceWindowsForTargetResult =>
+    __isa(o, "DescribeMaintenanceWindowsForTargetResult");
+}
+
+export interface DescribeMaintenanceWindowsRequest {
+  __type?: "DescribeMaintenanceWindowsRequest";
+  /**
+   * <p>Optional filters used to narrow down the scope of the returned maintenance windows.
+   *    Supported filter keys are <b>Name</b> and <b>Enabled</b>.</p>
+   */
+  Filters?: MaintenanceWindowFilter[];
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *    call.)</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeMaintenanceWindowsRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeMaintenanceWindowsRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeMaintenanceWindowsRequest =>
+    __isa(o, "DescribeMaintenanceWindowsRequest");
+}
+
+export interface DescribeMaintenanceWindowsResult {
+  __type?: "DescribeMaintenanceWindowsResult";
+  /**
+   * <p>The token to use when requesting the next set of items. If there are no additional items to
+   *    return, the string is empty.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the maintenance windows.</p>
+   */
+  WindowIdentities?: MaintenanceWindowIdentity[];
+}
+
+export namespace DescribeMaintenanceWindowsResult {
+  export const filterSensitiveLog = (
+    obj: DescribeMaintenanceWindowsResult
+  ): any => ({
+    ...obj,
+    ...(obj.WindowIdentities && {
+      WindowIdentities: obj.WindowIdentities.map(item =>
+        MaintenanceWindowIdentity.filterSensitiveLog(item)
+      )
+    })
+  });
+  export const isa = (o: any): o is DescribeMaintenanceWindowsResult =>
+    __isa(o, "DescribeMaintenanceWindowsResult");
 }
 
 export interface DescribeMaintenanceWindowTargetsRequest {
@@ -5371,127 +5492,6 @@ export namespace DescribeMaintenanceWindowTasksResult {
   });
   export const isa = (o: any): o is DescribeMaintenanceWindowTasksResult =>
     __isa(o, "DescribeMaintenanceWindowTasksResult");
-}
-
-export interface DescribeMaintenanceWindowsForTargetRequest {
-  __type?: "DescribeMaintenanceWindowsForTargetRequest";
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *    call.)</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The type of resource you want to retrieve information about. For example, "INSTANCE".</p>
-   */
-  ResourceType: MaintenanceWindowResourceType | string | undefined;
-
-  /**
-   * <p>The instance ID or key/value pair to retrieve information about.</p>
-   */
-  Targets: Target[] | undefined;
-}
-
-export namespace DescribeMaintenanceWindowsForTargetRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeMaintenanceWindowsForTargetRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is DescribeMaintenanceWindowsForTargetRequest =>
-    __isa(o, "DescribeMaintenanceWindowsForTargetRequest");
-}
-
-export interface DescribeMaintenanceWindowsForTargetResult {
-  __type?: "DescribeMaintenanceWindowsForTargetResult";
-  /**
-   * <p>The token for the next set of items to return. (You use this token in the next call.)</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the maintenance window targets and tasks an instance is associated
-   *    with.</p>
-   */
-  WindowIdentities?: MaintenanceWindowIdentityForTarget[];
-}
-
-export namespace DescribeMaintenanceWindowsForTargetResult {
-  export const filterSensitiveLog = (
-    obj: DescribeMaintenanceWindowsForTargetResult
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeMaintenanceWindowsForTargetResult =>
-    __isa(o, "DescribeMaintenanceWindowsForTargetResult");
-}
-
-export interface DescribeMaintenanceWindowsRequest {
-  __type?: "DescribeMaintenanceWindowsRequest";
-  /**
-   * <p>Optional filters used to narrow down the scope of the returned maintenance windows.
-   *    Supported filter keys are <b>Name</b> and <b>Enabled</b>.</p>
-   */
-  Filters?: MaintenanceWindowFilter[];
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *    call.)</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeMaintenanceWindowsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeMaintenanceWindowsRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeMaintenanceWindowsRequest =>
-    __isa(o, "DescribeMaintenanceWindowsRequest");
-}
-
-export interface DescribeMaintenanceWindowsResult {
-  __type?: "DescribeMaintenanceWindowsResult";
-  /**
-   * <p>The token to use when requesting the next set of items. If there are no additional items to
-   *    return, the string is empty.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the maintenance windows.</p>
-   */
-  WindowIdentities?: MaintenanceWindowIdentity[];
-}
-
-export namespace DescribeMaintenanceWindowsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeMaintenanceWindowsResult
-  ): any => ({
-    ...obj,
-    ...(obj.WindowIdentities && {
-      WindowIdentities: obj.WindowIdentities.map(item =>
-        MaintenanceWindowIdentity.filterSensitiveLog(item)
-      )
-    })
-  });
-  export const isa = (o: any): o is DescribeMaintenanceWindowsResult =>
-    __isa(o, "DescribeMaintenanceWindowsResult");
 }
 
 export interface DescribeOpsItemsRequest {
@@ -5709,6 +5709,58 @@ export namespace DescribePatchBaselinesResult {
     __isa(o, "DescribePatchBaselinesResult");
 }
 
+export interface DescribePatchGroupsRequest {
+  __type?: "DescribePatchGroupsRequest";
+  /**
+   * <p>One or more filters. Use a filter to return a more specific list of results.</p>
+   */
+  Filters?: PatchOrchestratorFilter[];
+
+  /**
+   * <p>The maximum number of patch groups to return (per page).</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *    call.)</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribePatchGroupsRequest {
+  export const filterSensitiveLog = (obj: DescribePatchGroupsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribePatchGroupsRequest =>
+    __isa(o, "DescribePatchGroupsRequest");
+}
+
+export interface DescribePatchGroupsResult {
+  __type?: "DescribePatchGroupsResult";
+  /**
+   * <p>Each entry in the array contains:</p>
+   *          <p>PatchGroup: string (between 1 and 256 characters, Regex:
+   *    ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$)</p>
+   *          <p>PatchBaselineIdentity: A PatchBaselineIdentity element. </p>
+   */
+  Mappings?: PatchGroupPatchBaselineMapping[];
+
+  /**
+   * <p>The token to use when requesting the next set of items. If there are no additional items to
+   *    return, the string is empty.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribePatchGroupsResult {
+  export const filterSensitiveLog = (obj: DescribePatchGroupsResult): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribePatchGroupsResult =>
+    __isa(o, "DescribePatchGroupsResult");
+}
+
 export interface DescribePatchGroupStateRequest {
   __type?: "DescribePatchGroupStateRequest";
   /**
@@ -5792,58 +5844,6 @@ export namespace DescribePatchGroupStateResult {
   });
   export const isa = (o: any): o is DescribePatchGroupStateResult =>
     __isa(o, "DescribePatchGroupStateResult");
-}
-
-export interface DescribePatchGroupsRequest {
-  __type?: "DescribePatchGroupsRequest";
-  /**
-   * <p>One or more filters. Use a filter to return a more specific list of results.</p>
-   */
-  Filters?: PatchOrchestratorFilter[];
-
-  /**
-   * <p>The maximum number of patch groups to return (per page).</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *    call.)</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribePatchGroupsRequest {
-  export const filterSensitiveLog = (obj: DescribePatchGroupsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribePatchGroupsRequest =>
-    __isa(o, "DescribePatchGroupsRequest");
-}
-
-export interface DescribePatchGroupsResult {
-  __type?: "DescribePatchGroupsResult";
-  /**
-   * <p>Each entry in the array contains:</p>
-   *          <p>PatchGroup: string (between 1 and 256 characters, Regex:
-   *    ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$)</p>
-   *          <p>PatchBaselineIdentity: A PatchBaselineIdentity element. </p>
-   */
-  Mappings?: PatchGroupPatchBaselineMapping[];
-
-  /**
-   * <p>The token to use when requesting the next set of items. If there are no additional items to
-   *    return, the string is empty.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribePatchGroupsResult {
-  export const filterSensitiveLog = (obj: DescribePatchGroupsResult): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribePatchGroupsResult =>
-    __isa(o, "DescribePatchGroupsResult");
 }
 
 export interface DescribePatchPropertiesRequest {
@@ -10537,6 +10537,56 @@ export enum LastResourceDataSyncStatus {
   SUCCESSFUL = "Successful"
 }
 
+export interface ListAssociationsRequest {
+  __type?: "ListAssociationsRequest";
+  /**
+   * <p>One or more filters. Use a filter to return a more specific list of results.</p>
+   */
+  AssociationFilterList?: AssociationFilter[];
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *    call.)</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAssociationsRequest {
+  export const filterSensitiveLog = (obj: ListAssociationsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListAssociationsRequest =>
+    __isa(o, "ListAssociationsRequest");
+}
+
+export interface ListAssociationsResult {
+  __type?: "ListAssociationsResult";
+  /**
+   * <p>The associations.</p>
+   */
+  Associations?: Association[];
+
+  /**
+   * <p>The token to use when requesting the next set of items. If there are no additional items to
+   *    return, the string is empty.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAssociationsResult {
+  export const filterSensitiveLog = (obj: ListAssociationsResult): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListAssociationsResult =>
+    __isa(o, "ListAssociationsResult");
+}
+
 export interface ListAssociationVersionsRequest {
   __type?: "ListAssociationVersionsRequest";
   /**
@@ -10588,56 +10638,6 @@ export namespace ListAssociationVersionsResult {
   });
   export const isa = (o: any): o is ListAssociationVersionsResult =>
     __isa(o, "ListAssociationVersionsResult");
-}
-
-export interface ListAssociationsRequest {
-  __type?: "ListAssociationsRequest";
-  /**
-   * <p>One or more filters. Use a filter to return a more specific list of results.</p>
-   */
-  AssociationFilterList?: AssociationFilter[];
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *    call.)</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListAssociationsRequest {
-  export const filterSensitiveLog = (obj: ListAssociationsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListAssociationsRequest =>
-    __isa(o, "ListAssociationsRequest");
-}
-
-export interface ListAssociationsResult {
-  __type?: "ListAssociationsResult";
-  /**
-   * <p>The associations.</p>
-   */
-  Associations?: Association[];
-
-  /**
-   * <p>The token to use when requesting the next set of items. If there are no additional items to
-   *    return, the string is empty.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListAssociationsResult {
-  export const filterSensitiveLog = (obj: ListAssociationsResult): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListAssociationsResult =>
-    __isa(o, "ListAssociationsResult");
 }
 
 export interface ListCommandInvocationsRequest {
@@ -10891,58 +10891,6 @@ export namespace ListComplianceSummariesResult {
     __isa(o, "ListComplianceSummariesResult");
 }
 
-export interface ListDocumentVersionsRequest {
-  __type?: "ListDocumentVersionsRequest";
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The name of the document. You can specify an Amazon Resource Name (ARN).</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *    call.)</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListDocumentVersionsRequest {
-  export const filterSensitiveLog = (
-    obj: ListDocumentVersionsRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListDocumentVersionsRequest =>
-    __isa(o, "ListDocumentVersionsRequest");
-}
-
-export interface ListDocumentVersionsResult {
-  __type?: "ListDocumentVersionsResult";
-  /**
-   * <p>The document versions.</p>
-   */
-  DocumentVersions?: DocumentVersionInfo[];
-
-  /**
-   * <p>The token to use when requesting the next set of items. If there are no additional items to
-   *    return, the string is empty.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListDocumentVersionsResult {
-  export const filterSensitiveLog = (obj: ListDocumentVersionsResult): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListDocumentVersionsResult =>
-    __isa(o, "ListDocumentVersionsResult");
-}
-
 export interface ListDocumentsRequest {
   __type?: "ListDocumentsRequest";
   /**
@@ -10996,6 +10944,58 @@ export namespace ListDocumentsResult {
   });
   export const isa = (o: any): o is ListDocumentsResult =>
     __isa(o, "ListDocumentsResult");
+}
+
+export interface ListDocumentVersionsRequest {
+  __type?: "ListDocumentVersionsRequest";
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The name of the document. You can specify an Amazon Resource Name (ARN).</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *    call.)</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListDocumentVersionsRequest {
+  export const filterSensitiveLog = (
+    obj: ListDocumentVersionsRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListDocumentVersionsRequest =>
+    __isa(o, "ListDocumentVersionsRequest");
+}
+
+export interface ListDocumentVersionsResult {
+  __type?: "ListDocumentVersionsResult";
+  /**
+   * <p>The document versions.</p>
+   */
+  DocumentVersions?: DocumentVersionInfo[];
+
+  /**
+   * <p>The token to use when requesting the next set of items. If there are no additional items to
+   *    return, the string is empty.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListDocumentVersionsResult {
+  export const filterSensitiveLog = (obj: ListDocumentVersionsResult): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListDocumentVersionsResult =>
+    __isa(o, "ListDocumentVersionsResult");
 }
 
 export interface ListInventoryEntriesRequest {
@@ -13128,6 +13128,36 @@ export namespace ParameterPatternMismatchException {
 }
 
 /**
+ * <p>This data type is deprecated. Instead, use <a>ParameterStringFilter</a>.</p>
+ */
+export interface ParametersFilter {
+  __type?: "ParametersFilter";
+  /**
+   * <p>The name of the filter.</p>
+   */
+  Key: ParametersFilterKey | string | undefined;
+
+  /**
+   * <p>The filter values.</p>
+   */
+  Values: string[] | undefined;
+}
+
+export namespace ParametersFilter {
+  export const filterSensitiveLog = (obj: ParametersFilter): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ParametersFilter =>
+    __isa(o, "ParametersFilter");
+}
+
+export enum ParametersFilterKey {
+  KEY_ID = "KeyId",
+  NAME = "Name",
+  TYPE = "Type"
+}
+
+/**
  * <p>One or more filters. Use a filter to return a more specific list of results.</p>
  *          <important>
  *             <p>The <code>ParameterStringFilter</code> object is used by the <a>DescribeParameters</a> and <a>GetParametersByPath</a> API actions. However,
@@ -13224,36 +13254,6 @@ export namespace ParameterVersionNotFound {
   });
   export const isa = (o: any): o is ParameterVersionNotFound =>
     __isa(o, "ParameterVersionNotFound");
-}
-
-/**
- * <p>This data type is deprecated. Instead, use <a>ParameterStringFilter</a>.</p>
- */
-export interface ParametersFilter {
-  __type?: "ParametersFilter";
-  /**
-   * <p>The name of the filter.</p>
-   */
-  Key: ParametersFilterKey | string | undefined;
-
-  /**
-   * <p>The filter values.</p>
-   */
-  Values: string[] | undefined;
-}
-
-export namespace ParametersFilter {
-  export const filterSensitiveLog = (obj: ParametersFilter): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ParametersFilter =>
-    __isa(o, "ParametersFilter");
-}
-
-export enum ParametersFilterKey {
-  KEY_ID = "KeyId",
-  NAME = "Name",
-  TYPE = "Type"
 }
 
 /**

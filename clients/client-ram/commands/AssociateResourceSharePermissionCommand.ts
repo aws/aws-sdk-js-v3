@@ -8,9 +8,9 @@ import {
   AssociateResourceSharePermissionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1AssociateResourceSharePermissionCommand,
-  serializeAws_restJson1_1AssociateResourceSharePermissionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AssociateResourceSharePermissionCommand,
+  serializeAws_restJson1AssociateResourceSharePermissionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class AssociateResourceSharePermissionCommand extends $Command<
     input: AssociateResourceSharePermissionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AssociateResourceSharePermissionCommand(
+    return serializeAws_restJson1AssociateResourceSharePermissionCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class AssociateResourceSharePermissionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateResourceSharePermissionCommandOutput> {
-    return deserializeAws_restJson1_1AssociateResourceSharePermissionCommand(
+    return deserializeAws_restJson1AssociateResourceSharePermissionCommand(
       output,
       context
     );

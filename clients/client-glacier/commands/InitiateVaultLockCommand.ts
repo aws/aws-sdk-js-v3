@@ -8,9 +8,9 @@ import {
   InitiateVaultLockOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1InitiateVaultLockCommand,
-  serializeAws_restJson1_1InitiateVaultLockCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1InitiateVaultLockCommand,
+  serializeAws_restJson1InitiateVaultLockCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class InitiateVaultLockCommand extends $Command<
     input: InitiateVaultLockCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1InitiateVaultLockCommand(input, context);
+    return serializeAws_restJson1InitiateVaultLockCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InitiateVaultLockCommandOutput> {
-    return deserializeAws_restJson1_1InitiateVaultLockCommand(output, context);
+    return deserializeAws_restJson1InitiateVaultLockCommand(output, context);
   }
 
   // Start section: command_body_extra

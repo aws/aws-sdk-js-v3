@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { DomainNames, GetDomainNamesRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetDomainNamesCommand,
-  serializeAws_restJson1_1GetDomainNamesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetDomainNamesCommand,
+  serializeAws_restJson1GetDomainNamesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetDomainNamesCommand extends $Command<
     input: GetDomainNamesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDomainNamesCommand(input, context);
+    return serializeAws_restJson1GetDomainNamesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDomainNamesCommandOutput> {
-    return deserializeAws_restJson1_1GetDomainNamesCommand(output, context);
+    return deserializeAws_restJson1GetDomainNamesCommand(output, context);
   }
 
   // Start section: command_body_extra

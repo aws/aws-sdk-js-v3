@@ -8,9 +8,9 @@ import {
   ListDetectorModelVersionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListDetectorModelVersionsCommand,
-  serializeAws_restJson1_1ListDetectorModelVersionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListDetectorModelVersionsCommand,
+  serializeAws_restJson1ListDetectorModelVersionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListDetectorModelVersionsCommand extends $Command<
     input: ListDetectorModelVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListDetectorModelVersionsCommand(
+    return serializeAws_restJson1ListDetectorModelVersionsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListDetectorModelVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDetectorModelVersionsCommandOutput> {
-    return deserializeAws_restJson1_1ListDetectorModelVersionsCommand(
+    return deserializeAws_restJson1ListDetectorModelVersionsCommand(
       output,
       context
     );

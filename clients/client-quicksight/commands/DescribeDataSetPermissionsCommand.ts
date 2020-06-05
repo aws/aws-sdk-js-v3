@@ -8,9 +8,9 @@ import {
   DescribeDataSetPermissionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeDataSetPermissionsCommand,
-  serializeAws_restJson1_1DescribeDataSetPermissionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeDataSetPermissionsCommand,
+  serializeAws_restJson1DescribeDataSetPermissionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeDataSetPermissionsCommand extends $Command<
     input: DescribeDataSetPermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeDataSetPermissionsCommand(
+    return serializeAws_restJson1DescribeDataSetPermissionsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeDataSetPermissionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDataSetPermissionsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeDataSetPermissionsCommand(
+    return deserializeAws_restJson1DescribeDataSetPermissionsCommand(
       output,
       context
     );

@@ -281,6 +281,40 @@ export namespace AssociateConnectionWithLagRequest {
     __isa(o, "AssociateConnectionWithLagRequest");
 }
 
+/**
+ * <p>Information about the associated gateway.</p>
+ */
+export interface AssociatedGateway {
+  __type?: "AssociatedGateway";
+  /**
+   * <p>The ID of the associated gateway.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The ID of the AWS account that owns the associated virtual private gateway or transit gateway.</p>
+   */
+  ownerAccount?: string;
+
+  /**
+   * <p>The Region where the associated gateway is located.</p>
+   */
+  region?: string;
+
+  /**
+   * <p>The type of associated gateway.</p>
+   */
+  type?: GatewayType | string;
+}
+
+export namespace AssociatedGateway {
+  export const filterSensitiveLog = (obj: AssociatedGateway): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AssociatedGateway =>
+    __isa(o, "AssociatedGateway");
+}
+
 export interface AssociateHostedConnectionRequest {
   __type?: "AssociateHostedConnectionRequest";
   /**
@@ -325,40 +359,6 @@ export namespace AssociateVirtualInterfaceRequest {
   });
   export const isa = (o: any): o is AssociateVirtualInterfaceRequest =>
     __isa(o, "AssociateVirtualInterfaceRequest");
-}
-
-/**
- * <p>Information about the associated gateway.</p>
- */
-export interface AssociatedGateway {
-  __type?: "AssociatedGateway";
-  /**
-   * <p>The ID of the associated gateway.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>The ID of the AWS account that owns the associated virtual private gateway or transit gateway.</p>
-   */
-  ownerAccount?: string;
-
-  /**
-   * <p>The Region where the associated gateway is located.</p>
-   */
-  region?: string;
-
-  /**
-   * <p>The type of associated gateway.</p>
-   */
-  type?: GatewayType | string;
-}
-
-export namespace AssociatedGateway {
-  export const filterSensitiveLog = (obj: AssociatedGateway): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AssociatedGateway =>
-    __isa(o, "AssociatedGateway");
 }
 
 /**
@@ -913,17 +913,6 @@ export namespace Connection {
   export const isa = (o: any): o is Connection => __isa(o, "Connection");
 }
 
-export type ConnectionState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "down"
-  | "ordering"
-  | "pending"
-  | "rejected"
-  | "requested"
-  | "unknown";
-
 export interface Connections {
   __type?: "Connections";
   /**
@@ -938,6 +927,17 @@ export namespace Connections {
   });
   export const isa = (o: any): o is Connections => __isa(o, "Connections");
 }
+
+export type ConnectionState =
+  | "available"
+  | "deleted"
+  | "deleting"
+  | "down"
+  | "ordering"
+  | "pending"
+  | "rejected"
+  | "requested"
+  | "unknown";
 
 export interface CreateBGPPeerRequest {
   __type?: "CreateBGPPeerRequest";
@@ -2734,15 +2734,6 @@ export namespace Interconnect {
   export const isa = (o: any): o is Interconnect => __isa(o, "Interconnect");
 }
 
-export type InterconnectState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "down"
-  | "pending"
-  | "requested"
-  | "unknown";
-
 export interface Interconnects {
   __type?: "Interconnects";
   /**
@@ -2757,6 +2748,15 @@ export namespace Interconnects {
   });
   export const isa = (o: any): o is Interconnects => __isa(o, "Interconnects");
 }
+
+export type InterconnectState =
+  | "available"
+  | "deleted"
+  | "deleting"
+  | "down"
+  | "pending"
+  | "requested"
+  | "unknown";
 
 /**
  * <p>Information about a link aggregation group (LAG).</p>
@@ -2888,15 +2888,6 @@ export namespace Lag {
   export const isa = (o: any): o is Lag => __isa(o, "Lag");
 }
 
-export type LagState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "down"
-  | "pending"
-  | "requested"
-  | "unknown";
-
 export interface Lags {
   __type?: "Lags";
   /**
@@ -2911,6 +2902,15 @@ export namespace Lags {
   });
   export const isa = (o: any): o is Lags => __isa(o, "Lags");
 }
+
+export type LagState =
+  | "available"
+  | "deleted"
+  | "deleting"
+  | "down"
+  | "pending"
+  | "requested"
+  | "unknown";
 
 /**
  * <p>Information about a Letter of Authorization - Connecting Facility Assignment (LOA-CFA) for a connection.</p>
@@ -3893,17 +3893,6 @@ export namespace VirtualInterface {
     __isa(o, "VirtualInterface");
 }
 
-export type VirtualInterfaceState =
-  | "available"
-  | "confirming"
-  | "deleted"
-  | "deleting"
-  | "down"
-  | "pending"
-  | "rejected"
-  | "unknown"
-  | "verifying";
-
 export interface VirtualInterfaces {
   __type?: "VirtualInterfaces";
   /**
@@ -3919,3 +3908,14 @@ export namespace VirtualInterfaces {
   export const isa = (o: any): o is VirtualInterfaces =>
     __isa(o, "VirtualInterfaces");
 }
+
+export type VirtualInterfaceState =
+  | "available"
+  | "confirming"
+  | "deleted"
+  | "deleting"
+  | "down"
+  | "pending"
+  | "rejected"
+  | "unknown"
+  | "verifying";

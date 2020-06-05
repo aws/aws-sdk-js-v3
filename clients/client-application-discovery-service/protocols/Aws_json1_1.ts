@@ -607,7 +607,7 @@ const deserializeAws_json1_1AssociateConfigurationItemsToApplicationCommandError
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -618,7 +618,7 @@ const deserializeAws_json1_1AssociateConfigurationItemsToApplicationCommandError
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -629,7 +629,7 @@ const deserializeAws_json1_1AssociateConfigurationItemsToApplicationCommandError
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -640,7 +640,7 @@ const deserializeAws_json1_1AssociateConfigurationItemsToApplicationCommandError
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -651,7 +651,7 @@ const deserializeAws_json1_1AssociateConfigurationItemsToApplicationCommandError
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -714,7 +714,7 @@ const deserializeAws_json1_1BatchDeleteImportDataCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -725,7 +725,7 @@ const deserializeAws_json1_1BatchDeleteImportDataCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -736,7 +736,7 @@ const deserializeAws_json1_1BatchDeleteImportDataCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -747,7 +747,7 @@ const deserializeAws_json1_1BatchDeleteImportDataCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -758,7 +758,7 @@ const deserializeAws_json1_1BatchDeleteImportDataCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -818,7 +818,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -829,7 +829,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -840,7 +840,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -851,7 +851,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -862,7 +862,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -922,7 +922,7 @@ const deserializeAws_json1_1CreateTagsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -933,7 +933,7 @@ const deserializeAws_json1_1CreateTagsCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -944,7 +944,7 @@ const deserializeAws_json1_1CreateTagsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -955,7 +955,7 @@ const deserializeAws_json1_1CreateTagsCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -966,7 +966,7 @@ const deserializeAws_json1_1CreateTagsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException":
+    case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -977,7 +977,7 @@ const deserializeAws_json1_1CreateTagsCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -1040,7 +1040,7 @@ const deserializeAws_json1_1DeleteApplicationsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -1051,7 +1051,7 @@ const deserializeAws_json1_1DeleteApplicationsCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -1062,7 +1062,7 @@ const deserializeAws_json1_1DeleteApplicationsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1073,7 +1073,7 @@ const deserializeAws_json1_1DeleteApplicationsCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1084,7 +1084,7 @@ const deserializeAws_json1_1DeleteApplicationsCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -1144,7 +1144,7 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -1155,7 +1155,7 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -1166,7 +1166,7 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1177,7 +1177,7 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1188,7 +1188,7 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException":
+    case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1199,7 +1199,7 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -1259,7 +1259,7 @@ const deserializeAws_json1_1DescribeAgentsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -1270,7 +1270,7 @@ const deserializeAws_json1_1DescribeAgentsCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -1281,7 +1281,7 @@ const deserializeAws_json1_1DescribeAgentsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1292,7 +1292,7 @@ const deserializeAws_json1_1DescribeAgentsCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1303,7 +1303,7 @@ const deserializeAws_json1_1DescribeAgentsCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -1369,7 +1369,7 @@ const deserializeAws_json1_1DescribeConfigurationsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -1380,7 +1380,7 @@ const deserializeAws_json1_1DescribeConfigurationsCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -1391,7 +1391,7 @@ const deserializeAws_json1_1DescribeConfigurationsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1402,7 +1402,7 @@ const deserializeAws_json1_1DescribeConfigurationsCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1413,7 +1413,7 @@ const deserializeAws_json1_1DescribeConfigurationsCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -1479,7 +1479,7 @@ const deserializeAws_json1_1DescribeContinuousExportsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -1490,7 +1490,7 @@ const deserializeAws_json1_1DescribeContinuousExportsCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -1501,7 +1501,7 @@ const deserializeAws_json1_1DescribeContinuousExportsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1512,7 +1512,7 @@ const deserializeAws_json1_1DescribeContinuousExportsCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1523,7 +1523,7 @@ const deserializeAws_json1_1DescribeContinuousExportsCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#OperationNotPermittedException":
+    case "com.amazonaws.applicationdiscoveryservice#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1534,7 +1534,7 @@ const deserializeAws_json1_1DescribeContinuousExportsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException":
+    case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1545,7 +1545,7 @@ const deserializeAws_json1_1DescribeContinuousExportsCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -1611,7 +1611,7 @@ const deserializeAws_json1_1DescribeExportConfigurationsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -1622,7 +1622,7 @@ const deserializeAws_json1_1DescribeExportConfigurationsCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -1633,7 +1633,7 @@ const deserializeAws_json1_1DescribeExportConfigurationsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1644,7 +1644,7 @@ const deserializeAws_json1_1DescribeExportConfigurationsCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1655,7 +1655,7 @@ const deserializeAws_json1_1DescribeExportConfigurationsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException":
+    case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1666,7 +1666,7 @@ const deserializeAws_json1_1DescribeExportConfigurationsCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -1729,7 +1729,7 @@ const deserializeAws_json1_1DescribeExportTasksCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -1740,7 +1740,7 @@ const deserializeAws_json1_1DescribeExportTasksCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -1751,7 +1751,7 @@ const deserializeAws_json1_1DescribeExportTasksCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1762,7 +1762,7 @@ const deserializeAws_json1_1DescribeExportTasksCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1773,7 +1773,7 @@ const deserializeAws_json1_1DescribeExportTasksCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -1836,7 +1836,7 @@ const deserializeAws_json1_1DescribeImportTasksCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -1847,7 +1847,7 @@ const deserializeAws_json1_1DescribeImportTasksCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -1858,7 +1858,7 @@ const deserializeAws_json1_1DescribeImportTasksCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1869,7 +1869,7 @@ const deserializeAws_json1_1DescribeImportTasksCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1880,7 +1880,7 @@ const deserializeAws_json1_1DescribeImportTasksCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -1940,7 +1940,7 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -1951,7 +1951,7 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -1962,7 +1962,7 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1973,7 +1973,7 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1984,7 +1984,7 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException":
+    case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1995,7 +1995,7 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -2061,7 +2061,7 @@ const deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -2072,7 +2072,7 @@ const deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -2083,7 +2083,7 @@ const deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2094,7 +2094,7 @@ const deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -2105,7 +2105,7 @@ const deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -2168,7 +2168,7 @@ const deserializeAws_json1_1ExportConfigurationsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -2179,7 +2179,7 @@ const deserializeAws_json1_1ExportConfigurationsCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -2190,7 +2190,7 @@ const deserializeAws_json1_1ExportConfigurationsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2201,7 +2201,7 @@ const deserializeAws_json1_1ExportConfigurationsCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -2212,7 +2212,7 @@ const deserializeAws_json1_1ExportConfigurationsCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#OperationNotPermittedException":
+    case "com.amazonaws.applicationdiscoveryservice#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -2223,7 +2223,7 @@ const deserializeAws_json1_1ExportConfigurationsCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -2286,7 +2286,7 @@ const deserializeAws_json1_1GetDiscoverySummaryCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -2297,7 +2297,7 @@ const deserializeAws_json1_1GetDiscoverySummaryCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -2308,7 +2308,7 @@ const deserializeAws_json1_1GetDiscoverySummaryCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2319,7 +2319,7 @@ const deserializeAws_json1_1GetDiscoverySummaryCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -2330,7 +2330,7 @@ const deserializeAws_json1_1GetDiscoverySummaryCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -2393,7 +2393,7 @@ const deserializeAws_json1_1ListConfigurationsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -2404,7 +2404,7 @@ const deserializeAws_json1_1ListConfigurationsCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -2415,7 +2415,7 @@ const deserializeAws_json1_1ListConfigurationsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2426,7 +2426,7 @@ const deserializeAws_json1_1ListConfigurationsCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -2437,7 +2437,7 @@ const deserializeAws_json1_1ListConfigurationsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException":
+    case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2448,7 +2448,7 @@ const deserializeAws_json1_1ListConfigurationsCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -2511,7 +2511,7 @@ const deserializeAws_json1_1ListServerNeighborsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -2522,7 +2522,7 @@ const deserializeAws_json1_1ListServerNeighborsCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -2533,7 +2533,7 @@ const deserializeAws_json1_1ListServerNeighborsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2544,7 +2544,7 @@ const deserializeAws_json1_1ListServerNeighborsCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -2555,7 +2555,7 @@ const deserializeAws_json1_1ListServerNeighborsCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -2618,7 +2618,7 @@ const deserializeAws_json1_1StartContinuousExportCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -2629,7 +2629,7 @@ const deserializeAws_json1_1StartContinuousExportCommandError = async (
       };
       break;
     case "ConflictErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ConflictErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ConflictErrorException":
       response = {
         ...(await deserializeAws_json1_1ConflictErrorExceptionResponse(
           parsedOutput,
@@ -2640,7 +2640,7 @@ const deserializeAws_json1_1StartContinuousExportCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -2651,7 +2651,7 @@ const deserializeAws_json1_1StartContinuousExportCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2662,7 +2662,7 @@ const deserializeAws_json1_1StartContinuousExportCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -2673,7 +2673,7 @@ const deserializeAws_json1_1StartContinuousExportCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#OperationNotPermittedException":
+    case "com.amazonaws.applicationdiscoveryservice#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -2684,7 +2684,7 @@ const deserializeAws_json1_1StartContinuousExportCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ResourceInUseException":
+    case "com.amazonaws.applicationdiscoveryservice#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2695,7 +2695,7 @@ const deserializeAws_json1_1StartContinuousExportCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -2761,7 +2761,7 @@ const deserializeAws_json1_1StartDataCollectionByAgentIdsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -2772,7 +2772,7 @@ const deserializeAws_json1_1StartDataCollectionByAgentIdsCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -2783,7 +2783,7 @@ const deserializeAws_json1_1StartDataCollectionByAgentIdsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2794,7 +2794,7 @@ const deserializeAws_json1_1StartDataCollectionByAgentIdsCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -2805,7 +2805,7 @@ const deserializeAws_json1_1StartDataCollectionByAgentIdsCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -2865,7 +2865,7 @@ const deserializeAws_json1_1StartExportTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -2876,7 +2876,7 @@ const deserializeAws_json1_1StartExportTaskCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -2887,7 +2887,7 @@ const deserializeAws_json1_1StartExportTaskCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2898,7 +2898,7 @@ const deserializeAws_json1_1StartExportTaskCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -2909,7 +2909,7 @@ const deserializeAws_json1_1StartExportTaskCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#OperationNotPermittedException":
+    case "com.amazonaws.applicationdiscoveryservice#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -2920,7 +2920,7 @@ const deserializeAws_json1_1StartExportTaskCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -2980,7 +2980,7 @@ const deserializeAws_json1_1StartImportTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -2991,7 +2991,7 @@ const deserializeAws_json1_1StartImportTaskCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -3002,7 +3002,7 @@ const deserializeAws_json1_1StartImportTaskCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3013,7 +3013,7 @@ const deserializeAws_json1_1StartImportTaskCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -3024,7 +3024,7 @@ const deserializeAws_json1_1StartImportTaskCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ResourceInUseException":
+    case "com.amazonaws.applicationdiscoveryservice#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -3035,7 +3035,7 @@ const deserializeAws_json1_1StartImportTaskCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -3098,7 +3098,7 @@ const deserializeAws_json1_1StopContinuousExportCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -3109,7 +3109,7 @@ const deserializeAws_json1_1StopContinuousExportCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -3120,7 +3120,7 @@ const deserializeAws_json1_1StopContinuousExportCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3131,7 +3131,7 @@ const deserializeAws_json1_1StopContinuousExportCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -3142,7 +3142,7 @@ const deserializeAws_json1_1StopContinuousExportCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#OperationNotPermittedException":
+    case "com.amazonaws.applicationdiscoveryservice#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -3153,7 +3153,7 @@ const deserializeAws_json1_1StopContinuousExportCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ResourceInUseException":
+    case "com.amazonaws.applicationdiscoveryservice#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -3164,7 +3164,7 @@ const deserializeAws_json1_1StopContinuousExportCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException":
+    case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3175,7 +3175,7 @@ const deserializeAws_json1_1StopContinuousExportCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -3241,7 +3241,7 @@ const deserializeAws_json1_1StopDataCollectionByAgentIdsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -3252,7 +3252,7 @@ const deserializeAws_json1_1StopDataCollectionByAgentIdsCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -3263,7 +3263,7 @@ const deserializeAws_json1_1StopDataCollectionByAgentIdsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3274,7 +3274,7 @@ const deserializeAws_json1_1StopDataCollectionByAgentIdsCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -3285,7 +3285,7 @@ const deserializeAws_json1_1StopDataCollectionByAgentIdsCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -3345,7 +3345,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -3356,7 +3356,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
       };
       break;
     case "HomeRegionNotSetException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       response = {
         ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
           parsedOutput,
@@ -3367,7 +3367,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3378,7 +3378,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -3389,7 +3389,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
       };
       break;
     case "ServerInternalErrorException":
-    case "com.amazonaws.awsposeidon.V2015_11_01#ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(
           parsedOutput,
@@ -3872,18 +3872,18 @@ const serializeAws_json1_1Filter = (
   };
 };
 
-const serializeAws_json1_1FilterValues = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
 const serializeAws_json1_1Filters = (
   input: Filter[],
   context: __SerdeContext
 ): any => {
   return input.map(entry => serializeAws_json1_1Filter(entry, context));
+};
+
+const serializeAws_json1_1FilterValues = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1GetDiscoverySummaryRequest = (
@@ -4299,6 +4299,15 @@ const deserializeAws_json1_1Configuration = (
   );
 };
 
+const deserializeAws_json1_1Configurations = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string }[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Configuration(entry, context)
+  );
+};
+
 const deserializeAws_json1_1ConfigurationTag = (
   output: any,
   context: __SerdeContext
@@ -4333,15 +4342,6 @@ const deserializeAws_json1_1ConfigurationTagSet = (
 ): ConfigurationTag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ConfigurationTag(entry, context)
-  );
-};
-
-const deserializeAws_json1_1Configurations = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string }[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Configuration(entry, context)
   );
 };
 

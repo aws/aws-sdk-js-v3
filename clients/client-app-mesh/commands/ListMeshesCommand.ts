@@ -5,9 +5,9 @@ import {
 } from "../AppMeshClient";
 import { ListMeshesInput, ListMeshesOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListMeshesCommand,
-  serializeAws_restJson1_1ListMeshesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListMeshesCommand,
+  serializeAws_restJson1ListMeshesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListMeshesCommand extends $Command<
     input: ListMeshesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListMeshesCommand(input, context);
+    return serializeAws_restJson1ListMeshesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListMeshesCommandOutput> {
-    return deserializeAws_restJson1_1ListMeshesCommand(output, context);
+    return deserializeAws_restJson1ListMeshesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,9 +5,9 @@ import {
 } from "../PinpointClient";
 import { GetChannelsRequest, GetChannelsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetChannelsCommand,
-  serializeAws_restJson1_1GetChannelsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetChannelsCommand,
+  serializeAws_restJson1GetChannelsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetChannelsCommand extends $Command<
     input: GetChannelsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetChannelsCommand(input, context);
+    return serializeAws_restJson1GetChannelsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetChannelsCommandOutput> {
-    return deserializeAws_restJson1_1GetChannelsCommand(output, context);
+    return deserializeAws_restJson1GetChannelsCommand(output, context);
   }
 
   // Start section: command_body_extra

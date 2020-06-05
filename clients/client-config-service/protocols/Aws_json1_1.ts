@@ -947,25 +947,6 @@ export const serializeAws_json1_1DescribeConfigRulesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommand = async (
-  input: DescribeConfigurationAggregatorSourcesStatusCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "StarlingDoveService.DescribeConfigurationAggregatorSourcesStatus"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusRequest(
-      input,
-      context
-    )
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1DescribeConfigurationAggregatorsCommand = async (
   input: DescribeConfigurationAggregatorsCommandInput,
   context: __SerdeContext
@@ -981,17 +962,18 @@ export const serializeAws_json1_1DescribeConfigurationAggregatorsCommand = async
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeConfigurationRecorderStatusCommand = async (
-  input: DescribeConfigurationRecorderStatusCommandInput,
+export const serializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommand = async (
+  input: DescribeConfigurationAggregatorSourcesStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeConfigurationRecorderStatus"
+    "X-Amz-Target":
+      "StarlingDoveService.DescribeConfigurationAggregatorSourcesStatus"
   };
   let body: any;
   body = JSON.stringify(
-    serializeAws_json1_1DescribeConfigurationRecorderStatusRequest(
+    serializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusRequest(
       input,
       context
     )
@@ -1014,6 +996,24 @@ export const serializeAws_json1_1DescribeConfigurationRecordersCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeConfigurationRecorderStatusCommand = async (
+  input: DescribeConfigurationRecorderStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StarlingDoveService.DescribeConfigurationRecorderStatus"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeConfigurationRecorderStatusRequest(
+      input,
+      context
+    )
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeConformancePackComplianceCommand = async (
   input: DescribeConformancePackComplianceCommandInput,
   context: __SerdeContext
@@ -1025,21 +1025,6 @@ export const serializeAws_json1_1DescribeConformancePackComplianceCommand = asyn
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeConformancePackComplianceRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1DescribeConformancePackStatusCommand = async (
-  input: DescribeConformancePackStatusCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeConformancePackStatus"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeConformancePackStatusRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1059,17 +1044,17 @@ export const serializeAws_json1_1DescribeConformancePacksCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeDeliveryChannelStatusCommand = async (
-  input: DescribeDeliveryChannelStatusCommandInput,
+export const serializeAws_json1_1DescribeConformancePackStatusCommand = async (
+  input: DescribeConformancePackStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeDeliveryChannelStatus"
+    "X-Amz-Target": "StarlingDoveService.DescribeConformancePackStatus"
   };
   let body: any;
   body = JSON.stringify(
-    serializeAws_json1_1DescribeDeliveryChannelStatusRequest(input, context)
+    serializeAws_json1_1DescribeConformancePackStatusRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1085,6 +1070,36 @@ export const serializeAws_json1_1DescribeDeliveryChannelsCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDeliveryChannelsRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeDeliveryChannelStatusCommand = async (
+  input: DescribeDeliveryChannelStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StarlingDoveService.DescribeDeliveryChannelStatus"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDeliveryChannelStatusRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeOrganizationConfigRulesCommand = async (
+  input: DescribeOrganizationConfigRulesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StarlingDoveService.DescribeOrganizationConfigRules"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeOrganizationConfigRulesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1107,17 +1122,20 @@ export const serializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommand =
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeOrganizationConfigRulesCommand = async (
-  input: DescribeOrganizationConfigRulesCommandInput,
+export const serializeAws_json1_1DescribeOrganizationConformancePacksCommand = async (
+  input: DescribeOrganizationConformancePacksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeOrganizationConfigRules"
+    "X-Amz-Target": "StarlingDoveService.DescribeOrganizationConformancePacks"
   };
   let body: any;
   body = JSON.stringify(
-    serializeAws_json1_1DescribeOrganizationConfigRulesRequest(input, context)
+    serializeAws_json1_1DescribeOrganizationConformancePacksRequest(
+      input,
+      context
+    )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1134,24 +1152,6 @@ export const serializeAws_json1_1DescribeOrganizationConformancePackStatusesComm
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeOrganizationConformancePackStatusesRequest(
-      input,
-      context
-    )
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1DescribeOrganizationConformancePacksCommand = async (
-  input: DescribeOrganizationConformancePacksCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeOrganizationConformancePacks"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeOrganizationConformancePacksRequest(
       input,
       context
     )
@@ -1856,7 +1856,7 @@ const deserializeAws_json1_1BatchGetAggregateResourceConfigCommandError = async 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.starling.dove#NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(
           parsedOutput,
@@ -1867,7 +1867,7 @@ const deserializeAws_json1_1BatchGetAggregateResourceConfigCommandError = async 
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.starling.dove#ValidationException":
+    case "com.amazonaws.configservice#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1933,7 +1933,7 @@ const deserializeAws_json1_1BatchGetResourceConfigCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NoAvailableConfigurationRecorderException":
-    case "com.amazonaws.starling.dove#NoAvailableConfigurationRecorderException":
+    case "com.amazonaws.configservice#NoAvailableConfigurationRecorderException":
       response = {
         ...(await deserializeAws_json1_1NoAvailableConfigurationRecorderExceptionResponse(
           parsedOutput,
@@ -1944,7 +1944,7 @@ const deserializeAws_json1_1BatchGetResourceConfigCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.starling.dove#ValidationException":
+    case "com.amazonaws.configservice#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2003,7 +2003,7 @@ const deserializeAws_json1_1DeleteAggregationAuthorizationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -2059,7 +2059,7 @@ const deserializeAws_json1_1DeleteConfigRuleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NoSuchConfigRuleException":
-    case "com.amazonaws.starling.dove#NoSuchConfigRuleException":
+    case "com.amazonaws.configservice#NoSuchConfigRuleException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigRuleExceptionResponse(
           parsedOutput,
@@ -2070,7 +2070,7 @@ const deserializeAws_json1_1DeleteConfigRuleCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.starling.dove#ResourceInUseException":
+    case "com.amazonaws.configservice#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2129,7 +2129,7 @@ const deserializeAws_json1_1DeleteConfigurationAggregatorCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.starling.dove#NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(
           parsedOutput,
@@ -2188,7 +2188,7 @@ const deserializeAws_json1_1DeleteConfigurationRecorderCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NoSuchConfigurationRecorderException":
-    case "com.amazonaws.starling.dove#NoSuchConfigurationRecorderException":
+    case "com.amazonaws.configservice#NoSuchConfigurationRecorderException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigurationRecorderExceptionResponse(
           parsedOutput,
@@ -2247,7 +2247,7 @@ const deserializeAws_json1_1DeleteConformancePackCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NoSuchConformancePackException":
-    case "com.amazonaws.starling.dove#NoSuchConformancePackException":
+    case "com.amazonaws.configservice#NoSuchConformancePackException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConformancePackExceptionResponse(
           parsedOutput,
@@ -2258,7 +2258,7 @@ const deserializeAws_json1_1DeleteConformancePackCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.starling.dove#ResourceInUseException":
+    case "com.amazonaws.configservice#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2317,7 +2317,7 @@ const deserializeAws_json1_1DeleteDeliveryChannelCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LastDeliveryChannelDeleteFailedException":
-    case "com.amazonaws.starling.dove#LastDeliveryChannelDeleteFailedException":
+    case "com.amazonaws.configservice#LastDeliveryChannelDeleteFailedException":
       response = {
         ...(await deserializeAws_json1_1LastDeliveryChannelDeleteFailedExceptionResponse(
           parsedOutput,
@@ -2328,7 +2328,7 @@ const deserializeAws_json1_1DeleteDeliveryChannelCommandError = async (
       };
       break;
     case "NoSuchDeliveryChannelException":
-    case "com.amazonaws.starling.dove#NoSuchDeliveryChannelException":
+    case "com.amazonaws.configservice#NoSuchDeliveryChannelException":
       response = {
         ...(await deserializeAws_json1_1NoSuchDeliveryChannelExceptionResponse(
           parsedOutput,
@@ -2394,7 +2394,7 @@ const deserializeAws_json1_1DeleteEvaluationResultsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NoSuchConfigRuleException":
-    case "com.amazonaws.starling.dove#NoSuchConfigRuleException":
+    case "com.amazonaws.configservice#NoSuchConfigRuleException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigRuleExceptionResponse(
           parsedOutput,
@@ -2405,7 +2405,7 @@ const deserializeAws_json1_1DeleteEvaluationResultsCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.starling.dove#ResourceInUseException":
+    case "com.amazonaws.configservice#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2464,7 +2464,7 @@ const deserializeAws_json1_1DeleteOrganizationConfigRuleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NoSuchOrganizationConfigRuleException":
-    case "com.amazonaws.starling.dove#NoSuchOrganizationConfigRuleException":
+    case "com.amazonaws.configservice#NoSuchOrganizationConfigRuleException":
       response = {
         ...(await deserializeAws_json1_1NoSuchOrganizationConfigRuleExceptionResponse(
           parsedOutput,
@@ -2475,7 +2475,7 @@ const deserializeAws_json1_1DeleteOrganizationConfigRuleCommandError = async (
       };
       break;
     case "OrganizationAccessDeniedException":
-    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
+    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
           parsedOutput,
@@ -2486,7 +2486,7 @@ const deserializeAws_json1_1DeleteOrganizationConfigRuleCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.starling.dove#ResourceInUseException":
+    case "com.amazonaws.configservice#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2545,7 +2545,7 @@ const deserializeAws_json1_1DeleteOrganizationConformancePackCommandError = asyn
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NoSuchOrganizationConformancePackException":
-    case "com.amazonaws.starling.dove#NoSuchOrganizationConformancePackException":
+    case "com.amazonaws.configservice#NoSuchOrganizationConformancePackException":
       response = {
         ...(await deserializeAws_json1_1NoSuchOrganizationConformancePackExceptionResponse(
           parsedOutput,
@@ -2556,7 +2556,7 @@ const deserializeAws_json1_1DeleteOrganizationConformancePackCommandError = asyn
       };
       break;
     case "OrganizationAccessDeniedException":
-    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
+    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
           parsedOutput,
@@ -2567,7 +2567,7 @@ const deserializeAws_json1_1DeleteOrganizationConformancePackCommandError = asyn
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.starling.dove#ResourceInUseException":
+    case "com.amazonaws.configservice#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2626,7 +2626,7 @@ const deserializeAws_json1_1DeletePendingAggregationRequestCommandError = async 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -2692,7 +2692,7 @@ const deserializeAws_json1_1DeleteRemediationConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NoSuchRemediationConfigurationException":
-    case "com.amazonaws.starling.dove#NoSuchRemediationConfigurationException":
+    case "com.amazonaws.configservice#NoSuchRemediationConfigurationException":
       response = {
         ...(await deserializeAws_json1_1NoSuchRemediationConfigurationExceptionResponse(
           parsedOutput,
@@ -2703,7 +2703,7 @@ const deserializeAws_json1_1DeleteRemediationConfigurationCommandError = async (
       };
       break;
     case "RemediationInProgressException":
-    case "com.amazonaws.starling.dove#RemediationInProgressException":
+    case "com.amazonaws.configservice#RemediationInProgressException":
       response = {
         ...(await deserializeAws_json1_1RemediationInProgressExceptionResponse(
           parsedOutput,
@@ -2769,7 +2769,7 @@ const deserializeAws_json1_1DeleteRemediationExceptionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NoSuchRemediationExceptionException":
-    case "com.amazonaws.starling.dove#NoSuchRemediationExceptionException":
+    case "com.amazonaws.configservice#NoSuchRemediationExceptionException":
       response = {
         ...(await deserializeAws_json1_1NoSuchRemediationExceptionExceptionResponse(
           parsedOutput,
@@ -2828,7 +2828,7 @@ const deserializeAws_json1_1DeleteResourceConfigCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NoRunningConfigurationRecorderException":
-    case "com.amazonaws.starling.dove#NoRunningConfigurationRecorderException":
+    case "com.amazonaws.configservice#NoRunningConfigurationRecorderException":
       response = {
         ...(await deserializeAws_json1_1NoRunningConfigurationRecorderExceptionResponse(
           parsedOutput,
@@ -2839,7 +2839,7 @@ const deserializeAws_json1_1DeleteResourceConfigCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.starling.dove#ValidationException":
+    case "com.amazonaws.configservice#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2898,7 +2898,7 @@ const deserializeAws_json1_1DeleteRetentionConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -2909,7 +2909,7 @@ const deserializeAws_json1_1DeleteRetentionConfigurationCommandError = async (
       };
       break;
     case "NoSuchRetentionConfigurationException":
-    case "com.amazonaws.starling.dove#NoSuchRetentionConfigurationException":
+    case "com.amazonaws.configservice#NoSuchRetentionConfigurationException":
       response = {
         ...(await deserializeAws_json1_1NoSuchRetentionConfigurationExceptionResponse(
           parsedOutput,
@@ -2972,7 +2972,7 @@ const deserializeAws_json1_1DeliverConfigSnapshotCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NoAvailableConfigurationRecorderException":
-    case "com.amazonaws.starling.dove#NoAvailableConfigurationRecorderException":
+    case "com.amazonaws.configservice#NoAvailableConfigurationRecorderException":
       response = {
         ...(await deserializeAws_json1_1NoAvailableConfigurationRecorderExceptionResponse(
           parsedOutput,
@@ -2983,7 +2983,7 @@ const deserializeAws_json1_1DeliverConfigSnapshotCommandError = async (
       };
       break;
     case "NoRunningConfigurationRecorderException":
-    case "com.amazonaws.starling.dove#NoRunningConfigurationRecorderException":
+    case "com.amazonaws.configservice#NoRunningConfigurationRecorderException":
       response = {
         ...(await deserializeAws_json1_1NoRunningConfigurationRecorderExceptionResponse(
           parsedOutput,
@@ -2994,7 +2994,7 @@ const deserializeAws_json1_1DeliverConfigSnapshotCommandError = async (
       };
       break;
     case "NoSuchDeliveryChannelException":
-    case "com.amazonaws.starling.dove#NoSuchDeliveryChannelException":
+    case "com.amazonaws.configservice#NoSuchDeliveryChannelException":
       response = {
         ...(await deserializeAws_json1_1NoSuchDeliveryChannelExceptionResponse(
           parsedOutput,
@@ -3060,7 +3060,7 @@ const deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommandError
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -3071,7 +3071,7 @@ const deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommandError
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -3082,7 +3082,7 @@ const deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommandError
       };
       break;
     case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.starling.dove#NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(
           parsedOutput,
@@ -3093,7 +3093,7 @@ const deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommandError
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.starling.dove#ValidationException":
+    case "com.amazonaws.configservice#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -3159,7 +3159,7 @@ const deserializeAws_json1_1DescribeAggregationAuthorizationsCommandError = asyn
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -3170,7 +3170,7 @@ const deserializeAws_json1_1DescribeAggregationAuthorizationsCommandError = asyn
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -3181,7 +3181,7 @@ const deserializeAws_json1_1DescribeAggregationAuthorizationsCommandError = asyn
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -3247,7 +3247,7 @@ const deserializeAws_json1_1DescribeComplianceByConfigRuleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -3258,7 +3258,7 @@ const deserializeAws_json1_1DescribeComplianceByConfigRuleCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -3269,7 +3269,7 @@ const deserializeAws_json1_1DescribeComplianceByConfigRuleCommandError = async (
       };
       break;
     case "NoSuchConfigRuleException":
-    case "com.amazonaws.starling.dove#NoSuchConfigRuleException":
+    case "com.amazonaws.configservice#NoSuchConfigRuleException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigRuleExceptionResponse(
           parsedOutput,
@@ -3335,7 +3335,7 @@ const deserializeAws_json1_1DescribeComplianceByResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -3346,7 +3346,7 @@ const deserializeAws_json1_1DescribeComplianceByResourceCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -3412,7 +3412,7 @@ const deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommandError = asy
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -3423,7 +3423,7 @@ const deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommandError = asy
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -3434,7 +3434,7 @@ const deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommandError = asy
       };
       break;
     case "NoSuchConfigRuleException":
-    case "com.amazonaws.starling.dove#NoSuchConfigRuleException":
+    case "com.amazonaws.configservice#NoSuchConfigRuleException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigRuleExceptionResponse(
           parsedOutput,
@@ -3497,7 +3497,7 @@ const deserializeAws_json1_1DescribeConfigRulesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -3508,108 +3508,9 @@ const deserializeAws_json1_1DescribeConfigRulesCommandError = async (
       };
       break;
     case "NoSuchConfigRuleException":
-    case "com.amazonaws.starling.dove#NoSuchConfigRuleException":
+    case "com.amazonaws.configservice#NoSuchConfigRuleException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigRuleExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConfigurationAggregatorSourcesStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommandError(
-      output,
-      context
-    );
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusResponse(
-    data,
-    context
-  );
-  const response: DescribeConfigurationAggregatorSourcesStatusCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DescribeConfigurationAggregatorSourcesStatusResponse",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConfigurationAggregatorSourcesStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.starling.dove#NoSuchConfigurationAggregatorException":
-      response = {
-        ...(await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(
           parsedOutput,
           context
         )),
@@ -3673,7 +3574,7 @@ const deserializeAws_json1_1DescribeConfigurationAggregatorsCommandError = async
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -3684,7 +3585,7 @@ const deserializeAws_json1_1DescribeConfigurationAggregatorsCommandError = async
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -3695,7 +3596,7 @@ const deserializeAws_json1_1DescribeConfigurationAggregatorsCommandError = async
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -3706,7 +3607,7 @@ const deserializeAws_json1_1DescribeConfigurationAggregatorsCommandError = async
       };
       break;
     case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.starling.dove#NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(
           parsedOutput,
@@ -3733,34 +3634,34 @@ const deserializeAws_json1_1DescribeConfigurationAggregatorsCommandError = async
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeConfigurationRecorderStatusCommand = async (
+export const deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeConfigurationRecorderStatusCommandOutput> => {
+): Promise<DescribeConfigurationAggregatorSourcesStatusCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeConfigurationRecorderStatusCommandError(
+    return deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommandError(
       output,
       context
     );
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeConfigurationRecorderStatusResponse(
+  contents = deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusResponse(
     data,
     context
   );
-  const response: DescribeConfigurationRecorderStatusCommandOutput = {
+  const response: DescribeConfigurationAggregatorSourcesStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeConfigurationRecorderStatusResponse",
+    __type: "DescribeConfigurationAggregatorSourcesStatusResponse",
     ...contents
   };
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeConfigurationRecorderStatusCommandError = async (
+const deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeConfigurationRecorderStatusCommandOutput> => {
+): Promise<DescribeConfigurationAggregatorSourcesStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3771,10 +3672,43 @@ const deserializeAws_json1_1DescribeConfigurationRecorderStatusCommandError = as
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "NoSuchConfigurationRecorderException":
-    case "com.amazonaws.starling.dove#NoSuchConfigurationRecorderException":
+    case "InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
-        ...(await deserializeAws_json1_1NoSuchConfigurationRecorderExceptionResponse(
+        ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
+      response = {
+        ...(await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(
           parsedOutput,
           context
         )),
@@ -3838,7 +3772,73 @@ const deserializeAws_json1_1DescribeConfigurationRecordersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NoSuchConfigurationRecorderException":
-    case "com.amazonaws.starling.dove#NoSuchConfigurationRecorderException":
+    case "com.amazonaws.configservice#NoSuchConfigurationRecorderException":
+      response = {
+        ...(await deserializeAws_json1_1NoSuchConfigurationRecorderExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeConfigurationRecorderStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConfigurationRecorderStatusCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeConfigurationRecorderStatusCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeConfigurationRecorderStatusResponse(
+    data,
+    context
+  );
+  const response: DescribeConfigurationRecorderStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeConfigurationRecorderStatusResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeConfigurationRecorderStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConfigurationRecorderStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "NoSuchConfigurationRecorderException":
+    case "com.amazonaws.configservice#NoSuchConfigurationRecorderException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigurationRecorderExceptionResponse(
           parsedOutput,
@@ -3904,7 +3904,7 @@ const deserializeAws_json1_1DescribeConformancePackComplianceCommandError = asyn
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -3915,7 +3915,7 @@ const deserializeAws_json1_1DescribeConformancePackComplianceCommandError = asyn
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -3926,7 +3926,7 @@ const deserializeAws_json1_1DescribeConformancePackComplianceCommandError = asyn
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -3937,7 +3937,7 @@ const deserializeAws_json1_1DescribeConformancePackComplianceCommandError = asyn
       };
       break;
     case "NoSuchConfigRuleInConformancePackException":
-    case "com.amazonaws.starling.dove#NoSuchConfigRuleInConformancePackException":
+    case "com.amazonaws.configservice#NoSuchConfigRuleInConformancePackException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigRuleInConformancePackExceptionResponse(
           parsedOutput,
@@ -3948,7 +3948,95 @@ const deserializeAws_json1_1DescribeConformancePackComplianceCommandError = asyn
       };
       break;
     case "NoSuchConformancePackException":
-    case "com.amazonaws.starling.dove#NoSuchConformancePackException":
+    case "com.amazonaws.configservice#NoSuchConformancePackException":
+      response = {
+        ...(await deserializeAws_json1_1NoSuchConformancePackExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeConformancePacksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConformancePacksCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeConformancePacksCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeConformancePacksResponse(
+    data,
+    context
+  );
+  const response: DescribeConformancePacksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeConformancePacksResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeConformancePacksCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConformancePacksCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "NoSuchConformancePackException":
+    case "com.amazonaws.configservice#NoSuchConformancePackException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConformancePackExceptionResponse(
           parsedOutput,
@@ -4014,7 +4102,7 @@ const deserializeAws_json1_1DescribeConformancePackStatusCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -4025,163 +4113,9 @@ const deserializeAws_json1_1DescribeConformancePackStatusCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1DescribeConformancePacksCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConformancePacksCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeConformancePacksCommandError(
-      output,
-      context
-    );
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DescribeConformancePacksResponse(
-    data,
-    context
-  );
-  const response: DescribeConformancePacksCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DescribeConformancePacksResponse",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DescribeConformancePacksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConformancePacksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "NoSuchConformancePackException":
-    case "com.amazonaws.starling.dove#NoSuchConformancePackException":
-      response = {
-        ...(await deserializeAws_json1_1NoSuchConformancePackExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1DescribeDeliveryChannelStatusCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDeliveryChannelStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeDeliveryChannelStatusCommandError(
-      output,
-      context
-    );
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDeliveryChannelStatusResponse(
-    data,
-    context
-  );
-  const response: DescribeDeliveryChannelStatusCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DescribeDeliveryChannelStatusResponse",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DescribeDeliveryChannelStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDeliveryChannelStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "NoSuchDeliveryChannelException":
-    case "com.amazonaws.starling.dove#NoSuchDeliveryChannelException":
-      response = {
-        ...(await deserializeAws_json1_1NoSuchDeliveryChannelExceptionResponse(
           parsedOutput,
           context
         )),
@@ -4245,7 +4179,7 @@ const deserializeAws_json1_1DescribeDeliveryChannelsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NoSuchDeliveryChannelException":
-    case "com.amazonaws.starling.dove#NoSuchDeliveryChannelException":
+    case "com.amazonaws.configservice#NoSuchDeliveryChannelException":
       response = {
         ...(await deserializeAws_json1_1NoSuchDeliveryChannelExceptionResponse(
           parsedOutput,
@@ -4272,34 +4206,34 @@ const deserializeAws_json1_1DescribeDeliveryChannelsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommand = async (
+export const deserializeAws_json1_1DescribeDeliveryChannelStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeOrganizationConfigRuleStatusesCommandOutput> => {
+): Promise<DescribeDeliveryChannelStatusCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommandError(
+    return deserializeAws_json1_1DescribeDeliveryChannelStatusCommandError(
       output,
       context
     );
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesResponse(
+  contents = deserializeAws_json1_1DescribeDeliveryChannelStatusResponse(
     data,
     context
   );
-  const response: DescribeOrganizationConfigRuleStatusesCommandOutput = {
+  const response: DescribeDeliveryChannelStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeOrganizationConfigRuleStatusesResponse",
+    __type: "DescribeDeliveryChannelStatusResponse",
     ...contents
   };
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommandError = async (
+const deserializeAws_json1_1DescribeDeliveryChannelStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeOrganizationConfigRuleStatusesCommandOutput> => {
+): Promise<DescribeDeliveryChannelStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4310,43 +4244,10 @@ const deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommandError =
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "NoSuchDeliveryChannelException":
+    case "com.amazonaws.configservice#NoSuchDeliveryChannelException":
       response = {
-        ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "NoSuchOrganizationConfigRuleException":
-    case "com.amazonaws.starling.dove#NoSuchOrganizationConfigRuleException":
-      response = {
-        ...(await deserializeAws_json1_1NoSuchOrganizationConfigRuleExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "OrganizationAccessDeniedException":
-    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
+        ...(await deserializeAws_json1_1NoSuchDeliveryChannelExceptionResponse(
           parsedOutput,
           context
         )),
@@ -4410,7 +4311,7 @@ const deserializeAws_json1_1DescribeOrganizationConfigRulesCommandError = async 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -4421,7 +4322,7 @@ const deserializeAws_json1_1DescribeOrganizationConfigRulesCommandError = async 
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -4432,7 +4333,7 @@ const deserializeAws_json1_1DescribeOrganizationConfigRulesCommandError = async 
       };
       break;
     case "NoSuchOrganizationConfigRuleException":
-    case "com.amazonaws.starling.dove#NoSuchOrganizationConfigRuleException":
+    case "com.amazonaws.configservice#NoSuchOrganizationConfigRuleException":
       response = {
         ...(await deserializeAws_json1_1NoSuchOrganizationConfigRuleExceptionResponse(
           parsedOutput,
@@ -4443,7 +4344,7 @@ const deserializeAws_json1_1DescribeOrganizationConfigRulesCommandError = async 
       };
       break;
     case "OrganizationAccessDeniedException":
-    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
+    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
           parsedOutput,
@@ -4470,34 +4371,34 @@ const deserializeAws_json1_1DescribeOrganizationConfigRulesCommandError = async 
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeOrganizationConformancePackStatusesCommand = async (
+export const deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeOrganizationConformancePackStatusesCommandOutput> => {
+): Promise<DescribeOrganizationConfigRuleStatusesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeOrganizationConformancePackStatusesCommandError(
+    return deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommandError(
       output,
       context
     );
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeOrganizationConformancePackStatusesResponse(
+  contents = deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesResponse(
     data,
     context
   );
-  const response: DescribeOrganizationConformancePackStatusesCommandOutput = {
+  const response: DescribeOrganizationConfigRuleStatusesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeOrganizationConformancePackStatusesResponse",
+    __type: "DescribeOrganizationConfigRuleStatusesResponse",
     ...contents
   };
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeOrganizationConformancePackStatusesCommandError = async (
+const deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeOrganizationConformancePackStatusesCommandOutput> => {
+): Promise<DescribeOrganizationConfigRuleStatusesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4509,7 +4410,7 @@ const deserializeAws_json1_1DescribeOrganizationConformancePackStatusesCommandEr
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -4520,7 +4421,7 @@ const deserializeAws_json1_1DescribeOrganizationConformancePackStatusesCommandEr
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -4530,10 +4431,10 @@ const deserializeAws_json1_1DescribeOrganizationConformancePackStatusesCommandEr
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "NoSuchOrganizationConformancePackException":
-    case "com.amazonaws.starling.dove#NoSuchOrganizationConformancePackException":
+    case "NoSuchOrganizationConfigRuleException":
+    case "com.amazonaws.configservice#NoSuchOrganizationConfigRuleException":
       response = {
-        ...(await deserializeAws_json1_1NoSuchOrganizationConformancePackExceptionResponse(
+        ...(await deserializeAws_json1_1NoSuchOrganizationConfigRuleExceptionResponse(
           parsedOutput,
           context
         )),
@@ -4542,7 +4443,7 @@ const deserializeAws_json1_1DescribeOrganizationConformancePackStatusesCommandEr
       };
       break;
     case "OrganizationAccessDeniedException":
-    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
+    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
           parsedOutput,
@@ -4608,7 +4509,7 @@ const deserializeAws_json1_1DescribeOrganizationConformancePacksCommandError = a
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -4619,7 +4520,7 @@ const deserializeAws_json1_1DescribeOrganizationConformancePacksCommandError = a
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -4630,7 +4531,7 @@ const deserializeAws_json1_1DescribeOrganizationConformancePacksCommandError = a
       };
       break;
     case "NoSuchOrganizationConformancePackException":
-    case "com.amazonaws.starling.dove#NoSuchOrganizationConformancePackException":
+    case "com.amazonaws.configservice#NoSuchOrganizationConformancePackException":
       response = {
         ...(await deserializeAws_json1_1NoSuchOrganizationConformancePackExceptionResponse(
           parsedOutput,
@@ -4641,7 +4542,106 @@ const deserializeAws_json1_1DescribeOrganizationConformancePacksCommandError = a
       };
       break;
     case "OrganizationAccessDeniedException":
-    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
+    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeOrganizationConformancePackStatusesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationConformancePackStatusesCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeOrganizationConformancePackStatusesCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeOrganizationConformancePackStatusesResponse(
+    data,
+    context
+  );
+  const response: DescribeOrganizationConformancePackStatusesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeOrganizationConformancePackStatusesResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeOrganizationConformancePackStatusesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationConformancePackStatusesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "NoSuchOrganizationConformancePackException":
+    case "com.amazonaws.configservice#NoSuchOrganizationConformancePackException":
+      response = {
+        ...(await deserializeAws_json1_1NoSuchOrganizationConformancePackExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "OrganizationAccessDeniedException":
+    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
           parsedOutput,
@@ -4707,7 +4707,7 @@ const deserializeAws_json1_1DescribePendingAggregationRequestsCommandError = asy
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -4718,7 +4718,7 @@ const deserializeAws_json1_1DescribePendingAggregationRequestsCommandError = asy
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -4729,7 +4729,7 @@ const deserializeAws_json1_1DescribePendingAggregationRequestsCommandError = asy
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -4850,7 +4850,7 @@ const deserializeAws_json1_1DescribeRemediationExceptionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -4861,7 +4861,7 @@ const deserializeAws_json1_1DescribeRemediationExceptionsCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -4927,7 +4927,7 @@ const deserializeAws_json1_1DescribeRemediationExecutionStatusCommandError = asy
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -4938,7 +4938,7 @@ const deserializeAws_json1_1DescribeRemediationExecutionStatusCommandError = asy
       };
       break;
     case "NoSuchRemediationConfigurationException":
-    case "com.amazonaws.starling.dove#NoSuchRemediationConfigurationException":
+    case "com.amazonaws.configservice#NoSuchRemediationConfigurationException":
       response = {
         ...(await deserializeAws_json1_1NoSuchRemediationConfigurationExceptionResponse(
           parsedOutput,
@@ -5004,7 +5004,7 @@ const deserializeAws_json1_1DescribeRetentionConfigurationsCommandError = async 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -5015,7 +5015,7 @@ const deserializeAws_json1_1DescribeRetentionConfigurationsCommandError = async 
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -5026,7 +5026,7 @@ const deserializeAws_json1_1DescribeRetentionConfigurationsCommandError = async 
       };
       break;
     case "NoSuchRetentionConfigurationException":
-    case "com.amazonaws.starling.dove#NoSuchRetentionConfigurationException":
+    case "com.amazonaws.configservice#NoSuchRetentionConfigurationException":
       response = {
         ...(await deserializeAws_json1_1NoSuchRetentionConfigurationExceptionResponse(
           parsedOutput,
@@ -5092,7 +5092,7 @@ const deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommandErro
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -5103,7 +5103,7 @@ const deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommandErro
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -5114,7 +5114,7 @@ const deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommandErro
       };
       break;
     case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.starling.dove#NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(
           parsedOutput,
@@ -5125,7 +5125,7 @@ const deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommandErro
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.starling.dove#ValidationException":
+    case "com.amazonaws.configservice#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -5191,7 +5191,7 @@ const deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommandError 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -5202,7 +5202,7 @@ const deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommandError 
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -5213,7 +5213,7 @@ const deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommandError 
       };
       break;
     case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.starling.dove#NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(
           parsedOutput,
@@ -5224,7 +5224,7 @@ const deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommandError 
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.starling.dove#ValidationException":
+    case "com.amazonaws.configservice#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -5290,7 +5290,7 @@ const deserializeAws_json1_1GetAggregateDiscoveredResourceCountsCommandError = a
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -5301,7 +5301,7 @@ const deserializeAws_json1_1GetAggregateDiscoveredResourceCountsCommandError = a
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -5312,7 +5312,7 @@ const deserializeAws_json1_1GetAggregateDiscoveredResourceCountsCommandError = a
       };
       break;
     case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.starling.dove#NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(
           parsedOutput,
@@ -5323,7 +5323,7 @@ const deserializeAws_json1_1GetAggregateDiscoveredResourceCountsCommandError = a
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.starling.dove#ValidationException":
+    case "com.amazonaws.configservice#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -5389,7 +5389,7 @@ const deserializeAws_json1_1GetAggregateResourceConfigCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.starling.dove#NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(
           parsedOutput,
@@ -5400,7 +5400,7 @@ const deserializeAws_json1_1GetAggregateResourceConfigCommandError = async (
       };
       break;
     case "OversizedConfigurationItemException":
-    case "com.amazonaws.starling.dove#OversizedConfigurationItemException":
+    case "com.amazonaws.configservice#OversizedConfigurationItemException":
       response = {
         ...(await deserializeAws_json1_1OversizedConfigurationItemExceptionResponse(
           parsedOutput,
@@ -5411,7 +5411,7 @@ const deserializeAws_json1_1GetAggregateResourceConfigCommandError = async (
       };
       break;
     case "ResourceNotDiscoveredException":
-    case "com.amazonaws.starling.dove#ResourceNotDiscoveredException":
+    case "com.amazonaws.configservice#ResourceNotDiscoveredException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotDiscoveredExceptionResponse(
           parsedOutput,
@@ -5422,7 +5422,7 @@ const deserializeAws_json1_1GetAggregateResourceConfigCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.starling.dove#ValidationException":
+    case "com.amazonaws.configservice#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -5488,7 +5488,7 @@ const deserializeAws_json1_1GetComplianceDetailsByConfigRuleCommandError = async
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -5499,7 +5499,7 @@ const deserializeAws_json1_1GetComplianceDetailsByConfigRuleCommandError = async
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -5510,7 +5510,7 @@ const deserializeAws_json1_1GetComplianceDetailsByConfigRuleCommandError = async
       };
       break;
     case "NoSuchConfigRuleException":
-    case "com.amazonaws.starling.dove#NoSuchConfigRuleException":
+    case "com.amazonaws.configservice#NoSuchConfigRuleException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigRuleExceptionResponse(
           parsedOutput,
@@ -5576,7 +5576,7 @@ const deserializeAws_json1_1GetComplianceDetailsByResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -5697,7 +5697,7 @@ const deserializeAws_json1_1GetComplianceSummaryByResourceTypeCommandError = asy
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -5763,7 +5763,7 @@ const deserializeAws_json1_1GetConformancePackComplianceDetailsCommandError = as
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -5774,7 +5774,7 @@ const deserializeAws_json1_1GetConformancePackComplianceDetailsCommandError = as
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -5785,7 +5785,7 @@ const deserializeAws_json1_1GetConformancePackComplianceDetailsCommandError = as
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -5796,7 +5796,7 @@ const deserializeAws_json1_1GetConformancePackComplianceDetailsCommandError = as
       };
       break;
     case "NoSuchConfigRuleInConformancePackException":
-    case "com.amazonaws.starling.dove#NoSuchConfigRuleInConformancePackException":
+    case "com.amazonaws.configservice#NoSuchConfigRuleInConformancePackException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigRuleInConformancePackExceptionResponse(
           parsedOutput,
@@ -5807,7 +5807,7 @@ const deserializeAws_json1_1GetConformancePackComplianceDetailsCommandError = as
       };
       break;
     case "NoSuchConformancePackException":
-    case "com.amazonaws.starling.dove#NoSuchConformancePackException":
+    case "com.amazonaws.configservice#NoSuchConformancePackException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConformancePackExceptionResponse(
           parsedOutput,
@@ -5873,7 +5873,7 @@ const deserializeAws_json1_1GetConformancePackComplianceSummaryCommandError = as
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -5884,7 +5884,7 @@ const deserializeAws_json1_1GetConformancePackComplianceSummaryCommandError = as
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -5895,7 +5895,7 @@ const deserializeAws_json1_1GetConformancePackComplianceSummaryCommandError = as
       };
       break;
     case "NoSuchConformancePackException":
-    case "com.amazonaws.starling.dove#NoSuchConformancePackException":
+    case "com.amazonaws.configservice#NoSuchConformancePackException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConformancePackExceptionResponse(
           parsedOutput,
@@ -5961,7 +5961,7 @@ const deserializeAws_json1_1GetDiscoveredResourceCountsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -5972,7 +5972,7 @@ const deserializeAws_json1_1GetDiscoveredResourceCountsCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -5983,7 +5983,7 @@ const deserializeAws_json1_1GetDiscoveredResourceCountsCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.starling.dove#ValidationException":
+    case "com.amazonaws.configservice#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -6049,7 +6049,7 @@ const deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommandError 
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -6060,7 +6060,7 @@ const deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommandError 
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -6071,7 +6071,7 @@ const deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommandError 
       };
       break;
     case "NoSuchOrganizationConfigRuleException":
-    case "com.amazonaws.starling.dove#NoSuchOrganizationConfigRuleException":
+    case "com.amazonaws.configservice#NoSuchOrganizationConfigRuleException":
       response = {
         ...(await deserializeAws_json1_1NoSuchOrganizationConfigRuleExceptionResponse(
           parsedOutput,
@@ -6082,7 +6082,7 @@ const deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommandError 
       };
       break;
     case "OrganizationAccessDeniedException":
-    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
+    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
           parsedOutput,
@@ -6148,7 +6148,7 @@ const deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommandE
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -6159,7 +6159,7 @@ const deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommandE
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -6170,7 +6170,7 @@ const deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommandE
       };
       break;
     case "NoSuchOrganizationConformancePackException":
-    case "com.amazonaws.starling.dove#NoSuchOrganizationConformancePackException":
+    case "com.amazonaws.configservice#NoSuchOrganizationConformancePackException":
       response = {
         ...(await deserializeAws_json1_1NoSuchOrganizationConformancePackExceptionResponse(
           parsedOutput,
@@ -6181,7 +6181,7 @@ const deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommandE
       };
       break;
     case "OrganizationAccessDeniedException":
-    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
+    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
           parsedOutput,
@@ -6247,7 +6247,7 @@ const deserializeAws_json1_1GetResourceConfigHistoryCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -6258,7 +6258,7 @@ const deserializeAws_json1_1GetResourceConfigHistoryCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -6269,7 +6269,7 @@ const deserializeAws_json1_1GetResourceConfigHistoryCommandError = async (
       };
       break;
     case "InvalidTimeRangeException":
-    case "com.amazonaws.starling.dove#InvalidTimeRangeException":
+    case "com.amazonaws.configservice#InvalidTimeRangeException":
       response = {
         ...(await deserializeAws_json1_1InvalidTimeRangeExceptionResponse(
           parsedOutput,
@@ -6280,7 +6280,7 @@ const deserializeAws_json1_1GetResourceConfigHistoryCommandError = async (
       };
       break;
     case "NoAvailableConfigurationRecorderException":
-    case "com.amazonaws.starling.dove#NoAvailableConfigurationRecorderException":
+    case "com.amazonaws.configservice#NoAvailableConfigurationRecorderException":
       response = {
         ...(await deserializeAws_json1_1NoAvailableConfigurationRecorderExceptionResponse(
           parsedOutput,
@@ -6291,7 +6291,7 @@ const deserializeAws_json1_1GetResourceConfigHistoryCommandError = async (
       };
       break;
     case "ResourceNotDiscoveredException":
-    case "com.amazonaws.starling.dove#ResourceNotDiscoveredException":
+    case "com.amazonaws.configservice#ResourceNotDiscoveredException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotDiscoveredExceptionResponse(
           parsedOutput,
@@ -6302,7 +6302,7 @@ const deserializeAws_json1_1GetResourceConfigHistoryCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.starling.dove#ValidationException":
+    case "com.amazonaws.configservice#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -6368,7 +6368,7 @@ const deserializeAws_json1_1ListAggregateDiscoveredResourcesCommandError = async
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -6379,7 +6379,7 @@ const deserializeAws_json1_1ListAggregateDiscoveredResourcesCommandError = async
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -6390,7 +6390,7 @@ const deserializeAws_json1_1ListAggregateDiscoveredResourcesCommandError = async
       };
       break;
     case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.starling.dove#NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(
           parsedOutput,
@@ -6401,7 +6401,7 @@ const deserializeAws_json1_1ListAggregateDiscoveredResourcesCommandError = async
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.starling.dove#ValidationException":
+    case "com.amazonaws.configservice#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -6467,7 +6467,7 @@ const deserializeAws_json1_1ListDiscoveredResourcesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -6478,7 +6478,7 @@ const deserializeAws_json1_1ListDiscoveredResourcesCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -6489,7 +6489,7 @@ const deserializeAws_json1_1ListDiscoveredResourcesCommandError = async (
       };
       break;
     case "NoAvailableConfigurationRecorderException":
-    case "com.amazonaws.starling.dove#NoAvailableConfigurationRecorderException":
+    case "com.amazonaws.configservice#NoAvailableConfigurationRecorderException":
       response = {
         ...(await deserializeAws_json1_1NoAvailableConfigurationRecorderExceptionResponse(
           parsedOutput,
@@ -6500,7 +6500,7 @@ const deserializeAws_json1_1ListDiscoveredResourcesCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.starling.dove#ValidationException":
+    case "com.amazonaws.configservice#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -6563,7 +6563,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -6574,7 +6574,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -6585,7 +6585,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.starling.dove#ResourceNotFoundException":
+    case "com.amazonaws.configservice#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -6596,7 +6596,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.starling.dove#ValidationException":
+    case "com.amazonaws.configservice#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -6662,7 +6662,7 @@ const deserializeAws_json1_1PutAggregationAuthorizationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -6718,7 +6718,7 @@ const deserializeAws_json1_1PutConfigRuleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InsufficientPermissionsException":
-    case "com.amazonaws.starling.dove#InsufficientPermissionsException":
+    case "com.amazonaws.configservice#InsufficientPermissionsException":
       response = {
         ...(await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(
           parsedOutput,
@@ -6729,7 +6729,7 @@ const deserializeAws_json1_1PutConfigRuleCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -6740,7 +6740,7 @@ const deserializeAws_json1_1PutConfigRuleCommandError = async (
       };
       break;
     case "MaxNumberOfConfigRulesExceededException":
-    case "com.amazonaws.starling.dove#MaxNumberOfConfigRulesExceededException":
+    case "com.amazonaws.configservice#MaxNumberOfConfigRulesExceededException":
       response = {
         ...(await deserializeAws_json1_1MaxNumberOfConfigRulesExceededExceptionResponse(
           parsedOutput,
@@ -6751,7 +6751,7 @@ const deserializeAws_json1_1PutConfigRuleCommandError = async (
       };
       break;
     case "NoAvailableConfigurationRecorderException":
-    case "com.amazonaws.starling.dove#NoAvailableConfigurationRecorderException":
+    case "com.amazonaws.configservice#NoAvailableConfigurationRecorderException":
       response = {
         ...(await deserializeAws_json1_1NoAvailableConfigurationRecorderExceptionResponse(
           parsedOutput,
@@ -6762,7 +6762,7 @@ const deserializeAws_json1_1PutConfigRuleCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.starling.dove#ResourceInUseException":
+    case "com.amazonaws.configservice#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -6828,7 +6828,7 @@ const deserializeAws_json1_1PutConfigurationAggregatorCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -6839,7 +6839,7 @@ const deserializeAws_json1_1PutConfigurationAggregatorCommandError = async (
       };
       break;
     case "InvalidRoleException":
-    case "com.amazonaws.starling.dove#InvalidRoleException":
+    case "com.amazonaws.configservice#InvalidRoleException":
       response = {
         ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(
           parsedOutput,
@@ -6850,7 +6850,7 @@ const deserializeAws_json1_1PutConfigurationAggregatorCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.starling.dove#LimitExceededException":
+    case "com.amazonaws.configservice#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -6861,7 +6861,7 @@ const deserializeAws_json1_1PutConfigurationAggregatorCommandError = async (
       };
       break;
     case "NoAvailableOrganizationException":
-    case "com.amazonaws.starling.dove#NoAvailableOrganizationException":
+    case "com.amazonaws.configservice#NoAvailableOrganizationException":
       response = {
         ...(await deserializeAws_json1_1NoAvailableOrganizationExceptionResponse(
           parsedOutput,
@@ -6872,7 +6872,7 @@ const deserializeAws_json1_1PutConfigurationAggregatorCommandError = async (
       };
       break;
     case "OrganizationAccessDeniedException":
-    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
+    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
           parsedOutput,
@@ -6883,7 +6883,7 @@ const deserializeAws_json1_1PutConfigurationAggregatorCommandError = async (
       };
       break;
     case "OrganizationAllFeaturesNotEnabledException":
-    case "com.amazonaws.starling.dove#OrganizationAllFeaturesNotEnabledException":
+    case "com.amazonaws.configservice#OrganizationAllFeaturesNotEnabledException":
       response = {
         ...(await deserializeAws_json1_1OrganizationAllFeaturesNotEnabledExceptionResponse(
           parsedOutput,
@@ -6942,7 +6942,7 @@ const deserializeAws_json1_1PutConfigurationRecorderCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidConfigurationRecorderNameException":
-    case "com.amazonaws.starling.dove#InvalidConfigurationRecorderNameException":
+    case "com.amazonaws.configservice#InvalidConfigurationRecorderNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidConfigurationRecorderNameExceptionResponse(
           parsedOutput,
@@ -6953,7 +6953,7 @@ const deserializeAws_json1_1PutConfigurationRecorderCommandError = async (
       };
       break;
     case "InvalidRecordingGroupException":
-    case "com.amazonaws.starling.dove#InvalidRecordingGroupException":
+    case "com.amazonaws.configservice#InvalidRecordingGroupException":
       response = {
         ...(await deserializeAws_json1_1InvalidRecordingGroupExceptionResponse(
           parsedOutput,
@@ -6964,7 +6964,7 @@ const deserializeAws_json1_1PutConfigurationRecorderCommandError = async (
       };
       break;
     case "InvalidRoleException":
-    case "com.amazonaws.starling.dove#InvalidRoleException":
+    case "com.amazonaws.configservice#InvalidRoleException":
       response = {
         ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(
           parsedOutput,
@@ -6975,7 +6975,7 @@ const deserializeAws_json1_1PutConfigurationRecorderCommandError = async (
       };
       break;
     case "MaxNumberOfConfigurationRecordersExceededException":
-    case "com.amazonaws.starling.dove#MaxNumberOfConfigurationRecordersExceededException":
+    case "com.amazonaws.configservice#MaxNumberOfConfigurationRecordersExceededException":
       response = {
         ...(await deserializeAws_json1_1MaxNumberOfConfigurationRecordersExceededExceptionResponse(
           parsedOutput,
@@ -7038,7 +7038,7 @@ const deserializeAws_json1_1PutConformancePackCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConformancePackTemplateValidationException":
-    case "com.amazonaws.starling.dove#ConformancePackTemplateValidationException":
+    case "com.amazonaws.configservice#ConformancePackTemplateValidationException":
       response = {
         ...(await deserializeAws_json1_1ConformancePackTemplateValidationExceptionResponse(
           parsedOutput,
@@ -7049,7 +7049,7 @@ const deserializeAws_json1_1PutConformancePackCommandError = async (
       };
       break;
     case "InsufficientPermissionsException":
-    case "com.amazonaws.starling.dove#InsufficientPermissionsException":
+    case "com.amazonaws.configservice#InsufficientPermissionsException":
       response = {
         ...(await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(
           parsedOutput,
@@ -7060,7 +7060,7 @@ const deserializeAws_json1_1PutConformancePackCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -7071,7 +7071,7 @@ const deserializeAws_json1_1PutConformancePackCommandError = async (
       };
       break;
     case "MaxNumberOfConformancePacksExceededException":
-    case "com.amazonaws.starling.dove#MaxNumberOfConformancePacksExceededException":
+    case "com.amazonaws.configservice#MaxNumberOfConformancePacksExceededException":
       response = {
         ...(await deserializeAws_json1_1MaxNumberOfConformancePacksExceededExceptionResponse(
           parsedOutput,
@@ -7082,7 +7082,7 @@ const deserializeAws_json1_1PutConformancePackCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.starling.dove#ResourceInUseException":
+    case "com.amazonaws.configservice#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -7141,7 +7141,7 @@ const deserializeAws_json1_1PutDeliveryChannelCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InsufficientDeliveryPolicyException":
-    case "com.amazonaws.starling.dove#InsufficientDeliveryPolicyException":
+    case "com.amazonaws.configservice#InsufficientDeliveryPolicyException":
       response = {
         ...(await deserializeAws_json1_1InsufficientDeliveryPolicyExceptionResponse(
           parsedOutput,
@@ -7152,7 +7152,7 @@ const deserializeAws_json1_1PutDeliveryChannelCommandError = async (
       };
       break;
     case "InvalidDeliveryChannelNameException":
-    case "com.amazonaws.starling.dove#InvalidDeliveryChannelNameException":
+    case "com.amazonaws.configservice#InvalidDeliveryChannelNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidDeliveryChannelNameExceptionResponse(
           parsedOutput,
@@ -7163,7 +7163,7 @@ const deserializeAws_json1_1PutDeliveryChannelCommandError = async (
       };
       break;
     case "InvalidS3KeyPrefixException":
-    case "com.amazonaws.starling.dove#InvalidS3KeyPrefixException":
+    case "com.amazonaws.configservice#InvalidS3KeyPrefixException":
       response = {
         ...(await deserializeAws_json1_1InvalidS3KeyPrefixExceptionResponse(
           parsedOutput,
@@ -7174,7 +7174,7 @@ const deserializeAws_json1_1PutDeliveryChannelCommandError = async (
       };
       break;
     case "InvalidSNSTopicARNException":
-    case "com.amazonaws.starling.dove#InvalidSNSTopicARNException":
+    case "com.amazonaws.configservice#InvalidSNSTopicARNException":
       response = {
         ...(await deserializeAws_json1_1InvalidSNSTopicARNExceptionResponse(
           parsedOutput,
@@ -7185,7 +7185,7 @@ const deserializeAws_json1_1PutDeliveryChannelCommandError = async (
       };
       break;
     case "MaxNumberOfDeliveryChannelsExceededException":
-    case "com.amazonaws.starling.dove#MaxNumberOfDeliveryChannelsExceededException":
+    case "com.amazonaws.configservice#MaxNumberOfDeliveryChannelsExceededException":
       response = {
         ...(await deserializeAws_json1_1MaxNumberOfDeliveryChannelsExceededExceptionResponse(
           parsedOutput,
@@ -7196,7 +7196,7 @@ const deserializeAws_json1_1PutDeliveryChannelCommandError = async (
       };
       break;
     case "NoAvailableConfigurationRecorderException":
-    case "com.amazonaws.starling.dove#NoAvailableConfigurationRecorderException":
+    case "com.amazonaws.configservice#NoAvailableConfigurationRecorderException":
       response = {
         ...(await deserializeAws_json1_1NoAvailableConfigurationRecorderExceptionResponse(
           parsedOutput,
@@ -7207,7 +7207,7 @@ const deserializeAws_json1_1PutDeliveryChannelCommandError = async (
       };
       break;
     case "NoSuchBucketException":
-    case "com.amazonaws.starling.dove#NoSuchBucketException":
+    case "com.amazonaws.configservice#NoSuchBucketException":
       response = {
         ...(await deserializeAws_json1_1NoSuchBucketExceptionResponse(
           parsedOutput,
@@ -7267,7 +7267,7 @@ const deserializeAws_json1_1PutEvaluationsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -7278,7 +7278,7 @@ const deserializeAws_json1_1PutEvaluationsCommandError = async (
       };
       break;
     case "InvalidResultTokenException":
-    case "com.amazonaws.starling.dove#InvalidResultTokenException":
+    case "com.amazonaws.configservice#InvalidResultTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidResultTokenExceptionResponse(
           parsedOutput,
@@ -7289,7 +7289,7 @@ const deserializeAws_json1_1PutEvaluationsCommandError = async (
       };
       break;
     case "NoSuchConfigRuleException":
-    case "com.amazonaws.starling.dove#NoSuchConfigRuleException":
+    case "com.amazonaws.configservice#NoSuchConfigRuleException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigRuleExceptionResponse(
           parsedOutput,
@@ -7355,7 +7355,7 @@ const deserializeAws_json1_1PutOrganizationConfigRuleCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InsufficientPermissionsException":
-    case "com.amazonaws.starling.dove#InsufficientPermissionsException":
+    case "com.amazonaws.configservice#InsufficientPermissionsException":
       response = {
         ...(await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(
           parsedOutput,
@@ -7366,7 +7366,7 @@ const deserializeAws_json1_1PutOrganizationConfigRuleCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -7377,7 +7377,7 @@ const deserializeAws_json1_1PutOrganizationConfigRuleCommandError = async (
       };
       break;
     case "MaxNumberOfOrganizationConfigRulesExceededException":
-    case "com.amazonaws.starling.dove#MaxNumberOfOrganizationConfigRulesExceededException":
+    case "com.amazonaws.configservice#MaxNumberOfOrganizationConfigRulesExceededException":
       response = {
         ...(await deserializeAws_json1_1MaxNumberOfOrganizationConfigRulesExceededExceptionResponse(
           parsedOutput,
@@ -7388,7 +7388,7 @@ const deserializeAws_json1_1PutOrganizationConfigRuleCommandError = async (
       };
       break;
     case "NoAvailableOrganizationException":
-    case "com.amazonaws.starling.dove#NoAvailableOrganizationException":
+    case "com.amazonaws.configservice#NoAvailableOrganizationException":
       response = {
         ...(await deserializeAws_json1_1NoAvailableOrganizationExceptionResponse(
           parsedOutput,
@@ -7399,7 +7399,7 @@ const deserializeAws_json1_1PutOrganizationConfigRuleCommandError = async (
       };
       break;
     case "OrganizationAccessDeniedException":
-    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
+    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
           parsedOutput,
@@ -7410,7 +7410,7 @@ const deserializeAws_json1_1PutOrganizationConfigRuleCommandError = async (
       };
       break;
     case "OrganizationAllFeaturesNotEnabledException":
-    case "com.amazonaws.starling.dove#OrganizationAllFeaturesNotEnabledException":
+    case "com.amazonaws.configservice#OrganizationAllFeaturesNotEnabledException":
       response = {
         ...(await deserializeAws_json1_1OrganizationAllFeaturesNotEnabledExceptionResponse(
           parsedOutput,
@@ -7421,7 +7421,7 @@ const deserializeAws_json1_1PutOrganizationConfigRuleCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.starling.dove#ResourceInUseException":
+    case "com.amazonaws.configservice#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -7432,7 +7432,7 @@ const deserializeAws_json1_1PutOrganizationConfigRuleCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.starling.dove#ValidationException":
+    case "com.amazonaws.configservice#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -7498,7 +7498,7 @@ const deserializeAws_json1_1PutOrganizationConformancePackCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InsufficientPermissionsException":
-    case "com.amazonaws.starling.dove#InsufficientPermissionsException":
+    case "com.amazonaws.configservice#InsufficientPermissionsException":
       response = {
         ...(await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(
           parsedOutput,
@@ -7509,7 +7509,7 @@ const deserializeAws_json1_1PutOrganizationConformancePackCommandError = async (
       };
       break;
     case "MaxNumberOfOrganizationConformancePacksExceededException":
-    case "com.amazonaws.starling.dove#MaxNumberOfOrganizationConformancePacksExceededException":
+    case "com.amazonaws.configservice#MaxNumberOfOrganizationConformancePacksExceededException":
       response = {
         ...(await deserializeAws_json1_1MaxNumberOfOrganizationConformancePacksExceededExceptionResponse(
           parsedOutput,
@@ -7520,7 +7520,7 @@ const deserializeAws_json1_1PutOrganizationConformancePackCommandError = async (
       };
       break;
     case "NoAvailableOrganizationException":
-    case "com.amazonaws.starling.dove#NoAvailableOrganizationException":
+    case "com.amazonaws.configservice#NoAvailableOrganizationException":
       response = {
         ...(await deserializeAws_json1_1NoAvailableOrganizationExceptionResponse(
           parsedOutput,
@@ -7531,7 +7531,7 @@ const deserializeAws_json1_1PutOrganizationConformancePackCommandError = async (
       };
       break;
     case "OrganizationAccessDeniedException":
-    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
+    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
           parsedOutput,
@@ -7542,7 +7542,7 @@ const deserializeAws_json1_1PutOrganizationConformancePackCommandError = async (
       };
       break;
     case "OrganizationAllFeaturesNotEnabledException":
-    case "com.amazonaws.starling.dove#OrganizationAllFeaturesNotEnabledException":
+    case "com.amazonaws.configservice#OrganizationAllFeaturesNotEnabledException":
       response = {
         ...(await deserializeAws_json1_1OrganizationAllFeaturesNotEnabledExceptionResponse(
           parsedOutput,
@@ -7553,7 +7553,7 @@ const deserializeAws_json1_1PutOrganizationConformancePackCommandError = async (
       };
       break;
     case "OrganizationConformancePackTemplateValidationException":
-    case "com.amazonaws.starling.dove#OrganizationConformancePackTemplateValidationException":
+    case "com.amazonaws.configservice#OrganizationConformancePackTemplateValidationException":
       response = {
         ...(await deserializeAws_json1_1OrganizationConformancePackTemplateValidationExceptionResponse(
           parsedOutput,
@@ -7564,7 +7564,7 @@ const deserializeAws_json1_1PutOrganizationConformancePackCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.starling.dove#ResourceInUseException":
+    case "com.amazonaws.configservice#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -7575,7 +7575,7 @@ const deserializeAws_json1_1PutOrganizationConformancePackCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.starling.dove#ValidationException":
+    case "com.amazonaws.configservice#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -7641,7 +7641,7 @@ const deserializeAws_json1_1PutRemediationConfigurationsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InsufficientPermissionsException":
-    case "com.amazonaws.starling.dove#InsufficientPermissionsException":
+    case "com.amazonaws.configservice#InsufficientPermissionsException":
       response = {
         ...(await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(
           parsedOutput,
@@ -7652,7 +7652,7 @@ const deserializeAws_json1_1PutRemediationConfigurationsCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -7718,7 +7718,7 @@ const deserializeAws_json1_1PutRemediationExceptionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -7774,7 +7774,7 @@ const deserializeAws_json1_1PutResourceConfigCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InsufficientPermissionsException":
-    case "com.amazonaws.starling.dove#InsufficientPermissionsException":
+    case "com.amazonaws.configservice#InsufficientPermissionsException":
       response = {
         ...(await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(
           parsedOutput,
@@ -7785,7 +7785,7 @@ const deserializeAws_json1_1PutResourceConfigCommandError = async (
       };
       break;
     case "MaxActiveResourcesExceededException":
-    case "com.amazonaws.starling.dove#MaxActiveResourcesExceededException":
+    case "com.amazonaws.configservice#MaxActiveResourcesExceededException":
       response = {
         ...(await deserializeAws_json1_1MaxActiveResourcesExceededExceptionResponse(
           parsedOutput,
@@ -7796,7 +7796,7 @@ const deserializeAws_json1_1PutResourceConfigCommandError = async (
       };
       break;
     case "NoRunningConfigurationRecorderException":
-    case "com.amazonaws.starling.dove#NoRunningConfigurationRecorderException":
+    case "com.amazonaws.configservice#NoRunningConfigurationRecorderException":
       response = {
         ...(await deserializeAws_json1_1NoRunningConfigurationRecorderExceptionResponse(
           parsedOutput,
@@ -7807,7 +7807,7 @@ const deserializeAws_json1_1PutResourceConfigCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.starling.dove#ValidationException":
+    case "com.amazonaws.configservice#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -7873,7 +7873,7 @@ const deserializeAws_json1_1PutRetentionConfigurationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -7884,7 +7884,7 @@ const deserializeAws_json1_1PutRetentionConfigurationCommandError = async (
       };
       break;
     case "MaxNumberOfRetentionConfigurationsExceededException":
-    case "com.amazonaws.starling.dove#MaxNumberOfRetentionConfigurationsExceededException":
+    case "com.amazonaws.configservice#MaxNumberOfRetentionConfigurationsExceededException":
       response = {
         ...(await deserializeAws_json1_1MaxNumberOfRetentionConfigurationsExceededExceptionResponse(
           parsedOutput,
@@ -7947,7 +7947,7 @@ const deserializeAws_json1_1SelectResourceConfigCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidExpressionException":
-    case "com.amazonaws.starling.dove#InvalidExpressionException":
+    case "com.amazonaws.configservice#InvalidExpressionException":
       response = {
         ...(await deserializeAws_json1_1InvalidExpressionExceptionResponse(
           parsedOutput,
@@ -7958,7 +7958,7 @@ const deserializeAws_json1_1SelectResourceConfigCommandError = async (
       };
       break;
     case "InvalidLimitException":
-    case "com.amazonaws.starling.dove#InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
       response = {
         ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(
           parsedOutput,
@@ -7969,7 +7969,7 @@ const deserializeAws_json1_1SelectResourceConfigCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -8035,7 +8035,7 @@ const deserializeAws_json1_1StartConfigRulesEvaluationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -8046,7 +8046,7 @@ const deserializeAws_json1_1StartConfigRulesEvaluationCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.starling.dove#LimitExceededException":
+    case "com.amazonaws.configservice#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -8057,7 +8057,7 @@ const deserializeAws_json1_1StartConfigRulesEvaluationCommandError = async (
       };
       break;
     case "NoSuchConfigRuleException":
-    case "com.amazonaws.starling.dove#NoSuchConfigRuleException":
+    case "com.amazonaws.configservice#NoSuchConfigRuleException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigRuleExceptionResponse(
           parsedOutput,
@@ -8068,7 +8068,7 @@ const deserializeAws_json1_1StartConfigRulesEvaluationCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.starling.dove#ResourceInUseException":
+    case "com.amazonaws.configservice#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -8127,7 +8127,7 @@ const deserializeAws_json1_1StartConfigurationRecorderCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NoAvailableDeliveryChannelException":
-    case "com.amazonaws.starling.dove#NoAvailableDeliveryChannelException":
+    case "com.amazonaws.configservice#NoAvailableDeliveryChannelException":
       response = {
         ...(await deserializeAws_json1_1NoAvailableDeliveryChannelExceptionResponse(
           parsedOutput,
@@ -8138,7 +8138,7 @@ const deserializeAws_json1_1StartConfigurationRecorderCommandError = async (
       };
       break;
     case "NoSuchConfigurationRecorderException":
-    case "com.amazonaws.starling.dove#NoSuchConfigurationRecorderException":
+    case "com.amazonaws.configservice#NoSuchConfigurationRecorderException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigurationRecorderExceptionResponse(
           parsedOutput,
@@ -8204,7 +8204,7 @@ const deserializeAws_json1_1StartRemediationExecutionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InsufficientPermissionsException":
-    case "com.amazonaws.starling.dove#InsufficientPermissionsException":
+    case "com.amazonaws.configservice#InsufficientPermissionsException":
       response = {
         ...(await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(
           parsedOutput,
@@ -8215,7 +8215,7 @@ const deserializeAws_json1_1StartRemediationExecutionCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -8226,7 +8226,7 @@ const deserializeAws_json1_1StartRemediationExecutionCommandError = async (
       };
       break;
     case "NoSuchRemediationConfigurationException":
-    case "com.amazonaws.starling.dove#NoSuchRemediationConfigurationException":
+    case "com.amazonaws.configservice#NoSuchRemediationConfigurationException":
       response = {
         ...(await deserializeAws_json1_1NoSuchRemediationConfigurationExceptionResponse(
           parsedOutput,
@@ -8285,7 +8285,7 @@ const deserializeAws_json1_1StopConfigurationRecorderCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NoSuchConfigurationRecorderException":
-    case "com.amazonaws.starling.dove#NoSuchConfigurationRecorderException":
+    case "com.amazonaws.configservice#NoSuchConfigurationRecorderException":
       response = {
         ...(await deserializeAws_json1_1NoSuchConfigurationRecorderExceptionResponse(
           parsedOutput,
@@ -8341,7 +8341,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.starling.dove#ResourceNotFoundException":
+    case "com.amazonaws.configservice#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -8352,7 +8352,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "TooManyTagsException":
-    case "com.amazonaws.starling.dove#TooManyTagsException":
+    case "com.amazonaws.configservice#TooManyTagsException":
       response = {
         ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
           parsedOutput,
@@ -8363,7 +8363,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.starling.dove#ValidationException":
+    case "com.amazonaws.configservice#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -8419,7 +8419,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.starling.dove#ResourceNotFoundException":
+    case "com.amazonaws.configservice#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -8430,7 +8430,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.starling.dove#ValidationException":
+    case "com.amazonaws.configservice#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -9414,6 +9414,13 @@ const serializeAws_json1_1AccountAggregationSourceList = (
   );
 };
 
+const serializeAws_json1_1AggregatedSourceStatusTypeList = (
+  input: (AggregatedSourceStatusType | string)[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
+};
+
 const serializeAws_json1_1AggregateResourceIdentifier = (
   input: AggregateResourceIdentifier,
   context: __SerdeContext
@@ -9433,13 +9440,6 @@ const serializeAws_json1_1AggregateResourceIdentifier = (
       SourceRegion: input.SourceRegion
     })
   };
-};
-
-const serializeAws_json1_1AggregatedSourceStatusTypeList = (
-  input: (AggregatedSourceStatusType | string)[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1AggregatorRegionList = (
@@ -10040,8 +10040,8 @@ const serializeAws_json1_1DescribeConfigurationAggregatorsRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeConfigurationRecorderStatusRequest = (
-  input: DescribeConfigurationRecorderStatusRequest,
+const serializeAws_json1_1DescribeConfigurationRecordersRequest = (
+  input: DescribeConfigurationRecordersRequest,
   context: __SerdeContext
 ): any => {
   return {
@@ -10054,8 +10054,8 @@ const serializeAws_json1_1DescribeConfigurationRecorderStatusRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeConfigurationRecordersRequest = (
-  input: DescribeConfigurationRecordersRequest,
+const serializeAws_json1_1DescribeConfigurationRecorderStatusRequest = (
+  input: DescribeConfigurationRecorderStatusRequest,
   context: __SerdeContext
 ): any => {
   return {
@@ -10087,22 +10087,6 @@ const serializeAws_json1_1DescribeConformancePackComplianceRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeConformancePackStatusRequest = (
-  input: DescribeConformancePackStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConformancePackNames !== undefined && {
-      ConformancePackNames: serializeAws_json1_1ConformancePackNamesList(
-        input.ConformancePackNames,
-        context
-      )
-    }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
-  };
-};
-
 const serializeAws_json1_1DescribeConformancePacksRequest = (
   input: DescribeConformancePacksRequest,
   context: __SerdeContext
@@ -10119,17 +10103,19 @@ const serializeAws_json1_1DescribeConformancePacksRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeDeliveryChannelStatusRequest = (
-  input: DescribeDeliveryChannelStatusRequest,
+const serializeAws_json1_1DescribeConformancePackStatusRequest = (
+  input: DescribeConformancePackStatusRequest,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeliveryChannelNames !== undefined && {
-      DeliveryChannelNames: serializeAws_json1_1DeliveryChannelNameList(
-        input.DeliveryChannelNames,
+    ...(input.ConformancePackNames !== undefined && {
+      ConformancePackNames: serializeAws_json1_1ConformancePackNamesList(
+        input.ConformancePackNames,
         context
       )
-    })
+    }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
   };
 };
 
@@ -10147,16 +10133,14 @@ const serializeAws_json1_1DescribeDeliveryChannelsRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeOrganizationConfigRuleStatusesRequest = (
-  input: DescribeOrganizationConfigRuleStatusesRequest,
+const serializeAws_json1_1DescribeDeliveryChannelStatusRequest = (
+  input: DescribeDeliveryChannelStatusRequest,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.OrganizationConfigRuleNames !== undefined && {
-      OrganizationConfigRuleNames: serializeAws_json1_1OrganizationConfigRuleNames(
-        input.OrganizationConfigRuleNames,
+    ...(input.DeliveryChannelNames !== undefined && {
+      DeliveryChannelNames: serializeAws_json1_1DeliveryChannelNameList(
+        input.DeliveryChannelNames,
         context
       )
     })
@@ -10179,8 +10163,24 @@ const serializeAws_json1_1DescribeOrganizationConfigRulesRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeOrganizationConformancePackStatusesRequest = (
-  input: DescribeOrganizationConformancePackStatusesRequest,
+const serializeAws_json1_1DescribeOrganizationConfigRuleStatusesRequest = (
+  input: DescribeOrganizationConfigRuleStatusesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.OrganizationConfigRuleNames !== undefined && {
+      OrganizationConfigRuleNames: serializeAws_json1_1OrganizationConfigRuleNames(
+        input.OrganizationConfigRuleNames,
+        context
+      )
+    })
+  };
+};
+
+const serializeAws_json1_1DescribeOrganizationConformancePacksRequest = (
+  input: DescribeOrganizationConformancePacksRequest,
   context: __SerdeContext
 ): any => {
   return {
@@ -10195,8 +10195,8 @@ const serializeAws_json1_1DescribeOrganizationConformancePackStatusesRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeOrganizationConformancePacksRequest = (
-  input: DescribeOrganizationConformancePacksRequest,
+const serializeAws_json1_1DescribeOrganizationConformancePackStatusesRequest = (
+  input: DescribeOrganizationConformancePackStatusesRequest,
   context: __SerdeContext
 ): any => {
   return {
@@ -11102,6 +11102,22 @@ const serializeAws_json1_1RemediationExceptionResourceKeys = (
   );
 };
 
+const serializeAws_json1_1RemediationParameters = (
+  input: { [key: string]: RemediationParameterValue },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce(
+    (
+      acc: { [key: string]: RemediationParameterValue },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: serializeAws_json1_1RemediationParameterValue(value, context)
+    }),
+    {}
+  );
+};
+
 const serializeAws_json1_1RemediationParameterValue = (
   input: RemediationParameterValue,
   context: __SerdeContext
@@ -11117,22 +11133,6 @@ const serializeAws_json1_1RemediationParameterValue = (
       StaticValue: serializeAws_json1_1StaticValue(input.StaticValue, context)
     })
   };
-};
-
-const serializeAws_json1_1RemediationParameters = (
-  input: { [key: string]: RemediationParameterValue },
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce(
-    (
-      acc: { [key: string]: RemediationParameterValue },
-      [key, value]: [string, any]
-    ) => ({
-      ...acc,
-      [key]: serializeAws_json1_1RemediationParameterValue(value, context)
-    }),
-    {}
-  );
 };
 
 const serializeAws_json1_1ResourceCountFilters = (
@@ -11162,13 +11162,6 @@ const serializeAws_json1_1ResourceFilters = (
   };
 };
 
-const serializeAws_json1_1ResourceIdList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
 const serializeAws_json1_1ResourceIdentifiersList = (
   input: AggregateResourceIdentifier[],
   context: __SerdeContext
@@ -11176,6 +11169,13 @@ const serializeAws_json1_1ResourceIdentifiersList = (
   return input.map(entry =>
     serializeAws_json1_1AggregateResourceIdentifier(entry, context)
   );
+};
+
+const serializeAws_json1_1ResourceIdList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ResourceKey = (
@@ -11568,6 +11568,52 @@ const deserializeAws_json1_1AggregateComplianceCountList = (
   );
 };
 
+const deserializeAws_json1_1AggregatedSourceStatus = (
+  output: any,
+  context: __SerdeContext
+): AggregatedSourceStatus => {
+  return {
+    __type: "AggregatedSourceStatus",
+    AwsRegion:
+      output.AwsRegion !== undefined && output.AwsRegion !== null
+        ? output.AwsRegion
+        : undefined,
+    LastErrorCode:
+      output.LastErrorCode !== undefined && output.LastErrorCode !== null
+        ? output.LastErrorCode
+        : undefined,
+    LastErrorMessage:
+      output.LastErrorMessage !== undefined && output.LastErrorMessage !== null
+        ? output.LastErrorMessage
+        : undefined,
+    LastUpdateStatus:
+      output.LastUpdateStatus !== undefined && output.LastUpdateStatus !== null
+        ? output.LastUpdateStatus
+        : undefined,
+    LastUpdateTime:
+      output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
+        ? new Date(Math.round(output.LastUpdateTime * 1000))
+        : undefined,
+    SourceId:
+      output.SourceId !== undefined && output.SourceId !== null
+        ? output.SourceId
+        : undefined,
+    SourceType:
+      output.SourceType !== undefined && output.SourceType !== null
+        ? output.SourceType
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1AggregatedSourceStatusList = (
+  output: any,
+  context: __SerdeContext
+): AggregatedSourceStatus[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1AggregatedSourceStatus(entry, context)
+  );
+};
+
 const deserializeAws_json1_1AggregateEvaluationResult = (
   output: any,
   context: __SerdeContext
@@ -11647,52 +11693,6 @@ const deserializeAws_json1_1AggregateResourceIdentifier = (
         ? output.SourceRegion
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1AggregatedSourceStatus = (
-  output: any,
-  context: __SerdeContext
-): AggregatedSourceStatus => {
-  return {
-    __type: "AggregatedSourceStatus",
-    AwsRegion:
-      output.AwsRegion !== undefined && output.AwsRegion !== null
-        ? output.AwsRegion
-        : undefined,
-    LastErrorCode:
-      output.LastErrorCode !== undefined && output.LastErrorCode !== null
-        ? output.LastErrorCode
-        : undefined,
-    LastErrorMessage:
-      output.LastErrorMessage !== undefined && output.LastErrorMessage !== null
-        ? output.LastErrorMessage
-        : undefined,
-    LastUpdateStatus:
-      output.LastUpdateStatus !== undefined && output.LastUpdateStatus !== null
-        ? output.LastUpdateStatus
-        : undefined,
-    LastUpdateTime:
-      output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
-        ? new Date(Math.round(output.LastUpdateTime * 1000))
-        : undefined,
-    SourceId:
-      output.SourceId !== undefined && output.SourceId !== null
-        ? output.SourceId
-        : undefined,
-    SourceType:
-      output.SourceType !== undefined && output.SourceType !== null
-        ? output.SourceType
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1AggregatedSourceStatusList = (
-  output: any,
-  context: __SerdeContext
-): AggregatedSourceStatus[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1AggregatedSourceStatus(entry, context)
-  );
 };
 
 const deserializeAws_json1_1AggregationAuthorization = (
@@ -13013,23 +13013,6 @@ const deserializeAws_json1_1DescribeConfigurationAggregatorsResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeConfigurationRecorderStatusResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeConfigurationRecorderStatusResponse => {
-  return {
-    __type: "DescribeConfigurationRecorderStatusResponse",
-    ConfigurationRecordersStatus:
-      output.ConfigurationRecordersStatus !== undefined &&
-      output.ConfigurationRecordersStatus !== null
-        ? deserializeAws_json1_1ConfigurationRecorderStatusList(
-            output.ConfigurationRecordersStatus,
-            context
-          )
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1DescribeConfigurationRecordersResponse = (
   output: any,
   context: __SerdeContext
@@ -13041,6 +13024,23 @@ const deserializeAws_json1_1DescribeConfigurationRecordersResponse = (
       output.ConfigurationRecorders !== null
         ? deserializeAws_json1_1ConfigurationRecorderList(
             output.ConfigurationRecorders,
+            context
+          )
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeConfigurationRecorderStatusResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeConfigurationRecorderStatusResponse => {
+  return {
+    __type: "DescribeConfigurationRecorderStatusResponse",
+    ConfigurationRecordersStatus:
+      output.ConfigurationRecordersStatus !== undefined &&
+      output.ConfigurationRecordersStatus !== null
+        ? deserializeAws_json1_1ConfigurationRecorderStatusList(
+            output.ConfigurationRecordersStatus,
             context
           )
         : undefined
@@ -13073,27 +13073,6 @@ const deserializeAws_json1_1DescribeConformancePackComplianceResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeConformancePackStatusResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeConformancePackStatusResponse => {
-  return {
-    __type: "DescribeConformancePackStatusResponse",
-    ConformancePackStatusDetails:
-      output.ConformancePackStatusDetails !== undefined &&
-      output.ConformancePackStatusDetails !== null
-        ? deserializeAws_json1_1ConformancePackStatusDetailsList(
-            output.ConformancePackStatusDetails,
-            context
-          )
-        : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1DescribeConformancePacksResponse = (
   output: any,
   context: __SerdeContext
@@ -13115,19 +13094,23 @@ const deserializeAws_json1_1DescribeConformancePacksResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeDeliveryChannelStatusResponse = (
+const deserializeAws_json1_1DescribeConformancePackStatusResponse = (
   output: any,
   context: __SerdeContext
-): DescribeDeliveryChannelStatusResponse => {
+): DescribeConformancePackStatusResponse => {
   return {
-    __type: "DescribeDeliveryChannelStatusResponse",
-    DeliveryChannelsStatus:
-      output.DeliveryChannelsStatus !== undefined &&
-      output.DeliveryChannelsStatus !== null
-        ? deserializeAws_json1_1DeliveryChannelStatusList(
-            output.DeliveryChannelsStatus,
+    __type: "DescribeConformancePackStatusResponse",
+    ConformancePackStatusDetails:
+      output.ConformancePackStatusDetails !== undefined &&
+      output.ConformancePackStatusDetails !== null
+        ? deserializeAws_json1_1ConformancePackStatusDetailsList(
+            output.ConformancePackStatusDetails,
             context
           )
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
         : undefined
   } as any;
 };
@@ -13148,21 +13131,17 @@ const deserializeAws_json1_1DescribeDeliveryChannelsResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesResponse = (
+const deserializeAws_json1_1DescribeDeliveryChannelStatusResponse = (
   output: any,
   context: __SerdeContext
-): DescribeOrganizationConfigRuleStatusesResponse => {
+): DescribeDeliveryChannelStatusResponse => {
   return {
-    __type: "DescribeOrganizationConfigRuleStatusesResponse",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
-    OrganizationConfigRuleStatuses:
-      output.OrganizationConfigRuleStatuses !== undefined &&
-      output.OrganizationConfigRuleStatuses !== null
-        ? deserializeAws_json1_1OrganizationConfigRuleStatuses(
-            output.OrganizationConfigRuleStatuses,
+    __type: "DescribeDeliveryChannelStatusResponse",
+    DeliveryChannelsStatus:
+      output.DeliveryChannelsStatus !== undefined &&
+      output.DeliveryChannelsStatus !== null
+        ? deserializeAws_json1_1DeliveryChannelStatusList(
+            output.DeliveryChannelsStatus,
             context
           )
         : undefined
@@ -13190,21 +13169,21 @@ const deserializeAws_json1_1DescribeOrganizationConfigRulesResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeOrganizationConformancePackStatusesResponse = (
+const deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesResponse = (
   output: any,
   context: __SerdeContext
-): DescribeOrganizationConformancePackStatusesResponse => {
+): DescribeOrganizationConfigRuleStatusesResponse => {
   return {
-    __type: "DescribeOrganizationConformancePackStatusesResponse",
+    __type: "DescribeOrganizationConfigRuleStatusesResponse",
     NextToken:
       output.NextToken !== undefined && output.NextToken !== null
         ? output.NextToken
         : undefined,
-    OrganizationConformancePackStatuses:
-      output.OrganizationConformancePackStatuses !== undefined &&
-      output.OrganizationConformancePackStatuses !== null
-        ? deserializeAws_json1_1OrganizationConformancePackStatuses(
-            output.OrganizationConformancePackStatuses,
+    OrganizationConfigRuleStatuses:
+      output.OrganizationConfigRuleStatuses !== undefined &&
+      output.OrganizationConfigRuleStatuses !== null
+        ? deserializeAws_json1_1OrganizationConfigRuleStatuses(
+            output.OrganizationConfigRuleStatuses,
             context
           )
         : undefined
@@ -13226,6 +13205,27 @@ const deserializeAws_json1_1DescribeOrganizationConformancePacksResponse = (
       output.OrganizationConformancePacks !== null
         ? deserializeAws_json1_1OrganizationConformancePacks(
             output.OrganizationConformancePacks,
+            context
+          )
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeOrganizationConformancePackStatusesResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeOrganizationConformancePackStatusesResponse => {
+  return {
+    __type: "DescribeOrganizationConformancePackStatusesResponse",
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    OrganizationConformancePackStatuses:
+      output.OrganizationConformancePackStatuses !== undefined &&
+      output.OrganizationConformancePackStatuses !== null
+        ? deserializeAws_json1_1OrganizationConformancePackStatuses(
+            output.OrganizationConformancePackStatuses,
             context
           )
         : undefined
@@ -14645,6 +14645,15 @@ const deserializeAws_json1_1OrganizationConfigRuleDetailedStatus = (
   );
 };
 
+const deserializeAws_json1_1OrganizationConfigRules = (
+  output: any,
+  context: __SerdeContext
+): OrganizationConfigRule[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1OrganizationConfigRule(entry, context)
+  );
+};
+
 const deserializeAws_json1_1OrganizationConfigRuleStatus = (
   output: any,
   context: __SerdeContext
@@ -14690,15 +14699,6 @@ const deserializeAws_json1_1OrganizationConfigRuleTriggerTypes = (
   context: __SerdeContext
 ): (OrganizationConfigRuleTriggerType | string)[] => {
   return (output || []).map((entry: any) => entry);
-};
-
-const deserializeAws_json1_1OrganizationConfigRules = (
-  output: any,
-  context: __SerdeContext
-): OrganizationConfigRule[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1OrganizationConfigRule(entry, context)
-  );
 };
 
 const deserializeAws_json1_1OrganizationConformancePack = (
@@ -14794,6 +14794,15 @@ const deserializeAws_json1_1OrganizationConformancePackDetailedStatuses = (
   );
 };
 
+const deserializeAws_json1_1OrganizationConformancePacks = (
+  output: any,
+  context: __SerdeContext
+): OrganizationConformancePack[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1OrganizationConformancePack(entry, context)
+  );
+};
+
 const deserializeAws_json1_1OrganizationConformancePackStatus = (
   output: any,
   context: __SerdeContext
@@ -14844,15 +14853,6 @@ const deserializeAws_json1_1OrganizationConformancePackTemplateValidationExcepti
         ? output.message
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1OrganizationConformancePacks = (
-  output: any,
-  context: __SerdeContext
-): OrganizationConformancePack[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1OrganizationConformancePack(entry, context)
-  );
 };
 
 const deserializeAws_json1_1OrganizationCustomRuleMetadata = (
@@ -15441,6 +15441,22 @@ const deserializeAws_json1_1RemediationInProgressException = (
   } as any;
 };
 
+const deserializeAws_json1_1RemediationParameters = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: RemediationParameterValue } => {
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: RemediationParameterValue },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1RemediationParameterValue(value, context)
+    }),
+    {}
+  );
+};
+
 const deserializeAws_json1_1RemediationParameterValue = (
   output: any,
   context: __SerdeContext
@@ -15456,22 +15472,6 @@ const deserializeAws_json1_1RemediationParameterValue = (
         ? deserializeAws_json1_1StaticValue(output.StaticValue, context)
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1RemediationParameters = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: RemediationParameterValue } => {
-  return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: RemediationParameterValue },
-      [key, value]: [string, any]
-    ) => ({
-      ...acc,
-      [key]: deserializeAws_json1_1RemediationParameterValue(value, context)
-    }),
-    {}
-  );
 };
 
 const deserializeAws_json1_1ResourceCount = (

@@ -8,9 +8,9 @@ import {
   StopMonitoringMembersResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1StopMonitoringMembersCommand,
-  serializeAws_restJson1_1StopMonitoringMembersCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1StopMonitoringMembersCommand,
+  serializeAws_restJson1StopMonitoringMembersCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class StopMonitoringMembersCommand extends $Command<
     input: StopMonitoringMembersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StopMonitoringMembersCommand(input, context);
+    return serializeAws_restJson1StopMonitoringMembersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopMonitoringMembersCommandOutput> {
-    return deserializeAws_restJson1_1StopMonitoringMembersCommand(
+    return deserializeAws_restJson1StopMonitoringMembersCommand(
       output,
       context
     );

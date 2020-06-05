@@ -8,9 +8,9 @@ import {
   UpdatePushTemplateResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdatePushTemplateCommand,
-  serializeAws_restJson1_1UpdatePushTemplateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdatePushTemplateCommand,
+  serializeAws_restJson1UpdatePushTemplateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class UpdatePushTemplateCommand extends $Command<
     input: UpdatePushTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdatePushTemplateCommand(input, context);
+    return serializeAws_restJson1UpdatePushTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePushTemplateCommandOutput> {
-    return deserializeAws_restJson1_1UpdatePushTemplateCommand(output, context);
+    return deserializeAws_restJson1UpdatePushTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

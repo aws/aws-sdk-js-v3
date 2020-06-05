@@ -468,6 +468,79 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * <p>Creates stack instances for the specified accounts, within the specified regions. A
+   *          stack instance refers to a stack in a specific account and region. <code>Accounts</code>
+   *          and <code>Regions</code> are required parameters—you must specify at least one account and
+   *          one region. </p>
+   */
+  public createStackInstances(
+    args: CreateStackInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStackInstancesCommandOutput>;
+  public createStackInstances(
+    args: CreateStackInstancesCommandInput,
+    cb: (err: any, data?: CreateStackInstancesCommandOutput) => void
+  ): void;
+  public createStackInstances(
+    args: CreateStackInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateStackInstancesCommandOutput) => void
+  ): void;
+  public createStackInstances(
+    args: CreateStackInstancesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateStackInstancesCommandOutput) => void),
+    cb?: (err: any, data?: CreateStackInstancesCommandOutput) => void
+  ): Promise<CreateStackInstancesCommandOutput> | void {
+    const command = new CreateStackInstancesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a stack set.</p>
+   */
+  public createStackSet(
+    args: CreateStackSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStackSetCommandOutput>;
+  public createStackSet(
+    args: CreateStackSetCommandInput,
+    cb: (err: any, data?: CreateStackSetCommandOutput) => void
+  ): void;
+  public createStackSet(
+    args: CreateStackSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateStackSetCommandOutput) => void
+  ): void;
+  public createStackSet(
+    args: CreateStackSetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateStackSetCommandOutput) => void),
+    cb?: (err: any, data?: CreateStackSetCommandOutput) => void
+  ): Promise<CreateStackSetCommandOutput> | void {
+    const command = new CreateStackSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the specified change set. Deleting change sets ensures that no one executes
    *          the wrong change set.</p>
    *          <p>If the call successfully completes, AWS CloudFormation successfully deleted the
@@ -531,6 +604,77 @@ export class CloudFormation extends CloudFormationClient {
     cb?: (err: any, data?: DeleteStackCommandOutput) => void
   ): Promise<DeleteStackCommandOutput> | void {
     const command = new DeleteStackCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes stack instances for the specified accounts, in the specified regions. </p>
+   */
+  public deleteStackInstances(
+    args: DeleteStackInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteStackInstancesCommandOutput>;
+  public deleteStackInstances(
+    args: DeleteStackInstancesCommandInput,
+    cb: (err: any, data?: DeleteStackInstancesCommandOutput) => void
+  ): void;
+  public deleteStackInstances(
+    args: DeleteStackInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteStackInstancesCommandOutput) => void
+  ): void;
+  public deleteStackInstances(
+    args: DeleteStackInstancesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteStackInstancesCommandOutput) => void),
+    cb?: (err: any, data?: DeleteStackInstancesCommandOutput) => void
+  ): Promise<DeleteStackInstancesCommandOutput> | void {
+    const command = new DeleteStackInstancesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a stack set. Before you can delete a stack set, all of its member stack
+   *          instances must be deleted. For more information about how to do this, see <a>DeleteStackInstances</a>. </p>
+   */
+  public deleteStackSet(
+    args: DeleteStackSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteStackSetCommandOutput>;
+  public deleteStackSet(
+    args: DeleteStackSetCommandInput,
+    cb: (err: any, data?: DeleteStackSetCommandOutput) => void
+  ): void;
+  public deleteStackSet(
+    args: DeleteStackSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteStackSetCommandOutput) => void
+  ): void;
+  public deleteStackSet(
+    args: DeleteStackSetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteStackSetCommandOutput) => void),
+    cb?: (err: any, data?: DeleteStackSetCommandOutput) => void
+  ): Promise<DeleteStackSetCommandOutput> | void {
+    const command = new DeleteStackSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -754,6 +898,44 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * <p>Returns the stack instance that's associated with the specified stack set, AWS
+   *          account, and region.</p>
+   *          <p>For a list of stack instances that are associated with a specific stack set, use
+   *             <a>ListStackInstances</a>.</p>
+   */
+  public describeStackInstance(
+    args: DescribeStackInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeStackInstanceCommandOutput>;
+  public describeStackInstance(
+    args: DescribeStackInstanceCommandInput,
+    cb: (err: any, data?: DescribeStackInstanceCommandOutput) => void
+  ): void;
+  public describeStackInstance(
+    args: DescribeStackInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeStackInstanceCommandOutput) => void
+  ): void;
+  public describeStackInstance(
+    args: DescribeStackInstanceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeStackInstanceCommandOutput) => void),
+    cb?: (err: any, data?: DescribeStackInstanceCommandOutput) => void
+  ): Promise<DescribeStackInstanceCommandOutput> | void {
+    const command = new DescribeStackInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a description of the specified resource in the specified stack.</p>
    *          <p>For deleted stacks, DescribeStackResource returns resource information for up to 90
    *          days after the stack has been deleted.</p>
@@ -918,6 +1100,76 @@ export class CloudFormation extends CloudFormationClient {
     cb?: (err: any, data?: DescribeStacksCommandOutput) => void
   ): Promise<DescribeStacksCommandOutput> | void {
     const command = new DescribeStacksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the description of the specified stack set. </p>
+   */
+  public describeStackSet(
+    args: DescribeStackSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeStackSetCommandOutput>;
+  public describeStackSet(
+    args: DescribeStackSetCommandInput,
+    cb: (err: any, data?: DescribeStackSetCommandOutput) => void
+  ): void;
+  public describeStackSet(
+    args: DescribeStackSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeStackSetCommandOutput) => void
+  ): void;
+  public describeStackSet(
+    args: DescribeStackSetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeStackSetCommandOutput) => void),
+    cb?: (err: any, data?: DescribeStackSetCommandOutput) => void
+  ): Promise<DescribeStackSetCommandOutput> | void {
+    const command = new DescribeStackSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the description of the specified stack set operation. </p>
+   */
+  public describeStackSetOperation(
+    args: DescribeStackSetOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeStackSetOperationCommandOutput>;
+  public describeStackSetOperation(
+    args: DescribeStackSetOperationCommandInput,
+    cb: (err: any, data?: DescribeStackSetOperationCommandOutput) => void
+  ): void;
+  public describeStackSetOperation(
+    args: DescribeStackSetOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeStackSetOperationCommandOutput) => void
+  ): void;
+  public describeStackSetOperation(
+    args: DescribeStackSetOperationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeStackSetOperationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeStackSetOperationCommandOutput) => void
+  ): Promise<DescribeStackSetOperationCommandOutput> | void {
+    const command = new DescribeStackSetOperationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1098,6 +1350,85 @@ export class CloudFormation extends CloudFormationClient {
     cb?: (err: any, data?: DetectStackResourceDriftCommandOutput) => void
   ): Promise<DetectStackResourceDriftCommandOutput> | void {
     const command = new DetectStackResourceDriftCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Detect drift on a stack set. When CloudFormation performs drift detection on a stack
+   *          set, it performs drift detection on the stack associated with each stack instance in the
+   *          stack set. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">How CloudFormation
+   *             Performs Drift Detection on a Stack Set</a>.</p>
+   *          <p>
+   *             <code>DetectStackSetDrift</code> returns the <code>OperationId</code> of the stack set
+   *          drift detection operation. Use this operation id with <code>
+   *                <a>DescribeStackSetOperation</a>
+   *             </code> to monitor the progress of the drift
+   *          detection operation. The drift detection operation may take some time, depending on the
+   *          number of stack instances included in the stack set, as well as the number of resources
+   *          included in each stack.</p>
+   *          <p>Once the operation has completed, use the following actions to return drift
+   *          information:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Use <code>
+   *                      <a>DescribeStackSet</a>
+   *                   </code> to return detailed informaiton
+   *                about the stack set, including detailed information about the last
+   *                   <i>completed</i> drift operation performed on the stack set.
+   *                (Information about drift operations that are in progress is not included.)</p>
+   *             </li>
+   *             <li>
+   *                <p>Use <code>
+   *                      <a>ListStackInstances</a>
+   *                   </code> to return a list of stack
+   *                instances belonging to the stack set, including the drift status and last drift time
+   *                checked of each instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use <code>
+   *                      <a>DescribeStackInstance</a>
+   *                   </code> to return detailed
+   *                information about a specific stack instance, including its drift status and last
+   *                drift time checked.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information on performing a drift detection operation on a stack set, see
+   *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting Unmanaged
+   *             Changes in Stack Sets</a>. </p>
+   *          <p>You can only run a single drift detection operation on a given stack set at one time. </p>
+   *          <p>To stop a drift detection stack set operation, use <code>
+   *                <a>StopStackSetOperation</a>
+   *             </code>.</p>
+   */
+  public detectStackSetDrift(
+    args: DetectStackSetDriftCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetectStackSetDriftCommandOutput>;
+  public detectStackSetDrift(
+    args: DetectStackSetDriftCommandInput,
+    cb: (err: any, data?: DetectStackSetDriftCommandOutput) => void
+  ): void;
+  public detectStackSetDrift(
+    args: DetectStackSetDriftCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DetectStackSetDriftCommandOutput) => void
+  ): void;
+  public detectStackSetDrift(
+    args: DetectStackSetDriftCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DetectStackSetDriftCommandOutput) => void),
+    cb?: (err: any, data?: DetectStackSetDriftCommandOutput) => void
+  ): Promise<DetectStackSetDriftCommandOutput> | void {
+    const command = new DetectStackSetDriftCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1429,6 +1760,43 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * <p>Returns summary information about stack instances that are associated with the
+   *          specified stack set. You can filter for stack instances that are associated with a specific
+   *          AWS account name or region.</p>
+   */
+  public listStackInstances(
+    args: ListStackInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStackInstancesCommandOutput>;
+  public listStackInstances(
+    args: ListStackInstancesCommandInput,
+    cb: (err: any, data?: ListStackInstancesCommandOutput) => void
+  ): void;
+  public listStackInstances(
+    args: ListStackInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStackInstancesCommandOutput) => void
+  ): void;
+  public listStackInstances(
+    args: ListStackInstancesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListStackInstancesCommandOutput) => void),
+    cb?: (err: any, data?: ListStackInstancesCommandOutput) => void
+  ): Promise<ListStackInstancesCommandOutput> | void {
+    const command = new ListStackInstancesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns descriptions of all resources of the specified stack.</p>
    *          <p>For deleted stacks, ListStackResources returns resource information for up to 90 days
    *          after the stack has been deleted.</p>
@@ -1505,6 +1873,112 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * <p>Returns summary information about the results of a stack set operation. </p>
+   */
+  public listStackSetOperationResults(
+    args: ListStackSetOperationResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStackSetOperationResultsCommandOutput>;
+  public listStackSetOperationResults(
+    args: ListStackSetOperationResultsCommandInput,
+    cb: (err: any, data?: ListStackSetOperationResultsCommandOutput) => void
+  ): void;
+  public listStackSetOperationResults(
+    args: ListStackSetOperationResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStackSetOperationResultsCommandOutput) => void
+  ): void;
+  public listStackSetOperationResults(
+    args: ListStackSetOperationResultsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListStackSetOperationResultsCommandOutput) => void),
+    cb?: (err: any, data?: ListStackSetOperationResultsCommandOutput) => void
+  ): Promise<ListStackSetOperationResultsCommandOutput> | void {
+    const command = new ListStackSetOperationResultsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns summary information about operations performed on a stack set. </p>
+   */
+  public listStackSetOperations(
+    args: ListStackSetOperationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStackSetOperationsCommandOutput>;
+  public listStackSetOperations(
+    args: ListStackSetOperationsCommandInput,
+    cb: (err: any, data?: ListStackSetOperationsCommandOutput) => void
+  ): void;
+  public listStackSetOperations(
+    args: ListStackSetOperationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStackSetOperationsCommandOutput) => void
+  ): void;
+  public listStackSetOperations(
+    args: ListStackSetOperationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListStackSetOperationsCommandOutput) => void),
+    cb?: (err: any, data?: ListStackSetOperationsCommandOutput) => void
+  ): Promise<ListStackSetOperationsCommandOutput> | void {
+    const command = new ListStackSetOperationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns summary information about stack sets that are associated with the
+   *          user.</p>
+   */
+  public listStackSets(
+    args: ListStackSetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStackSetsCommandOutput>;
+  public listStackSets(
+    args: ListStackSetsCommandInput,
+    cb: (err: any, data?: ListStackSetsCommandOutput) => void
+  ): void;
+  public listStackSets(
+    args: ListStackSetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStackSetsCommandOutput) => void
+  ): void;
+  public listStackSets(
+    args: ListStackSetsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListStackSetsCommandOutput) => void),
+    cb?: (err: any, data?: ListStackSetsCommandOutput) => void
+  ): Promise<ListStackSetsCommandOutput> | void {
+    const command = new ListStackSetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of registration tokens for the specified type.</p>
    */
   public listTypeRegistrations(
@@ -1540,41 +2014,6 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
-   * <p>Returns summary information about the versions of a type.</p>
-   */
-  public listTypeVersions(
-    args: ListTypeVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTypeVersionsCommandOutput>;
-  public listTypeVersions(
-    args: ListTypeVersionsCommandInput,
-    cb: (err: any, data?: ListTypeVersionsCommandOutput) => void
-  ): void;
-  public listTypeVersions(
-    args: ListTypeVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTypeVersionsCommandOutput) => void
-  ): void;
-  public listTypeVersions(
-    args: ListTypeVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTypeVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListTypeVersionsCommandOutput) => void
-  ): Promise<ListTypeVersionsCommandOutput> | void {
-    const command = new ListTypeVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Returns summary information about types that have been registered with CloudFormation.</p>
    */
   public listTypes(
@@ -1598,6 +2037,41 @@ export class CloudFormation extends CloudFormationClient {
     cb?: (err: any, data?: ListTypesCommandOutput) => void
   ): Promise<ListTypesCommandOutput> | void {
     const command = new ListTypesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns summary information about the versions of a type.</p>
+   */
+  public listTypeVersions(
+    args: ListTypeVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTypeVersionsCommandOutput>;
+  public listTypeVersions(
+    args: ListTypeVersionsCommandInput,
+    cb: (err: any, data?: ListTypeVersionsCommandOutput) => void
+  ): void;
+  public listTypeVersions(
+    args: ListTypeVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTypeVersionsCommandOutput) => void
+  ): void;
+  public listTypeVersions(
+    args: ListTypeVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTypeVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListTypeVersionsCommandOutput) => void
+  ): Promise<ListTypeVersionsCommandOutput> | void {
+    const command = new ListTypeVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1808,6 +2282,41 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * <p>Stops an in-progress operation on a stack set and its associated stack instances. </p>
+   */
+  public stopStackSetOperation(
+    args: StopStackSetOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopStackSetOperationCommandOutput>;
+  public stopStackSetOperation(
+    args: StopStackSetOperationCommandInput,
+    cb: (err: any, data?: StopStackSetOperationCommandOutput) => void
+  ): void;
+  public stopStackSetOperation(
+    args: StopStackSetOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopStackSetOperationCommandOutput) => void
+  ): void;
+  public stopStackSetOperation(
+    args: StopStackSetOperationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopStackSetOperationCommandOutput) => void),
+    cb?: (err: any, data?: StopStackSetOperationCommandOutput) => void
+  ): Promise<StopStackSetOperationCommandOutput> | void {
+    const command = new StopStackSetOperationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates a stack as specified in the template. After the call completes successfully,
    *          the stack update starts. You can check the status of the stack via the <a>DescribeStacks</a> action.</p>
    *          <p>To get a copy of the template for an existing stack, you can use the <a>GetTemplate</a> action.</p>
@@ -1836,593 +2345,6 @@ export class CloudFormation extends CloudFormationClient {
     cb?: (err: any, data?: UpdateStackCommandOutput) => void
   ): Promise<UpdateStackCommandOutput> | void {
     const command = new UpdateStackCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates termination protection for the specified stack. If a user attempts to delete
-   *          a stack with termination protection enabled, the operation fails and the stack remains
-   *          unchanged. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting a
-   *             Stack From Being Deleted</a> in the <i>AWS CloudFormation User Guide</i>.</p>
-   *          <p> For <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested
-   *             stacks</a>, termination protection is set on the root stack and cannot be changed
-   *          directly on the nested stack.</p>
-   */
-  public updateTerminationProtection(
-    args: UpdateTerminationProtectionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateTerminationProtectionCommandOutput>;
-  public updateTerminationProtection(
-    args: UpdateTerminationProtectionCommandInput,
-    cb: (err: any, data?: UpdateTerminationProtectionCommandOutput) => void
-  ): void;
-  public updateTerminationProtection(
-    args: UpdateTerminationProtectionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateTerminationProtectionCommandOutput) => void
-  ): void;
-  public updateTerminationProtection(
-    args: UpdateTerminationProtectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTerminationProtectionCommandOutput) => void),
-    cb?: (err: any, data?: UpdateTerminationProtectionCommandOutput) => void
-  ): Promise<UpdateTerminationProtectionCommandOutput> | void {
-    const command = new UpdateTerminationProtectionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Validates a specified template. AWS CloudFormation first checks if the template is
-   *          valid JSON. If it isn't, AWS CloudFormation checks if the template is valid YAML. If both
-   *          these checks fail, AWS CloudFormation returns a template validation error.</p>
-   */
-  public validateTemplate(
-    args: ValidateTemplateCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ValidateTemplateCommandOutput>;
-  public validateTemplate(
-    args: ValidateTemplateCommandInput,
-    cb: (err: any, data?: ValidateTemplateCommandOutput) => void
-  ): void;
-  public validateTemplate(
-    args: ValidateTemplateCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ValidateTemplateCommandOutput) => void
-  ): void;
-  public validateTemplate(
-    args: ValidateTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ValidateTemplateCommandOutput) => void),
-    cb?: (err: any, data?: ValidateTemplateCommandOutput) => void
-  ): Promise<ValidateTemplateCommandOutput> | void {
-    const command = new ValidateTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates stack instances for the specified accounts, within the specified regions. A
-   *          stack instance refers to a stack in a specific account and region. <code>Accounts</code>
-   *          and <code>Regions</code> are required parameters—you must specify at least one account and
-   *          one region. </p>
-   */
-  public createStackInstances(
-    args: CreateStackInstancesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateStackInstancesCommandOutput>;
-  public createStackInstances(
-    args: CreateStackInstancesCommandInput,
-    cb: (err: any, data?: CreateStackInstancesCommandOutput) => void
-  ): void;
-  public createStackInstances(
-    args: CreateStackInstancesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateStackInstancesCommandOutput) => void
-  ): void;
-  public createStackInstances(
-    args: CreateStackInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStackInstancesCommandOutput) => void),
-    cb?: (err: any, data?: CreateStackInstancesCommandOutput) => void
-  ): Promise<CreateStackInstancesCommandOutput> | void {
-    const command = new CreateStackInstancesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a stack set.</p>
-   */
-  public createStackSet(
-    args: CreateStackSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateStackSetCommandOutput>;
-  public createStackSet(
-    args: CreateStackSetCommandInput,
-    cb: (err: any, data?: CreateStackSetCommandOutput) => void
-  ): void;
-  public createStackSet(
-    args: CreateStackSetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateStackSetCommandOutput) => void
-  ): void;
-  public createStackSet(
-    args: CreateStackSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStackSetCommandOutput) => void),
-    cb?: (err: any, data?: CreateStackSetCommandOutput) => void
-  ): Promise<CreateStackSetCommandOutput> | void {
-    const command = new CreateStackSetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes stack instances for the specified accounts, in the specified regions. </p>
-   */
-  public deleteStackInstances(
-    args: DeleteStackInstancesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteStackInstancesCommandOutput>;
-  public deleteStackInstances(
-    args: DeleteStackInstancesCommandInput,
-    cb: (err: any, data?: DeleteStackInstancesCommandOutput) => void
-  ): void;
-  public deleteStackInstances(
-    args: DeleteStackInstancesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteStackInstancesCommandOutput) => void
-  ): void;
-  public deleteStackInstances(
-    args: DeleteStackInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteStackInstancesCommandOutput) => void),
-    cb?: (err: any, data?: DeleteStackInstancesCommandOutput) => void
-  ): Promise<DeleteStackInstancesCommandOutput> | void {
-    const command = new DeleteStackInstancesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a stack set. Before you can delete a stack set, all of its member stack
-   *          instances must be deleted. For more information about how to do this, see <a>DeleteStackInstances</a>. </p>
-   */
-  public deleteStackSet(
-    args: DeleteStackSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteStackSetCommandOutput>;
-  public deleteStackSet(
-    args: DeleteStackSetCommandInput,
-    cb: (err: any, data?: DeleteStackSetCommandOutput) => void
-  ): void;
-  public deleteStackSet(
-    args: DeleteStackSetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteStackSetCommandOutput) => void
-  ): void;
-  public deleteStackSet(
-    args: DeleteStackSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteStackSetCommandOutput) => void),
-    cb?: (err: any, data?: DeleteStackSetCommandOutput) => void
-  ): Promise<DeleteStackSetCommandOutput> | void {
-    const command = new DeleteStackSetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns the stack instance that's associated with the specified stack set, AWS
-   *          account, and region.</p>
-   *          <p>For a list of stack instances that are associated with a specific stack set, use
-   *             <a>ListStackInstances</a>.</p>
-   */
-  public describeStackInstance(
-    args: DescribeStackInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeStackInstanceCommandOutput>;
-  public describeStackInstance(
-    args: DescribeStackInstanceCommandInput,
-    cb: (err: any, data?: DescribeStackInstanceCommandOutput) => void
-  ): void;
-  public describeStackInstance(
-    args: DescribeStackInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeStackInstanceCommandOutput) => void
-  ): void;
-  public describeStackInstance(
-    args: DescribeStackInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStackInstanceCommandOutput) => void),
-    cb?: (err: any, data?: DescribeStackInstanceCommandOutput) => void
-  ): Promise<DescribeStackInstanceCommandOutput> | void {
-    const command = new DescribeStackInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns the description of the specified stack set. </p>
-   */
-  public describeStackSet(
-    args: DescribeStackSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeStackSetCommandOutput>;
-  public describeStackSet(
-    args: DescribeStackSetCommandInput,
-    cb: (err: any, data?: DescribeStackSetCommandOutput) => void
-  ): void;
-  public describeStackSet(
-    args: DescribeStackSetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeStackSetCommandOutput) => void
-  ): void;
-  public describeStackSet(
-    args: DescribeStackSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStackSetCommandOutput) => void),
-    cb?: (err: any, data?: DescribeStackSetCommandOutput) => void
-  ): Promise<DescribeStackSetCommandOutput> | void {
-    const command = new DescribeStackSetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns the description of the specified stack set operation. </p>
-   */
-  public describeStackSetOperation(
-    args: DescribeStackSetOperationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeStackSetOperationCommandOutput>;
-  public describeStackSetOperation(
-    args: DescribeStackSetOperationCommandInput,
-    cb: (err: any, data?: DescribeStackSetOperationCommandOutput) => void
-  ): void;
-  public describeStackSetOperation(
-    args: DescribeStackSetOperationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeStackSetOperationCommandOutput) => void
-  ): void;
-  public describeStackSetOperation(
-    args: DescribeStackSetOperationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStackSetOperationCommandOutput) => void),
-    cb?: (err: any, data?: DescribeStackSetOperationCommandOutput) => void
-  ): Promise<DescribeStackSetOperationCommandOutput> | void {
-    const command = new DescribeStackSetOperationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Detect drift on a stack set. When CloudFormation performs drift detection on a stack
-   *          set, it performs drift detection on the stack associated with each stack instance in the
-   *          stack set. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">How CloudFormation
-   *             Performs Drift Detection on a Stack Set</a>.</p>
-   *          <p>
-   *             <code>DetectStackSetDrift</code> returns the <code>OperationId</code> of the stack set
-   *          drift detection operation. Use this operation id with <code>
-   *                <a>DescribeStackSetOperation</a>
-   *             </code> to monitor the progress of the drift
-   *          detection operation. The drift detection operation may take some time, depending on the
-   *          number of stack instances included in the stack set, as well as the number of resources
-   *          included in each stack.</p>
-   *          <p>Once the operation has completed, use the following actions to return drift
-   *          information:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Use <code>
-   *                      <a>DescribeStackSet</a>
-   *                   </code> to return detailed informaiton
-   *                about the stack set, including detailed information about the last
-   *                   <i>completed</i> drift operation performed on the stack set.
-   *                (Information about drift operations that are in progress is not included.)</p>
-   *             </li>
-   *             <li>
-   *                <p>Use <code>
-   *                      <a>ListStackInstances</a>
-   *                   </code> to return a list of stack
-   *                instances belonging to the stack set, including the drift status and last drift time
-   *                checked of each instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>Use <code>
-   *                      <a>DescribeStackInstance</a>
-   *                   </code> to return detailed
-   *                information about a specific stack instance, including its drift status and last
-   *                drift time checked.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information on performing a drift detection operation on a stack set, see
-   *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting Unmanaged
-   *             Changes in Stack Sets</a>. </p>
-   *          <p>You can only run a single drift detection operation on a given stack set at one time. </p>
-   *          <p>To stop a drift detection stack set operation, use <code>
-   *                <a>StopStackSetOperation</a>
-   *             </code>.</p>
-   */
-  public detectStackSetDrift(
-    args: DetectStackSetDriftCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DetectStackSetDriftCommandOutput>;
-  public detectStackSetDrift(
-    args: DetectStackSetDriftCommandInput,
-    cb: (err: any, data?: DetectStackSetDriftCommandOutput) => void
-  ): void;
-  public detectStackSetDrift(
-    args: DetectStackSetDriftCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DetectStackSetDriftCommandOutput) => void
-  ): void;
-  public detectStackSetDrift(
-    args: DetectStackSetDriftCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectStackSetDriftCommandOutput) => void),
-    cb?: (err: any, data?: DetectStackSetDriftCommandOutput) => void
-  ): Promise<DetectStackSetDriftCommandOutput> | void {
-    const command = new DetectStackSetDriftCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns summary information about stack instances that are associated with the
-   *          specified stack set. You can filter for stack instances that are associated with a specific
-   *          AWS account name or region.</p>
-   */
-  public listStackInstances(
-    args: ListStackInstancesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListStackInstancesCommandOutput>;
-  public listStackInstances(
-    args: ListStackInstancesCommandInput,
-    cb: (err: any, data?: ListStackInstancesCommandOutput) => void
-  ): void;
-  public listStackInstances(
-    args: ListStackInstancesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListStackInstancesCommandOutput) => void
-  ): void;
-  public listStackInstances(
-    args: ListStackInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStackInstancesCommandOutput) => void),
-    cb?: (err: any, data?: ListStackInstancesCommandOutput) => void
-  ): Promise<ListStackInstancesCommandOutput> | void {
-    const command = new ListStackInstancesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns summary information about the results of a stack set operation. </p>
-   */
-  public listStackSetOperationResults(
-    args: ListStackSetOperationResultsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListStackSetOperationResultsCommandOutput>;
-  public listStackSetOperationResults(
-    args: ListStackSetOperationResultsCommandInput,
-    cb: (err: any, data?: ListStackSetOperationResultsCommandOutput) => void
-  ): void;
-  public listStackSetOperationResults(
-    args: ListStackSetOperationResultsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListStackSetOperationResultsCommandOutput) => void
-  ): void;
-  public listStackSetOperationResults(
-    args: ListStackSetOperationResultsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStackSetOperationResultsCommandOutput) => void),
-    cb?: (err: any, data?: ListStackSetOperationResultsCommandOutput) => void
-  ): Promise<ListStackSetOperationResultsCommandOutput> | void {
-    const command = new ListStackSetOperationResultsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns summary information about operations performed on a stack set. </p>
-   */
-  public listStackSetOperations(
-    args: ListStackSetOperationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListStackSetOperationsCommandOutput>;
-  public listStackSetOperations(
-    args: ListStackSetOperationsCommandInput,
-    cb: (err: any, data?: ListStackSetOperationsCommandOutput) => void
-  ): void;
-  public listStackSetOperations(
-    args: ListStackSetOperationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListStackSetOperationsCommandOutput) => void
-  ): void;
-  public listStackSetOperations(
-    args: ListStackSetOperationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStackSetOperationsCommandOutput) => void),
-    cb?: (err: any, data?: ListStackSetOperationsCommandOutput) => void
-  ): Promise<ListStackSetOperationsCommandOutput> | void {
-    const command = new ListStackSetOperationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns summary information about stack sets that are associated with the
-   *          user.</p>
-   */
-  public listStackSets(
-    args: ListStackSetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListStackSetsCommandOutput>;
-  public listStackSets(
-    args: ListStackSetsCommandInput,
-    cb: (err: any, data?: ListStackSetsCommandOutput) => void
-  ): void;
-  public listStackSets(
-    args: ListStackSetsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListStackSetsCommandOutput) => void
-  ): void;
-  public listStackSets(
-    args: ListStackSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStackSetsCommandOutput) => void),
-    cb?: (err: any, data?: ListStackSetsCommandOutput) => void
-  ): Promise<ListStackSetsCommandOutput> | void {
-    const command = new ListStackSetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Stops an in-progress operation on a stack set and its associated stack instances. </p>
-   */
-  public stopStackSetOperation(
-    args: StopStackSetOperationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopStackSetOperationCommandOutput>;
-  public stopStackSetOperation(
-    args: StopStackSetOperationCommandInput,
-    cb: (err: any, data?: StopStackSetOperationCommandOutput) => void
-  ): void;
-  public stopStackSetOperation(
-    args: StopStackSetOperationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StopStackSetOperationCommandOutput) => void
-  ): void;
-  public stopStackSetOperation(
-    args: StopStackSetOperationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopStackSetOperationCommandOutput) => void),
-    cb?: (err: any, data?: StopStackSetOperationCommandOutput) => void
-  ): Promise<StopStackSetOperationCommandOutput> | void {
-    const command = new StopStackSetOperationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2510,6 +2432,84 @@ export class CloudFormation extends CloudFormationClient {
     cb?: (err: any, data?: UpdateStackSetCommandOutput) => void
   ): Promise<UpdateStackSetCommandOutput> | void {
     const command = new UpdateStackSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates termination protection for the specified stack. If a user attempts to delete
+   *          a stack with termination protection enabled, the operation fails and the stack remains
+   *          unchanged. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting a
+   *             Stack From Being Deleted</a> in the <i>AWS CloudFormation User Guide</i>.</p>
+   *          <p> For <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested
+   *             stacks</a>, termination protection is set on the root stack and cannot be changed
+   *          directly on the nested stack.</p>
+   */
+  public updateTerminationProtection(
+    args: UpdateTerminationProtectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTerminationProtectionCommandOutput>;
+  public updateTerminationProtection(
+    args: UpdateTerminationProtectionCommandInput,
+    cb: (err: any, data?: UpdateTerminationProtectionCommandOutput) => void
+  ): void;
+  public updateTerminationProtection(
+    args: UpdateTerminationProtectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTerminationProtectionCommandOutput) => void
+  ): void;
+  public updateTerminationProtection(
+    args: UpdateTerminationProtectionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateTerminationProtectionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateTerminationProtectionCommandOutput) => void
+  ): Promise<UpdateTerminationProtectionCommandOutput> | void {
+    const command = new UpdateTerminationProtectionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Validates a specified template. AWS CloudFormation first checks if the template is
+   *          valid JSON. If it isn't, AWS CloudFormation checks if the template is valid YAML. If both
+   *          these checks fail, AWS CloudFormation returns a template validation error.</p>
+   */
+  public validateTemplate(
+    args: ValidateTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ValidateTemplateCommandOutput>;
+  public validateTemplate(
+    args: ValidateTemplateCommandInput,
+    cb: (err: any, data?: ValidateTemplateCommandOutput) => void
+  ): void;
+  public validateTemplate(
+    args: ValidateTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ValidateTemplateCommandOutput) => void
+  ): void;
+  public validateTemplate(
+    args: ValidateTemplateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ValidateTemplateCommandOutput) => void),
+    cb?: (err: any, data?: ValidateTemplateCommandOutput) => void
+  ): Promise<ValidateTemplateCommandOutput> | void {
+    const command = new ValidateTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

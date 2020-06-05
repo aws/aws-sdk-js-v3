@@ -8,9 +8,9 @@ import {
   DescribeWebsiteCertificateAuthorityResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeWebsiteCertificateAuthorityCommand,
-  serializeAws_restJson1_1DescribeWebsiteCertificateAuthorityCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeWebsiteCertificateAuthorityCommand,
+  serializeAws_restJson1DescribeWebsiteCertificateAuthorityCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeWebsiteCertificateAuthorityCommand extends $Command<
     input: DescribeWebsiteCertificateAuthorityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeWebsiteCertificateAuthorityCommand(
+    return serializeAws_restJson1DescribeWebsiteCertificateAuthorityCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeWebsiteCertificateAuthorityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWebsiteCertificateAuthorityCommandOutput> {
-    return deserializeAws_restJson1_1DescribeWebsiteCertificateAuthorityCommand(
+    return deserializeAws_restJson1DescribeWebsiteCertificateAuthorityCommand(
       output,
       context
     );

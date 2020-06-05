@@ -5,9 +5,9 @@ import {
 } from "../PinpointClient";
 import { GetApnsChannelRequest, GetApnsChannelResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetApnsChannelCommand,
-  serializeAws_restJson1_1GetApnsChannelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetApnsChannelCommand,
+  serializeAws_restJson1GetApnsChannelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetApnsChannelCommand extends $Command<
     input: GetApnsChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetApnsChannelCommand(input, context);
+    return serializeAws_restJson1GetApnsChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetApnsChannelCommandOutput> {
-    return deserializeAws_restJson1_1GetApnsChannelCommand(output, context);
+    return deserializeAws_restJson1GetApnsChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

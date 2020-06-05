@@ -5,9 +5,9 @@ import {
 } from "../GlacierClient";
 import { SetVaultAccessPolicyInput } from "../models/index";
 import {
-  deserializeAws_restJson1_1SetVaultAccessPolicyCommand,
-  serializeAws_restJson1_1SetVaultAccessPolicyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1SetVaultAccessPolicyCommand,
+  serializeAws_restJson1SetVaultAccessPolicyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,17 +70,14 @@ export class SetVaultAccessPolicyCommand extends $Command<
     input: SetVaultAccessPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1SetVaultAccessPolicyCommand(input, context);
+    return serializeAws_restJson1SetVaultAccessPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetVaultAccessPolicyCommandOutput> {
-    return deserializeAws_restJson1_1SetVaultAccessPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1SetVaultAccessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

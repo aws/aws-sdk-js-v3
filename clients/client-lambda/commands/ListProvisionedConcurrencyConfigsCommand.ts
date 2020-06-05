@@ -8,9 +8,9 @@ import {
   ListProvisionedConcurrencyConfigsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListProvisionedConcurrencyConfigsCommand,
-  serializeAws_restJson1_1ListProvisionedConcurrencyConfigsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListProvisionedConcurrencyConfigsCommand,
+  serializeAws_restJson1ListProvisionedConcurrencyConfigsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListProvisionedConcurrencyConfigsCommand extends $Command<
     input: ListProvisionedConcurrencyConfigsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListProvisionedConcurrencyConfigsCommand(
+    return serializeAws_restJson1ListProvisionedConcurrencyConfigsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListProvisionedConcurrencyConfigsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProvisionedConcurrencyConfigsCommandOutput> {
-    return deserializeAws_restJson1_1ListProvisionedConcurrencyConfigsCommand(
+    return deserializeAws_restJson1ListProvisionedConcurrencyConfigsCommand(
       output,
       context
     );

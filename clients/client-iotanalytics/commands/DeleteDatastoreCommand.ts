@@ -5,9 +5,9 @@ import {
 } from "../IoTAnalyticsClient";
 import { DeleteDatastoreRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteDatastoreCommand,
-  serializeAws_restJson1_1DeleteDatastoreCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteDatastoreCommand,
+  serializeAws_restJson1DeleteDatastoreCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteDatastoreCommand extends $Command<
     input: DeleteDatastoreCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDatastoreCommand(input, context);
+    return serializeAws_restJson1DeleteDatastoreCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDatastoreCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDatastoreCommand(output, context);
+    return deserializeAws_restJson1DeleteDatastoreCommand(output, context);
   }
 
   // Start section: command_body_extra

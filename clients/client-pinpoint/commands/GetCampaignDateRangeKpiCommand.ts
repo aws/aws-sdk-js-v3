@@ -8,9 +8,9 @@ import {
   GetCampaignDateRangeKpiResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetCampaignDateRangeKpiCommand,
-  serializeAws_restJson1_1GetCampaignDateRangeKpiCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetCampaignDateRangeKpiCommand,
+  serializeAws_restJson1GetCampaignDateRangeKpiCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetCampaignDateRangeKpiCommand extends $Command<
     input: GetCampaignDateRangeKpiCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetCampaignDateRangeKpiCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1GetCampaignDateRangeKpiCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCampaignDateRangeKpiCommandOutput> {
-    return deserializeAws_restJson1_1GetCampaignDateRangeKpiCommand(
+    return deserializeAws_restJson1GetCampaignDateRangeKpiCommand(
       output,
       context
     );

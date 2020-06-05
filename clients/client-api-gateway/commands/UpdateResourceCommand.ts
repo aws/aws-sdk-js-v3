@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { Resource, UpdateResourceRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateResourceCommand,
-  serializeAws_restJson1_1UpdateResourceCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateResourceCommand,
+  serializeAws_restJson1UpdateResourceCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class UpdateResourceCommand extends $Command<
     input: UpdateResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateResourceCommand(input, context);
+    return serializeAws_restJson1UpdateResourceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateResourceCommandOutput> {
-    return deserializeAws_restJson1_1UpdateResourceCommand(output, context);
+    return deserializeAws_restJson1UpdateResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

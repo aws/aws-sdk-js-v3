@@ -8,9 +8,9 @@ import {
   GetUpgradeStatusResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetUpgradeStatusCommand,
-  serializeAws_restJson1_1GetUpgradeStatusCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetUpgradeStatusCommand,
+  serializeAws_restJson1GetUpgradeStatusCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetUpgradeStatusCommand extends $Command<
     input: GetUpgradeStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetUpgradeStatusCommand(input, context);
+    return serializeAws_restJson1GetUpgradeStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetUpgradeStatusCommandOutput> {
-    return deserializeAws_restJson1_1GetUpgradeStatusCommand(output, context);
+    return deserializeAws_restJson1GetUpgradeStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

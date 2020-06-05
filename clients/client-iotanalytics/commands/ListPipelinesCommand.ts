@@ -5,9 +5,9 @@ import {
 } from "../IoTAnalyticsClient";
 import { ListPipelinesRequest, ListPipelinesResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListPipelinesCommand,
-  serializeAws_restJson1_1ListPipelinesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListPipelinesCommand,
+  serializeAws_restJson1ListPipelinesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class ListPipelinesCommand extends $Command<
     input: ListPipelinesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListPipelinesCommand(input, context);
+    return serializeAws_restJson1ListPipelinesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPipelinesCommandOutput> {
-    return deserializeAws_restJson1_1ListPipelinesCommand(output, context);
+    return deserializeAws_restJson1ListPipelinesCommand(output, context);
   }
 
   // Start section: command_body_extra

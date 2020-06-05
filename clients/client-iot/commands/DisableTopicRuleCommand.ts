@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { DisableTopicRuleRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DisableTopicRuleCommand,
-  serializeAws_restJson1_1DisableTopicRuleCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DisableTopicRuleCommand,
+  serializeAws_restJson1DisableTopicRuleCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DisableTopicRuleCommand extends $Command<
     input: DisableTopicRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisableTopicRuleCommand(input, context);
+    return serializeAws_restJson1DisableTopicRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableTopicRuleCommandOutput> {
-    return deserializeAws_restJson1_1DisableTopicRuleCommand(output, context);
+    return deserializeAws_restJson1DisableTopicRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

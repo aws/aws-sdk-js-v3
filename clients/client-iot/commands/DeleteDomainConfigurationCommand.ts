@@ -8,9 +8,9 @@ import {
   DeleteDomainConfigurationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteDomainConfigurationCommand,
-  serializeAws_restJson1_1DeleteDomainConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteDomainConfigurationCommand,
+  serializeAws_restJson1DeleteDomainConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DeleteDomainConfigurationCommand extends $Command<
     input: DeleteDomainConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDomainConfigurationCommand(
+    return serializeAws_restJson1DeleteDomainConfigurationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DeleteDomainConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDomainConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDomainConfigurationCommand(
+    return deserializeAws_restJson1DeleteDomainConfigurationCommand(
       output,
       context
     );

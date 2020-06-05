@@ -8,9 +8,9 @@ import {
   UpdateActionTargetResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateActionTargetCommand,
-  serializeAws_restJson1_1UpdateActionTargetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateActionTargetCommand,
+  serializeAws_restJson1UpdateActionTargetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class UpdateActionTargetCommand extends $Command<
     input: UpdateActionTargetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateActionTargetCommand(input, context);
+    return serializeAws_restJson1UpdateActionTargetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateActionTargetCommandOutput> {
-    return deserializeAws_restJson1_1UpdateActionTargetCommand(output, context);
+    return deserializeAws_restJson1UpdateActionTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

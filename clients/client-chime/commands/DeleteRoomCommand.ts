@@ -5,9 +5,9 @@ import {
 } from "../ChimeClient";
 import { DeleteRoomRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteRoomCommand,
-  serializeAws_restJson1_1DeleteRoomCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteRoomCommand,
+  serializeAws_restJson1DeleteRoomCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteRoomCommand extends $Command<
     input: DeleteRoomCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteRoomCommand(input, context);
+    return serializeAws_restJson1DeleteRoomCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRoomCommandOutput> {
-    return deserializeAws_restJson1_1DeleteRoomCommand(output, context);
+    return deserializeAws_restJson1DeleteRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

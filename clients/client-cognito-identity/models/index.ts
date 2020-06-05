@@ -393,6 +393,61 @@ export namespace GetCredentialsForIdentityResponse {
 }
 
 /**
+ * <p>Input to the <code>GetIdentityPoolRoles</code> action.</p>
+ */
+export interface GetIdentityPoolRolesInput {
+  __type?: "GetIdentityPoolRolesInput";
+  /**
+   * <p>An identity pool ID in the format REGION:GUID.</p>
+   */
+  IdentityPoolId: string | undefined;
+}
+
+export namespace GetIdentityPoolRolesInput {
+  export const filterSensitiveLog = (obj: GetIdentityPoolRolesInput): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetIdentityPoolRolesInput =>
+    __isa(o, "GetIdentityPoolRolesInput");
+}
+
+/**
+ * <p>Returned in response to a successful <code>GetIdentityPoolRoles</code>
+ *          operation.</p>
+ */
+export interface GetIdentityPoolRolesResponse {
+  __type?: "GetIdentityPoolRolesResponse";
+  /**
+   * <p>An identity pool ID in the format REGION:GUID.</p>
+   */
+  IdentityPoolId?: string;
+
+  /**
+   * <p>How users for a specific identity provider are to mapped to roles. This is a
+   *             String-to-<a>RoleMapping</a> object map. The string identifies the identity
+   *          provider, for example, "graph.facebook.com" or
+   *          "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".</p>
+   */
+  RoleMappings?: { [key: string]: RoleMapping };
+
+  /**
+   * <p>The map of roles associated with this pool. Currently only authenticated and
+   *          unauthenticated roles are supported.</p>
+   */
+  Roles?: { [key: string]: string };
+}
+
+export namespace GetIdentityPoolRolesResponse {
+  export const filterSensitiveLog = (
+    obj: GetIdentityPoolRolesResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetIdentityPoolRolesResponse =>
+    __isa(o, "GetIdentityPoolRolesResponse");
+}
+
+/**
  * <p>Input to the GetId action.</p>
  */
 export interface GetIdInput {
@@ -465,61 +520,6 @@ export namespace GetIdResponse {
     ...obj
   });
   export const isa = (o: any): o is GetIdResponse => __isa(o, "GetIdResponse");
-}
-
-/**
- * <p>Input to the <code>GetIdentityPoolRoles</code> action.</p>
- */
-export interface GetIdentityPoolRolesInput {
-  __type?: "GetIdentityPoolRolesInput";
-  /**
-   * <p>An identity pool ID in the format REGION:GUID.</p>
-   */
-  IdentityPoolId: string | undefined;
-}
-
-export namespace GetIdentityPoolRolesInput {
-  export const filterSensitiveLog = (obj: GetIdentityPoolRolesInput): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetIdentityPoolRolesInput =>
-    __isa(o, "GetIdentityPoolRolesInput");
-}
-
-/**
- * <p>Returned in response to a successful <code>GetIdentityPoolRoles</code>
- *          operation.</p>
- */
-export interface GetIdentityPoolRolesResponse {
-  __type?: "GetIdentityPoolRolesResponse";
-  /**
-   * <p>An identity pool ID in the format REGION:GUID.</p>
-   */
-  IdentityPoolId?: string;
-
-  /**
-   * <p>How users for a specific identity provider are to mapped to roles. This is a
-   *             String-to-<a>RoleMapping</a> object map. The string identifies the identity
-   *          provider, for example, "graph.facebook.com" or
-   *          "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".</p>
-   */
-  RoleMappings?: { [key: string]: RoleMapping };
-
-  /**
-   * <p>The map of roles associated with this pool. Currently only authenticated and
-   *          unauthenticated roles are supported.</p>
-   */
-  Roles?: { [key: string]: string };
-}
-
-export namespace GetIdentityPoolRolesResponse {
-  export const filterSensitiveLog = (
-    obj: GetIdentityPoolRolesResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetIdentityPoolRolesResponse =>
-    __isa(o, "GetIdentityPoolRolesResponse");
 }
 
 /**

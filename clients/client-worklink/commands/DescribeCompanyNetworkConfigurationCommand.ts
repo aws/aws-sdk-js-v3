@@ -8,9 +8,9 @@ import {
   DescribeCompanyNetworkConfigurationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeCompanyNetworkConfigurationCommand,
-  serializeAws_restJson1_1DescribeCompanyNetworkConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeCompanyNetworkConfigurationCommand,
+  serializeAws_restJson1DescribeCompanyNetworkConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeCompanyNetworkConfigurationCommand extends $Command<
     input: DescribeCompanyNetworkConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeCompanyNetworkConfigurationCommand(
+    return serializeAws_restJson1DescribeCompanyNetworkConfigurationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeCompanyNetworkConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCompanyNetworkConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DescribeCompanyNetworkConfigurationCommand(
+    return deserializeAws_restJson1DescribeCompanyNetworkConfigurationCommand(
       output,
       context
     );

@@ -1,8 +1,8 @@
 import { SearchSchemasRequest, SearchSchemasResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1SearchSchemasCommand,
-  serializeAws_restJson1_1SearchSchemasCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1SearchSchemasCommand,
+  serializeAws_restJson1SearchSchemasCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -68,14 +68,14 @@ export class SearchSchemasCommand extends $Command<
     input: SearchSchemasCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1SearchSchemasCommand(input, context);
+    return serializeAws_restJson1SearchSchemasCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchSchemasCommandOutput> {
-    return deserializeAws_restJson1_1SearchSchemasCommand(output, context);
+    return deserializeAws_restJson1SearchSchemasCommand(output, context);
   }
 
   // Start section: command_body_extra

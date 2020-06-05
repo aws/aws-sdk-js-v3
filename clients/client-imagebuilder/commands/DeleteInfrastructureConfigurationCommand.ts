@@ -8,9 +8,9 @@ import {
   DeleteInfrastructureConfigurationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteInfrastructureConfigurationCommand,
-  serializeAws_restJson1_1DeleteInfrastructureConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteInfrastructureConfigurationCommand,
+  serializeAws_restJson1DeleteInfrastructureConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DeleteInfrastructureConfigurationCommand extends $Command<
     input: DeleteInfrastructureConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteInfrastructureConfigurationCommand(
+    return serializeAws_restJson1DeleteInfrastructureConfigurationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DeleteInfrastructureConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteInfrastructureConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteInfrastructureConfigurationCommand(
+    return deserializeAws_restJson1DeleteInfrastructureConfigurationCommand(
       output,
       context
     );

@@ -6,6 +6,50 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
+/**
+ * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ *       allowed client calls. Try making the call later.</p>
+ */
+export interface ClientLimitExceededException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ClientLimitExceededException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ClientLimitExceededException {
+  export const filterSensitiveLog = (
+    obj: ClientLimitExceededException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ClientLimitExceededException =>
+    __isa(o, "ClientLimitExceededException");
+}
+
+/**
+ * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ *       allowed client connections.</p>
+ */
+export interface ConnectionLimitExceededException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ConnectionLimitExceededException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ConnectionLimitExceededException {
+  export const filterSensitiveLog = (
+    obj: ConnectionLimitExceededException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ConnectionLimitExceededException =>
+    __isa(o, "ConnectionLimitExceededException");
+}
+
 export interface GetMediaInput {
   __type?: "GetMediaInput";
   /**
@@ -123,6 +167,86 @@ export namespace GetMediaOutput {
 }
 
 /**
+ * <p>The value for this input parameter is invalid.</p>
+ */
+export interface InvalidArgumentException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidArgumentException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidArgumentException {
+  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidArgumentException =>
+    __isa(o, "InvalidArgumentException");
+}
+
+/**
+ * <p> Status Code: 400, Caller used wrong endpoint to write data to a stream. On receiving
+ *       such an exception, the user must call <code>GetDataEndpoint</code> with
+ *         <code>AccessMode</code> set to "READ" and use the endpoint Kinesis Video returns in the next
+ *         <code>GetMedia</code> call. </p>
+ */
+export interface InvalidEndpointException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidEndpointException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidEndpointException {
+  export const filterSensitiveLog = (obj: InvalidEndpointException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidEndpointException =>
+    __isa(o, "InvalidEndpointException");
+}
+
+/**
+ * <p>Status Code: 403, The caller is not authorized to perform an operation on the given
+ *       stream, or the token has expired.</p>
+ */
+export interface NotAuthorizedException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "NotAuthorizedException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NotAuthorizedException {
+  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is NotAuthorizedException =>
+    __isa(o, "NotAuthorizedException");
+}
+
+/**
+ * <p>Status Code: 404, The stream with the given name does not exist.</p>
+ */
+export interface ResourceNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
+}
+
+/**
  * <p>Identifies the chunk on the Kinesis video stream where you want the
  *         <code>GetMedia</code> API to start returning media data. You have the following options to
  *       identify the starting chunk: </p>
@@ -211,128 +335,4 @@ export enum StartSelectorType {
   NOW = "NOW",
   PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
   SERVER_TIMESTAMP = "SERVER_TIMESTAMP"
-}
-
-/**
- * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
- *       allowed client calls. Try making the call later.</p>
- */
-export interface ClientLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ClientLimitExceededException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ClientLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: ClientLimitExceededException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ClientLimitExceededException =>
-    __isa(o, "ClientLimitExceededException");
-}
-
-/**
- * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
- *       allowed client connections.</p>
- */
-export interface ConnectionLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ConnectionLimitExceededException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ConnectionLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: ConnectionLimitExceededException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ConnectionLimitExceededException =>
-    __isa(o, "ConnectionLimitExceededException");
-}
-
-/**
- * <p>The value for this input parameter is invalid.</p>
- */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidArgumentException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidArgumentException {
-  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidArgumentException =>
-    __isa(o, "InvalidArgumentException");
-}
-
-/**
- * <p> Status Code: 400, Caller used wrong endpoint to write data to a stream. On receiving
- *       such an exception, the user must call <code>GetDataEndpoint</code> with
- *         <code>AccessMode</code> set to "READ" and use the endpoint Kinesis Video returns in the next
- *         <code>GetMedia</code> call. </p>
- */
-export interface InvalidEndpointException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidEndpointException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidEndpointException {
-  export const filterSensitiveLog = (obj: InvalidEndpointException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidEndpointException =>
-    __isa(o, "InvalidEndpointException");
-}
-
-/**
- * <p>Status Code: 403, The caller is not authorized to perform an operation on the given
- *       stream, or the token has expired.</p>
- */
-export interface NotAuthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "NotAuthorizedException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NotAuthorizedException {
-  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is NotAuthorizedException =>
-    __isa(o, "NotAuthorizedException");
-}
-
-/**
- * <p>Status Code: 404, The stream with the given name does not exist.</p>
- */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
 }

@@ -8,9 +8,9 @@ import {
   StartOnDemandAuditTaskResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1StartOnDemandAuditTaskCommand,
-  serializeAws_restJson1_1StartOnDemandAuditTaskCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1StartOnDemandAuditTaskCommand,
+  serializeAws_restJson1StartOnDemandAuditTaskCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class StartOnDemandAuditTaskCommand extends $Command<
     input: StartOnDemandAuditTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StartOnDemandAuditTaskCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1StartOnDemandAuditTaskCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartOnDemandAuditTaskCommandOutput> {
-    return deserializeAws_restJson1_1StartOnDemandAuditTaskCommand(
+    return deserializeAws_restJson1StartOnDemandAuditTaskCommand(
       output,
       context
     );

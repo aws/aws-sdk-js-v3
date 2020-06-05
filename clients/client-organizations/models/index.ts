@@ -5,28 +5,6 @@ import {
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-/**
- * <p>Your account isn't a member of an organization. To make this request, you must use the
- *       credentials of an account that belongs to an organization.</p>
- */
-export interface AWSOrganizationsNotInUseException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "AWSOrganizationsNotInUseException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace AWSOrganizationsNotInUseException {
-  export const filterSensitiveLog = (
-    obj: AWSOrganizationsNotInUseException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AWSOrganizationsNotInUseException =>
-    __isa(o, "AWSOrganizationsNotInUseException");
-}
-
 export interface AcceptHandshakeRequest {
   __type?: "AcceptHandshakeRequest";
   /**
@@ -299,6 +277,28 @@ export namespace AttachPolicyRequest {
   });
   export const isa = (o: any): o is AttachPolicyRequest =>
     __isa(o, "AttachPolicyRequest");
+}
+
+/**
+ * <p>Your account isn't a member of an organization. To make this request, you must use the
+ *       credentials of an account that belongs to an organization.</p>
+ */
+export interface AWSOrganizationsNotInUseException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "AWSOrganizationsNotInUseException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace AWSOrganizationsNotInUseException {
+  export const filterSensitiveLog = (
+    obj: AWSOrganizationsNotInUseException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AWSOrganizationsNotInUseException =>
+    __isa(o, "AWSOrganizationsNotInUseException");
 }
 
 export interface CancelHandshakeRequest {
@@ -887,61 +887,6 @@ export namespace CreateGovCloudAccountResponse {
     __isa(o, "CreateGovCloudAccountResponse");
 }
 
-export interface CreateOrganizationRequest {
-  __type?: "CreateOrganizationRequest";
-  /**
-   * <p>Specifies the feature set supported by the new organization. Each feature set supports
-   *       different levels of functionality.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CONSOLIDATED_BILLING</code>: All member accounts have their bills consolidated
-   *           to and paid by the master account. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only">Consolidated
-   *             billing</a> in the <i>AWS Organizations User Guide.</i>
-   *                </p>
-   *                <p> The consolidated billing feature subset isn't available for organizations in the
-   *           AWS GovCloud (US) Region.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ALL</code>: In addition to all the features that consolidated billing feature
-   *           set supports, the master account can also apply any policy type to any member account in
-   *           the organization. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all">All
-   *             features</a> in the <i>AWS Organizations User Guide.</i>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  FeatureSet?: OrganizationFeatureSet | string;
-}
-
-export namespace CreateOrganizationRequest {
-  export const filterSensitiveLog = (obj: CreateOrganizationRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CreateOrganizationRequest =>
-    __isa(o, "CreateOrganizationRequest");
-}
-
-export interface CreateOrganizationResponse {
-  __type?: "CreateOrganizationResponse";
-  /**
-   * <p>A structure that contains details about the newly created organization.</p>
-   */
-  Organization?: Organization;
-}
-
-export namespace CreateOrganizationResponse {
-  export const filterSensitiveLog = (obj: CreateOrganizationResponse): any => ({
-    ...obj,
-    ...(obj.Organization && {
-      Organization: Organization.filterSensitiveLog(obj.Organization)
-    })
-  });
-  export const isa = (o: any): o is CreateOrganizationResponse =>
-    __isa(o, "CreateOrganizationResponse");
-}
-
 export interface CreateOrganizationalUnitRequest {
   __type?: "CreateOrganizationalUnitRequest";
   /**
@@ -997,6 +942,61 @@ export namespace CreateOrganizationalUnitResponse {
   });
   export const isa = (o: any): o is CreateOrganizationalUnitResponse =>
     __isa(o, "CreateOrganizationalUnitResponse");
+}
+
+export interface CreateOrganizationRequest {
+  __type?: "CreateOrganizationRequest";
+  /**
+   * <p>Specifies the feature set supported by the new organization. Each feature set supports
+   *       different levels of functionality.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CONSOLIDATED_BILLING</code>: All member accounts have their bills consolidated
+   *           to and paid by the master account. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only">Consolidated
+   *             billing</a> in the <i>AWS Organizations User Guide.</i>
+   *                </p>
+   *                <p> The consolidated billing feature subset isn't available for organizations in the
+   *           AWS GovCloud (US) Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code>: In addition to all the features that consolidated billing feature
+   *           set supports, the master account can also apply any policy type to any member account in
+   *           the organization. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all">All
+   *             features</a> in the <i>AWS Organizations User Guide.</i>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  FeatureSet?: OrganizationFeatureSet | string;
+}
+
+export namespace CreateOrganizationRequest {
+  export const filterSensitiveLog = (obj: CreateOrganizationRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CreateOrganizationRequest =>
+    __isa(o, "CreateOrganizationRequest");
+}
+
+export interface CreateOrganizationResponse {
+  __type?: "CreateOrganizationResponse";
+  /**
+   * <p>A structure that contains details about the newly created organization.</p>
+   */
+  Organization?: Organization;
+}
+
+export namespace CreateOrganizationResponse {
+  export const filterSensitiveLog = (obj: CreateOrganizationResponse): any => ({
+    ...obj,
+    ...(obj.Organization && {
+      Organization: Organization.filterSensitiveLog(obj.Organization)
+    })
+  });
+  export const isa = (o: any): o is CreateOrganizationResponse =>
+    __isa(o, "CreateOrganizationResponse");
 }
 
 export interface CreatePolicyRequest {
@@ -1293,27 +1293,6 @@ export namespace DescribeHandshakeResponse {
     __isa(o, "DescribeHandshakeResponse");
 }
 
-export interface DescribeOrganizationResponse {
-  __type?: "DescribeOrganizationResponse";
-  /**
-   * <p>A structure that contains information about the organization.</p>
-   */
-  Organization?: Organization;
-}
-
-export namespace DescribeOrganizationResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeOrganizationResponse
-  ): any => ({
-    ...obj,
-    ...(obj.Organization && {
-      Organization: Organization.filterSensitiveLog(obj.Organization)
-    })
-  });
-  export const isa = (o: any): o is DescribeOrganizationResponse =>
-    __isa(o, "DescribeOrganizationResponse");
-}
-
 export interface DescribeOrganizationalUnitRequest {
   __type?: "DescribeOrganizationalUnitRequest";
   /**
@@ -1353,6 +1332,27 @@ export namespace DescribeOrganizationalUnitResponse {
   });
   export const isa = (o: any): o is DescribeOrganizationalUnitResponse =>
     __isa(o, "DescribeOrganizationalUnitResponse");
+}
+
+export interface DescribeOrganizationResponse {
+  __type?: "DescribeOrganizationResponse";
+  /**
+   * <p>A structure that contains information about the organization.</p>
+   */
+  Organization?: Organization;
+}
+
+export namespace DescribeOrganizationResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeOrganizationResponse
+  ): any => ({
+    ...obj,
+    ...(obj.Organization && {
+      Organization: Organization.filterSensitiveLog(obj.Organization)
+    })
+  });
+  export const isa = (o: any): o is DescribeOrganizationResponse =>
+    __isa(o, "DescribeOrganizationResponse");
 }
 
 export interface DescribePolicyRequest {
@@ -1687,27 +1687,6 @@ export enum EffectivePolicyType {
   TAG_POLICY = "TAG_POLICY"
 }
 
-export interface EnableAWSServiceAccessRequest {
-  __type?: "EnableAWSServiceAccessRequest";
-  /**
-   * <p>The service principal name of the AWS service for which you want to enable integration
-   *       with your organization. This is typically in the form of a URL, such as
-   *           <code>
-   *                <i>service-abbreviation</i>.amazonaws.com</code>.</p>
-   */
-  ServicePrincipal: string | undefined;
-}
-
-export namespace EnableAWSServiceAccessRequest {
-  export const filterSensitiveLog = (
-    obj: EnableAWSServiceAccessRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is EnableAWSServiceAccessRequest =>
-    __isa(o, "EnableAWSServiceAccessRequest");
-}
-
 export interface EnableAllFeaturesRequest {
   __type?: "EnableAllFeaturesRequest";
 }
@@ -1735,6 +1714,54 @@ export namespace EnableAllFeaturesResponse {
   });
   export const isa = (o: any): o is EnableAllFeaturesResponse =>
     __isa(o, "EnableAllFeaturesResponse");
+}
+
+export interface EnableAWSServiceAccessRequest {
+  __type?: "EnableAWSServiceAccessRequest";
+  /**
+   * <p>The service principal name of the AWS service for which you want to enable integration
+   *       with your organization. This is typically in the form of a URL, such as
+   *           <code>
+   *                <i>service-abbreviation</i>.amazonaws.com</code>.</p>
+   */
+  ServicePrincipal: string | undefined;
+}
+
+export namespace EnableAWSServiceAccessRequest {
+  export const filterSensitiveLog = (
+    obj: EnableAWSServiceAccessRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is EnableAWSServiceAccessRequest =>
+    __isa(o, "EnableAWSServiceAccessRequest");
+}
+
+/**
+ * <p>A structure that contains details of a service principal that is enabled to integrate with
+ *       AWS Organizations.</p>
+ */
+export interface EnabledServicePrincipal {
+  __type?: "EnabledServicePrincipal";
+  /**
+   * <p>The date that the service principal was enabled for integration with AWS Organizations.</p>
+   */
+  DateEnabled?: Date;
+
+  /**
+   * <p>The name of the service principal. This is typically in the form of a URL, such as:
+   *           <code>
+   *                <i>servicename</i>.amazonaws.com</code>.</p>
+   */
+  ServicePrincipal?: string;
+}
+
+export namespace EnabledServicePrincipal {
+  export const filterSensitiveLog = (obj: EnabledServicePrincipal): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is EnabledServicePrincipal =>
+    __isa(o, "EnabledServicePrincipal");
 }
 
 export interface EnablePolicyTypeRequest {
@@ -1775,33 +1802,6 @@ export namespace EnablePolicyTypeResponse {
   });
   export const isa = (o: any): o is EnablePolicyTypeResponse =>
     __isa(o, "EnablePolicyTypeResponse");
-}
-
-/**
- * <p>A structure that contains details of a service principal that is enabled to integrate with
- *       AWS Organizations.</p>
- */
-export interface EnabledServicePrincipal {
-  __type?: "EnabledServicePrincipal";
-  /**
-   * <p>The date that the service principal was enabled for integration with AWS Organizations.</p>
-   */
-  DateEnabled?: Date;
-
-  /**
-   * <p>The name of the service principal. This is typically in the form of a URL, such as:
-   *           <code>
-   *                <i>servicename</i>.amazonaws.com</code>.</p>
-   */
-  ServicePrincipal?: string;
-}
-
-export namespace EnabledServicePrincipal {
-  export const filterSensitiveLog = (obj: EnabledServicePrincipal): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is EnabledServicePrincipal =>
-    __isa(o, "EnabledServicePrincipal");
 }
 
 /**
@@ -2458,72 +2458,6 @@ export namespace InviteAccountToOrganizationResponse {
     __isa(o, "InviteAccountToOrganizationResponse");
 }
 
-export interface ListAWSServiceAccessForOrganizationRequest {
-  __type?: "ListAWSServiceAccessForOrganizationRequest";
-  /**
-   * <p>(Optional) Use this to limit the number of results you want included
-   *     per page in the response. If you do not include this parameter, it defaults to a value that is specific
-   *     to the operation. If additional items exist beyond the maximum you specify, the
-   *     <code>NextToken</code> response element is present and has a value (is not null). Include that
-   *     value as the <code>NextToken</code> request parameter in the next call to the operation to get
-   *     the next part of the results. Note that Organizations might return fewer results than the maximum even
-   *     when there are more results available. You should check <code>NextToken</code> after every
-   *     operation to ensure that you receive all of the results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Use this parameter if you receive a <code>NextToken</code>
-   *     response in a previous request that indicates that there is more output available. Set it to the
-   *     value of the previous call's <code>NextToken</code> response to indicate where the output should
-   *     continue from.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListAWSServiceAccessForOrganizationRequest {
-  export const filterSensitiveLog = (
-    obj: ListAWSServiceAccessForOrganizationRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is ListAWSServiceAccessForOrganizationRequest =>
-    __isa(o, "ListAWSServiceAccessForOrganizationRequest");
-}
-
-export interface ListAWSServiceAccessForOrganizationResponse {
-  __type?: "ListAWSServiceAccessForOrganizationResponse";
-  /**
-   * <p>A list of the service principals for the services that are enabled to integrate with your
-   *       organization. Each principal is a structure that includes the name and the date that it was
-   *       enabled for integration with AWS Organizations.</p>
-   */
-  EnabledServicePrincipals?: EnabledServicePrincipal[];
-
-  /**
-   * <p>If present, this value indicates that there is more output
-   *     available than is included in the current response. Use this value in the <code>NextToken</code>
-   *     request parameter in a subsequent call to the operation to get the next part of the output. You
-   *     should repeat this until the <code>NextToken</code> response element comes back as
-   *     <code>null</code>.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListAWSServiceAccessForOrganizationResponse {
-  export const filterSensitiveLog = (
-    obj: ListAWSServiceAccessForOrganizationResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (
-    o: any
-  ): o is ListAWSServiceAccessForOrganizationResponse =>
-    __isa(o, "ListAWSServiceAccessForOrganizationResponse");
-}
-
 export interface ListAccountsForParentRequest {
   __type?: "ListAccountsForParentRequest";
   /**
@@ -2650,6 +2584,72 @@ export namespace ListAccountsResponse {
   });
   export const isa = (o: any): o is ListAccountsResponse =>
     __isa(o, "ListAccountsResponse");
+}
+
+export interface ListAWSServiceAccessForOrganizationRequest {
+  __type?: "ListAWSServiceAccessForOrganizationRequest";
+  /**
+   * <p>(Optional) Use this to limit the number of results you want included
+   *     per page in the response. If you do not include this parameter, it defaults to a value that is specific
+   *     to the operation. If additional items exist beyond the maximum you specify, the
+   *     <code>NextToken</code> response element is present and has a value (is not null). Include that
+   *     value as the <code>NextToken</code> request parameter in the next call to the operation to get
+   *     the next part of the results. Note that Organizations might return fewer results than the maximum even
+   *     when there are more results available. You should check <code>NextToken</code> after every
+   *     operation to ensure that you receive all of the results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Use this parameter if you receive a <code>NextToken</code>
+   *     response in a previous request that indicates that there is more output available. Set it to the
+   *     value of the previous call's <code>NextToken</code> response to indicate where the output should
+   *     continue from.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAWSServiceAccessForOrganizationRequest {
+  export const filterSensitiveLog = (
+    obj: ListAWSServiceAccessForOrganizationRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is ListAWSServiceAccessForOrganizationRequest =>
+    __isa(o, "ListAWSServiceAccessForOrganizationRequest");
+}
+
+export interface ListAWSServiceAccessForOrganizationResponse {
+  __type?: "ListAWSServiceAccessForOrganizationResponse";
+  /**
+   * <p>A list of the service principals for the services that are enabled to integrate with your
+   *       organization. Each principal is a structure that includes the name and the date that it was
+   *       enabled for integration with AWS Organizations.</p>
+   */
+  EnabledServicePrincipals?: EnabledServicePrincipal[];
+
+  /**
+   * <p>If present, this value indicates that there is more output
+   *     available than is included in the current response. Use this value in the <code>NextToken</code>
+   *     request parameter in a subsequent call to the operation to get the next part of the output. You
+   *     should repeat this until the <code>NextToken</code> response element comes back as
+   *     <code>null</code>.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAWSServiceAccessForOrganizationResponse {
+  export const filterSensitiveLog = (
+    obj: ListAWSServiceAccessForOrganizationResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (
+    o: any
+  ): o is ListAWSServiceAccessForOrganizationResponse =>
+    __isa(o, "ListAWSServiceAccessForOrganizationResponse");
 }
 
 export interface ListChildrenRequest {
@@ -3614,33 +3614,6 @@ export namespace Organization {
   export const isa = (o: any): o is Organization => __isa(o, "Organization");
 }
 
-export enum OrganizationFeatureSet {
-  ALL = "ALL",
-  CONSOLIDATED_BILLING = "CONSOLIDATED_BILLING"
-}
-
-/**
- * <p>The organization isn't empty. To delete an organization, you must first remove all
- *       accounts except the master account, delete all OUs, and delete all policies.</p>
- */
-export interface OrganizationNotEmptyException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "OrganizationNotEmptyException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace OrganizationNotEmptyException {
-  export const filterSensitiveLog = (
-    obj: OrganizationNotEmptyException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is OrganizationNotEmptyException =>
-    __isa(o, "OrganizationNotEmptyException");
-}
-
 /**
  * <p>Contains details about an organizational unit (OU). An OU is a container of AWS accounts
  *       within a root of an organization. Policies that are attached to an OU apply to all accounts
@@ -3722,6 +3695,33 @@ export namespace OrganizationalUnitNotFoundException {
   });
   export const isa = (o: any): o is OrganizationalUnitNotFoundException =>
     __isa(o, "OrganizationalUnitNotFoundException");
+}
+
+export enum OrganizationFeatureSet {
+  ALL = "ALL",
+  CONSOLIDATED_BILLING = "CONSOLIDATED_BILLING"
+}
+
+/**
+ * <p>The organization isn't empty. To delete an organization, you must first remove all
+ *       accounts except the master account, delete all OUs, and delete all policies.</p>
+ */
+export interface OrganizationNotEmptyException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "OrganizationNotEmptyException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace OrganizationNotEmptyException {
+  export const filterSensitiveLog = (
+    obj: OrganizationNotEmptyException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is OrganizationNotEmptyException =>
+    __isa(o, "OrganizationNotEmptyException");
 }
 
 /**

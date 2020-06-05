@@ -15,6 +15,10 @@ import {
   DescribeProfilingGroupCommandOutput
 } from "./commands/DescribeProfilingGroupCommand";
 import {
+  GetPolicyCommandInput,
+  GetPolicyCommandOutput
+} from "./commands/GetPolicyCommand";
+import {
   GetProfileCommandInput,
   GetProfileCommandOutput
 } from "./commands/GetProfileCommand";
@@ -30,6 +34,18 @@ import {
   PostAgentProfileCommandInput,
   PostAgentProfileCommandOutput
 } from "./commands/PostAgentProfileCommand";
+import {
+  PutPermissionCommandInput,
+  PutPermissionCommandOutput
+} from "./commands/PutPermissionCommand";
+import {
+  RemovePermissionCommandInput,
+  RemovePermissionCommandOutput
+} from "./commands/RemovePermissionCommand";
+import {
+  RetrieveTimeSeriesCommandInput,
+  RetrieveTimeSeriesCommandOutput
+} from "./commands/RetrieveTimeSeriesCommand";
 import {
   UpdateProfilingGroupCommandInput,
   UpdateProfilingGroupCommandOutput
@@ -91,10 +107,14 @@ export type ServiceInputTypes =
   | CreateProfilingGroupCommandInput
   | DeleteProfilingGroupCommandInput
   | DescribeProfilingGroupCommandInput
+  | GetPolicyCommandInput
   | GetProfileCommandInput
   | ListProfileTimesCommandInput
   | ListProfilingGroupsCommandInput
   | PostAgentProfileCommandInput
+  | PutPermissionCommandInput
+  | RemovePermissionCommandInput
+  | RetrieveTimeSeriesCommandInput
   | UpdateProfilingGroupCommandInput;
 
 export type ServiceOutputTypes =
@@ -102,10 +122,14 @@ export type ServiceOutputTypes =
   | CreateProfilingGroupCommandOutput
   | DeleteProfilingGroupCommandOutput
   | DescribeProfilingGroupCommandOutput
+  | GetPolicyCommandOutput
   | GetProfileCommandOutput
   | ListProfileTimesCommandOutput
   | ListProfilingGroupsCommandOutput
   | PostAgentProfileCommandOutput
+  | PutPermissionCommandOutput
+  | RemovePermissionCommandOutput
+  | RetrieveTimeSeriesCommandOutput
   | UpdateProfilingGroupCommandOutput;
 
 export interface ClientDefaults
@@ -216,7 +240,7 @@ export type CodeGuruProfilerClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig;
 
 /**
- * <p>Example service documentation.</p>
+ * <p>This section provides documentation for the Amazon CodeGuru Profiler API operations.</p>
  */
 export class CodeGuruProfilerClient extends __Client<
   __HttpHandlerOptions,

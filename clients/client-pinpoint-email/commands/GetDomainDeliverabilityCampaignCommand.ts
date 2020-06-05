@@ -8,9 +8,9 @@ import {
   GetDomainDeliverabilityCampaignResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetDomainDeliverabilityCampaignCommand,
-  serializeAws_restJson1_1GetDomainDeliverabilityCampaignCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetDomainDeliverabilityCampaignCommand,
+  serializeAws_restJson1GetDomainDeliverabilityCampaignCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetDomainDeliverabilityCampaignCommand extends $Command<
     input: GetDomainDeliverabilityCampaignCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDomainDeliverabilityCampaignCommand(
+    return serializeAws_restJson1GetDomainDeliverabilityCampaignCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetDomainDeliverabilityCampaignCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDomainDeliverabilityCampaignCommandOutput> {
-    return deserializeAws_restJson1_1GetDomainDeliverabilityCampaignCommand(
+    return deserializeAws_restJson1GetDomainDeliverabilityCampaignCommand(
       output,
       context
     );

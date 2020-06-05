@@ -8,9 +8,9 @@ import {
   DescribeActivitiesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeActivitiesCommand,
-  serializeAws_restJson1_1DescribeActivitiesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeActivitiesCommand,
+  serializeAws_restJson1DescribeActivitiesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DescribeActivitiesCommand extends $Command<
     input: DescribeActivitiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeActivitiesCommand(input, context);
+    return serializeAws_restJson1DescribeActivitiesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeActivitiesCommandOutput> {
-    return deserializeAws_restJson1_1DescribeActivitiesCommand(output, context);
+    return deserializeAws_restJson1DescribeActivitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

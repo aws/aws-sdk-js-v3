@@ -5,9 +5,9 @@ import {
 } from "../XRayClient";
 import { BatchGetTracesRequest, BatchGetTracesResult } from "../models/index";
 import {
-  deserializeAws_restJson1_1BatchGetTracesCommand,
-  serializeAws_restJson1_1BatchGetTracesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1BatchGetTracesCommand,
+  serializeAws_restJson1BatchGetTracesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class BatchGetTracesCommand extends $Command<
     input: BatchGetTracesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1BatchGetTracesCommand(input, context);
+    return serializeAws_restJson1BatchGetTracesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetTracesCommandOutput> {
-    return deserializeAws_restJson1_1BatchGetTracesCommand(output, context);
+    return deserializeAws_restJson1BatchGetTracesCommand(output, context);
   }
 
   // Start section: command_body_extra

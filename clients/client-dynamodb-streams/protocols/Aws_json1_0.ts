@@ -140,7 +140,7 @@ const deserializeAws_json1_0DescribeStreamCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodbstreams#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -151,7 +151,7 @@ const deserializeAws_json1_0DescribeStreamCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodbstreams#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -211,7 +211,7 @@ const deserializeAws_json1_0GetRecordsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExpiredIteratorException":
-    case "com.amazonaws.dynamodb.streams.v20120810#ExpiredIteratorException":
+    case "com.amazonaws.dynamodbstreams#ExpiredIteratorException":
       response = {
         ...(await deserializeAws_json1_0ExpiredIteratorExceptionResponse(
           parsedOutput,
@@ -221,19 +221,8 @@ const deserializeAws_json1_0GetRecordsCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "TrimmedDataAccessException":
-    case "com.amazonaws.dynamodb.streams.v20120810#TrimmedDataAccessException":
-      response = {
-        ...(await deserializeAws_json1_0TrimmedDataAccessExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodbstreams#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -244,7 +233,7 @@ const deserializeAws_json1_0GetRecordsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
+    case "com.amazonaws.dynamodbstreams#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
           parsedOutput,
@@ -255,9 +244,20 @@ const deserializeAws_json1_0GetRecordsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodbstreams#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "TrimmedDataAccessException":
+    case "com.amazonaws.dynamodbstreams#TrimmedDataAccessException":
+      response = {
+        ...(await deserializeAws_json1_0TrimmedDataAccessExceptionResponse(
           parsedOutput,
           context
         )),
@@ -314,19 +314,8 @@ const deserializeAws_json1_0GetShardIteratorCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "TrimmedDataAccessException":
-    case "com.amazonaws.dynamodb.streams.v20120810#TrimmedDataAccessException":
-      response = {
-        ...(await deserializeAws_json1_0TrimmedDataAccessExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodbstreams#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -337,9 +326,20 @@ const deserializeAws_json1_0GetShardIteratorCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodbstreams#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "TrimmedDataAccessException":
+    case "com.amazonaws.dynamodbstreams#TrimmedDataAccessException":
+      response = {
+        ...(await deserializeAws_json1_0TrimmedDataAccessExceptionResponse(
           parsedOutput,
           context
         )),
@@ -397,7 +397,7 @@ const deserializeAws_json1_0ListStreamsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
-    case "com.amazonaws.dynamodb.v20120810#InternalServerError":
+    case "com.amazonaws.dynamodbstreams#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
           parsedOutput,
@@ -408,7 +408,7 @@ const deserializeAws_json1_0ListStreamsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
+    case "com.amazonaws.dynamodbstreams#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -446,24 +446,6 @@ const deserializeAws_json1_0ExpiredIteratorExceptionResponse = async (
   );
   const contents: ExpiredIteratorException = {
     name: "ExpiredIteratorException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
-const deserializeAws_json1_0TrimmedDataAccessExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<TrimmedDataAccessException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0TrimmedDataAccessException(
-    body,
-    context
-  );
-  const contents: TrimmedDataAccessException = {
-    name: "TrimmedDataAccessException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -525,6 +507,24 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_0TrimmedDataAccessExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TrimmedDataAccessException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_0TrimmedDataAccessException(
+    body,
+    context
+  );
+  const contents: TrimmedDataAccessException = {
+    name: "TrimmedDataAccessException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
 const serializeAws_json1_0DescribeStreamInput = (
   input: DescribeStreamInput,
   context: __SerdeContext
@@ -577,6 +577,69 @@ const serializeAws_json1_0ListStreamsInput = (
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.TableName !== undefined && { TableName: input.TableName })
   };
+};
+
+const deserializeAws_json1_0AttributeMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: AttributeValue } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_0AttributeValue(value, context)
+    }),
+    {}
+  );
+};
+
+const deserializeAws_json1_0AttributeValue = (
+  output: any,
+  context: __SerdeContext
+): AttributeValue => {
+  return {
+    __type: "AttributeValue",
+    B:
+      output.B !== undefined && output.B !== null
+        ? context.base64Decoder(output.B)
+        : undefined,
+    BOOL:
+      output.BOOL !== undefined && output.BOOL !== null
+        ? output.BOOL
+        : undefined,
+    BS:
+      output.BS !== undefined && output.BS !== null
+        ? deserializeAws_json1_0BinarySetAttributeValue(output.BS, context)
+        : undefined,
+    L:
+      output.L !== undefined && output.L !== null
+        ? deserializeAws_json1_0ListAttributeValue(output.L, context)
+        : undefined,
+    M:
+      output.M !== undefined && output.M !== null
+        ? deserializeAws_json1_0MapAttributeValue(output.M, context)
+        : undefined,
+    N: output.N !== undefined && output.N !== null ? output.N : undefined,
+    NS:
+      output.NS !== undefined && output.NS !== null
+        ? deserializeAws_json1_0NumberSetAttributeValue(output.NS, context)
+        : undefined,
+    NULL:
+      output.NULL !== undefined && output.NULL !== null
+        ? output.NULL
+        : undefined,
+    S: output.S !== undefined && output.S !== null ? output.S : undefined,
+    SS:
+      output.SS !== undefined && output.SS !== null
+        ? deserializeAws_json1_0StringSetAttributeValue(output.SS, context)
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_0BinarySetAttributeValue = (
+  output: any,
+  context: __SerdeContext
+): Uint8Array[] => {
+  return (output || []).map((entry: any) => context.base64Decoder(entry));
 };
 
 const deserializeAws_json1_0DescribeStreamOutput = (
@@ -657,6 +720,67 @@ const deserializeAws_json1_0Identity = (
   } as any;
 };
 
+const deserializeAws_json1_0InternalServerError = (
+  output: any,
+  context: __SerdeContext
+): InternalServerError => {
+  return {
+    __type: "InternalServerError",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_0KeySchema = (
+  output: any,
+  context: __SerdeContext
+): KeySchemaElement[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_0KeySchemaElement(entry, context)
+  );
+};
+
+const deserializeAws_json1_0KeySchemaElement = (
+  output: any,
+  context: __SerdeContext
+): KeySchemaElement => {
+  return {
+    __type: "KeySchemaElement",
+    AttributeName:
+      output.AttributeName !== undefined && output.AttributeName !== null
+        ? output.AttributeName
+        : undefined,
+    KeyType:
+      output.KeyType !== undefined && output.KeyType !== null
+        ? output.KeyType
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_0LimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): LimitExceededException => {
+  return {
+    __type: "LimitExceededException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_0ListAttributeValue = (
+  output: any,
+  context: __SerdeContext
+): AttributeValue[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_0AttributeValue(entry, context)
+  );
+};
+
 const deserializeAws_json1_0ListStreamsOutput = (
   output: any,
   context: __SerdeContext
@@ -673,6 +797,26 @@ const deserializeAws_json1_0ListStreamsOutput = (
         ? deserializeAws_json1_0StreamList(output.Streams, context)
         : undefined
   } as any;
+};
+
+const deserializeAws_json1_0MapAttributeValue = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: AttributeValue } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_0AttributeValue(value, context)
+    }),
+    {}
+  );
+};
+
+const deserializeAws_json1_0NumberSetAttributeValue = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_0_Record = (
@@ -719,6 +863,19 @@ const deserializeAws_json1_0RecordList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0_Record(entry, context)
   );
+};
+
+const deserializeAws_json1_0ResourceNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): ResourceNotFoundException => {
+  return {
+    __type: "ResourceNotFoundException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0SequenceNumberRange = (
@@ -889,6 +1046,13 @@ const deserializeAws_json1_0StreamRecord = (
   } as any;
 };
 
+const deserializeAws_json1_0StringSetAttributeValue = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_0TrimmedDataAccessException = (
   output: any,
   context: __SerdeContext
@@ -900,170 +1064,6 @@ const deserializeAws_json1_0TrimmedDataAccessException = (
         ? output.message
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_0AttributeMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: AttributeValue } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => ({
-      ...acc,
-      [key]: deserializeAws_json1_0AttributeValue(value, context)
-    }),
-    {}
-  );
-};
-
-const deserializeAws_json1_0AttributeValue = (
-  output: any,
-  context: __SerdeContext
-): AttributeValue => {
-  return {
-    __type: "AttributeValue",
-    B:
-      output.B !== undefined && output.B !== null
-        ? context.base64Decoder(output.B)
-        : undefined,
-    BOOL:
-      output.BOOL !== undefined && output.BOOL !== null
-        ? output.BOOL
-        : undefined,
-    BS:
-      output.BS !== undefined && output.BS !== null
-        ? deserializeAws_json1_0BinarySetAttributeValue(output.BS, context)
-        : undefined,
-    L:
-      output.L !== undefined && output.L !== null
-        ? deserializeAws_json1_0ListAttributeValue(output.L, context)
-        : undefined,
-    M:
-      output.M !== undefined && output.M !== null
-        ? deserializeAws_json1_0MapAttributeValue(output.M, context)
-        : undefined,
-    N: output.N !== undefined && output.N !== null ? output.N : undefined,
-    NS:
-      output.NS !== undefined && output.NS !== null
-        ? deserializeAws_json1_0NumberSetAttributeValue(output.NS, context)
-        : undefined,
-    NULL:
-      output.NULL !== undefined && output.NULL !== null
-        ? output.NULL
-        : undefined,
-    S: output.S !== undefined && output.S !== null ? output.S : undefined,
-    SS:
-      output.SS !== undefined && output.SS !== null
-        ? deserializeAws_json1_0StringSetAttributeValue(output.SS, context)
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_0BinarySetAttributeValue = (
-  output: any,
-  context: __SerdeContext
-): Uint8Array[] => {
-  return (output || []).map((entry: any) => context.base64Decoder(entry));
-};
-
-const deserializeAws_json1_0InternalServerError = (
-  output: any,
-  context: __SerdeContext
-): InternalServerError => {
-  return {
-    __type: "InternalServerError",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_0KeySchema = (
-  output: any,
-  context: __SerdeContext
-): KeySchemaElement[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0KeySchemaElement(entry, context)
-  );
-};
-
-const deserializeAws_json1_0KeySchemaElement = (
-  output: any,
-  context: __SerdeContext
-): KeySchemaElement => {
-  return {
-    __type: "KeySchemaElement",
-    AttributeName:
-      output.AttributeName !== undefined && output.AttributeName !== null
-        ? output.AttributeName
-        : undefined,
-    KeyType:
-      output.KeyType !== undefined && output.KeyType !== null
-        ? output.KeyType
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_0LimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): LimitExceededException => {
-  return {
-    __type: "LimitExceededException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_0ListAttributeValue = (
-  output: any,
-  context: __SerdeContext
-): AttributeValue[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0AttributeValue(entry, context)
-  );
-};
-
-const deserializeAws_json1_0MapAttributeValue = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: AttributeValue } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => ({
-      ...acc,
-      [key]: deserializeAws_json1_0AttributeValue(value, context)
-    }),
-    {}
-  );
-};
-
-const deserializeAws_json1_0NumberSetAttributeValue = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
-const deserializeAws_json1_0ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    __type: "ResourceNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_0StringSetAttributeValue = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

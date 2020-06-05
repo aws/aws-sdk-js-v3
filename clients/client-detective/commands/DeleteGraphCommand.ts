@@ -5,9 +5,9 @@ import {
 } from "../DetectiveClient";
 import { DeleteGraphRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteGraphCommand,
-  serializeAws_restJson1_1DeleteGraphCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteGraphCommand,
+  serializeAws_restJson1DeleteGraphCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteGraphCommand extends $Command<
     input: DeleteGraphCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteGraphCommand(input, context);
+    return serializeAws_restJson1DeleteGraphCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteGraphCommandOutput> {
-    return deserializeAws_restJson1_1DeleteGraphCommand(output, context);
+    return deserializeAws_restJson1DeleteGraphCommand(output, context);
   }
 
   // Start section: command_body_extra

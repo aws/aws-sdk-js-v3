@@ -3,9 +3,9 @@ import {
   CreateDiscovererResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateDiscovererCommand,
-  serializeAws_restJson1_1CreateDiscovererCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateDiscovererCommand,
+  serializeAws_restJson1CreateDiscovererCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -71,14 +71,14 @@ export class CreateDiscovererCommand extends $Command<
     input: CreateDiscovererCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateDiscovererCommand(input, context);
+    return serializeAws_restJson1CreateDiscovererCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDiscovererCommandOutput> {
-    return deserializeAws_restJson1_1CreateDiscovererCommand(output, context);
+    return deserializeAws_restJson1CreateDiscovererCommand(output, context);
   }
 
   // Start section: command_body_extra

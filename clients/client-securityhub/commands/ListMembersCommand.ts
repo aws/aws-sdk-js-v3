@@ -5,9 +5,9 @@ import {
 } from "../SecurityHubClient";
 import { ListMembersRequest, ListMembersResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListMembersCommand,
-  serializeAws_restJson1_1ListMembersCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListMembersCommand,
+  serializeAws_restJson1ListMembersCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListMembersCommand extends $Command<
     input: ListMembersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListMembersCommand(input, context);
+    return serializeAws_restJson1ListMembersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListMembersCommandOutput> {
-    return deserializeAws_restJson1_1ListMembersCommand(output, context);
+    return deserializeAws_restJson1ListMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

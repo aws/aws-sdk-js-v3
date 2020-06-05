@@ -5,9 +5,9 @@ import {
 } from "../AppSyncClient";
 import { UpdateResolverRequest, UpdateResolverResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateResolverCommand,
-  serializeAws_restJson1_1UpdateResolverCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateResolverCommand,
+  serializeAws_restJson1UpdateResolverCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class UpdateResolverCommand extends $Command<
     input: UpdateResolverCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateResolverCommand(input, context);
+    return serializeAws_restJson1UpdateResolverCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateResolverCommandOutput> {
-    return deserializeAws_restJson1_1UpdateResolverCommand(output, context);
+    return deserializeAws_restJson1UpdateResolverCommand(output, context);
   }
 
   // Start section: command_body_extra

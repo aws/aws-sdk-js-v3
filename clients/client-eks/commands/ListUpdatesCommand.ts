@@ -5,9 +5,9 @@ import {
 } from "../EKSClient";
 import { ListUpdatesRequest, ListUpdatesResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListUpdatesCommand,
-  serializeAws_restJson1_1ListUpdatesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListUpdatesCommand,
+  serializeAws_restJson1ListUpdatesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListUpdatesCommand extends $Command<
     input: ListUpdatesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListUpdatesCommand(input, context);
+    return serializeAws_restJson1ListUpdatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListUpdatesCommandOutput> {
-    return deserializeAws_restJson1_1ListUpdatesCommand(output, context);
+    return deserializeAws_restJson1ListUpdatesCommand(output, context);
   }
 
   // Start section: command_body_extra

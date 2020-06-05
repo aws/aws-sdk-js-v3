@@ -5,9 +5,9 @@ import {
 } from "../MediaStoreDataClient";
 import { GetObjectRequest, GetObjectResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetObjectCommand,
-  serializeAws_restJson1_1GetObjectCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetObjectCommand,
+  serializeAws_restJson1GetObjectCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetObjectCommand extends $Command<
     input: GetObjectCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetObjectCommand(input, context);
+    return serializeAws_restJson1GetObjectCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetObjectCommandOutput> {
-    return deserializeAws_restJson1_1GetObjectCommand(output, context);
+    return deserializeAws_restJson1GetObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

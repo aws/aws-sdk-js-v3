@@ -8,9 +8,9 @@ import {
   RevokeDomainAccessResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1RevokeDomainAccessCommand,
-  serializeAws_restJson1_1RevokeDomainAccessCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1RevokeDomainAccessCommand,
+  serializeAws_restJson1RevokeDomainAccessCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class RevokeDomainAccessCommand extends $Command<
     input: RevokeDomainAccessCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RevokeDomainAccessCommand(input, context);
+    return serializeAws_restJson1RevokeDomainAccessCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RevokeDomainAccessCommandOutput> {
-    return deserializeAws_restJson1_1RevokeDomainAccessCommand(output, context);
+    return deserializeAws_restJson1RevokeDomainAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

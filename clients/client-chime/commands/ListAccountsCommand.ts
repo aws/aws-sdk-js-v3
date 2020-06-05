@@ -5,9 +5,9 @@ import {
 } from "../ChimeClient";
 import { ListAccountsRequest, ListAccountsResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListAccountsCommand,
-  serializeAws_restJson1_1ListAccountsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListAccountsCommand,
+  serializeAws_restJson1ListAccountsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListAccountsCommand extends $Command<
     input: ListAccountsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListAccountsCommand(input, context);
+    return serializeAws_restJson1ListAccountsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAccountsCommandOutput> {
-    return deserializeAws_restJson1_1ListAccountsCommand(output, context);
+    return deserializeAws_restJson1ListAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

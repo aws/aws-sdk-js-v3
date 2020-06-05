@@ -8,9 +8,9 @@ import {
   CreateComputeEnvironmentResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateComputeEnvironmentCommand,
-  serializeAws_restJson1_1CreateComputeEnvironmentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateComputeEnvironmentCommand,
+  serializeAws_restJson1CreateComputeEnvironmentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CreateComputeEnvironmentCommand extends $Command<
     input: CreateComputeEnvironmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateComputeEnvironmentCommand(
+    return serializeAws_restJson1CreateComputeEnvironmentCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CreateComputeEnvironmentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateComputeEnvironmentCommandOutput> {
-    return deserializeAws_restJson1_1CreateComputeEnvironmentCommand(
+    return deserializeAws_restJson1CreateComputeEnvironmentCommand(
       output,
       context
     );

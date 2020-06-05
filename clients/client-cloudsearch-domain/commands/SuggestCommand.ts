@@ -5,9 +5,9 @@ import {
 } from "../CloudSearchDomainClient";
 import { SuggestRequest, SuggestResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1SuggestCommand,
-  serializeAws_restJson1_1SuggestCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1SuggestCommand,
+  serializeAws_restJson1SuggestCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class SuggestCommand extends $Command<
     input: SuggestCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1SuggestCommand(input, context);
+    return serializeAws_restJson1SuggestCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SuggestCommandOutput> {
-    return deserializeAws_restJson1_1SuggestCommand(output, context);
+    return deserializeAws_restJson1SuggestCommand(output, context);
   }
 
   // Start section: command_body_extra

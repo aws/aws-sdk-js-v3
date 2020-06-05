@@ -5,9 +5,9 @@ import {
 } from "../MediaPackageVodClient";
 import { DescribeAssetRequest, DescribeAssetResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeAssetCommand,
-  serializeAws_restJson1_1DescribeAssetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeAssetCommand,
+  serializeAws_restJson1DescribeAssetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class DescribeAssetCommand extends $Command<
     input: DescribeAssetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeAssetCommand(input, context);
+    return serializeAws_restJson1DescribeAssetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAssetCommandOutput> {
-    return deserializeAws_restJson1_1DescribeAssetCommand(output, context);
+    return deserializeAws_restJson1DescribeAssetCommand(output, context);
   }
 
   // Start section: command_body_extra

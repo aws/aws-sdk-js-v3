@@ -8,9 +8,9 @@ import {
   GetEncryptionConfigResult
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetEncryptionConfigCommand,
-  serializeAws_restJson1_1GetEncryptionConfigCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetEncryptionConfigCommand,
+  serializeAws_restJson1GetEncryptionConfigCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetEncryptionConfigCommand extends $Command<
     input: GetEncryptionConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetEncryptionConfigCommand(input, context);
+    return serializeAws_restJson1GetEncryptionConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEncryptionConfigCommandOutput> {
-    return deserializeAws_restJson1_1GetEncryptionConfigCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetEncryptionConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

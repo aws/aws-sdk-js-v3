@@ -8,9 +8,9 @@ import {
   GetContactAttributesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetContactAttributesCommand,
-  serializeAws_restJson1_1GetContactAttributesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetContactAttributesCommand,
+  serializeAws_restJson1GetContactAttributesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetContactAttributesCommand extends $Command<
     input: GetContactAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetContactAttributesCommand(input, context);
+    return serializeAws_restJson1GetContactAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetContactAttributesCommandOutput> {
-    return deserializeAws_restJson1_1GetContactAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetContactAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

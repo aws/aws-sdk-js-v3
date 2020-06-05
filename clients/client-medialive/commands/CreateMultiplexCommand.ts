@@ -8,9 +8,9 @@ import {
   CreateMultiplexResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateMultiplexCommand,
-  serializeAws_restJson1_1CreateMultiplexCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateMultiplexCommand,
+  serializeAws_restJson1CreateMultiplexCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class CreateMultiplexCommand extends $Command<
     input: CreateMultiplexCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateMultiplexCommand(input, context);
+    return serializeAws_restJson1CreateMultiplexCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMultiplexCommandOutput> {
-    return deserializeAws_restJson1_1CreateMultiplexCommand(output, context);
+    return deserializeAws_restJson1CreateMultiplexCommand(output, context);
   }
 
   // Start section: command_body_extra

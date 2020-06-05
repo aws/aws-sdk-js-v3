@@ -8,9 +8,9 @@ import {
   ListIdentityPoolUsageResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListIdentityPoolUsageCommand,
-  serializeAws_restJson1_1ListIdentityPoolUsageCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListIdentityPoolUsageCommand,
+  serializeAws_restJson1ListIdentityPoolUsageCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class ListIdentityPoolUsageCommand extends $Command<
     input: ListIdentityPoolUsageCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListIdentityPoolUsageCommand(input, context);
+    return serializeAws_restJson1ListIdentityPoolUsageCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListIdentityPoolUsageCommandOutput> {
-    return deserializeAws_restJson1_1ListIdentityPoolUsageCommand(
+    return deserializeAws_restJson1ListIdentityPoolUsageCommand(
       output,
       context
     );

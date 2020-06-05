@@ -1865,6 +1865,53 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
+   * <p>Returns properties of provisioned clusters including general cluster properties,
+   *             cluster database properties, maintenance and backup properties, and security and access
+   *             properties. This operation supports pagination.
+   * For more information about managing clusters, go to
+   * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
+   * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+   *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
+   *             all clusters that match any combination of the specified keys and values. For example,
+   *             if you have <code>owner</code> and <code>environment</code> for tag keys, and
+   *                 <code>admin</code> and <code>test</code> for tag values, all clusters that have any
+   *             combination of those values are returned.</p>
+   *         <p>If both tag keys and values are omitted from the request, clusters are returned
+   *             regardless of whether they have tag keys or values associated with them.</p>
+   */
+  public describeClusters(
+    args: DescribeClustersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeClustersCommandOutput>;
+  public describeClusters(
+    args: DescribeClustersCommandInput,
+    cb: (err: any, data?: DescribeClustersCommandOutput) => void
+  ): void;
+  public describeClusters(
+    args: DescribeClustersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeClustersCommandOutput) => void
+  ): void;
+  public describeClusters(
+    args: DescribeClustersCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeClustersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeClustersCommandOutput) => void
+  ): Promise<DescribeClustersCommandOutput> | void {
+    const command = new DescribeClustersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about Amazon Redshift security groups. If the name of a security
    *             group is specified, the response will contain only information about only that security
    *             group.</p>
@@ -2081,53 +2128,6 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   * <p>Returns properties of provisioned clusters including general cluster properties,
-   *             cluster database properties, maintenance and backup properties, and security and access
-   *             properties. This operation supports pagination.
-   * For more information about managing clusters, go to
-   * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
-   * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
-   *             all clusters that match any combination of the specified keys and values. For example,
-   *             if you have <code>owner</code> and <code>environment</code> for tag keys, and
-   *                 <code>admin</code> and <code>test</code> for tag values, all clusters that have any
-   *             combination of those values are returned.</p>
-   *         <p>If both tag keys and values are omitted from the request, clusters are returned
-   *             regardless of whether they have tag keys or values associated with them.</p>
-   */
-  public describeClusters(
-    args: DescribeClustersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeClustersCommandOutput>;
-  public describeClusters(
-    args: DescribeClustersCommandInput,
-    cb: (err: any, data?: DescribeClustersCommandOutput) => void
-  ): void;
-  public describeClusters(
-    args: DescribeClustersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeClustersCommandOutput) => void
-  ): void;
-  public describeClusters(
-    args: DescribeClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClustersCommandOutput) => void),
-    cb?: (err: any, data?: DescribeClustersCommandOutput) => void
-  ): Promise<DescribeClustersCommandOutput> | void {
-    const command = new DescribeClustersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Returns a list of parameter settings for the specified parameter group
    *             family.</p>
    *         <p>
@@ -2211,6 +2211,44 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
+   * <p>Returns events related to clusters, security groups, snapshots, and parameter
+   *             groups for the past 14 days. Events specific to a particular cluster, security group,
+   *             snapshot or parameter group can be obtained by providing the name as a parameter. By
+   *             default, the past hour of events are returned.</p>
+   */
+  public describeEvents(
+    args: DescribeEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEventsCommandOutput>;
+  public describeEvents(
+    args: DescribeEventsCommandInput,
+    cb: (err: any, data?: DescribeEventsCommandOutput) => void
+  ): void;
+  public describeEvents(
+    args: DescribeEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEventsCommandOutput) => void
+  ): void;
+  public describeEvents(
+    args: DescribeEventsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeEventsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEventsCommandOutput) => void
+  ): Promise<DescribeEventsCommandOutput> | void {
+    const command = new DescribeEventsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists descriptions of all the Amazon Redshift event notification subscriptions for a
    *             customer account. If you specify a subscription name, lists the description for that
    *             subscription.</p>
@@ -2244,44 +2282,6 @@ export class Redshift extends RedshiftClient {
     cb?: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
   ): Promise<DescribeEventSubscriptionsCommandOutput> | void {
     const command = new DescribeEventSubscriptionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns events related to clusters, security groups, snapshots, and parameter
-   *             groups for the past 14 days. Events specific to a particular cluster, security group,
-   *             snapshot or parameter group can be obtained by providing the name as a parameter. By
-   *             default, the past hour of events are returned.</p>
-   */
-  public describeEvents(
-    args: DescribeEventsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeEventsCommandOutput>;
-  public describeEvents(
-    args: DescribeEventsCommandInput,
-    cb: (err: any, data?: DescribeEventsCommandOutput) => void
-  ): void;
-  public describeEvents(
-    args: DescribeEventsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeEventsCommandOutput) => void
-  ): void;
-  public describeEvents(
-    args: DescribeEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeEventsCommandOutput) => void
-  ): Promise<DescribeEventsCommandOutput> | void {
-    const command = new DescribeEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

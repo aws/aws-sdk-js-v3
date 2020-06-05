@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { CreateDomainNameRequest, DomainName } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateDomainNameCommand,
-  serializeAws_restJson1_1CreateDomainNameCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateDomainNameCommand,
+  serializeAws_restJson1CreateDomainNameCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateDomainNameCommand extends $Command<
     input: CreateDomainNameCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateDomainNameCommand(input, context);
+    return serializeAws_restJson1CreateDomainNameCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDomainNameCommandOutput> {
-    return deserializeAws_restJson1_1CreateDomainNameCommand(output, context);
+    return deserializeAws_restJson1CreateDomainNameCommand(output, context);
   }
 
   // Start section: command_body_extra

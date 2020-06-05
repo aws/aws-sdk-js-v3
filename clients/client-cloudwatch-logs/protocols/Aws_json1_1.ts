@@ -870,7 +870,7 @@ const deserializeAws_json1_1AssociateKmsKeyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -881,7 +881,7 @@ const deserializeAws_json1_1AssociateKmsKeyCommandError = async (
       };
       break;
     case "OperationAbortedException":
-    case "com.amazonaws.logs.v20140328#OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
       response = {
         ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
           parsedOutput,
@@ -892,7 +892,7 @@ const deserializeAws_json1_1AssociateKmsKeyCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -903,7 +903,7 @@ const deserializeAws_json1_1AssociateKmsKeyCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -959,7 +959,7 @@ const deserializeAws_json1_1CancelExportTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidOperationException":
-    case "com.amazonaws.logs.v20140328#InvalidOperationException":
+    case "com.amazonaws.cloudwatchlogs#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
           parsedOutput,
@@ -970,7 +970,7 @@ const deserializeAws_json1_1CancelExportTaskCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -981,7 +981,7 @@ const deserializeAws_json1_1CancelExportTaskCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -992,7 +992,7 @@ const deserializeAws_json1_1CancelExportTaskCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -1052,7 +1052,7 @@ const deserializeAws_json1_1CreateExportTaskCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1063,7 +1063,7 @@ const deserializeAws_json1_1CreateExportTaskCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.logs.v20140328#LimitExceededException":
+    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1074,7 +1074,7 @@ const deserializeAws_json1_1CreateExportTaskCommandError = async (
       };
       break;
     case "OperationAbortedException":
-    case "com.amazonaws.logs.v20140328#OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
       response = {
         ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
           parsedOutput,
@@ -1085,7 +1085,7 @@ const deserializeAws_json1_1CreateExportTaskCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.logs.v20140328#ResourceAlreadyExistsException":
+    case "com.amazonaws.cloudwatchlogs#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1096,7 +1096,7 @@ const deserializeAws_json1_1CreateExportTaskCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1107,7 +1107,7 @@ const deserializeAws_json1_1CreateExportTaskCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -1163,7 +1163,7 @@ const deserializeAws_json1_1CreateLogGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1174,7 +1174,7 @@ const deserializeAws_json1_1CreateLogGroupCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.logs.v20140328#LimitExceededException":
+    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1185,7 +1185,7 @@ const deserializeAws_json1_1CreateLogGroupCommandError = async (
       };
       break;
     case "OperationAbortedException":
-    case "com.amazonaws.logs.v20140328#OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
       response = {
         ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
           parsedOutput,
@@ -1196,7 +1196,7 @@ const deserializeAws_json1_1CreateLogGroupCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.logs.v20140328#ResourceAlreadyExistsException":
+    case "com.amazonaws.cloudwatchlogs#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1207,7 +1207,7 @@ const deserializeAws_json1_1CreateLogGroupCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -1263,7 +1263,7 @@ const deserializeAws_json1_1CreateLogStreamCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1274,7 +1274,7 @@ const deserializeAws_json1_1CreateLogStreamCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.logs.v20140328#ResourceAlreadyExistsException":
+    case "com.amazonaws.cloudwatchlogs#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1285,7 +1285,7 @@ const deserializeAws_json1_1CreateLogStreamCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1296,7 +1296,7 @@ const deserializeAws_json1_1CreateLogStreamCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -1352,7 +1352,7 @@ const deserializeAws_json1_1DeleteDestinationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1363,7 +1363,7 @@ const deserializeAws_json1_1DeleteDestinationCommandError = async (
       };
       break;
     case "OperationAbortedException":
-    case "com.amazonaws.logs.v20140328#OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
       response = {
         ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
           parsedOutput,
@@ -1374,7 +1374,7 @@ const deserializeAws_json1_1DeleteDestinationCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1385,7 +1385,7 @@ const deserializeAws_json1_1DeleteDestinationCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -1441,7 +1441,7 @@ const deserializeAws_json1_1DeleteLogGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1452,7 +1452,7 @@ const deserializeAws_json1_1DeleteLogGroupCommandError = async (
       };
       break;
     case "OperationAbortedException":
-    case "com.amazonaws.logs.v20140328#OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
       response = {
         ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
           parsedOutput,
@@ -1463,7 +1463,7 @@ const deserializeAws_json1_1DeleteLogGroupCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1474,7 +1474,7 @@ const deserializeAws_json1_1DeleteLogGroupCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -1530,7 +1530,7 @@ const deserializeAws_json1_1DeleteLogStreamCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1541,7 +1541,7 @@ const deserializeAws_json1_1DeleteLogStreamCommandError = async (
       };
       break;
     case "OperationAbortedException":
-    case "com.amazonaws.logs.v20140328#OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
       response = {
         ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
           parsedOutput,
@@ -1552,7 +1552,7 @@ const deserializeAws_json1_1DeleteLogStreamCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1563,7 +1563,7 @@ const deserializeAws_json1_1DeleteLogStreamCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -1622,7 +1622,7 @@ const deserializeAws_json1_1DeleteMetricFilterCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1633,7 +1633,7 @@ const deserializeAws_json1_1DeleteMetricFilterCommandError = async (
       };
       break;
     case "OperationAbortedException":
-    case "com.amazonaws.logs.v20140328#OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
       response = {
         ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
           parsedOutput,
@@ -1644,7 +1644,7 @@ const deserializeAws_json1_1DeleteMetricFilterCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1655,7 +1655,7 @@ const deserializeAws_json1_1DeleteMetricFilterCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -1714,7 +1714,7 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1725,7 +1725,7 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1736,7 +1736,7 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -1795,7 +1795,7 @@ const deserializeAws_json1_1DeleteRetentionPolicyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1806,7 +1806,7 @@ const deserializeAws_json1_1DeleteRetentionPolicyCommandError = async (
       };
       break;
     case "OperationAbortedException":
-    case "com.amazonaws.logs.v20140328#OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
       response = {
         ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
           parsedOutput,
@@ -1817,7 +1817,7 @@ const deserializeAws_json1_1DeleteRetentionPolicyCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1828,7 +1828,7 @@ const deserializeAws_json1_1DeleteRetentionPolicyCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -1887,7 +1887,7 @@ const deserializeAws_json1_1DeleteSubscriptionFilterCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1898,7 +1898,7 @@ const deserializeAws_json1_1DeleteSubscriptionFilterCommandError = async (
       };
       break;
     case "OperationAbortedException":
-    case "com.amazonaws.logs.v20140328#OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
       response = {
         ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
           parsedOutput,
@@ -1909,7 +1909,7 @@ const deserializeAws_json1_1DeleteSubscriptionFilterCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1920,7 +1920,7 @@ const deserializeAws_json1_1DeleteSubscriptionFilterCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -1983,7 +1983,7 @@ const deserializeAws_json1_1DescribeDestinationsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1994,7 +1994,7 @@ const deserializeAws_json1_1DescribeDestinationsCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -2057,7 +2057,7 @@ const deserializeAws_json1_1DescribeExportTasksCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2068,7 +2068,7 @@ const deserializeAws_json1_1DescribeExportTasksCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -2128,7 +2128,7 @@ const deserializeAws_json1_1DescribeLogGroupsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2139,7 +2139,7 @@ const deserializeAws_json1_1DescribeLogGroupsCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -2202,7 +2202,7 @@ const deserializeAws_json1_1DescribeLogStreamsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2213,7 +2213,7 @@ const deserializeAws_json1_1DescribeLogStreamsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2224,7 +2224,7 @@ const deserializeAws_json1_1DescribeLogStreamsCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -2287,7 +2287,7 @@ const deserializeAws_json1_1DescribeMetricFiltersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2298,7 +2298,7 @@ const deserializeAws_json1_1DescribeMetricFiltersCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2309,7 +2309,7 @@ const deserializeAws_json1_1DescribeMetricFiltersCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -2369,7 +2369,7 @@ const deserializeAws_json1_1DescribeQueriesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2380,7 +2380,7 @@ const deserializeAws_json1_1DescribeQueriesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2391,7 +2391,7 @@ const deserializeAws_json1_1DescribeQueriesCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -2457,7 +2457,7 @@ const deserializeAws_json1_1DescribeResourcePoliciesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2468,7 +2468,7 @@ const deserializeAws_json1_1DescribeResourcePoliciesCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -2534,7 +2534,7 @@ const deserializeAws_json1_1DescribeSubscriptionFiltersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2545,7 +2545,7 @@ const deserializeAws_json1_1DescribeSubscriptionFiltersCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2556,7 +2556,7 @@ const deserializeAws_json1_1DescribeSubscriptionFiltersCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -2615,7 +2615,7 @@ const deserializeAws_json1_1DisassociateKmsKeyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2626,7 +2626,7 @@ const deserializeAws_json1_1DisassociateKmsKeyCommandError = async (
       };
       break;
     case "OperationAbortedException":
-    case "com.amazonaws.logs.v20140328#OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
       response = {
         ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
           parsedOutput,
@@ -2637,7 +2637,7 @@ const deserializeAws_json1_1DisassociateKmsKeyCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2648,7 +2648,7 @@ const deserializeAws_json1_1DisassociateKmsKeyCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -2708,7 +2708,7 @@ const deserializeAws_json1_1FilterLogEventsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2719,7 +2719,7 @@ const deserializeAws_json1_1FilterLogEventsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2730,7 +2730,7 @@ const deserializeAws_json1_1FilterLogEventsCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -2790,7 +2790,7 @@ const deserializeAws_json1_1GetLogEventsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2801,7 +2801,7 @@ const deserializeAws_json1_1GetLogEventsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2812,7 +2812,7 @@ const deserializeAws_json1_1GetLogEventsCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -2872,7 +2872,7 @@ const deserializeAws_json1_1GetLogGroupFieldsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2883,7 +2883,7 @@ const deserializeAws_json1_1GetLogGroupFieldsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.logs.v20140328#LimitExceededException":
+    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2894,7 +2894,7 @@ const deserializeAws_json1_1GetLogGroupFieldsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2905,7 +2905,7 @@ const deserializeAws_json1_1GetLogGroupFieldsCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -2965,7 +2965,7 @@ const deserializeAws_json1_1GetLogRecordCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2976,7 +2976,7 @@ const deserializeAws_json1_1GetLogRecordCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.logs.v20140328#LimitExceededException":
+    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2987,7 +2987,7 @@ const deserializeAws_json1_1GetLogRecordCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2998,7 +2998,7 @@ const deserializeAws_json1_1GetLogRecordCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -3058,7 +3058,7 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3069,7 +3069,7 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3080,7 +3080,7 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -3140,7 +3140,7 @@ const deserializeAws_json1_1ListTagsLogGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3151,7 +3151,7 @@ const deserializeAws_json1_1ListTagsLogGroupCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -3211,7 +3211,7 @@ const deserializeAws_json1_1PutDestinationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3222,7 +3222,7 @@ const deserializeAws_json1_1PutDestinationCommandError = async (
       };
       break;
     case "OperationAbortedException":
-    case "com.amazonaws.logs.v20140328#OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
       response = {
         ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
           parsedOutput,
@@ -3233,7 +3233,7 @@ const deserializeAws_json1_1PutDestinationCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -3292,7 +3292,7 @@ const deserializeAws_json1_1PutDestinationPolicyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3303,7 +3303,7 @@ const deserializeAws_json1_1PutDestinationPolicyCommandError = async (
       };
       break;
     case "OperationAbortedException":
-    case "com.amazonaws.logs.v20140328#OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
       response = {
         ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
           parsedOutput,
@@ -3314,7 +3314,7 @@ const deserializeAws_json1_1PutDestinationPolicyCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -3374,7 +3374,7 @@ const deserializeAws_json1_1PutLogEventsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DataAlreadyAcceptedException":
-    case "com.amazonaws.logs.v20140328#DataAlreadyAcceptedException":
+    case "com.amazonaws.cloudwatchlogs#DataAlreadyAcceptedException":
       response = {
         ...(await deserializeAws_json1_1DataAlreadyAcceptedExceptionResponse(
           parsedOutput,
@@ -3385,7 +3385,7 @@ const deserializeAws_json1_1PutLogEventsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3396,7 +3396,7 @@ const deserializeAws_json1_1PutLogEventsCommandError = async (
       };
       break;
     case "InvalidSequenceTokenException":
-    case "com.amazonaws.logs.v20140328#InvalidSequenceTokenException":
+    case "com.amazonaws.cloudwatchlogs#InvalidSequenceTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidSequenceTokenExceptionResponse(
           parsedOutput,
@@ -3407,7 +3407,7 @@ const deserializeAws_json1_1PutLogEventsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3418,7 +3418,7 @@ const deserializeAws_json1_1PutLogEventsCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -3429,7 +3429,7 @@ const deserializeAws_json1_1PutLogEventsCommandError = async (
       };
       break;
     case "UnrecognizedClientException":
-    case "com.amazonaws.logs.v20140328#UnrecognizedClientException":
+    case "com.amazonaws.cloudwatchlogs#UnrecognizedClientException":
       response = {
         ...(await deserializeAws_json1_1UnrecognizedClientExceptionResponse(
           parsedOutput,
@@ -3485,7 +3485,7 @@ const deserializeAws_json1_1PutMetricFilterCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3496,7 +3496,7 @@ const deserializeAws_json1_1PutMetricFilterCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.logs.v20140328#LimitExceededException":
+    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3507,7 +3507,7 @@ const deserializeAws_json1_1PutMetricFilterCommandError = async (
       };
       break;
     case "OperationAbortedException":
-    case "com.amazonaws.logs.v20140328#OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
       response = {
         ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
           parsedOutput,
@@ -3518,7 +3518,7 @@ const deserializeAws_json1_1PutMetricFilterCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3529,7 +3529,7 @@ const deserializeAws_json1_1PutMetricFilterCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -3589,7 +3589,7 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3600,7 +3600,7 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.logs.v20140328#LimitExceededException":
+    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3611,7 +3611,7 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -3670,7 +3670,7 @@ const deserializeAws_json1_1PutRetentionPolicyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3681,7 +3681,7 @@ const deserializeAws_json1_1PutRetentionPolicyCommandError = async (
       };
       break;
     case "OperationAbortedException":
-    case "com.amazonaws.logs.v20140328#OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
       response = {
         ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
           parsedOutput,
@@ -3692,7 +3692,7 @@ const deserializeAws_json1_1PutRetentionPolicyCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3703,7 +3703,7 @@ const deserializeAws_json1_1PutRetentionPolicyCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -3762,7 +3762,7 @@ const deserializeAws_json1_1PutSubscriptionFilterCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3773,7 +3773,7 @@ const deserializeAws_json1_1PutSubscriptionFilterCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.logs.v20140328#LimitExceededException":
+    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3784,7 +3784,7 @@ const deserializeAws_json1_1PutSubscriptionFilterCommandError = async (
       };
       break;
     case "OperationAbortedException":
-    case "com.amazonaws.logs.v20140328#OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
       response = {
         ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
           parsedOutput,
@@ -3795,7 +3795,7 @@ const deserializeAws_json1_1PutSubscriptionFilterCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3806,7 +3806,7 @@ const deserializeAws_json1_1PutSubscriptionFilterCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -3866,7 +3866,7 @@ const deserializeAws_json1_1StartQueryCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3877,7 +3877,7 @@ const deserializeAws_json1_1StartQueryCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.logs.v20140328#LimitExceededException":
+    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -3888,7 +3888,7 @@ const deserializeAws_json1_1StartQueryCommandError = async (
       };
       break;
     case "MalformedQueryException":
-    case "com.amazonaws.logs.v20140328#MalformedQueryException":
+    case "com.amazonaws.cloudwatchlogs#MalformedQueryException":
       response = {
         ...(await deserializeAws_json1_1MalformedQueryExceptionResponse(
           parsedOutput,
@@ -3899,7 +3899,7 @@ const deserializeAws_json1_1StartQueryCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3910,7 +3910,7 @@ const deserializeAws_json1_1StartQueryCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -3970,7 +3970,7 @@ const deserializeAws_json1_1StopQueryCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -3981,7 +3981,7 @@ const deserializeAws_json1_1StopQueryCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3992,7 +3992,7 @@ const deserializeAws_json1_1StopQueryCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -4048,7 +4048,7 @@ const deserializeAws_json1_1TagLogGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -4059,7 +4059,7 @@ const deserializeAws_json1_1TagLogGroupCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4119,7 +4119,7 @@ const deserializeAws_json1_1TestMetricFilterCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.logs.v20140328#InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -4130,7 +4130,7 @@ const deserializeAws_json1_1TestMetricFilterCommandError = async (
       };
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
           parsedOutput,
@@ -4186,7 +4186,7 @@ const deserializeAws_json1_1UntagLogGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -5332,6 +5332,15 @@ const deserializeAws_json1_1ExportTaskExecutionInfo = (
   } as any;
 };
 
+const deserializeAws_json1_1ExportTasks = (
+  output: any,
+  context: __SerdeContext
+): ExportTask[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ExportTask(entry, context)
+  );
+};
+
 const deserializeAws_json1_1ExportTaskStatus = (
   output: any,
   context: __SerdeContext
@@ -5349,15 +5358,6 @@ const deserializeAws_json1_1ExportTaskStatus = (
   } as any;
 };
 
-const deserializeAws_json1_1ExportTasks = (
-  output: any,
-  context: __SerdeContext
-): ExportTask[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ExportTask(entry, context)
-  );
-};
-
 const deserializeAws_json1_1ExtractedValues = (
   output: any,
   context: __SerdeContext
@@ -5369,31 +5369,6 @@ const deserializeAws_json1_1ExtractedValues = (
     }),
     {}
   );
-};
-
-const deserializeAws_json1_1FilterLogEventsResponse = (
-  output: any,
-  context: __SerdeContext
-): FilterLogEventsResponse => {
-  return {
-    __type: "FilterLogEventsResponse",
-    events:
-      output.events !== undefined && output.events !== null
-        ? deserializeAws_json1_1FilteredLogEvents(output.events, context)
-        : undefined,
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
-    searchedLogStreams:
-      output.searchedLogStreams !== undefined &&
-      output.searchedLogStreams !== null
-        ? deserializeAws_json1_1SearchedLogStreams(
-            output.searchedLogStreams,
-            context
-          )
-        : undefined
-  } as any;
 };
 
 const deserializeAws_json1_1FilteredLogEvent = (
@@ -5432,6 +5407,31 @@ const deserializeAws_json1_1FilteredLogEvents = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FilteredLogEvent(entry, context)
   );
+};
+
+const deserializeAws_json1_1FilterLogEventsResponse = (
+  output: any,
+  context: __SerdeContext
+): FilterLogEventsResponse => {
+  return {
+    __type: "FilterLogEventsResponse",
+    events:
+      output.events !== undefined && output.events !== null
+        ? deserializeAws_json1_1FilteredLogEvents(output.events, context)
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    searchedLogStreams:
+      output.searchedLogStreams !== undefined &&
+      output.searchedLogStreams !== null
+        ? deserializeAws_json1_1SearchedLogStreams(
+            output.searchedLogStreams,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetLogEventsResponse = (
@@ -5766,6 +5766,15 @@ const deserializeAws_json1_1MetricFilter = (
   } as any;
 };
 
+const deserializeAws_json1_1MetricFilterMatches = (
+  output: any,
+  context: __SerdeContext
+): MetricFilterMatchRecord[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1MetricFilterMatchRecord(entry, context)
+  );
+};
+
 const deserializeAws_json1_1MetricFilterMatchRecord = (
   output: any,
   context: __SerdeContext
@@ -5785,15 +5794,6 @@ const deserializeAws_json1_1MetricFilterMatchRecord = (
         ? deserializeAws_json1_1ExtractedValues(output.extractedValues, context)
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1MetricFilterMatches = (
-  output: any,
-  context: __SerdeContext
-): MetricFilterMatchRecord[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1MetricFilterMatchRecord(entry, context)
-  );
 };
 
 const deserializeAws_json1_1MetricFilters = (

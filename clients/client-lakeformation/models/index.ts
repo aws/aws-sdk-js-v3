@@ -5,6 +5,28 @@ import {
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+/**
+ * <p>A resource to be created or added already exists.</p>
+ */
+export interface AlreadyExistsException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "AlreadyExistsException";
+  $fault: "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+}
+
+export namespace AlreadyExistsException {
+  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AlreadyExistsException =>
+    __isa(o, "AlreadyExistsException");
+}
+
 export interface BatchGrantPermissionsRequest {
   __type?: "BatchGrantPermissionsRequest";
   /**
@@ -188,6 +210,63 @@ export namespace ColumnWildcard {
     __isa(o, "ColumnWildcard");
 }
 
+export enum ComparisonOperator {
+  BEGINS_WITH = "BEGINS_WITH",
+  BETWEEN = "BETWEEN",
+  CONTAINS = "CONTAINS",
+  EQ = "EQ",
+  GE = "GE",
+  GT = "GT",
+  IN = "IN",
+  LE = "LE",
+  LT = "LT",
+  NE = "NE",
+  NOT_CONTAINS = "NOT_CONTAINS"
+}
+
+/**
+ * <p>Two processes are trying to modify a resource simultaneously.</p>
+ */
+export interface ConcurrentModificationException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ConcurrentModificationException";
+  $fault: "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+}
+
+export namespace ConcurrentModificationException {
+  export const filterSensitiveLog = (
+    obj: ConcurrentModificationException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ConcurrentModificationException =>
+    __isa(o, "ConcurrentModificationException");
+}
+
+/**
+ * <p>A structure for the database object.</p>
+ */
+export interface DatabaseResource {
+  __type?: "DatabaseResource";
+  /**
+   * <p>The name of the database resource. Unique to the Data Catalog.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DatabaseResource {
+  export const filterSensitiveLog = (obj: DatabaseResource): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DatabaseResource =>
+    __isa(o, "DatabaseResource");
+}
+
 /**
  * <p>The AWS Lake Formation principal.</p>
  */
@@ -262,25 +341,6 @@ export namespace DataLocationResource {
     __isa(o, "DataLocationResource");
 }
 
-/**
- * <p>A structure for the database object.</p>
- */
-export interface DatabaseResource {
-  __type?: "DatabaseResource";
-  /**
-   * <p>The name of the database resource. Unique to the Data Catalog.</p>
-   */
-  Name: string | undefined;
-}
-
-export namespace DatabaseResource {
-  export const filterSensitiveLog = (obj: DatabaseResource): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DatabaseResource =>
-    __isa(o, "DatabaseResource");
-}
-
 export interface DeregisterResourceRequest {
   __type?: "DeregisterResourceRequest";
   /**
@@ -339,6 +399,86 @@ export namespace DescribeResourceResponse {
   });
   export const isa = (o: any): o is DescribeResourceResponse =>
     __isa(o, "DescribeResourceResponse");
+}
+
+/**
+ * <p>A specified entity does not exist</p>
+ */
+export interface EntityNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "EntityNotFoundException";
+  $fault: "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+}
+
+export namespace EntityNotFoundException {
+  export const filterSensitiveLog = (obj: EntityNotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is EntityNotFoundException =>
+    __isa(o, "EntityNotFoundException");
+}
+
+/**
+ * <p>Contains details about an error.</p>
+ */
+export interface ErrorDetail {
+  __type?: "ErrorDetail";
+  /**
+   * <p>The code associated with this error.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>A message describing the error.</p>
+   */
+  ErrorMessage?: string;
+}
+
+export namespace ErrorDetail {
+  export const filterSensitiveLog = (obj: ErrorDetail): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ErrorDetail => __isa(o, "ErrorDetail");
+}
+
+export enum FieldNameString {
+  LAST_MODIFIED = "LAST_MODIFIED",
+  RESOURCE_ARN = "RESOURCE_ARN",
+  ROLE_ARN = "ROLE_ARN"
+}
+
+/**
+ * <p>This structure describes the filtering of columns in a table based on a filter condition.</p>
+ */
+export interface FilterCondition {
+  __type?: "FilterCondition";
+  /**
+   * <p>The comparison operator used in the filter condition.</p>
+   */
+  ComparisonOperator?: ComparisonOperator | string;
+
+  /**
+   * <p>The field to filter in the filter condition.</p>
+   */
+  Field?: FieldNameString | string;
+
+  /**
+   * <p>A string with values used in evaluating the filter condition.</p>
+   */
+  StringValueList?: string[];
+}
+
+export namespace FilterCondition {
+  export const filterSensitiveLog = (obj: FilterCondition): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is FilterCondition =>
+    __isa(o, "FilterCondition");
 }
 
 export interface GetDataLakeSettingsRequest {
@@ -480,6 +620,50 @@ export namespace GrantPermissionsResponse {
     __isa(o, "GrantPermissionsResponse");
 }
 
+/**
+ * <p>An internal service error occurred.</p>
+ */
+export interface InternalServiceException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InternalServiceException";
+  $fault: "server";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+}
+
+export namespace InternalServiceException {
+  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InternalServiceException =>
+    __isa(o, "InternalServiceException");
+}
+
+/**
+ * <p>The input provided was not valid.</p>
+ */
+export interface InvalidInputException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidInputException";
+  $fault: "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+}
+
+export namespace InvalidInputException {
+  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidInputException =>
+    __isa(o, "InvalidInputException");
+}
+
 export interface ListPermissionsRequest {
   __type?: "ListPermissionsRequest";
   /**
@@ -588,6 +772,28 @@ export namespace ListResourcesResponse {
   });
   export const isa = (o: any): o is ListResourcesResponse =>
     __isa(o, "ListResourcesResponse");
+}
+
+/**
+ * <p>The operation timed out.</p>
+ */
+export interface OperationTimeoutException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "OperationTimeoutException";
+  $fault: "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+}
+
+export namespace OperationTimeoutException {
+  export const filterSensitiveLog = (obj: OperationTimeoutException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is OperationTimeoutException =>
+    __isa(o, "OperationTimeoutException");
 }
 
 export enum Permission {
@@ -773,6 +979,34 @@ export namespace Resource {
   export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
 
+/**
+ * <p>A structure containing information about an AWS Lake Formation resource.</p>
+ */
+export interface ResourceInfo {
+  __type?: "ResourceInfo";
+  /**
+   * <p>The date and time the resource was last modified.</p>
+   */
+  LastModified?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The IAM role that registered a resource.</p>
+   */
+  RoleArn?: string;
+}
+
+export namespace ResourceInfo {
+  export const filterSensitiveLog = (obj: ResourceInfo): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceInfo => __isa(o, "ResourceInfo");
+}
+
 export interface RevokePermissionsRequest {
   __type?: "RevokePermissionsRequest";
   /**
@@ -911,238 +1145,4 @@ export namespace UpdateResourceResponse {
   });
   export const isa = (o: any): o is UpdateResourceResponse =>
     __isa(o, "UpdateResourceResponse");
-}
-
-/**
- * <p>A resource to be created or added already exists.</p>
- */
-export interface AlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "AlreadyExistsException";
-  $fault: "client";
-  /**
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-}
-
-export namespace AlreadyExistsException {
-  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AlreadyExistsException =>
-    __isa(o, "AlreadyExistsException");
-}
-
-/**
- * <p>Two processes are trying to modify a resource simultaneously.</p>
- */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
-  /**
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-}
-
-export namespace ConcurrentModificationException {
-  export const filterSensitiveLog = (
-    obj: ConcurrentModificationException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ConcurrentModificationException =>
-    __isa(o, "ConcurrentModificationException");
-}
-
-/**
- * <p>A specified entity does not exist</p>
- */
-export interface EntityNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "EntityNotFoundException";
-  $fault: "client";
-  /**
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-}
-
-export namespace EntityNotFoundException {
-  export const filterSensitiveLog = (obj: EntityNotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is EntityNotFoundException =>
-    __isa(o, "EntityNotFoundException");
-}
-
-/**
- * <p>Contains details about an error.</p>
- */
-export interface ErrorDetail {
-  __type?: "ErrorDetail";
-  /**
-   * <p>The code associated with this error.</p>
-   */
-  ErrorCode?: string;
-
-  /**
-   * <p>A message describing the error.</p>
-   */
-  ErrorMessage?: string;
-}
-
-export namespace ErrorDetail {
-  export const filterSensitiveLog = (obj: ErrorDetail): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ErrorDetail => __isa(o, "ErrorDetail");
-}
-
-/**
- * <p>An internal service error occurred.</p>
- */
-export interface InternalServiceException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InternalServiceException";
-  $fault: "server";
-  /**
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-}
-
-export namespace InternalServiceException {
-  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InternalServiceException =>
-    __isa(o, "InternalServiceException");
-}
-
-/**
- * <p>The input provided was not valid.</p>
- */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidInputException";
-  $fault: "client";
-  /**
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-}
-
-export namespace InvalidInputException {
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
-}
-
-/**
- * <p>The operation timed out.</p>
- */
-export interface OperationTimeoutException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "OperationTimeoutException";
-  $fault: "client";
-  /**
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-}
-
-export namespace OperationTimeoutException {
-  export const filterSensitiveLog = (obj: OperationTimeoutException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is OperationTimeoutException =>
-    __isa(o, "OperationTimeoutException");
-}
-
-export enum ComparisonOperator {
-  BEGINS_WITH = "BEGINS_WITH",
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  EQ = "EQ",
-  GE = "GE",
-  GT = "GT",
-  IN = "IN",
-  LE = "LE",
-  LT = "LT",
-  NE = "NE",
-  NOT_CONTAINS = "NOT_CONTAINS"
-}
-
-export enum FieldNameString {
-  LAST_MODIFIED = "LAST_MODIFIED",
-  RESOURCE_ARN = "RESOURCE_ARN",
-  ROLE_ARN = "ROLE_ARN"
-}
-
-/**
- * <p>This structure describes the filtering of columns in a table based on a filter condition.</p>
- */
-export interface FilterCondition {
-  __type?: "FilterCondition";
-  /**
-   * <p>The comparison operator used in the filter condition.</p>
-   */
-  ComparisonOperator?: ComparisonOperator | string;
-
-  /**
-   * <p>The field to filter in the filter condition.</p>
-   */
-  Field?: FieldNameString | string;
-
-  /**
-   * <p>A string with values used in evaluating the filter condition.</p>
-   */
-  StringValueList?: string[];
-}
-
-export namespace FilterCondition {
-  export const filterSensitiveLog = (obj: FilterCondition): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is FilterCondition =>
-    __isa(o, "FilterCondition");
-}
-
-/**
- * <p>A structure containing information about an AWS Lake Formation resource.</p>
- */
-export interface ResourceInfo {
-  __type?: "ResourceInfo";
-  /**
-   * <p>The date and time the resource was last modified.</p>
-   */
-  LastModified?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  ResourceArn?: string;
-
-  /**
-   * <p>The IAM role that registered a resource.</p>
-   */
-  RoleArn?: string;
-}
-
-export namespace ResourceInfo {
-  export const filterSensitiveLog = (obj: ResourceInfo): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceInfo => __isa(o, "ResourceInfo");
 }

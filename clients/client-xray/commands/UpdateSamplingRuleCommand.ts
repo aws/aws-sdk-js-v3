@@ -8,9 +8,9 @@ import {
   UpdateSamplingRuleResult
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateSamplingRuleCommand,
-  serializeAws_restJson1_1UpdateSamplingRuleCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateSamplingRuleCommand,
+  serializeAws_restJson1UpdateSamplingRuleCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class UpdateSamplingRuleCommand extends $Command<
     input: UpdateSamplingRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateSamplingRuleCommand(input, context);
+    return serializeAws_restJson1UpdateSamplingRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSamplingRuleCommandOutput> {
-    return deserializeAws_restJson1_1UpdateSamplingRuleCommand(output, context);
+    return deserializeAws_restJson1UpdateSamplingRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

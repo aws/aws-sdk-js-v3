@@ -8,9 +8,9 @@ import {
   CreateBotVersionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateBotVersionCommand,
-  serializeAws_restJson1_1CreateBotVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateBotVersionCommand,
+  serializeAws_restJson1CreateBotVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class CreateBotVersionCommand extends $Command<
     input: CreateBotVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateBotVersionCommand(input, context);
+    return serializeAws_restJson1CreateBotVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateBotVersionCommandOutput> {
-    return deserializeAws_restJson1_1CreateBotVersionCommand(output, context);
+    return deserializeAws_restJson1CreateBotVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

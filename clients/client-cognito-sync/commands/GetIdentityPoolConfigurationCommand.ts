@@ -8,9 +8,9 @@ import {
   GetIdentityPoolConfigurationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetIdentityPoolConfigurationCommand,
-  serializeAws_restJson1_1GetIdentityPoolConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetIdentityPoolConfigurationCommand,
+  serializeAws_restJson1GetIdentityPoolConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetIdentityPoolConfigurationCommand extends $Command<
     input: GetIdentityPoolConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetIdentityPoolConfigurationCommand(
+    return serializeAws_restJson1GetIdentityPoolConfigurationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetIdentityPoolConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIdentityPoolConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1GetIdentityPoolConfigurationCommand(
+    return deserializeAws_restJson1GetIdentityPoolConfigurationCommand(
       output,
       context
     );

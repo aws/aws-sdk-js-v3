@@ -279,7 +279,7 @@ const deserializeAws_json1_1DeleteScalingPolicyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentUpdateException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ConcurrentUpdateException":
+    case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
           parsedOutput,
@@ -290,7 +290,7 @@ const deserializeAws_json1_1DeleteScalingPolicyCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#InternalServiceException":
+    case "com.amazonaws.applicationautoscaling#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -301,7 +301,7 @@ const deserializeAws_json1_1DeleteScalingPolicyCommandError = async (
       };
       break;
     case "ObjectNotFoundException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ObjectNotFoundException":
+    case "com.amazonaws.applicationautoscaling#ObjectNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ObjectNotFoundExceptionResponse(
           parsedOutput,
@@ -312,7 +312,7 @@ const deserializeAws_json1_1DeleteScalingPolicyCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ValidationException":
+    case "com.amazonaws.applicationautoscaling#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -375,7 +375,7 @@ const deserializeAws_json1_1DeleteScheduledActionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentUpdateException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ConcurrentUpdateException":
+    case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
           parsedOutput,
@@ -386,7 +386,7 @@ const deserializeAws_json1_1DeleteScheduledActionCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#InternalServiceException":
+    case "com.amazonaws.applicationautoscaling#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -397,7 +397,7 @@ const deserializeAws_json1_1DeleteScheduledActionCommandError = async (
       };
       break;
     case "ObjectNotFoundException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ObjectNotFoundException":
+    case "com.amazonaws.applicationautoscaling#ObjectNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ObjectNotFoundExceptionResponse(
           parsedOutput,
@@ -408,7 +408,7 @@ const deserializeAws_json1_1DeleteScheduledActionCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ValidationException":
+    case "com.amazonaws.applicationautoscaling#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -474,7 +474,7 @@ const deserializeAws_json1_1DeregisterScalableTargetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentUpdateException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ConcurrentUpdateException":
+    case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
           parsedOutput,
@@ -485,7 +485,7 @@ const deserializeAws_json1_1DeregisterScalableTargetCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#InternalServiceException":
+    case "com.amazonaws.applicationautoscaling#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -496,7 +496,7 @@ const deserializeAws_json1_1DeregisterScalableTargetCommandError = async (
       };
       break;
     case "ObjectNotFoundException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ObjectNotFoundException":
+    case "com.amazonaws.applicationautoscaling#ObjectNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ObjectNotFoundExceptionResponse(
           parsedOutput,
@@ -507,7 +507,7 @@ const deserializeAws_json1_1DeregisterScalableTargetCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ValidationException":
+    case "com.amazonaws.applicationautoscaling#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -573,7 +573,7 @@ const deserializeAws_json1_1DescribeScalableTargetsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentUpdateException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ConcurrentUpdateException":
+    case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
           parsedOutput,
@@ -584,7 +584,7 @@ const deserializeAws_json1_1DescribeScalableTargetsCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#InternalServiceException":
+    case "com.amazonaws.applicationautoscaling#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -595,7 +595,7 @@ const deserializeAws_json1_1DescribeScalableTargetsCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#InvalidNextTokenException":
+    case "com.amazonaws.applicationautoscaling#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -606,7 +606,7 @@ const deserializeAws_json1_1DescribeScalableTargetsCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ValidationException":
+    case "com.amazonaws.applicationautoscaling#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -672,7 +672,7 @@ const deserializeAws_json1_1DescribeScalingActivitiesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentUpdateException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ConcurrentUpdateException":
+    case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
           parsedOutput,
@@ -683,7 +683,7 @@ const deserializeAws_json1_1DescribeScalingActivitiesCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#InternalServiceException":
+    case "com.amazonaws.applicationautoscaling#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -694,7 +694,7 @@ const deserializeAws_json1_1DescribeScalingActivitiesCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#InvalidNextTokenException":
+    case "com.amazonaws.applicationautoscaling#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -705,7 +705,7 @@ const deserializeAws_json1_1DescribeScalingActivitiesCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ValidationException":
+    case "com.amazonaws.applicationautoscaling#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -771,7 +771,7 @@ const deserializeAws_json1_1DescribeScalingPoliciesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentUpdateException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ConcurrentUpdateException":
+    case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
           parsedOutput,
@@ -782,7 +782,7 @@ const deserializeAws_json1_1DescribeScalingPoliciesCommandError = async (
       };
       break;
     case "FailedResourceAccessException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#FailedResourceAccessException":
+    case "com.amazonaws.applicationautoscaling#FailedResourceAccessException":
       response = {
         ...(await deserializeAws_json1_1FailedResourceAccessExceptionResponse(
           parsedOutput,
@@ -793,7 +793,7 @@ const deserializeAws_json1_1DescribeScalingPoliciesCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#InternalServiceException":
+    case "com.amazonaws.applicationautoscaling#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -804,7 +804,7 @@ const deserializeAws_json1_1DescribeScalingPoliciesCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#InvalidNextTokenException":
+    case "com.amazonaws.applicationautoscaling#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -815,7 +815,7 @@ const deserializeAws_json1_1DescribeScalingPoliciesCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ValidationException":
+    case "com.amazonaws.applicationautoscaling#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -881,7 +881,7 @@ const deserializeAws_json1_1DescribeScheduledActionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentUpdateException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ConcurrentUpdateException":
+    case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
           parsedOutput,
@@ -892,7 +892,7 @@ const deserializeAws_json1_1DescribeScheduledActionsCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#InternalServiceException":
+    case "com.amazonaws.applicationautoscaling#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -903,7 +903,7 @@ const deserializeAws_json1_1DescribeScheduledActionsCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#InvalidNextTokenException":
+    case "com.amazonaws.applicationautoscaling#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -914,7 +914,7 @@ const deserializeAws_json1_1DescribeScheduledActionsCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ValidationException":
+    case "com.amazonaws.applicationautoscaling#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -974,7 +974,7 @@ const deserializeAws_json1_1PutScalingPolicyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentUpdateException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ConcurrentUpdateException":
+    case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
           parsedOutput,
@@ -985,7 +985,7 @@ const deserializeAws_json1_1PutScalingPolicyCommandError = async (
       };
       break;
     case "FailedResourceAccessException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#FailedResourceAccessException":
+    case "com.amazonaws.applicationautoscaling#FailedResourceAccessException":
       response = {
         ...(await deserializeAws_json1_1FailedResourceAccessExceptionResponse(
           parsedOutput,
@@ -996,7 +996,7 @@ const deserializeAws_json1_1PutScalingPolicyCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#InternalServiceException":
+    case "com.amazonaws.applicationautoscaling#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -1007,7 +1007,7 @@ const deserializeAws_json1_1PutScalingPolicyCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#LimitExceededException":
+    case "com.amazonaws.applicationautoscaling#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1018,7 +1018,7 @@ const deserializeAws_json1_1PutScalingPolicyCommandError = async (
       };
       break;
     case "ObjectNotFoundException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ObjectNotFoundException":
+    case "com.amazonaws.applicationautoscaling#ObjectNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ObjectNotFoundExceptionResponse(
           parsedOutput,
@@ -1029,7 +1029,7 @@ const deserializeAws_json1_1PutScalingPolicyCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ValidationException":
+    case "com.amazonaws.applicationautoscaling#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1092,7 +1092,7 @@ const deserializeAws_json1_1PutScheduledActionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentUpdateException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ConcurrentUpdateException":
+    case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
           parsedOutput,
@@ -1103,7 +1103,7 @@ const deserializeAws_json1_1PutScheduledActionCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#InternalServiceException":
+    case "com.amazonaws.applicationautoscaling#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -1114,7 +1114,7 @@ const deserializeAws_json1_1PutScheduledActionCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#LimitExceededException":
+    case "com.amazonaws.applicationautoscaling#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1125,7 +1125,7 @@ const deserializeAws_json1_1PutScheduledActionCommandError = async (
       };
       break;
     case "ObjectNotFoundException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ObjectNotFoundException":
+    case "com.amazonaws.applicationautoscaling#ObjectNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ObjectNotFoundExceptionResponse(
           parsedOutput,
@@ -1136,7 +1136,7 @@ const deserializeAws_json1_1PutScheduledActionCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ValidationException":
+    case "com.amazonaws.applicationautoscaling#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1202,7 +1202,7 @@ const deserializeAws_json1_1RegisterScalableTargetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentUpdateException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ConcurrentUpdateException":
+    case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
           parsedOutput,
@@ -1213,7 +1213,7 @@ const deserializeAws_json1_1RegisterScalableTargetCommandError = async (
       };
       break;
     case "InternalServiceException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#InternalServiceException":
+    case "com.amazonaws.applicationautoscaling#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
           parsedOutput,
@@ -1224,7 +1224,7 @@ const deserializeAws_json1_1RegisterScalableTargetCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#LimitExceededException":
+    case "com.amazonaws.applicationautoscaling#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1235,7 +1235,7 @@ const deserializeAws_json1_1RegisterScalableTargetCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.autoscaling.anyscale.frontend#ValidationException":
+    case "com.amazonaws.applicationautoscaling#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,

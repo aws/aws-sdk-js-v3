@@ -8,9 +8,9 @@ import {
   RunPipelineActivityResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1RunPipelineActivityCommand,
-  serializeAws_restJson1_1RunPipelineActivityCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1RunPipelineActivityCommand,
+  serializeAws_restJson1RunPipelineActivityCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class RunPipelineActivityCommand extends $Command<
     input: RunPipelineActivityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RunPipelineActivityCommand(input, context);
+    return serializeAws_restJson1RunPipelineActivityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RunPipelineActivityCommandOutput> {
-    return deserializeAws_restJson1_1RunPipelineActivityCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1RunPipelineActivityCommand(output, context);
   }
 
   // Start section: command_body_extra

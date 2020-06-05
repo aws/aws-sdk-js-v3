@@ -8,9 +8,9 @@ import {
   DeleteConfigurationSetResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteConfigurationSetCommand,
-  serializeAws_restJson1_1DeleteConfigurationSetCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteConfigurationSetCommand,
+  serializeAws_restJson1DeleteConfigurationSetCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteConfigurationSetCommand extends $Command<
     input: DeleteConfigurationSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteConfigurationSetCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DeleteConfigurationSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigurationSetCommandOutput> {
-    return deserializeAws_restJson1_1DeleteConfigurationSetCommand(
+    return deserializeAws_restJson1DeleteConfigurationSetCommand(
       output,
       context
     );

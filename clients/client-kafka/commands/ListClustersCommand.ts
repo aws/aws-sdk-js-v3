@@ -5,9 +5,9 @@ import {
 } from "../KafkaClient";
 import { ListClustersRequest, ListClustersResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListClustersCommand,
-  serializeAws_restJson1_1ListClustersCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListClustersCommand,
+  serializeAws_restJson1ListClustersCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListClustersCommand extends $Command<
     input: ListClustersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListClustersCommand(input, context);
+    return serializeAws_restJson1ListClustersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListClustersCommandOutput> {
-    return deserializeAws_restJson1_1ListClustersCommand(output, context);
+    return deserializeAws_restJson1ListClustersCommand(output, context);
   }
 
   // Start section: command_body_extra

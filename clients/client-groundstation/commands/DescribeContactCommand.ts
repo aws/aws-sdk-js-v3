@@ -8,9 +8,9 @@ import {
   DescribeContactResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeContactCommand,
-  serializeAws_restJson1_1DescribeContactCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeContactCommand,
+  serializeAws_restJson1DescribeContactCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DescribeContactCommand extends $Command<
     input: DescribeContactCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeContactCommand(input, context);
+    return serializeAws_restJson1DescribeContactCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeContactCommandOutput> {
-    return deserializeAws_restJson1_1DescribeContactCommand(output, context);
+    return deserializeAws_restJson1DescribeContactCommand(output, context);
   }
 
   // Start section: command_body_extra

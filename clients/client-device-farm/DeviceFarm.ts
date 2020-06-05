@@ -2012,44 +2012,6 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   * <p>Returns a list of all historical purchases, renewals, and system renewal transactions for an AWS
-   *             account. The list is paginated and ordered by a descending timestamp (most recent transactions are first).
-   *             The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the operation. If
-   *             you must be able to invoke this operation, contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>.</p>
-   */
-  public listOfferingTransactions(
-    args: ListOfferingTransactionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListOfferingTransactionsCommandOutput>;
-  public listOfferingTransactions(
-    args: ListOfferingTransactionsCommandInput,
-    cb: (err: any, data?: ListOfferingTransactionsCommandOutput) => void
-  ): void;
-  public listOfferingTransactions(
-    args: ListOfferingTransactionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListOfferingTransactionsCommandOutput) => void
-  ): void;
-  public listOfferingTransactions(
-    args: ListOfferingTransactionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListOfferingTransactionsCommandOutput) => void),
-    cb?: (err: any, data?: ListOfferingTransactionsCommandOutput) => void
-  ): Promise<ListOfferingTransactionsCommandOutput> | void {
-    const command = new ListOfferingTransactionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Returns a list of products or offerings that the user can manage through the API. Each offering record
    *             indicates the recurring price per unit and the frequency for that offering. The API returns a
    *                 <code>NotEligible</code> error if the user is not permitted to invoke the operation.  If you must be
@@ -2076,6 +2038,44 @@ export class DeviceFarm extends DeviceFarmClient {
     cb?: (err: any, data?: ListOfferingsCommandOutput) => void
   ): Promise<ListOfferingsCommandOutput> | void {
     const command = new ListOfferingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of all historical purchases, renewals, and system renewal transactions for an AWS
+   *             account. The list is paginated and ordered by a descending timestamp (most recent transactions are first).
+   *             The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the operation. If
+   *             you must be able to invoke this operation, contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>.</p>
+   */
+  public listOfferingTransactions(
+    args: ListOfferingTransactionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOfferingTransactionsCommandOutput>;
+  public listOfferingTransactions(
+    args: ListOfferingTransactionsCommandInput,
+    cb: (err: any, data?: ListOfferingTransactionsCommandOutput) => void
+  ): void;
+  public listOfferingTransactions(
+    args: ListOfferingTransactionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOfferingTransactionsCommandOutput) => void
+  ): void;
+  public listOfferingTransactions(
+    args: ListOfferingTransactionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListOfferingTransactionsCommandOutput) => void),
+    cb?: (err: any, data?: ListOfferingTransactionsCommandOutput) => void
+  ): Promise<ListOfferingTransactionsCommandOutput> | void {
+    const command = new ListOfferingTransactionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

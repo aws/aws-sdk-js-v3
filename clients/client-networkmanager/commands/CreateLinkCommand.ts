@@ -5,9 +5,9 @@ import {
 } from "../NetworkManagerClient";
 import { CreateLinkRequest, CreateLinkResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateLinkCommand,
-  serializeAws_restJson1_1CreateLinkCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateLinkCommand,
+  serializeAws_restJson1CreateLinkCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateLinkCommand extends $Command<
     input: CreateLinkCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateLinkCommand(input, context);
+    return serializeAws_restJson1CreateLinkCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLinkCommandOutput> {
-    return deserializeAws_restJson1_1CreateLinkCommand(output, context);
+    return deserializeAws_restJson1CreateLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

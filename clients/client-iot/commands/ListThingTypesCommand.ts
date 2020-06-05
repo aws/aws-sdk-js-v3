@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { ListThingTypesRequest, ListThingTypesResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListThingTypesCommand,
-  serializeAws_restJson1_1ListThingTypesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListThingTypesCommand,
+  serializeAws_restJson1ListThingTypesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class ListThingTypesCommand extends $Command<
     input: ListThingTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListThingTypesCommand(input, context);
+    return serializeAws_restJson1ListThingTypesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListThingTypesCommandOutput> {
-    return deserializeAws_restJson1_1ListThingTypesCommand(output, context);
+    return deserializeAws_restJson1ListThingTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

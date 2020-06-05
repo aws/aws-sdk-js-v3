@@ -8,9 +8,9 @@ import {
   DisassociateCustomerGatewayResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DisassociateCustomerGatewayCommand,
-  serializeAws_restJson1_1DisassociateCustomerGatewayCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DisassociateCustomerGatewayCommand,
+  serializeAws_restJson1DisassociateCustomerGatewayCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DisassociateCustomerGatewayCommand extends $Command<
     input: DisassociateCustomerGatewayCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociateCustomerGatewayCommand(
+    return serializeAws_restJson1DisassociateCustomerGatewayCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DisassociateCustomerGatewayCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateCustomerGatewayCommandOutput> {
-    return deserializeAws_restJson1_1DisassociateCustomerGatewayCommand(
+    return deserializeAws_restJson1DisassociateCustomerGatewayCommand(
       output,
       context
     );

@@ -5,9 +5,9 @@ import {
 } from "../OutpostsClient";
 import { ListSitesInput, ListSitesOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListSitesCommand,
-  serializeAws_restJson1_1ListSitesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListSitesCommand,
+  serializeAws_restJson1ListSitesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListSitesCommand extends $Command<
     input: ListSitesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListSitesCommand(input, context);
+    return serializeAws_restJson1ListSitesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSitesCommandOutput> {
-    return deserializeAws_restJson1_1ListSitesCommand(output, context);
+    return deserializeAws_restJson1ListSitesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -169,36 +169,6 @@ export namespace AttemptDetail {
   export const isa = (o: any): o is AttemptDetail => __isa(o, "AttemptDetail");
 }
 
-export enum CEState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
-}
-
-export enum CEStatus {
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  INVALID = "INVALID",
-  UPDATING = "UPDATING",
-  VALID = "VALID"
-}
-
-export enum CEType {
-  MANAGED = "MANAGED",
-  UNMANAGED = "UNMANAGED"
-}
-
-export enum CRAllocationStrategy {
-  BEST_FIT = "BEST_FIT",
-  BEST_FIT_PROGRESSIVE = "BEST_FIT_PROGRESSIVE",
-  SPOT_CAPACITY_OPTIMIZED = "SPOT_CAPACITY_OPTIMIZED"
-}
-
-export enum CRType {
-  EC2 = "EC2",
-  SPOT = "SPOT"
-}
-
 export interface CancelJobRequest {
   __type?: "CancelJobRequest";
   /**
@@ -232,6 +202,25 @@ export namespace CancelJobResponse {
   });
   export const isa = (o: any): o is CancelJobResponse =>
     __isa(o, "CancelJobResponse");
+}
+
+export enum CEState {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
+}
+
+export enum CEStatus {
+  CREATING = "CREATING",
+  DELETED = "DELETED",
+  DELETING = "DELETING",
+  INVALID = "INVALID",
+  UPDATING = "UPDATING",
+  VALID = "VALID"
+}
+
+export enum CEType {
+  MANAGED = "MANAGED",
+  UNMANAGED = "UNMANAGED"
 }
 
 /**
@@ -864,6 +853,12 @@ export namespace ContainerSummary {
     __isa(o, "ContainerSummary");
 }
 
+export enum CRAllocationStrategy {
+  BEST_FIT = "BEST_FIT",
+  BEST_FIT_PROGRESSIVE = "BEST_FIT_PROGRESSIVE",
+  SPOT_CAPACITY_OPTIMIZED = "SPOT_CAPACITY_OPTIMIZED"
+}
+
 export interface CreateComputeEnvironmentRequest {
   __type?: "CreateComputeEnvironmentRequest";
   /**
@@ -994,6 +989,11 @@ export namespace CreateJobQueueResponse {
   });
   export const isa = (o: any): o is CreateJobQueueResponse =>
     __isa(o, "CreateJobQueueResponse");
+}
+
+export enum CRType {
+  EC2 = "EC2",
+  SPOT = "SPOT"
 }
 
 export interface DeleteComputeEnvironmentRequest {
@@ -1381,20 +1381,6 @@ export namespace Host {
   export const isa = (o: any): o is Host => __isa(o, "Host");
 }
 
-export enum JQState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
-}
-
-export enum JQStatus {
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  INVALID = "INVALID",
-  UPDATING = "UPDATING",
-  VALID = "VALID"
-}
-
 /**
  * <p>An object representing an AWS Batch job definition.</p>
  */
@@ -1747,6 +1733,20 @@ export namespace JobTimeout {
     ...obj
   });
   export const isa = (o: any): o is JobTimeout => __isa(o, "JobTimeout");
+}
+
+export enum JQState {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
+}
+
+export enum JQStatus {
+  CREATING = "CREATING",
+  DELETED = "DELETED",
+  DELETING = "DELETING",
+  INVALID = "INVALID",
+  UPDATING = "UPDATING",
+  VALID = "VALID"
 }
 
 /**

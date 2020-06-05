@@ -8,9 +8,9 @@ import {
   GetCurrentMetricDataResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetCurrentMetricDataCommand,
-  serializeAws_restJson1_1GetCurrentMetricDataCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetCurrentMetricDataCommand,
+  serializeAws_restJson1GetCurrentMetricDataCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetCurrentMetricDataCommand extends $Command<
     input: GetCurrentMetricDataCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetCurrentMetricDataCommand(input, context);
+    return serializeAws_restJson1GetCurrentMetricDataCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCurrentMetricDataCommandOutput> {
-    return deserializeAws_restJson1_1GetCurrentMetricDataCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetCurrentMetricDataCommand(output, context);
   }
 
   // Start section: command_body_extra

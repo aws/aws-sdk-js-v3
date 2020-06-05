@@ -8,9 +8,9 @@ import {
   CreatePlacementResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreatePlacementCommand,
-  serializeAws_restJson1_1CreatePlacementCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreatePlacementCommand,
+  serializeAws_restJson1CreatePlacementCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class CreatePlacementCommand extends $Command<
     input: CreatePlacementCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreatePlacementCommand(input, context);
+    return serializeAws_restJson1CreatePlacementCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePlacementCommandOutput> {
-    return deserializeAws_restJson1_1CreatePlacementCommand(output, context);
+    return deserializeAws_restJson1CreatePlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

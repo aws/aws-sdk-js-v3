@@ -8,9 +8,9 @@ import {
   EventSourceMappingConfiguration
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteEventSourceMappingCommand,
-  serializeAws_restJson1_1DeleteEventSourceMappingCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteEventSourceMappingCommand,
+  serializeAws_restJson1DeleteEventSourceMappingCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DeleteEventSourceMappingCommand extends $Command<
     input: DeleteEventSourceMappingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteEventSourceMappingCommand(
+    return serializeAws_restJson1DeleteEventSourceMappingCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DeleteEventSourceMappingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEventSourceMappingCommandOutput> {
-    return deserializeAws_restJson1_1DeleteEventSourceMappingCommand(
+    return deserializeAws_restJson1DeleteEventSourceMappingCommand(
       output,
       context
     );

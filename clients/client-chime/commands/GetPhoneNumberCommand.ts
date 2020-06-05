@@ -5,9 +5,9 @@ import {
 } from "../ChimeClient";
 import { GetPhoneNumberRequest, GetPhoneNumberResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetPhoneNumberCommand,
-  serializeAws_restJson1_1GetPhoneNumberCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetPhoneNumberCommand,
+  serializeAws_restJson1GetPhoneNumberCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetPhoneNumberCommand extends $Command<
     input: GetPhoneNumberCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetPhoneNumberCommand(input, context);
+    return serializeAws_restJson1GetPhoneNumberCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPhoneNumberCommandOutput> {
-    return deserializeAws_restJson1_1GetPhoneNumberCommand(output, context);
+    return deserializeAws_restJson1GetPhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,9 +5,9 @@ import {
 } from "../LambdaClient";
 import { DeleteAliasRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteAliasCommand,
-  serializeAws_restJson1_1DeleteAliasCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteAliasCommand,
+  serializeAws_restJson1DeleteAliasCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteAliasCommand extends $Command<
     input: DeleteAliasCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteAliasCommand(input, context);
+    return serializeAws_restJson1DeleteAliasCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAliasCommandOutput> {
-    return deserializeAws_restJson1_1DeleteAliasCommand(output, context);
+    return deserializeAws_restJson1DeleteAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

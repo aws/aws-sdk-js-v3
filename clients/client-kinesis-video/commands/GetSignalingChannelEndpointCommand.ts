@@ -8,9 +8,9 @@ import {
   GetSignalingChannelEndpointOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetSignalingChannelEndpointCommand,
-  serializeAws_restJson1_1GetSignalingChannelEndpointCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetSignalingChannelEndpointCommand,
+  serializeAws_restJson1GetSignalingChannelEndpointCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetSignalingChannelEndpointCommand extends $Command<
     input: GetSignalingChannelEndpointCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetSignalingChannelEndpointCommand(
+    return serializeAws_restJson1GetSignalingChannelEndpointCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetSignalingChannelEndpointCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSignalingChannelEndpointCommandOutput> {
-    return deserializeAws_restJson1_1GetSignalingChannelEndpointCommand(
+    return deserializeAws_restJson1GetSignalingChannelEndpointCommand(
       output,
       context
     );

@@ -5,9 +5,9 @@ import {
 } from "../LexRuntimeServiceClient";
 import { DeleteSessionRequest, DeleteSessionResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteSessionCommand,
-  serializeAws_restJson1_1DeleteSessionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteSessionCommand,
+  serializeAws_restJson1DeleteSessionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class DeleteSessionCommand extends $Command<
     input: DeleteSessionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteSessionCommand(input, context);
+    return serializeAws_restJson1DeleteSessionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSessionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteSessionCommand(output, context);
+    return deserializeAws_restJson1DeleteSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

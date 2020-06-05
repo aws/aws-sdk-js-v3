@@ -8,9 +8,9 @@ import {
   DisableDirectoryResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DisableDirectoryCommand,
-  serializeAws_restJson1_1DisableDirectoryCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DisableDirectoryCommand,
+  serializeAws_restJson1DisableDirectoryCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DisableDirectoryCommand extends $Command<
     input: DisableDirectoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisableDirectoryCommand(input, context);
+    return serializeAws_restJson1DisableDirectoryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableDirectoryCommandOutput> {
-    return deserializeAws_restJson1_1DisableDirectoryCommand(output, context);
+    return deserializeAws_restJson1DisableDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

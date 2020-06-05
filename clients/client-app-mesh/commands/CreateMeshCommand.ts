@@ -5,9 +5,9 @@ import {
 } from "../AppMeshClient";
 import { CreateMeshInput, CreateMeshOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateMeshCommand,
-  serializeAws_restJson1_1CreateMeshCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateMeshCommand,
+  serializeAws_restJson1CreateMeshCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateMeshCommand extends $Command<
     input: CreateMeshCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateMeshCommand(input, context);
+    return serializeAws_restJson1CreateMeshCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMeshCommandOutput> {
-    return deserializeAws_restJson1_1CreateMeshCommand(output, context);
+    return deserializeAws_restJson1CreateMeshCommand(output, context);
   }
 
   // Start section: command_body_extra

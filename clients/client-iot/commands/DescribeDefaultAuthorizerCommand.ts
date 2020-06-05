@@ -8,9 +8,9 @@ import {
   DescribeDefaultAuthorizerResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeDefaultAuthorizerCommand,
-  serializeAws_restJson1_1DescribeDefaultAuthorizerCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeDefaultAuthorizerCommand,
+  serializeAws_restJson1DescribeDefaultAuthorizerCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DescribeDefaultAuthorizerCommand extends $Command<
     input: DescribeDefaultAuthorizerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeDefaultAuthorizerCommand(
+    return serializeAws_restJson1DescribeDefaultAuthorizerCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DescribeDefaultAuthorizerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDefaultAuthorizerCommandOutput> {
-    return deserializeAws_restJson1_1DescribeDefaultAuthorizerCommand(
+    return deserializeAws_restJson1DescribeDefaultAuthorizerCommand(
       output,
       context
     );

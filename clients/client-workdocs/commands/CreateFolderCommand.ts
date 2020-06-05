@@ -5,9 +5,9 @@ import {
 } from "../WorkDocsClient";
 import { CreateFolderRequest, CreateFolderResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateFolderCommand,
-  serializeAws_restJson1_1CreateFolderCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateFolderCommand,
+  serializeAws_restJson1CreateFolderCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class CreateFolderCommand extends $Command<
     input: CreateFolderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateFolderCommand(input, context);
+    return serializeAws_restJson1CreateFolderCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateFolderCommandOutput> {
-    return deserializeAws_restJson1_1CreateFolderCommand(output, context);
+    return deserializeAws_restJson1CreateFolderCommand(output, context);
   }
 
   // Start section: command_body_extra

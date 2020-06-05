@@ -8,9 +8,9 @@ import {
   GetResourceShareAssociationsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetResourceShareAssociationsCommand,
-  serializeAws_restJson1_1GetResourceShareAssociationsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetResourceShareAssociationsCommand,
+  serializeAws_restJson1GetResourceShareAssociationsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetResourceShareAssociationsCommand extends $Command<
     input: GetResourceShareAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetResourceShareAssociationsCommand(
+    return serializeAws_restJson1GetResourceShareAssociationsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetResourceShareAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetResourceShareAssociationsCommandOutput> {
-    return deserializeAws_restJson1_1GetResourceShareAssociationsCommand(
+    return deserializeAws_restJson1GetResourceShareAssociationsCommand(
       output,
       context
     );

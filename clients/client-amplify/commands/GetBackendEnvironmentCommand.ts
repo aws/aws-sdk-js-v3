@@ -8,9 +8,9 @@ import {
   GetBackendEnvironmentResult
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetBackendEnvironmentCommand,
-  serializeAws_restJson1_1GetBackendEnvironmentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetBackendEnvironmentCommand,
+  serializeAws_restJson1GetBackendEnvironmentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class GetBackendEnvironmentCommand extends $Command<
     input: GetBackendEnvironmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetBackendEnvironmentCommand(input, context);
+    return serializeAws_restJson1GetBackendEnvironmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBackendEnvironmentCommandOutput> {
-    return deserializeAws_restJson1_1GetBackendEnvironmentCommand(
+    return deserializeAws_restJson1GetBackendEnvironmentCommand(
       output,
       context
     );

@@ -8,9 +8,9 @@ import {
   ListWebsiteAuthorizationProvidersResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommand,
-  serializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListWebsiteAuthorizationProvidersCommand,
+  serializeAws_restJson1ListWebsiteAuthorizationProvidersCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListWebsiteAuthorizationProvidersCommand extends $Command<
     input: ListWebsiteAuthorizationProvidersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommand(
+    return serializeAws_restJson1ListWebsiteAuthorizationProvidersCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListWebsiteAuthorizationProvidersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListWebsiteAuthorizationProvidersCommandOutput> {
-    return deserializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommand(
+    return deserializeAws_restJson1ListWebsiteAuthorizationProvidersCommand(
       output,
       context
     );

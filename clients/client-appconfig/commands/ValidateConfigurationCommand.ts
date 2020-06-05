@@ -5,9 +5,9 @@ import {
 } from "../AppConfigClient";
 import { ValidateConfigurationRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1ValidateConfigurationCommand,
-  serializeAws_restJson1_1ValidateConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ValidateConfigurationCommand,
+  serializeAws_restJson1ValidateConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,14 +70,14 @@ export class ValidateConfigurationCommand extends $Command<
     input: ValidateConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ValidateConfigurationCommand(input, context);
+    return serializeAws_restJson1ValidateConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ValidateConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1ValidateConfigurationCommand(
+    return deserializeAws_restJson1ValidateConfigurationCommand(
       output,
       context
     );

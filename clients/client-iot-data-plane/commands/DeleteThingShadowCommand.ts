@@ -8,9 +8,9 @@ import {
   DeleteThingShadowResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteThingShadowCommand,
-  serializeAws_restJson1_1DeleteThingShadowCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteThingShadowCommand,
+  serializeAws_restJson1DeleteThingShadowCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DeleteThingShadowCommand extends $Command<
     input: DeleteThingShadowCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteThingShadowCommand(input, context);
+    return serializeAws_restJson1DeleteThingShadowCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteThingShadowCommandOutput> {
-    return deserializeAws_restJson1_1DeleteThingShadowCommand(output, context);
+    return deserializeAws_restJson1DeleteThingShadowCommand(output, context);
   }
 
   // Start section: command_body_extra

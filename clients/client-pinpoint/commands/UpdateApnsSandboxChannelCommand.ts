@@ -8,9 +8,9 @@ import {
   UpdateApnsSandboxChannelResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateApnsSandboxChannelCommand,
-  serializeAws_restJson1_1UpdateApnsSandboxChannelCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateApnsSandboxChannelCommand,
+  serializeAws_restJson1UpdateApnsSandboxChannelCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdateApnsSandboxChannelCommand extends $Command<
     input: UpdateApnsSandboxChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateApnsSandboxChannelCommand(
+    return serializeAws_restJson1UpdateApnsSandboxChannelCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdateApnsSandboxChannelCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApnsSandboxChannelCommandOutput> {
-    return deserializeAws_restJson1_1UpdateApnsSandboxChannelCommand(
+    return deserializeAws_restJson1UpdateApnsSandboxChannelCommand(
       output,
       context
     );

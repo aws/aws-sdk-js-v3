@@ -5,9 +5,9 @@ import {
 } from "../PersonalizeEventsClient";
 import { PutEventsRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutEventsCommand,
-  serializeAws_restJson1_1PutEventsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutEventsCommand,
+  serializeAws_restJson1PutEventsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class PutEventsCommand extends $Command<
     input: PutEventsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutEventsCommand(input, context);
+    return serializeAws_restJson1PutEventsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutEventsCommandOutput> {
-    return deserializeAws_restJson1_1PutEventsCommand(output, context);
+    return deserializeAws_restJson1PutEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

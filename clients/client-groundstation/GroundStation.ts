@@ -247,7 +247,7 @@ export class GroundStation extends GroundStationClient {
    * <p>Creates a mission profile.</p>
    *          <p>
    *             <code>dataflowEdges</code> is a list of lists of strings. Each lower level list of strings
-   *          has two elements: a <i>from ARN</i> and a <i>to ARN</i>.</p>
+   *          has two elements: a <i>from</i> ARN and a <i>to</i> ARN.</p>
    */
   public createMissionProfile(
     args: CreateMissionProfileCommandInput,
@@ -493,6 +493,41 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * <p>Returns the number of minutes used by account.</p>
+   */
+  public getMinuteUsage(
+    args: GetMinuteUsageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMinuteUsageCommandOutput>;
+  public getMinuteUsage(
+    args: GetMinuteUsageCommandInput,
+    cb: (err: any, data?: GetMinuteUsageCommandOutput) => void
+  ): void;
+  public getMinuteUsage(
+    args: GetMinuteUsageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMinuteUsageCommandOutput) => void
+  ): void;
+  public getMinuteUsage(
+    args: GetMinuteUsageCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetMinuteUsageCommandOutput) => void),
+    cb?: (err: any, data?: GetMinuteUsageCommandOutput) => void
+  ): Promise<GetMinuteUsageCommandOutput> | void {
+    const command = new GetMinuteUsageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a mission profile.</p>
    */
   public getMissionProfile(
@@ -516,6 +551,41 @@ export class GroundStation extends GroundStationClient {
     cb?: (err: any, data?: GetMissionProfileCommandOutput) => void
   ): Promise<GetMissionProfileCommandOutput> | void {
     const command = new GetMissionProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a satellite.</p>
+   */
+  public getSatellite(
+    args: GetSatelliteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSatelliteCommandOutput>;
+  public getSatellite(
+    args: GetSatelliteCommandInput,
+    cb: (err: any, data?: GetSatelliteCommandOutput) => void
+  ): void;
+  public getSatellite(
+    args: GetSatelliteCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSatelliteCommandOutput) => void
+  ): void;
+  public getSatellite(
+    args: GetSatelliteCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSatelliteCommandOutput) => void),
+    cb?: (err: any, data?: GetSatelliteCommandOutput) => void
+  ): Promise<GetSatelliteCommandOutput> | void {
+    const command = new GetSatelliteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -636,6 +706,41 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * <p>Returns a list of ground stations. </p>
+   */
+  public listGroundStations(
+    args: ListGroundStationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGroundStationsCommandOutput>;
+  public listGroundStations(
+    args: ListGroundStationsCommandInput,
+    cb: (err: any, data?: ListGroundStationsCommandOutput) => void
+  ): void;
+  public listGroundStations(
+    args: ListGroundStationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGroundStationsCommandOutput) => void
+  ): void;
+  public listGroundStations(
+    args: ListGroundStationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListGroundStationsCommandOutput) => void),
+    cb?: (err: any, data?: ListGroundStationsCommandOutput) => void
+  ): Promise<ListGroundStationsCommandOutput> | void {
+    const command = new ListGroundStationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of mission profiles.</p>
    */
   public listMissionProfiles(
@@ -671,6 +776,76 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * <p>Returns a list of satellites.</p>
+   */
+  public listSatellites(
+    args: ListSatellitesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSatellitesCommandOutput>;
+  public listSatellites(
+    args: ListSatellitesCommandInput,
+    cb: (err: any, data?: ListSatellitesCommandOutput) => void
+  ): void;
+  public listSatellites(
+    args: ListSatellitesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSatellitesCommandOutput) => void
+  ): void;
+  public listSatellites(
+    args: ListSatellitesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListSatellitesCommandOutput) => void),
+    cb?: (err: any, data?: ListSatellitesCommandOutput) => void
+  ): Promise<ListSatellitesCommandOutput> | void {
+    const command = new ListSatellitesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of tags for a specified resource.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Reserves a contact using specified parameters.</p>
    */
   public reserveContact(
@@ -694,6 +869,76 @@ export class GroundStation extends GroundStationClient {
     cb?: (err: any, data?: ReserveContactCommandOutput) => void
   ): Promise<ReserveContactCommandOutput> | void {
     const command = new ReserveContactCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Assigns a tag to a resource.</p>
+   */
+  public tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  public tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deassigns a resource tag.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -768,251 +1013,6 @@ export class GroundStation extends GroundStationClient {
     cb?: (err: any, data?: UpdateMissionProfileCommandOutput) => void
   ): Promise<UpdateMissionProfileCommandOutput> | void {
     const command = new UpdateMissionProfileCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns the number of minutes used by account.</p>
-   */
-  public getMinuteUsage(
-    args: GetMinuteUsageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetMinuteUsageCommandOutput>;
-  public getMinuteUsage(
-    args: GetMinuteUsageCommandInput,
-    cb: (err: any, data?: GetMinuteUsageCommandOutput) => void
-  ): void;
-  public getMinuteUsage(
-    args: GetMinuteUsageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetMinuteUsageCommandOutput) => void
-  ): void;
-  public getMinuteUsage(
-    args: GetMinuteUsageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMinuteUsageCommandOutput) => void),
-    cb?: (err: any, data?: GetMinuteUsageCommandOutput) => void
-  ): Promise<GetMinuteUsageCommandOutput> | void {
-    const command = new GetMinuteUsageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns a satellite.</p>
-   */
-  public getSatellite(
-    args: GetSatelliteCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSatelliteCommandOutput>;
-  public getSatellite(
-    args: GetSatelliteCommandInput,
-    cb: (err: any, data?: GetSatelliteCommandOutput) => void
-  ): void;
-  public getSatellite(
-    args: GetSatelliteCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetSatelliteCommandOutput) => void
-  ): void;
-  public getSatellite(
-    args: GetSatelliteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSatelliteCommandOutput) => void),
-    cb?: (err: any, data?: GetSatelliteCommandOutput) => void
-  ): Promise<GetSatelliteCommandOutput> | void {
-    const command = new GetSatelliteCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns a list of ground stations. </p>
-   */
-  public listGroundStations(
-    args: ListGroundStationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListGroundStationsCommandOutput>;
-  public listGroundStations(
-    args: ListGroundStationsCommandInput,
-    cb: (err: any, data?: ListGroundStationsCommandOutput) => void
-  ): void;
-  public listGroundStations(
-    args: ListGroundStationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListGroundStationsCommandOutput) => void
-  ): void;
-  public listGroundStations(
-    args: ListGroundStationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGroundStationsCommandOutput) => void),
-    cb?: (err: any, data?: ListGroundStationsCommandOutput) => void
-  ): Promise<ListGroundStationsCommandOutput> | void {
-    const command = new ListGroundStationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns a list of satellites.</p>
-   */
-  public listSatellites(
-    args: ListSatellitesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSatellitesCommandOutput>;
-  public listSatellites(
-    args: ListSatellitesCommandInput,
-    cb: (err: any, data?: ListSatellitesCommandOutput) => void
-  ): void;
-  public listSatellites(
-    args: ListSatellitesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListSatellitesCommandOutput) => void
-  ): void;
-  public listSatellites(
-    args: ListSatellitesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSatellitesCommandOutput) => void),
-    cb?: (err: any, data?: ListSatellitesCommandOutput) => void
-  ): Promise<ListSatellitesCommandOutput> | void {
-    const command = new ListSatellitesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns a list of tags or a specified resource.</p>
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Assigns a tag to a resource.</p>
-   */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deassigns a resource tag.</p>
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -5,9 +5,9 @@ import {
 } from "../BackupClient";
 import { DeleteBackupVaultAccessPolicyInput } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommand,
-  serializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteBackupVaultAccessPolicyCommand,
+  serializeAws_restJson1DeleteBackupVaultAccessPolicyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class DeleteBackupVaultAccessPolicyCommand extends $Command<
     input: DeleteBackupVaultAccessPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommand(
+    return serializeAws_restJson1DeleteBackupVaultAccessPolicyCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class DeleteBackupVaultAccessPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBackupVaultAccessPolicyCommandOutput> {
-    return deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommand(
+    return deserializeAws_restJson1DeleteBackupVaultAccessPolicyCommand(
       output,
       context
     );

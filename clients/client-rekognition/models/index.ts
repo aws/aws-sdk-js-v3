@@ -268,6 +268,72 @@ export enum CelebrityRecognitionSortBy {
 }
 
 /**
+ * <p>Provides face metadata for target image faces that are analyzed by
+ *         <code>CompareFaces</code> and <code>RecognizeCelebrities</code>.</p>
+ */
+export interface ComparedFace {
+  __type?: "ComparedFace";
+  /**
+   * <p>Bounding box of the face.</p>
+   */
+  BoundingBox?: BoundingBox;
+
+  /**
+   * <p>Level of confidence that what the bounding box contains is a face.</p>
+   */
+  Confidence?: number;
+
+  /**
+   * <p>An array of facial landmarks.</p>
+   */
+  Landmarks?: Landmark[];
+
+  /**
+   * <p>Indicates the pose of the face as determined by its pitch, roll, and yaw.</p>
+   */
+  Pose?: Pose;
+
+  /**
+   * <p>Identifies face image brightness and sharpness. </p>
+   */
+  Quality?: ImageQuality;
+}
+
+export namespace ComparedFace {
+  export const filterSensitiveLog = (obj: ComparedFace): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ComparedFace => __isa(o, "ComparedFace");
+}
+
+/**
+ * <p>Type that describes the face Amazon Rekognition chose to compare with the faces in the target.
+ *       This contains a bounding box for the selected face and confidence level that the bounding box
+ *       contains a face. Note that Amazon Rekognition selects the largest face in the source image for this
+ *       comparison. </p>
+ */
+export interface ComparedSourceImageFace {
+  __type?: "ComparedSourceImageFace";
+  /**
+   * <p>Bounding box of the face.</p>
+   */
+  BoundingBox?: BoundingBox;
+
+  /**
+   * <p>Confidence level that the selected bounding box contains a face.</p>
+   */
+  Confidence?: number;
+}
+
+export namespace ComparedSourceImageFace {
+  export const filterSensitiveLog = (obj: ComparedSourceImageFace): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ComparedSourceImageFace =>
+    __isa(o, "ComparedSourceImageFace");
+}
+
+/**
  * <p>Provides information about a face in a target image that matches the source image face
  *       analyzed by <code>CompareFaces</code>. The <code>Face</code> property contains the bounding
  *       box of the face in the target image. The <code>Similarity</code> property is the confidence
@@ -405,72 +471,6 @@ export namespace CompareFacesResponse {
   });
   export const isa = (o: any): o is CompareFacesResponse =>
     __isa(o, "CompareFacesResponse");
-}
-
-/**
- * <p>Provides face metadata for target image faces that are analyzed by
- *         <code>CompareFaces</code> and <code>RecognizeCelebrities</code>.</p>
- */
-export interface ComparedFace {
-  __type?: "ComparedFace";
-  /**
-   * <p>Bounding box of the face.</p>
-   */
-  BoundingBox?: BoundingBox;
-
-  /**
-   * <p>Level of confidence that what the bounding box contains is a face.</p>
-   */
-  Confidence?: number;
-
-  /**
-   * <p>An array of facial landmarks.</p>
-   */
-  Landmarks?: Landmark[];
-
-  /**
-   * <p>Indicates the pose of the face as determined by its pitch, roll, and yaw.</p>
-   */
-  Pose?: Pose;
-
-  /**
-   * <p>Identifies face image brightness and sharpness. </p>
-   */
-  Quality?: ImageQuality;
-}
-
-export namespace ComparedFace {
-  export const filterSensitiveLog = (obj: ComparedFace): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ComparedFace => __isa(o, "ComparedFace");
-}
-
-/**
- * <p>Type that describes the face Amazon Rekognition chose to compare with the faces in the target.
- *       This contains a bounding box for the selected face and confidence level that the bounding box
- *       contains a face. Note that Amazon Rekognition selects the largest face in the source image for this
- *       comparison. </p>
- */
-export interface ComparedSourceImageFace {
-  __type?: "ComparedSourceImageFace";
-  /**
-   * <p>Bounding box of the face.</p>
-   */
-  BoundingBox?: BoundingBox;
-
-  /**
-   * <p>Confidence level that the selected bounding box contains a face.</p>
-   */
-  Confidence?: number;
-}
-
-export namespace ComparedSourceImageFace {
-  export const filterSensitiveLog = (obj: ComparedSourceImageFace): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ComparedSourceImageFace =>
-    __isa(o, "ComparedSourceImageFace");
 }
 
 export enum ContentClassifier {
@@ -885,6 +885,54 @@ export namespace DescribeCollectionResponse {
     __isa(o, "DescribeCollectionResponse");
 }
 
+export interface DescribeProjectsRequest {
+  __type?: "DescribeProjectsRequest";
+  /**
+   * <p>The maximum number of results to return per paginated call. The largest value you can specify is 100.
+   *          If you specify a value greater than 100, a ValidationException
+   *          error occurs. The default value is 100. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous response was incomplete (because there is more
+   *          results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination
+   *          token to retrieve the next set of results. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeProjectsRequest {
+  export const filterSensitiveLog = (obj: DescribeProjectsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeProjectsRequest =>
+    __isa(o, "DescribeProjectsRequest");
+}
+
+export interface DescribeProjectsResponse {
+  __type?: "DescribeProjectsResponse";
+  /**
+   * <p>If the previous response was incomplete (because there is more
+   *          results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response.
+   *          You can use this pagination token to retrieve the next set of results. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of project descriptions. The list is sorted by the date and time the projects are created.</p>
+   */
+  ProjectDescriptions?: ProjectDescription[];
+}
+
+export namespace DescribeProjectsResponse {
+  export const filterSensitiveLog = (obj: DescribeProjectsResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeProjectsResponse =>
+    __isa(o, "DescribeProjectsResponse");
+}
+
 export interface DescribeProjectVersionsRequest {
   __type?: "DescribeProjectVersionsRequest";
   /**
@@ -947,54 +995,6 @@ export namespace DescribeProjectVersionsResponse {
   });
   export const isa = (o: any): o is DescribeProjectVersionsResponse =>
     __isa(o, "DescribeProjectVersionsResponse");
-}
-
-export interface DescribeProjectsRequest {
-  __type?: "DescribeProjectsRequest";
-  /**
-   * <p>The maximum number of results to return per paginated call. The largest value you can specify is 100.
-   *          If you specify a value greater than 100, a ValidationException
-   *          error occurs. The default value is 100. </p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>If the previous response was incomplete (because there is more
-   *          results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination
-   *          token to retrieve the next set of results. </p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeProjectsRequest {
-  export const filterSensitiveLog = (obj: DescribeProjectsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeProjectsRequest =>
-    __isa(o, "DescribeProjectsRequest");
-}
-
-export interface DescribeProjectsResponse {
-  __type?: "DescribeProjectsResponse";
-  /**
-   * <p>If the previous response was incomplete (because there is more
-   *          results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response.
-   *          You can use this pagination token to retrieve the next set of results. </p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A list of project descriptions. The list is sorted by the date and time the projects are created.</p>
-   */
-  ProjectDescriptions?: ProjectDescription[];
-}
-
-export namespace DescribeProjectsResponse {
-  export const filterSensitiveLog = (obj: DescribeProjectsResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeProjectsResponse =>
-    __isa(o, "DescribeProjectsResponse");
 }
 
 export interface DescribeStreamProcessorRequest {
@@ -1454,30 +1454,6 @@ export namespace EvaluationResult {
 }
 
 /**
- * <p>Indicates whether or not the eyes on the face are open, and the confidence level in the
- *       determination.</p>
- */
-export interface EyeOpen {
-  __type?: "EyeOpen";
-  /**
-   * <p>Level of confidence in the determination.</p>
-   */
-  Confidence?: number;
-
-  /**
-   * <p>Boolean value that indicates whether the eyes on the face are open.</p>
-   */
-  Value?: boolean;
-}
-
-export namespace EyeOpen {
-  export const filterSensitiveLog = (obj: EyeOpen): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is EyeOpen => __isa(o, "EyeOpen");
-}
-
-/**
  * <p>Indicates whether or not the face is wearing eye glasses, and the confidence level in
  *       the determination.</p>
  */
@@ -1499,6 +1475,30 @@ export namespace Eyeglasses {
     ...obj
   });
   export const isa = (o: any): o is Eyeglasses => __isa(o, "Eyeglasses");
+}
+
+/**
+ * <p>Indicates whether or not the eyes on the face are open, and the confidence level in the
+ *       determination.</p>
+ */
+export interface EyeOpen {
+  __type?: "EyeOpen";
+  /**
+   * <p>Level of confidence in the determination.</p>
+   */
+  Confidence?: number;
+
+  /**
+   * <p>Boolean value that indicates whether the eyes on the face are open.</p>
+   */
+  Value?: boolean;
+}
+
+export namespace EyeOpen {
+  export const filterSensitiveLog = (obj: EyeOpen): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is EyeOpen => __isa(o, "EyeOpen");
 }
 
 /**

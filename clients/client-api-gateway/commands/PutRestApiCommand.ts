@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { PutRestApiRequest, RestApi } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutRestApiCommand,
-  serializeAws_restJson1_1PutRestApiCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutRestApiCommand,
+  serializeAws_restJson1PutRestApiCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class PutRestApiCommand extends $Command<
     input: PutRestApiCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutRestApiCommand(input, context);
+    return serializeAws_restJson1PutRestApiCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutRestApiCommandOutput> {
-    return deserializeAws_restJson1_1PutRestApiCommand(output, context);
+    return deserializeAws_restJson1PutRestApiCommand(output, context);
   }
 
   // Start section: command_body_extra

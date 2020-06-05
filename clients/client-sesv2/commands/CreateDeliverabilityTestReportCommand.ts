@@ -8,9 +8,9 @@ import {
   CreateDeliverabilityTestReportResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateDeliverabilityTestReportCommand,
-  serializeAws_restJson1_1CreateDeliverabilityTestReportCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateDeliverabilityTestReportCommand,
+  serializeAws_restJson1CreateDeliverabilityTestReportCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class CreateDeliverabilityTestReportCommand extends $Command<
     input: CreateDeliverabilityTestReportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateDeliverabilityTestReportCommand(
+    return serializeAws_restJson1CreateDeliverabilityTestReportCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class CreateDeliverabilityTestReportCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDeliverabilityTestReportCommandOutput> {
-    return deserializeAws_restJson1_1CreateDeliverabilityTestReportCommand(
+    return deserializeAws_restJson1CreateDeliverabilityTestReportCommand(
       output,
       context
     );

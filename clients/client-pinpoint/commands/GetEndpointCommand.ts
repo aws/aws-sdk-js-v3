@@ -5,9 +5,9 @@ import {
 } from "../PinpointClient";
 import { GetEndpointRequest, GetEndpointResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetEndpointCommand,
-  serializeAws_restJson1_1GetEndpointCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetEndpointCommand,
+  serializeAws_restJson1GetEndpointCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetEndpointCommand extends $Command<
     input: GetEndpointCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetEndpointCommand(input, context);
+    return serializeAws_restJson1GetEndpointCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEndpointCommandOutput> {
-    return deserializeAws_restJson1_1GetEndpointCommand(output, context);
+    return deserializeAws_restJson1GetEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

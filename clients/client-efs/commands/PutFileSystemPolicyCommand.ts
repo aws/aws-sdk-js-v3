@@ -8,9 +8,9 @@ import {
   PutFileSystemPolicyRequest
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PutFileSystemPolicyCommand,
-  serializeAws_restJson1_1PutFileSystemPolicyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PutFileSystemPolicyCommand,
+  serializeAws_restJson1PutFileSystemPolicyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class PutFileSystemPolicyCommand extends $Command<
     input: PutFileSystemPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutFileSystemPolicyCommand(input, context);
+    return serializeAws_restJson1PutFileSystemPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutFileSystemPolicyCommandOutput> {
-    return deserializeAws_restJson1_1PutFileSystemPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1PutFileSystemPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

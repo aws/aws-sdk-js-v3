@@ -2859,32 +2859,6 @@ export namespace Insight {
 }
 
 /**
- * <p>The insight result values returned by the <code>GetInsightResults</code>
- *          operation.</p>
- */
-export interface InsightResultValue {
-  __type?: "InsightResultValue";
-  /**
-   * <p>The number of findings returned for each <code>GroupByAttributeValue</code>.</p>
-   */
-  Count: number | undefined;
-
-  /**
-   * <p>The value of the attribute that the findings are grouped by for the insight whose
-   *          results are returned by the <code>GetInsightResults</code> operation.</p>
-   */
-  GroupByAttributeValue: string | undefined;
-}
-
-export namespace InsightResultValue {
-  export const filterSensitiveLog = (obj: InsightResultValue): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InsightResultValue =>
-    __isa(o, "InsightResultValue");
-}
-
-/**
  * <p>The insight results returned by the <code>GetInsightResults</code> operation.</p>
  */
 export interface InsightResults {
@@ -2914,6 +2888,32 @@ export namespace InsightResults {
   });
   export const isa = (o: any): o is InsightResults =>
     __isa(o, "InsightResults");
+}
+
+/**
+ * <p>The insight result values returned by the <code>GetInsightResults</code>
+ *          operation.</p>
+ */
+export interface InsightResultValue {
+  __type?: "InsightResultValue";
+  /**
+   * <p>The number of findings returned for each <code>GroupByAttributeValue</code>.</p>
+   */
+  Count: number | undefined;
+
+  /**
+   * <p>The value of the attribute that the findings are grouped by for the insight whose
+   *          results are returned by the <code>GetInsightResults</code> operation.</p>
+   */
+  GroupByAttributeValue: string | undefined;
+}
+
+export namespace InsightResultValue {
+  export const filterSensitiveLog = (obj: InsightResultValue): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InsightResultValue =>
+    __isa(o, "InsightResultValue");
 }
 
 /**

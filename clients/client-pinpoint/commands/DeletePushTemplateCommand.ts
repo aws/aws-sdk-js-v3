@@ -8,9 +8,9 @@ import {
   DeletePushTemplateResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeletePushTemplateCommand,
-  serializeAws_restJson1_1DeletePushTemplateCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeletePushTemplateCommand,
+  serializeAws_restJson1DeletePushTemplateCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DeletePushTemplateCommand extends $Command<
     input: DeletePushTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeletePushTemplateCommand(input, context);
+    return serializeAws_restJson1DeletePushTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePushTemplateCommandOutput> {
-    return deserializeAws_restJson1_1DeletePushTemplateCommand(output, context);
+    return deserializeAws_restJson1DeletePushTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

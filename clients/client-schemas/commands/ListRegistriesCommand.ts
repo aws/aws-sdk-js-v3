@@ -1,8 +1,8 @@
 import { ListRegistriesRequest, ListRegistriesResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListRegistriesCommand,
-  serializeAws_restJson1_1ListRegistriesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListRegistriesCommand,
+  serializeAws_restJson1ListRegistriesCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -68,14 +68,14 @@ export class ListRegistriesCommand extends $Command<
     input: ListRegistriesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListRegistriesCommand(input, context);
+    return serializeAws_restJson1ListRegistriesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRegistriesCommandOutput> {
-    return deserializeAws_restJson1_1ListRegistriesCommand(output, context);
+    return deserializeAws_restJson1ListRegistriesCommand(output, context);
   }
 
   // Start section: command_body_extra

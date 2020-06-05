@@ -8,9 +8,9 @@ import {
   GetCoreDefinitionResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetCoreDefinitionCommand,
-  serializeAws_restJson1_1GetCoreDefinitionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetCoreDefinitionCommand,
+  serializeAws_restJson1GetCoreDefinitionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetCoreDefinitionCommand extends $Command<
     input: GetCoreDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetCoreDefinitionCommand(input, context);
+    return serializeAws_restJson1GetCoreDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCoreDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1GetCoreDefinitionCommand(output, context);
+    return deserializeAws_restJson1GetCoreDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

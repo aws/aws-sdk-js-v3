@@ -8,9 +8,9 @@ import {
   UnarchiveFindingsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UnarchiveFindingsCommand,
-  serializeAws_restJson1_1UnarchiveFindingsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UnarchiveFindingsCommand,
+  serializeAws_restJson1UnarchiveFindingsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class UnarchiveFindingsCommand extends $Command<
     input: UnarchiveFindingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UnarchiveFindingsCommand(input, context);
+    return serializeAws_restJson1UnarchiveFindingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UnarchiveFindingsCommandOutput> {
-    return deserializeAws_restJson1_1UnarchiveFindingsCommand(output, context);
+    return deserializeAws_restJson1UnarchiveFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

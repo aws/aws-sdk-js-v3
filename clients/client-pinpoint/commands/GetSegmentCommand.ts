@@ -5,9 +5,9 @@ import {
 } from "../PinpointClient";
 import { GetSegmentRequest, GetSegmentResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetSegmentCommand,
-  serializeAws_restJson1_1GetSegmentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetSegmentCommand,
+  serializeAws_restJson1GetSegmentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class GetSegmentCommand extends $Command<
     input: GetSegmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetSegmentCommand(input, context);
+    return serializeAws_restJson1GetSegmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSegmentCommandOutput> {
-    return deserializeAws_restJson1_1GetSegmentCommand(output, context);
+    return deserializeAws_restJson1GetSegmentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -326,7 +326,7 @@ const deserializeAws_json1_1CopyBackupToRegionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
           parsedOutput,
@@ -337,7 +337,7 @@ const deserializeAws_json1_1CopyBackupToRegionCommandError = async (
       };
       break;
     case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
           parsedOutput,
@@ -348,7 +348,7 @@ const deserializeAws_json1_1CopyBackupToRegionCommandError = async (
       };
       break;
     case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
           parsedOutput,
@@ -359,7 +359,7 @@ const deserializeAws_json1_1CopyBackupToRegionCommandError = async (
       };
       break;
     case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -370,7 +370,7 @@ const deserializeAws_json1_1CopyBackupToRegionCommandError = async (
       };
       break;
     case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
           parsedOutput,
@@ -381,7 +381,7 @@ const deserializeAws_json1_1CopyBackupToRegionCommandError = async (
       };
       break;
     case "CloudHsmTagException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmTagException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
           parsedOutput,
@@ -441,7 +441,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
           parsedOutput,
@@ -452,7 +452,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
       };
       break;
     case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
           parsedOutput,
@@ -463,7 +463,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
       };
       break;
     case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
           parsedOutput,
@@ -474,7 +474,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
       };
       break;
     case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -485,7 +485,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
       };
       break;
     case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
           parsedOutput,
@@ -496,7 +496,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
       };
       break;
     case "CloudHsmTagException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmTagException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
           parsedOutput,
@@ -556,7 +556,7 @@ const deserializeAws_json1_1CreateHsmCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
           parsedOutput,
@@ -567,7 +567,7 @@ const deserializeAws_json1_1CreateHsmCommandError = async (
       };
       break;
     case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
           parsedOutput,
@@ -578,7 +578,7 @@ const deserializeAws_json1_1CreateHsmCommandError = async (
       };
       break;
     case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
           parsedOutput,
@@ -589,7 +589,7 @@ const deserializeAws_json1_1CreateHsmCommandError = async (
       };
       break;
     case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -600,7 +600,7 @@ const deserializeAws_json1_1CreateHsmCommandError = async (
       };
       break;
     case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
           parsedOutput,
@@ -660,7 +660,7 @@ const deserializeAws_json1_1DeleteBackupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
           parsedOutput,
@@ -671,7 +671,7 @@ const deserializeAws_json1_1DeleteBackupCommandError = async (
       };
       break;
     case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
           parsedOutput,
@@ -682,7 +682,7 @@ const deserializeAws_json1_1DeleteBackupCommandError = async (
       };
       break;
     case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
           parsedOutput,
@@ -693,7 +693,7 @@ const deserializeAws_json1_1DeleteBackupCommandError = async (
       };
       break;
     case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -704,7 +704,7 @@ const deserializeAws_json1_1DeleteBackupCommandError = async (
       };
       break;
     case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
           parsedOutput,
@@ -764,7 +764,7 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
           parsedOutput,
@@ -775,7 +775,7 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
       };
       break;
     case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
           parsedOutput,
@@ -786,7 +786,7 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
       };
       break;
     case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
           parsedOutput,
@@ -797,7 +797,7 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
       };
       break;
     case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -808,7 +808,7 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
       };
       break;
     case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
           parsedOutput,
@@ -819,7 +819,7 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
       };
       break;
     case "CloudHsmTagException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmTagException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
           parsedOutput,
@@ -879,7 +879,7 @@ const deserializeAws_json1_1DeleteHsmCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
           parsedOutput,
@@ -890,7 +890,7 @@ const deserializeAws_json1_1DeleteHsmCommandError = async (
       };
       break;
     case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
           parsedOutput,
@@ -901,7 +901,7 @@ const deserializeAws_json1_1DeleteHsmCommandError = async (
       };
       break;
     case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
           parsedOutput,
@@ -912,7 +912,7 @@ const deserializeAws_json1_1DeleteHsmCommandError = async (
       };
       break;
     case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -923,7 +923,7 @@ const deserializeAws_json1_1DeleteHsmCommandError = async (
       };
       break;
     case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
           parsedOutput,
@@ -983,7 +983,7 @@ const deserializeAws_json1_1DescribeBackupsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
           parsedOutput,
@@ -994,7 +994,7 @@ const deserializeAws_json1_1DescribeBackupsCommandError = async (
       };
       break;
     case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
           parsedOutput,
@@ -1005,7 +1005,7 @@ const deserializeAws_json1_1DescribeBackupsCommandError = async (
       };
       break;
     case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
           parsedOutput,
@@ -1016,7 +1016,7 @@ const deserializeAws_json1_1DescribeBackupsCommandError = async (
       };
       break;
     case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1027,7 +1027,7 @@ const deserializeAws_json1_1DescribeBackupsCommandError = async (
       };
       break;
     case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
           parsedOutput,
@@ -1038,7 +1038,7 @@ const deserializeAws_json1_1DescribeBackupsCommandError = async (
       };
       break;
     case "CloudHsmTagException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmTagException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
           parsedOutput,
@@ -1098,7 +1098,7 @@ const deserializeAws_json1_1DescribeClustersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
           parsedOutput,
@@ -1109,7 +1109,7 @@ const deserializeAws_json1_1DescribeClustersCommandError = async (
       };
       break;
     case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
           parsedOutput,
@@ -1120,7 +1120,7 @@ const deserializeAws_json1_1DescribeClustersCommandError = async (
       };
       break;
     case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
           parsedOutput,
@@ -1131,7 +1131,7 @@ const deserializeAws_json1_1DescribeClustersCommandError = async (
       };
       break;
     case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
           parsedOutput,
@@ -1142,7 +1142,7 @@ const deserializeAws_json1_1DescribeClustersCommandError = async (
       };
       break;
     case "CloudHsmTagException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmTagException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
           parsedOutput,
@@ -1202,7 +1202,7 @@ const deserializeAws_json1_1InitializeClusterCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
           parsedOutput,
@@ -1213,7 +1213,7 @@ const deserializeAws_json1_1InitializeClusterCommandError = async (
       };
       break;
     case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
           parsedOutput,
@@ -1224,7 +1224,7 @@ const deserializeAws_json1_1InitializeClusterCommandError = async (
       };
       break;
     case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
           parsedOutput,
@@ -1235,7 +1235,7 @@ const deserializeAws_json1_1InitializeClusterCommandError = async (
       };
       break;
     case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1246,7 +1246,7 @@ const deserializeAws_json1_1InitializeClusterCommandError = async (
       };
       break;
     case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
           parsedOutput,
@@ -1306,7 +1306,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
           parsedOutput,
@@ -1317,7 +1317,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
       };
       break;
     case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
           parsedOutput,
@@ -1328,7 +1328,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
       };
       break;
     case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
           parsedOutput,
@@ -1339,7 +1339,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
       };
       break;
     case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1350,7 +1350,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
       };
       break;
     case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
           parsedOutput,
@@ -1361,7 +1361,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
       };
       break;
     case "CloudHsmTagException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmTagException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
           parsedOutput,
@@ -1421,7 +1421,7 @@ const deserializeAws_json1_1RestoreBackupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
           parsedOutput,
@@ -1432,7 +1432,7 @@ const deserializeAws_json1_1RestoreBackupCommandError = async (
       };
       break;
     case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
           parsedOutput,
@@ -1443,7 +1443,7 @@ const deserializeAws_json1_1RestoreBackupCommandError = async (
       };
       break;
     case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
           parsedOutput,
@@ -1454,7 +1454,7 @@ const deserializeAws_json1_1RestoreBackupCommandError = async (
       };
       break;
     case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1465,7 +1465,7 @@ const deserializeAws_json1_1RestoreBackupCommandError = async (
       };
       break;
     case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
           parsedOutput,
@@ -1525,7 +1525,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
           parsedOutput,
@@ -1536,7 +1536,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
           parsedOutput,
@@ -1547,7 +1547,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
           parsedOutput,
@@ -1558,7 +1558,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1569,7 +1569,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
           parsedOutput,
@@ -1580,7 +1580,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "CloudHsmTagException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmTagException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
           parsedOutput,
@@ -1640,7 +1640,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(
           parsedOutput,
@@ -1651,7 +1651,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInternalFailureException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(
           parsedOutput,
@@ -1662,7 +1662,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmInvalidRequestException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(
           parsedOutput,
@@ -1673,7 +1673,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmResourceNotFoundException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1684,7 +1684,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
           parsedOutput,
@@ -1695,7 +1695,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "CloudHsmTagException":
-    case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmTagException":
       response = {
         ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
           parsedOutput,
@@ -2128,6 +2128,84 @@ const deserializeAws_json1_1Certificates = (
   } as any;
 };
 
+const deserializeAws_json1_1CloudHsmAccessDeniedException = (
+  output: any,
+  context: __SerdeContext
+): CloudHsmAccessDeniedException => {
+  return {
+    __type: "CloudHsmAccessDeniedException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1CloudHsmInternalFailureException = (
+  output: any,
+  context: __SerdeContext
+): CloudHsmInternalFailureException => {
+  return {
+    __type: "CloudHsmInternalFailureException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1CloudHsmInvalidRequestException = (
+  output: any,
+  context: __SerdeContext
+): CloudHsmInvalidRequestException => {
+  return {
+    __type: "CloudHsmInvalidRequestException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1CloudHsmResourceNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): CloudHsmResourceNotFoundException => {
+  return {
+    __type: "CloudHsmResourceNotFoundException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1CloudHsmServiceException = (
+  output: any,
+  context: __SerdeContext
+): CloudHsmServiceException => {
+  return {
+    __type: "CloudHsmServiceException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1CloudHsmTagException = (
+  output: any,
+  context: __SerdeContext
+): CloudHsmTagException => {
+  return {
+    __type: "CloudHsmTagException",
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1Cluster = (
   output: any,
   context: __SerdeContext
@@ -2495,84 +2573,6 @@ const deserializeAws_json1_1UntagResourceResponse = (
 ): UntagResourceResponse => {
   return {
     __type: "UntagResourceResponse"
-  } as any;
-};
-
-const deserializeAws_json1_1CloudHsmAccessDeniedException = (
-  output: any,
-  context: __SerdeContext
-): CloudHsmAccessDeniedException => {
-  return {
-    __type: "CloudHsmAccessDeniedException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1CloudHsmInternalFailureException = (
-  output: any,
-  context: __SerdeContext
-): CloudHsmInternalFailureException => {
-  return {
-    __type: "CloudHsmInternalFailureException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1CloudHsmInvalidRequestException = (
-  output: any,
-  context: __SerdeContext
-): CloudHsmInvalidRequestException => {
-  return {
-    __type: "CloudHsmInvalidRequestException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1CloudHsmResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): CloudHsmResourceNotFoundException => {
-  return {
-    __type: "CloudHsmResourceNotFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1CloudHsmServiceException = (
-  output: any,
-  context: __SerdeContext
-): CloudHsmServiceException => {
-  return {
-    __type: "CloudHsmServiceException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1CloudHsmTagException = (
-  output: any,
-  context: __SerdeContext
-): CloudHsmTagException => {
-  return {
-    __type: "CloudHsmTagException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
   } as any;
 };
 

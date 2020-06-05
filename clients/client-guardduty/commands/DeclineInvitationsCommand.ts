@@ -8,9 +8,9 @@ import {
   DeclineInvitationsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeclineInvitationsCommand,
-  serializeAws_restJson1_1DeclineInvitationsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeclineInvitationsCommand,
+  serializeAws_restJson1DeclineInvitationsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class DeclineInvitationsCommand extends $Command<
     input: DeclineInvitationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeclineInvitationsCommand(input, context);
+    return serializeAws_restJson1DeclineInvitationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeclineInvitationsCommandOutput> {
-    return deserializeAws_restJson1_1DeclineInvitationsCommand(output, context);
+    return deserializeAws_restJson1DeclineInvitationsCommand(output, context);
   }
 
   // Start section: command_body_extra

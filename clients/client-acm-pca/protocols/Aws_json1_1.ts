@@ -2668,24 +2668,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   return contents;
 };
 
-const deserializeAws_json1_1MalformedCSRExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<MalformedCSRException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MalformedCSRException(
-    body,
-    context
-  );
-  const contents: MalformedCSRException = {
-    name: "MalformedCSRException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
 const deserializeAws_json1_1MalformedCertificateExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2697,6 +2679,24 @@ const deserializeAws_json1_1MalformedCertificateExceptionResponse = async (
   );
   const contents: MalformedCertificateException = {
     name: "MalformedCertificateException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1MalformedCSRExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<MalformedCSRException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1MalformedCSRException(
+    body,
+    context
+  );
+  const contents: MalformedCSRException = {
+    name: "MalformedCSRException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2812,6 +2812,13 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_json1_1ActionList = (
+  input: (ActionType | string)[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
+};
+
 const serializeAws_json1_1ASN1Subject = (
   input: ASN1Subject,
   context: __SerdeContext
@@ -2842,13 +2849,6 @@ const serializeAws_json1_1ASN1Subject = (
     ...(input.Surname !== undefined && { Surname: input.Surname }),
     ...(input.Title !== undefined && { Title: input.Title })
   };
-};
-
-const serializeAws_json1_1ActionList = (
-  input: (ActionType | string)[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1CertificateAuthorityConfiguration = (
@@ -3225,6 +3225,13 @@ const serializeAws_json1_1Validity = (
   };
 };
 
+const deserializeAws_json1_1ActionList = (
+  output: any,
+  context: __SerdeContext
+): (ActionType | string)[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_1ASN1Subject = (
   output: any,
   context: __SerdeContext
@@ -3291,13 +3298,6 @@ const deserializeAws_json1_1ASN1Subject = (
         ? output.Title
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1ActionList = (
-  output: any,
-  context: __SerdeContext
-): (ActionType | string)[] => {
-  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1CertificateAuthorities = (
@@ -3736,12 +3736,12 @@ const deserializeAws_json1_1ListTagsResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1MalformedCSRException = (
+const deserializeAws_json1_1MalformedCertificateException = (
   output: any,
   context: __SerdeContext
-): MalformedCSRException => {
+): MalformedCertificateException => {
   return {
-    __type: "MalformedCSRException",
+    __type: "MalformedCertificateException",
     message:
       output.message !== undefined && output.message !== null
         ? output.message
@@ -3749,12 +3749,12 @@ const deserializeAws_json1_1MalformedCSRException = (
   } as any;
 };
 
-const deserializeAws_json1_1MalformedCertificateException = (
+const deserializeAws_json1_1MalformedCSRException = (
   output: any,
   context: __SerdeContext
-): MalformedCertificateException => {
+): MalformedCSRException => {
   return {
-    __type: "MalformedCertificateException",
+    __type: "MalformedCSRException",
     message:
       output.message !== undefined && output.message !== null
         ? output.message

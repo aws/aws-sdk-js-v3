@@ -8,9 +8,9 @@ import {
   ListJournalS3ExportsForLedgerResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListJournalS3ExportsForLedgerCommand,
-  serializeAws_restJson1_1ListJournalS3ExportsForLedgerCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListJournalS3ExportsForLedgerCommand,
+  serializeAws_restJson1ListJournalS3ExportsForLedgerCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class ListJournalS3ExportsForLedgerCommand extends $Command<
     input: ListJournalS3ExportsForLedgerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListJournalS3ExportsForLedgerCommand(
+    return serializeAws_restJson1ListJournalS3ExportsForLedgerCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class ListJournalS3ExportsForLedgerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListJournalS3ExportsForLedgerCommandOutput> {
-    return deserializeAws_restJson1_1ListJournalS3ExportsForLedgerCommand(
+    return deserializeAws_restJson1ListJournalS3ExportsForLedgerCommand(
       output,
       context
     );

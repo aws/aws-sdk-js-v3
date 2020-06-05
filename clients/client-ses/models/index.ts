@@ -6,50 +6,6 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- * <p>Contains the name and value of a tag that you can provide to <code>SendEmail</code> or
- *                 <code>SendRawEmail</code> to apply to an email.</p>
- *         <p>Message tags, which you use with configuration sets, enable you to publish email
- *             sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
- */
-export interface MessageTag {
-  __type?: "MessageTag";
-  /**
-   * <p>The name of the tag. The name must:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),
-   *                     underscores (_), or dashes (-).</p>
-   *             </li>
-   *             <li>
-   *                 <p>Contain less than 256 characters.</p>
-   *             </li>
-   *          </ul>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The value of the tag. The value must:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),
-   *                     underscores (_), or dashes (-).</p>
-   *             </li>
-   *             <li>
-   *                 <p>Contain less than 256 characters.</p>
-   *             </li>
-   *          </ul>
-   */
-  Value: string | undefined;
-}
-
-export namespace MessageTag {
-  export const filterSensitiveLog = (obj: MessageTag): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is MessageTag => __isa(o, "MessageTag");
-}
-
-/**
  * <p>Indicates that email sending is disabled for your entire Amazon SES account.</p>
  *         <p>You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.</p>
  */
@@ -205,15 +161,6 @@ export namespace BounceAction {
   export const isa = (o: any): o is BounceAction => __isa(o, "BounceAction");
 }
 
-export enum BounceType {
-  ContentRejected = "ContentRejected",
-  DoesNotExist = "DoesNotExist",
-  ExceededQuota = "ExceededQuota",
-  MessageTooLarge = "MessageTooLarge",
-  TemporaryFailure = "TemporaryFailure",
-  Undefined = "Undefined"
-}
-
 /**
  * <p>Recipient-related information to include in the Delivery Status Notification (DSN)
  *             when an email that Amazon SES receives on your behalf bounces.</p>
@@ -256,6 +203,15 @@ export namespace BouncedRecipientInfo {
   });
   export const isa = (o: any): o is BouncedRecipientInfo =>
     __isa(o, "BouncedRecipientInfo");
+}
+
+export enum BounceType {
+  ContentRejected = "ContentRejected",
+  DoesNotExist = "DoesNotExist",
+  ExceededQuota = "ExceededQuota",
+  MessageTooLarge = "MessageTooLarge",
+  TemporaryFailure = "TemporaryFailure",
+  Undefined = "Undefined"
 }
 
 /**
@@ -3680,6 +3636,50 @@ export namespace MessageRejected {
 }
 
 /**
+ * <p>Contains the name and value of a tag that you can provide to <code>SendEmail</code> or
+ *                 <code>SendRawEmail</code> to apply to an email.</p>
+ *         <p>Message tags, which you use with configuration sets, enable you to publish email
+ *             sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
+ */
+export interface MessageTag {
+  __type?: "MessageTag";
+  /**
+   * <p>The name of the tag. The name must:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),
+   *                     underscores (_), or dashes (-).</p>
+   *             </li>
+   *             <li>
+   *                 <p>Contain less than 256 characters.</p>
+   *             </li>
+   *          </ul>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The value of the tag. The value must:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),
+   *                     underscores (_), or dashes (-).</p>
+   *             </li>
+   *             <li>
+   *                 <p>Contain less than 256 characters.</p>
+   *             </li>
+   *          </ul>
+   */
+  Value: string | undefined;
+}
+
+export namespace MessageTag {
+  export const filterSensitiveLog = (obj: MessageTag): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is MessageTag => __isa(o, "MessageTag");
+}
+
+/**
  * <p>Indicates that one or more of the replacement values for the specified template was
  *             not specified. Ensure that the TemplateData object contains references to all of the
  *             replacement tags in the specified template.</p>
@@ -4380,80 +4380,6 @@ export namespace S3Action {
     ...obj
   });
   export const isa = (o: any): o is S3Action => __isa(o, "S3Action");
-}
-
-/**
- * <p>When included in a receipt rule, this action publishes a notification to Amazon Simple Notification Service
- *             (Amazon SNS). This action includes a complete copy of the email content in the Amazon SNS
- *             notifications. Amazon SNS notifications for all other actions simply provide information
- *             about the email. They do not include the email content itself.</p>
- *         <p>If you own the Amazon SNS topic, you don't need to do anything to give Amazon SES permission to
- *             publish emails to it. However, if you don't own the Amazon SNS topic, you need to attach a
- *             policy to the topic to give Amazon SES permissions to access it. For information about giving
- *             permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES Developer
- *                 Guide</a>.</p>
- *         <important>
- *             <p>You can only publish emails that are 150 KB or less (including the header) to
- *                 Amazon SNS. Larger emails will bounce. If you anticipate emails larger than 150 KB, use
- *                 the S3 action instead.</p>
- *         </important>
- *         <p>For information about using a receipt rule to publish an Amazon SNS notification, see the
- *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-sns.html">Amazon SES Developer
- *                 Guide</a>.</p>
- */
-export interface SNSAction {
-  __type?: "SNSAction";
-  /**
-   * <p>The encoding to use for the email within the Amazon SNS notification. UTF-8 is easier to
-   *             use, but may not preserve all special characters when a message was encoded with a
-   *             different encoding format. Base64 preserves all special characters. The default value is
-   *             UTF-8.</p>
-   */
-  Encoding?: SNSActionEncoding | string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An example of an Amazon SNS
-   *             topic ARN is <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more
-   *             information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
-   */
-  TopicArn: string | undefined;
-}
-
-export namespace SNSAction {
-  export const filterSensitiveLog = (obj: SNSAction): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SNSAction => __isa(o, "SNSAction");
-}
-
-export enum SNSActionEncoding {
-  Base64 = "Base64",
-  UTF8 = "UTF-8"
-}
-
-/**
- * <p>Contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination.</p>
- *         <p>Event destinations, such as Amazon SNS, are associated with configuration sets, which
- *             enable you to publish email sending events. For information about using configuration
- *             sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
- *                 Guide</a>.</p>
- */
-export interface SNSDestination {
-  __type?: "SNSDestination";
-  /**
-   * <p>The ARN of the Amazon SNS topic that email sending events will be published to. An example
-   *             of an Amazon SNS topic ARN is <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For
-   *             more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
-   */
-  TopicARN: string | undefined;
-}
-
-export namespace SNSDestination {
-  export const filterSensitiveLog = (obj: SNSDestination): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SNSDestination =>
-    __isa(o, "SNSDestination");
 }
 
 /**
@@ -5581,6 +5507,80 @@ export namespace SetReceiptRulePositionResponse {
   });
   export const isa = (o: any): o is SetReceiptRulePositionResponse =>
     __isa(o, "SetReceiptRulePositionResponse");
+}
+
+/**
+ * <p>When included in a receipt rule, this action publishes a notification to Amazon Simple Notification Service
+ *             (Amazon SNS). This action includes a complete copy of the email content in the Amazon SNS
+ *             notifications. Amazon SNS notifications for all other actions simply provide information
+ *             about the email. They do not include the email content itself.</p>
+ *         <p>If you own the Amazon SNS topic, you don't need to do anything to give Amazon SES permission to
+ *             publish emails to it. However, if you don't own the Amazon SNS topic, you need to attach a
+ *             policy to the topic to give Amazon SES permissions to access it. For information about giving
+ *             permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ *         <important>
+ *             <p>You can only publish emails that are 150 KB or less (including the header) to
+ *                 Amazon SNS. Larger emails will bounce. If you anticipate emails larger than 150 KB, use
+ *                 the S3 action instead.</p>
+ *         </important>
+ *         <p>For information about using a receipt rule to publish an Amazon SNS notification, see the
+ *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-sns.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ */
+export interface SNSAction {
+  __type?: "SNSAction";
+  /**
+   * <p>The encoding to use for the email within the Amazon SNS notification. UTF-8 is easier to
+   *             use, but may not preserve all special characters when a message was encoded with a
+   *             different encoding format. Base64 preserves all special characters. The default value is
+   *             UTF-8.</p>
+   */
+  Encoding?: SNSActionEncoding | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An example of an Amazon SNS
+   *             topic ARN is <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more
+   *             information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
+   */
+  TopicArn: string | undefined;
+}
+
+export namespace SNSAction {
+  export const filterSensitiveLog = (obj: SNSAction): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SNSAction => __isa(o, "SNSAction");
+}
+
+export enum SNSActionEncoding {
+  Base64 = "Base64",
+  UTF8 = "UTF-8"
+}
+
+/**
+ * <p>Contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination.</p>
+ *         <p>Event destinations, such as Amazon SNS, are associated with configuration sets, which
+ *             enable you to publish email sending events. For information about using configuration
+ *             sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ */
+export interface SNSDestination {
+  __type?: "SNSDestination";
+  /**
+   * <p>The ARN of the Amazon SNS topic that email sending events will be published to. An example
+   *             of an Amazon SNS topic ARN is <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For
+   *             more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
+   */
+  TopicARN: string | undefined;
+}
+
+export namespace SNSDestination {
+  export const filterSensitiveLog = (obj: SNSDestination): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SNSDestination =>
+    __isa(o, "SNSDestination");
 }
 
 /**

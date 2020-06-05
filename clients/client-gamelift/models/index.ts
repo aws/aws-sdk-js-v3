@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export type AcceptanceType = "ACCEPT" | "REJECT";
+
 /**
  * <p>Represents the input for a request action.</p>
  */
@@ -47,8 +49,6 @@ export namespace AcceptMatchOutput {
   export const isa = (o: any): o is AcceptMatchOutput =>
     __isa(o, "AcceptMatchOutput");
 }
-
-export type AcceptanceType = "ACCEPT" | "REJECT";
 
 /**
  * <p>Properties that describe an alias resource.</p>
@@ -7464,6 +7464,28 @@ export namespace Tag {
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
+/**
+ * <p>
+ *             The requested tagging operation did not succeed. This may be due to invalid tag format
+ *             or the maximum tag limit may have been exceeded. Resolve the issue before retrying.
+ *         </p>
+ */
+export interface TaggingFailedException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TaggingFailedException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TaggingFailedException {
+  export const filterSensitiveLog = (obj: TaggingFailedException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TaggingFailedException =>
+    __isa(o, "TaggingFailedException");
+}
+
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
@@ -7503,28 +7525,6 @@ export namespace TagResourceResponse {
   });
   export const isa = (o: any): o is TagResourceResponse =>
     __isa(o, "TagResourceResponse");
-}
-
-/**
- * <p>
- *             The requested tagging operation did not succeed. This may be due to invalid tag format
- *             or the maximum tag limit may have been exceeded. Resolve the issue before retrying.
- *         </p>
- */
-export interface TaggingFailedException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TaggingFailedException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TaggingFailedException {
-  export const filterSensitiveLog = (obj: TaggingFailedException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TaggingFailedException =>
-    __isa(o, "TaggingFailedException");
 }
 
 /**

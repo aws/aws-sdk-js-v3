@@ -8,9 +8,9 @@ import {
   GetLoggingOptionsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetLoggingOptionsCommand,
-  serializeAws_restJson1_1GetLoggingOptionsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetLoggingOptionsCommand,
+  serializeAws_restJson1GetLoggingOptionsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class GetLoggingOptionsCommand extends $Command<
     input: GetLoggingOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetLoggingOptionsCommand(input, context);
+    return serializeAws_restJson1GetLoggingOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLoggingOptionsCommandOutput> {
-    return deserializeAws_restJson1_1GetLoggingOptionsCommand(output, context);
+    return deserializeAws_restJson1GetLoggingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

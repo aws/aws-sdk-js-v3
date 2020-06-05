@@ -742,21 +742,6 @@ export const serializeAws_json1_1DescribeUsageReportSubscriptionsCommand = async
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeUserStackAssociationsCommand = async (
-  input: DescribeUserStackAssociationsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DescribeUserStackAssociations"
-  };
-  let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeUserStackAssociationsRequest(input, context)
-  );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_json1_1DescribeUsersCommand = async (
   input: DescribeUsersCommandInput,
   context: __SerdeContext
@@ -768,6 +753,21 @@ export const serializeAws_json1_1DescribeUsersCommand = async (
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeUsersRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeUserStackAssociationsCommand = async (
+  input: DescribeUserStackAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "PhotonAdminProxyService.DescribeUserStackAssociations"
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeUserStackAssociationsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1046,7 +1046,7 @@ const deserializeAws_json1_1AssociateFleetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.photon#ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -1057,7 +1057,7 @@ const deserializeAws_json1_1AssociateFleetCommandError = async (
       };
       break;
     case "IncompatibleImageException":
-    case "com.amazonaws.photon#IncompatibleImageException":
+    case "com.amazonaws.appstream#IncompatibleImageException":
       response = {
         ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(
           parsedOutput,
@@ -1068,7 +1068,7 @@ const deserializeAws_json1_1AssociateFleetCommandError = async (
       };
       break;
     case "InvalidAccountStatusException":
-    case "com.amazonaws.photon#InvalidAccountStatusException":
+    case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
           parsedOutput,
@@ -1079,7 +1079,7 @@ const deserializeAws_json1_1AssociateFleetCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.photon#LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1090,7 +1090,7 @@ const deserializeAws_json1_1AssociateFleetCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.photon#OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1101,7 +1101,7 @@ const deserializeAws_json1_1AssociateFleetCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1164,7 +1164,7 @@ const deserializeAws_json1_1BatchAssociateUserStackCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedException":
-    case "com.amazonaws.photon#OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1279,7 +1279,7 @@ const deserializeAws_json1_1CopyImageCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IncompatibleImageException":
-    case "com.amazonaws.photon#IncompatibleImageException":
+    case "com.amazonaws.appstream#IncompatibleImageException":
       response = {
         ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(
           parsedOutput,
@@ -1290,7 +1290,7 @@ const deserializeAws_json1_1CopyImageCommandError = async (
       };
       break;
     case "InvalidAccountStatusException":
-    case "com.amazonaws.photon#InvalidAccountStatusException":
+    case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
           parsedOutput,
@@ -1301,7 +1301,7 @@ const deserializeAws_json1_1CopyImageCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.photon#LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1312,7 +1312,7 @@ const deserializeAws_json1_1CopyImageCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.photon#ResourceAlreadyExistsException":
+    case "com.amazonaws.appstream#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1323,7 +1323,7 @@ const deserializeAws_json1_1CopyImageCommandError = async (
       };
       break;
     case "ResourceNotAvailableException":
-    case "com.amazonaws.photon#ResourceNotAvailableException":
+    case "com.amazonaws.appstream#ResourceNotAvailableException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
           parsedOutput,
@@ -1334,7 +1334,7 @@ const deserializeAws_json1_1CopyImageCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1397,7 +1397,7 @@ const deserializeAws_json1_1CreateDirectoryConfigCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidAccountStatusException":
-    case "com.amazonaws.photon#InvalidAccountStatusException":
+    case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
           parsedOutput,
@@ -1408,7 +1408,7 @@ const deserializeAws_json1_1CreateDirectoryConfigCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.photon#LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1419,7 +1419,7 @@ const deserializeAws_json1_1CreateDirectoryConfigCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.photon#ResourceAlreadyExistsException":
+    case "com.amazonaws.appstream#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1479,7 +1479,7 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.photon#ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -1490,7 +1490,7 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
       };
       break;
     case "IncompatibleImageException":
-    case "com.amazonaws.photon#IncompatibleImageException":
+    case "com.amazonaws.appstream#IncompatibleImageException":
       response = {
         ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(
           parsedOutput,
@@ -1501,7 +1501,7 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
       };
       break;
     case "InvalidAccountStatusException":
-    case "com.amazonaws.photon#InvalidAccountStatusException":
+    case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
           parsedOutput,
@@ -1512,7 +1512,7 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
       };
       break;
     case "InvalidParameterCombinationException":
-    case "com.amazonaws.photon#InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
           parsedOutput,
@@ -1523,7 +1523,7 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
       };
       break;
     case "InvalidRoleException":
-    case "com.amazonaws.photon#InvalidRoleException":
+    case "com.amazonaws.appstream#InvalidRoleException":
       response = {
         ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(
           parsedOutput,
@@ -1534,7 +1534,7 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.photon#LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1545,7 +1545,7 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.photon#OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1556,7 +1556,7 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.photon#ResourceAlreadyExistsException":
+    case "com.amazonaws.appstream#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1567,7 +1567,7 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
       };
       break;
     case "ResourceNotAvailableException":
-    case "com.amazonaws.photon#ResourceNotAvailableException":
+    case "com.amazonaws.appstream#ResourceNotAvailableException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
           parsedOutput,
@@ -1578,7 +1578,7 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1641,7 +1641,7 @@ const deserializeAws_json1_1CreateImageBuilderCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.photon#ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -1652,7 +1652,7 @@ const deserializeAws_json1_1CreateImageBuilderCommandError = async (
       };
       break;
     case "IncompatibleImageException":
-    case "com.amazonaws.photon#IncompatibleImageException":
+    case "com.amazonaws.appstream#IncompatibleImageException":
       response = {
         ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(
           parsedOutput,
@@ -1663,7 +1663,7 @@ const deserializeAws_json1_1CreateImageBuilderCommandError = async (
       };
       break;
     case "InvalidAccountStatusException":
-    case "com.amazonaws.photon#InvalidAccountStatusException":
+    case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
           parsedOutput,
@@ -1674,7 +1674,7 @@ const deserializeAws_json1_1CreateImageBuilderCommandError = async (
       };
       break;
     case "InvalidParameterCombinationException":
-    case "com.amazonaws.photon#InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
           parsedOutput,
@@ -1685,7 +1685,7 @@ const deserializeAws_json1_1CreateImageBuilderCommandError = async (
       };
       break;
     case "InvalidRoleException":
-    case "com.amazonaws.photon#InvalidRoleException":
+    case "com.amazonaws.appstream#InvalidRoleException":
       response = {
         ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(
           parsedOutput,
@@ -1696,7 +1696,7 @@ const deserializeAws_json1_1CreateImageBuilderCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.photon#LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1707,7 +1707,7 @@ const deserializeAws_json1_1CreateImageBuilderCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.photon#OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1718,7 +1718,7 @@ const deserializeAws_json1_1CreateImageBuilderCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.photon#ResourceAlreadyExistsException":
+    case "com.amazonaws.appstream#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1729,7 +1729,7 @@ const deserializeAws_json1_1CreateImageBuilderCommandError = async (
       };
       break;
     case "ResourceNotAvailableException":
-    case "com.amazonaws.photon#ResourceNotAvailableException":
+    case "com.amazonaws.appstream#ResourceNotAvailableException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
           parsedOutput,
@@ -1740,7 +1740,7 @@ const deserializeAws_json1_1CreateImageBuilderCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1806,7 +1806,7 @@ const deserializeAws_json1_1CreateImageBuilderStreamingURLCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedException":
-    case "com.amazonaws.photon#OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -1817,7 +1817,7 @@ const deserializeAws_json1_1CreateImageBuilderStreamingURLCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1877,7 +1877,7 @@ const deserializeAws_json1_1CreateStackCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.photon#ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -1888,7 +1888,7 @@ const deserializeAws_json1_1CreateStackCommandError = async (
       };
       break;
     case "InvalidAccountStatusException":
-    case "com.amazonaws.photon#InvalidAccountStatusException":
+    case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
           parsedOutput,
@@ -1899,7 +1899,7 @@ const deserializeAws_json1_1CreateStackCommandError = async (
       };
       break;
     case "InvalidParameterCombinationException":
-    case "com.amazonaws.photon#InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
           parsedOutput,
@@ -1910,7 +1910,7 @@ const deserializeAws_json1_1CreateStackCommandError = async (
       };
       break;
     case "InvalidRoleException":
-    case "com.amazonaws.photon#InvalidRoleException":
+    case "com.amazonaws.appstream#InvalidRoleException":
       response = {
         ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(
           parsedOutput,
@@ -1921,7 +1921,7 @@ const deserializeAws_json1_1CreateStackCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.photon#LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1932,7 +1932,7 @@ const deserializeAws_json1_1CreateStackCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.photon#ResourceAlreadyExistsException":
+    case "com.amazonaws.appstream#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -1943,7 +1943,7 @@ const deserializeAws_json1_1CreateStackCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2006,7 +2006,7 @@ const deserializeAws_json1_1CreateStreamingURLCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterCombinationException":
-    case "com.amazonaws.photon#InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
           parsedOutput,
@@ -2017,7 +2017,7 @@ const deserializeAws_json1_1CreateStreamingURLCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.photon#OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -2028,7 +2028,7 @@ const deserializeAws_json1_1CreateStreamingURLCommandError = async (
       };
       break;
     case "ResourceNotAvailableException":
-    case "com.amazonaws.photon#ResourceNotAvailableException":
+    case "com.amazonaws.appstream#ResourceNotAvailableException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
           parsedOutput,
@@ -2039,7 +2039,7 @@ const deserializeAws_json1_1CreateStreamingURLCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2105,7 +2105,7 @@ const deserializeAws_json1_1CreateUsageReportSubscriptionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidAccountStatusException":
-    case "com.amazonaws.photon#InvalidAccountStatusException":
+    case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
           parsedOutput,
@@ -2116,7 +2116,7 @@ const deserializeAws_json1_1CreateUsageReportSubscriptionCommandError = async (
       };
       break;
     case "InvalidRoleException":
-    case "com.amazonaws.photon#InvalidRoleException":
+    case "com.amazonaws.appstream#InvalidRoleException":
       response = {
         ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(
           parsedOutput,
@@ -2127,7 +2127,7 @@ const deserializeAws_json1_1CreateUsageReportSubscriptionCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.photon#LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2187,7 +2187,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidAccountStatusException":
-    case "com.amazonaws.photon#InvalidAccountStatusException":
+    case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
           parsedOutput,
@@ -2198,7 +2198,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
       };
       break;
     case "InvalidParameterCombinationException":
-    case "com.amazonaws.photon#InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
           parsedOutput,
@@ -2209,7 +2209,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.photon#LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2220,7 +2220,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.photon#OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -2231,7 +2231,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
       };
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.photon#ResourceAlreadyExistsException":
+    case "com.amazonaws.appstream#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
           parsedOutput,
@@ -2294,7 +2294,7 @@ const deserializeAws_json1_1DeleteDirectoryConfigCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUseException":
-    case "com.amazonaws.photon#ResourceInUseException":
+    case "com.amazonaws.appstream#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2305,7 +2305,7 @@ const deserializeAws_json1_1DeleteDirectoryConfigCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2365,7 +2365,7 @@ const deserializeAws_json1_1DeleteFleetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.photon#ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2376,7 +2376,7 @@ const deserializeAws_json1_1DeleteFleetCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.photon#ResourceInUseException":
+    case "com.amazonaws.appstream#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2387,7 +2387,7 @@ const deserializeAws_json1_1DeleteFleetCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2447,7 +2447,7 @@ const deserializeAws_json1_1DeleteImageCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.photon#ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2458,7 +2458,7 @@ const deserializeAws_json1_1DeleteImageCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.photon#OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -2469,7 +2469,7 @@ const deserializeAws_json1_1DeleteImageCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.photon#ResourceInUseException":
+    case "com.amazonaws.appstream#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2480,7 +2480,7 @@ const deserializeAws_json1_1DeleteImageCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2543,7 +2543,7 @@ const deserializeAws_json1_1DeleteImageBuilderCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.photon#ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2554,7 +2554,7 @@ const deserializeAws_json1_1DeleteImageBuilderCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.photon#OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -2565,7 +2565,7 @@ const deserializeAws_json1_1DeleteImageBuilderCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2628,7 +2628,7 @@ const deserializeAws_json1_1DeleteImagePermissionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotAvailableException":
-    case "com.amazonaws.photon#ResourceNotAvailableException":
+    case "com.amazonaws.appstream#ResourceNotAvailableException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
           parsedOutput,
@@ -2639,7 +2639,7 @@ const deserializeAws_json1_1DeleteImagePermissionsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2699,7 +2699,7 @@ const deserializeAws_json1_1DeleteStackCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.photon#ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -2710,7 +2710,7 @@ const deserializeAws_json1_1DeleteStackCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.photon#ResourceInUseException":
+    case "com.amazonaws.appstream#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -2721,7 +2721,7 @@ const deserializeAws_json1_1DeleteStackCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2787,7 +2787,7 @@ const deserializeAws_json1_1DeleteUsageReportSubscriptionCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidAccountStatusException":
-    case "com.amazonaws.photon#InvalidAccountStatusException":
+    case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
           parsedOutput,
@@ -2798,7 +2798,7 @@ const deserializeAws_json1_1DeleteUsageReportSubscriptionCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2858,7 +2858,7 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2924,7 +2924,7 @@ const deserializeAws_json1_1DescribeDirectoryConfigsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2984,7 +2984,7 @@ const deserializeAws_json1_1DescribeFleetsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3047,7 +3047,7 @@ const deserializeAws_json1_1DescribeImageBuildersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3113,7 +3113,7 @@ const deserializeAws_json1_1DescribeImagePermissionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3173,7 +3173,7 @@ const deserializeAws_json1_1DescribeImagesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterCombinationException":
-    case "com.amazonaws.photon#InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
           parsedOutput,
@@ -3184,7 +3184,7 @@ const deserializeAws_json1_1DescribeImagesCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3244,7 +3244,7 @@ const deserializeAws_json1_1DescribeSessionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterCombinationException":
-    case "com.amazonaws.photon#InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
           parsedOutput,
@@ -3304,7 +3304,7 @@ const deserializeAws_json1_1DescribeStacksCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3370,7 +3370,7 @@ const deserializeAws_json1_1DescribeUsageReportSubscriptionsCommandError = async
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidAccountStatusException":
-    case "com.amazonaws.photon#InvalidAccountStatusException":
+    case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
           parsedOutput,
@@ -3381,7 +3381,78 @@ const deserializeAws_json1_1DescribeUsageReportSubscriptionsCommandError = async
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeUsersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeUsersCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeUsersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeUsersResult(data, context);
+  const response: DescribeUsersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeUsersResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeUsersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeUsersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3447,80 +3518,9 @@ const deserializeAws_json1_1DescribeUserStackAssociationsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterCombinationException":
-    case "com.amazonaws.photon#InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1DescribeUsersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUsersCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeUsersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUsersResult(data, context);
-  const response: DescribeUsersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "DescribeUsersResult",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DescribeUsersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUsersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.photon#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
           context
         )),
@@ -3578,7 +3578,7 @@ const deserializeAws_json1_1DisableUserCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3638,7 +3638,7 @@ const deserializeAws_json1_1DisassociateFleetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.photon#ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -3649,7 +3649,7 @@ const deserializeAws_json1_1DisassociateFleetCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.photon#ResourceInUseException":
+    case "com.amazonaws.appstream#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -3660,7 +3660,7 @@ const deserializeAws_json1_1DisassociateFleetCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3720,7 +3720,7 @@ const deserializeAws_json1_1EnableUserCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidAccountStatusException":
-    case "com.amazonaws.photon#InvalidAccountStatusException":
+    case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
           parsedOutput,
@@ -3731,7 +3731,7 @@ const deserializeAws_json1_1EnableUserCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3947,7 +3947,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4007,7 +4007,7 @@ const deserializeAws_json1_1StartFleetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.photon#ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -4018,7 +4018,7 @@ const deserializeAws_json1_1StartFleetCommandError = async (
       };
       break;
     case "InvalidAccountStatusException":
-    case "com.amazonaws.photon#InvalidAccountStatusException":
+    case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
           parsedOutput,
@@ -4029,7 +4029,7 @@ const deserializeAws_json1_1StartFleetCommandError = async (
       };
       break;
     case "InvalidRoleException":
-    case "com.amazonaws.photon#InvalidRoleException":
+    case "com.amazonaws.appstream#InvalidRoleException":
       response = {
         ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(
           parsedOutput,
@@ -4040,7 +4040,7 @@ const deserializeAws_json1_1StartFleetCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.photon#LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -4051,7 +4051,7 @@ const deserializeAws_json1_1StartFleetCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.photon#OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -4062,7 +4062,7 @@ const deserializeAws_json1_1StartFleetCommandError = async (
       };
       break;
     case "ResourceNotAvailableException":
-    case "com.amazonaws.photon#ResourceNotAvailableException":
+    case "com.amazonaws.appstream#ResourceNotAvailableException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
           parsedOutput,
@@ -4073,7 +4073,7 @@ const deserializeAws_json1_1StartFleetCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4133,7 +4133,7 @@ const deserializeAws_json1_1StartImageBuilderCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.photon#ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -4144,7 +4144,7 @@ const deserializeAws_json1_1StartImageBuilderCommandError = async (
       };
       break;
     case "IncompatibleImageException":
-    case "com.amazonaws.photon#IncompatibleImageException":
+    case "com.amazonaws.appstream#IncompatibleImageException":
       response = {
         ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(
           parsedOutput,
@@ -4155,7 +4155,7 @@ const deserializeAws_json1_1StartImageBuilderCommandError = async (
       };
       break;
     case "InvalidAccountStatusException":
-    case "com.amazonaws.photon#InvalidAccountStatusException":
+    case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
           parsedOutput,
@@ -4166,7 +4166,7 @@ const deserializeAws_json1_1StartImageBuilderCommandError = async (
       };
       break;
     case "ResourceNotAvailableException":
-    case "com.amazonaws.photon#ResourceNotAvailableException":
+    case "com.amazonaws.appstream#ResourceNotAvailableException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
           parsedOutput,
@@ -4177,7 +4177,7 @@ const deserializeAws_json1_1StartImageBuilderCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4237,7 +4237,7 @@ const deserializeAws_json1_1StopFleetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.photon#ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -4248,7 +4248,7 @@ const deserializeAws_json1_1StopFleetCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4308,7 +4308,7 @@ const deserializeAws_json1_1StopImageBuilderCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.photon#ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -4319,7 +4319,7 @@ const deserializeAws_json1_1StopImageBuilderCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.photon#OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -4330,7 +4330,7 @@ const deserializeAws_json1_1StopImageBuilderCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4390,7 +4390,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidAccountStatusException":
-    case "com.amazonaws.photon#InvalidAccountStatusException":
+    case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
           parsedOutput,
@@ -4401,7 +4401,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.photon#LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -4412,7 +4412,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4472,7 +4472,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4535,7 +4535,7 @@ const deserializeAws_json1_1UpdateDirectoryConfigCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.photon#ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -4546,7 +4546,7 @@ const deserializeAws_json1_1UpdateDirectoryConfigCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.photon#ResourceInUseException":
+    case "com.amazonaws.appstream#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -4557,7 +4557,7 @@ const deserializeAws_json1_1UpdateDirectoryConfigCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4617,7 +4617,7 @@ const deserializeAws_json1_1UpdateFleetCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.photon#ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -4628,7 +4628,7 @@ const deserializeAws_json1_1UpdateFleetCommandError = async (
       };
       break;
     case "IncompatibleImageException":
-    case "com.amazonaws.photon#IncompatibleImageException":
+    case "com.amazonaws.appstream#IncompatibleImageException":
       response = {
         ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(
           parsedOutput,
@@ -4639,7 +4639,7 @@ const deserializeAws_json1_1UpdateFleetCommandError = async (
       };
       break;
     case "InvalidAccountStatusException":
-    case "com.amazonaws.photon#InvalidAccountStatusException":
+    case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
           parsedOutput,
@@ -4650,7 +4650,7 @@ const deserializeAws_json1_1UpdateFleetCommandError = async (
       };
       break;
     case "InvalidParameterCombinationException":
-    case "com.amazonaws.photon#InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
           parsedOutput,
@@ -4661,7 +4661,7 @@ const deserializeAws_json1_1UpdateFleetCommandError = async (
       };
       break;
     case "InvalidRoleException":
-    case "com.amazonaws.photon#InvalidRoleException":
+    case "com.amazonaws.appstream#InvalidRoleException":
       response = {
         ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(
           parsedOutput,
@@ -4672,7 +4672,7 @@ const deserializeAws_json1_1UpdateFleetCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.photon#LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -4683,7 +4683,7 @@ const deserializeAws_json1_1UpdateFleetCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.photon#OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -4694,7 +4694,7 @@ const deserializeAws_json1_1UpdateFleetCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.photon#ResourceInUseException":
+    case "com.amazonaws.appstream#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -4705,7 +4705,7 @@ const deserializeAws_json1_1UpdateFleetCommandError = async (
       };
       break;
     case "ResourceNotAvailableException":
-    case "com.amazonaws.photon#ResourceNotAvailableException":
+    case "com.amazonaws.appstream#ResourceNotAvailableException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
           parsedOutput,
@@ -4716,7 +4716,7 @@ const deserializeAws_json1_1UpdateFleetCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4779,7 +4779,7 @@ const deserializeAws_json1_1UpdateImagePermissionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
-    case "com.amazonaws.photon#LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -4790,7 +4790,7 @@ const deserializeAws_json1_1UpdateImagePermissionsCommandError = async (
       };
       break;
     case "ResourceNotAvailableException":
-    case "com.amazonaws.photon#ResourceNotAvailableException":
+    case "com.amazonaws.appstream#ResourceNotAvailableException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
           parsedOutput,
@@ -4801,7 +4801,7 @@ const deserializeAws_json1_1UpdateImagePermissionsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4861,7 +4861,7 @@ const deserializeAws_json1_1UpdateStackCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
-    case "com.amazonaws.photon#ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
           parsedOutput,
@@ -4872,7 +4872,7 @@ const deserializeAws_json1_1UpdateStackCommandError = async (
       };
       break;
     case "IncompatibleImageException":
-    case "com.amazonaws.photon#IncompatibleImageException":
+    case "com.amazonaws.appstream#IncompatibleImageException":
       response = {
         ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(
           parsedOutput,
@@ -4883,7 +4883,7 @@ const deserializeAws_json1_1UpdateStackCommandError = async (
       };
       break;
     case "InvalidAccountStatusException":
-    case "com.amazonaws.photon#InvalidAccountStatusException":
+    case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
         ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
           parsedOutput,
@@ -4894,7 +4894,7 @@ const deserializeAws_json1_1UpdateStackCommandError = async (
       };
       break;
     case "InvalidParameterCombinationException":
-    case "com.amazonaws.photon#InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
           parsedOutput,
@@ -4905,7 +4905,7 @@ const deserializeAws_json1_1UpdateStackCommandError = async (
       };
       break;
     case "InvalidRoleException":
-    case "com.amazonaws.photon#InvalidRoleException":
+    case "com.amazonaws.appstream#InvalidRoleException":
       response = {
         ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(
           parsedOutput,
@@ -4916,7 +4916,7 @@ const deserializeAws_json1_1UpdateStackCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazonaws.photon#LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -4927,7 +4927,7 @@ const deserializeAws_json1_1UpdateStackCommandError = async (
       };
       break;
     case "OperationNotPermittedException":
-    case "com.amazonaws.photon#OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
           parsedOutput,
@@ -4938,7 +4938,7 @@ const deserializeAws_json1_1UpdateStackCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.photon#ResourceInUseException":
+    case "com.amazonaws.appstream#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -4949,7 +4949,7 @@ const deserializeAws_json1_1UpdateStackCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.photon#ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -5689,6 +5689,19 @@ const serializeAws_json1_1DescribeUsageReportSubscriptionsRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeUsersRequest = (
+  input: DescribeUsersRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AuthenticationType !== undefined && {
+      AuthenticationType: input.AuthenticationType
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
+};
+
 const serializeAws_json1_1DescribeUserStackAssociationsRequest = (
   input: DescribeUserStackAssociationsRequest,
   context: __SerdeContext
@@ -5701,19 +5714,6 @@ const serializeAws_json1_1DescribeUserStackAssociationsRequest = (
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.StackName !== undefined && { StackName: input.StackName }),
     ...(input.UserName !== undefined && { UserName: input.UserName })
-  };
-};
-
-const serializeAws_json1_1DescribeUsersRequest = (
-  input: DescribeUsersRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AuthenticationType !== undefined && {
-      AuthenticationType: input.AuthenticationType
-    }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
   };
 };
 
@@ -6268,6 +6268,15 @@ const deserializeAws_json1_1Application = (
   } as any;
 };
 
+const deserializeAws_json1_1Applications = (
+  output: any,
+  context: __SerdeContext
+): Application[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Application(entry, context)
+  );
+};
+
 const deserializeAws_json1_1ApplicationSettingsResponse = (
   output: any,
   context: __SerdeContext
@@ -6287,15 +6296,6 @@ const deserializeAws_json1_1ApplicationSettingsResponse = (
         ? output.SettingsGroup
         : undefined
   } as any;
-};
-
-const deserializeAws_json1_1Applications = (
-  output: any,
-  context: __SerdeContext
-): Application[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Application(entry, context)
-  );
 };
 
 const deserializeAws_json1_1AssociateFleetResult = (
@@ -6734,6 +6734,23 @@ const deserializeAws_json1_1DescribeUsageReportSubscriptionsResult = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeUsersResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeUsersResult => {
+  return {
+    __type: "DescribeUsersResult",
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Users:
+      output.Users !== undefined && output.Users !== null
+        ? deserializeAws_json1_1UserList(output.Users, context)
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeUserStackAssociationsResult = (
   output: any,
   context: __SerdeContext
@@ -6751,23 +6768,6 @@ const deserializeAws_json1_1DescribeUserStackAssociationsResult = (
             output.UserStackAssociations,
             context
           )
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeUsersResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeUsersResult => {
-  return {
-    __type: "DescribeUsersResult",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
-    Users:
-      output.Users !== undefined && output.Users !== null
-        ? deserializeAws_json1_1UserList(output.Users, context)
         : undefined
   } as any;
 };

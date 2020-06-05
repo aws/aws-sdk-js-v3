@@ -8,9 +8,9 @@ import {
   DeletePackagingConfigurationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeletePackagingConfigurationCommand,
-  serializeAws_restJson1_1DeletePackagingConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeletePackagingConfigurationCommand,
+  serializeAws_restJson1DeletePackagingConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DeletePackagingConfigurationCommand extends $Command<
     input: DeletePackagingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeletePackagingConfigurationCommand(
+    return serializeAws_restJson1DeletePackagingConfigurationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DeletePackagingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePackagingConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DeletePackagingConfigurationCommand(
+    return deserializeAws_restJson1DeletePackagingConfigurationCommand(
       output,
       context
     );

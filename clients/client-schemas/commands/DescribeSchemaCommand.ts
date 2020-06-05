@@ -1,8 +1,8 @@
 import { DescribeSchemaRequest, DescribeSchemaResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DescribeSchemaCommand,
-  serializeAws_restJson1_1DescribeSchemaCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DescribeSchemaCommand,
+  serializeAws_restJson1DescribeSchemaCommand
+} from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -68,14 +68,14 @@ export class DescribeSchemaCommand extends $Command<
     input: DescribeSchemaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeSchemaCommand(input, context);
+    return serializeAws_restJson1DescribeSchemaCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSchemaCommandOutput> {
-    return deserializeAws_restJson1_1DescribeSchemaCommand(output, context);
+    return deserializeAws_restJson1DescribeSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

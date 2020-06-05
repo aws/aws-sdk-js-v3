@@ -1430,6 +1430,28 @@ export namespace ImageScanFindingsSummary {
 }
 
 /**
+ * <p>The image scanning configuration for a repository.</p>
+ */
+export interface ImageScanningConfiguration {
+  __type?: "ImageScanningConfiguration";
+  /**
+   * <p>The setting that determines whether images are scanned after being pushed to a
+   *             repository. If set to <code>true</code>, images will be scanned after being pushed. If
+   *             this parameter is not specified, it will default to <code>false</code> and images will
+   *             not be scanned unless a scan is manually started with the <a>StartImageScan</a> API.</p>
+   */
+  scanOnPush?: boolean;
+}
+
+export namespace ImageScanningConfiguration {
+  export const filterSensitiveLog = (obj: ImageScanningConfiguration): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ImageScanningConfiguration =>
+    __isa(o, "ImageScanningConfiguration");
+}
+
+/**
  * <p>The current status of an image scan.</p>
  */
 export interface ImageScanStatus {
@@ -1451,28 +1473,6 @@ export namespace ImageScanStatus {
   });
   export const isa = (o: any): o is ImageScanStatus =>
     __isa(o, "ImageScanStatus");
-}
-
-/**
- * <p>The image scanning configuration for a repository.</p>
- */
-export interface ImageScanningConfiguration {
-  __type?: "ImageScanningConfiguration";
-  /**
-   * <p>The setting that determines whether images are scanned after being pushed to a
-   *             repository. If set to <code>true</code>, images will be scanned after being pushed. If
-   *             this parameter is not specified, it will default to <code>false</code> and images will
-   *             not be scanned unless a scan is manually started with the <a>StartImageScan</a> API.</p>
-   */
-  scanOnPush?: boolean;
-}
-
-export namespace ImageScanningConfiguration {
-  export const filterSensitiveLog = (obj: ImageScanningConfiguration): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ImageScanningConfiguration =>
-    __isa(o, "ImageScanningConfiguration");
 }
 
 /**

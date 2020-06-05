@@ -890,7 +890,7 @@ const deserializeAws_json1_1AcknowledgeJobCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNonceException":
-    case "com.amazonaws.codepipeline.common.frontend.service#InvalidNonceException":
+    case "com.amazonaws.codepipeline#InvalidNonceException":
       response = {
         ...(await deserializeAws_json1_1InvalidNonceExceptionResponse(
           parsedOutput,
@@ -901,7 +901,7 @@ const deserializeAws_json1_1AcknowledgeJobCommandError = async (
       };
       break;
     case "JobNotFoundException":
-    case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
+    case "com.amazonaws.codepipeline#JobNotFoundException":
       response = {
         ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
           parsedOutput,
@@ -912,7 +912,7 @@ const deserializeAws_json1_1AcknowledgeJobCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -989,7 +989,7 @@ const deserializeAws_json1_1AcknowledgeThirdPartyJobCommandError = async (
       };
       break;
     case "InvalidNonceException":
-    case "com.amazonaws.codepipeline.common.frontend.service#InvalidNonceException":
+    case "com.amazonaws.codepipeline#InvalidNonceException":
       response = {
         ...(await deserializeAws_json1_1InvalidNonceExceptionResponse(
           parsedOutput,
@@ -1000,7 +1000,7 @@ const deserializeAws_json1_1AcknowledgeThirdPartyJobCommandError = async (
       };
       break;
     case "JobNotFoundException":
-    case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
+    case "com.amazonaws.codepipeline#JobNotFoundException":
       response = {
         ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
           parsedOutput,
@@ -1011,7 +1011,7 @@ const deserializeAws_json1_1AcknowledgeThirdPartyJobCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1118,7 +1118,7 @@ const deserializeAws_json1_1CreateCustomActionTypeCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1277,7 +1277,7 @@ const deserializeAws_json1_1CreatePipelineCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1347,7 +1347,7 @@ const deserializeAws_json1_1DeleteCustomActionTypeCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1414,7 +1414,7 @@ const deserializeAws_json1_1DeletePipelineCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1485,7 +1485,7 @@ const deserializeAws_json1_1DeleteWebhookCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1550,10 +1550,10 @@ const deserializeAws_json1_1DeregisterWebhookWithThirdPartyCommandError = async 
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "WebhookNotFoundException":
-    case "com.amazonaws.codepipeline#WebhookNotFoundException":
+    case "ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1WebhookNotFoundExceptionResponse(
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
           context
         )),
@@ -1561,10 +1561,10 @@ const deserializeAws_json1_1DeregisterWebhookWithThirdPartyCommandError = async 
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "WebhookNotFoundException":
+    case "com.amazonaws.codepipeline#WebhookNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+        ...(await deserializeAws_json1_1WebhookNotFoundExceptionResponse(
           parsedOutput,
           context
         )),
@@ -1643,7 +1643,7 @@ const deserializeAws_json1_1DisableStageTransitionCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1724,7 +1724,7 @@ const deserializeAws_json1_1EnableStageTransitionCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1784,7 +1784,7 @@ const deserializeAws_json1_1GetJobDetailsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "JobNotFoundException":
-    case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
+    case "com.amazonaws.codepipeline#JobNotFoundException":
       response = {
         ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
           parsedOutput,
@@ -1795,7 +1795,7 @@ const deserializeAws_json1_1GetJobDetailsCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1877,7 +1877,7 @@ const deserializeAws_json1_1GetPipelineCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -1962,7 +1962,7 @@ const deserializeAws_json1_1GetPipelineExecutionCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2033,7 +2033,7 @@ const deserializeAws_json1_1GetPipelineStateCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2118,7 +2118,7 @@ const deserializeAws_json1_1GetThirdPartyJobDetailsCommandError = async (
       };
       break;
     case "JobNotFoundException":
-    case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
+    case "com.amazonaws.codepipeline#JobNotFoundException":
       response = {
         ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
           parsedOutput,
@@ -2129,7 +2129,7 @@ const deserializeAws_json1_1GetThirdPartyJobDetailsCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2225,7 +2225,7 @@ const deserializeAws_json1_1ListActionExecutionsCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2296,7 +2296,7 @@ const deserializeAws_json1_1ListActionTypesCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2381,7 +2381,7 @@ const deserializeAws_json1_1ListPipelineExecutionsCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2452,7 +2452,7 @@ const deserializeAws_json1_1ListPipelinesCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2537,7 +2537,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ResourceNotFoundException":
+    case "com.amazonaws.codepipeline#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2548,7 +2548,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2619,7 +2619,7 @@ const deserializeAws_json1_1ListWebhooksCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2679,7 +2679,7 @@ const deserializeAws_json1_1PollForJobsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ActionTypeNotFoundException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ActionTypeNotFoundException":
+    case "com.amazonaws.codepipeline#ActionTypeNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ActionTypeNotFoundExceptionResponse(
           parsedOutput,
@@ -2690,7 +2690,7 @@ const deserializeAws_json1_1PollForJobsCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2753,7 +2753,7 @@ const deserializeAws_json1_1PollForThirdPartyJobsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ActionTypeNotFoundException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ActionTypeNotFoundException":
+    case "com.amazonaws.codepipeline#ActionTypeNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ActionTypeNotFoundExceptionResponse(
           parsedOutput,
@@ -2764,7 +2764,7 @@ const deserializeAws_json1_1PollForThirdPartyJobsCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2857,7 +2857,7 @@ const deserializeAws_json1_1PutActionRevisionCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -2972,7 +2972,7 @@ const deserializeAws_json1_1PutApprovalResultCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -3031,7 +3031,7 @@ const deserializeAws_json1_1PutJobFailureResultCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidJobStateException":
-    case "com.amazonaws.codepipeline.common.frontend.service#InvalidJobStateException":
+    case "com.amazonaws.codepipeline#InvalidJobStateException":
       response = {
         ...(await deserializeAws_json1_1InvalidJobStateExceptionResponse(
           parsedOutput,
@@ -3042,7 +3042,7 @@ const deserializeAws_json1_1PutJobFailureResultCommandError = async (
       };
       break;
     case "JobNotFoundException":
-    case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
+    case "com.amazonaws.codepipeline#JobNotFoundException":
       response = {
         ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
           parsedOutput,
@@ -3053,7 +3053,7 @@ const deserializeAws_json1_1PutJobFailureResultCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -3112,7 +3112,7 @@ const deserializeAws_json1_1PutJobSuccessResultCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidJobStateException":
-    case "com.amazonaws.codepipeline.common.frontend.service#InvalidJobStateException":
+    case "com.amazonaws.codepipeline#InvalidJobStateException":
       response = {
         ...(await deserializeAws_json1_1InvalidJobStateExceptionResponse(
           parsedOutput,
@@ -3123,7 +3123,7 @@ const deserializeAws_json1_1PutJobSuccessResultCommandError = async (
       };
       break;
     case "JobNotFoundException":
-    case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
+    case "com.amazonaws.codepipeline#JobNotFoundException":
       response = {
         ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
           parsedOutput,
@@ -3134,7 +3134,7 @@ const deserializeAws_json1_1PutJobSuccessResultCommandError = async (
       };
       break;
     case "OutputVariablesSizeExceededException":
-    case "com.amazonaws.codepipeline.common.frontend.service#OutputVariablesSizeExceededException":
+    case "com.amazonaws.codepipeline#OutputVariablesSizeExceededException":
       response = {
         ...(await deserializeAws_json1_1OutputVariablesSizeExceededExceptionResponse(
           parsedOutput,
@@ -3145,7 +3145,7 @@ const deserializeAws_json1_1PutJobSuccessResultCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -3215,7 +3215,7 @@ const deserializeAws_json1_1PutThirdPartyJobFailureResultCommandError = async (
       };
       break;
     case "InvalidJobStateException":
-    case "com.amazonaws.codepipeline.common.frontend.service#InvalidJobStateException":
+    case "com.amazonaws.codepipeline#InvalidJobStateException":
       response = {
         ...(await deserializeAws_json1_1InvalidJobStateExceptionResponse(
           parsedOutput,
@@ -3226,7 +3226,7 @@ const deserializeAws_json1_1PutThirdPartyJobFailureResultCommandError = async (
       };
       break;
     case "JobNotFoundException":
-    case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
+    case "com.amazonaws.codepipeline#JobNotFoundException":
       response = {
         ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
           parsedOutput,
@@ -3237,7 +3237,7 @@ const deserializeAws_json1_1PutThirdPartyJobFailureResultCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -3307,7 +3307,7 @@ const deserializeAws_json1_1PutThirdPartyJobSuccessResultCommandError = async (
       };
       break;
     case "InvalidJobStateException":
-    case "com.amazonaws.codepipeline.common.frontend.service#InvalidJobStateException":
+    case "com.amazonaws.codepipeline#InvalidJobStateException":
       response = {
         ...(await deserializeAws_json1_1InvalidJobStateExceptionResponse(
           parsedOutput,
@@ -3318,7 +3318,7 @@ const deserializeAws_json1_1PutThirdPartyJobSuccessResultCommandError = async (
       };
       break;
     case "JobNotFoundException":
-    case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
+    case "com.amazonaws.codepipeline#JobNotFoundException":
       response = {
         ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
           parsedOutput,
@@ -3329,7 +3329,7 @@ const deserializeAws_json1_1PutThirdPartyJobSuccessResultCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -3466,7 +3466,7 @@ const deserializeAws_json1_1PutWebhookCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -3531,10 +3531,10 @@ const deserializeAws_json1_1RegisterWebhookWithThirdPartyCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "WebhookNotFoundException":
-    case "com.amazonaws.codepipeline#WebhookNotFoundException":
+    case "ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1WebhookNotFoundExceptionResponse(
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
           context
         )),
@@ -3542,10 +3542,10 @@ const deserializeAws_json1_1RegisterWebhookWithThirdPartyCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "WebhookNotFoundException":
+    case "com.amazonaws.codepipeline#WebhookNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+        ...(await deserializeAws_json1_1WebhookNotFoundExceptionResponse(
           parsedOutput,
           context
         )),
@@ -3650,7 +3650,7 @@ const deserializeAws_json1_1RetryStageExecutionCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -3724,7 +3724,7 @@ const deserializeAws_json1_1StartPipelineExecutionCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -3820,7 +3820,7 @@ const deserializeAws_json1_1StopPipelineExecutionCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -3912,6 +3912,17 @@ const deserializeAws_json1_1TagResourceCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codepipeline#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "TooManyTagsException":
     case "com.amazonaws.codepipeline#TooManyTagsException":
       response = {
@@ -3923,19 +3934,8 @@ const deserializeAws_json1_1TagResourceCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -4028,7 +4028,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ResourceNotFoundException":
+    case "com.amazonaws.codepipeline#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4039,7 +4039,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -4154,7 +4154,7 @@ const deserializeAws_json1_1UpdatePipelineCommandError = async (
       };
       break;
     case "ValidationException":
-    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
       response = {
         ...(await deserializeAws_json1_1ValidationExceptionResponse(
           parsedOutput,
@@ -4192,6 +4192,24 @@ const deserializeAws_json1_1ActionNotFoundExceptionResponse = async (
   );
   const contents: ActionNotFoundException = {
     name: "ActionNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ActionTypeNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ActionTypeNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ActionTypeNotFoundException(
+    body,
+    context
+  );
+  const contents: ActionTypeNotFoundException = {
+    name: "ActionTypeNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4361,6 +4379,24 @@ const deserializeAws_json1_1InvalidJobExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1InvalidJobStateExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidJobStateException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidJobStateException(
+    body,
+    context
+  );
+  const contents: InvalidJobStateException = {
+    name: "InvalidJobStateException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4372,6 +4408,24 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   );
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidNonceExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidNonceException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidNonceException(
+    body,
+    context
+  );
+  const contents: InvalidNonceException = {
+    name: "InvalidNonceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4469,6 +4523,24 @@ const deserializeAws_json1_1InvalidWebhookFilterPatternExceptionResponse = async
   return contents;
 };
 
+const deserializeAws_json1_1JobNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<JobNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1JobNotFoundException(
+    body,
+    context
+  );
+  const contents: JobNotFoundException = {
+    name: "JobNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4498,6 +4570,24 @@ const deserializeAws_json1_1NotLatestPipelineExecutionExceptionResponse = async 
   );
   const contents: NotLatestPipelineExecutionException = {
     name: "NotLatestPipelineExecutionException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1OutputVariablesSizeExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OutputVariablesSizeExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1OutputVariablesSizeExceededException(
+    body,
+    context
+  );
+  const contents: OutputVariablesSizeExceededException = {
+    name: "OutputVariablesSizeExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4595,6 +4685,24 @@ const deserializeAws_json1_1PipelineVersionNotFoundExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
+    body,
+    context
+  );
+  const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1StageNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4649,132 +4757,6 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   return contents;
 };
 
-const deserializeAws_json1_1WebhookNotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<WebhookNotFoundException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1WebhookNotFoundException(
-    body,
-    context
-  );
-  const contents: WebhookNotFoundException = {
-    name: "WebhookNotFoundException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
-const deserializeAws_json1_1ActionTypeNotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ActionTypeNotFoundException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ActionTypeNotFoundException(
-    body,
-    context
-  );
-  const contents: ActionTypeNotFoundException = {
-    name: "ActionTypeNotFoundException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
-const deserializeAws_json1_1InvalidJobStateExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidJobStateException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidJobStateException(
-    body,
-    context
-  );
-  const contents: InvalidJobStateException = {
-    name: "InvalidJobStateException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
-const deserializeAws_json1_1InvalidNonceExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidNonceException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidNonceException(
-    body,
-    context
-  );
-  const contents: InvalidNonceException = {
-    name: "InvalidNonceException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
-const deserializeAws_json1_1JobNotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<JobNotFoundException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1JobNotFoundException(
-    body,
-    context
-  );
-  const contents: JobNotFoundException = {
-    name: "JobNotFoundException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
-const deserializeAws_json1_1OutputVariablesSizeExceededExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<OutputVariablesSizeExceededException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OutputVariablesSizeExceededException(
-    body,
-    context
-  );
-  const contents: OutputVariablesSizeExceededException = {
-    name: "OutputVariablesSizeExceededException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ResourceNotFoundException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
-    body,
-    context
-  );
-  const contents: ResourceNotFoundException = {
-    name: "ResourceNotFoundException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
 const deserializeAws_json1_1ValidationExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4786,6 +4768,24 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   );
   const contents: ValidationException = {
     name: "ValidationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1WebhookNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<WebhookNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1WebhookNotFoundException(
+    body,
+    context
+  );
+  const contents: WebhookNotFoundException = {
+    name: "WebhookNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4812,6 +4812,19 @@ const serializeAws_json1_1AcknowledgeThirdPartyJobInput = (
     ...(input.jobId !== undefined && { jobId: input.jobId }),
     ...(input.nonce !== undefined && { nonce: input.nonce })
   };
+};
+
+const serializeAws_json1_1ActionConfigurationMap = (
+  input: { [key: string]: string },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1ActionConfigurationProperty = (
@@ -4898,6 +4911,18 @@ const serializeAws_json1_1ActionRevision = (
       revisionChangeId: input.revisionChangeId
     }),
     ...(input.revisionId !== undefined && { revisionId: input.revisionId })
+  };
+};
+
+const serializeAws_json1_1ActionTypeId = (
+  input: ActionTypeId,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.category !== undefined && { category: input.category }),
+    ...(input.owner !== undefined && { owner: input.owner }),
+    ...(input.provider !== undefined && { provider: input.provider }),
+    ...(input.version !== undefined && { version: input.version })
   };
 };
 
@@ -5033,6 +5058,24 @@ const serializeAws_json1_1CreatePipelineInput = (
   };
 };
 
+const serializeAws_json1_1CurrentRevision = (
+  input: CurrentRevision,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.changeIdentifier !== undefined && {
+      changeIdentifier: input.changeIdentifier
+    }),
+    ...(input.created !== undefined && {
+      created: Math.round(input.created.getTime() / 1000)
+    }),
+    ...(input.revision !== undefined && { revision: input.revision }),
+    ...(input.revisionSummary !== undefined && {
+      revisionSummary: input.revisionSummary
+    })
+  };
+};
+
 const serializeAws_json1_1DeleteCustomActionTypeInput = (
   input: DeleteCustomActionTypeInput,
   context: __SerdeContext
@@ -5099,6 +5142,44 @@ const serializeAws_json1_1EnableStageTransitionInput = (
     ...(input.transitionType !== undefined && {
       transitionType: input.transitionType
     })
+  };
+};
+
+const serializeAws_json1_1EncryptionKey = (
+  input: EncryptionKey,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.id !== undefined && { id: input.id }),
+    ...(input.type !== undefined && { type: input.type })
+  };
+};
+
+const serializeAws_json1_1ExecutionDetails = (
+  input: ExecutionDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.externalExecutionId !== undefined && {
+      externalExecutionId: input.externalExecutionId
+    }),
+    ...(input.percentComplete !== undefined && {
+      percentComplete: input.percentComplete
+    }),
+    ...(input.summary !== undefined && { summary: input.summary })
+  };
+};
+
+const serializeAws_json1_1FailureDetails = (
+  input: FailureDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.externalExecutionId !== undefined && {
+      externalExecutionId: input.externalExecutionId
+    }),
+    ...(input.message !== undefined && { message: input.message }),
+    ...(input.type !== undefined && { type: input.type })
   };
 };
 
@@ -5255,6 +5336,19 @@ const serializeAws_json1_1OutputArtifactList = (
   context: __SerdeContext
 ): any => {
   return input.map(entry => serializeAws_json1_1OutputArtifact(entry, context));
+};
+
+const serializeAws_json1_1OutputVariablesMap = (
+  input: { [key: string]: string },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1PipelineDeclaration = (
@@ -5468,6 +5562,19 @@ const serializeAws_json1_1PutWebhookInput = (
   };
 };
 
+const serializeAws_json1_1QueryParamMap = (
+  input: { [key: string]: string },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
+};
+
 const serializeAws_json1_1RegisterWebhookWithThirdPartyInput = (
   input: RegisterWebhookWithThirdPartyInput,
   context: __SerdeContext
@@ -5672,113 +5779,6 @@ const serializeAws_json1_1WebhookFilters = (
   );
 };
 
-const serializeAws_json1_1ActionConfigurationMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
-      ...acc,
-      [key]: value
-    }),
-    {}
-  );
-};
-
-const serializeAws_json1_1ActionTypeId = (
-  input: ActionTypeId,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.category !== undefined && { category: input.category }),
-    ...(input.owner !== undefined && { owner: input.owner }),
-    ...(input.provider !== undefined && { provider: input.provider }),
-    ...(input.version !== undefined && { version: input.version })
-  };
-};
-
-const serializeAws_json1_1CurrentRevision = (
-  input: CurrentRevision,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.changeIdentifier !== undefined && {
-      changeIdentifier: input.changeIdentifier
-    }),
-    ...(input.created !== undefined && {
-      created: Math.round(input.created.getTime() / 1000)
-    }),
-    ...(input.revision !== undefined && { revision: input.revision }),
-    ...(input.revisionSummary !== undefined && {
-      revisionSummary: input.revisionSummary
-    })
-  };
-};
-
-const serializeAws_json1_1EncryptionKey = (
-  input: EncryptionKey,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.id !== undefined && { id: input.id }),
-    ...(input.type !== undefined && { type: input.type })
-  };
-};
-
-const serializeAws_json1_1ExecutionDetails = (
-  input: ExecutionDetails,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.externalExecutionId !== undefined && {
-      externalExecutionId: input.externalExecutionId
-    }),
-    ...(input.percentComplete !== undefined && {
-      percentComplete: input.percentComplete
-    }),
-    ...(input.summary !== undefined && { summary: input.summary })
-  };
-};
-
-const serializeAws_json1_1FailureDetails = (
-  input: FailureDetails,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.externalExecutionId !== undefined && {
-      externalExecutionId: input.externalExecutionId
-    }),
-    ...(input.message !== undefined && { message: input.message }),
-    ...(input.type !== undefined && { type: input.type })
-  };
-};
-
-const serializeAws_json1_1OutputVariablesMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
-      ...acc,
-      [key]: value
-    }),
-    {}
-  );
-};
-
-const serializeAws_json1_1QueryParamMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
-      ...acc,
-      [key]: value
-    }),
-    {}
-  );
-};
-
 const deserializeAws_json1_1AcknowledgeJobOutput = (
   output: any,
   context: __SerdeContext
@@ -5803,6 +5803,35 @@ const deserializeAws_json1_1AcknowledgeThirdPartyJobOutput = (
         ? output.status
         : undefined
   } as any;
+};
+
+const deserializeAws_json1_1ActionConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ActionConfiguration => {
+  return {
+    __type: "ActionConfiguration",
+    configuration:
+      output.configuration !== undefined && output.configuration !== null
+        ? deserializeAws_json1_1ActionConfigurationMap(
+            output.configuration,
+            context
+          )
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ActionConfigurationMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1ActionConfigurationProperty = (
@@ -5847,6 +5876,24 @@ const deserializeAws_json1_1ActionConfigurationPropertyList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ActionConfigurationProperty(entry, context)
   );
+};
+
+const deserializeAws_json1_1ActionContext = (
+  output: any,
+  context: __SerdeContext
+): ActionContext => {
+  return {
+    __type: "ActionContext",
+    actionExecutionId:
+      output.actionExecutionId !== undefined &&
+      output.actionExecutionId !== null
+        ? output.actionExecutionId
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ActionDeclaration = (
@@ -6224,6 +6271,31 @@ const deserializeAws_json1_1ActionType = (
   } as any;
 };
 
+const deserializeAws_json1_1ActionTypeId = (
+  output: any,
+  context: __SerdeContext
+): ActionTypeId => {
+  return {
+    __type: "ActionTypeId",
+    category:
+      output.category !== undefined && output.category !== null
+        ? output.category
+        : undefined,
+    owner:
+      output.owner !== undefined && output.owner !== null
+        ? output.owner
+        : undefined,
+    provider:
+      output.provider !== undefined && output.provider !== null
+        ? output.provider
+        : undefined,
+    version:
+      output.version !== undefined && output.version !== null
+        ? output.version
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1ActionTypeList = (
   output: any,
   context: __SerdeContext
@@ -6231,6 +6303,19 @@ const deserializeAws_json1_1ActionTypeList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ActionType(entry, context)
   );
+};
+
+const deserializeAws_json1_1ActionTypeNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): ActionTypeNotFoundException => {
+  return {
+    __type: "ActionTypeNotFoundException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ActionTypeSettings = (
@@ -6275,6 +6360,27 @@ const deserializeAws_json1_1ApprovalAlreadyCompletedException = (
   } as any;
 };
 
+const deserializeAws_json1_1Artifact = (
+  output: any,
+  context: __SerdeContext
+): Artifact => {
+  return {
+    __type: "Artifact",
+    location:
+      output.location !== undefined && output.location !== null
+        ? deserializeAws_json1_1ArtifactLocation(output.location, context)
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    revision:
+      output.revision !== undefined && output.revision !== null
+        ? output.revision
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1ArtifactDetail = (
   output: any,
   context: __SerdeContext
@@ -6314,6 +6420,32 @@ const deserializeAws_json1_1ArtifactDetails = (
     minimumCount:
       output.minimumCount !== undefined && output.minimumCount !== null
         ? output.minimumCount
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ArtifactList = (
+  output: any,
+  context: __SerdeContext
+): Artifact[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Artifact(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ArtifactLocation = (
+  output: any,
+  context: __SerdeContext
+): ArtifactLocation => {
+  return {
+    __type: "ArtifactLocation",
+    s3Location:
+      output.s3Location !== undefined && output.s3Location !== null
+        ? deserializeAws_json1_1S3ArtifactLocation(output.s3Location, context)
+        : undefined,
+    type:
+      output.type !== undefined && output.type !== null
+        ? output.type
         : undefined
   } as any;
 };
@@ -6393,6 +6525,27 @@ const deserializeAws_json1_1ArtifactStoreMap = (
     }),
     {}
   );
+};
+
+const deserializeAws_json1_1AWSSessionCredentials = (
+  output: any,
+  context: __SerdeContext
+): AWSSessionCredentials => {
+  return {
+    __type: "AWSSessionCredentials",
+    accessKeyId:
+      output.accessKeyId !== undefined && output.accessKeyId !== null
+        ? output.accessKeyId
+        : undefined,
+    secretAccessKey:
+      output.secretAccessKey !== undefined && output.secretAccessKey !== null
+        ? output.secretAccessKey
+        : undefined,
+    sessionToken:
+      output.sessionToken !== undefined && output.sessionToken !== null
+        ? output.sessionToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1BlockerDeclaration = (
@@ -6486,6 +6639,20 @@ const deserializeAws_json1_1DuplicatedStopRequestException = (
     message:
       output.message !== undefined && output.message !== null
         ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1EncryptionKey = (
+  output: any,
+  context: __SerdeContext
+): EncryptionKey => {
+  return {
+    __type: "EncryptionKey",
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    type:
+      output.type !== undefined && output.type !== null
+        ? output.type
         : undefined
   } as any;
 };
@@ -6713,12 +6880,38 @@ const deserializeAws_json1_1InvalidJobException = (
   } as any;
 };
 
+const deserializeAws_json1_1InvalidJobStateException = (
+  output: any,
+  context: __SerdeContext
+): InvalidJobStateException => {
+  return {
+    __type: "InvalidJobStateException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1InvalidNextTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
     __type: "InvalidNextTokenException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidNonceException = (
+  output: any,
+  context: __SerdeContext
+): InvalidNonceException => {
+  return {
+    __type: "InvalidNonceException",
     message:
       output.message !== undefined && output.message !== null
         ? output.message
@@ -6888,6 +7081,19 @@ const deserializeAws_json1_1JobList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Job(entry, context)
   );
+};
+
+const deserializeAws_json1_1JobNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): JobNotFoundException => {
+  return {
+    __type: "JobNotFoundException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (
@@ -7079,6 +7285,62 @@ const deserializeAws_json1_1OutputArtifactList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1OutputArtifact(entry, context)
   );
+};
+
+const deserializeAws_json1_1OutputVariablesMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
+};
+
+const deserializeAws_json1_1OutputVariablesSizeExceededException = (
+  output: any,
+  context: __SerdeContext
+): OutputVariablesSizeExceededException => {
+  return {
+    __type: "OutputVariablesSizeExceededException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1PipelineContext = (
+  output: any,
+  context: __SerdeContext
+): PipelineContext => {
+  return {
+    __type: "PipelineContext",
+    action:
+      output.action !== undefined && output.action !== null
+        ? deserializeAws_json1_1ActionContext(output.action, context)
+        : undefined,
+    pipelineArn:
+      output.pipelineArn !== undefined && output.pipelineArn !== null
+        ? output.pipelineArn
+        : undefined,
+    pipelineExecutionId:
+      output.pipelineExecutionId !== undefined &&
+      output.pipelineExecutionId !== null
+        ? output.pipelineExecutionId
+        : undefined,
+    pipelineName:
+      output.pipelineName !== undefined && output.pipelineName !== null
+        ? output.pipelineName
+        : undefined,
+    stage:
+      output.stage !== undefined && output.stage !== null
+        ? deserializeAws_json1_1StageContext(output.stage, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PipelineDeclaration = (
@@ -7425,6 +7687,19 @@ const deserializeAws_json1_1ResolvedActionConfigurationMap = (
   );
 };
 
+const deserializeAws_json1_1ResourceNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): ResourceNotFoundException => {
+  return {
+    __type: "ResourceNotFoundException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1RetryStageExecutionOutput = (
   output: any,
   context: __SerdeContext
@@ -7435,6 +7710,23 @@ const deserializeAws_json1_1RetryStageExecutionOutput = (
       output.pipelineExecutionId !== undefined &&
       output.pipelineExecutionId !== null
         ? output.pipelineExecutionId
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1S3ArtifactLocation = (
+  output: any,
+  context: __SerdeContext
+): S3ArtifactLocation => {
+  return {
+    __type: "S3ArtifactLocation",
+    bucketName:
+      output.bucketName !== undefined && output.bucketName !== null
+        ? output.bucketName
+        : undefined,
+    objectKey:
+      output.objectKey !== undefined && output.objectKey !== null
+        ? output.objectKey
         : undefined
   } as any;
 };
@@ -7504,6 +7796,19 @@ const deserializeAws_json1_1StageBlockerDeclarationList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BlockerDeclaration(entry, context)
   );
+};
+
+const deserializeAws_json1_1StageContext = (
+  output: any,
+  context: __SerdeContext
+): StageContext => {
+  return {
+    __type: "StageContext",
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StageDeclaration = (
@@ -7843,6 +8148,19 @@ const deserializeAws_json1_1UpdatePipelineOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1ValidationException = (
+  output: any,
+  context: __SerdeContext
+): ValidationException => {
+  return {
+    __type: "ValidationException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1WebhookAuthConfiguration = (
   output: any,
   context: __SerdeContext
@@ -7938,324 +8256,6 @@ const deserializeAws_json1_1WebhookNotFoundException = (
 ): WebhookNotFoundException => {
   return {
     __type: "WebhookNotFoundException"
-  } as any;
-};
-
-const deserializeAws_json1_1AWSSessionCredentials = (
-  output: any,
-  context: __SerdeContext
-): AWSSessionCredentials => {
-  return {
-    __type: "AWSSessionCredentials",
-    accessKeyId:
-      output.accessKeyId !== undefined && output.accessKeyId !== null
-        ? output.accessKeyId
-        : undefined,
-    secretAccessKey:
-      output.secretAccessKey !== undefined && output.secretAccessKey !== null
-        ? output.secretAccessKey
-        : undefined,
-    sessionToken:
-      output.sessionToken !== undefined && output.sessionToken !== null
-        ? output.sessionToken
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ActionConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ActionConfiguration => {
-  return {
-    __type: "ActionConfiguration",
-    configuration:
-      output.configuration !== undefined && output.configuration !== null
-        ? deserializeAws_json1_1ActionConfigurationMap(
-            output.configuration,
-            context
-          )
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ActionConfigurationMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
-      ...acc,
-      [key]: value
-    }),
-    {}
-  );
-};
-
-const deserializeAws_json1_1ActionContext = (
-  output: any,
-  context: __SerdeContext
-): ActionContext => {
-  return {
-    __type: "ActionContext",
-    actionExecutionId:
-      output.actionExecutionId !== undefined &&
-      output.actionExecutionId !== null
-        ? output.actionExecutionId
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ActionTypeId = (
-  output: any,
-  context: __SerdeContext
-): ActionTypeId => {
-  return {
-    __type: "ActionTypeId",
-    category:
-      output.category !== undefined && output.category !== null
-        ? output.category
-        : undefined,
-    owner:
-      output.owner !== undefined && output.owner !== null
-        ? output.owner
-        : undefined,
-    provider:
-      output.provider !== undefined && output.provider !== null
-        ? output.provider
-        : undefined,
-    version:
-      output.version !== undefined && output.version !== null
-        ? output.version
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ActionTypeNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ActionTypeNotFoundException => {
-  return {
-    __type: "ActionTypeNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1Artifact = (
-  output: any,
-  context: __SerdeContext
-): Artifact => {
-  return {
-    __type: "Artifact",
-    location:
-      output.location !== undefined && output.location !== null
-        ? deserializeAws_json1_1ArtifactLocation(output.location, context)
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    revision:
-      output.revision !== undefined && output.revision !== null
-        ? output.revision
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ArtifactList = (
-  output: any,
-  context: __SerdeContext
-): Artifact[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Artifact(entry, context)
-  );
-};
-
-const deserializeAws_json1_1ArtifactLocation = (
-  output: any,
-  context: __SerdeContext
-): ArtifactLocation => {
-  return {
-    __type: "ArtifactLocation",
-    s3Location:
-      output.s3Location !== undefined && output.s3Location !== null
-        ? deserializeAws_json1_1S3ArtifactLocation(output.s3Location, context)
-        : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1EncryptionKey = (
-  output: any,
-  context: __SerdeContext
-): EncryptionKey => {
-  return {
-    __type: "EncryptionKey",
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidJobStateException = (
-  output: any,
-  context: __SerdeContext
-): InvalidJobStateException => {
-  return {
-    __type: "InvalidJobStateException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidNonceException = (
-  output: any,
-  context: __SerdeContext
-): InvalidNonceException => {
-  return {
-    __type: "InvalidNonceException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1JobNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): JobNotFoundException => {
-  return {
-    __type: "JobNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1OutputVariablesMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
-      ...acc,
-      [key]: value
-    }),
-    {}
-  );
-};
-
-const deserializeAws_json1_1OutputVariablesSizeExceededException = (
-  output: any,
-  context: __SerdeContext
-): OutputVariablesSizeExceededException => {
-  return {
-    __type: "OutputVariablesSizeExceededException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1PipelineContext = (
-  output: any,
-  context: __SerdeContext
-): PipelineContext => {
-  return {
-    __type: "PipelineContext",
-    action:
-      output.action !== undefined && output.action !== null
-        ? deserializeAws_json1_1ActionContext(output.action, context)
-        : undefined,
-    pipelineArn:
-      output.pipelineArn !== undefined && output.pipelineArn !== null
-        ? output.pipelineArn
-        : undefined,
-    pipelineExecutionId:
-      output.pipelineExecutionId !== undefined &&
-      output.pipelineExecutionId !== null
-        ? output.pipelineExecutionId
-        : undefined,
-    pipelineName:
-      output.pipelineName !== undefined && output.pipelineName !== null
-        ? output.pipelineName
-        : undefined,
-    stage:
-      output.stage !== undefined && output.stage !== null
-        ? deserializeAws_json1_1StageContext(output.stage, context)
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    __type: "ResourceNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1S3ArtifactLocation = (
-  output: any,
-  context: __SerdeContext
-): S3ArtifactLocation => {
-  return {
-    __type: "S3ArtifactLocation",
-    bucketName:
-      output.bucketName !== undefined && output.bucketName !== null
-        ? output.bucketName
-        : undefined,
-    objectKey:
-      output.objectKey !== undefined && output.objectKey !== null
-        ? output.objectKey
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1StageContext = (
-  output: any,
-  context: __SerdeContext
-): StageContext => {
-  return {
-    __type: "StageContext",
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ValidationException = (
-  output: any,
-  context: __SerdeContext
-): ValidationException => {
-  return {
-    __type: "ValidationException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
   } as any;
 };
 

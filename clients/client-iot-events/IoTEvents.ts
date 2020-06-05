@@ -335,42 +335,6 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
-   * <p>Lists all the versions of a detector model. Only the metadata associated with each
-   *           detector model version is returned.</p>
-   */
-  public listDetectorModelVersions(
-    args: ListDetectorModelVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDetectorModelVersionsCommandOutput>;
-  public listDetectorModelVersions(
-    args: ListDetectorModelVersionsCommandInput,
-    cb: (err: any, data?: ListDetectorModelVersionsCommandOutput) => void
-  ): void;
-  public listDetectorModelVersions(
-    args: ListDetectorModelVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDetectorModelVersionsCommandOutput) => void
-  ): void;
-  public listDetectorModelVersions(
-    args: ListDetectorModelVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDetectorModelVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListDetectorModelVersionsCommandOutput) => void
-  ): Promise<ListDetectorModelVersionsCommandOutput> | void {
-    const command = new ListDetectorModelVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Lists the detector models you have created.
    *           Only the metadata associated with each detector model is returned.</p>
    */
@@ -395,6 +359,42 @@ export class IoTEvents extends IoTEventsClient {
     cb?: (err: any, data?: ListDetectorModelsCommandOutput) => void
   ): Promise<ListDetectorModelsCommandOutput> | void {
     const command = new ListDetectorModelsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all the versions of a detector model. Only the metadata associated with each
+   *           detector model version is returned.</p>
+   */
+  public listDetectorModelVersions(
+    args: ListDetectorModelVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDetectorModelVersionsCommandOutput>;
+  public listDetectorModelVersions(
+    args: ListDetectorModelVersionsCommandInput,
+    cb: (err: any, data?: ListDetectorModelVersionsCommandOutput) => void
+  ): void;
+  public listDetectorModelVersions(
+    args: ListDetectorModelVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDetectorModelVersionsCommandOutput) => void
+  ): void;
+  public listDetectorModelVersions(
+    args: ListDetectorModelVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDetectorModelVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListDetectorModelVersionsCommandOutput) => void
+  ): Promise<ListDetectorModelVersionsCommandOutput> | void {
+    const command = new ListDetectorModelVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

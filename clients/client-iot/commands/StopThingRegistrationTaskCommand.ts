@@ -8,9 +8,9 @@ import {
   StopThingRegistrationTaskResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1StopThingRegistrationTaskCommand,
-  serializeAws_restJson1_1StopThingRegistrationTaskCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1StopThingRegistrationTaskCommand,
+  serializeAws_restJson1StopThingRegistrationTaskCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class StopThingRegistrationTaskCommand extends $Command<
     input: StopThingRegistrationTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StopThingRegistrationTaskCommand(
+    return serializeAws_restJson1StopThingRegistrationTaskCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class StopThingRegistrationTaskCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopThingRegistrationTaskCommandOutput> {
-    return deserializeAws_restJson1_1StopThingRegistrationTaskCommand(
+    return deserializeAws_restJson1StopThingRegistrationTaskCommand(
       output,
       context
     );

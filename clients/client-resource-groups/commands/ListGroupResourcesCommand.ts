@@ -8,9 +8,9 @@ import {
   ListGroupResourcesOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListGroupResourcesCommand,
-  serializeAws_restJson1_1ListGroupResourcesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListGroupResourcesCommand,
+  serializeAws_restJson1ListGroupResourcesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ListGroupResourcesCommand extends $Command<
     input: ListGroupResourcesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListGroupResourcesCommand(input, context);
+    return serializeAws_restJson1ListGroupResourcesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListGroupResourcesCommandOutput> {
-    return deserializeAws_restJson1_1ListGroupResourcesCommand(output, context);
+    return deserializeAws_restJson1ListGroupResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

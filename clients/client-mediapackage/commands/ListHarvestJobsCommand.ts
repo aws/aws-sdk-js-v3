@@ -8,9 +8,9 @@ import {
   ListHarvestJobsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListHarvestJobsCommand,
-  serializeAws_restJson1_1ListHarvestJobsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListHarvestJobsCommand,
+  serializeAws_restJson1ListHarvestJobsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class ListHarvestJobsCommand extends $Command<
     input: ListHarvestJobsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListHarvestJobsCommand(input, context);
+    return serializeAws_restJson1ListHarvestJobsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListHarvestJobsCommandOutput> {
-    return deserializeAws_restJson1_1ListHarvestJobsCommand(output, context);
+    return deserializeAws_restJson1ListHarvestJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

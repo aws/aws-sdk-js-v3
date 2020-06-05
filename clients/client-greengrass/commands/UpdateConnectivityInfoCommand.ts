@@ -8,9 +8,9 @@ import {
   UpdateConnectivityInfoResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateConnectivityInfoCommand,
-  serializeAws_restJson1_1UpdateConnectivityInfoCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateConnectivityInfoCommand,
+  serializeAws_restJson1UpdateConnectivityInfoCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class UpdateConnectivityInfoCommand extends $Command<
     input: UpdateConnectivityInfoCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateConnectivityInfoCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1UpdateConnectivityInfoCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConnectivityInfoCommandOutput> {
-    return deserializeAws_restJson1_1UpdateConnectivityInfoCommand(
+    return deserializeAws_restJson1UpdateConnectivityInfoCommand(
       output,
       context
     );

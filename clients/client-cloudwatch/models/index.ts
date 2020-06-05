@@ -6,78 +6,6 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- * <p>Parameters were used together that cannot be used together.</p>
- */
-export interface InvalidParameterCombinationException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidParameterCombinationException";
-  $fault: "client";
-  /**
-   * <p></p>
-   */
-  message?: string;
-}
-
-export namespace InvalidParameterCombinationException {
-  export const filterSensitiveLog = (
-    obj: InvalidParameterCombinationException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidParameterCombinationException =>
-    __isa(o, "InvalidParameterCombinationException");
-}
-
-/**
- * <p>The value of an input parameter is bad or out-of-range.</p>
- */
-export interface InvalidParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidParameterValueException";
-  $fault: "client";
-  /**
-   * <p></p>
-   */
-  message?: string;
-}
-
-export namespace InvalidParameterValueException {
-  export const filterSensitiveLog = (
-    obj: InvalidParameterValueException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidParameterValueException =>
-    __isa(o, "InvalidParameterValueException");
-}
-
-/**
- * <p>An input parameter that is required is missing.</p>
- */
-export interface MissingRequiredParameterException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "MissingRequiredParameterException";
-  $fault: "client";
-  /**
-   * <p></p>
-   */
-  message?: string;
-}
-
-export namespace MissingRequiredParameterException {
-  export const filterSensitiveLog = (
-    obj: MissingRequiredParameterException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is MissingRequiredParameterException =>
-    __isa(o, "MissingRequiredParameterException");
-}
-
-/**
  * <p>Represents the history of a specific alarm.</p>
  */
 export interface AlarmHistoryItem {
@@ -1685,6 +1613,54 @@ export namespace InvalidNextToken {
 }
 
 /**
+ * <p>Parameters were used together that cannot be used together.</p>
+ */
+export interface InvalidParameterCombinationException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidParameterCombinationException";
+  $fault: "client";
+  /**
+   * <p></p>
+   */
+  message?: string;
+}
+
+export namespace InvalidParameterCombinationException {
+  export const filterSensitiveLog = (
+    obj: InvalidParameterCombinationException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidParameterCombinationException =>
+    __isa(o, "InvalidParameterCombinationException");
+}
+
+/**
+ * <p>The value of an input parameter is bad or out-of-range.</p>
+ */
+export interface InvalidParameterValueException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidParameterValueException";
+  $fault: "client";
+  /**
+   * <p></p>
+   */
+  message?: string;
+}
+
+export namespace InvalidParameterValueException {
+  export const filterSensitiveLog = (
+    obj: InvalidParameterValueException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidParameterValueException =>
+    __isa(o, "InvalidParameterValueException");
+}
+
+/**
  * <p>The operation exceeded one or more limits.</p>
  */
 export interface LimitExceededException
@@ -2349,6 +2325,30 @@ export namespace MetricStat {
     ...obj
   });
   export const isa = (o: any): o is MetricStat => __isa(o, "MetricStat");
+}
+
+/**
+ * <p>An input parameter that is required is missing.</p>
+ */
+export interface MissingRequiredParameterException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "MissingRequiredParameterException";
+  $fault: "client";
+  /**
+   * <p></p>
+   */
+  message?: string;
+}
+
+export namespace MissingRequiredParameterException {
+  export const filterSensitiveLog = (
+    obj: MissingRequiredParameterException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is MissingRequiredParameterException =>
+    __isa(o, "MissingRequiredParameterException");
 }
 
 /**

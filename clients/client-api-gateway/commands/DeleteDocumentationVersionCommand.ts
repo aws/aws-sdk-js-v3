@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { DeleteDocumentationVersionRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteDocumentationVersionCommand,
-  serializeAws_restJson1_1DeleteDocumentationVersionCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteDocumentationVersionCommand,
+  serializeAws_restJson1DeleteDocumentationVersionCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class DeleteDocumentationVersionCommand extends $Command<
     input: DeleteDocumentationVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDocumentationVersionCommand(
+    return serializeAws_restJson1DeleteDocumentationVersionCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class DeleteDocumentationVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDocumentationVersionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDocumentationVersionCommand(
+    return deserializeAws_restJson1DeleteDocumentationVersionCommand(
       output,
       context
     );

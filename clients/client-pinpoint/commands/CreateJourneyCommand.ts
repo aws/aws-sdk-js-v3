@@ -5,9 +5,9 @@ import {
 } from "../PinpointClient";
 import { CreateJourneyRequest, CreateJourneyResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1CreateJourneyCommand,
-  serializeAws_restJson1_1CreateJourneyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1CreateJourneyCommand,
+  serializeAws_restJson1CreateJourneyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class CreateJourneyCommand extends $Command<
     input: CreateJourneyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateJourneyCommand(input, context);
+    return serializeAws_restJson1CreateJourneyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateJourneyCommandOutput> {
-    return deserializeAws_restJson1_1CreateJourneyCommand(output, context);
+    return deserializeAws_restJson1CreateJourneyCommand(output, context);
   }
 
   // Start section: command_body_extra

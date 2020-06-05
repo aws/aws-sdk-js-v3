@@ -405,41 +405,6 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   }
 
   /**
-   * <p>Lists versions for the specified application.</p>
-   */
-  public listApplicationVersions(
-    args: ListApplicationVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListApplicationVersionsCommandOutput>;
-  public listApplicationVersions(
-    args: ListApplicationVersionsCommandInput,
-    cb: (err: any, data?: ListApplicationVersionsCommandOutput) => void
-  ): void;
-  public listApplicationVersions(
-    args: ListApplicationVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListApplicationVersionsCommandOutput) => void
-  ): void;
-  public listApplicationVersions(
-    args: ListApplicationVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListApplicationVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListApplicationVersionsCommandOutput) => void
-  ): Promise<ListApplicationVersionsCommandOutput> | void {
-    const command = new ListApplicationVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Lists applications owned by the requester.</p>
    */
   public listApplications(
@@ -463,6 +428,41 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
     cb?: (err: any, data?: ListApplicationsCommandOutput) => void
   ): Promise<ListApplicationsCommandOutput> | void {
     const command = new ListApplicationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists versions for the specified application.</p>
+   */
+  public listApplicationVersions(
+    args: ListApplicationVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationVersionsCommandOutput>;
+  public listApplicationVersions(
+    args: ListApplicationVersionsCommandInput,
+    cb: (err: any, data?: ListApplicationVersionsCommandOutput) => void
+  ): void;
+  public listApplicationVersions(
+    args: ListApplicationVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationVersionsCommandOutput) => void
+  ): void;
+  public listApplicationVersions(
+    args: ListApplicationVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListApplicationVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListApplicationVersionsCommandOutput) => void
+  ): Promise<ListApplicationVersionsCommandOutput> | void {
+    const command = new ListApplicationVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

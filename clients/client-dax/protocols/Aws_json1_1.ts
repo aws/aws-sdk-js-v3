@@ -522,30 +522,8 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "ClusterAlreadyExistsFault":
-    case "elmo.admin#ClusterAlreadyExistsFault":
+    case "com.amazonaws.dax#ClusterAlreadyExistsFault":
       response = {
         ...(await deserializeAws_json1_1ClusterAlreadyExistsFaultResponse(
           parsedOutput,
@@ -556,7 +534,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
       };
       break;
     case "ClusterQuotaForCustomerExceededFault":
-    case "elmo.admin#ClusterQuotaForCustomerExceededFault":
+    case "com.amazonaws.dax#ClusterQuotaForCustomerExceededFault":
       response = {
         ...(await deserializeAws_json1_1ClusterQuotaForCustomerExceededFaultResponse(
           parsedOutput,
@@ -567,7 +545,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
       };
       break;
     case "InsufficientClusterCapacityFault":
-    case "elmo.admin#InsufficientClusterCapacityFault":
+    case "com.amazonaws.dax#InsufficientClusterCapacityFault":
       response = {
         ...(await deserializeAws_json1_1InsufficientClusterCapacityFaultResponse(
           parsedOutput,
@@ -578,7 +556,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "elmo.admin#InvalidClusterStateFault":
+    case "com.amazonaws.dax#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidClusterStateFaultResponse(
           parsedOutput,
@@ -588,8 +566,19 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.dax#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "InvalidParameterGroupStateFault":
-    case "elmo.admin#InvalidParameterGroupStateFault":
+    case "com.amazonaws.dax#InvalidParameterGroupStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterGroupStateFaultResponse(
           parsedOutput,
@@ -599,8 +588,19 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.dax#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "InvalidVPCNetworkStateFault":
-    case "elmo.admin#InvalidVPCNetworkStateFault":
+    case "com.amazonaws.dax#InvalidVPCNetworkStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidVPCNetworkStateFaultResponse(
           parsedOutput,
@@ -611,7 +611,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
       };
       break;
     case "NodeQuotaForClusterExceededFault":
-    case "elmo.admin#NodeQuotaForClusterExceededFault":
+    case "com.amazonaws.dax#NodeQuotaForClusterExceededFault":
       response = {
         ...(await deserializeAws_json1_1NodeQuotaForClusterExceededFaultResponse(
           parsedOutput,
@@ -622,7 +622,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
       };
       break;
     case "NodeQuotaForCustomerExceededFault":
-    case "elmo.admin#NodeQuotaForCustomerExceededFault":
+    case "com.amazonaws.dax#NodeQuotaForCustomerExceededFault":
       response = {
         ...(await deserializeAws_json1_1NodeQuotaForCustomerExceededFaultResponse(
           parsedOutput,
@@ -633,7 +633,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
       };
       break;
     case "ParameterGroupNotFoundFault":
-    case "elmo.admin#ParameterGroupNotFoundFault":
+    case "com.amazonaws.dax#ParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -644,7 +644,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
       };
       break;
     case "ServiceLinkedRoleNotFoundFault":
-    case "elmo.admin#ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(
           parsedOutput,
@@ -655,7 +655,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
       };
       break;
     case "SubnetGroupNotFoundFault":
-    case "elmo.admin#SubnetGroupNotFoundFault":
+    case "com.amazonaws.dax#SubnetGroupNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1SubnetGroupNotFoundFaultResponse(
           parsedOutput,
@@ -666,7 +666,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
       };
       break;
     case "TagQuotaPerResourceExceeded":
-    case "elmo.admin#TagQuotaPerResourceExceeded":
+    case "com.amazonaws.dax#TagQuotaPerResourceExceeded":
       response = {
         ...(await deserializeAws_json1_1TagQuotaPerResourceExceededResponse(
           parsedOutput,
@@ -729,7 +729,7 @@ const deserializeAws_json1_1CreateParameterGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterCombinationException":
-    case "com.amazon.coral.service#InvalidParameterCombinationException":
+    case "com.amazonaws.dax#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
           parsedOutput,
@@ -739,19 +739,8 @@ const deserializeAws_json1_1CreateParameterGroupCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InvalidParameterGroupStateFault":
-    case "elmo.admin#InvalidParameterGroupStateFault":
+    case "com.amazonaws.dax#InvalidParameterGroupStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterGroupStateFaultResponse(
           parsedOutput,
@@ -761,8 +750,19 @@ const deserializeAws_json1_1CreateParameterGroupCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.dax#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ParameterGroupAlreadyExistsFault":
-    case "elmo.admin#ParameterGroupAlreadyExistsFault":
+    case "com.amazonaws.dax#ParameterGroupAlreadyExistsFault":
       response = {
         ...(await deserializeAws_json1_1ParameterGroupAlreadyExistsFaultResponse(
           parsedOutput,
@@ -773,7 +773,7 @@ const deserializeAws_json1_1CreateParameterGroupCommandError = async (
       };
       break;
     case "ParameterGroupQuotaExceededFault":
-    case "elmo.admin#ParameterGroupQuotaExceededFault":
+    case "com.amazonaws.dax#ParameterGroupQuotaExceededFault":
       response = {
         ...(await deserializeAws_json1_1ParameterGroupQuotaExceededFaultResponse(
           parsedOutput,
@@ -784,7 +784,7 @@ const deserializeAws_json1_1CreateParameterGroupCommandError = async (
       };
       break;
     case "ServiceLinkedRoleNotFoundFault":
-    case "elmo.admin#ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(
           parsedOutput,
@@ -844,7 +844,7 @@ const deserializeAws_json1_1CreateSubnetGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidSubnet":
-    case "elmo.admin#InvalidSubnet":
+    case "com.amazonaws.dax#InvalidSubnet":
       response = {
         ...(await deserializeAws_json1_1InvalidSubnetResponse(
           parsedOutput,
@@ -855,7 +855,7 @@ const deserializeAws_json1_1CreateSubnetGroupCommandError = async (
       };
       break;
     case "ServiceLinkedRoleNotFoundFault":
-    case "elmo.admin#ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(
           parsedOutput,
@@ -866,7 +866,7 @@ const deserializeAws_json1_1CreateSubnetGroupCommandError = async (
       };
       break;
     case "SubnetGroupAlreadyExistsFault":
-    case "elmo.admin#SubnetGroupAlreadyExistsFault":
+    case "com.amazonaws.dax#SubnetGroupAlreadyExistsFault":
       response = {
         ...(await deserializeAws_json1_1SubnetGroupAlreadyExistsFaultResponse(
           parsedOutput,
@@ -877,7 +877,7 @@ const deserializeAws_json1_1CreateSubnetGroupCommandError = async (
       };
       break;
     case "SubnetGroupQuotaExceededFault":
-    case "elmo.admin#SubnetGroupQuotaExceededFault":
+    case "com.amazonaws.dax#SubnetGroupQuotaExceededFault":
       response = {
         ...(await deserializeAws_json1_1SubnetGroupQuotaExceededFaultResponse(
           parsedOutput,
@@ -888,7 +888,7 @@ const deserializeAws_json1_1CreateSubnetGroupCommandError = async (
       };
       break;
     case "SubnetQuotaExceededFault":
-    case "elmo.admin#SubnetQuotaExceededFault":
+    case "com.amazonaws.dax#SubnetQuotaExceededFault":
       response = {
         ...(await deserializeAws_json1_1SubnetQuotaExceededFaultResponse(
           parsedOutput,
@@ -953,30 +953,8 @@ const deserializeAws_json1_1DecreaseReplicationFactorCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "ClusterNotFoundFault":
-    case "elmo.admin#ClusterNotFoundFault":
+    case "com.amazonaws.dax#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundFaultResponse(
           parsedOutput,
@@ -987,7 +965,7 @@ const deserializeAws_json1_1DecreaseReplicationFactorCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "elmo.admin#InvalidClusterStateFault":
+    case "com.amazonaws.dax#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidClusterStateFaultResponse(
           parsedOutput,
@@ -997,8 +975,30 @@ const deserializeAws_json1_1DecreaseReplicationFactorCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.dax#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.dax#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "NodeNotFoundFault":
-    case "elmo.admin#NodeNotFoundFault":
+    case "com.amazonaws.dax#NodeNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1NodeNotFoundFaultResponse(
           parsedOutput,
@@ -1009,7 +1009,7 @@ const deserializeAws_json1_1DecreaseReplicationFactorCommandError = async (
       };
       break;
     case "ServiceLinkedRoleNotFoundFault":
-    case "elmo.admin#ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(
           parsedOutput,
@@ -1068,30 +1068,8 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "ClusterNotFoundFault":
-    case "elmo.admin#ClusterNotFoundFault":
+    case "com.amazonaws.dax#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundFaultResponse(
           parsedOutput,
@@ -1102,7 +1080,7 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "elmo.admin#InvalidClusterStateFault":
+    case "com.amazonaws.dax#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidClusterStateFaultResponse(
           parsedOutput,
@@ -1112,8 +1090,30 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.dax#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.dax#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ServiceLinkedRoleNotFoundFault":
-    case "elmo.admin#ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(
           parsedOutput,
@@ -1176,7 +1176,7 @@ const deserializeAws_json1_1DeleteParameterGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterCombinationException":
-    case "com.amazon.coral.service#InvalidParameterCombinationException":
+    case "com.amazonaws.dax#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
           parsedOutput,
@@ -1186,19 +1186,8 @@ const deserializeAws_json1_1DeleteParameterGroupCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InvalidParameterGroupStateFault":
-    case "elmo.admin#InvalidParameterGroupStateFault":
+    case "com.amazonaws.dax#InvalidParameterGroupStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterGroupStateFaultResponse(
           parsedOutput,
@@ -1208,8 +1197,19 @@ const deserializeAws_json1_1DeleteParameterGroupCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.dax#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ParameterGroupNotFoundFault":
-    case "elmo.admin#ParameterGroupNotFoundFault":
+    case "com.amazonaws.dax#ParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -1220,7 +1220,7 @@ const deserializeAws_json1_1DeleteParameterGroupCommandError = async (
       };
       break;
     case "ServiceLinkedRoleNotFoundFault":
-    case "elmo.admin#ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(
           parsedOutput,
@@ -1280,7 +1280,7 @@ const deserializeAws_json1_1DeleteSubnetGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceLinkedRoleNotFoundFault":
-    case "elmo.admin#ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(
           parsedOutput,
@@ -1291,7 +1291,7 @@ const deserializeAws_json1_1DeleteSubnetGroupCommandError = async (
       };
       break;
     case "SubnetGroupInUseFault":
-    case "elmo.admin#SubnetGroupInUseFault":
+    case "com.amazonaws.dax#SubnetGroupInUseFault":
       response = {
         ...(await deserializeAws_json1_1SubnetGroupInUseFaultResponse(
           parsedOutput,
@@ -1302,7 +1302,7 @@ const deserializeAws_json1_1DeleteSubnetGroupCommandError = async (
       };
       break;
     case "SubnetGroupNotFoundFault":
-    case "elmo.admin#SubnetGroupNotFoundFault":
+    case "com.amazonaws.dax#SubnetGroupNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1SubnetGroupNotFoundFaultResponse(
           parsedOutput,
@@ -1361,8 +1361,19 @@ const deserializeAws_json1_1DescribeClustersCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "ClusterNotFoundFault":
+    case "com.amazonaws.dax#ClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_json1_1ClusterNotFoundFaultResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "InvalidParameterCombinationException":
-    case "com.amazon.coral.service#InvalidParameterCombinationException":
+    case "com.amazonaws.dax#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
           parsedOutput,
@@ -1373,7 +1384,7 @@ const deserializeAws_json1_1DescribeClustersCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
+    case "com.amazonaws.dax#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1383,19 +1394,8 @@ const deserializeAws_json1_1DescribeClustersCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "ClusterNotFoundFault":
-    case "elmo.admin#ClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_json1_1ClusterNotFoundFaultResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "ServiceLinkedRoleNotFoundFault":
-    case "elmo.admin#ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(
           parsedOutput,
@@ -1461,7 +1461,7 @@ const deserializeAws_json1_1DescribeDefaultParametersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterCombinationException":
-    case "com.amazon.coral.service#InvalidParameterCombinationException":
+    case "com.amazonaws.dax#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
           parsedOutput,
@@ -1472,7 +1472,7 @@ const deserializeAws_json1_1DescribeDefaultParametersCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
+    case "com.amazonaws.dax#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1483,7 +1483,7 @@ const deserializeAws_json1_1DescribeDefaultParametersCommandError = async (
       };
       break;
     case "ServiceLinkedRoleNotFoundFault":
-    case "elmo.admin#ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(
           parsedOutput,
@@ -1543,7 +1543,7 @@ const deserializeAws_json1_1DescribeEventsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterCombinationException":
-    case "com.amazon.coral.service#InvalidParameterCombinationException":
+    case "com.amazonaws.dax#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
           parsedOutput,
@@ -1554,7 +1554,7 @@ const deserializeAws_json1_1DescribeEventsCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
+    case "com.amazonaws.dax#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1565,7 +1565,7 @@ const deserializeAws_json1_1DescribeEventsCommandError = async (
       };
       break;
     case "ServiceLinkedRoleNotFoundFault":
-    case "elmo.admin#ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(
           parsedOutput,
@@ -1631,7 +1631,7 @@ const deserializeAws_json1_1DescribeParameterGroupsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterCombinationException":
-    case "com.amazon.coral.service#InvalidParameterCombinationException":
+    case "com.amazonaws.dax#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
           parsedOutput,
@@ -1642,7 +1642,7 @@ const deserializeAws_json1_1DescribeParameterGroupsCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
+    case "com.amazonaws.dax#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1653,7 +1653,7 @@ const deserializeAws_json1_1DescribeParameterGroupsCommandError = async (
       };
       break;
     case "ParameterGroupNotFoundFault":
-    case "elmo.admin#ParameterGroupNotFoundFault":
+    case "com.amazonaws.dax#ParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -1664,7 +1664,7 @@ const deserializeAws_json1_1DescribeParameterGroupsCommandError = async (
       };
       break;
     case "ServiceLinkedRoleNotFoundFault":
-    case "elmo.admin#ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(
           parsedOutput,
@@ -1727,7 +1727,7 @@ const deserializeAws_json1_1DescribeParametersCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterCombinationException":
-    case "com.amazon.coral.service#InvalidParameterCombinationException":
+    case "com.amazonaws.dax#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
           parsedOutput,
@@ -1738,7 +1738,7 @@ const deserializeAws_json1_1DescribeParametersCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
+    case "com.amazonaws.dax#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -1749,7 +1749,7 @@ const deserializeAws_json1_1DescribeParametersCommandError = async (
       };
       break;
     case "ParameterGroupNotFoundFault":
-    case "elmo.admin#ParameterGroupNotFoundFault":
+    case "com.amazonaws.dax#ParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -1760,7 +1760,7 @@ const deserializeAws_json1_1DescribeParametersCommandError = async (
       };
       break;
     case "ServiceLinkedRoleNotFoundFault":
-    case "elmo.admin#ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(
           parsedOutput,
@@ -1823,7 +1823,7 @@ const deserializeAws_json1_1DescribeSubnetGroupsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceLinkedRoleNotFoundFault":
-    case "elmo.admin#ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(
           parsedOutput,
@@ -1834,7 +1834,7 @@ const deserializeAws_json1_1DescribeSubnetGroupsCommandError = async (
       };
       break;
     case "SubnetGroupNotFoundFault":
-    case "elmo.admin#SubnetGroupNotFoundFault":
+    case "com.amazonaws.dax#SubnetGroupNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1SubnetGroupNotFoundFaultResponse(
           parsedOutput,
@@ -1899,30 +1899,8 @@ const deserializeAws_json1_1IncreaseReplicationFactorCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "ClusterNotFoundFault":
-    case "elmo.admin#ClusterNotFoundFault":
+    case "com.amazonaws.dax#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundFaultResponse(
           parsedOutput,
@@ -1933,7 +1911,7 @@ const deserializeAws_json1_1IncreaseReplicationFactorCommandError = async (
       };
       break;
     case "InsufficientClusterCapacityFault":
-    case "elmo.admin#InsufficientClusterCapacityFault":
+    case "com.amazonaws.dax#InsufficientClusterCapacityFault":
       response = {
         ...(await deserializeAws_json1_1InsufficientClusterCapacityFaultResponse(
           parsedOutput,
@@ -1944,7 +1922,7 @@ const deserializeAws_json1_1IncreaseReplicationFactorCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "elmo.admin#InvalidClusterStateFault":
+    case "com.amazonaws.dax#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidClusterStateFaultResponse(
           parsedOutput,
@@ -1954,8 +1932,30 @@ const deserializeAws_json1_1IncreaseReplicationFactorCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.dax#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.dax#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "InvalidVPCNetworkStateFault":
-    case "elmo.admin#InvalidVPCNetworkStateFault":
+    case "com.amazonaws.dax#InvalidVPCNetworkStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidVPCNetworkStateFaultResponse(
           parsedOutput,
@@ -1966,7 +1966,7 @@ const deserializeAws_json1_1IncreaseReplicationFactorCommandError = async (
       };
       break;
     case "NodeQuotaForClusterExceededFault":
-    case "elmo.admin#NodeQuotaForClusterExceededFault":
+    case "com.amazonaws.dax#NodeQuotaForClusterExceededFault":
       response = {
         ...(await deserializeAws_json1_1NodeQuotaForClusterExceededFaultResponse(
           parsedOutput,
@@ -1977,7 +1977,7 @@ const deserializeAws_json1_1IncreaseReplicationFactorCommandError = async (
       };
       break;
     case "NodeQuotaForCustomerExceededFault":
-    case "elmo.admin#NodeQuotaForCustomerExceededFault":
+    case "com.amazonaws.dax#NodeQuotaForCustomerExceededFault":
       response = {
         ...(await deserializeAws_json1_1NodeQuotaForCustomerExceededFaultResponse(
           parsedOutput,
@@ -1988,7 +1988,7 @@ const deserializeAws_json1_1IncreaseReplicationFactorCommandError = async (
       };
       break;
     case "ServiceLinkedRoleNotFoundFault":
-    case "elmo.admin#ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(
           parsedOutput,
@@ -2047,30 +2047,8 @@ const deserializeAws_json1_1ListTagsCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "ClusterNotFoundFault":
-    case "elmo.admin#ClusterNotFoundFault":
+    case "com.amazonaws.dax#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundFaultResponse(
           parsedOutput,
@@ -2081,7 +2059,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
       };
       break;
     case "InvalidARNFault":
-    case "elmo.admin#InvalidARNFault":
+    case "com.amazonaws.dax#InvalidARNFault":
       response = {
         ...(await deserializeAws_json1_1InvalidARNFaultResponse(
           parsedOutput,
@@ -2092,7 +2070,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "elmo.admin#InvalidClusterStateFault":
+    case "com.amazonaws.dax#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidClusterStateFaultResponse(
           parsedOutput,
@@ -2102,8 +2080,30 @@ const deserializeAws_json1_1ListTagsCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.dax#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.dax#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ServiceLinkedRoleNotFoundFault":
-    case "elmo.admin#ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(
           parsedOutput,
@@ -2162,30 +2162,8 @@ const deserializeAws_json1_1RebootNodeCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "ClusterNotFoundFault":
-    case "elmo.admin#ClusterNotFoundFault":
+    case "com.amazonaws.dax#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundFaultResponse(
           parsedOutput,
@@ -2196,7 +2174,7 @@ const deserializeAws_json1_1RebootNodeCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "elmo.admin#InvalidClusterStateFault":
+    case "com.amazonaws.dax#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidClusterStateFaultResponse(
           parsedOutput,
@@ -2206,8 +2184,30 @@ const deserializeAws_json1_1RebootNodeCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.dax#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.dax#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "NodeNotFoundFault":
-    case "elmo.admin#NodeNotFoundFault":
+    case "com.amazonaws.dax#NodeNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1NodeNotFoundFaultResponse(
           parsedOutput,
@@ -2218,7 +2218,7 @@ const deserializeAws_json1_1RebootNodeCommandError = async (
       };
       break;
     case "ServiceLinkedRoleNotFoundFault":
-    case "elmo.admin#ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(
           parsedOutput,
@@ -2277,30 +2277,8 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "ClusterNotFoundFault":
-    case "elmo.admin#ClusterNotFoundFault":
+    case "com.amazonaws.dax#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundFaultResponse(
           parsedOutput,
@@ -2311,7 +2289,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "InvalidARNFault":
-    case "elmo.admin#InvalidARNFault":
+    case "com.amazonaws.dax#InvalidARNFault":
       response = {
         ...(await deserializeAws_json1_1InvalidARNFaultResponse(
           parsedOutput,
@@ -2322,7 +2300,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "elmo.admin#InvalidClusterStateFault":
+    case "com.amazonaws.dax#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidClusterStateFaultResponse(
           parsedOutput,
@@ -2332,8 +2310,30 @@ const deserializeAws_json1_1TagResourceCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.dax#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.dax#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ServiceLinkedRoleNotFoundFault":
-    case "elmo.admin#ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(
           parsedOutput,
@@ -2344,7 +2344,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "TagQuotaPerResourceExceeded":
-    case "elmo.admin#TagQuotaPerResourceExceeded":
+    case "com.amazonaws.dax#TagQuotaPerResourceExceeded":
       response = {
         ...(await deserializeAws_json1_1TagQuotaPerResourceExceededResponse(
           parsedOutput,
@@ -2403,30 +2403,8 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "ClusterNotFoundFault":
-    case "elmo.admin#ClusterNotFoundFault":
+    case "com.amazonaws.dax#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundFaultResponse(
           parsedOutput,
@@ -2437,7 +2415,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "InvalidARNFault":
-    case "elmo.admin#InvalidARNFault":
+    case "com.amazonaws.dax#InvalidARNFault":
       response = {
         ...(await deserializeAws_json1_1InvalidARNFaultResponse(
           parsedOutput,
@@ -2448,7 +2426,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "elmo.admin#InvalidClusterStateFault":
+    case "com.amazonaws.dax#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidClusterStateFaultResponse(
           parsedOutput,
@@ -2458,8 +2436,30 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.dax#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.dax#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ServiceLinkedRoleNotFoundFault":
-    case "elmo.admin#ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(
           parsedOutput,
@@ -2470,7 +2470,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "TagNotFoundFault":
-    case "elmo.admin#TagNotFoundFault":
+    case "com.amazonaws.dax#TagNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1TagNotFoundFaultResponse(
           parsedOutput,
@@ -2529,30 +2529,8 @@ const deserializeAws_json1_1UpdateClusterCommandError = async (
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazon.coral.service#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "ClusterNotFoundFault":
-    case "elmo.admin#ClusterNotFoundFault":
+    case "com.amazonaws.dax#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ClusterNotFoundFaultResponse(
           parsedOutput,
@@ -2563,7 +2541,7 @@ const deserializeAws_json1_1UpdateClusterCommandError = async (
       };
       break;
     case "InvalidClusterStateFault":
-    case "elmo.admin#InvalidClusterStateFault":
+    case "com.amazonaws.dax#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidClusterStateFaultResponse(
           parsedOutput,
@@ -2573,8 +2551,19 @@ const deserializeAws_json1_1UpdateClusterCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.dax#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "InvalidParameterGroupStateFault":
-    case "elmo.admin#InvalidParameterGroupStateFault":
+    case "com.amazonaws.dax#InvalidParameterGroupStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterGroupStateFaultResponse(
           parsedOutput,
@@ -2584,8 +2573,19 @@ const deserializeAws_json1_1UpdateClusterCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.dax#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ParameterGroupNotFoundFault":
-    case "elmo.admin#ParameterGroupNotFoundFault":
+    case "com.amazonaws.dax#ParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -2596,7 +2596,7 @@ const deserializeAws_json1_1UpdateClusterCommandError = async (
       };
       break;
     case "ServiceLinkedRoleNotFoundFault":
-    case "elmo.admin#ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(
           parsedOutput,
@@ -2659,7 +2659,7 @@ const deserializeAws_json1_1UpdateParameterGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterCombinationException":
-    case "com.amazon.coral.service#InvalidParameterCombinationException":
+    case "com.amazonaws.dax#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
           parsedOutput,
@@ -2669,19 +2669,8 @@ const deserializeAws_json1_1UpdateParameterGroupCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "InvalidParameterValueException":
-    case "com.amazon.coral.service#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
     case "InvalidParameterGroupStateFault":
-    case "elmo.admin#InvalidParameterGroupStateFault":
+    case "com.amazonaws.dax#InvalidParameterGroupStateFault":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterGroupStateFaultResponse(
           parsedOutput,
@@ -2691,8 +2680,19 @@ const deserializeAws_json1_1UpdateParameterGroupCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.dax#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ParameterGroupNotFoundFault":
-    case "elmo.admin#ParameterGroupNotFoundFault":
+    case "com.amazonaws.dax#ParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ParameterGroupNotFoundFaultResponse(
           parsedOutput,
@@ -2703,7 +2703,7 @@ const deserializeAws_json1_1UpdateParameterGroupCommandError = async (
       };
       break;
     case "ServiceLinkedRoleNotFoundFault":
-    case "elmo.admin#ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(
           parsedOutput,
@@ -2763,7 +2763,7 @@ const deserializeAws_json1_1UpdateSubnetGroupCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidSubnet":
-    case "elmo.admin#InvalidSubnet":
+    case "com.amazonaws.dax#InvalidSubnet":
       response = {
         ...(await deserializeAws_json1_1InvalidSubnetResponse(
           parsedOutput,
@@ -2774,7 +2774,7 @@ const deserializeAws_json1_1UpdateSubnetGroupCommandError = async (
       };
       break;
     case "ServiceLinkedRoleNotFoundFault":
-    case "elmo.admin#ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(
           parsedOutput,
@@ -2785,7 +2785,7 @@ const deserializeAws_json1_1UpdateSubnetGroupCommandError = async (
       };
       break;
     case "SubnetGroupNotFoundFault":
-    case "elmo.admin#SubnetGroupNotFoundFault":
+    case "com.amazonaws.dax#SubnetGroupNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1SubnetGroupNotFoundFaultResponse(
           parsedOutput,
@@ -2796,7 +2796,7 @@ const deserializeAws_json1_1UpdateSubnetGroupCommandError = async (
       };
       break;
     case "SubnetInUse":
-    case "elmo.admin#SubnetInUse":
+    case "com.amazonaws.dax#SubnetInUse":
       response = {
         ...(await deserializeAws_json1_1SubnetInUseResponse(
           parsedOutput,
@@ -2807,7 +2807,7 @@ const deserializeAws_json1_1UpdateSubnetGroupCommandError = async (
       };
       break;
     case "SubnetQuotaExceededFault":
-    case "elmo.admin#SubnetQuotaExceededFault":
+    case "com.amazonaws.dax#SubnetQuotaExceededFault":
       response = {
         ...(await deserializeAws_json1_1SubnetQuotaExceededFaultResponse(
           parsedOutput,
@@ -2832,42 +2832,6 @@ const deserializeAws_json1_1UpdateSubnetGroupCommandError = async (
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-};
-
-const deserializeAws_json1_1InvalidParameterCombinationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidParameterCombinationException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterCombinationException(
-    body,
-    context
-  );
-  const contents: InvalidParameterCombinationException = {
-    name: "InvalidParameterCombinationException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
-};
-
-const deserializeAws_json1_1InvalidParameterValueExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidParameterValueException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterValueException(
-    body,
-    context
-  );
-  const contents: InvalidParameterValueException = {
-    name: "InvalidParameterValueException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
-  };
-  return contents;
 };
 
 const deserializeAws_json1_1ClusterAlreadyExistsFaultResponse = async (
@@ -2978,6 +2942,24 @@ const deserializeAws_json1_1InvalidClusterStateFaultResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1InvalidParameterCombinationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidParameterCombinationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidParameterCombinationException(
+    body,
+    context
+  );
+  const contents: InvalidParameterCombinationException = {
+    name: "InvalidParameterCombinationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1InvalidParameterGroupStateFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2989,6 +2971,24 @@ const deserializeAws_json1_1InvalidParameterGroupStateFaultResponse = async (
   );
   const contents: InvalidParameterGroupStateFault = {
     name: "InvalidParameterGroupStateFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidParameterValueExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidParameterValueException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidParameterValueException(
+    body,
+    context
+  );
+  const contents: InvalidParameterValueException = {
+    name: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3618,6 +3618,13 @@ const serializeAws_json1_1RebootNodeRequest = (
   };
 };
 
+const serializeAws_json1_1SecurityGroupIdentifierList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => entry);
+};
+
 const serializeAws_json1_1SSESpecification = (
   input: SSESpecification,
   context: __SerdeContext
@@ -3625,13 +3632,6 @@ const serializeAws_json1_1SSESpecification = (
   return {
     ...(input.Enabled !== undefined && { Enabled: input.Enabled })
   };
-};
-
-const serializeAws_json1_1SecurityGroupIdentifierList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1SubnetGroupNameList = (
@@ -3753,32 +3753,6 @@ const serializeAws_json1_1UpdateSubnetGroupRequest = (
   };
 };
 
-const deserializeAws_json1_1InvalidParameterCombinationException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterCombinationException => {
-  return {
-    __type: "InvalidParameterCombinationException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidParameterValueException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterValueException => {
-  return {
-    __type: "InvalidParameterValueException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1Cluster = (
   output: any,
   context: __SerdeContext
@@ -3874,6 +3848,19 @@ const deserializeAws_json1_1Cluster = (
   } as any;
 };
 
+const deserializeAws_json1_1ClusterAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): ClusterAlreadyExistsFault => {
+  return {
+    __type: "ClusterAlreadyExistsFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1ClusterList = (
   output: any,
   context: __SerdeContext
@@ -3881,6 +3868,32 @@ const deserializeAws_json1_1ClusterList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Cluster(entry, context)
   );
+};
+
+const deserializeAws_json1_1ClusterNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): ClusterNotFoundFault => {
+  return {
+    __type: "ClusterNotFoundFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ClusterQuotaForCustomerExceededFault = (
+  output: any,
+  context: __SerdeContext
+): ClusterQuotaForCustomerExceededFault => {
+  return {
+    __type: "ClusterQuotaForCustomerExceededFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateClusterResponse = (
@@ -4143,6 +4156,110 @@ const deserializeAws_json1_1IncreaseReplicationFactorResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1InsufficientClusterCapacityFault = (
+  output: any,
+  context: __SerdeContext
+): InsufficientClusterCapacityFault => {
+  return {
+    __type: "InsufficientClusterCapacityFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidARNFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidARNFault => {
+  return {
+    __type: "InvalidARNFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidClusterStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidClusterStateFault => {
+  return {
+    __type: "InvalidClusterStateFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidParameterCombinationException = (
+  output: any,
+  context: __SerdeContext
+): InvalidParameterCombinationException => {
+  return {
+    __type: "InvalidParameterCombinationException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidParameterGroupStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidParameterGroupStateFault => {
+  return {
+    __type: "InvalidParameterGroupStateFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidParameterValueException = (
+  output: any,
+  context: __SerdeContext
+): InvalidParameterValueException => {
+  return {
+    __type: "InvalidParameterValueException",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidSubnet = (
+  output: any,
+  context: __SerdeContext
+): InvalidSubnet => {
+  return {
+    __type: "InvalidSubnet",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidVPCNetworkStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidVPCNetworkStateFault => {
+  return {
+    __type: "InvalidVPCNetworkStateFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1ListTagsResponse = (
   output: any,
   context: __SerdeContext
@@ -4208,6 +4325,45 @@ const deserializeAws_json1_1NodeList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Node(entry, context)
   );
+};
+
+const deserializeAws_json1_1NodeNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): NodeNotFoundFault => {
+  return {
+    __type: "NodeNotFoundFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1NodeQuotaForClusterExceededFault = (
+  output: any,
+  context: __SerdeContext
+): NodeQuotaForClusterExceededFault => {
+  return {
+    __type: "NodeQuotaForClusterExceededFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1NodeQuotaForCustomerExceededFault = (
+  output: any,
+  context: __SerdeContext
+): NodeQuotaForCustomerExceededFault => {
+  return {
+    __type: "NodeQuotaForCustomerExceededFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NodeTypeSpecificValue = (
@@ -4324,6 +4480,19 @@ const deserializeAws_json1_1ParameterGroup = (
   } as any;
 };
 
+const deserializeAws_json1_1ParameterGroupAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): ParameterGroupAlreadyExistsFault => {
+  return {
+    __type: "ParameterGroupAlreadyExistsFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1ParameterGroupList = (
   output: any,
   context: __SerdeContext
@@ -4331,6 +4500,32 @@ const deserializeAws_json1_1ParameterGroupList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ParameterGroup(entry, context)
   );
+};
+
+const deserializeAws_json1_1ParameterGroupNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): ParameterGroupNotFoundFault => {
+  return {
+    __type: "ParameterGroupNotFoundFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1ParameterGroupQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): ParameterGroupQuotaExceededFault => {
+  return {
+    __type: "ParameterGroupQuotaExceededFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ParameterGroupStatus = (
@@ -4381,19 +4576,6 @@ const deserializeAws_json1_1RebootNodeResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1SSEDescription = (
-  output: any,
-  context: __SerdeContext
-): SSEDescription => {
-  return {
-    __type: "SSEDescription",
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined
-  } as any;
-};
-
 const deserializeAws_json1_1SecurityGroupMembership = (
   output: any,
   context: __SerdeContext
@@ -4419,6 +4601,32 @@ const deserializeAws_json1_1SecurityGroupMembershipList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SecurityGroupMembership(entry, context)
   );
+};
+
+const deserializeAws_json1_1ServiceLinkedRoleNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): ServiceLinkedRoleNotFoundFault => {
+  return {
+    __type: "ServiceLinkedRoleNotFoundFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1SSEDescription = (
+  output: any,
+  context: __SerdeContext
+): SSEDescription => {
+  return {
+    __type: "SSEDescription",
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Subnet = (
@@ -4464,6 +4672,32 @@ const deserializeAws_json1_1SubnetGroup = (
   } as any;
 };
 
+const deserializeAws_json1_1SubnetGroupAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): SubnetGroupAlreadyExistsFault => {
+  return {
+    __type: "SubnetGroupAlreadyExistsFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1SubnetGroupInUseFault = (
+  output: any,
+  context: __SerdeContext
+): SubnetGroupInUseFault => {
+  return {
+    __type: "SubnetGroupInUseFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1SubnetGroupList = (
   output: any,
   context: __SerdeContext
@@ -4473,6 +4707,45 @@ const deserializeAws_json1_1SubnetGroupList = (
   );
 };
 
+const deserializeAws_json1_1SubnetGroupNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): SubnetGroupNotFoundFault => {
+  return {
+    __type: "SubnetGroupNotFoundFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1SubnetGroupQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): SubnetGroupQuotaExceededFault => {
+  return {
+    __type: "SubnetGroupQuotaExceededFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1SubnetInUse = (
+  output: any,
+  context: __SerdeContext
+): SubnetInUse => {
+  return {
+    __type: "SubnetInUse",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1SubnetList = (
   output: any,
   context: __SerdeContext
@@ -4480,6 +4753,19 @@ const deserializeAws_json1_1SubnetList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Subnet(entry, context)
   );
+};
+
+const deserializeAws_json1_1SubnetQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): SubnetQuotaExceededFault => {
+  return {
+    __type: "SubnetQuotaExceededFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Tag = (
@@ -4504,6 +4790,32 @@ const deserializeAws_json1_1TagList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
+};
+
+const deserializeAws_json1_1TagNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): TagNotFoundFault => {
+  return {
+    __type: "TagNotFoundFault",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
+};
+
+const deserializeAws_json1_1TagQuotaPerResourceExceeded = (
+  output: any,
+  context: __SerdeContext
+): TagQuotaPerResourceExceeded => {
+  return {
+    __type: "TagQuotaPerResourceExceeded",
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagResourceResponse = (
@@ -4567,318 +4879,6 @@ const deserializeAws_json1_1UpdateSubnetGroupResponse = (
     SubnetGroup:
       output.SubnetGroup !== undefined && output.SubnetGroup !== null
         ? deserializeAws_json1_1SubnetGroup(output.SubnetGroup, context)
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ClusterAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterAlreadyExistsFault => {
-  return {
-    __type: "ClusterAlreadyExistsFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ClusterNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterNotFoundFault => {
-  return {
-    __type: "ClusterNotFoundFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ClusterQuotaForCustomerExceededFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterQuotaForCustomerExceededFault => {
-  return {
-    __type: "ClusterQuotaForCustomerExceededFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InsufficientClusterCapacityFault = (
-  output: any,
-  context: __SerdeContext
-): InsufficientClusterCapacityFault => {
-  return {
-    __type: "InsufficientClusterCapacityFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidARNFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidARNFault => {
-  return {
-    __type: "InvalidARNFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidClusterStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidClusterStateFault => {
-  return {
-    __type: "InvalidClusterStateFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidParameterGroupStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterGroupStateFault => {
-  return {
-    __type: "InvalidParameterGroupStateFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidSubnet = (
-  output: any,
-  context: __SerdeContext
-): InvalidSubnet => {
-  return {
-    __type: "InvalidSubnet",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidVPCNetworkStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidVPCNetworkStateFault => {
-  return {
-    __type: "InvalidVPCNetworkStateFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1NodeNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): NodeNotFoundFault => {
-  return {
-    __type: "NodeNotFoundFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1NodeQuotaForClusterExceededFault = (
-  output: any,
-  context: __SerdeContext
-): NodeQuotaForClusterExceededFault => {
-  return {
-    __type: "NodeQuotaForClusterExceededFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1NodeQuotaForCustomerExceededFault = (
-  output: any,
-  context: __SerdeContext
-): NodeQuotaForCustomerExceededFault => {
-  return {
-    __type: "NodeQuotaForCustomerExceededFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ParameterGroupAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): ParameterGroupAlreadyExistsFault => {
-  return {
-    __type: "ParameterGroupAlreadyExistsFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ParameterGroupNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): ParameterGroupNotFoundFault => {
-  return {
-    __type: "ParameterGroupNotFoundFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ParameterGroupQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): ParameterGroupQuotaExceededFault => {
-  return {
-    __type: "ParameterGroupQuotaExceededFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ServiceLinkedRoleNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): ServiceLinkedRoleNotFoundFault => {
-  return {
-    __type: "ServiceLinkedRoleNotFoundFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1SubnetGroupAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): SubnetGroupAlreadyExistsFault => {
-  return {
-    __type: "SubnetGroupAlreadyExistsFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1SubnetGroupInUseFault = (
-  output: any,
-  context: __SerdeContext
-): SubnetGroupInUseFault => {
-  return {
-    __type: "SubnetGroupInUseFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1SubnetGroupNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): SubnetGroupNotFoundFault => {
-  return {
-    __type: "SubnetGroupNotFoundFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1SubnetGroupQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): SubnetGroupQuotaExceededFault => {
-  return {
-    __type: "SubnetGroupQuotaExceededFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1SubnetInUse = (
-  output: any,
-  context: __SerdeContext
-): SubnetInUse => {
-  return {
-    __type: "SubnetInUse",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1SubnetQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): SubnetQuotaExceededFault => {
-  return {
-    __type: "SubnetQuotaExceededFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1TagNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): TagNotFoundFault => {
-  return {
-    __type: "TagNotFoundFault",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1TagQuotaPerResourceExceeded = (
-  output: any,
-  context: __SerdeContext
-): TagQuotaPerResourceExceeded => {
-  return {
-    __type: "TagQuotaPerResourceExceeded",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
         : undefined
   } as any;
 };

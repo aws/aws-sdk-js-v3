@@ -5,9 +5,9 @@ import {
 } from "../SageMakerA2IRuntimeClient";
 import { StopHumanLoopRequest, StopHumanLoopResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1StopHumanLoopCommand,
-  serializeAws_restJson1_1StopHumanLoopCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1StopHumanLoopCommand,
+  serializeAws_restJson1StopHumanLoopCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class StopHumanLoopCommand extends $Command<
     input: StopHumanLoopCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StopHumanLoopCommand(input, context);
+    return serializeAws_restJson1StopHumanLoopCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopHumanLoopCommandOutput> {
-    return deserializeAws_restJson1_1StopHumanLoopCommand(output, context);
+    return deserializeAws_restJson1StopHumanLoopCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -8,9 +8,9 @@ import {
   BatchImportFindingsResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1BatchImportFindingsCommand,
-  serializeAws_restJson1_1BatchImportFindingsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1BatchImportFindingsCommand,
+  serializeAws_restJson1BatchImportFindingsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class BatchImportFindingsCommand extends $Command<
     input: BatchImportFindingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1BatchImportFindingsCommand(input, context);
+    return serializeAws_restJson1BatchImportFindingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchImportFindingsCommandOutput> {
-    return deserializeAws_restJson1_1BatchImportFindingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1BatchImportFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

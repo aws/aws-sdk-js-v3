@@ -1028,28 +1028,6 @@ export namespace CreateSolutionVersionResponse {
 }
 
 /**
- * <p>Describes the data source that contains the data to upload to a dataset.</p>
- */
-export interface DataSource {
-  __type?: "DataSource";
-  /**
-   * <p>The path to the Amazon S3 bucket where the data that you want to upload to your dataset is
-   *       stored. For example: </p>
-   *          <p>
-   *             <code>s3://bucket-name/training-data.csv</code>
-   *          </p>
-   */
-  dataLocation?: string;
-}
-
-export namespace DataSource {
-  export const filterSensitiveLog = (obj: DataSource): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DataSource => __isa(o, "DataSource");
-}
-
-/**
  * <p>Provides metadata for a dataset.</p>
  */
 export interface Dataset {
@@ -1508,6 +1486,28 @@ export namespace DatasetSummary {
   });
   export const isa = (o: any): o is DatasetSummary =>
     __isa(o, "DatasetSummary");
+}
+
+/**
+ * <p>Describes the data source that contains the data to upload to a dataset.</p>
+ */
+export interface DataSource {
+  __type?: "DataSource";
+  /**
+   * <p>The path to the Amazon S3 bucket where the data that you want to upload to your dataset is
+   *       stored. For example: </p>
+   *          <p>
+   *             <code>s3://bucket-name/training-data.csv</code>
+   *          </p>
+   */
+  dataLocation?: string;
+}
+
+export namespace DataSource {
+  export const filterSensitiveLog = (obj: DataSource): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DataSource => __isa(o, "DataSource");
 }
 
 /**
@@ -2520,6 +2520,63 @@ export namespace IntegerHyperParameterRange {
     __isa(o, "IntegerHyperParameterRange");
 }
 
+/**
+ * <p>Provide a valid value for the field or parameter.</p>
+ */
+export interface InvalidInputException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidInputException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidInputException {
+  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidInputException =>
+    __isa(o, "InvalidInputException");
+}
+
+/**
+ * <p>The token is not valid.</p>
+ */
+export interface InvalidNextTokenException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidNextTokenException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidNextTokenException {
+  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidNextTokenException =>
+    __isa(o, "InvalidNextTokenException");
+}
+
+/**
+ * <p>The limit on the number of requests per second has been exceeded.</p>
+ */
+export interface LimitExceededException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
+}
+
 export interface ListBatchInferenceJobsRequest {
   __type?: "ListBatchInferenceJobsRequest";
   /**
@@ -2906,6 +2963,54 @@ export namespace ListSchemasResponse {
     __isa(o, "ListSchemasResponse");
 }
 
+export interface ListSolutionsRequest {
+  __type?: "ListSolutionsRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
+   */
+  datasetGroupArn?: string;
+
+  /**
+   * <p>The maximum number of solutions to return.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>A token returned from the previous call to <code>ListSolutions</code> for getting
+   *       the next set of solutions (if they exist).</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListSolutionsRequest {
+  export const filterSensitiveLog = (obj: ListSolutionsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListSolutionsRequest =>
+    __isa(o, "ListSolutionsRequest");
+}
+
+export interface ListSolutionsResponse {
+  __type?: "ListSolutionsResponse";
+  /**
+   * <p>A token for getting the next set of solutions (if they exist).</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>A list of the current solutions.</p>
+   */
+  solutions?: SolutionSummary[];
+}
+
+export namespace ListSolutionsResponse {
+  export const filterSensitiveLog = (obj: ListSolutionsResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListSolutionsResponse =>
+    __isa(o, "ListSolutionsResponse");
+}
+
 export interface ListSolutionVersionsRequest {
   __type?: "ListSolutionVersionsRequest";
   /**
@@ -2956,54 +3061,6 @@ export namespace ListSolutionVersionsResponse {
   });
   export const isa = (o: any): o is ListSolutionVersionsResponse =>
     __isa(o, "ListSolutionVersionsResponse");
-}
-
-export interface ListSolutionsRequest {
-  __type?: "ListSolutionsRequest";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
-   */
-  datasetGroupArn?: string;
-
-  /**
-   * <p>The maximum number of solutions to return.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>A token returned from the previous call to <code>ListSolutions</code> for getting
-   *       the next set of solutions (if they exist).</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListSolutionsRequest {
-  export const filterSensitiveLog = (obj: ListSolutionsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListSolutionsRequest =>
-    __isa(o, "ListSolutionsRequest");
-}
-
-export interface ListSolutionsResponse {
-  __type?: "ListSolutionsResponse";
-  /**
-   * <p>A token for getting the next set of solutions (if they exist).</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>A list of the current solutions.</p>
-   */
-  solutions?: SolutionSummary[];
-}
-
-export namespace ListSolutionsResponse {
-  export const filterSensitiveLog = (obj: ListSolutionsResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListSolutionsResponse =>
-    __isa(o, "ListSolutionsResponse");
 }
 
 /**
@@ -3119,6 +3176,65 @@ export namespace RecipeSummary {
     ...obj
   });
   export const isa = (o: any): o is RecipeSummary => __isa(o, "RecipeSummary");
+}
+
+/**
+ * <p>The specified resource already exists.</p>
+ */
+export interface ResourceAlreadyExistsException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceAlreadyExistsException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceAlreadyExistsException {
+  export const filterSensitiveLog = (
+    obj: ResourceAlreadyExistsException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceAlreadyExistsException =>
+    __isa(o, "ResourceAlreadyExistsException");
+}
+
+/**
+ * <p>The specified resource is in use.</p>
+ */
+export interface ResourceInUseException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceInUseException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceInUseException {
+  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceInUseException =>
+    __isa(o, "ResourceInUseException");
+}
+
+/**
+ * <p>Could not find the specified resource.</p>
+ */
+export interface ResourceNotFoundException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -3533,120 +3649,4 @@ export namespace UpdateCampaignResponse {
   });
   export const isa = (o: any): o is UpdateCampaignResponse =>
     __isa(o, "UpdateCampaignResponse");
-}
-
-/**
- * <p>Provide a valid value for the field or parameter.</p>
- */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidInputException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidInputException {
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
-}
-
-/**
- * <p>The token is not valid.</p>
- */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidNextTokenException {
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidNextTokenException =>
-    __isa(o, "InvalidNextTokenException");
-}
-
-/**
- * <p>The limit on the number of requests per second has been exceeded.</p>
- */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
-}
-
-/**
- * <p>The specified resource already exists.</p>
- */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: ResourceAlreadyExistsException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceAlreadyExistsException =>
-    __isa(o, "ResourceAlreadyExistsException");
-}
-
-/**
- * <p>The specified resource is in use.</p>
- */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceInUseException {
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
-}
-
-/**
- * <p>Could not find the specified resource.</p>
- */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
 }

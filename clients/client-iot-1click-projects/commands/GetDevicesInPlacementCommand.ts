@@ -8,9 +8,9 @@ import {
   GetDevicesInPlacementResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetDevicesInPlacementCommand,
-  serializeAws_restJson1_1GetDevicesInPlacementCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetDevicesInPlacementCommand,
+  serializeAws_restJson1GetDevicesInPlacementCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class GetDevicesInPlacementCommand extends $Command<
     input: GetDevicesInPlacementCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDevicesInPlacementCommand(input, context);
+    return serializeAws_restJson1GetDevicesInPlacementCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDevicesInPlacementCommandOutput> {
-    return deserializeAws_restJson1_1GetDevicesInPlacementCommand(
+    return deserializeAws_restJson1GetDevicesInPlacementCommand(
       output,
       context
     );

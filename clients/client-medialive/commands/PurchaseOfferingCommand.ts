@@ -8,9 +8,9 @@ import {
   PurchaseOfferingResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1PurchaseOfferingCommand,
-  serializeAws_restJson1_1PurchaseOfferingCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1PurchaseOfferingCommand,
+  serializeAws_restJson1PurchaseOfferingCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class PurchaseOfferingCommand extends $Command<
     input: PurchaseOfferingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PurchaseOfferingCommand(input, context);
+    return serializeAws_restJson1PurchaseOfferingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseOfferingCommandOutput> {
-    return deserializeAws_restJson1_1PurchaseOfferingCommand(output, context);
+    return deserializeAws_restJson1PurchaseOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

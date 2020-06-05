@@ -5,15 +5,6 @@ import {
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum APIName {
-  GET_DASH_STREAMING_SESSION_URL = "GET_DASH_STREAMING_SESSION_URL",
-  GET_HLS_STREAMING_SESSION_URL = "GET_HLS_STREAMING_SESSION_URL",
-  GET_MEDIA = "GET_MEDIA",
-  GET_MEDIA_FOR_FRAGMENT_LIST = "GET_MEDIA_FOR_FRAGMENT_LIST",
-  LIST_FRAGMENTS = "LIST_FRAGMENTS",
-  PUT_MEDIA = "PUT_MEDIA"
-}
-
 /**
  * <p>You do not have required permissions to perform this operation.</p>
  */
@@ -74,6 +65,15 @@ export namespace AccountStreamLimitExceededException {
   });
   export const isa = (o: any): o is AccountStreamLimitExceededException =>
     __isa(o, "AccountStreamLimitExceededException");
+}
+
+export enum APIName {
+  GET_DASH_STREAMING_SESSION_URL = "GET_DASH_STREAMING_SESSION_URL",
+  GET_HLS_STREAMING_SESSION_URL = "GET_HLS_STREAMING_SESSION_URL",
+  GET_MEDIA = "GET_MEDIA",
+  GET_MEDIA_FOR_FRAGMENT_LIST = "GET_MEDIA_FOR_FRAGMENT_LIST",
+  LIST_FRAGMENTS = "LIST_FRAGMENTS",
+  PUT_MEDIA = "PUT_MEDIA"
 }
 
 /**
@@ -1145,6 +1145,28 @@ export namespace TagResourceOutput {
     __isa(o, "TagResourceOutput");
 }
 
+/**
+ * <p>You have exceeded the limit of tags that you can associate with the resource.
+ *             Kinesis video streams support up to 50 tags. </p>
+ */
+export interface TagsPerResourceExceededLimitException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "TagsPerResourceExceededLimitException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TagsPerResourceExceededLimitException {
+  export const filterSensitiveLog = (
+    obj: TagsPerResourceExceededLimitException
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TagsPerResourceExceededLimitException =>
+    __isa(o, "TagsPerResourceExceededLimitException");
+}
+
 export interface TagStreamInput {
   __type?: "TagStreamInput";
   /**
@@ -1183,28 +1205,6 @@ export namespace TagStreamOutput {
   });
   export const isa = (o: any): o is TagStreamOutput =>
     __isa(o, "TagStreamOutput");
-}
-
-/**
- * <p>You have exceeded the limit of tags that you can associate with the resource.
- *             Kinesis video streams support up to 50 tags. </p>
- */
-export interface TagsPerResourceExceededLimitException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TagsPerResourceExceededLimitException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TagsPerResourceExceededLimitException {
-  export const filterSensitiveLog = (
-    obj: TagsPerResourceExceededLimitException
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TagsPerResourceExceededLimitException =>
-    __isa(o, "TagsPerResourceExceededLimitException");
 }
 
 export interface UntagResourceInput {

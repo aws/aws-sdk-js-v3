@@ -8,9 +8,9 @@ import {
   UpdateMultiplexProgramResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateMultiplexProgramCommand,
-  serializeAws_restJson1_1UpdateMultiplexProgramCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateMultiplexProgramCommand,
+  serializeAws_restJson1UpdateMultiplexProgramCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class UpdateMultiplexProgramCommand extends $Command<
     input: UpdateMultiplexProgramCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateMultiplexProgramCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1UpdateMultiplexProgramCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateMultiplexProgramCommandOutput> {
-    return deserializeAws_restJson1_1UpdateMultiplexProgramCommand(
+    return deserializeAws_restJson1UpdateMultiplexProgramCommand(
       output,
       context
     );

@@ -8,9 +8,9 @@ import {
   GetPlaybackConfigurationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetPlaybackConfigurationCommand,
-  serializeAws_restJson1_1GetPlaybackConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetPlaybackConfigurationCommand,
+  serializeAws_restJson1GetPlaybackConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetPlaybackConfigurationCommand extends $Command<
     input: GetPlaybackConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetPlaybackConfigurationCommand(
+    return serializeAws_restJson1GetPlaybackConfigurationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetPlaybackConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPlaybackConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1GetPlaybackConfigurationCommand(
+    return deserializeAws_restJson1GetPlaybackConfigurationCommand(
       output,
       context
     );

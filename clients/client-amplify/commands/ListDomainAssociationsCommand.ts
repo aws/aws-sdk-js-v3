@@ -8,9 +8,9 @@ import {
   ListDomainAssociationsResult
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListDomainAssociationsCommand,
-  serializeAws_restJson1_1ListDomainAssociationsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListDomainAssociationsCommand,
+  serializeAws_restJson1ListDomainAssociationsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class ListDomainAssociationsCommand extends $Command<
     input: ListDomainAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListDomainAssociationsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1ListDomainAssociationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDomainAssociationsCommandOutput> {
-    return deserializeAws_restJson1_1ListDomainAssociationsCommand(
+    return deserializeAws_restJson1ListDomainAssociationsCommand(
       output,
       context
     );

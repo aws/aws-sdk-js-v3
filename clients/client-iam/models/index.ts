@@ -303,6 +303,70 @@ export namespace AddUserToGroupRequest {
     __isa(o, "AddUserToGroupRequest");
 }
 
+export type AssignmentStatusType = "Any" | "Assigned" | "Unassigned";
+
+/**
+ * <p>Contains information about an attached permissions boundary.</p>
+ *          <p>An attached permissions boundary is a managed policy that has been attached to a user or
+ *          role to set the permissions boundary.</p>
+ *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions Boundaries for IAM
+ *             Identities </a> in the <i>IAM User Guide</i>.</p>
+ */
+export interface AttachedPermissionsBoundary {
+  __type?: "AttachedPermissionsBoundary";
+  /**
+   * <p> The ARN of the policy used to set the permissions boundary for the user or role.</p>
+   */
+  PermissionsBoundaryArn?: string;
+
+  /**
+   * <p> The permissions boundary usage type that indicates what type of IAM resource is used
+   *          as the permissions boundary for an entity. This data type can only have a value of
+   *             <code>Policy</code>.</p>
+   */
+  PermissionsBoundaryType?: PermissionsBoundaryAttachmentType | string;
+}
+
+export namespace AttachedPermissionsBoundary {
+  export const filterSensitiveLog = (
+    obj: AttachedPermissionsBoundary
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AttachedPermissionsBoundary =>
+    __isa(o, "AttachedPermissionsBoundary");
+}
+
+/**
+ * <p>Contains information about an attached policy.</p>
+ *          <p>An attached policy is a managed policy that has been attached to a user, group, or role.
+ *          This data type is used as a response element in the <a>ListAttachedGroupPolicies</a>, <a>ListAttachedRolePolicies</a>, <a>ListAttachedUserPolicies</a>, and <a>GetAccountAuthorizationDetails</a> operations. </p>
+ *          <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
+ *             Policies</a> in the <i>IAM User Guide</i>. </p>
+ */
+export interface AttachedPolicy {
+  __type?: "AttachedPolicy";
+  /**
+   * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p>
+   *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS
+   *             Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
+   */
+  PolicyArn?: string;
+
+  /**
+   * <p>The friendly name of the attached policy.</p>
+   */
+  PolicyName?: string;
+}
+
+export namespace AttachedPolicy {
+  export const filterSensitiveLog = (obj: AttachedPolicy): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AttachedPolicy =>
+    __isa(o, "AttachedPolicy");
+}
+
 export interface AttachGroupPolicyRequest {
   __type?: "AttachGroupPolicyRequest";
   /**
@@ -376,68 +440,6 @@ export namespace AttachUserPolicyRequest {
   });
   export const isa = (o: any): o is AttachUserPolicyRequest =>
     __isa(o, "AttachUserPolicyRequest");
-}
-
-/**
- * <p>Contains information about an attached permissions boundary.</p>
- *          <p>An attached permissions boundary is a managed policy that has been attached to a user or
- *          role to set the permissions boundary.</p>
- *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions Boundaries for IAM
- *             Identities </a> in the <i>IAM User Guide</i>.</p>
- */
-export interface AttachedPermissionsBoundary {
-  __type?: "AttachedPermissionsBoundary";
-  /**
-   * <p> The ARN of the policy used to set the permissions boundary for the user or role.</p>
-   */
-  PermissionsBoundaryArn?: string;
-
-  /**
-   * <p> The permissions boundary usage type that indicates what type of IAM resource is used
-   *          as the permissions boundary for an entity. This data type can only have a value of
-   *             <code>Policy</code>.</p>
-   */
-  PermissionsBoundaryType?: PermissionsBoundaryAttachmentType | string;
-}
-
-export namespace AttachedPermissionsBoundary {
-  export const filterSensitiveLog = (
-    obj: AttachedPermissionsBoundary
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AttachedPermissionsBoundary =>
-    __isa(o, "AttachedPermissionsBoundary");
-}
-
-/**
- * <p>Contains information about an attached policy.</p>
- *          <p>An attached policy is a managed policy that has been attached to a user, group, or role.
- *          This data type is used as a response element in the <a>ListAttachedGroupPolicies</a>, <a>ListAttachedRolePolicies</a>, <a>ListAttachedUserPolicies</a>, and <a>GetAccountAuthorizationDetails</a> operations. </p>
- *          <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
- *             Policies</a> in the <i>IAM User Guide</i>. </p>
- */
-export interface AttachedPolicy {
-  __type?: "AttachedPolicy";
-  /**
-   * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p>
-   *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS
-   *             Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
-   */
-  PolicyArn?: string;
-
-  /**
-   * <p>The friendly name of the attached policy.</p>
-   */
-  PolicyName?: string;
-}
-
-export namespace AttachedPolicy {
-  export const filterSensitiveLog = (obj: AttachedPolicy): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AttachedPolicy =>
-    __isa(o, "AttachedPolicy");
 }
 
 export interface ChangePasswordRequest {
@@ -1799,31 +1801,6 @@ export namespace DeleteSAMLProviderRequest {
     __isa(o, "DeleteSAMLProviderRequest");
 }
 
-export interface DeleteSSHPublicKeyRequest {
-  __type?: "DeleteSSHPublicKeyRequest";
-  /**
-   * <p>The unique identifier for the SSH public key.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
-   *     consist of any upper or lowercased letter or digit.</p>
-   */
-  SSHPublicKeyId: string | undefined;
-
-  /**
-   * <p>The name of the IAM user associated with the SSH public key.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  UserName: string | undefined;
-}
-
-export namespace DeleteSSHPublicKeyRequest {
-  export const filterSensitiveLog = (obj: DeleteSSHPublicKeyRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DeleteSSHPublicKeyRequest =>
-    __isa(o, "DeleteSSHPublicKeyRequest");
-}
-
 export interface DeleteServerCertificateRequest {
   __type?: "DeleteServerCertificateRequest";
   /**
@@ -1937,6 +1914,31 @@ export namespace DeleteSigningCertificateRequest {
   });
   export const isa = (o: any): o is DeleteSigningCertificateRequest =>
     __isa(o, "DeleteSigningCertificateRequest");
+}
+
+export interface DeleteSSHPublicKeyRequest {
+  __type?: "DeleteSSHPublicKeyRequest";
+  /**
+   * <p>The unique identifier for the SSH public key.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
+   *     consist of any upper or lowercased letter or digit.</p>
+   */
+  SSHPublicKeyId: string | undefined;
+
+  /**
+   * <p>The name of the IAM user associated with the SSH public key.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  UserName: string | undefined;
+}
+
+export namespace DeleteSSHPublicKeyRequest {
+  export const filterSensitiveLog = (obj: DeleteSSHPublicKeyRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DeleteSSHPublicKeyRequest =>
+    __isa(o, "DeleteSSHPublicKeyRequest");
 }
 
 export interface DeleteUserPermissionsBoundaryRequest {
@@ -2234,6 +2236,8 @@ export namespace EnableMFADeviceRequest {
   export const isa = (o: any): o is EnableMFADeviceRequest =>
     __isa(o, "EnableMFADeviceRequest");
 }
+
+export type EncodingType = "PEM" | "SSH";
 
 /**
  * <p>The request was rejected because it attempted to create a resource that already
@@ -3527,58 +3531,6 @@ export namespace GetSAMLProviderResponse {
     __isa(o, "GetSAMLProviderResponse");
 }
 
-export interface GetSSHPublicKeyRequest {
-  __type?: "GetSSHPublicKeyRequest";
-  /**
-   * <p>Specifies the public key encoding format to use in the response. To retrieve the public
-   *          key in ssh-rsa format, use <code>SSH</code>. To retrieve the public key in PEM format, use
-   *             <code>PEM</code>.</p>
-   */
-  Encoding: EncodingType | string | undefined;
-
-  /**
-   * <p>The unique identifier for the SSH public key.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
-   *     consist of any upper or lowercased letter or digit.</p>
-   */
-  SSHPublicKeyId: string | undefined;
-
-  /**
-   * <p>The name of the IAM user associated with the SSH public key.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  UserName: string | undefined;
-}
-
-export namespace GetSSHPublicKeyRequest {
-  export const filterSensitiveLog = (obj: GetSSHPublicKeyRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetSSHPublicKeyRequest =>
-    __isa(o, "GetSSHPublicKeyRequest");
-}
-
-/**
- * <p>Contains the response to a successful <a>GetSSHPublicKey</a>
- *       request.</p>
- */
-export interface GetSSHPublicKeyResponse {
-  __type?: "GetSSHPublicKeyResponse";
-  /**
-   * <p>A structure containing details about the SSH public key.</p>
-   */
-  SSHPublicKey?: SSHPublicKey;
-}
-
-export namespace GetSSHPublicKeyResponse {
-  export const filterSensitiveLog = (obj: GetSSHPublicKeyResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetSSHPublicKeyResponse =>
-    __isa(o, "GetSSHPublicKeyResponse");
-}
-
 export interface GetServerCertificateRequest {
   __type?: "GetServerCertificateRequest";
   /**
@@ -3881,6 +3833,58 @@ export namespace GetServiceLinkedRoleDeletionStatusResponse {
     __isa(o, "GetServiceLinkedRoleDeletionStatusResponse");
 }
 
+export interface GetSSHPublicKeyRequest {
+  __type?: "GetSSHPublicKeyRequest";
+  /**
+   * <p>Specifies the public key encoding format to use in the response. To retrieve the public
+   *          key in ssh-rsa format, use <code>SSH</code>. To retrieve the public key in PEM format, use
+   *             <code>PEM</code>.</p>
+   */
+  Encoding: EncodingType | string | undefined;
+
+  /**
+   * <p>The unique identifier for the SSH public key.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
+   *     consist of any upper or lowercased letter or digit.</p>
+   */
+  SSHPublicKeyId: string | undefined;
+
+  /**
+   * <p>The name of the IAM user associated with the SSH public key.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  UserName: string | undefined;
+}
+
+export namespace GetSSHPublicKeyRequest {
+  export const filterSensitiveLog = (obj: GetSSHPublicKeyRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetSSHPublicKeyRequest =>
+    __isa(o, "GetSSHPublicKeyRequest");
+}
+
+/**
+ * <p>Contains the response to a successful <a>GetSSHPublicKey</a>
+ *       request.</p>
+ */
+export interface GetSSHPublicKeyResponse {
+  __type?: "GetSSHPublicKeyResponse";
+  /**
+   * <p>A structure containing details about the SSH public key.</p>
+   */
+  SSHPublicKey?: SSHPublicKey;
+}
+
+export namespace GetSSHPublicKeyResponse {
+  export const filterSensitiveLog = (obj: GetSSHPublicKeyResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetSSHPublicKeyResponse =>
+    __isa(o, "GetSSHPublicKeyResponse");
+}
+
 export interface GetUserPolicyRequest {
   __type?: "GetUserPolicyRequest";
   /**
@@ -3990,6 +3994,11 @@ export namespace GetUserResponse {
   });
   export const isa = (o: any): o is GetUserResponse =>
     __isa(o, "GetUserResponse");
+}
+
+export enum GlobalEndpointTokenVersion {
+  v1Token = "v1Token",
+  v2Token = "v2Token"
 }
 
 /**
@@ -4282,6 +4291,8 @@ export namespace InvalidUserTypeException {
   export const isa = (o: any): o is InvalidUserTypeException =>
     __isa(o, "InvalidUserTypeException");
 }
+
+export type JobStatusType = "COMPLETED" | "FAILED" | "IN_PROGRESS";
 
 /**
  * <p>The request was rejected because the public key certificate and the private key do not
@@ -5729,76 +5740,6 @@ export namespace ListRolePoliciesResponse {
     __isa(o, "ListRolePoliciesResponse");
 }
 
-export interface ListRoleTagsRequest {
-  __type?: "ListRoleTagsRequest";
-  /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>(Optional) Use this only when paginating results to indicate the
-   *     maximum number of items that you want in the response. If additional items exist beyond the maximum that you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
-   *          <p>If you do not include this parameter, it defaults to 100. Note that
-   *     IAM might return fewer results, even when more results are available. In that case, the
-   *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
-   *     contains a value to include in the subsequent call that tells the service where to continue
-   *     from.</p>
-   */
-  MaxItems?: number;
-
-  /**
-   * <p>The name of the IAM role for which you want to see the list of tags.</p>
-   *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  RoleName: string | undefined;
-}
-
-export namespace ListRoleTagsRequest {
-  export const filterSensitiveLog = (obj: ListRoleTagsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListRoleTagsRequest =>
-    __isa(o, "ListRoleTagsRequest");
-}
-
-export interface ListRoleTagsResponse {
-  __type?: "ListRoleTagsResponse";
-  /**
-   * <p>A flag that indicates whether there are more items to return. If your
-   *     results were truncated, you can use the <code>Marker</code> request parameter to make a subsequent pagination request that retrieves more items. Note that IAM might return fewer than the
-   *     <code>MaxItems</code> number of results even when more results are available. Check <code>IsTruncated</code> after every call to ensure that you receive all of your
-   *     results.</p>
-   */
-  IsTruncated?: boolean;
-
-  /**
-   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
-   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
-   *     pagination request.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The list of tags currently that is attached to the role. Each tag consists of a key
-   *       name and an associated value. If no tags are attached to the specified role, the response
-   *       contains an empty list.</p>
-   */
-  Tags: Tag[] | undefined;
-}
-
-export namespace ListRoleTagsResponse {
-  export const filterSensitiveLog = (obj: ListRoleTagsResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListRoleTagsResponse =>
-    __isa(o, "ListRoleTagsResponse");
-}
-
 export interface ListRolesRequest {
   __type?: "ListRolesRequest";
   /**
@@ -5878,6 +5819,76 @@ export namespace ListRolesResponse {
     __isa(o, "ListRolesResponse");
 }
 
+export interface ListRoleTagsRequest {
+  __type?: "ListRoleTagsRequest";
+  /**
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>(Optional) Use this only when paginating results to indicate the
+   *     maximum number of items that you want in the response. If additional items exist beyond the maximum that you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
+   *          <p>If you do not include this parameter, it defaults to 100. Note that
+   *     IAM might return fewer results, even when more results are available. In that case, the
+   *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
+   *     contains a value to include in the subsequent call that tells the service where to continue
+   *     from.</p>
+   */
+  MaxItems?: number;
+
+  /**
+   * <p>The name of the IAM role for which you want to see the list of tags.</p>
+   *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  RoleName: string | undefined;
+}
+
+export namespace ListRoleTagsRequest {
+  export const filterSensitiveLog = (obj: ListRoleTagsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListRoleTagsRequest =>
+    __isa(o, "ListRoleTagsRequest");
+}
+
+export interface ListRoleTagsResponse {
+  __type?: "ListRoleTagsResponse";
+  /**
+   * <p>A flag that indicates whether there are more items to return. If your
+   *     results were truncated, you can use the <code>Marker</code> request parameter to make a subsequent pagination request that retrieves more items. Note that IAM might return fewer than the
+   *     <code>MaxItems</code> number of results even when more results are available. Check <code>IsTruncated</code> after every call to ensure that you receive all of your
+   *     results.</p>
+   */
+  IsTruncated?: boolean;
+
+  /**
+   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
+   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
+   *     pagination request.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The list of tags currently that is attached to the role. Each tag consists of a key
+   *       name and an associated value. If no tags are attached to the specified role, the response
+   *       contains an empty list.</p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+export namespace ListRoleTagsResponse {
+  export const filterSensitiveLog = (obj: ListRoleTagsResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListRoleTagsResponse =>
+    __isa(o, "ListRoleTagsResponse");
+}
+
 export interface ListSAMLProvidersRequest {
   __type?: "ListSAMLProvidersRequest";
 }
@@ -5909,83 +5920,6 @@ export namespace ListSAMLProvidersResponse {
   });
   export const isa = (o: any): o is ListSAMLProvidersResponse =>
     __isa(o, "ListSAMLProvidersResponse");
-}
-
-export interface ListSSHPublicKeysRequest {
-  __type?: "ListSSHPublicKeysRequest";
-  /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>Use this only when paginating results to indicate the
-   *     maximum number of items you want in the response. If additional items exist beyond the maximum
-   *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
-   *          <p>If you do not include this parameter, the number of items defaults to 100. Note that
-   *     IAM might return fewer results, even when there are more results available. In that case, the
-   *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
-   *     contains a value to include in the subsequent call that tells the service where to continue
-   *     from.</p>
-   */
-  MaxItems?: number;
-
-  /**
-   * <p>The name of the IAM user to list SSH public keys for. If none is specified, the
-   *             <code>UserName</code> field is determined implicitly based on the AWS access key used
-   *          to sign the request.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  UserName?: string;
-}
-
-export namespace ListSSHPublicKeysRequest {
-  export const filterSensitiveLog = (obj: ListSSHPublicKeysRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListSSHPublicKeysRequest =>
-    __isa(o, "ListSSHPublicKeysRequest");
-}
-
-/**
- * <p>Contains the response to a successful <a>ListSSHPublicKeys</a>
- *       request.</p>
- */
-export interface ListSSHPublicKeysResponse {
-  __type?: "ListSSHPublicKeysResponse";
-  /**
-   * <p>A flag that indicates whether there are more items to return. If your
-   *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
-   *     request parameter to retrieve more items. Note that IAM might return fewer than the
-   *     <code>MaxItems</code> number of results even when there are more results available. We recommend
-   *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
-   *     results.</p>
-   */
-  IsTruncated?: boolean;
-
-  /**
-   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
-   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
-   *     pagination request.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>A list of the SSH public keys assigned to IAM user.</p>
-   */
-  SSHPublicKeys?: SSHPublicKeyMetadata[];
-}
-
-export namespace ListSSHPublicKeysResponse {
-  export const filterSensitiveLog = (obj: ListSSHPublicKeysResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListSSHPublicKeysResponse =>
-    __isa(o, "ListSSHPublicKeysResponse");
 }
 
 export interface ListServerCertificatesRequest {
@@ -6198,6 +6132,83 @@ export namespace ListSigningCertificatesResponse {
     __isa(o, "ListSigningCertificatesResponse");
 }
 
+export interface ListSSHPublicKeysRequest {
+  __type?: "ListSSHPublicKeysRequest";
+  /**
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>Use this only when paginating results to indicate the
+   *     maximum number of items you want in the response. If additional items exist beyond the maximum
+   *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
+   *          <p>If you do not include this parameter, the number of items defaults to 100. Note that
+   *     IAM might return fewer results, even when there are more results available. In that case, the
+   *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
+   *     contains a value to include in the subsequent call that tells the service where to continue
+   *     from.</p>
+   */
+  MaxItems?: number;
+
+  /**
+   * <p>The name of the IAM user to list SSH public keys for. If none is specified, the
+   *             <code>UserName</code> field is determined implicitly based on the AWS access key used
+   *          to sign the request.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  UserName?: string;
+}
+
+export namespace ListSSHPublicKeysRequest {
+  export const filterSensitiveLog = (obj: ListSSHPublicKeysRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListSSHPublicKeysRequest =>
+    __isa(o, "ListSSHPublicKeysRequest");
+}
+
+/**
+ * <p>Contains the response to a successful <a>ListSSHPublicKeys</a>
+ *       request.</p>
+ */
+export interface ListSSHPublicKeysResponse {
+  __type?: "ListSSHPublicKeysResponse";
+  /**
+   * <p>A flag that indicates whether there are more items to return. If your
+   *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
+   *     request parameter to retrieve more items. Note that IAM might return fewer than the
+   *     <code>MaxItems</code> number of results even when there are more results available. We recommend
+   *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
+   *     results.</p>
+   */
+  IsTruncated?: boolean;
+
+  /**
+   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
+   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
+   *     pagination request.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A list of the SSH public keys assigned to IAM user.</p>
+   */
+  SSHPublicKeys?: SSHPublicKeyMetadata[];
+}
+
+export namespace ListSSHPublicKeysResponse {
+  export const filterSensitiveLog = (obj: ListSSHPublicKeysResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListSSHPublicKeysResponse =>
+    __isa(o, "ListSSHPublicKeysResponse");
+}
+
 export interface ListUserPoliciesRequest {
   __type?: "ListUserPoliciesRequest";
   /**
@@ -6271,76 +6282,6 @@ export namespace ListUserPoliciesResponse {
   });
   export const isa = (o: any): o is ListUserPoliciesResponse =>
     __isa(o, "ListUserPoliciesResponse");
-}
-
-export interface ListUserTagsRequest {
-  __type?: "ListUserTagsRequest";
-  /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>(Optional) Use this only when paginating results to indicate the
-   *     maximum number of items that you want in the response. If additional items exist beyond the maximum that you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
-   *          <p>If you do not include this parameter, it defaults to 100. Note that
-   *     IAM might return fewer results, even when more results are available. In that case, the
-   *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
-   *     contains a value to include in the subsequent call that tells the service where to continue
-   *     from.</p>
-   */
-  MaxItems?: number;
-
-  /**
-   * <p>The name of the IAM user whose tags you want to see.</p>
-   *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: =,.@-</p>
-   */
-  UserName: string | undefined;
-}
-
-export namespace ListUserTagsRequest {
-  export const filterSensitiveLog = (obj: ListUserTagsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListUserTagsRequest =>
-    __isa(o, "ListUserTagsRequest");
-}
-
-export interface ListUserTagsResponse {
-  __type?: "ListUserTagsResponse";
-  /**
-   * <p>A flag that indicates whether there are more items to return. If your
-   *     results were truncated, you can use the <code>Marker</code> request parameter to make a subsequent pagination request that retrieves more items. Note that IAM might return fewer than the
-   *     <code>MaxItems</code> number of results even when more results are available. Check <code>IsTruncated</code> after every call to ensure that you receive all of your
-   *     results.</p>
-   */
-  IsTruncated?: boolean;
-
-  /**
-   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
-   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
-   *     pagination request.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The list of tags that are currently attached to the user. Each tag consists of a key
-   *       name and an associated value. If no tags are attached to the specified user, the response
-   *       contains an empty list.</p>
-   */
-  Tags: Tag[] | undefined;
-}
-
-export namespace ListUserTagsResponse {
-  export const filterSensitiveLog = (obj: ListUserTagsResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListUserTagsResponse =>
-    __isa(o, "ListUserTagsResponse");
 }
 
 export interface ListUsersRequest {
@@ -6420,6 +6361,76 @@ export namespace ListUsersResponse {
   });
   export const isa = (o: any): o is ListUsersResponse =>
     __isa(o, "ListUsersResponse");
+}
+
+export interface ListUserTagsRequest {
+  __type?: "ListUserTagsRequest";
+  /**
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>(Optional) Use this only when paginating results to indicate the
+   *     maximum number of items that you want in the response. If additional items exist beyond the maximum that you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
+   *          <p>If you do not include this parameter, it defaults to 100. Note that
+   *     IAM might return fewer results, even when more results are available. In that case, the
+   *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
+   *     contains a value to include in the subsequent call that tells the service where to continue
+   *     from.</p>
+   */
+  MaxItems?: number;
+
+  /**
+   * <p>The name of the IAM user whose tags you want to see.</p>
+   *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: =,.@-</p>
+   */
+  UserName: string | undefined;
+}
+
+export namespace ListUserTagsRequest {
+  export const filterSensitiveLog = (obj: ListUserTagsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListUserTagsRequest =>
+    __isa(o, "ListUserTagsRequest");
+}
+
+export interface ListUserTagsResponse {
+  __type?: "ListUserTagsResponse";
+  /**
+   * <p>A flag that indicates whether there are more items to return. If your
+   *     results were truncated, you can use the <code>Marker</code> request parameter to make a subsequent pagination request that retrieves more items. Note that IAM might return fewer than the
+   *     <code>MaxItems</code> number of results even when more results are available. Check <code>IsTruncated</code> after every call to ensure that you receive all of your
+   *     results.</p>
+   */
+  IsTruncated?: boolean;
+
+  /**
+   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
+   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
+   *     pagination request.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The list of tags that are currently attached to the user. Each tag consists of a key
+   *       name and an associated value. If no tags are attached to the specified user, the response
+   *       contains an empty list.</p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+export namespace ListUserTagsResponse {
+  export const filterSensitiveLog = (obj: ListUserTagsResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListUserTagsResponse =>
+    __isa(o, "ListUserTagsResponse");
 }
 
 export interface ListVirtualMFADevicesRequest {
@@ -6535,37 +6546,6 @@ export namespace LoginProfile {
     ...obj
   });
   export const isa = (o: any): o is LoginProfile => __isa(o, "LoginProfile");
-}
-
-/**
- * <p>Contains information about an MFA device.</p>
- *          <p>This data type is used as a response element in the <a>ListMFADevices</a>
- *          operation.</p>
- */
-export interface MFADevice {
-  __type?: "MFADevice";
-  /**
-   * <p>The date when the MFA device was enabled for the user.</p>
-   */
-  EnableDate: Date | undefined;
-
-  /**
-   * <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices, the
-   *          serial number is the device ARN.</p>
-   */
-  SerialNumber: string | undefined;
-
-  /**
-   * <p>The user with whom the MFA device is associated.</p>
-   */
-  UserName: string | undefined;
-}
-
-export namespace MFADevice {
-  export const filterSensitiveLog = (obj: MFADevice): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is MFADevice => __isa(o, "MFADevice");
 }
 
 /**
@@ -6707,6 +6687,37 @@ export namespace ManagedPolicyDetail {
   });
   export const isa = (o: any): o is ManagedPolicyDetail =>
     __isa(o, "ManagedPolicyDetail");
+}
+
+/**
+ * <p>Contains information about an MFA device.</p>
+ *          <p>This data type is used as a response element in the <a>ListMFADevices</a>
+ *          operation.</p>
+ */
+export interface MFADevice {
+  __type?: "MFADevice";
+  /**
+   * <p>The date when the MFA device was enabled for the user.</p>
+   */
+  EnableDate: Date | undefined;
+
+  /**
+   * <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices, the
+   *          serial number is the device ARN.</p>
+   */
+  SerialNumber: string | undefined;
+
+  /**
+   * <p>The user with whom the MFA device is associated.</p>
+   */
+  UserName: string | undefined;
+}
+
+export namespace MFADevice {
+  export const filterSensitiveLog = (obj: MFADevice): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is MFADevice => __isa(o, "MFADevice");
 }
 
 /**
@@ -7111,6 +7122,12 @@ export namespace PolicyNotAttachableException {
     __isa(o, "PolicyNotAttachableException");
 }
 
+export enum PolicyOwnerEntityType {
+  GROUP = "GROUP",
+  ROLE = "ROLE",
+  USER = "USER"
+}
+
 /**
  * <p>Contains information about a role that a managed policy is attached to.</p>
  *          <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> operation. </p>
@@ -7139,6 +7156,12 @@ export namespace PolicyRole {
   export const isa = (o: any): o is PolicyRole => __isa(o, "PolicyRole");
 }
 
+export enum PolicyScopeType {
+  AWS = "AWS",
+  All = "All",
+  Local = "Local"
+}
+
 export enum PolicySourceType {
   AWS_MANAGED = "aws-managed",
   GROUP = "group",
@@ -7147,6 +7170,11 @@ export enum PolicySourceType {
   ROLE = "role",
   USER = "user",
   USER_MANAGED = "user-managed"
+}
+
+export enum PolicyType {
+  INLINE = "INLINE",
+  MANAGED = "MANAGED"
 }
 
 export type PolicyUsageType = "PermissionsBoundary" | "PermissionsPolicy";
@@ -7981,94 +8009,6 @@ export namespace SAMLProviderListEntry {
 }
 
 /**
- * <p>Contains information about an SSH public key.</p>
- *          <p>This data type is used as a response element in the <a>GetSSHPublicKey</a>
- *          and <a>UploadSSHPublicKey</a> operations. </p>
- */
-export interface SSHPublicKey {
-  __type?: "SSHPublicKey";
-  /**
-   * <p>The MD5 message digest of the SSH public key.</p>
-   */
-  Fingerprint: string | undefined;
-
-  /**
-   * <p>The SSH public key.</p>
-   */
-  SSHPublicKeyBody: string | undefined;
-
-  /**
-   * <p>The unique identifier for the SSH public key.</p>
-   */
-  SSHPublicKeyId: string | undefined;
-
-  /**
-   * <p>The status of the SSH public key. <code>Active</code> means that the key can be used for
-   *          authentication with an AWS CodeCommit repository. <code>Inactive</code> means that the key
-   *          cannot be used.</p>
-   */
-  Status: StatusType | string | undefined;
-
-  /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
-   *             format</a>, when the SSH public key was uploaded.</p>
-   */
-  UploadDate?: Date;
-
-  /**
-   * <p>The name of the IAM user associated with the SSH public key.</p>
-   */
-  UserName: string | undefined;
-}
-
-export namespace SSHPublicKey {
-  export const filterSensitiveLog = (obj: SSHPublicKey): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SSHPublicKey => __isa(o, "SSHPublicKey");
-}
-
-/**
- * <p>Contains information about an SSH public key, without the key's body or
- *          fingerprint.</p>
- *          <p>This data type is used as a response element in the <a>ListSSHPublicKeys</a>
- *          operation.</p>
- */
-export interface SSHPublicKeyMetadata {
-  __type?: "SSHPublicKeyMetadata";
-  /**
-   * <p>The unique identifier for the SSH public key.</p>
-   */
-  SSHPublicKeyId: string | undefined;
-
-  /**
-   * <p>The status of the SSH public key. <code>Active</code> means that the key can be used for
-   *          authentication with an AWS CodeCommit repository. <code>Inactive</code> means that the key
-   *          cannot be used.</p>
-   */
-  Status: StatusType | string | undefined;
-
-  /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
-   *             format</a>, when the SSH public key was uploaded.</p>
-   */
-  UploadDate: Date | undefined;
-
-  /**
-   * <p>The name of the IAM user associated with the SSH public key.</p>
-   */
-  UserName: string | undefined;
-}
-
-export namespace SSHPublicKeyMetadata {
-  export const filterSensitiveLog = (obj: SSHPublicKeyMetadata): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SSHPublicKeyMetadata =>
-    __isa(o, "SSHPublicKeyMetadata");
-}
-
-/**
  * <p>Contains information about a server certificate.</p>
  *          <p> This data type is used as a response element in the <a>GetServerCertificate</a> operation. </p>
  */
@@ -8883,6 +8823,101 @@ export namespace SimulatePrincipalPolicyRequest {
     __isa(o, "SimulatePrincipalPolicyRequest");
 }
 
+export enum SortKeyType {
+  LAST_AUTHENTICATED_TIME_ASCENDING = "LAST_AUTHENTICATED_TIME_ASCENDING",
+  LAST_AUTHENTICATED_TIME_DESCENDING = "LAST_AUTHENTICATED_TIME_DESCENDING",
+  SERVICE_NAMESPACE_ASCENDING = "SERVICE_NAMESPACE_ASCENDING",
+  SERVICE_NAMESPACE_DESCENDING = "SERVICE_NAMESPACE_DESCENDING"
+}
+
+/**
+ * <p>Contains information about an SSH public key.</p>
+ *          <p>This data type is used as a response element in the <a>GetSSHPublicKey</a>
+ *          and <a>UploadSSHPublicKey</a> operations. </p>
+ */
+export interface SSHPublicKey {
+  __type?: "SSHPublicKey";
+  /**
+   * <p>The MD5 message digest of the SSH public key.</p>
+   */
+  Fingerprint: string | undefined;
+
+  /**
+   * <p>The SSH public key.</p>
+   */
+  SSHPublicKeyBody: string | undefined;
+
+  /**
+   * <p>The unique identifier for the SSH public key.</p>
+   */
+  SSHPublicKeyId: string | undefined;
+
+  /**
+   * <p>The status of the SSH public key. <code>Active</code> means that the key can be used for
+   *          authentication with an AWS CodeCommit repository. <code>Inactive</code> means that the key
+   *          cannot be used.</p>
+   */
+  Status: StatusType | string | undefined;
+
+  /**
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *             format</a>, when the SSH public key was uploaded.</p>
+   */
+  UploadDate?: Date;
+
+  /**
+   * <p>The name of the IAM user associated with the SSH public key.</p>
+   */
+  UserName: string | undefined;
+}
+
+export namespace SSHPublicKey {
+  export const filterSensitiveLog = (obj: SSHPublicKey): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SSHPublicKey => __isa(o, "SSHPublicKey");
+}
+
+/**
+ * <p>Contains information about an SSH public key, without the key's body or
+ *          fingerprint.</p>
+ *          <p>This data type is used as a response element in the <a>ListSSHPublicKeys</a>
+ *          operation.</p>
+ */
+export interface SSHPublicKeyMetadata {
+  __type?: "SSHPublicKeyMetadata";
+  /**
+   * <p>The unique identifier for the SSH public key.</p>
+   */
+  SSHPublicKeyId: string | undefined;
+
+  /**
+   * <p>The status of the SSH public key. <code>Active</code> means that the key can be used for
+   *          authentication with an AWS CodeCommit repository. <code>Inactive</code> means that the key
+   *          cannot be used.</p>
+   */
+  Status: StatusType | string | undefined;
+
+  /**
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *             format</a>, when the SSH public key was uploaded.</p>
+   */
+  UploadDate: Date | undefined;
+
+  /**
+   * <p>The name of the IAM user associated with the SSH public key.</p>
+   */
+  UserName: string | undefined;
+}
+
+export namespace SSHPublicKeyMetadata {
+  export const filterSensitiveLog = (obj: SSHPublicKeyMetadata): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SSHPublicKeyMetadata =>
+    __isa(o, "SSHPublicKeyMetadata");
+}
+
 /**
  * <p>Contains a reference to a <code>Statement</code> element in a policy document that
  *          determines the result of the simulation.</p>
@@ -8920,6 +8955,36 @@ export namespace Statement {
   });
   export const isa = (o: any): o is Statement => __isa(o, "Statement");
 }
+
+export type StatusType = "Active" | "Inactive";
+
+export type SummaryKeyType =
+  | "AccessKeysPerUserQuota"
+  | "AccountAccessKeysPresent"
+  | "AccountMFAEnabled"
+  | "AccountSigningCertificatesPresent"
+  | "AttachedPoliciesPerGroupQuota"
+  | "AttachedPoliciesPerRoleQuota"
+  | "AttachedPoliciesPerUserQuota"
+  | "GlobalEndpointTokenVersion"
+  | "GroupPolicySizeQuota"
+  | "Groups"
+  | "GroupsPerUserQuota"
+  | "GroupsQuota"
+  | "MFADevices"
+  | "MFADevicesInUse"
+  | "Policies"
+  | "PoliciesQuota"
+  | "PolicySizeQuota"
+  | "PolicyVersionsInUse"
+  | "PolicyVersionsInUseQuota"
+  | "ServerCertificates"
+  | "ServerCertificatesQuota"
+  | "SigningCertificatesPerUserQuota"
+  | "UserPolicySizeQuota"
+  | "Users"
+  | "UsersQuota"
+  | "VersionsPerPolicyQuota";
 
 /**
  * <p>A structure that represents user-provided metadata that can be associated with a
@@ -9521,38 +9586,6 @@ export namespace UpdateSAMLProviderResponse {
     __isa(o, "UpdateSAMLProviderResponse");
 }
 
-export interface UpdateSSHPublicKeyRequest {
-  __type?: "UpdateSSHPublicKeyRequest";
-  /**
-   * <p>The unique identifier for the SSH public key.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
-   *     consist of any upper or lowercased letter or digit.</p>
-   */
-  SSHPublicKeyId: string | undefined;
-
-  /**
-   * <p>The status to assign to the SSH public key. <code>Active</code> means that the key can
-   *          be used for authentication with an AWS CodeCommit repository. <code>Inactive</code> means that the
-   *          key cannot be used.</p>
-   */
-  Status: StatusType | string | undefined;
-
-  /**
-   * <p>The name of the IAM user associated with the SSH public key.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  UserName: string | undefined;
-}
-
-export namespace UpdateSSHPublicKeyRequest {
-  export const filterSensitiveLog = (obj: UpdateSSHPublicKeyRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateSSHPublicKeyRequest =>
-    __isa(o, "UpdateSSHPublicKeyRequest");
-}
-
 export interface UpdateServerCertificateRequest {
   __type?: "UpdateServerCertificateRequest";
   /**
@@ -9659,6 +9692,38 @@ export namespace UpdateSigningCertificateRequest {
     __isa(o, "UpdateSigningCertificateRequest");
 }
 
+export interface UpdateSSHPublicKeyRequest {
+  __type?: "UpdateSSHPublicKeyRequest";
+  /**
+   * <p>The unique identifier for the SSH public key.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
+   *     consist of any upper or lowercased letter or digit.</p>
+   */
+  SSHPublicKeyId: string | undefined;
+
+  /**
+   * <p>The status to assign to the SSH public key. <code>Active</code> means that the key can
+   *          be used for authentication with an AWS CodeCommit repository. <code>Inactive</code> means that the
+   *          key cannot be used.</p>
+   */
+  Status: StatusType | string | undefined;
+
+  /**
+   * <p>The name of the IAM user associated with the SSH public key.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  UserName: string | undefined;
+}
+
+export namespace UpdateSSHPublicKeyRequest {
+  export const filterSensitiveLog = (obj: UpdateSSHPublicKeyRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UpdateSSHPublicKeyRequest =>
+    __isa(o, "UpdateSSHPublicKeyRequest");
+}
+
 export interface UpdateUserRequest {
   __type?: "UpdateUserRequest";
   /**
@@ -9695,67 +9760,6 @@ export namespace UpdateUserRequest {
   });
   export const isa = (o: any): o is UpdateUserRequest =>
     __isa(o, "UpdateUserRequest");
-}
-
-export interface UploadSSHPublicKeyRequest {
-  __type?: "UploadSSHPublicKeyRequest";
-  /**
-   * <p>The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The
-   *          minimum bit-length of the public key is 2048 bits. For example, you can generate a 2048-bit
-   *          key, and the resulting PEM file is 1679 bytes long.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
-   *     used to validate this parameter is a string of characters consisting of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Any printable ASCII
-   *     character ranging from the space character (\u0020) through the end of the ASCII character range</p>
-   *             </li>
-   *             <li>
-   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through \u00FF)</p>
-   *             </li>
-   *             <li>
-   *                <p>The special characters tab (\u0009), line feed (\u000A), and
-   *     carriage return (\u000D)</p>
-   *             </li>
-   *          </ul>
-   */
-  SSHPublicKeyBody: string | undefined;
-
-  /**
-   * <p>The name of the IAM user to associate the SSH public key with.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  UserName: string | undefined;
-}
-
-export namespace UploadSSHPublicKeyRequest {
-  export const filterSensitiveLog = (obj: UploadSSHPublicKeyRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UploadSSHPublicKeyRequest =>
-    __isa(o, "UploadSSHPublicKeyRequest");
-}
-
-/**
- * <p>Contains the response to a successful <a>UploadSSHPublicKey</a>
- *       request.</p>
- */
-export interface UploadSSHPublicKeyResponse {
-  __type?: "UploadSSHPublicKeyResponse";
-  /**
-   * <p>Contains information about the SSH public key.</p>
-   */
-  SSHPublicKey?: SSHPublicKey;
-}
-
-export namespace UploadSSHPublicKeyResponse {
-  export const filterSensitiveLog = (obj: UploadSSHPublicKeyResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UploadSSHPublicKeyResponse =>
-    __isa(o, "UploadSSHPublicKeyResponse");
 }
 
 export interface UploadServerCertificateRequest {
@@ -9945,6 +9949,67 @@ export namespace UploadSigningCertificateResponse {
   });
   export const isa = (o: any): o is UploadSigningCertificateResponse =>
     __isa(o, "UploadSigningCertificateResponse");
+}
+
+export interface UploadSSHPublicKeyRequest {
+  __type?: "UploadSSHPublicKeyRequest";
+  /**
+   * <p>The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The
+   *          minimum bit-length of the public key is 2048 bits. For example, you can generate a 2048-bit
+   *          key, and the resulting PEM file is 1679 bytes long.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (\u0020) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through \u00FF)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (\u0009), line feed (\u000A), and
+   *     carriage return (\u000D)</p>
+   *             </li>
+   *          </ul>
+   */
+  SSHPublicKeyBody: string | undefined;
+
+  /**
+   * <p>The name of the IAM user to associate the SSH public key with.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  UserName: string | undefined;
+}
+
+export namespace UploadSSHPublicKeyRequest {
+  export const filterSensitiveLog = (obj: UploadSSHPublicKeyRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UploadSSHPublicKeyRequest =>
+    __isa(o, "UploadSSHPublicKeyRequest");
+}
+
+/**
+ * <p>Contains the response to a successful <a>UploadSSHPublicKey</a>
+ *       request.</p>
+ */
+export interface UploadSSHPublicKeyResponse {
+  __type?: "UploadSSHPublicKeyResponse";
+  /**
+   * <p>Contains information about the SSH public key.</p>
+   */
+  SSHPublicKey?: SSHPublicKey;
+}
+
+export namespace UploadSSHPublicKeyResponse {
+  export const filterSensitiveLog = (obj: UploadSSHPublicKeyResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is UploadSSHPublicKeyResponse =>
+    __isa(o, "UploadSSHPublicKeyResponse");
 }
 
 /**
@@ -10167,68 +10232,3 @@ export namespace VirtualMFADevice {
   export const isa = (o: any): o is VirtualMFADevice =>
     __isa(o, "VirtualMFADevice");
 }
-
-export type AssignmentStatusType = "Any" | "Assigned" | "Unassigned";
-
-export type EncodingType = "PEM" | "SSH";
-
-export enum GlobalEndpointTokenVersion {
-  v1Token = "v1Token",
-  v2Token = "v2Token"
-}
-
-export type JobStatusType = "COMPLETED" | "FAILED" | "IN_PROGRESS";
-
-export enum PolicyOwnerEntityType {
-  GROUP = "GROUP",
-  ROLE = "ROLE",
-  USER = "USER"
-}
-
-export enum PolicyScopeType {
-  AWS = "AWS",
-  All = "All",
-  Local = "Local"
-}
-
-export enum PolicyType {
-  INLINE = "INLINE",
-  MANAGED = "MANAGED"
-}
-
-export enum SortKeyType {
-  LAST_AUTHENTICATED_TIME_ASCENDING = "LAST_AUTHENTICATED_TIME_ASCENDING",
-  LAST_AUTHENTICATED_TIME_DESCENDING = "LAST_AUTHENTICATED_TIME_DESCENDING",
-  SERVICE_NAMESPACE_ASCENDING = "SERVICE_NAMESPACE_ASCENDING",
-  SERVICE_NAMESPACE_DESCENDING = "SERVICE_NAMESPACE_DESCENDING"
-}
-
-export type StatusType = "Active" | "Inactive";
-
-export type SummaryKeyType =
-  | "AccessKeysPerUserQuota"
-  | "AccountAccessKeysPresent"
-  | "AccountMFAEnabled"
-  | "AccountSigningCertificatesPresent"
-  | "AttachedPoliciesPerGroupQuota"
-  | "AttachedPoliciesPerRoleQuota"
-  | "AttachedPoliciesPerUserQuota"
-  | "GlobalEndpointTokenVersion"
-  | "GroupPolicySizeQuota"
-  | "Groups"
-  | "GroupsPerUserQuota"
-  | "GroupsQuota"
-  | "MFADevices"
-  | "MFADevicesInUse"
-  | "Policies"
-  | "PoliciesQuota"
-  | "PolicySizeQuota"
-  | "PolicyVersionsInUse"
-  | "PolicyVersionsInUseQuota"
-  | "ServerCertificates"
-  | "ServerCertificatesQuota"
-  | "SigningCertificatesPerUserQuota"
-  | "UserPolicySizeQuota"
-  | "Users"
-  | "UsersQuota"
-  | "VersionsPerPolicyQuota";

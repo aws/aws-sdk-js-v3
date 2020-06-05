@@ -8,9 +8,9 @@ import {
   ListAnalyzedResourcesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListAnalyzedResourcesCommand,
-  serializeAws_restJson1_1ListAnalyzedResourcesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListAnalyzedResourcesCommand,
+  serializeAws_restJson1ListAnalyzedResourcesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class ListAnalyzedResourcesCommand extends $Command<
     input: ListAnalyzedResourcesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListAnalyzedResourcesCommand(input, context);
+    return serializeAws_restJson1ListAnalyzedResourcesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAnalyzedResourcesCommandOutput> {
-    return deserializeAws_restJson1_1ListAnalyzedResourcesCommand(
+    return deserializeAws_restJson1ListAnalyzedResourcesCommand(
       output,
       context
     );

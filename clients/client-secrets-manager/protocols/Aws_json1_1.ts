@@ -255,6 +255,19 @@ export const serializeAws_json1_1GetSecretValueCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListSecretsCommand = async (
+  input: ListSecretsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.ListSecrets"
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListSecretsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListSecretVersionIdsCommand = async (
   input: ListSecretVersionIdsCommandInput,
   context: __SerdeContext
@@ -267,19 +280,6 @@ export const serializeAws_json1_1ListSecretVersionIdsCommand = async (
   body = JSON.stringify(
     serializeAws_json1_1ListSecretVersionIdsRequest(input, context)
   );
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1ListSecretsCommand = async (
-  input: ListSecretsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "secretsmanager.ListSecrets"
-  };
-  let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListSecretsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -437,7 +437,7 @@ const deserializeAws_json1_1CancelRotateSecretCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
-    case "com.amazon.AWSMimirService#InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -448,7 +448,7 @@ const deserializeAws_json1_1CancelRotateSecretCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.AWSMimirService#InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -459,7 +459,7 @@ const deserializeAws_json1_1CancelRotateSecretCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazon.AWSMimirService#InvalidRequestException":
+    case "com.amazonaws.secretsmanager#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -470,7 +470,7 @@ const deserializeAws_json1_1CancelRotateSecretCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.AWSMimirService#ResourceNotFoundException":
+    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -530,7 +530,7 @@ const deserializeAws_json1_1CreateSecretCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EncryptionFailure":
-    case "com.amazon.AWSMimirService#EncryptionFailure":
+    case "com.amazonaws.secretsmanager#EncryptionFailure":
       response = {
         ...(await deserializeAws_json1_1EncryptionFailureResponse(
           parsedOutput,
@@ -541,7 +541,7 @@ const deserializeAws_json1_1CreateSecretCommandError = async (
       };
       break;
     case "InternalServiceError":
-    case "com.amazon.AWSMimirService#InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -552,7 +552,7 @@ const deserializeAws_json1_1CreateSecretCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.AWSMimirService#InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -563,7 +563,7 @@ const deserializeAws_json1_1CreateSecretCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazon.AWSMimirService#InvalidRequestException":
+    case "com.amazonaws.secretsmanager#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -574,7 +574,7 @@ const deserializeAws_json1_1CreateSecretCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.AWSMimirService#LimitExceededException":
+    case "com.amazonaws.secretsmanager#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -585,7 +585,7 @@ const deserializeAws_json1_1CreateSecretCommandError = async (
       };
       break;
     case "MalformedPolicyDocumentException":
-    case "com.amazon.AWSMimirService#MalformedPolicyDocumentException":
+    case "com.amazonaws.secretsmanager#MalformedPolicyDocumentException":
       response = {
         ...(await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(
           parsedOutput,
@@ -596,7 +596,7 @@ const deserializeAws_json1_1CreateSecretCommandError = async (
       };
       break;
     case "PreconditionNotMetException":
-    case "com.amazon.AWSMimirService#PreconditionNotMetException":
+    case "com.amazonaws.secretsmanager#PreconditionNotMetException":
       response = {
         ...(await deserializeAws_json1_1PreconditionNotMetExceptionResponse(
           parsedOutput,
@@ -607,7 +607,7 @@ const deserializeAws_json1_1CreateSecretCommandError = async (
       };
       break;
     case "ResourceExistsException":
-    case "com.amazon.AWSMimirService#ResourceExistsException":
+    case "com.amazonaws.secretsmanager#ResourceExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceExistsExceptionResponse(
           parsedOutput,
@@ -618,7 +618,7 @@ const deserializeAws_json1_1CreateSecretCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.AWSMimirService#ResourceNotFoundException":
+    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -681,7 +681,7 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
-    case "com.amazon.AWSMimirService#InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -692,7 +692,7 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazon.AWSMimirService#InvalidRequestException":
+    case "com.amazonaws.secretsmanager#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -703,7 +703,7 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.AWSMimirService#ResourceNotFoundException":
+    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -763,7 +763,7 @@ const deserializeAws_json1_1DeleteSecretCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
-    case "com.amazon.AWSMimirService#InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -774,7 +774,7 @@ const deserializeAws_json1_1DeleteSecretCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.AWSMimirService#InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -785,7 +785,7 @@ const deserializeAws_json1_1DeleteSecretCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazon.AWSMimirService#InvalidRequestException":
+    case "com.amazonaws.secretsmanager#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -796,7 +796,7 @@ const deserializeAws_json1_1DeleteSecretCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.AWSMimirService#ResourceNotFoundException":
+    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -856,7 +856,7 @@ const deserializeAws_json1_1DescribeSecretCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
-    case "com.amazon.AWSMimirService#InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -867,7 +867,7 @@ const deserializeAws_json1_1DescribeSecretCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.AWSMimirService#ResourceNotFoundException":
+    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -927,7 +927,7 @@ const deserializeAws_json1_1GetRandomPasswordCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
-    case "com.amazon.AWSMimirService#InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -938,7 +938,7 @@ const deserializeAws_json1_1GetRandomPasswordCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.AWSMimirService#InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -949,7 +949,7 @@ const deserializeAws_json1_1GetRandomPasswordCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazon.AWSMimirService#InvalidRequestException":
+    case "com.amazonaws.secretsmanager#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1009,7 +1009,7 @@ const deserializeAws_json1_1GetResourcePolicyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
-    case "com.amazon.AWSMimirService#InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -1020,7 +1020,7 @@ const deserializeAws_json1_1GetResourcePolicyCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazon.AWSMimirService#InvalidRequestException":
+    case "com.amazonaws.secretsmanager#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1031,7 +1031,7 @@ const deserializeAws_json1_1GetResourcePolicyCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.AWSMimirService#ResourceNotFoundException":
+    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1091,7 +1091,7 @@ const deserializeAws_json1_1GetSecretValueCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DecryptionFailure":
-    case "com.amazon.AWSMimirService#DecryptionFailure":
+    case "com.amazonaws.secretsmanager#DecryptionFailure":
       response = {
         ...(await deserializeAws_json1_1DecryptionFailureResponse(
           parsedOutput,
@@ -1102,7 +1102,7 @@ const deserializeAws_json1_1GetSecretValueCommandError = async (
       };
       break;
     case "InternalServiceError":
-    case "com.amazon.AWSMimirService#InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -1113,7 +1113,7 @@ const deserializeAws_json1_1GetSecretValueCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.AWSMimirService#InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1124,7 +1124,7 @@ const deserializeAws_json1_1GetSecretValueCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazon.AWSMimirService#InvalidRequestException":
+    case "com.amazonaws.secretsmanager#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1135,9 +1135,91 @@ const deserializeAws_json1_1GetSecretValueCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.AWSMimirService#ResourceNotFoundException":
+    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListSecretsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSecretsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListSecretsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListSecretsResponse(data, context);
+  const response: ListSecretsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListSecretsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListSecretsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSecretsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.secretsmanager#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
           context
         )),
@@ -1198,7 +1280,7 @@ const deserializeAws_json1_1ListSecretVersionIdsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
-    case "com.amazon.AWSMimirService#InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -1209,7 +1291,7 @@ const deserializeAws_json1_1ListSecretVersionIdsCommandError = async (
       };
       break;
     case "InvalidNextTokenException":
-    case "com.amazon.AWSMimirService#InvalidNextTokenException":
+    case "com.amazonaws.secretsmanager#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
           parsedOutput,
@@ -1220,91 +1302,9 @@ const deserializeAws_json1_1ListSecretVersionIdsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.AWSMimirService#ResourceNotFoundException":
+    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output)
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1ListSecretsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSecretsCommandOutput> => {
-  if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListSecretsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1ListSecretsResponse(data, context);
-  const response: ListSecretsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "ListSecretsResponse",
-    ...contents
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1ListSecretsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSecretsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context)
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazon.AWSMimirService#InternalServiceError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidNextTokenException":
-    case "com.amazon.AWSMimirService#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output)
-      };
-      break;
-    case "InvalidParameterException":
-    case "com.amazon.AWSMimirService#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
           context
         )),
@@ -1362,7 +1362,7 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
-    case "com.amazon.AWSMimirService#InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -1373,7 +1373,7 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.AWSMimirService#InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1384,7 +1384,7 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazon.AWSMimirService#InvalidRequestException":
+    case "com.amazonaws.secretsmanager#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1395,7 +1395,7 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
       };
       break;
     case "MalformedPolicyDocumentException":
-    case "com.amazon.AWSMimirService#MalformedPolicyDocumentException":
+    case "com.amazonaws.secretsmanager#MalformedPolicyDocumentException":
       response = {
         ...(await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(
           parsedOutput,
@@ -1406,7 +1406,7 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.AWSMimirService#ResourceNotFoundException":
+    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1466,7 +1466,7 @@ const deserializeAws_json1_1PutSecretValueCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EncryptionFailure":
-    case "com.amazon.AWSMimirService#EncryptionFailure":
+    case "com.amazonaws.secretsmanager#EncryptionFailure":
       response = {
         ...(await deserializeAws_json1_1EncryptionFailureResponse(
           parsedOutput,
@@ -1477,7 +1477,7 @@ const deserializeAws_json1_1PutSecretValueCommandError = async (
       };
       break;
     case "InternalServiceError":
-    case "com.amazon.AWSMimirService#InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -1488,7 +1488,7 @@ const deserializeAws_json1_1PutSecretValueCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.AWSMimirService#InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1499,7 +1499,7 @@ const deserializeAws_json1_1PutSecretValueCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazon.AWSMimirService#InvalidRequestException":
+    case "com.amazonaws.secretsmanager#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1510,7 +1510,7 @@ const deserializeAws_json1_1PutSecretValueCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.AWSMimirService#LimitExceededException":
+    case "com.amazonaws.secretsmanager#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1521,7 +1521,7 @@ const deserializeAws_json1_1PutSecretValueCommandError = async (
       };
       break;
     case "ResourceExistsException":
-    case "com.amazon.AWSMimirService#ResourceExistsException":
+    case "com.amazonaws.secretsmanager#ResourceExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceExistsExceptionResponse(
           parsedOutput,
@@ -1532,7 +1532,7 @@ const deserializeAws_json1_1PutSecretValueCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.AWSMimirService#ResourceNotFoundException":
+    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1592,7 +1592,7 @@ const deserializeAws_json1_1RestoreSecretCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
-    case "com.amazon.AWSMimirService#InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -1603,7 +1603,7 @@ const deserializeAws_json1_1RestoreSecretCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.AWSMimirService#InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1614,7 +1614,7 @@ const deserializeAws_json1_1RestoreSecretCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazon.AWSMimirService#InvalidRequestException":
+    case "com.amazonaws.secretsmanager#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1625,7 +1625,7 @@ const deserializeAws_json1_1RestoreSecretCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.AWSMimirService#ResourceNotFoundException":
+    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1685,7 +1685,7 @@ const deserializeAws_json1_1RotateSecretCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
-    case "com.amazon.AWSMimirService#InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -1696,7 +1696,7 @@ const deserializeAws_json1_1RotateSecretCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.AWSMimirService#InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1707,7 +1707,7 @@ const deserializeAws_json1_1RotateSecretCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazon.AWSMimirService#InvalidRequestException":
+    case "com.amazonaws.secretsmanager#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1718,7 +1718,7 @@ const deserializeAws_json1_1RotateSecretCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.AWSMimirService#ResourceNotFoundException":
+    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1774,7 +1774,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
-    case "com.amazon.AWSMimirService#InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -1785,7 +1785,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.AWSMimirService#InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1796,7 +1796,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazon.AWSMimirService#InvalidRequestException":
+    case "com.amazonaws.secretsmanager#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1807,7 +1807,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.AWSMimirService#ResourceNotFoundException":
+    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1863,7 +1863,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
-    case "com.amazon.AWSMimirService#InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -1874,7 +1874,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.AWSMimirService#InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1885,7 +1885,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazon.AWSMimirService#InvalidRequestException":
+    case "com.amazonaws.secretsmanager#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -1896,7 +1896,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.AWSMimirService#ResourceNotFoundException":
+    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1956,7 +1956,7 @@ const deserializeAws_json1_1UpdateSecretCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EncryptionFailure":
-    case "com.amazon.AWSMimirService#EncryptionFailure":
+    case "com.amazonaws.secretsmanager#EncryptionFailure":
       response = {
         ...(await deserializeAws_json1_1EncryptionFailureResponse(
           parsedOutput,
@@ -1967,7 +1967,7 @@ const deserializeAws_json1_1UpdateSecretCommandError = async (
       };
       break;
     case "InternalServiceError":
-    case "com.amazon.AWSMimirService#InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -1978,7 +1978,7 @@ const deserializeAws_json1_1UpdateSecretCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.AWSMimirService#InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1989,7 +1989,7 @@ const deserializeAws_json1_1UpdateSecretCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazon.AWSMimirService#InvalidRequestException":
+    case "com.amazonaws.secretsmanager#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2000,7 +2000,7 @@ const deserializeAws_json1_1UpdateSecretCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.AWSMimirService#LimitExceededException":
+    case "com.amazonaws.secretsmanager#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2011,7 +2011,7 @@ const deserializeAws_json1_1UpdateSecretCommandError = async (
       };
       break;
     case "MalformedPolicyDocumentException":
-    case "com.amazon.AWSMimirService#MalformedPolicyDocumentException":
+    case "com.amazonaws.secretsmanager#MalformedPolicyDocumentException":
       response = {
         ...(await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(
           parsedOutput,
@@ -2022,7 +2022,7 @@ const deserializeAws_json1_1UpdateSecretCommandError = async (
       };
       break;
     case "PreconditionNotMetException":
-    case "com.amazon.AWSMimirService#PreconditionNotMetException":
+    case "com.amazonaws.secretsmanager#PreconditionNotMetException":
       response = {
         ...(await deserializeAws_json1_1PreconditionNotMetExceptionResponse(
           parsedOutput,
@@ -2033,7 +2033,7 @@ const deserializeAws_json1_1UpdateSecretCommandError = async (
       };
       break;
     case "ResourceExistsException":
-    case "com.amazon.AWSMimirService#ResourceExistsException":
+    case "com.amazonaws.secretsmanager#ResourceExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceExistsExceptionResponse(
           parsedOutput,
@@ -2044,7 +2044,7 @@ const deserializeAws_json1_1UpdateSecretCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.AWSMimirService#ResourceNotFoundException":
+    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2110,7 +2110,7 @@ const deserializeAws_json1_1UpdateSecretVersionStageCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
-    case "com.amazon.AWSMimirService#InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(
           parsedOutput,
@@ -2121,7 +2121,7 @@ const deserializeAws_json1_1UpdateSecretVersionStageCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.AWSMimirService#InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -2132,7 +2132,7 @@ const deserializeAws_json1_1UpdateSecretVersionStageCommandError = async (
       };
       break;
     case "InvalidRequestException":
-    case "com.amazon.AWSMimirService#InvalidRequestException":
+    case "com.amazonaws.secretsmanager#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
           parsedOutput,
@@ -2143,7 +2143,7 @@ const deserializeAws_json1_1UpdateSecretVersionStageCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.AWSMimirService#LimitExceededException":
+    case "com.amazonaws.secretsmanager#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -2154,7 +2154,7 @@ const deserializeAws_json1_1UpdateSecretVersionStageCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.AWSMimirService#ResourceNotFoundException":
+    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2496,6 +2496,16 @@ const serializeAws_json1_1GetSecretValueRequest = (
   };
 };
 
+const serializeAws_json1_1ListSecretsRequest = (
+  input: ListSecretsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
+};
+
 const serializeAws_json1_1ListSecretVersionIdsRequest = (
   input: ListSecretVersionIdsRequest,
   context: __SerdeContext
@@ -2507,16 +2517,6 @@ const serializeAws_json1_1ListSecretVersionIdsRequest = (
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.SecretId !== undefined && { SecretId: input.SecretId })
-  };
-};
-
-const serializeAws_json1_1ListSecretsRequest = (
-  input: ListSecretsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
   };
 };
 
@@ -2982,6 +2982,23 @@ const deserializeAws_json1_1LimitExceededException = (
   } as any;
 };
 
+const deserializeAws_json1_1ListSecretsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListSecretsResponse => {
+  return {
+    __type: "ListSecretsResponse",
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    SecretList:
+      output.SecretList !== undefined && output.SecretList !== null
+        ? deserializeAws_json1_1SecretListType(output.SecretList, context)
+        : undefined
+  } as any;
+};
+
 const deserializeAws_json1_1ListSecretVersionIdsResponse = (
   output: any,
   context: __SerdeContext
@@ -3001,23 +3018,6 @@ const deserializeAws_json1_1ListSecretVersionIdsResponse = (
     Versions:
       output.Versions !== undefined && output.Versions !== null
         ? deserializeAws_json1_1SecretVersionsListType(output.Versions, context)
-        : undefined
-  } as any;
-};
-
-const deserializeAws_json1_1ListSecretsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListSecretsResponse => {
-  return {
-    __type: "ListSecretsResponse",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
-    SecretList:
-      output.SecretList !== undefined && output.SecretList !== null
-        ? deserializeAws_json1_1SecretListType(output.SecretList, context)
         : undefined
   } as any;
 };
@@ -3240,13 +3240,6 @@ const deserializeAws_json1_1SecretListType = (
   );
 };
 
-const deserializeAws_json1_1SecretVersionStagesType = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
 const deserializeAws_json1_1SecretVersionsListEntry = (
   output: any,
   context: __SerdeContext
@@ -3282,6 +3275,13 @@ const deserializeAws_json1_1SecretVersionsListType = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SecretVersionsListEntry(entry, context)
   );
+};
+
+const deserializeAws_json1_1SecretVersionStagesType = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1SecretVersionsToStagesMapType = (

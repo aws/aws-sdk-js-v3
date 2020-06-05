@@ -193,6 +193,41 @@ export namespace AttachInstancesQuery {
     __isa(o, "AttachInstancesQuery");
 }
 
+export interface AttachLoadBalancersResultType {
+  __type?: "AttachLoadBalancersResultType";
+}
+
+export namespace AttachLoadBalancersResultType {
+  export const filterSensitiveLog = (
+    obj: AttachLoadBalancersResultType
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AttachLoadBalancersResultType =>
+    __isa(o, "AttachLoadBalancersResultType");
+}
+
+export interface AttachLoadBalancersType {
+  __type?: "AttachLoadBalancersType";
+  /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName: string | undefined;
+
+  /**
+   * <p>The names of the load balancers. You can specify up to 10 load balancers.</p>
+   */
+  LoadBalancerNames: string[] | undefined;
+}
+
+export namespace AttachLoadBalancersType {
+  export const filterSensitiveLog = (obj: AttachLoadBalancersType): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AttachLoadBalancersType =>
+    __isa(o, "AttachLoadBalancersType");
+}
+
 export interface AttachLoadBalancerTargetGroupsResultType {
   __type?: "AttachLoadBalancerTargetGroupsResultType";
 }
@@ -229,41 +264,6 @@ export namespace AttachLoadBalancerTargetGroupsType {
   });
   export const isa = (o: any): o is AttachLoadBalancerTargetGroupsType =>
     __isa(o, "AttachLoadBalancerTargetGroupsType");
-}
-
-export interface AttachLoadBalancersResultType {
-  __type?: "AttachLoadBalancersResultType";
-}
-
-export namespace AttachLoadBalancersResultType {
-  export const filterSensitiveLog = (
-    obj: AttachLoadBalancersResultType
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AttachLoadBalancersResultType =>
-    __isa(o, "AttachLoadBalancersResultType");
-}
-
-export interface AttachLoadBalancersType {
-  __type?: "AttachLoadBalancersType";
-  /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName: string | undefined;
-
-  /**
-   * <p>The names of the load balancers. You can specify up to 10 load balancers.</p>
-   */
-  LoadBalancerNames: string[] | undefined;
-}
-
-export namespace AttachLoadBalancersType {
-  export const filterSensitiveLog = (obj: AttachLoadBalancersType): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AttachLoadBalancersType =>
-    __isa(o, "AttachLoadBalancersType");
 }
 
 /**
@@ -1468,24 +1468,6 @@ export namespace DescribeAutoScalingNotificationTypesAnswer {
     __isa(o, "DescribeAutoScalingNotificationTypesAnswer");
 }
 
-export interface DescribeLifecycleHookTypesAnswer {
-  __type?: "DescribeLifecycleHookTypesAnswer";
-  /**
-   * <p>The lifecycle hook types.</p>
-   */
-  LifecycleHookTypes?: string[];
-}
-
-export namespace DescribeLifecycleHookTypesAnswer {
-  export const filterSensitiveLog = (
-    obj: DescribeLifecycleHookTypesAnswer
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeLifecycleHookTypesAnswer =>
-    __isa(o, "DescribeLifecycleHookTypesAnswer");
-}
-
 export interface DescribeLifecycleHooksAnswer {
   __type?: "DescribeLifecycleHooksAnswer";
   /**
@@ -1526,60 +1508,22 @@ export namespace DescribeLifecycleHooksType {
     __isa(o, "DescribeLifecycleHooksType");
 }
 
-export interface DescribeLoadBalancerTargetGroupsRequest {
-  __type?: "DescribeLoadBalancerTargetGroupsRequest";
+export interface DescribeLifecycleHookTypesAnswer {
+  __type?: "DescribeLifecycleHookTypesAnswer";
   /**
-   * <p>The name of the Auto Scaling group.</p>
+   * <p>The lifecycle hook types.</p>
    */
-  AutoScalingGroupName: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return with this call. The default value is
-   *                 <code>100</code> and the maximum value is <code>100</code>.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a
-   *             previous call.)</p>
-   */
-  NextToken?: string;
+  LifecycleHookTypes?: string[];
 }
 
-export namespace DescribeLoadBalancerTargetGroupsRequest {
+export namespace DescribeLifecycleHookTypesAnswer {
   export const filterSensitiveLog = (
-    obj: DescribeLoadBalancerTargetGroupsRequest
+    obj: DescribeLifecycleHookTypesAnswer
   ): any => ({
     ...obj
   });
-  export const isa = (o: any): o is DescribeLoadBalancerTargetGroupsRequest =>
-    __isa(o, "DescribeLoadBalancerTargetGroupsRequest");
-}
-
-export interface DescribeLoadBalancerTargetGroupsResponse {
-  __type?: "DescribeLoadBalancerTargetGroupsResponse";
-  /**
-   * <p>Information about the target groups.</p>
-   */
-  LoadBalancerTargetGroups?: LoadBalancerTargetGroupState[];
-
-  /**
-   * <p>A string that indicates that the response contains more items than can be returned in
-   *             a single response. To receive additional items, specify this string for the
-   *                 <code>NextToken</code> value when requesting the next set of items. This value is
-   *             null when there are no more items to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeLoadBalancerTargetGroupsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeLoadBalancerTargetGroupsResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeLoadBalancerTargetGroupsResponse =>
-    __isa(o, "DescribeLoadBalancerTargetGroupsResponse");
+  export const isa = (o: any): o is DescribeLifecycleHookTypesAnswer =>
+    __isa(o, "DescribeLifecycleHookTypesAnswer");
 }
 
 export interface DescribeLoadBalancersRequest {
@@ -1636,6 +1580,62 @@ export namespace DescribeLoadBalancersResponse {
   });
   export const isa = (o: any): o is DescribeLoadBalancersResponse =>
     __isa(o, "DescribeLoadBalancersResponse");
+}
+
+export interface DescribeLoadBalancerTargetGroupsRequest {
+  __type?: "DescribeLoadBalancerTargetGroupsRequest";
+  /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return with this call. The default value is
+   *                 <code>100</code> and the maximum value is <code>100</code>.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a
+   *             previous call.)</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeLoadBalancerTargetGroupsRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeLoadBalancerTargetGroupsRequest
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeLoadBalancerTargetGroupsRequest =>
+    __isa(o, "DescribeLoadBalancerTargetGroupsRequest");
+}
+
+export interface DescribeLoadBalancerTargetGroupsResponse {
+  __type?: "DescribeLoadBalancerTargetGroupsResponse";
+  /**
+   * <p>Information about the target groups.</p>
+   */
+  LoadBalancerTargetGroups?: LoadBalancerTargetGroupState[];
+
+  /**
+   * <p>A string that indicates that the response contains more items than can be returned in
+   *             a single response. To receive additional items, specify this string for the
+   *                 <code>NextToken</code> value when requesting the next set of items. This value is
+   *             null when there are no more items to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeLoadBalancerTargetGroupsResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeLoadBalancerTargetGroupsResponse
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DescribeLoadBalancerTargetGroupsResponse =>
+    __isa(o, "DescribeLoadBalancerTargetGroupsResponse");
 }
 
 export interface DescribeMetricCollectionTypesAnswer {
@@ -1939,6 +1939,41 @@ export namespace DetachInstancesQuery {
     __isa(o, "DetachInstancesQuery");
 }
 
+export interface DetachLoadBalancersResultType {
+  __type?: "DetachLoadBalancersResultType";
+}
+
+export namespace DetachLoadBalancersResultType {
+  export const filterSensitiveLog = (
+    obj: DetachLoadBalancersResultType
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DetachLoadBalancersResultType =>
+    __isa(o, "DetachLoadBalancersResultType");
+}
+
+export interface DetachLoadBalancersType {
+  __type?: "DetachLoadBalancersType";
+  /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName: string | undefined;
+
+  /**
+   * <p>The names of the load balancers. You can specify up to 10 load balancers.</p>
+   */
+  LoadBalancerNames: string[] | undefined;
+}
+
+export namespace DetachLoadBalancersType {
+  export const filterSensitiveLog = (obj: DetachLoadBalancersType): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is DetachLoadBalancersType =>
+    __isa(o, "DetachLoadBalancersType");
+}
+
 export interface DetachLoadBalancerTargetGroupsResultType {
   __type?: "DetachLoadBalancerTargetGroupsResultType";
 }
@@ -1975,41 +2010,6 @@ export namespace DetachLoadBalancerTargetGroupsType {
   });
   export const isa = (o: any): o is DetachLoadBalancerTargetGroupsType =>
     __isa(o, "DetachLoadBalancerTargetGroupsType");
-}
-
-export interface DetachLoadBalancersResultType {
-  __type?: "DetachLoadBalancersResultType";
-}
-
-export namespace DetachLoadBalancersResultType {
-  export const filterSensitiveLog = (
-    obj: DetachLoadBalancersResultType
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DetachLoadBalancersResultType =>
-    __isa(o, "DetachLoadBalancersResultType");
-}
-
-export interface DetachLoadBalancersType {
-  __type?: "DetachLoadBalancersType";
-  /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName: string | undefined;
-
-  /**
-   * <p>The names of the load balancers. You can specify up to 10 load balancers.</p>
-   */
-  LoadBalancerNames: string[] | undefined;
-}
-
-export namespace DetachLoadBalancersType {
-  export const filterSensitiveLog = (obj: DetachLoadBalancersType): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DetachLoadBalancersType =>
-    __isa(o, "DetachLoadBalancersType");
 }
 
 export interface DisableMetricsCollectionQuery {
@@ -2168,6 +2168,71 @@ export namespace Ebs {
   export const isa = (o: any): o is Ebs => __isa(o, "Ebs");
 }
 
+/**
+ * <p>Describes an enabled metric.</p>
+ */
+export interface EnabledMetric {
+  __type?: "EnabledMetric";
+  /**
+   * <p>The granularity of the metric. The only valid value is <code>1Minute</code>.</p>
+   */
+  Granularity?: string;
+
+  /**
+   * <p>One of the following metrics:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>GroupMinSize</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>GroupMaxSize</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>GroupDesiredCapacity</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>GroupInServiceInstances</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>GroupPendingInstances</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>GroupStandbyInstances</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>GroupTerminatingInstances</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>GroupTotalInstances</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   */
+  Metric?: string;
+}
+
+export namespace EnabledMetric {
+  export const filterSensitiveLog = (obj: EnabledMetric): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is EnabledMetric => __isa(o, "EnabledMetric");
+}
+
 export interface EnableMetricsCollectionQuery {
   __type?: "EnableMetricsCollectionQuery";
   /**
@@ -2238,71 +2303,6 @@ export namespace EnableMetricsCollectionQuery {
   });
   export const isa = (o: any): o is EnableMetricsCollectionQuery =>
     __isa(o, "EnableMetricsCollectionQuery");
-}
-
-/**
- * <p>Describes an enabled metric.</p>
- */
-export interface EnabledMetric {
-  __type?: "EnabledMetric";
-  /**
-   * <p>The granularity of the metric. The only valid value is <code>1Minute</code>.</p>
-   */
-  Granularity?: string;
-
-  /**
-   * <p>One of the following metrics:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                     <code>GroupMinSize</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>GroupMaxSize</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>GroupDesiredCapacity</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>GroupInServiceInstances</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>GroupPendingInstances</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>GroupStandbyInstances</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>GroupTerminatingInstances</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>GroupTotalInstances</code>
-   *                 </p>
-   *             </li>
-   *          </ul>
-   */
-  Metric?: string;
-}
-
-export namespace EnabledMetric {
-  export const filterSensitiveLog = (obj: EnabledMetric): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is EnabledMetric => __isa(o, "EnabledMetric");
 }
 
 export interface EnterStandbyAnswer {
@@ -2848,24 +2848,6 @@ export namespace LaunchConfiguration {
     __isa(o, "LaunchConfiguration");
 }
 
-export interface LaunchConfigurationNameType {
-  __type?: "LaunchConfigurationNameType";
-  /**
-   * <p>The name of the launch configuration.</p>
-   */
-  LaunchConfigurationName: string | undefined;
-}
-
-export namespace LaunchConfigurationNameType {
-  export const filterSensitiveLog = (
-    obj: LaunchConfigurationNameType
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is LaunchConfigurationNameType =>
-    __isa(o, "LaunchConfigurationNameType");
-}
-
 export interface LaunchConfigurationNamesType {
   __type?: "LaunchConfigurationNamesType";
   /**
@@ -2895,6 +2877,24 @@ export namespace LaunchConfigurationNamesType {
   });
   export const isa = (o: any): o is LaunchConfigurationNamesType =>
     __isa(o, "LaunchConfigurationNamesType");
+}
+
+export interface LaunchConfigurationNameType {
+  __type?: "LaunchConfigurationNameType";
+  /**
+   * <p>The name of the launch configuration.</p>
+   */
+  LaunchConfigurationName: string | undefined;
+}
+
+export namespace LaunchConfigurationNameType {
+  export const filterSensitiveLog = (
+    obj: LaunchConfigurationNameType
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is LaunchConfigurationNameType =>
+    __isa(o, "LaunchConfigurationNameType");
 }
 
 export interface LaunchConfigurationsType {
@@ -3693,6 +3693,21 @@ export namespace PredefinedMetricSpecification {
     __isa(o, "PredefinedMetricSpecification");
 }
 
+export interface ProcessesType {
+  __type?: "ProcessesType";
+  /**
+   * <p>The names of the process types.</p>
+   */
+  Processes?: ProcessType[];
+}
+
+export namespace ProcessesType {
+  export const filterSensitiveLog = (obj: ProcessesType): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ProcessesType => __isa(o, "ProcessesType");
+}
+
 /**
  * <p>Describes a process type.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html#process-types">Scaling Processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -3752,21 +3767,6 @@ export namespace ProcessType {
     ...obj
   });
   export const isa = (o: any): o is ProcessType => __isa(o, "ProcessType");
-}
-
-export interface ProcessesType {
-  __type?: "ProcessesType";
-  /**
-   * <p>The names of the process types.</p>
-   */
-  Processes?: ProcessType[];
-}
-
-export namespace ProcessesType {
-  export const filterSensitiveLog = (obj: ProcessesType): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ProcessesType => __isa(o, "ProcessesType");
 }
 
 export interface PutLifecycleHookAnswer {

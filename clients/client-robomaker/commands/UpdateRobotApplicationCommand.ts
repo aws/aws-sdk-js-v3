@@ -8,9 +8,9 @@ import {
   UpdateRobotApplicationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateRobotApplicationCommand,
-  serializeAws_restJson1_1UpdateRobotApplicationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateRobotApplicationCommand,
+  serializeAws_restJson1UpdateRobotApplicationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class UpdateRobotApplicationCommand extends $Command<
     input: UpdateRobotApplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateRobotApplicationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1UpdateRobotApplicationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRobotApplicationCommandOutput> {
-    return deserializeAws_restJson1_1UpdateRobotApplicationCommand(
+    return deserializeAws_restJson1UpdateRobotApplicationCommand(
       output,
       context
     );

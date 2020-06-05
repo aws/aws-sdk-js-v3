@@ -5,9 +5,9 @@ import {
 } from "../SecurityHubClient";
 import { DeleteMembersRequest, DeleteMembersResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteMembersCommand,
-  serializeAws_restJson1_1DeleteMembersCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteMembersCommand,
+  serializeAws_restJson1DeleteMembersCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class DeleteMembersCommand extends $Command<
     input: DeleteMembersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteMembersCommand(input, context);
+    return serializeAws_restJson1DeleteMembersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMembersCommandOutput> {
-    return deserializeAws_restJson1_1DeleteMembersCommand(output, context);
+    return deserializeAws_restJson1DeleteMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

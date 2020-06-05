@@ -8,9 +8,9 @@ import {
   GetBackupVaultNotificationsOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetBackupVaultNotificationsCommand,
-  serializeAws_restJson1_1GetBackupVaultNotificationsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetBackupVaultNotificationsCommand,
+  serializeAws_restJson1GetBackupVaultNotificationsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class GetBackupVaultNotificationsCommand extends $Command<
     input: GetBackupVaultNotificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetBackupVaultNotificationsCommand(
+    return serializeAws_restJson1GetBackupVaultNotificationsCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class GetBackupVaultNotificationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBackupVaultNotificationsCommandOutput> {
-    return deserializeAws_restJson1_1GetBackupVaultNotificationsCommand(
+    return deserializeAws_restJson1GetBackupVaultNotificationsCommand(
       output,
       context
     );

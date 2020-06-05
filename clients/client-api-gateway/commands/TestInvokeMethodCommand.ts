@@ -8,9 +8,9 @@ import {
   TestInvokeMethodResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1TestInvokeMethodCommand,
-  serializeAws_restJson1_1TestInvokeMethodCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1TestInvokeMethodCommand,
+  serializeAws_restJson1TestInvokeMethodCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,14 +71,14 @@ export class TestInvokeMethodCommand extends $Command<
     input: TestInvokeMethodCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1TestInvokeMethodCommand(input, context);
+    return serializeAws_restJson1TestInvokeMethodCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TestInvokeMethodCommandOutput> {
-    return deserializeAws_restJson1_1TestInvokeMethodCommand(output, context);
+    return deserializeAws_restJson1TestInvokeMethodCommand(output, context);
   }
 
   // Start section: command_body_extra

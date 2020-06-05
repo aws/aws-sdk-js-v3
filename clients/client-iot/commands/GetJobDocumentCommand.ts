@@ -5,9 +5,9 @@ import {
 } from "../IoTClient";
 import { GetJobDocumentRequest, GetJobDocumentResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetJobDocumentCommand,
-  serializeAws_restJson1_1GetJobDocumentCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetJobDocumentCommand,
+  serializeAws_restJson1GetJobDocumentCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetJobDocumentCommand extends $Command<
     input: GetJobDocumentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetJobDocumentCommand(input, context);
+    return serializeAws_restJson1GetJobDocumentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetJobDocumentCommandOutput> {
-    return deserializeAws_restJson1_1GetJobDocumentCommand(output, context);
+    return deserializeAws_restJson1GetJobDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

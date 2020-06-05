@@ -8,9 +8,9 @@ import {
   UpdateAuditStreamConfigurationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1UpdateAuditStreamConfigurationCommand,
-  serializeAws_restJson1_1UpdateAuditStreamConfigurationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1UpdateAuditStreamConfigurationCommand,
+  serializeAws_restJson1UpdateAuditStreamConfigurationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class UpdateAuditStreamConfigurationCommand extends $Command<
     input: UpdateAuditStreamConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateAuditStreamConfigurationCommand(
+    return serializeAws_restJson1UpdateAuditStreamConfigurationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class UpdateAuditStreamConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAuditStreamConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1UpdateAuditStreamConfigurationCommand(
+    return deserializeAws_restJson1UpdateAuditStreamConfigurationCommand(
       output,
       context
     );

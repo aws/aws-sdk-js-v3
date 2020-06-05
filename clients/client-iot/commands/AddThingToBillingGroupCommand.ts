@@ -8,9 +8,9 @@ import {
   AddThingToBillingGroupResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1AddThingToBillingGroupCommand,
-  serializeAws_restJson1_1AddThingToBillingGroupCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AddThingToBillingGroupCommand,
+  serializeAws_restJson1AddThingToBillingGroupCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class AddThingToBillingGroupCommand extends $Command<
     input: AddThingToBillingGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AddThingToBillingGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1AddThingToBillingGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddThingToBillingGroupCommandOutput> {
-    return deserializeAws_restJson1_1AddThingToBillingGroupCommand(
+    return deserializeAws_restJson1AddThingToBillingGroupCommand(
       output,
       context
     );

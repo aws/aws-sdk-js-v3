@@ -8,9 +8,9 @@ import {
   DeleteScheduledAuditResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteScheduledAuditCommand,
-  serializeAws_restJson1_1DeleteScheduledAuditCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteScheduledAuditCommand,
+  serializeAws_restJson1DeleteScheduledAuditCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class DeleteScheduledAuditCommand extends $Command<
     input: DeleteScheduledAuditCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteScheduledAuditCommand(input, context);
+    return serializeAws_restJson1DeleteScheduledAuditCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteScheduledAuditCommandOutput> {
-    return deserializeAws_restJson1_1DeleteScheduledAuditCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteScheduledAuditCommand(output, context);
   }
 
   // Start section: command_body_extra

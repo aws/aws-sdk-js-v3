@@ -5,6 +5,207 @@ import {
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum Action {
+  DEEP_LINK = "DEEP_LINK",
+  OPEN_APP = "OPEN_APP",
+  URL = "URL"
+}
+
+/**
+ * <p>Provides information about the activities that were performed by a campaign.</p>
+ */
+export interface ActivitiesResponse {
+  __type?: "ActivitiesResponse";
+  /**
+   * <p>An array of responses, one for each activity that was performed by the campaign.</p>
+   */
+  Item: ActivityResponse[] | undefined;
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ActivitiesResponse {
+  export const filterSensitiveLog = (obj: ActivitiesResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ActivitiesResponse =>
+    __isa(o, "ActivitiesResponse");
+}
+
+/**
+ * <p>Specifies the configuration and other settings for an activity in a journey.</p>
+ */
+export interface Activity {
+  __type?: "Activity";
+  /**
+   * <p>The settings for a yes/no split activity. This type of activity sends participants down one of two paths in a journey, based on conditions that you specify.</p>
+   */
+  ConditionalSplit?: ConditionalSplitActivity;
+
+  /**
+   * <p>The custom description of the activity.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The settings for an email activity. This type of activity sends an email message to participants.</p>
+   */
+  EMAIL?: EmailMessageActivity;
+
+  /**
+   * <p>The settings for a holdout activity. This type of activity stops a journey for a specified percentage of participants.</p>
+   */
+  Holdout?: HoldoutActivity;
+
+  /**
+   * <p>The settings for a multivariate split activity. This type of activity sends participants down one of as many as five paths (including a default <i>Else</i> path) in a journey, based on conditions that you specify.</p>
+   */
+  MultiCondition?: MultiConditionalSplitActivity;
+
+  /**
+   * <p>The settings for a random split activity. This type of activity randomly sends specified percentages of participants down one of as many as five paths in a journey, based on conditions that you specify.</p>
+   */
+  RandomSplit?: RandomSplitActivity;
+
+  /**
+   * <p>The settings for a wait activity. This type of activity waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.</p>
+   */
+  Wait?: WaitActivity;
+}
+
+export namespace Activity {
+  export const filterSensitiveLog = (obj: Activity): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is Activity => __isa(o, "Activity");
+}
+
+/**
+ * <p>Provides information about an activity that was performed by a campaign.</p>
+ */
+export interface ActivityResponse {
+  __type?: "ActivityResponse";
+  /**
+   * <p>The unique identifier for the application that the campaign applies to.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the campaign that the activity applies to.</p>
+   */
+  CampaignId: string | undefined;
+
+  /**
+   * <p>The actual time, in ISO 8601 format, when the activity was marked CANCELLED or COMPLETED.</p>
+   */
+  End?: string;
+
+  /**
+   * <p>The unique identifier for the activity.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>Specifies whether the activity succeeded. Possible values are SUCCESS and FAIL.</p>
+   */
+  Result?: string;
+
+  /**
+   * <p>The scheduled start time, in ISO 8601 format, for the activity.</p>
+   */
+  ScheduledStart?: string;
+
+  /**
+   * <p>The actual start time, in ISO 8601 format, of the activity.</p>
+   */
+  Start?: string;
+
+  /**
+   * <p>The current status of the activity. Possible values are: PENDING, INITIALIZING, RUNNING, PAUSED, CANCELLED, and COMPLETED.</p>
+   */
+  State?: string;
+
+  /**
+   * <p>The total number of endpoints that the campaign successfully delivered messages to.</p>
+   */
+  SuccessfulEndpointCount?: number;
+
+  /**
+   * <p>The total number of time zones that were completed.</p>
+   */
+  TimezonesCompletedCount?: number;
+
+  /**
+   * <p>The total number of unique time zones that are in the segment for the campaign.</p>
+   */
+  TimezonesTotalCount?: number;
+
+  /**
+   * <p>The total number of endpoints that the campaign attempted to deliver messages to.</p>
+   */
+  TotalEndpointCount?: number;
+
+  /**
+   * <p>The unique identifier for the campaign treatment that the activity applies to. A treatment is a variation of a campaign that's used for A/B testing of a campaign.</p>
+   */
+  TreatmentId?: string;
+}
+
+export namespace ActivityResponse {
+  export const filterSensitiveLog = (obj: ActivityResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ActivityResponse =>
+    __isa(o, "ActivityResponse");
+}
+
+/**
+ * <p>Specifies address-based configuration settings for a message that's sent directly to an endpoint.</p>
+ */
+export interface AddressConfiguration {
+  __type?: "AddressConfiguration";
+  /**
+   * <p>The message body to use instead of the default message body. This value overrides the default message body.</p>
+   */
+  BodyOverride?: string;
+
+  /**
+   * <p>The channel to use when sending the message.</p>
+   */
+  ChannelType?: ChannelType | string;
+
+  /**
+   * <p>An object that maps custom attributes to attributes for the address and is attached to the message. For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.</p>
+   */
+  Context?: { [key: string]: string };
+
+  /**
+   * <p>The raw, JSON-formatted string to use as the payload for the message. If specified, this value overrides all other values for the message.</p>
+   */
+  RawContent?: string;
+
+  /**
+   * <p>A map of the message variables to merge with the variables specified by properties of the DefaultMessage object. The variables specified in this map take precedence over all other variables.</p>
+   */
+  Substitutions?: { [key: string]: string[] };
+
+  /**
+   * <p>The message title to use instead of the default message title. This value overrides the default message title.</p>
+   */
+  TitleOverride?: string;
+}
+
+export namespace AddressConfiguration {
+  export const filterSensitiveLog = (obj: AddressConfiguration): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AddressConfiguration =>
+    __isa(o, "AddressConfiguration");
+}
+
 /**
  * <p>Specifies the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
  */
@@ -189,6 +390,67 @@ export namespace ADMMessage {
     ...obj
   });
   export const isa = (o: any): o is ADMMessage => __isa(o, "ADMMessage");
+}
+
+/**
+ * <p>Specifies channel-specific content and settings for a message template that can be used in push notifications that are sent through the ADM (Amazon Device Messaging), Baidu (Baidu Cloud Push), or GCM (Firebase Cloud Messaging, formerly Google Cloud Messaging) channel.</p>
+ */
+export interface AndroidPushNotificationTemplate {
+  __type?: "AndroidPushNotificationTemplate";
+  /**
+   * <p>The action to occur if a recipient taps a push notification that's based on the message template. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
+   */
+  Action?: Action | string;
+
+  /**
+   * <p>The message body to use in a push notification that's based on the message template.</p>
+   */
+  Body?: string;
+
+  /**
+   * <p>The URL of the large icon image to display in the content view of a push notification that's based on the message template.</p>
+   */
+  ImageIconUrl?: string;
+
+  /**
+   * <p>The URL of an image to display in a push notification that's based on the message template.</p>
+   */
+  ImageUrl?: string;
+
+  /**
+   * <p>The raw, JSON-formatted string to use as the payload for a push notification that's based on the message template. If specified, this value overrides all other content for the message template.</p>
+   */
+  RawContent?: string;
+
+  /**
+   * <p>The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.</p>
+   */
+  SmallImageIconUrl?: string;
+
+  /**
+   * <p>The sound to play when a recipient receives a push notification that's based on the message template. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.</p>
+   */
+  Sound?: string;
+
+  /**
+   * <p>The title to use in a push notification that's based on the message template. This title appears above the notification message on a recipient's device.</p>
+   */
+  Title?: string;
+
+  /**
+   * <p>The URL to open in a recipient's default mobile browser, if a recipient taps a a push notification that's based on the message template and the value of the Action property is URL.</p>
+   */
+  Url?: string;
+}
+
+export namespace AndroidPushNotificationTemplate {
+  export const filterSensitiveLog = (
+    obj: AndroidPushNotificationTemplate
+  ): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is AndroidPushNotificationTemplate =>
+    __isa(o, "AndroidPushNotificationTemplate");
 }
 
 /**
@@ -861,268 +1123,6 @@ export namespace APNSVoipSandboxChannelResponse {
     __isa(o, "APNSVoipSandboxChannelResponse");
 }
 
-export enum Action {
-  DEEP_LINK = "DEEP_LINK",
-  OPEN_APP = "OPEN_APP",
-  URL = "URL"
-}
-
-/**
- * <p>Provides information about the activities that were performed by a campaign.</p>
- */
-export interface ActivitiesResponse {
-  __type?: "ActivitiesResponse";
-  /**
-   * <p>An array of responses, one for each activity that was performed by the campaign.</p>
-   */
-  Item: ActivityResponse[] | undefined;
-
-  /**
-   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ActivitiesResponse {
-  export const filterSensitiveLog = (obj: ActivitiesResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ActivitiesResponse =>
-    __isa(o, "ActivitiesResponse");
-}
-
-/**
- * <p>Specifies the configuration and other settings for an activity in a journey.</p>
- */
-export interface Activity {
-  __type?: "Activity";
-  /**
-   * <p>The settings for a yes/no split activity. This type of activity sends participants down one of two paths in a journey, based on conditions that you specify.</p>
-   */
-  ConditionalSplit?: ConditionalSplitActivity;
-
-  /**
-   * <p>The custom description of the activity.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The settings for an email activity. This type of activity sends an email message to participants.</p>
-   */
-  EMAIL?: EmailMessageActivity;
-
-  /**
-   * <p>The settings for a holdout activity. This type of activity stops a journey for a specified percentage of participants.</p>
-   */
-  Holdout?: HoldoutActivity;
-
-  /**
-   * <p>The settings for a multivariate split activity. This type of activity sends participants down one of as many as five paths (including a default <i>Else</i> path) in a journey, based on conditions that you specify.</p>
-   */
-  MultiCondition?: MultiConditionalSplitActivity;
-
-  /**
-   * <p>The settings for a random split activity. This type of activity randomly sends specified percentages of participants down one of as many as five paths in a journey, based on conditions that you specify.</p>
-   */
-  RandomSplit?: RandomSplitActivity;
-
-  /**
-   * <p>The settings for a wait activity. This type of activity waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.</p>
-   */
-  Wait?: WaitActivity;
-}
-
-export namespace Activity {
-  export const filterSensitiveLog = (obj: Activity): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is Activity => __isa(o, "Activity");
-}
-
-/**
- * <p>Provides information about an activity that was performed by a campaign.</p>
- */
-export interface ActivityResponse {
-  __type?: "ActivityResponse";
-  /**
-   * <p>The unique identifier for the application that the campaign applies to.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the campaign that the activity applies to.</p>
-   */
-  CampaignId: string | undefined;
-
-  /**
-   * <p>The actual time, in ISO 8601 format, when the activity was marked CANCELLED or COMPLETED.</p>
-   */
-  End?: string;
-
-  /**
-   * <p>The unique identifier for the activity.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>Specifies whether the activity succeeded. Possible values are SUCCESS and FAIL.</p>
-   */
-  Result?: string;
-
-  /**
-   * <p>The scheduled start time, in ISO 8601 format, for the activity.</p>
-   */
-  ScheduledStart?: string;
-
-  /**
-   * <p>The actual start time, in ISO 8601 format, of the activity.</p>
-   */
-  Start?: string;
-
-  /**
-   * <p>The current status of the activity. Possible values are: PENDING, INITIALIZING, RUNNING, PAUSED, CANCELLED, and COMPLETED.</p>
-   */
-  State?: string;
-
-  /**
-   * <p>The total number of endpoints that the campaign successfully delivered messages to.</p>
-   */
-  SuccessfulEndpointCount?: number;
-
-  /**
-   * <p>The total number of time zones that were completed.</p>
-   */
-  TimezonesCompletedCount?: number;
-
-  /**
-   * <p>The total number of unique time zones that are in the segment for the campaign.</p>
-   */
-  TimezonesTotalCount?: number;
-
-  /**
-   * <p>The total number of endpoints that the campaign attempted to deliver messages to.</p>
-   */
-  TotalEndpointCount?: number;
-
-  /**
-   * <p>The unique identifier for the campaign treatment that the activity applies to. A treatment is a variation of a campaign that's used for A/B testing of a campaign.</p>
-   */
-  TreatmentId?: string;
-}
-
-export namespace ActivityResponse {
-  export const filterSensitiveLog = (obj: ActivityResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ActivityResponse =>
-    __isa(o, "ActivityResponse");
-}
-
-/**
- * <p>Specifies address-based configuration settings for a message that's sent directly to an endpoint.</p>
- */
-export interface AddressConfiguration {
-  __type?: "AddressConfiguration";
-  /**
-   * <p>The message body to use instead of the default message body. This value overrides the default message body.</p>
-   */
-  BodyOverride?: string;
-
-  /**
-   * <p>The channel to use when sending the message.</p>
-   */
-  ChannelType?: ChannelType | string;
-
-  /**
-   * <p>An object that maps custom attributes to attributes for the address and is attached to the message. For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.</p>
-   */
-  Context?: { [key: string]: string };
-
-  /**
-   * <p>The raw, JSON-formatted string to use as the payload for the message. If specified, this value overrides all other values for the message.</p>
-   */
-  RawContent?: string;
-
-  /**
-   * <p>A map of the message variables to merge with the variables specified by properties of the DefaultMessage object. The variables specified in this map take precedence over all other variables.</p>
-   */
-  Substitutions?: { [key: string]: string[] };
-
-  /**
-   * <p>The message title to use instead of the default message title. This value overrides the default message title.</p>
-   */
-  TitleOverride?: string;
-}
-
-export namespace AddressConfiguration {
-  export const filterSensitiveLog = (obj: AddressConfiguration): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AddressConfiguration =>
-    __isa(o, "AddressConfiguration");
-}
-
-/**
- * <p>Specifies channel-specific content and settings for a message template that can be used in push notifications that are sent through the ADM (Amazon Device Messaging), Baidu (Baidu Cloud Push), or GCM (Firebase Cloud Messaging, formerly Google Cloud Messaging) channel.</p>
- */
-export interface AndroidPushNotificationTemplate {
-  __type?: "AndroidPushNotificationTemplate";
-  /**
-   * <p>The action to occur if a recipient taps a push notification that's based on the message template. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
-   */
-  Action?: Action | string;
-
-  /**
-   * <p>The message body to use in a push notification that's based on the message template.</p>
-   */
-  Body?: string;
-
-  /**
-   * <p>The URL of the large icon image to display in the content view of a push notification that's based on the message template.</p>
-   */
-  ImageIconUrl?: string;
-
-  /**
-   * <p>The URL of an image to display in a push notification that's based on the message template.</p>
-   */
-  ImageUrl?: string;
-
-  /**
-   * <p>The raw, JSON-formatted string to use as the payload for a push notification that's based on the message template. If specified, this value overrides all other content for the message template.</p>
-   */
-  RawContent?: string;
-
-  /**
-   * <p>The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.</p>
-   */
-  SmallImageIconUrl?: string;
-
-  /**
-   * <p>The sound to play when a recipient receives a push notification that's based on the message template. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.</p>
-   */
-  Sound?: string;
-
-  /**
-   * <p>The title to use in a push notification that's based on the message template. This title appears above the notification message on a recipient's device.</p>
-   */
-  Title?: string;
-
-  /**
-   * <p>The URL to open in a recipient's default mobile browser, if a recipient taps a a push notification that's based on the message template and the value of the Action property is URL.</p>
-   */
-  Url?: string;
-}
-
-export namespace AndroidPushNotificationTemplate {
-  export const filterSensitiveLog = (
-    obj: AndroidPushNotificationTemplate
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is AndroidPushNotificationTemplate =>
-    __isa(o, "AndroidPushNotificationTemplate");
-}
-
 /**
  * <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application, and provides information about that query.</p>
  */
@@ -1292,11 +1292,6 @@ export namespace AttributeDimension {
     __isa(o, "AttributeDimension");
 }
 
-export enum AttributeType {
-  EXCLUSIVE = "EXCLUSIVE",
-  INCLUSIVE = "INCLUSIVE"
-}
-
 /**
  * <p>Provides information about the type and the names of attributes that were removed from all the endpoints that are associated with an application.</p>
  */
@@ -1324,6 +1319,11 @@ export namespace AttributesResource {
   });
   export const isa = (o: any): o is AttributesResource =>
     __isa(o, "AttributesResource");
+}
+
+export enum AttributeType {
+  EXCLUSIVE = "EXCLUSIVE",
+  INCLUSIVE = "INCLUSIVE"
 }
 
 /**
@@ -1882,6 +1882,30 @@ export namespace CampaignSmsMessage {
 }
 
 /**
+ * <p>Provides information about the configuration and other settings for all the campaigns that are associated with an application.</p>
+ */
+export interface CampaignsResponse {
+  __type?: "CampaignsResponse";
+  /**
+   * <p>An array of responses, one for each campaign that's associated with the application.</p>
+   */
+  Item: CampaignResponse[] | undefined;
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace CampaignsResponse {
+  export const filterSensitiveLog = (obj: CampaignsResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CampaignsResponse =>
+    __isa(o, "CampaignsResponse");
+}
+
+/**
  * <p>Provides information about the status of a campaign.</p>
  */
 export interface CampaignState {
@@ -1906,30 +1930,6 @@ export enum CampaignStatus {
   PAUSED = "PAUSED",
   PENDING_NEXT_RUN = "PENDING_NEXT_RUN",
   SCHEDULED = "SCHEDULED"
-}
-
-/**
- * <p>Provides information about the configuration and other settings for all the campaigns that are associated with an application.</p>
- */
-export interface CampaignsResponse {
-  __type?: "CampaignsResponse";
-  /**
-   * <p>An array of responses, one for each campaign that's associated with the application.</p>
-   */
-  Item: CampaignResponse[] | undefined;
-
-  /**
-   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace CampaignsResponse {
-  export const filterSensitiveLog = (obj: CampaignsResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CampaignsResponse =>
-    __isa(o, "CampaignsResponse");
 }
 
 /**
@@ -1991,20 +1991,6 @@ export namespace ChannelResponse {
     __isa(o, "ChannelResponse");
 }
 
-export enum ChannelType {
-  ADM = "ADM",
-  APNS = "APNS",
-  APNS_SANDBOX = "APNS_SANDBOX",
-  APNS_VOIP = "APNS_VOIP",
-  APNS_VOIP_SANDBOX = "APNS_VOIP_SANDBOX",
-  BAIDU = "BAIDU",
-  CUSTOM = "CUSTOM",
-  EMAIL = "EMAIL",
-  GCM = "GCM",
-  SMS = "SMS",
-  VOICE = "VOICE"
-}
-
 /**
  * <p>Provides information about the general settings and status of all channels for an application, including channels that aren't enabled for the application.</p>
  */
@@ -2022,6 +2008,20 @@ export namespace ChannelsResponse {
   });
   export const isa = (o: any): o is ChannelsResponse =>
     __isa(o, "ChannelsResponse");
+}
+
+export enum ChannelType {
+  ADM = "ADM",
+  APNS = "APNS",
+  APNS_SANDBOX = "APNS_SANDBOX",
+  APNS_VOIP = "APNS_VOIP",
+  APNS_VOIP_SANDBOX = "APNS_VOIP_SANDBOX",
+  BAIDU = "BAIDU",
+  CUSTOM = "CUSTOM",
+  EMAIL = "EMAIL",
+  GCM = "GCM",
+  SMS = "SMS",
+  VOICE = "VOICE"
 }
 
 /**
@@ -2081,6 +2081,30 @@ export namespace ConditionalSplitActivity {
     __isa(o, "ConditionalSplitActivity");
 }
 
+/**
+ * <p>Specifies the display name of an application and the tags to associate with the application.</p>
+ */
+export interface CreateApplicationRequest {
+  __type?: "CreateApplicationRequest";
+  /**
+   * <p>The display name of the application. This name is displayed as the <b>Project name</b> on the Amazon Pinpoint console.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A string-to-string map of key-value pairs that defines the tags to associate with the application. Each tag consists of a required tag key and an associated tag value.</p>
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace CreateApplicationRequest {
+  export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is CreateApplicationRequest =>
+    __isa(o, "CreateApplicationRequest");
+}
+
 export interface CreateAppRequest {
   __type?: "CreateAppRequest";
   /**
@@ -2111,30 +2135,6 @@ export namespace CreateAppResponse {
   });
   export const isa = (o: any): o is CreateAppResponse =>
     __isa(o, "CreateAppResponse");
-}
-
-/**
- * <p>Specifies the display name of an application and the tags to associate with the application.</p>
- */
-export interface CreateApplicationRequest {
-  __type?: "CreateApplicationRequest";
-  /**
-   * <p>The display name of the application. This name is displayed as the <b>Project name</b> on the Amazon Pinpoint console.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A string-to-string map of key-value pairs that defines the tags to associate with the application. Each tag consists of a required tag key and an associated tag value.</p>
-   */
-  tags?: { [key: string]: string };
-}
-
-export namespace CreateApplicationRequest {
-  export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CreateApplicationRequest =>
-    __isa(o, "CreateApplicationRequest");
 }
 
 export interface CreateCampaignRequest {
@@ -4220,6 +4220,25 @@ export namespace EndpointSendConfiguration {
 }
 
 /**
+ * <p>Provides information about all the endpoints that are associated with a user ID.</p>
+ */
+export interface EndpointsResponse {
+  __type?: "EndpointsResponse";
+  /**
+   * <p>An array of responses, one for each endpoint that's associated with the user ID.</p>
+   */
+  Item: EndpointResponse[] | undefined;
+}
+
+export namespace EndpointsResponse {
+  export const filterSensitiveLog = (obj: EndpointsResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is EndpointsResponse =>
+    __isa(o, "EndpointsResponse");
+}
+
+/**
  * <p>Specifies data for one or more attributes that describe the user who's associated with an endpoint.</p>
  */
 export interface EndpointUser {
@@ -4240,25 +4259,6 @@ export namespace EndpointUser {
     ...obj
   });
   export const isa = (o: any): o is EndpointUser => __isa(o, "EndpointUser");
-}
-
-/**
- * <p>Provides information about all the endpoints that are associated with a user ID.</p>
- */
-export interface EndpointsResponse {
-  __type?: "EndpointsResponse";
-  /**
-   * <p>An array of responses, one for each endpoint that's associated with the user ID.</p>
-   */
-  Item: EndpointResponse[] | undefined;
-}
-
-export namespace EndpointsResponse {
-  export const filterSensitiveLog = (obj: EndpointsResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is EndpointsResponse =>
-    __isa(o, "EndpointsResponse");
 }
 
 /**
@@ -4402,51 +4402,6 @@ export namespace EventItemResponse {
 }
 
 /**
- * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
- */
-export interface EventStream {
-  __type?: "EventStream";
-  /**
-   * <p>The unique identifier for the application to publish event data for.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Kinesis data stream or Amazon Kinesis Data Firehose delivery stream to publish event data to.</p> <p>For a Kinesis data stream, the ARN format is: arn:aws:kinesis:<replaceable>region</replaceable>:<replaceable>account-id</replaceable>:stream/<replaceable>stream_name</replaceable>
-   *                </p> <p>For a Kinesis Data Firehose delivery stream, the ARN format is: arn:aws:firehose:<replaceable>region</replaceable>:<replaceable>account-id</replaceable>:deliverystream/<replaceable>stream_name</replaceable>
-   *                </p>
-   */
-  DestinationStreamArn: string | undefined;
-
-  /**
-   * <p>(Deprecated) Your AWS account ID, which you assigned to an external ID key in an IAM trust policy. Amazon Pinpoint previously used this value to assume an IAM role when publishing event data, but we removed this requirement. We don't recommend use of external IDs for IAM roles that are assumed by Amazon Pinpoint.</p>
-   */
-  ExternalId?: string;
-
-  /**
-   * <p>The date, in ISO 8601 format, when the event stream was last modified.</p>
-   */
-  LastModifiedDate?: string;
-
-  /**
-   * <p>The IAM user who last modified the event stream.</p>
-   */
-  LastUpdatedBy?: string;
-
-  /**
-   * <p>The AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to publish event data to the stream in your AWS account.</p>
-   */
-  RoleArn: string | undefined;
-}
-
-export namespace EventStream {
-  export const filterSensitiveLog = (obj: EventStream): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is EventStream => __isa(o, "EventStream");
-}
-
-/**
  * <p>Specifies a batch of endpoints and events to process.</p>
  */
 export interface EventsBatch {
@@ -4504,6 +4459,51 @@ export namespace EventsResponse {
   });
   export const isa = (o: any): o is EventsResponse =>
     __isa(o, "EventsResponse");
+}
+
+/**
+ * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
+ */
+export interface EventStream {
+  __type?: "EventStream";
+  /**
+   * <p>The unique identifier for the application to publish event data for.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Kinesis data stream or Amazon Kinesis Data Firehose delivery stream to publish event data to.</p> <p>For a Kinesis data stream, the ARN format is: arn:aws:kinesis:<replaceable>region</replaceable>:<replaceable>account-id</replaceable>:stream/<replaceable>stream_name</replaceable>
+   *                </p> <p>For a Kinesis Data Firehose delivery stream, the ARN format is: arn:aws:firehose:<replaceable>region</replaceable>:<replaceable>account-id</replaceable>:deliverystream/<replaceable>stream_name</replaceable>
+   *                </p>
+   */
+  DestinationStreamArn: string | undefined;
+
+  /**
+   * <p>(Deprecated) Your AWS account ID, which you assigned to an external ID key in an IAM trust policy. Amazon Pinpoint previously used this value to assume an IAM role when publishing event data, but we removed this requirement. We don't recommend use of external IDs for IAM roles that are assumed by Amazon Pinpoint.</p>
+   */
+  ExternalId?: string;
+
+  /**
+   * <p>The date, in ISO 8601 format, when the event stream was last modified.</p>
+   */
+  LastModifiedDate?: string;
+
+  /**
+   * <p>The IAM user who last modified the event stream.</p>
+   */
+  LastUpdatedBy?: string;
+
+  /**
+   * <p>The AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to publish event data to the stream in your AWS account.</p>
+   */
+  RoleArn: string | undefined;
+}
+
+export namespace EventStream {
+  export const filterSensitiveLog = (obj: EventStream): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is EventStream => __isa(o, "EventStream");
 }
 
 /**
@@ -4912,54 +4912,6 @@ export namespace GCMMessage {
   export const isa = (o: any): o is GCMMessage => __isa(o, "GCMMessage");
 }
 
-/**
- * <p>Specifies the GPS coordinates of a location.</p>
- */
-export interface GPSCoordinates {
-  __type?: "GPSCoordinates";
-  /**
-   * <p>The latitude coordinate of the location.</p>
-   */
-  Latitude: number | undefined;
-
-  /**
-   * <p>The longitude coordinate of the location.</p>
-   */
-  Longitude: number | undefined;
-}
-
-export namespace GPSCoordinates {
-  export const filterSensitiveLog = (obj: GPSCoordinates): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GPSCoordinates =>
-    __isa(o, "GPSCoordinates");
-}
-
-/**
- * <p>Specifies GPS-based criteria for including or excluding endpoints from a segment.</p>
- */
-export interface GPSPointDimension {
-  __type?: "GPSPointDimension";
-  /**
-   * <p>The GPS coordinates to measure distance from.</p>
-   */
-  Coordinates: GPSCoordinates | undefined;
-
-  /**
-   * <p>The range, in kilometers, from the GPS coordinates.</p>
-   */
-  RangeInKilometers?: number;
-}
-
-export namespace GPSPointDimension {
-  export const filterSensitiveLog = (obj: GPSPointDimension): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GPSPointDimension =>
-    __isa(o, "GPSPointDimension");
-}
-
 export interface GetAdmChannelRequest {
   __type?: "GetAdmChannelRequest";
   /**
@@ -5128,37 +5080,6 @@ export namespace GetApnsVoipSandboxChannelResponse {
     __isa(o, "GetApnsVoipSandboxChannelResponse");
 }
 
-export interface GetAppRequest {
-  __type?: "GetAppRequest";
-  /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-   */
-  ApplicationId: string | undefined;
-}
-
-export namespace GetAppRequest {
-  export const filterSensitiveLog = (obj: GetAppRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetAppRequest => __isa(o, "GetAppRequest");
-}
-
-export interface GetAppResponse {
-  __type?: "GetAppResponse";
-  /**
-   * <p>Provides information about an application.</p>
-   */
-  ApplicationResponse: ApplicationResponse | undefined;
-}
-
-export namespace GetAppResponse {
-  export const filterSensitiveLog = (obj: GetAppResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetAppResponse =>
-    __isa(o, "GetAppResponse");
-}
-
 export interface GetApplicationDateRangeKpiRequest {
   __type?: "GetApplicationDateRangeKpiRequest";
   /**
@@ -5254,6 +5175,37 @@ export namespace GetApplicationSettingsResponse {
   });
   export const isa = (o: any): o is GetApplicationSettingsResponse =>
     __isa(o, "GetApplicationSettingsResponse");
+}
+
+export interface GetAppRequest {
+  __type?: "GetAppRequest";
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
+}
+
+export namespace GetAppRequest {
+  export const filterSensitiveLog = (obj: GetAppRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetAppRequest => __isa(o, "GetAppRequest");
+}
+
+export interface GetAppResponse {
+  __type?: "GetAppResponse";
+  /**
+   * <p>Provides information about an application.</p>
+   */
+  ApplicationResponse: ApplicationResponse | undefined;
+}
+
+export namespace GetAppResponse {
+  export const filterSensitiveLog = (obj: GetAppResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetAppResponse =>
+    __isa(o, "GetAppResponse");
 }
 
 export interface GetAppsRequest {
@@ -5479,6 +5431,48 @@ export namespace GetCampaignResponse {
     __isa(o, "GetCampaignResponse");
 }
 
+export interface GetCampaignsRequest {
+  __type?: "GetCampaignsRequest";
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
+   */
+  PageSize?: string;
+
+  /**
+   * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+   */
+  Token?: string;
+}
+
+export namespace GetCampaignsRequest {
+  export const filterSensitiveLog = (obj: GetCampaignsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetCampaignsRequest =>
+    __isa(o, "GetCampaignsRequest");
+}
+
+export interface GetCampaignsResponse {
+  __type?: "GetCampaignsResponse";
+  /**
+   * <p>Provides information about the configuration and other settings for all the campaigns that are associated with an application.</p>
+   */
+  CampaignsResponse: CampaignsResponse | undefined;
+}
+
+export namespace GetCampaignsResponse {
+  export const filterSensitiveLog = (obj: GetCampaignsResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetCampaignsResponse =>
+    __isa(o, "GetCampaignsResponse");
+}
+
 export interface GetCampaignVersionRequest {
   __type?: "GetCampaignVersionRequest";
   /**
@@ -5568,48 +5562,6 @@ export namespace GetCampaignVersionsResponse {
   });
   export const isa = (o: any): o is GetCampaignVersionsResponse =>
     __isa(o, "GetCampaignVersionsResponse");
-}
-
-export interface GetCampaignsRequest {
-  __type?: "GetCampaignsRequest";
-  /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
-   * <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
-   */
-  PageSize?: string;
-
-  /**
-   * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
-   */
-  Token?: string;
-}
-
-export namespace GetCampaignsRequest {
-  export const filterSensitiveLog = (obj: GetCampaignsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetCampaignsRequest =>
-    __isa(o, "GetCampaignsRequest");
-}
-
-export interface GetCampaignsResponse {
-  __type?: "GetCampaignsResponse";
-  /**
-   * <p>Provides information about the configuration and other settings for all the campaigns that are associated with an application.</p>
-   */
-  CampaignsResponse: CampaignsResponse | undefined;
-}
-
-export namespace GetCampaignsResponse {
-  export const filterSensitiveLog = (obj: GetCampaignsResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetCampaignsResponse =>
-    __isa(o, "GetCampaignsResponse");
 }
 
 export interface GetChannelsRequest {
@@ -6364,6 +6316,48 @@ export namespace GetSegmentResponse {
     __isa(o, "GetSegmentResponse");
 }
 
+export interface GetSegmentsRequest {
+  __type?: "GetSegmentsRequest";
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
+   */
+  PageSize?: string;
+
+  /**
+   * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+   */
+  Token?: string;
+}
+
+export namespace GetSegmentsRequest {
+  export const filterSensitiveLog = (obj: GetSegmentsRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetSegmentsRequest =>
+    __isa(o, "GetSegmentsRequest");
+}
+
+export interface GetSegmentsResponse {
+  __type?: "GetSegmentsResponse";
+  /**
+   * <p>Provides information about all the segments that are associated with an application.</p>
+   */
+  SegmentsResponse: SegmentsResponse | undefined;
+}
+
+export namespace GetSegmentsResponse {
+  export const filterSensitiveLog = (obj: GetSegmentsResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GetSegmentsResponse =>
+    __isa(o, "GetSegmentsResponse");
+}
+
 export interface GetSegmentVersionRequest {
   __type?: "GetSegmentVersionRequest";
   /**
@@ -6451,48 +6445,6 @@ export namespace GetSegmentVersionsResponse {
   });
   export const isa = (o: any): o is GetSegmentVersionsResponse =>
     __isa(o, "GetSegmentVersionsResponse");
-}
-
-export interface GetSegmentsRequest {
-  __type?: "GetSegmentsRequest";
-  /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
-   * <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
-   */
-  PageSize?: string;
-
-  /**
-   * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
-   */
-  Token?: string;
-}
-
-export namespace GetSegmentsRequest {
-  export const filterSensitiveLog = (obj: GetSegmentsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetSegmentsRequest =>
-    __isa(o, "GetSegmentsRequest");
-}
-
-export interface GetSegmentsResponse {
-  __type?: "GetSegmentsResponse";
-  /**
-   * <p>Provides information about all the segments that are associated with an application.</p>
-   */
-  SegmentsResponse: SegmentsResponse | undefined;
-}
-
-export namespace GetSegmentsResponse {
-  export const filterSensitiveLog = (obj: GetSegmentsResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is GetSegmentsResponse =>
-    __isa(o, "GetSegmentsResponse");
 }
 
 export interface GetSmsChannelRequest {
@@ -6668,6 +6620,54 @@ export namespace GetVoiceTemplateResponse {
   });
   export const isa = (o: any): o is GetVoiceTemplateResponse =>
     __isa(o, "GetVoiceTemplateResponse");
+}
+
+/**
+ * <p>Specifies the GPS coordinates of a location.</p>
+ */
+export interface GPSCoordinates {
+  __type?: "GPSCoordinates";
+  /**
+   * <p>The latitude coordinate of the location.</p>
+   */
+  Latitude: number | undefined;
+
+  /**
+   * <p>The longitude coordinate of the location.</p>
+   */
+  Longitude: number | undefined;
+}
+
+export namespace GPSCoordinates {
+  export const filterSensitiveLog = (obj: GPSCoordinates): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GPSCoordinates =>
+    __isa(o, "GPSCoordinates");
+}
+
+/**
+ * <p>Specifies GPS-based criteria for including or excluding endpoints from a segment.</p>
+ */
+export interface GPSPointDimension {
+  __type?: "GPSPointDimension";
+  /**
+   * <p>The GPS coordinates to measure distance from.</p>
+   */
+  Coordinates: GPSCoordinates | undefined;
+
+  /**
+   * <p>The range, in kilometers, from the GPS coordinates.</p>
+   */
+  RangeInKilometers?: number;
+}
+
+export namespace GPSPointDimension {
+  export const filterSensitiveLog = (obj: GPSPointDimension): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is GPSPointDimension =>
+    __isa(o, "GPSPointDimension");
 }
 
 /**
@@ -7279,25 +7279,6 @@ export namespace JourneySchedule {
 }
 
 /**
- * <p>Changes the status of a journey.</p>
- */
-export interface JourneyStateRequest {
-  __type?: "JourneyStateRequest";
-  /**
-   * <p>The status of the journey. Currently, the only supported value is CANCELLED.</p> <p>If you cancel a journey, Amazon Pinpoint continues to perform activities that are currently in progress, until those activities are complete. Amazon Pinpoint also continues to collect and aggregate analytics data for those activities, until they are complete, and any activities that were complete when you cancelled the journey.</p> <p>After you cancel a journey, you can't add, change, or remove any activities from the journey. In addition, Amazon Pinpoint stops evaluating the journey and doesn't perform any activities that haven't started.</p>
-   */
-  State?: State | string;
-}
-
-export namespace JourneyStateRequest {
-  export const filterSensitiveLog = (obj: JourneyStateRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is JourneyStateRequest =>
-    __isa(o, "JourneyStateRequest");
-}
-
-/**
  * <p>Provides information about the status, configuration, and other settings for all the journeys that are associated with an application.</p>
  */
 export interface JourneysResponse {
@@ -7319,6 +7300,25 @@ export namespace JourneysResponse {
   });
   export const isa = (o: any): o is JourneysResponse =>
     __isa(o, "JourneysResponse");
+}
+
+/**
+ * <p>Changes the status of a journey.</p>
+ */
+export interface JourneyStateRequest {
+  __type?: "JourneyStateRequest";
+  /**
+   * <p>The status of the journey. Currently, the only supported value is CANCELLED.</p> <p>If you cancel a journey, Amazon Pinpoint continues to perform activities that are currently in progress, until those activities are complete. Amazon Pinpoint also continues to collect and aggregate analytics data for those activities, until they are complete, and any activities that were complete when you cancelled the journey.</p> <p>After you cancel a journey, you can't add, change, or remove any activities from the journey. In addition, Amazon Pinpoint stops evaluating the journey and doesn't perform any activities that haven't started.</p>
+   */
+  State?: State | string;
+}
+
+export namespace JourneyStateRequest {
+  export const filterSensitiveLog = (obj: JourneyStateRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is JourneyStateRequest =>
+    __isa(o, "JourneyStateRequest");
 }
 
 export interface ListJourneysRequest {
@@ -7397,6 +7397,53 @@ export namespace ListTagsForResourceResponse {
     __isa(o, "ListTagsForResourceResponse");
 }
 
+export interface ListTemplatesRequest {
+  __type?: "ListTemplatesRequest";
+  /**
+   * <p>The  string that specifies which page of results to return in a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
+   */
+  PageSize?: string;
+
+  /**
+   * <p>The substring to match in the names of the message templates to include in the results. If you specify this value, Amazon Pinpoint returns only those templates whose names begin with the value that you specify.</p>
+   */
+  Prefix?: string;
+
+  /**
+   * <p>The type of message template to include in the results. Valid values are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in the results, don't include this parameter in your request.</p>
+   */
+  TemplateType?: string;
+}
+
+export namespace ListTemplatesRequest {
+  export const filterSensitiveLog = (obj: ListTemplatesRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListTemplatesRequest =>
+    __isa(o, "ListTemplatesRequest");
+}
+
+export interface ListTemplatesResponse {
+  __type?: "ListTemplatesResponse";
+  /**
+   * <p>Provides information about all the message templates that are associated with your Amazon Pinpoint account.</p>
+   */
+  TemplatesResponse: TemplatesResponse | undefined;
+}
+
+export namespace ListTemplatesResponse {
+  export const filterSensitiveLog = (obj: ListTemplatesResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is ListTemplatesResponse =>
+    __isa(o, "ListTemplatesResponse");
+}
+
 export interface ListTemplateVersionsRequest {
   __type?: "ListTemplateVersionsRequest";
   /**
@@ -7446,53 +7493,6 @@ export namespace ListTemplateVersionsResponse {
   });
   export const isa = (o: any): o is ListTemplateVersionsResponse =>
     __isa(o, "ListTemplateVersionsResponse");
-}
-
-export interface ListTemplatesRequest {
-  __type?: "ListTemplatesRequest";
-  /**
-   * <p>The  string that specifies which page of results to return in a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
-   */
-  PageSize?: string;
-
-  /**
-   * <p>The substring to match in the names of the message templates to include in the results. If you specify this value, Amazon Pinpoint returns only those templates whose names begin with the value that you specify.</p>
-   */
-  Prefix?: string;
-
-  /**
-   * <p>The type of message template to include in the results. Valid values are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in the results, don't include this parameter in your request.</p>
-   */
-  TemplateType?: string;
-}
-
-export namespace ListTemplatesRequest {
-  export const filterSensitiveLog = (obj: ListTemplatesRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListTemplatesRequest =>
-    __isa(o, "ListTemplatesRequest");
-}
-
-export interface ListTemplatesResponse {
-  __type?: "ListTemplatesResponse";
-  /**
-   * <p>Provides information about all the message templates that are associated with your Amazon Pinpoint account.</p>
-   */
-  TemplatesResponse: TemplatesResponse | undefined;
-}
-
-export namespace ListTemplatesResponse {
-  export const filterSensitiveLog = (obj: ListTemplatesResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListTemplatesResponse =>
-    __isa(o, "ListTemplatesResponse");
 }
 
 /**
@@ -8256,43 +8256,6 @@ export namespace PushNotificationTemplateResponse {
     __isa(o, "PushNotificationTemplateResponse");
 }
 
-export interface PutEventStreamRequest {
-  __type?: "PutEventStreamRequest";
-  /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
-   * <p>Specifies the Amazon Resource Name (ARN) of an event stream to publish events to and the AWS Identity and Access Management (IAM) role to use when publishing those events.</p>
-   */
-  WriteEventStream: WriteEventStream | undefined;
-}
-
-export namespace PutEventStreamRequest {
-  export const filterSensitiveLog = (obj: PutEventStreamRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is PutEventStreamRequest =>
-    __isa(o, "PutEventStreamRequest");
-}
-
-export interface PutEventStreamResponse {
-  __type?: "PutEventStreamResponse";
-  /**
-   * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
-   */
-  EventStream: EventStream | undefined;
-}
-
-export namespace PutEventStreamResponse {
-  export const filterSensitiveLog = (obj: PutEventStreamResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is PutEventStreamResponse =>
-    __isa(o, "PutEventStreamResponse");
-}
-
 export interface PutEventsRequest {
   __type?: "PutEventsRequest";
   /**
@@ -8328,6 +8291,43 @@ export namespace PutEventsResponse {
   });
   export const isa = (o: any): o is PutEventsResponse =>
     __isa(o, "PutEventsResponse");
+}
+
+export interface PutEventStreamRequest {
+  __type?: "PutEventStreamRequest";
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of an event stream to publish events to and the AWS Identity and Access Management (IAM) role to use when publishing those events.</p>
+   */
+  WriteEventStream: WriteEventStream | undefined;
+}
+
+export namespace PutEventStreamRequest {
+  export const filterSensitiveLog = (obj: PutEventStreamRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is PutEventStreamRequest =>
+    __isa(o, "PutEventStreamRequest");
+}
+
+export interface PutEventStreamResponse {
+  __type?: "PutEventStreamResponse";
+  /**
+   * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
+   */
+  EventStream: EventStream | undefined;
+}
+
+export namespace PutEventStreamResponse {
+  export const filterSensitiveLog = (obj: PutEventStreamResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is PutEventStreamResponse =>
+    __isa(o, "PutEventStreamResponse");
 }
 
 /**
@@ -8535,260 +8535,6 @@ export namespace ResultRowValue {
   });
   export const isa = (o: any): o is ResultRowValue =>
     __isa(o, "ResultRowValue");
-}
-
-/**
- * <p>Specifies the status and settings of the SMS channel for an application.</p>
- */
-export interface SMSChannelRequest {
-  __type?: "SMSChannelRequest";
-  /**
-   * <p>Specifies whether to enable the SMS channel for the application.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The identity that you want to display on recipients' devices when they receive messages from the SMS channel.</p>
-   */
-  SenderId?: string;
-
-  /**
-   * <p>The registered short code that you want to use when you send messages through the SMS channel.</p>
-   */
-  ShortCode?: string;
-}
-
-export namespace SMSChannelRequest {
-  export const filterSensitiveLog = (obj: SMSChannelRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SMSChannelRequest =>
-    __isa(o, "SMSChannelRequest");
-}
-
-/**
- * <p>Provides information about the status and settings of the SMS channel for an application.</p>
- */
-export interface SMSChannelResponse {
-  __type?: "SMSChannelResponse";
-  /**
-   * <p>The unique identifier for the application that the SMS channel applies to.</p>
-   */
-  ApplicationId?: string;
-
-  /**
-   * <p>The date and time, in ISO 8601 format, when the SMS channel was enabled.</p>
-   */
-  CreationDate?: string;
-
-  /**
-   * <p>Specifies whether the SMS channel is enabled for the application.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>(Not used) This property is retained only for backward compatibility.</p>
-   */
-  HasCredential?: boolean;
-
-  /**
-   * <p>(Deprecated) An identifier for the SMS channel. This property is retained only for backward compatibility.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>Specifies whether the SMS channel is archived.</p>
-   */
-  IsArchived?: boolean;
-
-  /**
-   * <p>The user who last modified the SMS channel.</p>
-   */
-  LastModifiedBy?: string;
-
-  /**
-   * <p>The date and time, in ISO 8601 format, when the SMS channel was last modified.</p>
-   */
-  LastModifiedDate?: string;
-
-  /**
-   * <p>The type of messaging or notification platform for the channel. For the SMS channel, this value is SMS.</p>
-   */
-  Platform: string | undefined;
-
-  /**
-   * <p>The maximum number of promotional messages that you can send through the SMS channel each second.</p>
-   */
-  PromotionalMessagesPerSecond?: number;
-
-  /**
-   * <p>The identity that displays on recipients' devices when they receive messages from the SMS channel.</p>
-   */
-  SenderId?: string;
-
-  /**
-   * <p>The registered short code to use when you send messages through the SMS channel.</p>
-   */
-  ShortCode?: string;
-
-  /**
-   * <p>The maximum number of transactional messages that you can send through the SMS channel each second.</p>
-   */
-  TransactionalMessagesPerSecond?: number;
-
-  /**
-   * <p>The current version of the SMS channel.</p>
-   */
-  Version?: number;
-}
-
-export namespace SMSChannelResponse {
-  export const filterSensitiveLog = (obj: SMSChannelResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SMSChannelResponse =>
-    __isa(o, "SMSChannelResponse");
-}
-
-/**
- * <p>Specifies the default settings for a one-time SMS message that's sent directly to an endpoint.</p>
- */
-export interface SMSMessage {
-  __type?: "SMSMessage";
-  /**
-   * <p>The body of the SMS message.</p>
-   */
-  Body?: string;
-
-  /**
-   * <p>The SMS program name that you provided to AWS Support when you requested your dedicated number.</p>
-   */
-  Keyword?: string;
-
-  /**
-   * <p>The SMS message type. Valid values are: TRANSACTIONAL, the message is critical or time-sensitive, such as a one-time password that supports a customer transaction; and, PROMOTIONAL, the message is not critical or time-sensitive, such as a marketing message.</p>
-   */
-  MessageType?: MessageType | string;
-
-  /**
-   * <p>The number to send the SMS message from. This value should be one of the dedicated long or short codes that's assigned to your AWS account. If you don't specify a long or short code, Amazon Pinpoint assigns a random long code to the SMS message and sends the message from that code.</p>
-   */
-  OriginationNumber?: string;
-
-  /**
-   * <p>The sender ID to display as the sender of the message on a recipient's device. Support for sender IDs varies by country or region.</p>
-   */
-  SenderId?: string;
-
-  /**
-   * <p>The message variables to use in the SMS message. You can override the default variables with individual address variables.</p>
-   */
-  Substitutions?: { [key: string]: string[] };
-}
-
-export namespace SMSMessage {
-  export const filterSensitiveLog = (obj: SMSMessage): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SMSMessage => __isa(o, "SMSMessage");
-}
-
-/**
- * <p>Specifies the content and settings for a message template that can be used in text messages that are sent through the SMS channel.</p>
- */
-export interface SMSTemplateRequest {
-  __type?: "SMSTemplateRequest";
-  /**
-   * <p>The message body to use in text messages that are based on the message template.</p>
-   */
-  Body?: string;
-
-  /**
-   * <p>A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.</p>
-   */
-  DefaultSubstitutions?: string;
-
-  /**
-   * <p>A custom description of the message template.</p>
-   */
-  TemplateDescription?: string;
-
-  /**
-   * <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
-   */
-  tags?: { [key: string]: string };
-}
-
-export namespace SMSTemplateRequest {
-  export const filterSensitiveLog = (obj: SMSTemplateRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SMSTemplateRequest =>
-    __isa(o, "SMSTemplateRequest");
-}
-
-/**
- * <p>Provides information about the content and settings for a message template that can be used in text messages that are sent through the SMS channel.</p>
- */
-export interface SMSTemplateResponse {
-  __type?: "SMSTemplateResponse";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the message template.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The message body that's used in text messages that are based on the message template.</p>
-   */
-  Body?: string;
-
-  /**
-   * <p>The date, in ISO 8601 format, when the message template was created.</p>
-   */
-  CreationDate: string | undefined;
-
-  /**
-   * <p>The JSON object that specifies the default values that are used for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.</p>
-   */
-  DefaultSubstitutions?: string;
-
-  /**
-   * <p>The date, in ISO 8601 format, when the message template was last modified.</p>
-   */
-  LastModifiedDate: string | undefined;
-
-  /**
-   * <p>The custom description of the message template.</p>
-   */
-  TemplateDescription?: string;
-
-  /**
-   * <p>The name of the message template.</p>
-   */
-  TemplateName: string | undefined;
-
-  /**
-   * <p>The type of channel that the message template is designed for. For an SMS template, this value is SMS.</p>
-   */
-  TemplateType: TemplateType | string | undefined;
-
-  /**
-   * <p>The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.</p>
-   */
-  Version?: string;
-
-  /**
-   * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.</p>
-   */
-  tags?: { [key: string]: string };
-}
-
-export namespace SMSTemplateResponse {
-  export const filterSensitiveLog = (obj: SMSTemplateResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SMSTemplateResponse =>
-    __isa(o, "SMSTemplateResponse");
 }
 
 /**
@@ -9191,11 +8937,6 @@ export namespace SegmentResponse {
     __isa(o, "SegmentResponse");
 }
 
-export enum SegmentType {
-  DIMENSIONAL = "DIMENSIONAL",
-  IMPORT = "IMPORT"
-}
-
 /**
  * <p>Provides information about all the segments that are associated with an application.</p>
  */
@@ -9218,6 +8959,11 @@ export namespace SegmentsResponse {
   });
   export const isa = (o: any): o is SegmentsResponse =>
     __isa(o, "SegmentsResponse");
+}
+
+export enum SegmentType {
+  DIMENSIONAL = "DIMENSIONAL",
+  IMPORT = "IMPORT"
 }
 
 export interface SendMessagesRequest {
@@ -9499,6 +9245,260 @@ export namespace SimpleEmailPart {
     __isa(o, "SimpleEmailPart");
 }
 
+/**
+ * <p>Specifies the status and settings of the SMS channel for an application.</p>
+ */
+export interface SMSChannelRequest {
+  __type?: "SMSChannelRequest";
+  /**
+   * <p>Specifies whether to enable the SMS channel for the application.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The identity that you want to display on recipients' devices when they receive messages from the SMS channel.</p>
+   */
+  SenderId?: string;
+
+  /**
+   * <p>The registered short code that you want to use when you send messages through the SMS channel.</p>
+   */
+  ShortCode?: string;
+}
+
+export namespace SMSChannelRequest {
+  export const filterSensitiveLog = (obj: SMSChannelRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SMSChannelRequest =>
+    __isa(o, "SMSChannelRequest");
+}
+
+/**
+ * <p>Provides information about the status and settings of the SMS channel for an application.</p>
+ */
+export interface SMSChannelResponse {
+  __type?: "SMSChannelResponse";
+  /**
+   * <p>The unique identifier for the application that the SMS channel applies to.</p>
+   */
+  ApplicationId?: string;
+
+  /**
+   * <p>The date and time, in ISO 8601 format, when the SMS channel was enabled.</p>
+   */
+  CreationDate?: string;
+
+  /**
+   * <p>Specifies whether the SMS channel is enabled for the application.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>(Not used) This property is retained only for backward compatibility.</p>
+   */
+  HasCredential?: boolean;
+
+  /**
+   * <p>(Deprecated) An identifier for the SMS channel. This property is retained only for backward compatibility.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>Specifies whether the SMS channel is archived.</p>
+   */
+  IsArchived?: boolean;
+
+  /**
+   * <p>The user who last modified the SMS channel.</p>
+   */
+  LastModifiedBy?: string;
+
+  /**
+   * <p>The date and time, in ISO 8601 format, when the SMS channel was last modified.</p>
+   */
+  LastModifiedDate?: string;
+
+  /**
+   * <p>The type of messaging or notification platform for the channel. For the SMS channel, this value is SMS.</p>
+   */
+  Platform: string | undefined;
+
+  /**
+   * <p>The maximum number of promotional messages that you can send through the SMS channel each second.</p>
+   */
+  PromotionalMessagesPerSecond?: number;
+
+  /**
+   * <p>The identity that displays on recipients' devices when they receive messages from the SMS channel.</p>
+   */
+  SenderId?: string;
+
+  /**
+   * <p>The registered short code to use when you send messages through the SMS channel.</p>
+   */
+  ShortCode?: string;
+
+  /**
+   * <p>The maximum number of transactional messages that you can send through the SMS channel each second.</p>
+   */
+  TransactionalMessagesPerSecond?: number;
+
+  /**
+   * <p>The current version of the SMS channel.</p>
+   */
+  Version?: number;
+}
+
+export namespace SMSChannelResponse {
+  export const filterSensitiveLog = (obj: SMSChannelResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SMSChannelResponse =>
+    __isa(o, "SMSChannelResponse");
+}
+
+/**
+ * <p>Specifies the default settings for a one-time SMS message that's sent directly to an endpoint.</p>
+ */
+export interface SMSMessage {
+  __type?: "SMSMessage";
+  /**
+   * <p>The body of the SMS message.</p>
+   */
+  Body?: string;
+
+  /**
+   * <p>The SMS program name that you provided to AWS Support when you requested your dedicated number.</p>
+   */
+  Keyword?: string;
+
+  /**
+   * <p>The SMS message type. Valid values are: TRANSACTIONAL, the message is critical or time-sensitive, such as a one-time password that supports a customer transaction; and, PROMOTIONAL, the message is not critical or time-sensitive, such as a marketing message.</p>
+   */
+  MessageType?: MessageType | string;
+
+  /**
+   * <p>The number to send the SMS message from. This value should be one of the dedicated long or short codes that's assigned to your AWS account. If you don't specify a long or short code, Amazon Pinpoint assigns a random long code to the SMS message and sends the message from that code.</p>
+   */
+  OriginationNumber?: string;
+
+  /**
+   * <p>The sender ID to display as the sender of the message on a recipient's device. Support for sender IDs varies by country or region.</p>
+   */
+  SenderId?: string;
+
+  /**
+   * <p>The message variables to use in the SMS message. You can override the default variables with individual address variables.</p>
+   */
+  Substitutions?: { [key: string]: string[] };
+}
+
+export namespace SMSMessage {
+  export const filterSensitiveLog = (obj: SMSMessage): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SMSMessage => __isa(o, "SMSMessage");
+}
+
+/**
+ * <p>Specifies the content and settings for a message template that can be used in text messages that are sent through the SMS channel.</p>
+ */
+export interface SMSTemplateRequest {
+  __type?: "SMSTemplateRequest";
+  /**
+   * <p>The message body to use in text messages that are based on the message template.</p>
+   */
+  Body?: string;
+
+  /**
+   * <p>A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.</p>
+   */
+  DefaultSubstitutions?: string;
+
+  /**
+   * <p>A custom description of the message template.</p>
+   */
+  TemplateDescription?: string;
+
+  /**
+   * <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace SMSTemplateRequest {
+  export const filterSensitiveLog = (obj: SMSTemplateRequest): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SMSTemplateRequest =>
+    __isa(o, "SMSTemplateRequest");
+}
+
+/**
+ * <p>Provides information about the content and settings for a message template that can be used in text messages that are sent through the SMS channel.</p>
+ */
+export interface SMSTemplateResponse {
+  __type?: "SMSTemplateResponse";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The message body that's used in text messages that are based on the message template.</p>
+   */
+  Body?: string;
+
+  /**
+   * <p>The date, in ISO 8601 format, when the message template was created.</p>
+   */
+  CreationDate: string | undefined;
+
+  /**
+   * <p>The JSON object that specifies the default values that are used for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.</p>
+   */
+  DefaultSubstitutions?: string;
+
+  /**
+   * <p>The date, in ISO 8601 format, when the message template was last modified.</p>
+   */
+  LastModifiedDate: string | undefined;
+
+  /**
+   * <p>The custom description of the message template.</p>
+   */
+  TemplateDescription?: string;
+
+  /**
+   * <p>The name of the message template.</p>
+   */
+  TemplateName: string | undefined;
+
+  /**
+   * <p>The type of channel that the message template is designed for. For an SMS template, this value is SMS.</p>
+   */
+  TemplateType: TemplateType | string | undefined;
+
+  /**
+   * <p>The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.</p>
+   */
+  Version?: string;
+
+  /**
+   * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.</p>
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace SMSTemplateResponse {
+  export const filterSensitiveLog = (obj: SMSTemplateResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is SMSTemplateResponse =>
+    __isa(o, "SMSTemplateResponse");
+}
+
 export enum SourceType {
   ALL = "ALL",
   ANY = "ANY",
@@ -9713,6 +9713,30 @@ export namespace TemplateResponse {
     __isa(o, "TemplateResponse");
 }
 
+/**
+ * <p>Provides information about all the message templates that are associated with your Amazon Pinpoint account.</p>
+ */
+export interface TemplatesResponse {
+  __type?: "TemplatesResponse";
+  /**
+   * <p>An array of responses, one for each message template that's associated with your Amazon Pinpoint account and meets any filter criteria that you specified in the request.</p>
+   */
+  Item: TemplateResponse[] | undefined;
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace TemplatesResponse {
+  export const filterSensitiveLog = (obj: TemplatesResponse): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is TemplatesResponse =>
+    __isa(o, "TemplatesResponse");
+}
+
 export enum TemplateType {
   EMAIL = "EMAIL",
   PUSH = "PUSH",
@@ -9801,30 +9825,6 @@ export namespace TemplateVersionsResponse {
   });
   export const isa = (o: any): o is TemplateVersionsResponse =>
     __isa(o, "TemplateVersionsResponse");
-}
-
-/**
- * <p>Provides information about all the message templates that are associated with your Amazon Pinpoint account.</p>
- */
-export interface TemplatesResponse {
-  __type?: "TemplatesResponse";
-  /**
-   * <p>An array of responses, one for each message template that's associated with your Amazon Pinpoint account and meets any filter criteria that you specified in the request.</p>
-   */
-  Item: TemplateResponse[] | undefined;
-
-  /**
-   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace TemplatesResponse {
-  export const filterSensitiveLog = (obj: TemplatesResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TemplatesResponse =>
-    __isa(o, "TemplatesResponse");
 }
 
 /**

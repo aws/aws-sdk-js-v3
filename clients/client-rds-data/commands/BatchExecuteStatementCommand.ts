@@ -8,9 +8,9 @@ import {
   BatchExecuteStatementResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1BatchExecuteStatementCommand,
-  serializeAws_restJson1_1BatchExecuteStatementCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1BatchExecuteStatementCommand,
+  serializeAws_restJson1BatchExecuteStatementCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,14 +74,14 @@ export class BatchExecuteStatementCommand extends $Command<
     input: BatchExecuteStatementCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1BatchExecuteStatementCommand(input, context);
+    return serializeAws_restJson1BatchExecuteStatementCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchExecuteStatementCommandOutput> {
-    return deserializeAws_restJson1_1BatchExecuteStatementCommand(
+    return deserializeAws_restJson1BatchExecuteStatementCommand(
       output,
       context
     );

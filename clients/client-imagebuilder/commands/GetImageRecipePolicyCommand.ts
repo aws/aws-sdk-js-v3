@@ -8,9 +8,9 @@ import {
   GetImageRecipePolicyResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetImageRecipePolicyCommand,
-  serializeAws_restJson1_1GetImageRecipePolicyCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetImageRecipePolicyCommand,
+  serializeAws_restJson1GetImageRecipePolicyCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetImageRecipePolicyCommand extends $Command<
     input: GetImageRecipePolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetImageRecipePolicyCommand(input, context);
+    return serializeAws_restJson1GetImageRecipePolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetImageRecipePolicyCommandOutput> {
-    return deserializeAws_restJson1_1GetImageRecipePolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetImageRecipePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

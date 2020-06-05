@@ -5,9 +5,9 @@ import {
 } from "../GlacierClient";
 import { DeleteVaultNotificationsInput } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteVaultNotificationsCommand,
-  serializeAws_restJson1_1DeleteVaultNotificationsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteVaultNotificationsCommand,
+  serializeAws_restJson1DeleteVaultNotificationsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class DeleteVaultNotificationsCommand extends $Command<
     input: DeleteVaultNotificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteVaultNotificationsCommand(
+    return serializeAws_restJson1DeleteVaultNotificationsCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class DeleteVaultNotificationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVaultNotificationsCommandOutput> {
-    return deserializeAws_restJson1_1DeleteVaultNotificationsCommand(
+    return deserializeAws_restJson1DeleteVaultNotificationsCommand(
       output,
       context
     );

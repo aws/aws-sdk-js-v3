@@ -5,9 +5,9 @@ import {
 } from "../PinpointClient";
 import { DeleteCampaignRequest, DeleteCampaignResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteCampaignCommand,
-  serializeAws_restJson1_1DeleteCampaignCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteCampaignCommand,
+  serializeAws_restJson1DeleteCampaignCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class DeleteCampaignCommand extends $Command<
     input: DeleteCampaignCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteCampaignCommand(input, context);
+    return serializeAws_restJson1DeleteCampaignCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCampaignCommandOutput> {
-    return deserializeAws_restJson1_1DeleteCampaignCommand(output, context);
+    return deserializeAws_restJson1DeleteCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

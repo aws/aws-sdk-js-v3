@@ -8,9 +8,9 @@ import {
   GetLifecyclePoliciesResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetLifecyclePoliciesCommand,
-  serializeAws_restJson1_1GetLifecyclePoliciesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetLifecyclePoliciesCommand,
+  serializeAws_restJson1GetLifecyclePoliciesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,17 +74,14 @@ export class GetLifecyclePoliciesCommand extends $Command<
     input: GetLifecyclePoliciesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetLifecyclePoliciesCommand(input, context);
+    return serializeAws_restJson1GetLifecyclePoliciesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLifecyclePoliciesCommandOutput> {
-    return deserializeAws_restJson1_1GetLifecyclePoliciesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetLifecyclePoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

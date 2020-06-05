@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { DeleteMethodRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteMethodCommand,
-  serializeAws_restJson1_1DeleteMethodCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteMethodCommand,
+  serializeAws_restJson1DeleteMethodCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class DeleteMethodCommand extends $Command<
     input: DeleteMethodCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteMethodCommand(input, context);
+    return serializeAws_restJson1DeleteMethodCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMethodCommandOutput> {
-    return deserializeAws_restJson1_1DeleteMethodCommand(output, context);
+    return deserializeAws_restJson1DeleteMethodCommand(output, context);
   }
 
   // Start section: command_body_extra

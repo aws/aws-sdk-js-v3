@@ -5,9 +5,9 @@ import {
 } from "../ConnectParticipantClient";
 import { GetTranscriptRequest, GetTranscriptResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1GetTranscriptCommand,
-  serializeAws_restJson1_1GetTranscriptCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GetTranscriptCommand,
+  serializeAws_restJson1GetTranscriptCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GetTranscriptCommand extends $Command<
     input: GetTranscriptCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetTranscriptCommand(input, context);
+    return serializeAws_restJson1GetTranscriptCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTranscriptCommandOutput> {
-    return deserializeAws_restJson1_1GetTranscriptCommand(output, context);
+    return deserializeAws_restJson1GetTranscriptCommand(output, context);
   }
 
   // Start section: command_body_extra

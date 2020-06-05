@@ -5,9 +5,9 @@ import {
 } from "../AppSyncClient";
 import { ListResolversRequest, ListResolversResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListResolversCommand,
-  serializeAws_restJson1_1ListResolversCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListResolversCommand,
+  serializeAws_restJson1ListResolversCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class ListResolversCommand extends $Command<
     input: ListResolversCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListResolversCommand(input, context);
+    return serializeAws_restJson1ListResolversCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResolversCommandOutput> {
-    return deserializeAws_restJson1_1ListResolversCommand(output, context);
+    return deserializeAws_restJson1ListResolversCommand(output, context);
   }
 
   // Start section: command_body_extra

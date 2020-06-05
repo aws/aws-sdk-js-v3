@@ -1646,25 +1646,6 @@ export namespace ImportSourceCredentialsOutput {
     __isa(o, "ImportSourceCredentialsOutput");
 }
 
-/**
- * <p>The input value that was provided is not valid.</p>
- */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "InvalidInputException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidInputException {
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
-}
-
 export interface InvalidateProjectCacheInput {
   __type?: "InvalidateProjectCacheInput";
   /**
@@ -1695,6 +1676,25 @@ export namespace InvalidateProjectCacheOutput {
   });
   export const isa = (o: any): o is InvalidateProjectCacheOutput =>
     __isa(o, "InvalidateProjectCacheOutput");
+}
+
+/**
+ * <p>The input value that was provided is not valid.</p>
+ */
+export interface InvalidInputException
+  extends __SmithyException,
+    $MetadataBearer {
+  name: "InvalidInputException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidInputException {
+  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
+    ...obj
+  });
+  export const isa = (o: any): o is InvalidInputException =>
+    __isa(o, "InvalidInputException");
 }
 
 export enum LanguageType {

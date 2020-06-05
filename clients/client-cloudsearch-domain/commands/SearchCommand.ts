@@ -5,9 +5,9 @@ import {
 } from "../CloudSearchDomainClient";
 import { SearchRequest, SearchResponse } from "../models/index";
 import {
-  deserializeAws_restJson1_1SearchCommand,
-  serializeAws_restJson1_1SearchCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1SearchCommand,
+  serializeAws_restJson1SearchCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class SearchCommand extends $Command<
     input: SearchCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1SearchCommand(input, context);
+    return serializeAws_restJson1SearchCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchCommandOutput> {
-    return deserializeAws_restJson1_1SearchCommand(output, context);
+    return deserializeAws_restJson1SearchCommand(output, context);
   }
 
   // Start section: command_body_extra

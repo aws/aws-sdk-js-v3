@@ -339,7 +339,7 @@ const deserializeAws_json1_1AddTagsToCertificateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArnException":
-    case "com.amazon.certificatemanager#InvalidArnException":
+    case "com.amazonaws.acm#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -350,7 +350,7 @@ const deserializeAws_json1_1AddTagsToCertificateCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.certificatemanager#InvalidParameterException":
+    case "com.amazonaws.acm#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -361,7 +361,7 @@ const deserializeAws_json1_1AddTagsToCertificateCommandError = async (
       };
       break;
     case "InvalidTagException":
-    case "com.amazon.certificatemanager#InvalidTagException":
+    case "com.amazonaws.acm#InvalidTagException":
       response = {
         ...(await deserializeAws_json1_1InvalidTagExceptionResponse(
           parsedOutput,
@@ -372,7 +372,7 @@ const deserializeAws_json1_1AddTagsToCertificateCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.certificatemanager#ResourceNotFoundException":
+    case "com.amazonaws.acm#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -383,7 +383,7 @@ const deserializeAws_json1_1AddTagsToCertificateCommandError = async (
       };
       break;
     case "TagPolicyException":
-    case "com.amazon.certificatemanager#TagPolicyException":
+    case "com.amazonaws.acm#TagPolicyException":
       response = {
         ...(await deserializeAws_json1_1TagPolicyExceptionResponse(
           parsedOutput,
@@ -394,7 +394,7 @@ const deserializeAws_json1_1AddTagsToCertificateCommandError = async (
       };
       break;
     case "TooManyTagsException":
-    case "com.amazon.certificatemanager#TooManyTagsException":
+    case "com.amazonaws.acm#TooManyTagsException":
       response = {
         ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
           parsedOutput,
@@ -450,7 +450,7 @@ const deserializeAws_json1_1DeleteCertificateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArnException":
-    case "com.amazon.certificatemanager#InvalidArnException":
+    case "com.amazonaws.acm#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -461,7 +461,7 @@ const deserializeAws_json1_1DeleteCertificateCommandError = async (
       };
       break;
     case "ResourceInUseException":
-    case "com.amazon.certificatemanager#ResourceInUseException":
+    case "com.amazonaws.acm#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
           parsedOutput,
@@ -472,7 +472,7 @@ const deserializeAws_json1_1DeleteCertificateCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.certificatemanager#ResourceNotFoundException":
+    case "com.amazonaws.acm#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -535,7 +535,7 @@ const deserializeAws_json1_1DescribeCertificateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArnException":
-    case "com.amazon.certificatemanager#InvalidArnException":
+    case "com.amazonaws.acm#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -546,7 +546,7 @@ const deserializeAws_json1_1DescribeCertificateCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.certificatemanager#ResourceNotFoundException":
+    case "com.amazonaws.acm#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -606,7 +606,7 @@ const deserializeAws_json1_1ExportCertificateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArnException":
-    case "com.amazon.certificatemanager#InvalidArnException":
+    case "com.amazonaws.acm#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -617,7 +617,7 @@ const deserializeAws_json1_1ExportCertificateCommandError = async (
       };
       break;
     case "RequestInProgressException":
-    case "com.amazon.certificatemanager#RequestInProgressException":
+    case "com.amazonaws.acm#RequestInProgressException":
       response = {
         ...(await deserializeAws_json1_1RequestInProgressExceptionResponse(
           parsedOutput,
@@ -628,7 +628,7 @@ const deserializeAws_json1_1ExportCertificateCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.certificatemanager#ResourceNotFoundException":
+    case "com.amazonaws.acm#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -688,7 +688,7 @@ const deserializeAws_json1_1GetCertificateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArnException":
-    case "com.amazon.certificatemanager#InvalidArnException":
+    case "com.amazonaws.acm#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -699,7 +699,7 @@ const deserializeAws_json1_1GetCertificateCommandError = async (
       };
       break;
     case "RequestInProgressException":
-    case "com.amazon.certificatemanager#RequestInProgressException":
+    case "com.amazonaws.acm#RequestInProgressException":
       response = {
         ...(await deserializeAws_json1_1RequestInProgressExceptionResponse(
           parsedOutput,
@@ -710,7 +710,7 @@ const deserializeAws_json1_1GetCertificateCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.certificatemanager#ResourceNotFoundException":
+    case "com.amazonaws.acm#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -770,7 +770,7 @@ const deserializeAws_json1_1ImportCertificateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazon.certificatemanager#InvalidParameterException":
+    case "com.amazonaws.acm#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -781,7 +781,7 @@ const deserializeAws_json1_1ImportCertificateCommandError = async (
       };
       break;
     case "InvalidTagException":
-    case "com.amazon.certificatemanager#InvalidTagException":
+    case "com.amazonaws.acm#InvalidTagException":
       response = {
         ...(await deserializeAws_json1_1InvalidTagExceptionResponse(
           parsedOutput,
@@ -792,7 +792,7 @@ const deserializeAws_json1_1ImportCertificateCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.certificatemanager#LimitExceededException":
+    case "com.amazonaws.acm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -803,7 +803,7 @@ const deserializeAws_json1_1ImportCertificateCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.certificatemanager#ResourceNotFoundException":
+    case "com.amazonaws.acm#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -814,7 +814,7 @@ const deserializeAws_json1_1ImportCertificateCommandError = async (
       };
       break;
     case "TagPolicyException":
-    case "com.amazon.certificatemanager#TagPolicyException":
+    case "com.amazonaws.acm#TagPolicyException":
       response = {
         ...(await deserializeAws_json1_1TagPolicyExceptionResponse(
           parsedOutput,
@@ -825,7 +825,7 @@ const deserializeAws_json1_1ImportCertificateCommandError = async (
       };
       break;
     case "TooManyTagsException":
-    case "com.amazon.certificatemanager#TooManyTagsException":
+    case "com.amazonaws.acm#TooManyTagsException":
       response = {
         ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
           parsedOutput,
@@ -885,7 +885,7 @@ const deserializeAws_json1_1ListCertificatesCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgsException":
-    case "com.amazon.certificatemanager#InvalidArgsException":
+    case "com.amazonaws.acm#InvalidArgsException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgsExceptionResponse(
           parsedOutput,
@@ -951,7 +951,7 @@ const deserializeAws_json1_1ListTagsForCertificateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArnException":
-    case "com.amazon.certificatemanager#InvalidArnException":
+    case "com.amazonaws.acm#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -962,7 +962,7 @@ const deserializeAws_json1_1ListTagsForCertificateCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.certificatemanager#ResourceNotFoundException":
+    case "com.amazonaws.acm#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1021,7 +1021,7 @@ const deserializeAws_json1_1RemoveTagsFromCertificateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArnException":
-    case "com.amazon.certificatemanager#InvalidArnException":
+    case "com.amazonaws.acm#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -1032,7 +1032,7 @@ const deserializeAws_json1_1RemoveTagsFromCertificateCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.certificatemanager#InvalidParameterException":
+    case "com.amazonaws.acm#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1043,7 +1043,7 @@ const deserializeAws_json1_1RemoveTagsFromCertificateCommandError = async (
       };
       break;
     case "InvalidTagException":
-    case "com.amazon.certificatemanager#InvalidTagException":
+    case "com.amazonaws.acm#InvalidTagException":
       response = {
         ...(await deserializeAws_json1_1InvalidTagExceptionResponse(
           parsedOutput,
@@ -1054,7 +1054,7 @@ const deserializeAws_json1_1RemoveTagsFromCertificateCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.certificatemanager#ResourceNotFoundException":
+    case "com.amazonaws.acm#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1065,7 +1065,7 @@ const deserializeAws_json1_1RemoveTagsFromCertificateCommandError = async (
       };
       break;
     case "TagPolicyException":
-    case "com.amazon.certificatemanager#TagPolicyException":
+    case "com.amazonaws.acm#TagPolicyException":
       response = {
         ...(await deserializeAws_json1_1TagPolicyExceptionResponse(
           parsedOutput,
@@ -1121,7 +1121,7 @@ const deserializeAws_json1_1RenewCertificateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArnException":
-    case "com.amazon.certificatemanager#InvalidArnException":
+    case "com.amazonaws.acm#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -1132,7 +1132,7 @@ const deserializeAws_json1_1RenewCertificateCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.certificatemanager#ResourceNotFoundException":
+    case "com.amazonaws.acm#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1195,7 +1195,7 @@ const deserializeAws_json1_1RequestCertificateCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArnException":
-    case "com.amazon.certificatemanager#InvalidArnException":
+    case "com.amazonaws.acm#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -1206,7 +1206,7 @@ const deserializeAws_json1_1RequestCertificateCommandError = async (
       };
       break;
     case "InvalidDomainValidationOptionsException":
-    case "com.amazon.certificatemanager#InvalidDomainValidationOptionsException":
+    case "com.amazonaws.acm#InvalidDomainValidationOptionsException":
       response = {
         ...(await deserializeAws_json1_1InvalidDomainValidationOptionsExceptionResponse(
           parsedOutput,
@@ -1217,7 +1217,7 @@ const deserializeAws_json1_1RequestCertificateCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.certificatemanager#InvalidParameterException":
+    case "com.amazonaws.acm#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
           parsedOutput,
@@ -1228,7 +1228,7 @@ const deserializeAws_json1_1RequestCertificateCommandError = async (
       };
       break;
     case "InvalidTagException":
-    case "com.amazon.certificatemanager#InvalidTagException":
+    case "com.amazonaws.acm#InvalidTagException":
       response = {
         ...(await deserializeAws_json1_1InvalidTagExceptionResponse(
           parsedOutput,
@@ -1239,7 +1239,7 @@ const deserializeAws_json1_1RequestCertificateCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.certificatemanager#LimitExceededException":
+    case "com.amazonaws.acm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1250,7 +1250,7 @@ const deserializeAws_json1_1RequestCertificateCommandError = async (
       };
       break;
     case "TagPolicyException":
-    case "com.amazon.certificatemanager#TagPolicyException":
+    case "com.amazonaws.acm#TagPolicyException":
       response = {
         ...(await deserializeAws_json1_1TagPolicyExceptionResponse(
           parsedOutput,
@@ -1261,7 +1261,7 @@ const deserializeAws_json1_1RequestCertificateCommandError = async (
       };
       break;
     case "TooManyTagsException":
-    case "com.amazon.certificatemanager#TooManyTagsException":
+    case "com.amazonaws.acm#TooManyTagsException":
       response = {
         ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
           parsedOutput,
@@ -1320,7 +1320,7 @@ const deserializeAws_json1_1ResendValidationEmailCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArnException":
-    case "com.amazon.certificatemanager#InvalidArnException":
+    case "com.amazonaws.acm#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -1331,7 +1331,7 @@ const deserializeAws_json1_1ResendValidationEmailCommandError = async (
       };
       break;
     case "InvalidDomainValidationOptionsException":
-    case "com.amazon.certificatemanager#InvalidDomainValidationOptionsException":
+    case "com.amazonaws.acm#InvalidDomainValidationOptionsException":
       response = {
         ...(await deserializeAws_json1_1InvalidDomainValidationOptionsExceptionResponse(
           parsedOutput,
@@ -1342,7 +1342,7 @@ const deserializeAws_json1_1ResendValidationEmailCommandError = async (
       };
       break;
     case "InvalidStateException":
-    case "com.amazon.certificatemanager#InvalidStateException":
+    case "com.amazonaws.acm#InvalidStateException":
       response = {
         ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
           parsedOutput,
@@ -1353,7 +1353,7 @@ const deserializeAws_json1_1ResendValidationEmailCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.certificatemanager#ResourceNotFoundException":
+    case "com.amazonaws.acm#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -1412,7 +1412,7 @@ const deserializeAws_json1_1UpdateCertificateOptionsCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArnException":
-    case "com.amazon.certificatemanager#InvalidArnException":
+    case "com.amazonaws.acm#InvalidArnException":
       response = {
         ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
           parsedOutput,
@@ -1423,7 +1423,7 @@ const deserializeAws_json1_1UpdateCertificateOptionsCommandError = async (
       };
       break;
     case "InvalidStateException":
-    case "com.amazon.certificatemanager#InvalidStateException":
+    case "com.amazonaws.acm#InvalidStateException":
       response = {
         ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
           parsedOutput,
@@ -1434,7 +1434,7 @@ const deserializeAws_json1_1UpdateCertificateOptionsCommandError = async (
       };
       break;
     case "LimitExceededException":
-    case "com.amazon.certificatemanager#LimitExceededException":
+    case "com.amazonaws.acm#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
           parsedOutput,
@@ -1445,7 +1445,7 @@ const deserializeAws_json1_1UpdateCertificateOptionsCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.certificatemanager#ResourceNotFoundException":
+    case "com.amazonaws.acm#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
           parsedOutput,

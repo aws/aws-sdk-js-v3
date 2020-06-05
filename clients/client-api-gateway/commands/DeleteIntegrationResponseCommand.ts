@@ -5,9 +5,9 @@ import {
 } from "../APIGatewayClient";
 import { DeleteIntegrationResponseRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteIntegrationResponseCommand,
-  serializeAws_restJson1_1DeleteIntegrationResponseCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteIntegrationResponseCommand,
+  serializeAws_restJson1DeleteIntegrationResponseCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class DeleteIntegrationResponseCommand extends $Command<
     input: DeleteIntegrationResponseCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteIntegrationResponseCommand(
+    return serializeAws_restJson1DeleteIntegrationResponseCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class DeleteIntegrationResponseCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteIntegrationResponseCommandOutput> {
-    return deserializeAws_restJson1_1DeleteIntegrationResponseCommand(
+    return deserializeAws_restJson1DeleteIntegrationResponseCommand(
       output,
       context
     );

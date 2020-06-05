@@ -794,7 +794,7 @@ const deserializeAws_queryAddPermissionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -805,7 +805,7 @@ const deserializeAws_queryAddPermissionCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -816,7 +816,7 @@ const deserializeAws_queryAddPermissionCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -827,7 +827,7 @@ const deserializeAws_queryAddPermissionCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.cloudcast.onlines#NotFoundException":
+    case "com.amazonaws.sns#NotFoundException":
       response = {
         ...(await deserializeAws_queryNotFoundExceptionResponse(
           parsedOutput,
@@ -892,7 +892,7 @@ const deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -903,7 +903,7 @@ const deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -914,7 +914,7 @@ const deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -925,7 +925,7 @@ const deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError = async (
       };
       break;
     case "ThrottledException":
-    case "com.amazon.cloudcast.onlines#ThrottledException":
+    case "com.amazonaws.sns#ThrottledException":
       response = {
         ...(await deserializeAws_queryThrottledExceptionResponse(
           parsedOutput,
@@ -987,7 +987,7 @@ const deserializeAws_queryConfirmSubscriptionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -998,7 +998,7 @@ const deserializeAws_queryConfirmSubscriptionCommandError = async (
       };
       break;
     case "FilterPolicyLimitExceededException":
-    case "com.amazon.cloudcast.onlines#FilterPolicyLimitExceededException":
+    case "com.amazonaws.sns#FilterPolicyLimitExceededException":
       response = {
         ...(await deserializeAws_queryFilterPolicyLimitExceededExceptionResponse(
           parsedOutput,
@@ -1009,7 +1009,7 @@ const deserializeAws_queryConfirmSubscriptionCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -1020,7 +1020,7 @@ const deserializeAws_queryConfirmSubscriptionCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -1031,7 +1031,7 @@ const deserializeAws_queryConfirmSubscriptionCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.cloudcast.onlines#NotFoundException":
+    case "com.amazonaws.sns#NotFoundException":
       response = {
         ...(await deserializeAws_queryNotFoundExceptionResponse(
           parsedOutput,
@@ -1042,7 +1042,7 @@ const deserializeAws_queryConfirmSubscriptionCommandError = async (
       };
       break;
     case "SubscriptionLimitExceededException":
-    case "com.amazon.cloudcast.onlines#SubscriptionLimitExceededException":
+    case "com.amazonaws.sns#SubscriptionLimitExceededException":
       response = {
         ...(await deserializeAws_querySubscriptionLimitExceededExceptionResponse(
           parsedOutput,
@@ -1107,7 +1107,7 @@ const deserializeAws_queryCreatePlatformApplicationCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -1118,7 +1118,7 @@ const deserializeAws_queryCreatePlatformApplicationCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -1129,7 +1129,7 @@ const deserializeAws_queryCreatePlatformApplicationCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -1194,7 +1194,7 @@ const deserializeAws_queryCreatePlatformEndpointCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -1205,7 +1205,7 @@ const deserializeAws_queryCreatePlatformEndpointCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -1216,7 +1216,7 @@ const deserializeAws_queryCreatePlatformEndpointCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -1227,7 +1227,7 @@ const deserializeAws_queryCreatePlatformEndpointCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.cloudcast.onlines#NotFoundException":
+    case "com.amazonaws.sns#NotFoundException":
       response = {
         ...(await deserializeAws_queryNotFoundExceptionResponse(
           parsedOutput,
@@ -1289,7 +1289,7 @@ const deserializeAws_queryCreateTopicCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -1300,7 +1300,7 @@ const deserializeAws_queryCreateTopicCommandError = async (
       };
       break;
     case "ConcurrentAccessException":
-    case "com.amazon.cloudcast.onlines#ConcurrentAccessException":
+    case "com.amazonaws.sns#ConcurrentAccessException":
       response = {
         ...(await deserializeAws_queryConcurrentAccessExceptionResponse(
           parsedOutput,
@@ -1311,7 +1311,7 @@ const deserializeAws_queryCreateTopicCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -1322,7 +1322,7 @@ const deserializeAws_queryCreateTopicCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -1333,7 +1333,7 @@ const deserializeAws_queryCreateTopicCommandError = async (
       };
       break;
     case "InvalidSecurityException":
-    case "com.amazon.cloudcast.onlines#InvalidSecurityException":
+    case "com.amazonaws.sns#InvalidSecurityException":
       response = {
         ...(await deserializeAws_queryInvalidSecurityExceptionResponse(
           parsedOutput,
@@ -1344,7 +1344,7 @@ const deserializeAws_queryCreateTopicCommandError = async (
       };
       break;
     case "StaleTagException":
-    case "com.amazon.cloudcast.onlines#StaleTagException":
+    case "com.amazonaws.sns#StaleTagException":
       response = {
         ...(await deserializeAws_queryStaleTagExceptionResponse(
           parsedOutput,
@@ -1355,7 +1355,7 @@ const deserializeAws_queryCreateTopicCommandError = async (
       };
       break;
     case "TagLimitExceededException":
-    case "com.amazon.cloudcast.onlines#TagLimitExceededException":
+    case "com.amazonaws.sns#TagLimitExceededException":
       response = {
         ...(await deserializeAws_queryTagLimitExceededExceptionResponse(
           parsedOutput,
@@ -1366,7 +1366,7 @@ const deserializeAws_queryCreateTopicCommandError = async (
       };
       break;
     case "TagPolicyException":
-    case "com.amazon.cloudcast.onlines#TagPolicyException":
+    case "com.amazonaws.sns#TagPolicyException":
       response = {
         ...(await deserializeAws_queryTagPolicyExceptionResponse(
           parsedOutput,
@@ -1377,7 +1377,7 @@ const deserializeAws_queryCreateTopicCommandError = async (
       };
       break;
     case "TopicLimitExceededException":
-    case "com.amazon.cloudcast.onlines#TopicLimitExceededException":
+    case "com.amazonaws.sns#TopicLimitExceededException":
       response = {
         ...(await deserializeAws_queryTopicLimitExceededExceptionResponse(
           parsedOutput,
@@ -1432,7 +1432,7 @@ const deserializeAws_queryDeleteEndpointCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -1443,7 +1443,7 @@ const deserializeAws_queryDeleteEndpointCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -1454,7 +1454,7 @@ const deserializeAws_queryDeleteEndpointCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -1512,7 +1512,7 @@ const deserializeAws_queryDeletePlatformApplicationCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -1523,7 +1523,7 @@ const deserializeAws_queryDeletePlatformApplicationCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -1534,7 +1534,7 @@ const deserializeAws_queryDeletePlatformApplicationCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -1589,7 +1589,7 @@ const deserializeAws_queryDeleteTopicCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -1600,7 +1600,7 @@ const deserializeAws_queryDeleteTopicCommandError = async (
       };
       break;
     case "ConcurrentAccessException":
-    case "com.amazon.cloudcast.onlines#ConcurrentAccessException":
+    case "com.amazonaws.sns#ConcurrentAccessException":
       response = {
         ...(await deserializeAws_queryConcurrentAccessExceptionResponse(
           parsedOutput,
@@ -1611,7 +1611,7 @@ const deserializeAws_queryDeleteTopicCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -1622,7 +1622,7 @@ const deserializeAws_queryDeleteTopicCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -1633,7 +1633,7 @@ const deserializeAws_queryDeleteTopicCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.cloudcast.onlines#NotFoundException":
+    case "com.amazonaws.sns#NotFoundException":
       response = {
         ...(await deserializeAws_queryNotFoundExceptionResponse(
           parsedOutput,
@@ -1644,7 +1644,7 @@ const deserializeAws_queryDeleteTopicCommandError = async (
       };
       break;
     case "StaleTagException":
-    case "com.amazon.cloudcast.onlines#StaleTagException":
+    case "com.amazonaws.sns#StaleTagException":
       response = {
         ...(await deserializeAws_queryStaleTagExceptionResponse(
           parsedOutput,
@@ -1655,7 +1655,7 @@ const deserializeAws_queryDeleteTopicCommandError = async (
       };
       break;
     case "TagPolicyException":
-    case "com.amazon.cloudcast.onlines#TagPolicyException":
+    case "com.amazonaws.sns#TagPolicyException":
       response = {
         ...(await deserializeAws_queryTagPolicyExceptionResponse(
           parsedOutput,
@@ -1720,7 +1720,7 @@ const deserializeAws_queryGetEndpointAttributesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -1731,7 +1731,7 @@ const deserializeAws_queryGetEndpointAttributesCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -1742,7 +1742,7 @@ const deserializeAws_queryGetEndpointAttributesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -1753,7 +1753,7 @@ const deserializeAws_queryGetEndpointAttributesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.cloudcast.onlines#NotFoundException":
+    case "com.amazonaws.sns#NotFoundException":
       response = {
         ...(await deserializeAws_queryNotFoundExceptionResponse(
           parsedOutput,
@@ -1818,7 +1818,7 @@ const deserializeAws_queryGetPlatformApplicationAttributesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -1829,7 +1829,7 @@ const deserializeAws_queryGetPlatformApplicationAttributesCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -1840,7 +1840,7 @@ const deserializeAws_queryGetPlatformApplicationAttributesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -1851,7 +1851,7 @@ const deserializeAws_queryGetPlatformApplicationAttributesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.cloudcast.onlines#NotFoundException":
+    case "com.amazonaws.sns#NotFoundException":
       response = {
         ...(await deserializeAws_queryNotFoundExceptionResponse(
           parsedOutput,
@@ -1913,7 +1913,7 @@ const deserializeAws_queryGetSMSAttributesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -1924,7 +1924,7 @@ const deserializeAws_queryGetSMSAttributesCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -1935,7 +1935,7 @@ const deserializeAws_queryGetSMSAttributesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -1946,7 +1946,7 @@ const deserializeAws_queryGetSMSAttributesCommandError = async (
       };
       break;
     case "ThrottledException":
-    case "com.amazon.cloudcast.onlines#ThrottledException":
+    case "com.amazonaws.sns#ThrottledException":
       response = {
         ...(await deserializeAws_queryThrottledExceptionResponse(
           parsedOutput,
@@ -2011,7 +2011,7 @@ const deserializeAws_queryGetSubscriptionAttributesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -2022,7 +2022,7 @@ const deserializeAws_queryGetSubscriptionAttributesCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -2033,7 +2033,7 @@ const deserializeAws_queryGetSubscriptionAttributesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -2044,7 +2044,7 @@ const deserializeAws_queryGetSubscriptionAttributesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.cloudcast.onlines#NotFoundException":
+    case "com.amazonaws.sns#NotFoundException":
       response = {
         ...(await deserializeAws_queryNotFoundExceptionResponse(
           parsedOutput,
@@ -2106,7 +2106,7 @@ const deserializeAws_queryGetTopicAttributesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -2117,7 +2117,7 @@ const deserializeAws_queryGetTopicAttributesCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -2128,7 +2128,7 @@ const deserializeAws_queryGetTopicAttributesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -2139,7 +2139,7 @@ const deserializeAws_queryGetTopicAttributesCommandError = async (
       };
       break;
     case "InvalidSecurityException":
-    case "com.amazon.cloudcast.onlines#InvalidSecurityException":
+    case "com.amazonaws.sns#InvalidSecurityException":
       response = {
         ...(await deserializeAws_queryInvalidSecurityExceptionResponse(
           parsedOutput,
@@ -2150,7 +2150,7 @@ const deserializeAws_queryGetTopicAttributesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.cloudcast.onlines#NotFoundException":
+    case "com.amazonaws.sns#NotFoundException":
       response = {
         ...(await deserializeAws_queryNotFoundExceptionResponse(
           parsedOutput,
@@ -2215,7 +2215,7 @@ const deserializeAws_queryListEndpointsByPlatformApplicationCommandError = async
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -2226,7 +2226,7 @@ const deserializeAws_queryListEndpointsByPlatformApplicationCommandError = async
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -2237,7 +2237,7 @@ const deserializeAws_queryListEndpointsByPlatformApplicationCommandError = async
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -2248,7 +2248,7 @@ const deserializeAws_queryListEndpointsByPlatformApplicationCommandError = async
       };
       break;
     case "NotFoundException":
-    case "com.amazon.cloudcast.onlines#NotFoundException":
+    case "com.amazonaws.sns#NotFoundException":
       response = {
         ...(await deserializeAws_queryNotFoundExceptionResponse(
           parsedOutput,
@@ -2313,7 +2313,7 @@ const deserializeAws_queryListPhoneNumbersOptedOutCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -2324,7 +2324,7 @@ const deserializeAws_queryListPhoneNumbersOptedOutCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -2335,7 +2335,7 @@ const deserializeAws_queryListPhoneNumbersOptedOutCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -2346,7 +2346,7 @@ const deserializeAws_queryListPhoneNumbersOptedOutCommandError = async (
       };
       break;
     case "ThrottledException":
-    case "com.amazon.cloudcast.onlines#ThrottledException":
+    case "com.amazonaws.sns#ThrottledException":
       response = {
         ...(await deserializeAws_queryThrottledExceptionResponse(
           parsedOutput,
@@ -2411,7 +2411,7 @@ const deserializeAws_queryListPlatformApplicationsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -2422,7 +2422,7 @@ const deserializeAws_queryListPlatformApplicationsCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -2433,7 +2433,7 @@ const deserializeAws_queryListPlatformApplicationsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -2495,7 +2495,7 @@ const deserializeAws_queryListSubscriptionsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -2506,7 +2506,7 @@ const deserializeAws_queryListSubscriptionsCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -2517,7 +2517,7 @@ const deserializeAws_queryListSubscriptionsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -2582,7 +2582,7 @@ const deserializeAws_queryListSubscriptionsByTopicCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -2593,7 +2593,7 @@ const deserializeAws_queryListSubscriptionsByTopicCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -2604,7 +2604,7 @@ const deserializeAws_queryListSubscriptionsByTopicCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -2615,7 +2615,7 @@ const deserializeAws_queryListSubscriptionsByTopicCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.cloudcast.onlines#NotFoundException":
+    case "com.amazonaws.sns#NotFoundException":
       response = {
         ...(await deserializeAws_queryNotFoundExceptionResponse(
           parsedOutput,
@@ -2677,7 +2677,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -2688,7 +2688,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
       };
       break;
     case "ConcurrentAccessException":
-    case "com.amazon.cloudcast.onlines#ConcurrentAccessException":
+    case "com.amazonaws.sns#ConcurrentAccessException":
       response = {
         ...(await deserializeAws_queryConcurrentAccessExceptionResponse(
           parsedOutput,
@@ -2699,7 +2699,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -2710,7 +2710,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.cloudcast.onlines#ResourceNotFoundException":
+    case "com.amazonaws.sns#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -2721,7 +2721,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
       };
       break;
     case "TagPolicyException":
-    case "com.amazon.cloudcast.onlines#TagPolicyException":
+    case "com.amazonaws.sns#TagPolicyException":
       response = {
         ...(await deserializeAws_queryTagPolicyExceptionResponse(
           parsedOutput,
@@ -2783,7 +2783,7 @@ const deserializeAws_queryListTopicsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -2794,7 +2794,7 @@ const deserializeAws_queryListTopicsCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -2805,7 +2805,7 @@ const deserializeAws_queryListTopicsCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -2867,7 +2867,7 @@ const deserializeAws_queryOptInPhoneNumberCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -2878,7 +2878,7 @@ const deserializeAws_queryOptInPhoneNumberCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -2889,7 +2889,7 @@ const deserializeAws_queryOptInPhoneNumberCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -2900,7 +2900,7 @@ const deserializeAws_queryOptInPhoneNumberCommandError = async (
       };
       break;
     case "ThrottledException":
-    case "com.amazon.cloudcast.onlines#ThrottledException":
+    case "com.amazonaws.sns#ThrottledException":
       response = {
         ...(await deserializeAws_queryThrottledExceptionResponse(
           parsedOutput,
@@ -2959,7 +2959,7 @@ const deserializeAws_queryPublishCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -2970,7 +2970,7 @@ const deserializeAws_queryPublishCommandError = async (
       };
       break;
     case "EndpointDisabledException":
-    case "com.amazon.cloudcast.onlines#EndpointDisabledException":
+    case "com.amazonaws.sns#EndpointDisabledException":
       response = {
         ...(await deserializeAws_queryEndpointDisabledExceptionResponse(
           parsedOutput,
@@ -2981,7 +2981,7 @@ const deserializeAws_queryPublishCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -2992,7 +2992,7 @@ const deserializeAws_queryPublishCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -3003,7 +3003,7 @@ const deserializeAws_queryPublishCommandError = async (
       };
       break;
     case "InvalidParameterValueException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterValueException":
+    case "com.amazonaws.sns#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(
           parsedOutput,
@@ -3014,7 +3014,7 @@ const deserializeAws_queryPublishCommandError = async (
       };
       break;
     case "InvalidSecurityException":
-    case "com.amazon.cloudcast.onlines#InvalidSecurityException":
+    case "com.amazonaws.sns#InvalidSecurityException":
       response = {
         ...(await deserializeAws_queryInvalidSecurityExceptionResponse(
           parsedOutput,
@@ -3025,7 +3025,7 @@ const deserializeAws_queryPublishCommandError = async (
       };
       break;
     case "KMSAccessDeniedException":
-    case "com.amazon.cloudcast.onlines#KMSAccessDeniedException":
+    case "com.amazonaws.sns#KMSAccessDeniedException":
       response = {
         ...(await deserializeAws_queryKMSAccessDeniedExceptionResponse(
           parsedOutput,
@@ -3036,7 +3036,7 @@ const deserializeAws_queryPublishCommandError = async (
       };
       break;
     case "KMSDisabledException":
-    case "com.amazon.cloudcast.onlines#KMSDisabledException":
+    case "com.amazonaws.sns#KMSDisabledException":
       response = {
         ...(await deserializeAws_queryKMSDisabledExceptionResponse(
           parsedOutput,
@@ -3047,7 +3047,7 @@ const deserializeAws_queryPublishCommandError = async (
       };
       break;
     case "KMSInvalidStateException":
-    case "com.amazon.cloudcast.onlines#KMSInvalidStateException":
+    case "com.amazonaws.sns#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_queryKMSInvalidStateExceptionResponse(
           parsedOutput,
@@ -3058,7 +3058,7 @@ const deserializeAws_queryPublishCommandError = async (
       };
       break;
     case "KMSNotFoundException":
-    case "com.amazon.cloudcast.onlines#KMSNotFoundException":
+    case "com.amazonaws.sns#KMSNotFoundException":
       response = {
         ...(await deserializeAws_queryKMSNotFoundExceptionResponse(
           parsedOutput,
@@ -3069,7 +3069,7 @@ const deserializeAws_queryPublishCommandError = async (
       };
       break;
     case "KMSOptInRequired":
-    case "com.amazon.cloudcast.onlines#KMSOptInRequired":
+    case "com.amazonaws.sns#KMSOptInRequired":
       response = {
         ...(await deserializeAws_queryKMSOptInRequiredResponse(
           parsedOutput,
@@ -3080,7 +3080,7 @@ const deserializeAws_queryPublishCommandError = async (
       };
       break;
     case "KMSThrottlingException":
-    case "com.amazon.cloudcast.onlines#KMSThrottlingException":
+    case "com.amazonaws.sns#KMSThrottlingException":
       response = {
         ...(await deserializeAws_queryKMSThrottlingExceptionResponse(
           parsedOutput,
@@ -3091,7 +3091,7 @@ const deserializeAws_queryPublishCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.cloudcast.onlines#NotFoundException":
+    case "com.amazonaws.sns#NotFoundException":
       response = {
         ...(await deserializeAws_queryNotFoundExceptionResponse(
           parsedOutput,
@@ -3102,7 +3102,7 @@ const deserializeAws_queryPublishCommandError = async (
       };
       break;
     case "PlatformApplicationDisabledException":
-    case "com.amazon.cloudcast.onlines#PlatformApplicationDisabledException":
+    case "com.amazonaws.sns#PlatformApplicationDisabledException":
       response = {
         ...(await deserializeAws_queryPlatformApplicationDisabledExceptionResponse(
           parsedOutput,
@@ -3157,7 +3157,7 @@ const deserializeAws_queryRemovePermissionCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -3168,7 +3168,7 @@ const deserializeAws_queryRemovePermissionCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -3179,7 +3179,7 @@ const deserializeAws_queryRemovePermissionCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -3190,7 +3190,7 @@ const deserializeAws_queryRemovePermissionCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.cloudcast.onlines#NotFoundException":
+    case "com.amazonaws.sns#NotFoundException":
       response = {
         ...(await deserializeAws_queryNotFoundExceptionResponse(
           parsedOutput,
@@ -3248,7 +3248,7 @@ const deserializeAws_querySetEndpointAttributesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -3259,7 +3259,7 @@ const deserializeAws_querySetEndpointAttributesCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -3270,7 +3270,7 @@ const deserializeAws_querySetEndpointAttributesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -3281,7 +3281,7 @@ const deserializeAws_querySetEndpointAttributesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.cloudcast.onlines#NotFoundException":
+    case "com.amazonaws.sns#NotFoundException":
       response = {
         ...(await deserializeAws_queryNotFoundExceptionResponse(
           parsedOutput,
@@ -3339,7 +3339,7 @@ const deserializeAws_querySetPlatformApplicationAttributesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -3350,7 +3350,7 @@ const deserializeAws_querySetPlatformApplicationAttributesCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -3361,7 +3361,7 @@ const deserializeAws_querySetPlatformApplicationAttributesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -3372,7 +3372,7 @@ const deserializeAws_querySetPlatformApplicationAttributesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.cloudcast.onlines#NotFoundException":
+    case "com.amazonaws.sns#NotFoundException":
       response = {
         ...(await deserializeAws_queryNotFoundExceptionResponse(
           parsedOutput,
@@ -3434,7 +3434,7 @@ const deserializeAws_querySetSMSAttributesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -3445,7 +3445,7 @@ const deserializeAws_querySetSMSAttributesCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -3456,7 +3456,7 @@ const deserializeAws_querySetSMSAttributesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -3467,7 +3467,7 @@ const deserializeAws_querySetSMSAttributesCommandError = async (
       };
       break;
     case "ThrottledException":
-    case "com.amazon.cloudcast.onlines#ThrottledException":
+    case "com.amazonaws.sns#ThrottledException":
       response = {
         ...(await deserializeAws_queryThrottledExceptionResponse(
           parsedOutput,
@@ -3525,7 +3525,7 @@ const deserializeAws_querySetSubscriptionAttributesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -3536,7 +3536,7 @@ const deserializeAws_querySetSubscriptionAttributesCommandError = async (
       };
       break;
     case "FilterPolicyLimitExceededException":
-    case "com.amazon.cloudcast.onlines#FilterPolicyLimitExceededException":
+    case "com.amazonaws.sns#FilterPolicyLimitExceededException":
       response = {
         ...(await deserializeAws_queryFilterPolicyLimitExceededExceptionResponse(
           parsedOutput,
@@ -3547,7 +3547,7 @@ const deserializeAws_querySetSubscriptionAttributesCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -3558,7 +3558,7 @@ const deserializeAws_querySetSubscriptionAttributesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -3569,7 +3569,7 @@ const deserializeAws_querySetSubscriptionAttributesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.cloudcast.onlines#NotFoundException":
+    case "com.amazonaws.sns#NotFoundException":
       response = {
         ...(await deserializeAws_queryNotFoundExceptionResponse(
           parsedOutput,
@@ -3624,7 +3624,7 @@ const deserializeAws_querySetTopicAttributesCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -3635,7 +3635,7 @@ const deserializeAws_querySetTopicAttributesCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -3646,7 +3646,7 @@ const deserializeAws_querySetTopicAttributesCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -3657,7 +3657,7 @@ const deserializeAws_querySetTopicAttributesCommandError = async (
       };
       break;
     case "InvalidSecurityException":
-    case "com.amazon.cloudcast.onlines#InvalidSecurityException":
+    case "com.amazonaws.sns#InvalidSecurityException":
       response = {
         ...(await deserializeAws_queryInvalidSecurityExceptionResponse(
           parsedOutput,
@@ -3668,7 +3668,7 @@ const deserializeAws_querySetTopicAttributesCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.cloudcast.onlines#NotFoundException":
+    case "com.amazonaws.sns#NotFoundException":
       response = {
         ...(await deserializeAws_queryNotFoundExceptionResponse(
           parsedOutput,
@@ -3730,7 +3730,7 @@ const deserializeAws_querySubscribeCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -3741,7 +3741,7 @@ const deserializeAws_querySubscribeCommandError = async (
       };
       break;
     case "FilterPolicyLimitExceededException":
-    case "com.amazon.cloudcast.onlines#FilterPolicyLimitExceededException":
+    case "com.amazonaws.sns#FilterPolicyLimitExceededException":
       response = {
         ...(await deserializeAws_queryFilterPolicyLimitExceededExceptionResponse(
           parsedOutput,
@@ -3752,7 +3752,7 @@ const deserializeAws_querySubscribeCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -3763,7 +3763,7 @@ const deserializeAws_querySubscribeCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -3774,7 +3774,7 @@ const deserializeAws_querySubscribeCommandError = async (
       };
       break;
     case "InvalidSecurityException":
-    case "com.amazon.cloudcast.onlines#InvalidSecurityException":
+    case "com.amazonaws.sns#InvalidSecurityException":
       response = {
         ...(await deserializeAws_queryInvalidSecurityExceptionResponse(
           parsedOutput,
@@ -3785,7 +3785,7 @@ const deserializeAws_querySubscribeCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.cloudcast.onlines#NotFoundException":
+    case "com.amazonaws.sns#NotFoundException":
       response = {
         ...(await deserializeAws_queryNotFoundExceptionResponse(
           parsedOutput,
@@ -3796,7 +3796,7 @@ const deserializeAws_querySubscribeCommandError = async (
       };
       break;
     case "SubscriptionLimitExceededException":
-    case "com.amazon.cloudcast.onlines#SubscriptionLimitExceededException":
+    case "com.amazonaws.sns#SubscriptionLimitExceededException":
       response = {
         ...(await deserializeAws_querySubscriptionLimitExceededExceptionResponse(
           parsedOutput,
@@ -3858,7 +3858,7 @@ const deserializeAws_queryTagResourceCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -3869,7 +3869,7 @@ const deserializeAws_queryTagResourceCommandError = async (
       };
       break;
     case "ConcurrentAccessException":
-    case "com.amazon.cloudcast.onlines#ConcurrentAccessException":
+    case "com.amazonaws.sns#ConcurrentAccessException":
       response = {
         ...(await deserializeAws_queryConcurrentAccessExceptionResponse(
           parsedOutput,
@@ -3880,7 +3880,7 @@ const deserializeAws_queryTagResourceCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -3891,7 +3891,7 @@ const deserializeAws_queryTagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.cloudcast.onlines#ResourceNotFoundException":
+    case "com.amazonaws.sns#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -3902,7 +3902,7 @@ const deserializeAws_queryTagResourceCommandError = async (
       };
       break;
     case "StaleTagException":
-    case "com.amazon.cloudcast.onlines#StaleTagException":
+    case "com.amazonaws.sns#StaleTagException":
       response = {
         ...(await deserializeAws_queryStaleTagExceptionResponse(
           parsedOutput,
@@ -3913,7 +3913,7 @@ const deserializeAws_queryTagResourceCommandError = async (
       };
       break;
     case "TagLimitExceededException":
-    case "com.amazon.cloudcast.onlines#TagLimitExceededException":
+    case "com.amazonaws.sns#TagLimitExceededException":
       response = {
         ...(await deserializeAws_queryTagLimitExceededExceptionResponse(
           parsedOutput,
@@ -3924,7 +3924,7 @@ const deserializeAws_queryTagResourceCommandError = async (
       };
       break;
     case "TagPolicyException":
-    case "com.amazon.cloudcast.onlines#TagPolicyException":
+    case "com.amazonaws.sns#TagPolicyException":
       response = {
         ...(await deserializeAws_queryTagPolicyExceptionResponse(
           parsedOutput,
@@ -3979,7 +3979,7 @@ const deserializeAws_queryUnsubscribeCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -3990,7 +3990,7 @@ const deserializeAws_queryUnsubscribeCommandError = async (
       };
       break;
     case "InternalErrorException":
-    case "com.amazon.cloudcast.onlines#InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
       response = {
         ...(await deserializeAws_queryInternalErrorExceptionResponse(
           parsedOutput,
@@ -4001,7 +4001,7 @@ const deserializeAws_queryUnsubscribeCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -4012,7 +4012,7 @@ const deserializeAws_queryUnsubscribeCommandError = async (
       };
       break;
     case "InvalidSecurityException":
-    case "com.amazon.cloudcast.onlines#InvalidSecurityException":
+    case "com.amazonaws.sns#InvalidSecurityException":
       response = {
         ...(await deserializeAws_queryInvalidSecurityExceptionResponse(
           parsedOutput,
@@ -4023,7 +4023,7 @@ const deserializeAws_queryUnsubscribeCommandError = async (
       };
       break;
     case "NotFoundException":
-    case "com.amazon.cloudcast.onlines#NotFoundException":
+    case "com.amazonaws.sns#NotFoundException":
       response = {
         ...(await deserializeAws_queryNotFoundExceptionResponse(
           parsedOutput,
@@ -4085,7 +4085,7 @@ const deserializeAws_queryUntagResourceCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
-    case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
       response = {
         ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
           parsedOutput,
@@ -4096,7 +4096,7 @@ const deserializeAws_queryUntagResourceCommandError = async (
       };
       break;
     case "ConcurrentAccessException":
-    case "com.amazon.cloudcast.onlines#ConcurrentAccessException":
+    case "com.amazonaws.sns#ConcurrentAccessException":
       response = {
         ...(await deserializeAws_queryConcurrentAccessExceptionResponse(
           parsedOutput,
@@ -4107,7 +4107,7 @@ const deserializeAws_queryUntagResourceCommandError = async (
       };
       break;
     case "InvalidParameterException":
-    case "com.amazon.cloudcast.onlines#InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(
           parsedOutput,
@@ -4118,7 +4118,7 @@ const deserializeAws_queryUntagResourceCommandError = async (
       };
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.cloudcast.onlines#ResourceNotFoundException":
+    case "com.amazonaws.sns#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
           parsedOutput,
@@ -4129,7 +4129,7 @@ const deserializeAws_queryUntagResourceCommandError = async (
       };
       break;
     case "StaleTagException":
-    case "com.amazon.cloudcast.onlines#StaleTagException":
+    case "com.amazonaws.sns#StaleTagException":
       response = {
         ...(await deserializeAws_queryStaleTagExceptionResponse(
           parsedOutput,
@@ -4140,7 +4140,7 @@ const deserializeAws_queryUntagResourceCommandError = async (
       };
       break;
     case "TagLimitExceededException":
-    case "com.amazon.cloudcast.onlines#TagLimitExceededException":
+    case "com.amazonaws.sns#TagLimitExceededException":
       response = {
         ...(await deserializeAws_queryTagLimitExceededExceptionResponse(
           parsedOutput,
@@ -4151,7 +4151,7 @@ const deserializeAws_queryUntagResourceCommandError = async (
       };
       break;
     case "TagPolicyException":
-    case "com.amazon.cloudcast.onlines#TagPolicyException":
+    case "com.amazonaws.sns#TagPolicyException":
       response = {
         ...(await deserializeAws_queryTagPolicyExceptionResponse(
           parsedOutput,

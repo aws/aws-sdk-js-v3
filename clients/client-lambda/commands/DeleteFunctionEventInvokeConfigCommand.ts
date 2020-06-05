@@ -5,9 +5,9 @@ import {
 } from "../LambdaClient";
 import { DeleteFunctionEventInvokeConfigRequest } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteFunctionEventInvokeConfigCommand,
-  serializeAws_restJson1_1DeleteFunctionEventInvokeConfigCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteFunctionEventInvokeConfigCommand,
+  serializeAws_restJson1DeleteFunctionEventInvokeConfigCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class DeleteFunctionEventInvokeConfigCommand extends $Command<
     input: DeleteFunctionEventInvokeConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteFunctionEventInvokeConfigCommand(
+    return serializeAws_restJson1DeleteFunctionEventInvokeConfigCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class DeleteFunctionEventInvokeConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFunctionEventInvokeConfigCommandOutput> {
-    return deserializeAws_restJson1_1DeleteFunctionEventInvokeConfigCommand(
+    return deserializeAws_restJson1DeleteFunctionEventInvokeConfigCommand(
       output,
       context
     );

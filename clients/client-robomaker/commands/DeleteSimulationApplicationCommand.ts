@@ -8,9 +8,9 @@ import {
   DeleteSimulationApplicationResponse
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1DeleteSimulationApplicationCommand,
-  serializeAws_restJson1_1DeleteSimulationApplicationCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1DeleteSimulationApplicationCommand,
+  serializeAws_restJson1DeleteSimulationApplicationCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class DeleteSimulationApplicationCommand extends $Command<
     input: DeleteSimulationApplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteSimulationApplicationCommand(
+    return serializeAws_restJson1DeleteSimulationApplicationCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class DeleteSimulationApplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSimulationApplicationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteSimulationApplicationCommand(
+    return deserializeAws_restJson1DeleteSimulationApplicationCommand(
       output,
       context
     );

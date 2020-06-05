@@ -97,8 +97,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          reasoning to analyze resource-based policies in your AWS environment. An external principal
  *          can be another AWS account, a root user, an IAM user or role, a federated user, an AWS
  *          service, or an anonymous user. This guide describes the AWS IAM Access Analyzer operations that you can
- *          call programmatically. For general information about Access Analyzer,
- *          see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">AWS IAM Access Analyzer section of the IAM User Guide</a>.</p>
+ *          call programmatically. For general information about Access Analyzer, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">AWS IAM Access Analyzer section of the IAM User Guide</a>.</p>
  *          <p>To start using Access Analyzer, you first need to create an analyzer.</p>
  */
 export class AccessAnalyzer extends AccessAnalyzerClient {
@@ -138,7 +137,8 @@ export class AccessAnalyzer extends AccessAnalyzerClient {
   }
 
   /**
-   * <p>Creates an archive rule for the specified analyzer. Archive rules automatically archive findings that meet the criteria you define when you create the rule.</p>
+   * <p>Creates an archive rule for the specified analyzer. Archive rules automatically archive
+   *          findings that meet the criteria you define when you create the rule.</p>
    */
   public createArchiveRule(
     args: CreateArchiveRuleCommandInput,

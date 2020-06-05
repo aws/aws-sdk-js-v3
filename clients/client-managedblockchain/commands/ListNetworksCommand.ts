@@ -5,9 +5,9 @@ import {
 } from "../ManagedBlockchainClient";
 import { ListNetworksInput, ListNetworksOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1ListNetworksCommand,
-  serializeAws_restJson1_1ListNetworksCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ListNetworksCommand,
+  serializeAws_restJson1ListNetworksCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class ListNetworksCommand extends $Command<
     input: ListNetworksCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListNetworksCommand(input, context);
+    return serializeAws_restJson1ListNetworksCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListNetworksCommandOutput> {
-    return deserializeAws_restJson1_1ListNetworksCommand(output, context);
+    return deserializeAws_restJson1ListNetworksCommand(output, context);
   }
 
   // Start section: command_body_extra
