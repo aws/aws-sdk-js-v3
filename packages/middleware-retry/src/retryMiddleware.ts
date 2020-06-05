@@ -31,7 +31,7 @@ export const getRetryPlugin = (
   options: RetryResolvedConfig
 ): Pluggable<any, any> => ({
   applyToStack: clientStack => {
-    if (options.maxRetries > 0) {
+    if (options.maxAttempts > 1) {
       clientStack.add(retryMiddleware(options), retryMiddlewareOptions);
     }
   }

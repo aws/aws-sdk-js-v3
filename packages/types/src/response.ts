@@ -28,9 +28,9 @@ export interface ResponseMetadata {
   cfId?: string;
 
   /**
-   * The number of times this operation was retried.
+   * The number of times this operation was attempted.
    */
-  retries?: number;
+  attempts?: number;
 
   /**
    * The total amount of time (in milliseconds) that was spent waiting between
