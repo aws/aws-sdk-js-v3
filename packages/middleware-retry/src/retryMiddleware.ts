@@ -9,15 +9,14 @@ import {
 } from "@aws-sdk/types";
 import { RetryResolvedConfig } from "./configurations";
 
-export function retryMiddleware(options: RetryResolvedConfig) {
-  return <Output extends MetadataBearer = MetadataBearer>(
-    next: FinalizeHandler<any, Output>
-  ): FinalizeHandler<any, Output> => async (
-    args: FinalizeHandlerArguments<any>
-  ): Promise<FinalizeHandlerOutput<Output>> => {
-    return options.retryStrategy.retry(next, args);
-  };
-}
+export const retryMiddleware = (options: RetryResolvedConfig) => <
+  Output extends MetadataBearer = MetadataBearer
+>(
+  next: FinalizeHandler<any, Output>
+): FinalizeHandler<any, Output> => async (
+  args: FinalizeHandlerArguments<any>
+): Promise<FinalizeHandlerOutput<Output>> =>
+  options.retryStrategy.retry(next, args);
 
 export const retryMiddlewareOptions: FinalizeRequestHandlerOptions &
   AbsoluteLocation = {
