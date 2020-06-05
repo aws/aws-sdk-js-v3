@@ -3,7 +3,7 @@ import { ExponentialBackOffStrategy } from "./defaultStrategy";
 
 export interface RetryInputConfig {
   /**
-   * The maximum number of times requests that encounter potentially transient failures should be retried
+   * The maximum number of times requests that encounter retryable failures should be attempted.
    */
   maxAttempts?: number;
   /**

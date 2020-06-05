@@ -39,30 +39,31 @@ export class ExponentialBackOffStrategy implements RetryStrategy {
     private retryDecider: RetryDecider = defaultRetryDecider,
     private delayDecider: DelayDecider = defaultDelayDecider
   ) {}
-  private shouldRetry(error: SdkError, retryAttempted: number) {
-    return retryAttempted < this.maxAttempts && this.retryDecider(error);
+  private shouldRetry(error: SdkError, attempts: number) {
+    return attempts < this.maxAttempts && this.retryDecider(error);
   }
 
   async retry<Input extends object, Ouput extends MetadataBearer>(
     next: FinalizeHandler<Input, Ouput>,
     args: FinalizeHandlerArguments<Input>
   ) {
-    let retries = 0;
+    let attempts = 0;
     let totalDelay = 0;
     while (true) {
       try {
         const { response, output } = await next(args);
-        output.$metadata.retries = retries;
+        output.$metadata.retries = attempts;
         output.$metadata.totalRetryDelay = totalDelay;
 
         return { response, output };
       } catch (err) {
-        if (this.shouldRetry(err as SdkError, retries)) {
+        attempts++;
+        if (this.shouldRetry(err as SdkError, attempts)) {
           const delay = this.delayDecider(
             isThrottlingError(err)
               ? THROTTLING_RETRY_DELAY_BASE
               : DEFAULT_RETRY_DELAY_BASE,
-            retries++
+            attempts
           );
           totalDelay += delay;
 
@@ -74,7 +75,7 @@ export class ExponentialBackOffStrategy implements RetryStrategy {
           err.$metadata = {};
         }
 
-        err.$metadata.retries = retries;
+        err.$metadata.retries = attempts;
         err.$metadata.totalRetryDelay = totalDelay;
         throw err;
       }

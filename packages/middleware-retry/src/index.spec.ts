@@ -38,7 +38,7 @@ describe("retryMiddleware", () => {
       retryHandler({ input: {}, request: new HttpRequest({}) })
     ).rejects.toMatchObject(error);
 
-    expect(next.mock.calls.length).toBe(maxAttempts + 1);
+    expect(next.mock.calls.length).toBe(maxAttempts);
   });
 
   it("should not retry if the error is not transient", async () => {
@@ -85,8 +85,8 @@ describe("retryMiddleware", () => {
 
     expect(next.mock.calls.length).toBe(3);
     expect(delayDeciderMock.mock.calls).toEqual([
-      [DEFAULT_RETRY_DELAY_BASE, 0],
-      [THROTTLING_RETRY_DELAY_BASE, 1]
+      [DEFAULT_RETRY_DELAY_BASE, 1],
+      [THROTTLING_RETRY_DELAY_BASE, 2]
     ]);
   });
 });
