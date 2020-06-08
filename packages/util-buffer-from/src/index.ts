@@ -27,27 +27,23 @@ export function fromArrayBuffer(
   }
   return new Buffer(input);
 }
-
-export function fromString(
-  input: string,
-  encoding?:
-    | "ascii"
-    | "utf8"
-    | "utf16le"
-    | "ucs2"
-    | "base64"
-    | "latin1"
-    | "binary"
-    | "hex"
-    | string
-): Buffer {
+export type StringEncoding =
+  | "ascii"
+  | "utf8"
+  | "utf16le"
+  | "ucs2"
+  | "base64"
+  | "latin1"
+  | "binary"
+  | "hex";
+export function fromString(input: string, encoding?: StringEncoding): Buffer {
   if (typeof input !== "string") {
     throw new Error("argument passed to fromString was not a string");
   }
 
   if (typeof Buffer.from === "function" && Buffer.from !== Uint8Array.from) {
-    return Buffer.from(input, encoding);
+    return Buffer.from(input, encoding as any);
   }
 
-  return new Buffer(input, encoding);
+  return new Buffer(input, encoding as any);
 }
