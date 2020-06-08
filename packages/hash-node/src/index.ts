@@ -1,6 +1,10 @@
 import { Hash as IHash, SourceData } from "@aws-sdk/types";
 import { Buffer } from "buffer";
-import { fromArrayBuffer, fromString } from "@aws-sdk/util-buffer-from";
+import {
+  fromArrayBuffer,
+  fromString,
+  StringEncoding
+} from "@aws-sdk/util-buffer-from";
 import { createHash, createHmac, Hash as NodeHash, Hmac } from "crypto";
 
 export class Hash implements IHash {
@@ -21,7 +25,7 @@ export class Hash implements IHash {
   }
 }
 
-function castSourceData(toCast: SourceData, encoding?: string): Buffer {
+function castSourceData(toCast: SourceData, encoding?: StringEncoding): Buffer {
   if (Buffer.isBuffer(toCast)) {
     return toCast;
   }
