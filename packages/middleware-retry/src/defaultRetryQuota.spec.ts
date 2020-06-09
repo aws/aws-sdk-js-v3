@@ -1,4 +1,4 @@
-import { defaultRetryQuota } from "./defaultRetryQuota";
+import { getDefaultRetryQuota } from "./defaultRetryQuota";
 import { SdkError } from "@aws-sdk/smithy-client";
 import {
   INITIAL_RETRY_TOKENS,
@@ -15,10 +15,10 @@ describe("defaultRetryQuota", () => {
     }) as SdkError;
 
   const getDrainedRetryQuota = (targetCapacity: number, error: SdkError) => {
-    const retryQuota = defaultRetryQuota();
+    const retryQuota = getDefaultRetryQuota();
     let availableCapacity = INITIAL_RETRY_TOKENS;
     while (availableCapacity >= targetCapacity) {
-      retryQuota.retrieveRetryToken(error);
+      retryQuota.retrieveRetryTokens(error);
       availableCapacity -= targetCapacity;
     }
     return retryQuota;
@@ -28,11 +28,13 @@ describe("defaultRetryQuota", () => {
     describe("returns true if capacity is available", () => {
       it("when it's TimeoutError", () => {
         const timeoutError = getMockTimeoutError();
-        expect(defaultRetryQuota().hasRetryTokens(timeoutError)).toBe(true);
+        expect(getDefaultRetryQuota().hasRetryTokens(timeoutError)).toBe(true);
       });
 
       it("when it's not TimeoutError", () => {
-        expect(defaultRetryQuota().hasRetryTokens(getMockError())).toBe(true);
+        expect(getDefaultRetryQuota().hasRetryTokens(getMockError())).toBe(
+          true
+        );
       });
     });
 
@@ -58,13 +60,13 @@ describe("defaultRetryQuota", () => {
     describe("returns retry tokens amount if available", () => {
       it("when it's TimeoutError", () => {
         const timeoutError = getMockTimeoutError();
-        expect(defaultRetryQuota().retrieveRetryToken(timeoutError)).toBe(
+        expect(getDefaultRetryQuota().retrieveRetryTokens(timeoutError)).toBe(
           TIMEOUT_RETRY_COST
         );
       });
 
       it("when it's not TimeoutError", () => {
-        expect(defaultRetryQuota().retrieveRetryToken(getMockError())).toBe(
+        expect(getDefaultRetryQuota().retrieveRetryTokens(getMockError())).toBe(
           RETRY_COST
         );
       });
@@ -78,7 +80,7 @@ describe("defaultRetryQuota", () => {
           timeoutError
         );
         expect(() => {
-          retryQuota.retrieveRetryToken(timeoutError);
+          retryQuota.retrieveRetryTokens(timeoutError);
         }).toThrowError(new Error("No retry token available"));
       });
 
@@ -86,7 +88,7 @@ describe("defaultRetryQuota", () => {
         const error = getMockError();
         const retryQuota = getDrainedRetryQuota(RETRY_COST, error);
         expect(() => {
-          retryQuota.retrieveRetryToken(error);
+          retryQuota.retrieveRetryTokens(error);
         }).toThrowError(new Error("No retry token available"));
       });
     });
@@ -101,9 +103,9 @@ describe("defaultRetryQuota", () => {
       expect(retryQuota.hasRetryTokens(error)).toBe(false);
 
       // Release RETRY_COST tokens.
-      retryQuota.releaseRetryToken(RETRY_COST);
+      retryQuota.releaseRetryTokens(RETRY_COST);
       expect(retryQuota.hasRetryTokens(error)).toBe(true);
-      expect(retryQuota.retrieveRetryToken(error)).toBe(RETRY_COST);
+      expect(retryQuota.retrieveRetryTokens(error)).toBe(RETRY_COST);
       expect(retryQuota.hasRetryTokens(error)).toBe(false);
     });
 
@@ -118,7 +120,7 @@ describe("defaultRetryQuota", () => {
         RETRY_COST - (INITIAL_RETRY_TOKENS % RETRY_COST);
       while (tokensReleased < tokensToBeReleased) {
         expect(retryQuota.hasRetryTokens(error)).toBe(false);
-        retryQuota.releaseRetryToken();
+        retryQuota.releaseRetryTokens();
         tokensReleased += NO_RETRY_INCREMENT;
       }
       expect(retryQuota.hasRetryTokens(error)).toBe(true);
@@ -126,11 +128,11 @@ describe("defaultRetryQuota", () => {
 
     it("ensures availableCapacity is maxed at INITIAL_RETRY_TOKENS", () => {
       const error = getMockError();
-      const retryQuota = defaultRetryQuota();
+      const retryQuota = getDefaultRetryQuota();
 
       // release 100 tokens.
       [...Array(100).keys()].forEach(key => {
-        retryQuota.releaseRetryToken();
+        retryQuota.releaseRetryTokens();
       });
 
       // availableCapacity is still maxed at INITIAL_RETRY_TOKENS
@@ -138,7 +140,7 @@ describe("defaultRetryQuota", () => {
       [...Array(Math.floor(INITIAL_RETRY_TOKENS / RETRY_COST)).keys()].forEach(
         key => {
           expect(retryQuota.hasRetryTokens(error)).toBe(true);
-          retryQuota.retrieveRetryToken(error);
+          retryQuota.retrieveRetryTokens(error);
         }
       );
       expect(retryQuota.hasRetryTokens(error)).toBe(false);

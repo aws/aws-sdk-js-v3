@@ -7,7 +7,7 @@ import {
   NO_RETRY_INCREMENT
 } from "./constants";
 
-export const defaultRetryQuota = (): RetryQuota => {
+export const getDefaultRetryQuota = (): RetryQuota => {
   const MAX_CAPACITY = INITIAL_RETRY_TOKENS;
   let availableCapacity = INITIAL_RETRY_TOKENS;
 
@@ -17,7 +17,7 @@ export const defaultRetryQuota = (): RetryQuota => {
   const hasRetryTokens = (error: SdkError) =>
     getCapacityAmount(error) <= availableCapacity;
 
-  const retrieveRetryToken = (error: SdkError) => {
+  const retrieveRetryTokens = (error: SdkError) => {
     if (!hasRetryTokens(error)) {
       // retryStrategy should stop retrying, and return last error
       throw new Error("No retry token available");
@@ -27,14 +27,14 @@ export const defaultRetryQuota = (): RetryQuota => {
     return capacityAmount;
   };
 
-  const releaseRetryToken = (capacityReleaseAmount?: number) => {
+  const releaseRetryTokens = (capacityReleaseAmount?: number) => {
     availableCapacity += capacityReleaseAmount ?? NO_RETRY_INCREMENT;
     availableCapacity = Math.min(availableCapacity, MAX_CAPACITY);
   };
 
   return Object.freeze({
     hasRetryTokens,
-    retrieveRetryToken,
-    releaseRetryToken
+    retrieveRetryTokens,
+    releaseRetryTokens
   });
 };
