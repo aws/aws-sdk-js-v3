@@ -18,25 +18,35 @@ describe("getRetryPlugin", () => {
     jest.clearAllMocks();
   });
 
-  it("adds retryMiddleware if maxRetries > 0", () => {
-    const maxAttempts = 1;
-    getRetryPlugin({
-      maxAttempts,
-      retryStrategy: {} as RetryStrategy
-    }).applyToStack((mockClientStack as unknown) as MiddlewareStack<any, any>);
-    expect(mockClientStack.add).toHaveBeenCalledTimes(1);
-    expect(mockClientStack.add.mock.calls[0][1]).toEqual(
-      retryMiddlewareOptions
-    );
+  describe("adds retryMiddleware if maxAttempts > 1", () => {
+    [2, 3, 4].forEach(maxAttempts => {
+      it(`when maxAttempts=${maxAttempts}`, () => {
+        getRetryPlugin({
+          maxAttempts,
+          retryStrategy: {} as RetryStrategy
+        }).applyToStack(
+          (mockClientStack as unknown) as MiddlewareStack<any, any>
+        );
+        expect(mockClientStack.add).toHaveBeenCalledTimes(1);
+        expect(mockClientStack.add.mock.calls[0][1]).toEqual(
+          retryMiddlewareOptions
+        );
+      });
+    });
   });
 
-  it("skips adding retryMiddleware if maxRetries = 0", () => {
-    const maxAttempts = 0;
-    getRetryPlugin({
-      maxAttempts,
-      retryStrategy: {} as RetryStrategy
-    }).applyToStack((mockClientStack as unknown) as MiddlewareStack<any, any>);
-    expect(mockClientStack.add).toHaveBeenCalledTimes(0);
+  describe("skips adding retryMiddleware if maxAttempts <= 1", () => {
+    [0, 1].forEach(maxAttempts => {
+      it(`when maxAttempts=${maxAttempts}`, () => {
+        getRetryPlugin({
+          maxAttempts,
+          retryStrategy: {} as RetryStrategy
+        }).applyToStack(
+          (mockClientStack as unknown) as MiddlewareStack<any, any>
+        );
+        expect(mockClientStack.add).toHaveBeenCalledTimes(0);
+      });
+    });
   });
 });
 
@@ -46,7 +56,7 @@ describe("retryMiddleware", () => {
   });
 
   it("calls retryStrategy.retry with next and args", async () => {
-    const maxAttempts = 1;
+    const maxAttempts = 2;
     const next = jest.fn();
     const args = {
       request: {}
