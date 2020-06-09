@@ -112,57 +112,59 @@ describe("defaultStrategy", () => {
     });
   });
 
-  it("should not retry when the handler completes successfully", async () => {
-    const mockResponse = {
-      response: "mockResponse",
-      output: { $metadata: {} }
-    };
+  describe("should not retry", () => {
+    it("when the handler completes successfully", async () => {
+      const mockResponse = {
+        response: "mockResponse",
+        output: { $metadata: {} }
+      };
 
-    const next = jest.fn().mockResolvedValueOnce(mockResponse);
+      const next = jest.fn().mockResolvedValueOnce(mockResponse);
 
-    const retryStrategy = new StandardRetryStrategy(maxAttempts);
-    const { response, output } = await retryStrategy.retry(next, {} as any);
+      const retryStrategy = new StandardRetryStrategy(maxAttempts);
+      const { response, output } = await retryStrategy.retry(next, {} as any);
 
-    expect(response).toStrictEqual(mockResponse.response);
-    expect(output.$metadata.attempts).toBe(1);
-    expect(output.$metadata.totalRetryDelay).toBe(0);
-    expect(defaultRetryDecider as jest.Mock).not.toHaveBeenCalled();
-    expect(defaultDelayDecider as jest.Mock).not.toHaveBeenCalled();
+      expect(response).toStrictEqual(mockResponse.response);
+      expect(output.$metadata.attempts).toBe(1);
+      expect(output.$metadata.totalRetryDelay).toBe(0);
+      expect(defaultRetryDecider as jest.Mock).not.toHaveBeenCalled();
+      expect(defaultDelayDecider as jest.Mock).not.toHaveBeenCalled();
+    });
+
+    it("when retryDecider returns false", async () => {
+      (defaultRetryDecider as jest.Mock).mockReturnValueOnce(false);
+
+      const mockError = new Error("mockError");
+      const next = jest.fn().mockRejectedValueOnce(mockError);
+
+      const retryStrategy = new StandardRetryStrategy(maxAttempts);
+      try {
+        await retryStrategy.retry(next, {} as any);
+      } catch (error) {
+        expect(error).toStrictEqual(mockError);
+      }
+
+      expect(defaultRetryDecider as jest.Mock).toHaveBeenCalledTimes(1);
+      expect(defaultRetryDecider as jest.Mock).toHaveBeenCalledWith(mockError);
+    });
+
+    it("when the the maximum number of attempts is reached", async () => {
+      const mockError = new Error("mockError");
+      const next = jest.fn().mockRejectedValue(mockError);
+
+      const retryStrategy = new StandardRetryStrategy(maxAttempts);
+      try {
+        await retryStrategy.retry(next, {} as any);
+      } catch (error) {
+        expect(error).toStrictEqual(mockError);
+      }
+      expect(defaultRetryDecider as jest.Mock).toHaveBeenCalledTimes(
+        maxAttempts - 1
+      );
+    });
   });
 
-  it("should not retry when retryDecider returns false", async () => {
-    (defaultRetryDecider as jest.Mock).mockReturnValueOnce(false);
-
-    const mockError = new Error("mockError");
-    const next = jest.fn().mockRejectedValueOnce(mockError);
-
-    const retryStrategy = new StandardRetryStrategy(maxAttempts);
-    try {
-      await retryStrategy.retry(next, {} as any);
-    } catch (error) {
-      expect(error).toStrictEqual(mockError);
-    }
-
-    expect(defaultRetryDecider as jest.Mock).toHaveBeenCalledTimes(1);
-    expect(defaultRetryDecider as jest.Mock).toHaveBeenCalledWith(mockError);
-  });
-
-  it("should stop retrying when the the maximum number of attempts is reached", async () => {
-    const mockError = new Error("mockError");
-    const next = jest.fn().mockRejectedValue(mockError);
-
-    const retryStrategy = new StandardRetryStrategy(maxAttempts);
-    try {
-      await retryStrategy.retry(next, {} as any);
-    } catch (error) {
-      expect(error).toStrictEqual(mockError);
-    }
-    expect(defaultRetryDecider as jest.Mock).toHaveBeenCalledTimes(
-      maxAttempts - 1
-    );
-  });
-
-  it("should delay the value returned by delayDecider", async () => {
+  it("should delay equal to the value returned by delayDecider", async () => {
     jest.spyOn(global, "setTimeout");
 
     const FIRST_DELAY = 100;
