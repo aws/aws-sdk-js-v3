@@ -66,7 +66,7 @@ export interface StandardRetryStrategyOptions {
 export class StandardRetryStrategy implements RetryStrategy {
   private retryDecider: RetryDecider;
   private delayDecider: DelayDecider;
-  private retryQuota?: RetryQuota;
+  // private retryQuota?: RetryQuota;
 
   constructor(
     public readonly maxAttempts: number,
@@ -74,7 +74,7 @@ export class StandardRetryStrategy implements RetryStrategy {
   ) {
     this.retryDecider = options?.retryDecider ?? defaultRetryDecider;
     this.delayDecider = options?.delayDecider ?? defaultDelayDecider;
-    this.retryQuota = options?.retryQuota;
+    // this.retryQuota = options?.retryQuota;
   }
 
   private shouldRetry(error: SdkError, attempts: number) {
