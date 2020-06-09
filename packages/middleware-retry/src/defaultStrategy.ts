@@ -34,16 +34,39 @@ export interface DelayDecider {
 }
 
 /**
+ * Interface that specifies the retry quota behavior.
+ */
+export interface RetryQuota {
+  /**
+   * returns true if retry tokens are available from the retry quota bucket.
+   */
+  hasRetryTokens: (error: SdkError) => boolean;
+
+  /**
+   * returns token amount from the retry quota bucket.
+   * throws error is retry tokens are not available.
+   */
+  retrieveRetryToken: (error: SdkError) => number;
+
+  /**
+   * releases tokens back to the retry quota.
+   */
+  releaseRetryToken: (releaseCapacityAmount?: number) => void;
+}
+
+/**
  * Strategy options to be passed to StandardRetryStrategy
  */
 export interface StandardRetryStrategyOptions {
   retryDecider?: RetryDecider;
   delayDecider?: DelayDecider;
+  retryQuota?: RetryQuota;
 }
 
 export class StandardRetryStrategy implements RetryStrategy {
   private retryDecider: RetryDecider;
   private delayDecider: DelayDecider;
+  private retryQuota?: RetryQuota;
 
   constructor(
     public readonly maxAttempts: number,
@@ -51,6 +74,7 @@ export class StandardRetryStrategy implements RetryStrategy {
   ) {
     this.retryDecider = options?.retryDecider ?? defaultRetryDecider;
     this.delayDecider = options?.delayDecider ?? defaultDelayDecider;
+    this.retryQuota = options?.retryQuota;
   }
 
   private shouldRetry(error: SdkError, attempts: number) {
