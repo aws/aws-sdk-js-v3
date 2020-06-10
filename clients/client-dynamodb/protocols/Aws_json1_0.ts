@@ -177,7 +177,6 @@ import {
   BackupSummary,
   BatchGetItemInput,
   BatchGetItemOutput,
-  BatchResponse,
   BatchWriteItemInput,
   BatchWriteItemOutput,
   BillingModeSummary,
@@ -254,8 +253,6 @@ import {
   ItemCollectionMetrics,
   ItemCollectionSizeLimitExceededException,
   ItemResponse,
-  Key,
-  KeySchema,
   KeySchemaElement,
   KeysAndAttributes,
   LimitExceededException,
@@ -2422,6 +2419,17 @@ const deserializeAws_json1_0DescribeTableCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
@@ -2975,6 +2983,17 @@ const deserializeAws_json1_0ListTablesCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -3131,10 +3150,21 @@ const deserializeAws_json1_0PutItemCommandError = async (
         $metadata: deserializeMetadata(output)
       };
       break;
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "ItemCollectionSizeLimitExceededException":
+    case "com.amazonaws.dynamodb#ItemCollectionSizeLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(
           parsedOutput,
           context
         )),
@@ -3168,6 +3198,17 @@ const deserializeAws_json1_0PutItemCommandError = async (
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "TransactionConflictException":
+    case "com.amazonaws.dynamodb#TransactionConflictException":
+      response = {
+        ...(await deserializeAws_json1_0TransactionConflictExceptionResponse(
           parsedOutput,
           context
         )),
@@ -3604,6 +3645,17 @@ const deserializeAws_json1_0ScanCommandError = async (
     case "com.amazonaws.dynamodb#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output)
+      };
+      break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
           parsedOutput,
           context
         )),
@@ -5500,13 +5552,21 @@ const serializeAws_json1_0AttributeValue = (
 ): any => {
   return {
     ...(input.B !== undefined && { B: context.base64Encoder(input.B) }),
+    ...(input.BOOL !== undefined && { BOOL: input.BOOL }),
     ...(input.BS !== undefined && {
       BS: serializeAws_json1_0BinarySetAttributeValue(input.BS, context)
+    }),
+    ...(input.L !== undefined && {
+      L: serializeAws_json1_0ListAttributeValue(input.L, context)
+    }),
+    ...(input.M !== undefined && {
+      M: serializeAws_json1_0MapAttributeValue(input.M, context)
     }),
     ...(input.N !== undefined && { N: input.N }),
     ...(input.NS !== undefined && {
       NS: serializeAws_json1_0NumberSetAttributeValue(input.NS, context)
     }),
+    ...(input.NULL !== undefined && { NULL: input.NULL }),
     ...(input.S !== undefined && { S: input.S }),
     ...(input.SS !== undefined && {
       SS: serializeAws_json1_0StringSetAttributeValue(input.SS, context)
@@ -5602,6 +5662,9 @@ const serializeAws_json1_0BatchGetItemInput = (
         input.RequestItems,
         context
       )
+    }),
+    ...(input.ReturnConsumedCapacity !== undefined && {
+      ReturnConsumedCapacity: input.ReturnConsumedCapacity
     })
   };
 };
@@ -5632,6 +5695,12 @@ const serializeAws_json1_0BatchWriteItemInput = (
         input.RequestItems,
         context
       )
+    }),
+    ...(input.ReturnConsumedCapacity !== undefined && {
+      ReturnConsumedCapacity: input.ReturnConsumedCapacity
+    }),
+    ...(input.ReturnItemCollectionMetrics !== undefined && {
+      ReturnItemCollectionMetrics: input.ReturnItemCollectionMetrics
     })
   };
 };
@@ -5891,14 +5960,38 @@ const serializeAws_json1_0DeleteItemInput = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.ConditionExpression !== undefined && {
+      ConditionExpression: input.ConditionExpression
+    }),
+    ...(input.ConditionalOperator !== undefined && {
+      ConditionalOperator: input.ConditionalOperator
+    }),
     ...(input.Expected !== undefined && {
       Expected: serializeAws_json1_0ExpectedAttributeMap(
         input.Expected,
         context
       )
     }),
+    ...(input.ExpressionAttributeNames !== undefined && {
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
+        input.ExpressionAttributeNames,
+        context
+      )
+    }),
+    ...(input.ExpressionAttributeValues !== undefined && {
+      ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
+        input.ExpressionAttributeValues,
+        context
+      )
+    }),
     ...(input.Key !== undefined && {
       Key: serializeAws_json1_0Key(input.Key, context)
+    }),
+    ...(input.ReturnConsumedCapacity !== undefined && {
+      ReturnConsumedCapacity: input.ReturnConsumedCapacity
+    }),
+    ...(input.ReturnItemCollectionMetrics !== undefined && {
+      ReturnItemCollectionMetrics: input.ReturnItemCollectionMetrics
     }),
     ...(input.ReturnValues !== undefined && {
       ReturnValues: input.ReturnValues
@@ -6283,25 +6376,34 @@ const serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdateList = (
   );
 };
 
-const serializeAws_json1_0Key = (input: Key, context: __SerdeContext): any => {
-  return {
-    ...(input.HashKeyElement !== undefined && {
-      HashKeyElement: serializeAws_json1_0AttributeValue(
-        input.HashKeyElement,
-        context
-      )
+const serializeAws_json1_0Key = (
+  input: { [key: string]: AttributeValue },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_json1_0AttributeValue(value, context)
     }),
-    ...(input.RangeKeyElement !== undefined && {
-      RangeKeyElement: serializeAws_json1_0AttributeValue(
-        input.RangeKeyElement,
-        context
-      )
-    })
-  };
+    {}
+  );
+};
+
+const serializeAws_json1_0KeyConditions = (
+  input: { [key: string]: Condition },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: Condition }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_json1_0Condition(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_0KeyList = (
-  input: Key[],
+  input: { [key: string]: AttributeValue }[],
   context: __SerdeContext
 ): any => {
   return input.map(entry => serializeAws_json1_0Key(entry, context));
@@ -6337,23 +6439,12 @@ const serializeAws_json1_0KeysAndAttributes = (
 };
 
 const serializeAws_json1_0KeySchema = (
-  input: KeySchema,
+  input: KeySchemaElement[],
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.HashKeyElement !== undefined && {
-      HashKeyElement: serializeAws_json1_0KeySchemaElement(
-        input.HashKeyElement,
-        context
-      )
-    }),
-    ...(input.RangeKeyElement !== undefined && {
-      RangeKeyElement: serializeAws_json1_0KeySchemaElement(
-        input.RangeKeyElement,
-        context
-      )
-    })
-  };
+  return input.map(entry =>
+    serializeAws_json1_0KeySchemaElement(entry, context)
+  );
 };
 
 const serializeAws_json1_0KeySchemaElement = (
@@ -6364,10 +6455,15 @@ const serializeAws_json1_0KeySchemaElement = (
     ...(input.AttributeName !== undefined && {
       AttributeName: input.AttributeName
     }),
-    ...(input.AttributeType !== undefined && {
-      AttributeType: input.AttributeType
-    })
+    ...(input.KeyType !== undefined && { KeyType: input.KeyType })
   };
+};
+
+const serializeAws_json1_0ListAttributeValue = (
+  input: AttributeValue[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => serializeAws_json1_0AttributeValue(entry, context));
 };
 
 const serializeAws_json1_0ListBackupsInput = (
@@ -6461,6 +6557,19 @@ const serializeAws_json1_0LocalSecondaryIndexList = (
 ): any => {
   return input.map(entry =>
     serializeAws_json1_0LocalSecondaryIndex(entry, context)
+  );
+};
+
+const serializeAws_json1_0MapAttributeValue = (
+  input: { [key: string]: AttributeValue },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_json1_0AttributeValue(value, context)
+    }),
+    {}
   );
 };
 
@@ -6639,32 +6748,60 @@ const serializeAws_json1_0QueryInput = (
         context
       )
     }),
+    ...(input.ConditionalOperator !== undefined && {
+      ConditionalOperator: input.ConditionalOperator
+    }),
     ...(input.ConsistentRead !== undefined && {
       ConsistentRead: input.ConsistentRead
     }),
-    ...(input.Count !== undefined && { Count: input.Count }),
     ...(input.ExclusiveStartKey !== undefined && {
       ExclusiveStartKey: serializeAws_json1_0Key(
         input.ExclusiveStartKey,
         context
       )
     }),
-    ...(input.HashKeyValue !== undefined && {
-      HashKeyValue: serializeAws_json1_0AttributeValue(
-        input.HashKeyValue,
+    ...(input.ExpressionAttributeNames !== undefined && {
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
+        input.ExpressionAttributeNames,
+        context
+      )
+    }),
+    ...(input.ExpressionAttributeValues !== undefined && {
+      ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
+        input.ExpressionAttributeValues,
+        context
+      )
+    }),
+    ...(input.FilterExpression !== undefined && {
+      FilterExpression: input.FilterExpression
+    }),
+    ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
+    ...(input.KeyConditionExpression !== undefined && {
+      KeyConditionExpression: input.KeyConditionExpression
+    }),
+    ...(input.KeyConditions !== undefined && {
+      KeyConditions: serializeAws_json1_0KeyConditions(
+        input.KeyConditions,
         context
       )
     }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.RangeKeyCondition !== undefined && {
-      RangeKeyCondition: serializeAws_json1_0Condition(
-        input.RangeKeyCondition,
+    ...(input.ProjectionExpression !== undefined && {
+      ProjectionExpression: input.ProjectionExpression
+    }),
+    ...(input.QueryFilter !== undefined && {
+      QueryFilter: serializeAws_json1_0FilterConditionMap(
+        input.QueryFilter,
         context
       )
+    }),
+    ...(input.ReturnConsumedCapacity !== undefined && {
+      ReturnConsumedCapacity: input.ReturnConsumedCapacity
     }),
     ...(input.ScanIndexForward !== undefined && {
       ScanIndexForward: input.ScanIndexForward
     }),
+    ...(input.Select !== undefined && { Select: input.Select }),
     ...(input.TableName !== undefined && { TableName: input.TableName })
   };
 };
@@ -6973,21 +7110,53 @@ const serializeAws_json1_0ScanInput = (
         context
       )
     }),
-    ...(input.Count !== undefined && { Count: input.Count }),
+    ...(input.ConditionalOperator !== undefined && {
+      ConditionalOperator: input.ConditionalOperator
+    }),
+    ...(input.ConsistentRead !== undefined && {
+      ConsistentRead: input.ConsistentRead
+    }),
     ...(input.ExclusiveStartKey !== undefined && {
       ExclusiveStartKey: serializeAws_json1_0Key(
         input.ExclusiveStartKey,
         context
       )
     }),
+    ...(input.ExpressionAttributeNames !== undefined && {
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
+        input.ExpressionAttributeNames,
+        context
+      )
+    }),
+    ...(input.ExpressionAttributeValues !== undefined && {
+      ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
+        input.ExpressionAttributeValues,
+        context
+      )
+    }),
+    ...(input.FilterExpression !== undefined && {
+      FilterExpression: input.FilterExpression
+    }),
+    ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.ProjectionExpression !== undefined && {
+      ProjectionExpression: input.ProjectionExpression
+    }),
+    ...(input.ReturnConsumedCapacity !== undefined && {
+      ReturnConsumedCapacity: input.ReturnConsumedCapacity
+    }),
     ...(input.ScanFilter !== undefined && {
       ScanFilter: serializeAws_json1_0FilterConditionMap(
         input.ScanFilter,
         context
       )
     }),
-    ...(input.TableName !== undefined && { TableName: input.TableName })
+    ...(input.Segment !== undefined && { Segment: input.Segment }),
+    ...(input.Select !== undefined && { Select: input.Select }),
+    ...(input.TableName !== undefined && { TableName: input.TableName }),
+    ...(input.TotalSegments !== undefined && {
+      TotalSegments: input.TotalSegments
+    })
   };
 };
 
@@ -7571,14 +7740,30 @@ const deserializeAws_json1_0AttributeValue = (
       output.B !== undefined && output.B !== null
         ? context.base64Decoder(output.B)
         : undefined,
+    BOOL:
+      output.BOOL !== undefined && output.BOOL !== null
+        ? output.BOOL
+        : undefined,
     BS:
       output.BS !== undefined && output.BS !== null
         ? deserializeAws_json1_0BinarySetAttributeValue(output.BS, context)
+        : undefined,
+    L:
+      output.L !== undefined && output.L !== null
+        ? deserializeAws_json1_0ListAttributeValue(output.L, context)
+        : undefined,
+    M:
+      output.M !== undefined && output.M !== null
+        ? deserializeAws_json1_0MapAttributeValue(output.M, context)
         : undefined,
     N: output.N !== undefined && output.N !== null ? output.N : undefined,
     NS:
       output.NS !== undefined && output.NS !== null
         ? deserializeAws_json1_0NumberSetAttributeValue(output.NS, context)
+        : undefined,
+    NULL:
+      output.NULL !== undefined && output.NULL !== null
+        ? output.NULL
         : undefined,
     S: output.S !== undefined && output.S !== null ? output.S : undefined,
     SS:
@@ -7877,32 +8062,17 @@ const deserializeAws_json1_0BatchGetRequestMap = (
 const deserializeAws_json1_0BatchGetResponseMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: BatchResponse } => {
+): { [key: string]: { [key: string]: AttributeValue }[] } => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: BatchResponse }, [key, value]: [string, any]) => ({
+    (
+      acc: { [key: string]: { [key: string]: AttributeValue }[] },
+      [key, value]: [string, any]
+    ) => ({
       ...acc,
-      [key]: deserializeAws_json1_0BatchResponse(value, context)
+      [key]: deserializeAws_json1_0ItemList(value, context)
     }),
     {}
   );
-};
-
-const deserializeAws_json1_0BatchResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchResponse => {
-  return {
-    __type: "BatchResponse",
-    ConsumedCapacityUnits:
-      output.ConsumedCapacityUnits !== undefined &&
-      output.ConsumedCapacityUnits !== null
-        ? output.ConsumedCapacityUnits
-        : undefined,
-    Items:
-      output.Items !== undefined && output.Items !== null
-        ? deserializeAws_json1_0ItemList(output.Items, context)
-        : undefined
-  } as any;
 };
 
 const deserializeAws_json1_0BatchWriteItemOutput = (
@@ -8932,24 +9102,20 @@ const deserializeAws_json1_0ItemResponseList = (
 const deserializeAws_json1_0Key = (
   output: any,
   context: __SerdeContext
-): Key => {
-  return {
-    __type: "Key",
-    HashKeyElement:
-      output.HashKeyElement !== undefined && output.HashKeyElement !== null
-        ? deserializeAws_json1_0AttributeValue(output.HashKeyElement, context)
-        : undefined,
-    RangeKeyElement:
-      output.RangeKeyElement !== undefined && output.RangeKeyElement !== null
-        ? deserializeAws_json1_0AttributeValue(output.RangeKeyElement, context)
-        : undefined
-  } as any;
+): { [key: string]: AttributeValue } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_0AttributeValue(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_0KeyList = (
   output: any,
   context: __SerdeContext
-): Key[] => {
+): { [key: string]: AttributeValue }[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0Key(entry, context)
   );
@@ -8995,21 +9161,10 @@ const deserializeAws_json1_0KeysAndAttributes = (
 const deserializeAws_json1_0KeySchema = (
   output: any,
   context: __SerdeContext
-): KeySchema => {
-  return {
-    __type: "KeySchema",
-    HashKeyElement:
-      output.HashKeyElement !== undefined && output.HashKeyElement !== null
-        ? deserializeAws_json1_0KeySchemaElement(output.HashKeyElement, context)
-        : undefined,
-    RangeKeyElement:
-      output.RangeKeyElement !== undefined && output.RangeKeyElement !== null
-        ? deserializeAws_json1_0KeySchemaElement(
-            output.RangeKeyElement,
-            context
-          )
-        : undefined
-  } as any;
+): KeySchemaElement[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_0KeySchemaElement(entry, context)
+  );
 };
 
 const deserializeAws_json1_0KeySchemaElement = (
@@ -9022,9 +9177,9 @@ const deserializeAws_json1_0KeySchemaElement = (
       output.AttributeName !== undefined && output.AttributeName !== null
         ? output.AttributeName
         : undefined,
-    AttributeType:
-      output.AttributeType !== undefined && output.AttributeType !== null
-        ? output.AttributeType
+    KeyType:
+      output.KeyType !== undefined && output.KeyType !== null
+        ? output.KeyType
         : undefined
   } as any;
 };
@@ -9040,6 +9195,15 @@ const deserializeAws_json1_0LimitExceededException = (
         ? output.message
         : undefined
   } as any;
+};
+
+const deserializeAws_json1_0ListAttributeValue = (
+  output: any,
+  context: __SerdeContext
+): AttributeValue[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_0AttributeValue(entry, context)
+  );
 };
 
 const deserializeAws_json1_0ListBackupsOutput = (
@@ -9204,6 +9368,19 @@ const deserializeAws_json1_0LocalSecondaryIndexInfo = (
         ? deserializeAws_json1_0Projection(output.Projection, context)
         : undefined
   } as any;
+};
+
+const deserializeAws_json1_0MapAttributeValue = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: AttributeValue } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_0AttributeValue(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_0NonKeyAttributeNameList = (
@@ -9417,10 +9594,12 @@ const deserializeAws_json1_0QueryOutput = (
 ): QueryOutput => {
   return {
     __type: "QueryOutput",
-    ConsumedCapacityUnits:
-      output.ConsumedCapacityUnits !== undefined &&
-      output.ConsumedCapacityUnits !== null
-        ? output.ConsumedCapacityUnits
+    ConsumedCapacity:
+      output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
+        ? deserializeAws_json1_0ConsumedCapacity(
+            output.ConsumedCapacity,
+            context
+          )
         : undefined,
     Count:
       output.Count !== undefined && output.Count !== null
@@ -9433,6 +9612,10 @@ const deserializeAws_json1_0QueryOutput = (
     LastEvaluatedKey:
       output.LastEvaluatedKey !== undefined && output.LastEvaluatedKey !== null
         ? deserializeAws_json1_0Key(output.LastEvaluatedKey, context)
+        : undefined,
+    ScannedCount:
+      output.ScannedCount !== undefined && output.ScannedCount !== null
+        ? output.ScannedCount
         : undefined
   } as any;
 };
