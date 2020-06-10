@@ -6,6 +6,7 @@ import { isThrottlingError } from "@aws-sdk/service-error-classification";
 import { defaultDelayDecider } from "./delayDecider";
 import { defaultRetryDecider } from "./retryDecider";
 import { StandardRetryStrategy } from "./defaultStrategy";
+import { getDefaultRetryQuota } from "./defaultRetryQuota";
 
 jest.mock("@aws-sdk/service-error-classification", () => ({
   isThrottlingError: jest.fn().mockReturnValue(true)
@@ -19,8 +20,80 @@ jest.mock("./retryDecider", () => ({
   defaultRetryDecider: jest.fn().mockReturnValue(true)
 }));
 
+jest.mock("./defaultRetryQuota", () => {
+  const mockDefaultRetryQuota = {
+    hasRetryTokens: jest.fn().mockReturnValue(true),
+    retrieveRetryTokens: jest.fn().mockReturnValue(1),
+    releaseRetryTokens: jest.fn()
+  };
+  return { getDefaultRetryQuota: () => mockDefaultRetryQuota };
+});
+
 describe("defaultStrategy", () => {
-  const maxAttempts = 2;
+  const maxAttempts = 3;
+
+  const mockSuccessfulOperation = (maxAttempts: number, response?: string) => {
+    const next = jest.fn().mockResolvedValueOnce({
+      response,
+      output: { $metadata: {} }
+    });
+
+    const retryStrategy = new StandardRetryStrategy(maxAttempts);
+    return retryStrategy.retry(next, {} as any);
+  };
+
+  const mockFailedOperation = async (maxAttempts: number, error?: Error) => {
+    const mockError = error ?? new Error("mockError");
+    const next = jest.fn().mockRejectedValue(mockError);
+
+    const retryStrategy = new StandardRetryStrategy(maxAttempts);
+    try {
+      await retryStrategy.retry(next, {} as any);
+    } catch (error) {
+      expect(error).toStrictEqual(mockError);
+    }
+  };
+
+  const mockSuccessAfterOneFail = (
+    maxAttempts: number,
+    error?: Error,
+    response?: string
+  ) => {
+    const mockError = error ?? new Error("mockError");
+    const mockResponse = {
+      response,
+      output: { $metadata: {} }
+    };
+
+    const next = jest
+      .fn()
+      .mockRejectedValueOnce(mockError)
+      .mockResolvedValueOnce(mockResponse);
+
+    const retryStrategy = new StandardRetryStrategy(maxAttempts);
+    return retryStrategy.retry(next, {} as any);
+  };
+
+  const mockSuccessAfterTwoFails = (
+    maxAttempts: number,
+    error?: Error,
+    response?: string
+  ) => {
+    const mockError = error ?? new Error("mockError");
+    const mockResponse = {
+      response,
+      output: { $metadata: {} }
+    };
+
+    const next = jest
+      .fn()
+      .mockRejectedValueOnce(mockError)
+      .mockRejectedValueOnce(mockError)
+      .mockResolvedValueOnce(mockResponse);
+
+    const retryStrategy = new StandardRetryStrategy(maxAttempts);
+    return retryStrategy.retry(next, {} as any);
+  };
 
   afterEach(() => {
     jest.clearAllMocks();
@@ -80,19 +153,8 @@ describe("defaultStrategy", () => {
     ) => {
       (isThrottlingError as jest.Mock).mockReturnValueOnce(mockThrottlingError);
 
-      const mockError = new Error("mockError");
-      const mockResponse = {
-        response: "mockResponse",
-        output: { $metadata: {} }
-      };
-
-      const next = jest
-        .fn()
-        .mockRejectedValueOnce(mockError)
-        .mockResolvedValueOnce(mockResponse);
-
-      const retryStrategy = new StandardRetryStrategy(maxAttempts);
-      await retryStrategy.retry(next, {} as any);
+      const mockError = new Error();
+      await mockSuccessAfterOneFail(maxAttempts, mockError);
 
       expect(isThrottlingError as jest.Mock).toHaveBeenCalledTimes(1);
       expect(isThrottlingError as jest.Mock).toHaveBeenCalledWith(mockError);
@@ -112,19 +174,103 @@ describe("defaultStrategy", () => {
     });
   });
 
+  describe("retryQuota", () => {
+    describe("hasRetryTokens", () => {
+      it("not called on successful operation", async () => {
+        const { hasRetryTokens } = getDefaultRetryQuota();
+        await mockSuccessfulOperation(maxAttempts);
+        expect(hasRetryTokens).not.toHaveBeenCalled();
+      });
+
+      it("called once in case of single failure", async () => {
+        const { hasRetryTokens } = getDefaultRetryQuota();
+        await mockSuccessAfterOneFail(maxAttempts);
+        expect(hasRetryTokens).toHaveBeenCalledTimes(1);
+      });
+
+      it("called once on each retry request", async () => {
+        const { hasRetryTokens } = getDefaultRetryQuota();
+        await mockFailedOperation(maxAttempts);
+        expect(hasRetryTokens).toHaveBeenCalledTimes(maxAttempts - 1);
+      });
+    });
+
+    describe("releaseRetryTokens", () => {
+      it("called once without param on successful operation", async () => {
+        const { releaseRetryTokens } = getDefaultRetryQuota();
+        await mockSuccessfulOperation(maxAttempts);
+        expect(releaseRetryTokens).toHaveBeenCalledTimes(1);
+        expect(releaseRetryTokens).toHaveBeenCalledWith(undefined);
+      });
+
+      it("called once with retryTokenAmount in case of single failure", async () => {
+        const retryTokens = 15;
+        const {
+          releaseRetryTokens,
+          retrieveRetryTokens
+        } = getDefaultRetryQuota();
+        (retrieveRetryTokens as jest.Mock).mockReturnValueOnce(retryTokens);
+
+        await mockSuccessAfterOneFail(maxAttempts);
+        expect(releaseRetryTokens).toHaveBeenCalledTimes(1);
+        expect(releaseRetryTokens).toHaveBeenCalledWith(retryTokens);
+      });
+
+      it("called once with second retryTokenAmount in case of two failures", async () => {
+        const retryTokensFirst = 15;
+        const retryTokensSecond = 30;
+
+        const {
+          releaseRetryTokens,
+          retrieveRetryTokens
+        } = getDefaultRetryQuota();
+
+        (retrieveRetryTokens as jest.Mock)
+          .mockReturnValueOnce(retryTokensFirst)
+          .mockReturnValueOnce(retryTokensSecond);
+
+        await mockSuccessAfterTwoFails(maxAttempts);
+        expect(releaseRetryTokens).toHaveBeenCalledTimes(1);
+        expect(releaseRetryTokens).toHaveBeenCalledWith(retryTokensSecond);
+      });
+
+      it("not called on unsuccessful operation", async () => {
+        const { releaseRetryTokens } = getDefaultRetryQuota();
+        await mockFailedOperation(maxAttempts);
+        expect(releaseRetryTokens).not.toHaveBeenCalled();
+      });
+    });
+
+    describe("retrieveRetryTokens", () => {
+      it("not called on successful operation", async () => {
+        const { retrieveRetryTokens } = getDefaultRetryQuota();
+        await mockSuccessfulOperation(maxAttempts);
+        expect(retrieveRetryTokens).not.toHaveBeenCalled();
+      });
+
+      it("called once in case of single failure", async () => {
+        const { retrieveRetryTokens } = getDefaultRetryQuota();
+        await mockSuccessAfterOneFail(maxAttempts);
+        expect(retrieveRetryTokens).toHaveBeenCalledTimes(1);
+      });
+
+      it("called once on each retry request", async () => {
+        const { retrieveRetryTokens } = getDefaultRetryQuota();
+        await mockFailedOperation(maxAttempts);
+        expect(retrieveRetryTokens).toHaveBeenCalledTimes(maxAttempts - 1);
+      });
+    });
+  });
+
   describe("should not retry", () => {
     it("when the handler completes successfully", async () => {
-      const mockResponse = {
-        response: "mockResponse",
-        output: { $metadata: {} }
-      };
+      const mockResponse = "mockResponse";
+      const { response, output } = await mockSuccessfulOperation(
+        maxAttempts,
+        mockResponse
+      );
 
-      const next = jest.fn().mockResolvedValueOnce(mockResponse);
-
-      const retryStrategy = new StandardRetryStrategy(maxAttempts);
-      const { response, output } = await retryStrategy.retry(next, {} as any);
-
-      expect(response).toStrictEqual(mockResponse.response);
+      expect(response).toStrictEqual(mockResponse);
       expect(output.$metadata.attempts).toBe(1);
       expect(output.$metadata.totalRetryDelay).toBe(0);
       expect(defaultRetryDecider as jest.Mock).not.toHaveBeenCalled();
@@ -133,34 +279,34 @@ describe("defaultStrategy", () => {
 
     it("when retryDecider returns false", async () => {
       (defaultRetryDecider as jest.Mock).mockReturnValueOnce(false);
-
-      const mockError = new Error("mockError");
-      const next = jest.fn().mockRejectedValueOnce(mockError);
-
-      const retryStrategy = new StandardRetryStrategy(maxAttempts);
-      try {
-        await retryStrategy.retry(next, {} as any);
-      } catch (error) {
-        expect(error).toStrictEqual(mockError);
-      }
-
+      const mockError = new Error();
+      await mockFailedOperation(maxAttempts, mockError);
       expect(defaultRetryDecider as jest.Mock).toHaveBeenCalledTimes(1);
       expect(defaultRetryDecider as jest.Mock).toHaveBeenCalledWith(mockError);
     });
 
-    it("when the the maximum number of attempts is reached", async () => {
-      const mockError = new Error("mockError");
-      const next = jest.fn().mockRejectedValue(mockError);
-
-      const retryStrategy = new StandardRetryStrategy(maxAttempts);
-      try {
-        await retryStrategy.retry(next, {} as any);
-      } catch (error) {
-        expect(error).toStrictEqual(mockError);
-      }
+    it("when the maximum number of attempts is reached", async () => {
+      await mockFailedOperation(maxAttempts);
       expect(defaultRetryDecider as jest.Mock).toHaveBeenCalledTimes(
         maxAttempts - 1
       );
+    });
+
+    it("when retryQuota.hasRetryTokens returns false", async () => {
+      const {
+        hasRetryTokens,
+        retrieveRetryTokens,
+        releaseRetryTokens
+      } = getDefaultRetryQuota();
+      (hasRetryTokens as jest.Mock).mockReturnValueOnce(false);
+
+      const mockError = new Error();
+      await mockFailedOperation(maxAttempts, mockError);
+
+      expect(hasRetryTokens).toHaveBeenCalledTimes(1);
+      expect(hasRetryTokens).toHaveBeenCalledWith(mockError);
+      expect(retrieveRetryTokens).not.toHaveBeenCalled();
+      expect(releaseRetryTokens).not.toHaveBeenCalled();
     });
   });
 
