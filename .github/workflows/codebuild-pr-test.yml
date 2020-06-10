@@ -1,8 +1,8 @@
 - name: Configure AWS Credentials
   uses: aws-actions/configure-aws-credentials@v1
   with:
-    aws-access-key-id: ${{ secrets.PR_TEST_ACCESS_KEY_ID }}
-    aws-secret-access-key: ${{ secrets.PR_TEST_SECRET_ACCESS_KEY }}
+    aws-access-key-id: ${{ secrets.PR_TEST_AWS_ACCESS_KEY_ID }}
+    aws-secret-access-key: ${{ secrets.PR_TEST_AWS_SECRET_ACCESS_KEY }}
     aws-region: us-west-2
 - name: Run CodeBuild
   uses: aws-actions/aws-codebuild-run-project@v1.0.2
