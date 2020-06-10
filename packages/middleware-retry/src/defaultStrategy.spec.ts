@@ -5,7 +5,7 @@ import {
 import { isThrottlingError } from "@aws-sdk/service-error-classification";
 import { defaultDelayDecider } from "./delayDecider";
 import { defaultRetryDecider } from "./retryDecider";
-import { StandardRetryStrategy } from "./defaultStrategy";
+import { StandardRetryStrategy, RetryQuota } from "./defaultStrategy";
 import { getDefaultRetryQuota } from "./defaultRetryQuota";
 
 jest.mock("@aws-sdk/service-error-classification", () => ({
@@ -143,6 +143,26 @@ describe("defaultStrategy", () => {
         delayDecider
       });
       expect(retryStrategy["delayDecider"]).toBe(delayDecider);
+    });
+  });
+
+  describe("retryQuota", () => {
+    it("sets getDefaultRetryQuota if options is undefined", () => {
+      const retryStrategy = new StandardRetryStrategy(maxAttempts);
+      expect(retryStrategy["retryQuota"]).toBe(getDefaultRetryQuota());
+    });
+
+    it("sets getDefaultRetryQuota if options.delayDecider undefined", () => {
+      const retryStrategy = new StandardRetryStrategy(maxAttempts, {});
+      expect(retryStrategy["retryQuota"]).toBe(getDefaultRetryQuota());
+    });
+
+    it("sets options.retryQuota if defined", () => {
+      const retryQuota = {} as RetryQuota;
+      const retryStrategy = new StandardRetryStrategy(maxAttempts, {
+        retryQuota
+      });
+      expect(retryStrategy["retryQuota"]).toBe(retryQuota);
     });
   });
 
