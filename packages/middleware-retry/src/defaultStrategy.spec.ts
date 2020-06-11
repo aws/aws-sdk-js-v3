@@ -39,23 +39,24 @@ jest.mock("@aws-sdk/protocol-http", () => ({
 }));
 
 jest.mock("uuid", () => ({
-  v4: jest.fn()
+  v4: jest.fn(() => "42")
 }));
 
 describe("defaultStrategy", () => {
+  let next: jest.Mock; // variable for next mock function in utility methods
   const maxAttempts = 3;
 
   const mockSuccessfulOperation = (
     maxAttempts: number,
     options?: { mockResponse?: string }
   ) => {
-    const next = jest.fn().mockResolvedValueOnce({
+    next = jest.fn().mockResolvedValueOnce({
       response: options?.mockResponse,
       output: { $metadata: {} }
     });
 
     const retryStrategy = new StandardRetryStrategy(maxAttempts);
-    return retryStrategy.retry(next, {} as any);
+    return retryStrategy.retry(next, { request: { headers: {} } } as any);
   };
 
   const mockFailedOperation = async (
@@ -63,11 +64,11 @@ describe("defaultStrategy", () => {
     options?: { mockError?: Error }
   ) => {
     const mockError = options?.mockError ?? new Error("mockError");
-    const next = jest.fn().mockRejectedValue(mockError);
+    next = jest.fn().mockRejectedValue(mockError);
 
     const retryStrategy = new StandardRetryStrategy(maxAttempts);
     try {
-      await retryStrategy.retry(next, {} as any);
+      await retryStrategy.retry(next, { request: { headers: {} } } as any);
     } catch (error) {
       expect(error).toStrictEqual(mockError);
       return error;
@@ -84,13 +85,13 @@ describe("defaultStrategy", () => {
       output: { $metadata: {} }
     };
 
-    const next = jest
+    next = jest
       .fn()
       .mockRejectedValueOnce(mockError)
       .mockResolvedValueOnce(mockResponse);
 
     const retryStrategy = new StandardRetryStrategy(maxAttempts);
-    return retryStrategy.retry(next, {} as any);
+    return retryStrategy.retry(next, { request: { headers: {} } } as any);
   };
 
   const mockSuccessAfterTwoFails = (
@@ -103,14 +104,14 @@ describe("defaultStrategy", () => {
       output: { $metadata: {} }
     };
 
-    const next = jest
+    next = jest
       .fn()
       .mockRejectedValueOnce(mockError)
       .mockRejectedValueOnce(mockError)
       .mockResolvedValueOnce(mockResponse);
 
     const retryStrategy = new StandardRetryStrategy(maxAttempts);
-    return retryStrategy.retry(next, {} as any);
+    return retryStrategy.retry(next, { request: { headers: {} } } as any);
   };
 
   afterEach(() => {
@@ -440,17 +441,30 @@ describe("defaultStrategy", () => {
     describe("not added if HttpRequest.isInstance returns false", () => {
       it("on successful operation", async () => {
         await mockSuccessfulOperation(maxAttempts);
-        expect(v4).not.toHaveBeenCalled();
+        expect(next).toHaveBeenCalledTimes(1);
+        expect(
+          next.mock.calls[0][0].request.headers["amz-sdk-invocation-id"]
+        ).not.toBeDefined();
       });
 
       it("in case of single failure", async () => {
         await mockSuccessAfterOneFail(maxAttempts);
-        expect(v4).not.toHaveBeenCalled();
+        expect(next).toHaveBeenCalledTimes(2);
+        [0, 1].forEach(index => {
+          expect(
+            next.mock.calls[index][0].request.headers["amz-sdk-invocation-id"]
+          ).not.toBeDefined();
+        });
       });
 
       it("in case of all failures", async () => {
         await mockFailedOperation(maxAttempts);
-        expect(v4).not.toHaveBeenCalled();
+        expect(next).toHaveBeenCalledTimes(maxAttempts);
+        [...Array(maxAttempts).keys()].forEach(index => {
+          expect(
+            next.mock.calls[index][0].request.headers["amz-sdk-invocation-id"]
+          ).not.toBeDefined();
+        });
       });
     });
 
@@ -473,14 +487,15 @@ describe("defaultStrategy", () => {
       await retryStrategy.retry(next, { request: { headers: {} } } as any);
       await retryStrategy.retry(next, { request: { headers: {} } } as any);
 
-      expect((isInstance as unknown) as jest.Mock).toHaveBeenCalledTimes(2);
       expect(next).toHaveBeenCalledTimes(2);
-      expect(next).toHaveBeenNthCalledWith(1, {
-        request: { headers: { "amz-sdk-invocation-id": uuidForInvocationOne } }
-      });
-      expect(next).toHaveBeenNthCalledWith(2, {
-        request: { headers: { "amz-sdk-invocation-id": uuidForInvocationTwo } }
-      });
+      expect(
+        next.mock.calls[0][0].request.headers["amz-sdk-invocation-id"]
+      ).toBe(uuidForInvocationOne);
+      expect(
+        next.mock.calls[1][0].request.headers["amz-sdk-invocation-id"]
+      ).toBe(uuidForInvocationTwo);
+
+      ((isInstance as unknown) as jest.Mock).mockReturnValue(false);
     });
 
     it("uses same value for additional HTTP requests associated with an SDK operation", async () => {
@@ -490,27 +505,76 @@ describe("defaultStrategy", () => {
       const uuidForInvocation = "uuid-invocation-1";
       (v4 as jest.Mock).mockReturnValueOnce(uuidForInvocation);
 
-      const mockError = new Error("mockError");
-      const mockResponse = {
-        response: "mockResponse",
-        output: { $metadata: {} }
-      };
+      await mockSuccessAfterOneFail(maxAttempts);
 
-      const next = jest
-        .fn()
-        .mockRejectedValueOnce(mockError)
-        .mockResolvedValueOnce(mockResponse);
+      expect(next).toHaveBeenCalledTimes(2);
+      expect(
+        next.mock.calls[0][0].request.headers["amz-sdk-invocation-id"]
+      ).toBe(uuidForInvocation);
+      expect(
+        next.mock.calls[1][0].request.headers["amz-sdk-invocation-id"]
+      ).toBe(uuidForInvocation);
+
+      ((isInstance as unknown) as jest.Mock).mockReturnValue(false);
+    });
+  });
+
+  describe("retry informational header: amz-sdk-request", () => {
+    describe("not added if HttpRequest.isInstance returns false", () => {
+      it("on successful operation", async () => {
+        await mockSuccessfulOperation(maxAttempts);
+        expect(next).toHaveBeenCalledTimes(1);
+        expect(
+          next.mock.calls[0][0].request.headers["amz-sdk-request"]
+        ).not.toBeDefined();
+      });
+
+      it("in case of single failure", async () => {
+        await mockSuccessAfterOneFail(maxAttempts);
+        expect(next).toHaveBeenCalledTimes(2);
+        [0, 1].forEach(index => {
+          expect(
+            next.mock.calls[index][0].request.headers["amz-sdk-request"]
+          ).not.toBeDefined();
+        });
+      });
+
+      it("in case of all failures", async () => {
+        await mockFailedOperation(maxAttempts);
+        expect(next).toHaveBeenCalledTimes(maxAttempts);
+        [...Array(maxAttempts).keys()].forEach(index => {
+          expect(
+            next.mock.calls[index][0].request.headers["amz-sdk-request"]
+          ).not.toBeDefined();
+        });
+      });
+    });
+
+    it("adds header for each attempt", async () => {
+      const { isInstance } = HttpRequest;
+      ((isInstance as unknown) as jest.Mock).mockReturnValue(true);
+
+      const mockError = new Error("mockError");
+      next = jest.fn(args => {
+        // the header needs to be verified inside jest.Mock as arguments in
+        // jest.mocks.calls has the value passed in final call
+        const index = next.mock.calls.length - 1;
+        expect(args.request.headers["amz-sdk-request"]).toBe(
+          `attempt=${index + 1}; max=${maxAttempts}`
+        );
+        throw mockError;
+      });
 
       const retryStrategy = new StandardRetryStrategy(maxAttempts);
-      await retryStrategy.retry(next, { request: { headers: {} } } as any);
+      try {
+        await retryStrategy.retry(next, { request: { headers: {} } } as any);
+      } catch (error) {
+        expect(error).toStrictEqual(mockError);
+        return error;
+      }
 
-      const nextArg = {
-        request: { headers: { "amz-sdk-invocation-id": uuidForInvocation } }
-      };
-      expect((isInstance as unknown) as jest.Mock).toHaveBeenCalledTimes(1);
-      expect(next).toHaveBeenCalledTimes(2);
-      expect(next).toHaveBeenNthCalledWith(1, nextArg);
-      expect(next).toHaveBeenNthCalledWith(2, nextArg);
+      expect(next).toHaveBeenCalledTimes(maxAttempts);
+      ((isInstance as unknown) as jest.Mock).mockReturnValue(false);
     });
   });
 });
