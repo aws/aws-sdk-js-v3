@@ -8,6 +8,8 @@ import { defaultDelayDecider } from "./delayDecider";
 import { defaultRetryDecider } from "./retryDecider";
 import { StandardRetryStrategy, RetryQuota } from "./defaultStrategy";
 import { getDefaultRetryQuota } from "./defaultRetryQuota";
+import { HttpRequest } from "@aws-sdk/protocol-http";
+import { v4 } from "uuid";
 
 jest.mock("@aws-sdk/service-error-classification", () => ({
   isThrottlingError: jest.fn().mockReturnValue(true)
@@ -29,6 +31,16 @@ jest.mock("./defaultRetryQuota", () => {
   };
   return { getDefaultRetryQuota: () => mockDefaultRetryQuota };
 });
+
+jest.mock("@aws-sdk/protocol-http", () => ({
+  HttpRequest: {
+    isInstance: jest.fn().mockReturnValue(false)
+  }
+}));
+
+jest.mock("uuid", () => ({
+  v4: jest.fn()
+}));
 
 describe("defaultStrategy", () => {
   const maxAttempts = 3;
@@ -421,6 +433,84 @@ describe("defaultStrategy", () => {
         expect(retrieveRetryTokens).toHaveBeenCalledWith(mockError);
         expect(releaseRetryTokens).not.toHaveBeenCalled();
       });
+    });
+  });
+
+  describe("retry informational header: amz-sdk-invocation-id", () => {
+    describe("not added if HttpRequest.isInstance returns false", () => {
+      it("on successful operation", async () => {
+        await mockSuccessfulOperation(maxAttempts);
+        expect(v4).not.toHaveBeenCalled();
+      });
+
+      it("in case of single failure", async () => {
+        await mockSuccessAfterOneFail(maxAttempts);
+        expect(v4).not.toHaveBeenCalled();
+      });
+
+      it("in case of all failures", async () => {
+        await mockFailedOperation(maxAttempts);
+        expect(v4).not.toHaveBeenCalled();
+      });
+    });
+
+    it("uses a unique header for every SDK operation invocation", async () => {
+      const { isInstance } = HttpRequest;
+      ((isInstance as unknown) as jest.Mock).mockReturnValue(true);
+
+      const uuidForInvocationOne = "uuid-invocation-1";
+      const uuidForInvocationTwo = "uuid-invocation-2";
+      (v4 as jest.Mock)
+        .mockReturnValueOnce(uuidForInvocationOne)
+        .mockReturnValueOnce(uuidForInvocationTwo);
+
+      const next = jest.fn().mockResolvedValue({
+        response: "mockResponse",
+        output: { $metadata: {} }
+      });
+
+      const retryStrategy = new StandardRetryStrategy(maxAttempts);
+      await retryStrategy.retry(next, { request: { headers: {} } } as any);
+      await retryStrategy.retry(next, { request: { headers: {} } } as any);
+
+      expect((isInstance as unknown) as jest.Mock).toHaveBeenCalledTimes(2);
+      expect(next).toHaveBeenCalledTimes(2);
+      expect(next).toHaveBeenNthCalledWith(1, {
+        request: { headers: { "amz-sdk-invocation-id": uuidForInvocationOne } }
+      });
+      expect(next).toHaveBeenNthCalledWith(2, {
+        request: { headers: { "amz-sdk-invocation-id": uuidForInvocationTwo } }
+      });
+    });
+
+    it("uses same value for additional HTTP requests associated with an SDK operation", async () => {
+      const { isInstance } = HttpRequest;
+      ((isInstance as unknown) as jest.Mock).mockReturnValueOnce(true);
+
+      const uuidForInvocation = "uuid-invocation-1";
+      (v4 as jest.Mock).mockReturnValueOnce(uuidForInvocation);
+
+      const mockError = new Error("mockError");
+      const mockResponse = {
+        response: "mockResponse",
+        output: { $metadata: {} }
+      };
+
+      const next = jest
+        .fn()
+        .mockRejectedValueOnce(mockError)
+        .mockResolvedValueOnce(mockResponse);
+
+      const retryStrategy = new StandardRetryStrategy(maxAttempts);
+      await retryStrategy.retry(next, { request: { headers: {} } } as any);
+
+      const nextArg = {
+        request: { headers: { "amz-sdk-invocation-id": uuidForInvocation } }
+      };
+      expect((isInstance as unknown) as jest.Mock).toHaveBeenCalledTimes(1);
+      expect(next).toHaveBeenCalledTimes(2);
+      expect(next).toHaveBeenNthCalledWith(1, nextArg);
+      expect(next).toHaveBeenNthCalledWith(2, nextArg);
     });
   });
 });
