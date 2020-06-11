@@ -57,6 +57,7 @@ describe("defaultStrategy", () => {
       await retryStrategy.retry(next, {} as any);
     } catch (error) {
       expect(error).toStrictEqual(mockError);
+      return error;
     }
   };
 
@@ -110,7 +111,7 @@ describe("defaultStrategy", () => {
     });
   });
 
-  describe("retryDecider", () => {
+  describe("retryDecider init", () => {
     it("sets defaultRetryDecider if options is undefined", () => {
       const retryStrategy = new StandardRetryStrategy(maxAttempts);
       expect(retryStrategy["retryDecider"]).toBe(defaultRetryDecider);
@@ -130,7 +131,7 @@ describe("defaultStrategy", () => {
     });
   });
 
-  describe("delayDecider", () => {
+  describe("delayDecider init", () => {
     it("sets defaultDelayDecider if options is undefined", () => {
       const retryStrategy = new StandardRetryStrategy(maxAttempts);
       expect(retryStrategy["delayDecider"]).toBe(defaultDelayDecider);
@@ -150,7 +151,7 @@ describe("defaultStrategy", () => {
     });
   });
 
-  describe("retryQuota", () => {
+  describe("retryQuota init", () => {
     it("sets getDefaultRetryQuota if options is undefined", () => {
       const retryStrategy = new StandardRetryStrategy(maxAttempts);
       expect(retryStrategy["retryQuota"]).toBe(getDefaultRetryQuota());
@@ -170,31 +171,82 @@ describe("defaultStrategy", () => {
     });
   });
 
-  describe("delayBase passed to delayDecider", () => {
-    const testDelayBasePassed = async (
-      delayBaseToTest: number,
-      mockThrottlingError: boolean
-    ) => {
-      (isThrottlingError as jest.Mock).mockReturnValueOnce(mockThrottlingError);
+  describe("delayDecider", () => {
+    describe("delayBase value passed", () => {
+      const testDelayBasePassed = async (
+        delayBaseToTest: number,
+        mockThrottlingError: boolean
+      ) => {
+        (isThrottlingError as jest.Mock).mockReturnValueOnce(
+          mockThrottlingError
+        );
 
-      const mockError = new Error();
-      await mockSuccessAfterOneFail(maxAttempts, { mockError });
+        const mockError = new Error();
+        await mockSuccessAfterOneFail(maxAttempts, { mockError });
 
-      expect(isThrottlingError as jest.Mock).toHaveBeenCalledTimes(1);
-      expect(isThrottlingError as jest.Mock).toHaveBeenCalledWith(mockError);
-      expect(defaultDelayDecider as jest.Mock).toHaveBeenCalledTimes(1);
-      expect(defaultDelayDecider as jest.Mock).toHaveBeenCalledWith(
-        delayBaseToTest,
-        1
-      );
-    };
+        expect(isThrottlingError as jest.Mock).toHaveBeenCalledTimes(1);
+        expect(isThrottlingError as jest.Mock).toHaveBeenCalledWith(mockError);
+        expect(defaultDelayDecider as jest.Mock).toHaveBeenCalledTimes(1);
+        expect((defaultDelayDecider as jest.Mock).mock.calls[0][0]).toBe(
+          delayBaseToTest
+        );
+      };
 
-    it("should be equal to THROTTLING_RETRY_DELAY_BASE if error is throttling error", async () => {
-      return testDelayBasePassed(THROTTLING_RETRY_DELAY_BASE, true);
+      it("should be equal to THROTTLING_RETRY_DELAY_BASE if error is throttling error", async () => {
+        return testDelayBasePassed(THROTTLING_RETRY_DELAY_BASE, true);
+      });
+
+      it("should be equal to DEFAULT_RETRY_DELAY_BASE in error is not a throttling error", async () => {
+        return testDelayBasePassed(DEFAULT_RETRY_DELAY_BASE, false);
+      });
     });
 
-    it("should be equal to DEFAULT_RETRY_DELAY_BASE in error is not a throttling error", async () => {
-      return testDelayBasePassed(DEFAULT_RETRY_DELAY_BASE, false);
+    describe("attempts value passed", () => {
+      it("on successful operation", async () => {
+        await mockSuccessfulOperation(maxAttempts);
+        expect(defaultDelayDecider as jest.Mock).not.toHaveBeenCalled();
+      });
+
+      it("in case of single failure", async () => {
+        await mockSuccessAfterOneFail(maxAttempts);
+        expect(defaultDelayDecider as jest.Mock).toHaveBeenCalledTimes(1);
+        expect((defaultDelayDecider as jest.Mock).mock.calls[0][1]).toBe(1);
+      });
+
+      it("on all fails", async () => {
+        await mockFailedOperation(maxAttempts);
+        expect(defaultDelayDecider as jest.Mock).toHaveBeenCalledTimes(2);
+        expect((defaultDelayDecider as jest.Mock).mock.calls[0][1]).toBe(1);
+        expect((defaultDelayDecider as jest.Mock).mock.calls[1][1]).toBe(2);
+      });
+    });
+
+    it("delay value returned", async () => {
+      jest.spyOn(global, "setTimeout");
+
+      const FIRST_DELAY = 100;
+      const SECOND_DELAY = 200;
+
+      (defaultDelayDecider as jest.Mock)
+        .mockReturnValueOnce(FIRST_DELAY)
+        .mockReturnValueOnce(SECOND_DELAY);
+
+      const maxAttempts = 3;
+      const error = await mockFailedOperation(maxAttempts);
+      expect(error.$metadata.totalRetryDelay).toEqual(
+        FIRST_DELAY + SECOND_DELAY
+      );
+
+      expect(defaultDelayDecider as jest.Mock).toHaveBeenCalledTimes(
+        maxAttempts - 1
+      );
+      expect(setTimeout).toHaveBeenCalledTimes(maxAttempts - 1);
+      expect(((setTimeout as unknown) as jest.Mock).mock.calls[0][1]).toBe(
+        FIRST_DELAY
+      );
+      expect(((setTimeout as unknown) as jest.Mock).mock.calls[1][1]).toBe(
+        SECOND_DELAY
+      );
     });
   });
 
@@ -331,42 +383,5 @@ describe("defaultStrategy", () => {
       expect(retrieveRetryTokens).not.toHaveBeenCalled();
       expect(releaseRetryTokens).not.toHaveBeenCalled();
     });
-  });
-
-  it("should delay equal to the value returned by delayDecider", async () => {
-    jest.spyOn(global, "setTimeout");
-
-    const FIRST_DELAY = 100;
-    const SECOND_DELAY = 200;
-
-    (defaultDelayDecider as jest.Mock)
-      .mockReturnValueOnce(FIRST_DELAY)
-      .mockReturnValueOnce(SECOND_DELAY);
-
-    const mockError = new Error("mockError");
-    const next = jest.fn().mockRejectedValue(mockError);
-
-    const retryStrategy = new StandardRetryStrategy(3);
-    try {
-      await retryStrategy.retry(next, {} as any);
-    } catch (error) {
-      expect(error).toStrictEqual(mockError);
-      expect(error.$metadata.totalRetryDelay).toEqual(
-        FIRST_DELAY + SECOND_DELAY
-      );
-    }
-
-    expect(defaultDelayDecider as jest.Mock).toHaveBeenCalledTimes(2);
-    expect(setTimeout).toHaveBeenCalledTimes(2);
-    expect(setTimeout).toHaveBeenNthCalledWith(
-      1,
-      expect.any(Function),
-      FIRST_DELAY
-    );
-    expect(setTimeout).toHaveBeenNthCalledWith(
-      2,
-      expect.any(Function),
-      SECOND_DELAY
-    );
   });
 });
