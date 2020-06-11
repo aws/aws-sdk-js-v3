@@ -105,6 +105,11 @@ export class StandardRetryStrategy implements RetryStrategy {
 
     while (true) {
       try {
+        if (HttpRequest.isInstance(request)) {
+          request.headers["amz-sdk-request"] = `attempt=${attempts + 1}; max=${
+            this.maxAttempts
+          }`;
+        }
         const { response, output } = await next(args);
 
         this.retryQuota.releaseRetryTokens(retryTokenAmount);
