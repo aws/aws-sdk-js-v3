@@ -382,21 +382,45 @@ describe("defaultStrategy", () => {
       );
     });
 
-    it("when retryQuota.hasRetryTokens returns false", async () => {
-      const {
-        hasRetryTokens,
-        retrieveRetryTokens,
-        releaseRetryTokens
-      } = getDefaultRetryQuota(INITIAL_RETRY_TOKENS);
-      (hasRetryTokens as jest.Mock).mockReturnValueOnce(false);
+    describe("when retryQuota.hasRetryTokens returns false", () => {
+      it("in the first request", async () => {
+        const {
+          hasRetryTokens,
+          retrieveRetryTokens,
+          releaseRetryTokens
+        } = getDefaultRetryQuota(INITIAL_RETRY_TOKENS);
+        (hasRetryTokens as jest.Mock).mockReturnValueOnce(false);
 
-      const mockError = new Error();
-      await mockFailedOperation(maxAttempts, { mockError });
+        const mockError = new Error();
+        await mockFailedOperation(maxAttempts, { mockError });
 
-      expect(hasRetryTokens).toHaveBeenCalledTimes(1);
-      expect(hasRetryTokens).toHaveBeenCalledWith(mockError);
-      expect(retrieveRetryTokens).not.toHaveBeenCalled();
-      expect(releaseRetryTokens).not.toHaveBeenCalled();
+        expect(hasRetryTokens).toHaveBeenCalledTimes(1);
+        expect(hasRetryTokens).toHaveBeenCalledWith(mockError);
+        expect(retrieveRetryTokens).not.toHaveBeenCalled();
+        expect(releaseRetryTokens).not.toHaveBeenCalled();
+      });
+
+      it("after the first retry", async () => {
+        const {
+          hasRetryTokens,
+          retrieveRetryTokens,
+          releaseRetryTokens
+        } = getDefaultRetryQuota(INITIAL_RETRY_TOKENS);
+        (hasRetryTokens as jest.Mock)
+          .mockReturnValueOnce(true)
+          .mockReturnValueOnce(false);
+
+        const mockError = new Error();
+        await mockFailedOperation(maxAttempts, { mockError });
+
+        expect(hasRetryTokens).toHaveBeenCalledTimes(2);
+        [1, 2].forEach(n => {
+          expect(hasRetryTokens).toHaveBeenNthCalledWith(n, mockError);
+        });
+        expect(retrieveRetryTokens).toHaveBeenCalledTimes(1);
+        expect(retrieveRetryTokens).toHaveBeenCalledWith(mockError);
+        expect(releaseRetryTokens).not.toHaveBeenCalled();
+      });
     });
   });
 });
