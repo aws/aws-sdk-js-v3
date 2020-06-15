@@ -15,3 +15,25 @@ export const MAXIMUM_RETRY_DELAY = 20 * 1000;
  * encountered.
  */
 export const THROTTLING_RETRY_DELAY_BASE = 500;
+
+/**
+ * Initial number of retry tokens in Retry Quota
+ */
+export const INITIAL_RETRY_TOKENS = 500;
+
+/**
+ * The total amount of retry tokens to be decremented from retry token balance.
+ */
+export const RETRY_COST = 5;
+
+/**
+ * The total amount of retry tokens to be decremented from retry token balance
+ * when a throttling error is encountered.
+ */
+export const TIMEOUT_RETRY_COST = 10;
+
+/**
+ * The total amount of retry token to be incremented from retry token balance
+ * if an SDK operation invocation succeeds without requiring a retry request.
+ */
+export const NO_RETRY_INCREMENT = 1;

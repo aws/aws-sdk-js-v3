@@ -1,6 +1,7 @@
 import {
   DEFAULT_RETRY_DELAY_BASE,
-  THROTTLING_RETRY_DELAY_BASE
+  THROTTLING_RETRY_DELAY_BASE,
+  INITIAL_RETRY_TOKENS
 } from "./constants";
 import { defaultDelayDecider } from "./delayDecider";
 import { defaultRetryDecider } from "./retryDecider";
@@ -12,6 +13,7 @@ import {
   FinalizeHandlerArguments,
   RetryStrategy
 } from "@aws-sdk/types";
+import { getDefaultRetryQuota } from "./defaultRetryQuota";
 
 /**
  * Determines whether an error is retryable based on the number of retries
@@ -34,16 +36,39 @@ export interface DelayDecider {
 }
 
 /**
+ * Interface that specifies the retry quota behavior.
+ */
+export interface RetryQuota {
+  /**
+   * returns true if retry tokens are available from the retry quota bucket.
+   */
+  hasRetryTokens: (error: SdkError) => boolean;
+
+  /**
+   * returns token amount from the retry quota bucket.
+   * throws error is retry tokens are not available.
+   */
+  retrieveRetryTokens: (error: SdkError) => number;
+
+  /**
+   * releases tokens back to the retry quota.
+   */
+  releaseRetryTokens: (releaseCapacityAmount?: number) => void;
+}
+
+/**
  * Strategy options to be passed to StandardRetryStrategy
  */
 export interface StandardRetryStrategyOptions {
   retryDecider?: RetryDecider;
   delayDecider?: DelayDecider;
+  retryQuota?: RetryQuota;
 }
 
 export class StandardRetryStrategy implements RetryStrategy {
   private retryDecider: RetryDecider;
   private delayDecider: DelayDecider;
+  private retryQuota: RetryQuota;
 
   constructor(
     public readonly maxAttempts: number,
@@ -51,21 +76,30 @@ export class StandardRetryStrategy implements RetryStrategy {
   ) {
     this.retryDecider = options?.retryDecider ?? defaultRetryDecider;
     this.delayDecider = options?.delayDecider ?? defaultDelayDecider;
+    this.retryQuota =
+      options?.retryQuota ?? getDefaultRetryQuota(INITIAL_RETRY_TOKENS);
   }
 
   private shouldRetry(error: SdkError, attempts: number) {
-    return attempts < this.maxAttempts && this.retryDecider(error);
+    return (
+      attempts < this.maxAttempts &&
+      this.retryDecider(error) &&
+      this.retryQuota.hasRetryTokens(error)
+    );
   }
 
   async retry<Input extends object, Ouput extends MetadataBearer>(
     next: FinalizeHandler<Input, Ouput>,
     args: FinalizeHandlerArguments<Input>
   ) {
+    let retryTokenAmount;
     let attempts = 0;
     let totalDelay = 0;
     while (true) {
       try {
         const { response, output } = await next(args);
+
+        this.retryQuota.releaseRetryTokens(retryTokenAmount);
         output.$metadata.attempts = attempts + 1;
         output.$metadata.totalRetryDelay = totalDelay;
 
@@ -73,6 +107,7 @@ export class StandardRetryStrategy implements RetryStrategy {
       } catch (err) {
         attempts++;
         if (this.shouldRetry(err as SdkError, attempts)) {
+          retryTokenAmount = this.retryQuota.retrieveRetryTokens(err);
           const delay = this.delayDecider(
             isThrottlingError(err)
               ? THROTTLING_RETRY_DELAY_BASE
