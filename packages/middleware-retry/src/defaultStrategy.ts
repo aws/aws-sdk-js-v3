@@ -1,6 +1,7 @@
 import {
   DEFAULT_RETRY_DELAY_BASE,
-  THROTTLING_RETRY_DELAY_BASE
+  THROTTLING_RETRY_DELAY_BASE,
+  INITIAL_RETRY_TOKENS
 } from "./constants";
 import { defaultDelayDecider } from "./delayDecider";
 import { defaultRetryDecider } from "./retryDecider";
@@ -75,7 +76,8 @@ export class StandardRetryStrategy implements RetryStrategy {
   ) {
     this.retryDecider = options?.retryDecider ?? defaultRetryDecider;
     this.delayDecider = options?.delayDecider ?? defaultDelayDecider;
-    this.retryQuota = options?.retryQuota ?? getDefaultRetryQuota();
+    this.retryQuota =
+      options?.retryQuota ?? getDefaultRetryQuota(INITIAL_RETRY_TOKENS);
   }
 
   private shouldRetry(error: SdkError, attempts: number) {

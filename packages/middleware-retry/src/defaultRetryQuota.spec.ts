@@ -14,9 +14,13 @@ describe("defaultRetryQuota", () => {
       name: "TimeoutError"
     }) as SdkError;
 
-  const getDrainedRetryQuota = (targetCapacity: number, error: SdkError) => {
-    const retryQuota = getDefaultRetryQuota();
-    let availableCapacity = INITIAL_RETRY_TOKENS;
+  const getDrainedRetryQuota = (
+    targetCapacity: number,
+    error: SdkError,
+    initialRetryTokens: number = INITIAL_RETRY_TOKENS
+  ) => {
+    const retryQuota = getDefaultRetryQuota(initialRetryTokens);
+    let availableCapacity = initialRetryTokens;
     while (availableCapacity >= targetCapacity) {
       retryQuota.retrieveRetryTokens(error);
       availableCapacity -= targetCapacity;
@@ -24,17 +28,49 @@ describe("defaultRetryQuota", () => {
     return retryQuota;
   };
 
+  describe("custom initial retry tokens", () => {
+    it("hasRetryTokens returns false if capacity is not available", () => {
+      const customRetryTokens = 100;
+      const error = getMockError();
+      const retryQuota = getDrainedRetryQuota(
+        RETRY_COST,
+        error,
+        customRetryTokens
+      );
+      expect(retryQuota.hasRetryTokens(error)).toBe(false);
+    });
+
+    it("retrieveRetryToken throws error if retry tokens not available", () => {
+      const customRetryTokens = 100;
+      const error = getMockError();
+      const retryQuota = getDrainedRetryQuota(
+        RETRY_COST,
+        error,
+        customRetryTokens
+      );
+      expect(() => {
+        retryQuota.retrieveRetryTokens(error);
+      }).toThrowError(new Error("No retry token available"));
+    });
+  });
+
   describe("hasRetryTokens", () => {
     describe("returns true if capacity is available", () => {
       it("when it's TimeoutError", () => {
         const timeoutError = getMockTimeoutError();
-        expect(getDefaultRetryQuota().hasRetryTokens(timeoutError)).toBe(true);
+        expect(
+          getDefaultRetryQuota(INITIAL_RETRY_TOKENS).hasRetryTokens(
+            timeoutError
+          )
+        ).toBe(true);
       });
 
       it("when it's not TimeoutError", () => {
-        expect(getDefaultRetryQuota().hasRetryTokens(getMockError())).toBe(
-          true
-        );
+        expect(
+          getDefaultRetryQuota(INITIAL_RETRY_TOKENS).hasRetryTokens(
+            getMockError()
+          )
+        ).toBe(true);
       });
     });
 
@@ -60,15 +96,19 @@ describe("defaultRetryQuota", () => {
     describe("returns retry tokens amount if available", () => {
       it("when it's TimeoutError", () => {
         const timeoutError = getMockTimeoutError();
-        expect(getDefaultRetryQuota().retrieveRetryTokens(timeoutError)).toBe(
-          TIMEOUT_RETRY_COST
-        );
+        expect(
+          getDefaultRetryQuota(INITIAL_RETRY_TOKENS).retrieveRetryTokens(
+            timeoutError
+          )
+        ).toBe(TIMEOUT_RETRY_COST);
       });
 
       it("when it's not TimeoutError", () => {
-        expect(getDefaultRetryQuota().retrieveRetryTokens(getMockError())).toBe(
-          RETRY_COST
-        );
+        expect(
+          getDefaultRetryQuota(INITIAL_RETRY_TOKENS).retrieveRetryTokens(
+            getMockError()
+          )
+        ).toBe(RETRY_COST);
       });
     });
 
@@ -128,7 +168,7 @@ describe("defaultRetryQuota", () => {
 
     it("ensures availableCapacity is maxed at INITIAL_RETRY_TOKENS", () => {
       const error = getMockError();
-      const retryQuota = getDefaultRetryQuota();
+      const retryQuota = getDefaultRetryQuota(INITIAL_RETRY_TOKENS);
 
       // release 100 tokens.
       [...Array(100).keys()].forEach(key => {

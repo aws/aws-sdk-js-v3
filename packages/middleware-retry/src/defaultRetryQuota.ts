@@ -1,15 +1,16 @@
 import { RetryQuota } from "./defaultStrategy";
 import { SdkError } from "@aws-sdk/smithy-client";
 import {
-  INITIAL_RETRY_TOKENS,
   RETRY_COST,
   TIMEOUT_RETRY_COST,
   NO_RETRY_INCREMENT
 } from "./constants";
 
-export const getDefaultRetryQuota = (): RetryQuota => {
-  const MAX_CAPACITY = INITIAL_RETRY_TOKENS;
-  let availableCapacity = INITIAL_RETRY_TOKENS;
+export const getDefaultRetryQuota = (
+  initialRetryTokens: number
+): RetryQuota => {
+  const MAX_CAPACITY = initialRetryTokens;
+  let availableCapacity = initialRetryTokens;
 
   const getCapacityAmount = (error: SdkError) =>
     error.name === "TimeoutError" ? TIMEOUT_RETRY_COST : RETRY_COST;
