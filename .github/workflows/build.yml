@@ -17,7 +17,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: yarn and test
+    - run: npm install -g yarn
+    - name: yarn install, build and test
       run: |
         yarn --frozen-lockfile
         yarn audit
