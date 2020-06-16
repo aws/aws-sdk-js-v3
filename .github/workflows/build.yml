@@ -21,7 +21,6 @@ jobs:
     - name: yarn install, build and test
       run: |
         yarn --frozen-lockfile
-        yarn audit
         lerna run build --since ${{ github.base_ref }} --include-dependents
         lerna run test --since ${{ github.base_ref }}
       env:
