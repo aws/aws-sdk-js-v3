@@ -12,7 +12,6 @@
     /**
      * Nice to have:
      */
-
     // "preserveConstEnums": true,
     // "declaration": true,
     // "allowUnreachableCode": false,
@@ -22,8 +21,6 @@
     "moduleResolution": "node",
     "target": "es5",
     "lib": ["es2015", "dom"],
-    // "rootDir": "./",
-    // "outDir": "./build",
     "baseUrl": ".",
     "paths": {
       "@aws-sdk/*": ["packages/*/src", "clients/clients-*/"]
