@@ -21,7 +21,7 @@ jobs:
     - name: yarn install, build and test
       run: |
         yarn --frozen-lockfile
-        lerna run build --since ${{ github.base_ref }} --include-dependents
-        lerna run test --since ${{ github.base_ref }}
+        ./node_modules/.bin/lerna run build --since ${{ github.base_ref }} --include-dependents
+        ./node_modules/.bin/lerna run test --since ${{ github.base_ref }}
       env:
         CI: true
