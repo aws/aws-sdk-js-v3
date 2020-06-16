@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: ${{ github.base_ref }}
+        fetch-depth: 0
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -23,7 +23,7 @@ jobs:
     - name: yarn install, build and test
       run: |
         yarn --frozen-lockfile
-        ./node_modules/.bin/lerna run build --since ${{ github.base_ref }} --include-dependents
-        ./node_modules/.bin/lerna run test --since ${{ github.base_ref }}
+        ./node_modules/.bin/lerna run pretest --since origin/${{ github.base_ref }} --include-dependencies
+        ./node_modules/.bin/lerna run test --since origin/${{ github.base_ref }}
       env:
         CI: true
