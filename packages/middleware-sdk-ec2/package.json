@@ -18,7 +18,7 @@
     "@aws-sdk/types": "1.0.0-gamma.1",
     "@aws-sdk/util-format-url": "1.0.0-gamma.1",
     "@aws-sdk/util-uri-escape": "1.0.0-gamma.1",
-    "tslib": "^1.8.0"
+    "tslib": "^1.9.0"
   },
   "devDependencies": {
     "@types/jest": "^25.1.4",
