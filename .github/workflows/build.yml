@@ -26,4 +26,3 @@ jobs:
         lerna run test --since ${{ github.base_ref }}
       env:
         CI: true
-      working-directory: app
