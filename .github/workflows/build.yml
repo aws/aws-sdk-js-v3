@@ -25,7 +25,7 @@ jobs:
     - name: yarn install, build and test
       run: |
         yarn --frozen-lockfile
-        ./node_modules/.bin/lerna run build --since origin/master --include-dependents
+        ./node_modules/.bin/lerna run pretest --since origin/master --include-dependencies
         ./node_modules/.bin/lerna run test --since origin/master
       env:
         CI: true
