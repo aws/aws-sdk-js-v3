@@ -3,7 +3,7 @@ import { fromSharedConfigFiles } from "./fromSharedConfigFiles";
 import { chain, memoize } from "@aws-sdk/property-provider";
 import {
   defaultProvider,
-  RegionProviderConfiguration
+  RetryConfigProviderConfiguration
 } from "./defaultProvider";
 
 jest.mock("./fromEnv", () => ({
@@ -20,7 +20,7 @@ jest.mock("@aws-sdk/property-provider", () => ({
 }));
 
 describe("defaultProvider", () => {
-  const configuration: RegionProviderConfiguration = {
+  const configuration: RetryConfigProviderConfiguration = {
     profile: "profile",
     environmentVariableName: "environmentVariableName"
   };
