@@ -49,8 +49,6 @@ describe("memoize", () => {
 
     describe("should not reinvoke the underlying provider while isExpired returns `false`", () => {
       const isExpiredFalseTest = async (requiresRefresh?: any) => {
-        expect.assertions(repeatTimes + 2);
-
         isExpired.mockReturnValue(false);
         const memoized = memoize(provider, isExpired, requiresRefresh);
 
@@ -59,10 +57,13 @@ describe("memoize", () => {
         }
 
         expect(isExpired).toHaveBeenCalledTimes(repeatTimes);
+        if (requiresRefresh) {
+          expect(requiresRefresh).toHaveBeenCalledTimes(repeatTimes);
+        }
         expect(provider).toHaveBeenCalledTimes(1);
       };
 
-      it("when requiresRefresh is not passed", () => {
+      it("when requiresRefresh is not passed", async () => {
         return isExpiredFalseTest();
       });
 
@@ -74,8 +75,6 @@ describe("memoize", () => {
 
     describe("should reinvoke the underlying provider when isExpired returns `true`", () => {
       const isExpiredTrueTest = async (requiresRefresh?: any) => {
-        expect.assertions(repeatTimes + 2);
-
         const memoized = memoize(provider, isExpired, requiresRefresh);
 
         for (const index in [...Array(repeatTimes).keys()]) {
@@ -83,6 +82,9 @@ describe("memoize", () => {
         }
 
         expect(isExpired).toHaveBeenCalledTimes(repeatTimes);
+        if (requiresRefresh) {
+          expect(requiresRefresh).toHaveBeenCalledTimes(repeatTimes);
+        }
         expect(provider).toHaveBeenCalledTimes(repeatTimes + 1);
       };
 
@@ -98,8 +100,6 @@ describe("memoize", () => {
 
     describe("should return the same promise for invocations 2-infinity if `requiresRefresh` returns `false`", () => {
       const requiresRefreshFalseTest = async () => {
-        expect.assertions(repeatTimes * 2 + 1);
-
         const memoized = memoize(provider, isExpired, requiresRefresh);
         const result = memoized();
         expect(await result).toBe(mockReturn);
@@ -108,6 +108,9 @@ describe("memoize", () => {
           expect(memoized()).toStrictEqual(result);
           expect(provider).toHaveBeenCalledTimes(1);
         }
+
+        expect(requiresRefresh).toHaveBeenCalledTimes(1);
+        expect(isExpired).not.toHaveBeenCalled();
       };
 
       it("when isExpired returns true", () => {
