@@ -1,0 +1,33 @@
+{
+  "name": "@aws-sdk/retry-config-provider",
+  "version": "1.0.0-gamma.0",
+  "description": "AWS retry configuration provider for Node.JS. Will determine the default retry configuration to use for AWS clients by checking known environment variables and shared configuration files",
+  "main": "./build/index.js",
+  "typings": "./build/index.d.ts",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc -p tsconfig.test.json",
+    "test": "jest"
+  },
+  "keywords": [
+    "aws",
+    "credentials"
+  ],
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@aws-sdk/property-provider": "1.0.0-gamma.1",
+    "@aws-sdk/shared-ini-file-loader": "1.0.0-gamma.1",
+    "@aws-sdk/types": "1.0.0-gamma.1",
+    "tslib": "^1.8.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.1.4",
+    "@types/node": "^10.0.0",
+    "jest": "^25.1.0",
+    "typescript": "~3.8.3"
+  }
+}
