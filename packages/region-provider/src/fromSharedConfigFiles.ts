@@ -37,6 +37,7 @@ export const fromSharedConfigFiles = (
       return region;
     }
   }
+
   throw new ProviderError(
     `No region found for profile ${profile} in SDK configuration files`
   );

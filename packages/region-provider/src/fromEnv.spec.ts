@@ -9,7 +9,9 @@ describe("fromEnv", () => {
   const mockEnvCustom = "mockEnvCustom";
 
   const getProviderError = (envVarName: string) =>
-    new Error(`No value defined for the ${envVarName} environment variable`);
+    new ProviderError(
+      `No value defined for the ${envVarName} environment variable`
+    );
 
   beforeEach(() => {
     delete process.env[ENV_REGION];
