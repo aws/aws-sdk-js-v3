@@ -23,9 +23,10 @@
     "lib": ["es2015", "dom"],
     "baseUrl": ".",
     "paths": {
-      "@aws-sdk/*": ["packages/*/src", "clients/clients-*/"]
+      "@aws-sdk/*": ["packages/*/src"],
+      "@aws-sdk/clients-*": ["clients/clients-*/"]
     }
   },
   "include": ["packages/"],
-  "exclude": ["node_modules/", "build/"]
+  "exclude": ["node_modules/", "packages/*/build/"]
 }
