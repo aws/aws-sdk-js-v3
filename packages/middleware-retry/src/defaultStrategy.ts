@@ -14,6 +14,8 @@ import {
   RetryStrategy
 } from "@aws-sdk/types";
 import { getDefaultRetryQuota } from "./defaultRetryQuota";
+import { HttpRequest } from "@aws-sdk/protocol-http";
+import { v4 } from "uuid";
 
 /**
  * Determines whether an error is retryable based on the number of retries
@@ -95,8 +97,19 @@ export class StandardRetryStrategy implements RetryStrategy {
     let retryTokenAmount;
     let attempts = 0;
     let totalDelay = 0;
+
+    const { request } = args;
+    if (HttpRequest.isInstance(request)) {
+      request.headers["amz-sdk-invocation-id"] = v4();
+    }
+
     while (true) {
       try {
+        if (HttpRequest.isInstance(request)) {
+          request.headers["amz-sdk-request"] = `attempt=${attempts + 1}; max=${
+            this.maxAttempts
+          }`;
+        }
         const { response, output } = await next(args);
 
         this.retryQuota.releaseRetryTokens(retryTokenAmount);
