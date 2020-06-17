@@ -371,7 +371,7 @@ describe("defaultProvider", () => {
 
     expect(await provider()).toEqual(creds);
 
-    expect(provider()).toBe(provider());
+    expect(provider()).toStrictEqual(provider());
 
     expect(await provider()).toEqual(creds);
     expect((fromEnv() as any).mock.calls.length).toBe(1);
