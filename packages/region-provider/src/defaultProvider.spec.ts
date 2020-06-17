@@ -1,104 +1,72 @@
-import { defaultProvider } from "./defaultProvider";
-import { ProviderError } from "@aws-sdk/property-provider";
-
-jest.mock("./fromEnv", () => {
-  const envProvider = jest.fn();
-  return {
-    fromEnv: jest.fn().mockReturnValue(envProvider)
-  };
-});
-import { fromEnv, EnvConfiguration } from "./fromEnv";
-
-jest.mock("./fromSharedConfigFiles", () => {
-  const iniProvider = jest.fn();
-  return {
-    fromSharedConfigFiles: jest.fn().mockReturnValue(iniProvider)
-  };
-});
+import { fromEnv } from "./fromEnv";
+import { fromSharedConfigFiles } from "./fromSharedConfigFiles";
+import { chain, memoize } from "@aws-sdk/property-provider";
 import {
-  fromSharedConfigFiles,
-  SharedConfigInit
-} from "./fromSharedConfigFiles";
+  defaultProvider,
+  RegionProviderConfiguration
+} from "./defaultProvider";
 
-beforeEach(() => {
-  (fromEnv() as any).mockClear();
-  (fromSharedConfigFiles() as any).mockClear();
-  (fromEnv as any).mockClear();
-  (fromSharedConfigFiles as any).mockClear();
-});
+jest.mock("./fromEnv", () => ({
+  fromEnv: jest.fn()
+}));
+
+jest.mock("./fromSharedConfigFiles", () => ({
+  fromSharedConfigFiles: jest.fn()
+}));
+
+jest.mock("@aws-sdk/property-provider", () => ({
+  chain: jest.fn(),
+  memoize: jest.fn()
+}));
 
 describe("defaultProvider", () => {
-  it("should stop after the environmental provider if a region has been found", async () => {
-    const region = "foo";
-    (fromEnv() as any).mockImplementation(() => Promise.resolve(region));
+  const configuration: RegionProviderConfiguration = {
+    profile: "profile",
+    environmentVariableName: "environmentVariableName"
+  };
 
-    expect(await defaultProvider()()).toEqual(region);
-    expect((fromEnv() as any).mock.calls.length).toBe(1);
-    expect((fromSharedConfigFiles() as any).mock.calls.length).toBe(0);
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
-  it("should continue on to the ini provider if no environment variable region has been found", async () => {
-    const region = "foo";
+  it("passes fromEnv() and fromSharedConfigFiles() to chain", () => {
+    const mockFromEnvReturn = "mockFromEnvReturn";
+    (fromEnv as jest.Mock).mockReturnValueOnce(mockFromEnvReturn);
 
-    (fromEnv() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Nothing here!"))
-    );
-    (fromSharedConfigFiles() as any).mockImplementation(() =>
-      Promise.resolve(region)
+    const mockFromSharedConfigFilesReturn = "mockFromSharedConfigFilesReturn";
+    (fromSharedConfigFiles as jest.Mock).mockReturnValueOnce(
+      mockFromSharedConfigFilesReturn
     );
 
-    expect(await defaultProvider()()).toEqual(region);
-    expect((fromEnv() as any).mock.calls.length).toBe(1);
-    expect((fromSharedConfigFiles() as any).mock.calls.length).toBe(1);
+    defaultProvider(configuration);
+
+    expect(fromEnv).toHaveBeenCalledTimes(1);
+    expect(fromEnv).toHaveBeenCalledWith(configuration);
+    expect(fromSharedConfigFiles).toHaveBeenCalledTimes(1);
+    expect(fromSharedConfigFiles).toHaveBeenCalledWith(configuration);
+
+    expect(chain).toHaveBeenCalledTimes(1);
+    expect(chain).toHaveBeenCalledWith(
+      mockFromEnvReturn,
+      mockFromSharedConfigFilesReturn
+    );
   });
 
-  it("should pass configuration on to the env provider", async () => {
-    const envConfig: EnvConfiguration = {
-      environmentVariableName: "foo"
-    };
+  it("passes output of chain to memoize", () => {
+    const mockChainReturn = "mockChainReturn";
+    (chain as jest.Mock).mockReturnValueOnce(mockChainReturn);
 
-    (fromEnv() as any).mockImplementation(() => Promise.resolve("region"));
-    (fromEnv as any).mockClear();
+    defaultProvider(configuration);
 
-    await expect(defaultProvider(envConfig)()).resolves;
-
-    expect((fromEnv as any).mock.calls.length).toBe(1);
-    expect((fromEnv as any).mock.calls[0][0]).toBe(envConfig);
+    expect(chain).toHaveBeenCalledTimes(1);
+    expect(memoize).toHaveBeenCalledTimes(1);
+    expect(memoize).toHaveBeenCalledWith(mockChainReturn);
   });
 
-  it("should pass configuration on to the ini provider", async () => {
-    const iniConfig: SharedConfigInit = {
-      profile: "foo",
-      filepath: "/home/user/.secrets/credentials.ini",
-      configFilepath: "/home/user/.secrets/credentials.ini"
-    };
+  it("returns output memoize", () => {
+    const mockMemoizeReturn = "mockMemoizeReturn";
+    (memoize as jest.Mock).mockReturnValueOnce(mockMemoizeReturn);
 
-    (fromEnv() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Keep moving!"))
-    );
-    (fromSharedConfigFiles() as any).mockImplementation(() =>
-      Promise.resolve("region")
-    );
-
-    (fromSharedConfigFiles as any).mockClear();
-
-    await expect(defaultProvider(iniConfig)()).resolves;
-
-    expect((fromSharedConfigFiles as any).mock.calls.length).toBe(1);
-    expect((fromSharedConfigFiles as any).mock.calls[0][0]).toBe(iniConfig);
-  });
-
-  it("should return the same promise across invocations", async () => {
-    const region = "foo";
-    (fromEnv() as any).mockImplementation(() => Promise.resolve(region));
-
-    const provider = defaultProvider();
-
-    expect(await provider()).toEqual(region);
-
-    expect(provider()).toBe(provider());
-
-    expect(await provider()).toEqual(region);
-    expect((fromEnv() as any).mock.calls.length).toBe(1);
+    expect(defaultProvider(configuration)).toEqual(mockMemoizeReturn);
   });
 });

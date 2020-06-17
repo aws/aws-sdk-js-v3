@@ -1,105 +1,242 @@
-import { fromSharedConfigFiles } from "./fromSharedConfigFiles";
+import { fromSharedConfigFiles, ENV_PROFILE } from "./fromSharedConfigFiles";
+import {
+  loadSharedConfigFiles,
+  ParsedIniData
+} from "@aws-sdk/shared-ini-file-loader";
 import { ProviderError } from "@aws-sdk/property-provider";
 
-const mockRegion = "mars-west-1";
-
-jest.mock("@aws-sdk/shared-ini-file-loader", () => {
-  const module = jest.genMockFromModule(
-    "@aws-sdk/shared-ini-file-loader"
-  ) as any;
-  module.loadSharedConfigFiles = jest.fn(() =>
-    Promise.resolve({
-      credentialsFile: {},
-      configFile: {
-        default: { region: mockRegion }
-      }
-    })
-  );
-  return module;
-});
+jest.mock("@aws-sdk/shared-ini-file-loader", () => ({
+  loadSharedConfigFiles: jest.fn()
+}));
 
 describe("fromSharedConfigFiles", () => {
-  it("should throw a ProviderError if no config files were loaded", () => {
-    const emptyConfig = Promise.resolve({
-      configFile: {},
-      credentialsFile: {}
-    });
+  const envProfile = process.env[ENV_PROFILE];
 
-    return expect(
-      fromSharedConfigFiles({ loadedConfig: emptyConfig })()
-    ).rejects.toMatchObject(
-      new ProviderError(
-        `No region found for profile default in SDK configuration files`
-      )
+  beforeEach(() => {
+    delete process.env[ENV_PROFILE];
+  });
+
+  afterAll(() => {
+    process.env[ENV_PROFILE] = envProfile;
+  });
+
+  const getProviderError = (profile: string) =>
+    new ProviderError(
+      `No region found for profile ${profile} in SDK configuration files`
     );
-  });
 
-  it("should use the region from the credentials file", async () => {
-    const loadedConfig = Promise.resolve({
-      configFile: {},
-      credentialsFile: {
-        default: { region: "us-west-2" }
-      }
-    });
+  describe("loadedConfig", () => {
+    const mockRegionAnswer = "mockRegionAnswer";
+    const mockRegionNotAnswer = "mockRegionNotAnswer";
+    const getIniDataWithAnswersRemoved = (iniData: ParsedIniData) =>
+      Object.keys(iniData).reduce(
+        (acc, key) => ({
+          [key]: { region: mockRegionNotAnswer },
+          ...acc
+        }),
+        {}
+      );
 
-    expect(await fromSharedConfigFiles({ loadedConfig })()).toBe("us-west-2");
-  });
+    type loadedConfigTestData = {
+      message: string;
+      iniDataToReturn: ParsedIniData;
+      profile?: string;
+    };
 
-  it("should use the region from a designated profile in the credentials file", async () => {
-    const profile = "foo";
-    const loadedConfig = Promise.resolve({
-      configFile: {},
-      credentialsFile: {
-        default: { region: "us-west-2" },
-        [profile]: { region: "us-west-1" }
-      }
-    });
-
-    expect(await fromSharedConfigFiles({ loadedConfig, profile })()).toBe(
-      "us-west-1"
-    );
-  });
-
-  it("should use the region from the config file", async () => {
-    const loadedConfig = Promise.resolve({
-      credentialsFile: {},
-      configFile: {
-        default: { region: "us-west-2" }
-      }
-    });
-
-    expect(await fromSharedConfigFiles({ loadedConfig })()).toBe("us-west-2");
-  });
-
-  it("should use the region from a designated profile in the credentials file", async () => {
-    const profile = "foo";
-    const loadedConfig = Promise.resolve({
-      credentialsFile: {},
-      configFile: {
-        default: { region: "us-west-2" },
-        [profile]: { region: "us-west-1" }
-      }
-    });
-
-    expect(await fromSharedConfigFiles({ loadedConfig, profile })()).toBe(
-      "us-west-1"
-    );
-  });
-
-  it("should prefer a region defined in the credentials file", async () => {
-    const loadedConfig = Promise.resolve({
-      credentialsFile: {
-        default: { region: "us-west-1" }
+    const loadedConfigResolves: (loadedConfigTestData & {
+      regionToVerify: string;
+    })[] = [
+      {
+        message: "returns region from default profile",
+        iniDataToReturn: {
+          default: { region: mockRegionAnswer }
+        },
+        regionToVerify: mockRegionAnswer
       },
-      configFile: {
-        default: { region: "us-west-2" }
+      {
+        message: "returns region from designated profile",
+        iniDataToReturn: {
+          default: { region: mockRegionNotAnswer },
+          foo: { region: mockRegionAnswer }
+        },
+        regionToVerify: mockRegionAnswer,
+        profile: "foo"
       }
+    ];
+
+    const loadedConfigRejects: loadedConfigTestData[] = [
+      {
+        message:
+          "rejects if default profile is not present and profile value is not passed",
+        iniDataToReturn: {
+          foo: { region: mockRegionNotAnswer }
+        }
+      },
+      {
+        message: "rejects if designated profile is not present",
+        iniDataToReturn: {
+          default: { region: mockRegionNotAnswer }
+        },
+        profile: "foo"
+      }
+    ];
+
+    describe("uses the shared ini file loader if pre-loaded config is not supplied", () => {
+      describe("when config file is empty", () => {
+        loadedConfigResolves.forEach(
+          ({ message, iniDataToReturn, regionToVerify, profile }) => {
+            it(`${message} from credentials file`, () => {
+              (loadSharedConfigFiles as jest.Mock).mockResolvedValueOnce({
+                configFile: {},
+                credentialsFile: iniDataToReturn
+              });
+              return expect(fromSharedConfigFiles({ profile })()).resolves.toBe(
+                regionToVerify
+              );
+            });
+          }
+        );
+      });
+
+      describe("when credentials file is empty", () => {
+        loadedConfigResolves.forEach(
+          ({ message, iniDataToReturn, regionToVerify, profile }) => {
+            it(`${message} from config file`, () => {
+              (loadSharedConfigFiles as jest.Mock).mockResolvedValueOnce({
+                configFile: iniDataToReturn,
+                credentialsFile: {}
+              });
+              return expect(fromSharedConfigFiles({ profile })()).resolves.toBe(
+                regionToVerify
+              );
+            });
+          }
+        );
+      });
+
+      describe("prefer credentials file if both not empty", () => {
+        loadedConfigResolves.forEach(
+          ({ message, iniDataToReturn, regionToVerify, profile }) => {
+            it(`${message} from credentials file`, () => {
+              (loadSharedConfigFiles as jest.Mock).mockResolvedValueOnce({
+                configFile: getIniDataWithAnswersRemoved(iniDataToReturn),
+                credentialsFile: iniDataToReturn
+              });
+              return expect(fromSharedConfigFiles({ profile })()).resolves.toBe(
+                regionToVerify
+              );
+            });
+          }
+        );
+      });
+
+      loadedConfigRejects.forEach(({ message, iniDataToReturn, profile }) => {
+        it(message, () => {
+          (loadSharedConfigFiles as jest.Mock).mockResolvedValueOnce({
+            configFile: {},
+            credentialsFile: iniDataToReturn
+          });
+          return expect(
+            fromSharedConfigFiles({ profile })()
+          ).rejects.toMatchObject(getProviderError(profile ?? "default"));
+        });
+      });
     });
 
-    expect(await fromSharedConfigFiles({ loadedConfig })()).toBe("us-west-1");
+    describe("uses pre-loaded config if supplied", () => {
+      describe("when config file is empty", () => {
+        loadedConfigResolves.forEach(
+          ({ message, iniDataToReturn, regionToVerify, profile }) => {
+            it(`${message} from credentials file`, () => {
+              const loadedConfig = Promise.resolve({
+                configFile: {},
+                credentialsFile: iniDataToReturn
+              });
+              return expect(
+                fromSharedConfigFiles({ loadedConfig, profile })()
+              ).resolves.toBe(regionToVerify);
+            });
+          }
+        );
+      });
+
+      describe("when credentials file is empty", () => {
+        loadedConfigResolves.forEach(
+          ({ message, iniDataToReturn, regionToVerify, profile }) => {
+            it(`${message} from config file`, () => {
+              const loadedConfig = Promise.resolve({
+                configFile: iniDataToReturn,
+                credentialsFile: {}
+              });
+              return expect(
+                fromSharedConfigFiles({ loadedConfig, profile })()
+              ).resolves.toBe(regionToVerify);
+            });
+          }
+        );
+      });
+
+      describe("prefer credentials file if both not empty", () => {
+        loadedConfigResolves.forEach(
+          ({ message, iniDataToReturn, regionToVerify, profile }) => {
+            it(`${message} from config file`, () => {
+              const loadedConfig = Promise.resolve({
+                configFile: getIniDataWithAnswersRemoved(iniDataToReturn),
+                credentialsFile: iniDataToReturn
+              });
+              return expect(
+                fromSharedConfigFiles({ loadedConfig, profile })()
+              ).resolves.toBe(regionToVerify);
+            });
+          }
+        );
+      });
+
+      loadedConfigRejects.forEach(({ message, iniDataToReturn, profile }) => {
+        it(message, () => {
+          const loadedConfig = Promise.resolve({
+            configFile: {},
+            credentialsFile: iniDataToReturn
+          });
+          return expect(
+            fromSharedConfigFiles({ loadedConfig, profile })()
+          ).rejects.toMatchObject(getProviderError(profile ?? "default"));
+        });
+      });
+    });
   });
 
-  it("should use the shared ini file loader if no pre-loaded config is supplied", async () => {
-    expect(await fromSharedConfigFiles()()).toBe(mockRegion);
+  describe("profile", () => {
+    const loadedConfigData = {
+      configFile: {},
+      credentialsFile: {
+        default: { region: "credentialsFileDefault" },
+        foo: { region: "credentialsFileDefault" }
+      }
+    };
+    const loadedConfig = Promise.resolve(loadedConfigData);
+
+    it("returns region from designated profile when profile is defined", () => {
+      const profile = "foo";
+      return expect(
+        fromSharedConfigFiles({ loadedConfig, profile })()
+      ).resolves.toBe(loadedConfigData.credentialsFile[profile].region);
+    });
+
+    describe("when profile is not defined", () => {
+      it(`returns region from value in '${ENV_PROFILE}' env var if it is set`, () => {
+        const profile = "foo";
+        process.env[ENV_PROFILE] = profile;
+        return expect(fromSharedConfigFiles({ loadedConfig })()).resolves.toBe(
+          loadedConfigData.credentialsFile[profile].region
+        );
+      });
+
+      it(`returns region from default profile if '${ENV_PROFILE}' env var is not set`, () => {
+        return expect(fromSharedConfigFiles({ loadedConfig })()).resolves.toBe(
+          loadedConfigData.credentialsFile.default.region
+        );
+      });
+    });
   });
 });

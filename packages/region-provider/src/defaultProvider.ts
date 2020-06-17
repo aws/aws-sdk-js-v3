@@ -8,10 +8,7 @@ import { Provider } from "@aws-sdk/types";
 
 export type RegionProviderConfiguration = EnvConfiguration & SharedConfigInit;
 
-export function defaultProvider(
+export const defaultProvider = (
   configuration: RegionProviderConfiguration = {}
-): Provider<string> {
-  return memoize(
-    chain(fromEnv(configuration), fromSharedConfigFiles(configuration))
-  );
-}
+): Provider<string> =>
+  memoize(chain(fromEnv(configuration), fromSharedConfigFiles(configuration)));

@@ -22,26 +22,23 @@ export interface SharedConfigInit extends BaseSharedConfigInit {
   loadedConfig?: Promise<SharedConfigFiles>;
 }
 
-export function fromSharedConfigFiles(
+export const fromSharedConfigFiles = (
   init: SharedConfigInit = {}
-): Provider<string> {
-  return () => {
-    const {
-      loadedConfig = loadSharedConfigFiles(init),
-      profile = process.env[ENV_PROFILE] || DEFAULT_PROFILE
-    } = init;
+): Provider<string> => async () => {
+  const {
+    loadedConfig = loadSharedConfigFiles(init),
+    profile = process.env[ENV_PROFILE] || DEFAULT_PROFILE
+  } = init;
 
-    return loadedConfig.then(({ configFile, credentialsFile }) => {
-      for (let file of [credentialsFile, configFile]) {
-        const { region } = file[profile] || <any>{};
-        if (typeof region === "string") {
-          return region;
-        }
-      }
+  const { configFile, credentialsFile } = await loadedConfig;
+  for (let file of [credentialsFile, configFile]) {
+    const { region } = file[profile] || <any>{};
+    if (typeof region === "string") {
+      return region;
+    }
+  }
 
-      throw new ProviderError(
-        `No region found for profile ${profile} in SDK configuration files`
-      );
-    });
-  };
-}
+  throw new ProviderError(
+    `No region found for profile ${profile} in SDK configuration files`
+  );
+};
