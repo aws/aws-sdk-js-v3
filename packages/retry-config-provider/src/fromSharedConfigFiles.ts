@@ -30,12 +30,10 @@ export const fromSharedConfigFiles = (
     profile = process.env[ENV_PROFILE] || DEFAULT_PROFILE
   } = init;
 
-  const { configFile, credentialsFile } = await loadedConfig;
-  for (let file of [credentialsFile, configFile]) {
-    const { max_attempts } = file[profile] || <any>{};
-    if (typeof max_attempts === "string") {
-      return max_attempts;
-    }
+  const { configFile } = await loadedConfig;
+  const { max_attempts } = configFile[profile] || <any>{};
+  if (typeof max_attempts === "string") {
+    return max_attempts;
   }
 
   throw new ProviderError(
