@@ -1,1 +1,1 @@
-export * from "./maxAttemptsProvider";
+export * from "./defaultProvider";
