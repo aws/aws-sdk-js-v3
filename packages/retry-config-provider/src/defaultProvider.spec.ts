@@ -1,10 +1,10 @@
 import { fromEnv } from "./fromEnv";
-import { fromSharedConfigFiles } from "./fromSharedConfigFiles";
-import { chain, memoize } from "@aws-sdk/property-provider";
 import {
-  defaultProvider,
-  RetryConfigProviderConfiguration
-} from "./defaultProvider";
+  fromSharedConfigFiles,
+  SharedConfigInit
+} from "./fromSharedConfigFiles";
+import { chain, memoize } from "@aws-sdk/property-provider";
+import { defaultProvider } from "./defaultProvider";
 
 jest.mock("./fromEnv", () => ({
   fromEnv: jest.fn()
@@ -20,7 +20,7 @@ jest.mock("@aws-sdk/property-provider", () => ({
 }));
 
 describe("defaultProvider", () => {
-  const configuration: RetryConfigProviderConfiguration = {
+  const configuration: SharedConfigInit = {
     profile: "profile"
   };
 
