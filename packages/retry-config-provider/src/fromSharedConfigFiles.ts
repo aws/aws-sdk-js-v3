@@ -32,13 +32,13 @@ export const fromSharedConfigFiles = (
 
   const { configFile, credentialsFile } = await loadedConfig;
   for (let file of [credentialsFile, configFile]) {
-    const { region } = file[profile] || <any>{};
-    if (typeof region === "string") {
-      return region;
+    const { max_attempts } = file[profile] || <any>{};
+    if (typeof max_attempts === "string") {
+      return max_attempts;
     }
   }
 
   throw new ProviderError(
-    `No region found for profile ${profile} in SDK configuration files`
+    `No max_attempts value found for profile ${profile} in SDK configuration files`
   );
 };
