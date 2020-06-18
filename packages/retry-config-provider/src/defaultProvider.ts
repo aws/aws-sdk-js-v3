@@ -1,4 +1,4 @@
-import { EnvConfiguration, fromEnv } from "./fromEnv";
+import { fromEnv } from "./fromEnv";
 import {
   SharedConfigInit,
   fromSharedConfigFiles
@@ -6,8 +6,7 @@ import {
 import { chain, memoize } from "@aws-sdk/property-provider";
 import { Provider } from "@aws-sdk/types";
 
-export type RetryConfigProviderConfiguration = EnvConfiguration &
-  SharedConfigInit;
+export type RetryConfigProviderConfiguration = SharedConfigInit;
 
 export const defaultProvider = (
   configuration: RetryConfigProviderConfiguration = {}

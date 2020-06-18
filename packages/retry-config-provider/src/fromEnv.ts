@@ -3,10 +3,6 @@ import { Provider } from "@aws-sdk/types";
 
 export const ENV_REGION = "AWS_REGION";
 
-export interface EnvConfiguration {
-  environmentVariableName?: string;
-}
-
 export const fromEnv = (): Provider<string> => async () => {
   const envRegion = process.env[ENV_REGION];
   if (envRegion) {

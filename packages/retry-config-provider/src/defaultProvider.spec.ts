@@ -21,8 +21,7 @@ jest.mock("@aws-sdk/property-provider", () => ({
 
 describe("defaultProvider", () => {
   const configuration: RetryConfigProviderConfiguration = {
-    profile: "profile",
-    environmentVariableName: "environmentVariableName"
+    profile: "profile"
   };
 
   afterEach(() => {
