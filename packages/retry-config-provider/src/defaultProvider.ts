@@ -12,4 +12,4 @@ export type RetryConfigProviderConfiguration = EnvConfiguration &
 export const defaultProvider = (
   configuration: RetryConfigProviderConfiguration = {}
 ): Provider<string> =>
-  memoize(chain(fromEnv(configuration), fromSharedConfigFiles(configuration)));
+  memoize(chain(fromEnv(), fromSharedConfigFiles(configuration)));

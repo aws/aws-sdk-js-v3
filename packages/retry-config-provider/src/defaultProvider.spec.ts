@@ -41,7 +41,6 @@ describe("defaultProvider", () => {
     defaultProvider(configuration);
 
     expect(fromEnv).toHaveBeenCalledTimes(1);
-    expect(fromEnv).toHaveBeenCalledWith(configuration);
     expect(fromSharedConfigFiles).toHaveBeenCalledTimes(1);
     expect(fromSharedConfigFiles).toHaveBeenCalledWith(configuration);
 

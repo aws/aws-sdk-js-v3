@@ -7,15 +7,13 @@ export interface EnvConfiguration {
   environmentVariableName?: string;
 }
 
-export const fromEnv = ({
-  environmentVariableName = ENV_REGION
-}: EnvConfiguration = {}): Provider<string> => async () => {
-  const envRegion = process.env[environmentVariableName];
+export const fromEnv = (): Provider<string> => async () => {
+  const envRegion = process.env[ENV_REGION];
   if (envRegion) {
     return envRegion;
   }
 
   throw new ProviderError(
-    `No value defined for the ${environmentVariableName} environment variable`
+    `No value defined for the ${ENV_REGION} environment variable`
   );
 };
