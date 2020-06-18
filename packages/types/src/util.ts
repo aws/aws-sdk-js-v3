@@ -58,11 +58,6 @@ export interface BodyLengthCalculator {
  */
 export interface RetryStrategy {
   /**
-   * the maximum number of times requests that encounter potentially
-   * transient failures should be retried
-   */
-  maxAttempts: number;
-  /**
    * the retry behavior the will invoke the next handler and handle the retry accordingly.
    * This function should also update the $metadata from the response accordingly.
    * @see {@link ResponseMetadata}

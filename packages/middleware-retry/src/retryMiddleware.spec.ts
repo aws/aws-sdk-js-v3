@@ -18,11 +18,11 @@ describe("getRetryPlugin", () => {
     jest.clearAllMocks();
   });
 
-  describe("adds retryMiddleware if maxAttempts > 1", () => {
-    [2, 3, 4].forEach(maxAttempts => {
+  describe("adds retryMiddleware", () => {
+    [1, 2, 3].forEach(maxAttempts => {
       it(`when maxAttempts=${maxAttempts}`, () => {
         getRetryPlugin({
-          maxAttempts,
+          maxAttempts: () => Promise.resolve(maxAttempts.toString()),
           retryStrategy: {} as RetryStrategy
         }).applyToStack(
           (mockClientStack as unknown) as MiddlewareStack<any, any>
@@ -31,20 +31,6 @@ describe("getRetryPlugin", () => {
         expect(mockClientStack.add.mock.calls[0][1]).toEqual(
           retryMiddlewareOptions
         );
-      });
-    });
-  });
-
-  describe("skips adding retryMiddleware if maxAttempts <= 1", () => {
-    [0, 1].forEach(maxAttempts => {
-      it(`when maxAttempts=${maxAttempts}`, () => {
-        getRetryPlugin({
-          maxAttempts,
-          retryStrategy: {} as RetryStrategy
-        }).applyToStack(
-          (mockClientStack as unknown) as MiddlewareStack<any, any>
-        );
-        expect(mockClientStack.add).toHaveBeenCalledTimes(0);
       });
     });
   });
@@ -67,7 +53,7 @@ describe("retryMiddleware", () => {
     };
 
     await retryMiddleware({
-      maxAttempts,
+      maxAttempts: () => Promise.resolve(maxAttempts.toString()),
       retryStrategy: mockRetryStrategy
     })(next)(args as FinalizeHandlerArguments<any>);
     expect(mockRetryStrategy.retry).toHaveBeenCalledTimes(1);

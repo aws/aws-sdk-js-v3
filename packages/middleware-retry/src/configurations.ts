@@ -1,4 +1,4 @@
-import { RetryStrategy } from "@aws-sdk/types";
+import { RetryStrategy, Provider } from "@aws-sdk/types";
 import { StandardRetryStrategy } from "./defaultStrategy";
 
 export interface RetryInputConfig {
@@ -12,18 +12,32 @@ export interface RetryInputConfig {
   retryStrategy?: RetryStrategy;
 }
 
+interface PreviouslyResolved {
+  maxAttemptsDefaultProvider: (input: any) => Provider<string>;
+}
 export interface RetryResolvedConfig {
-  maxAttempts: number;
+  maxAttempts: Provider<string>;
   retryStrategy: RetryStrategy;
 }
 
 export const resolveRetryConfig = <T>(
-  input: T & RetryInputConfig
+  input: T & PreviouslyResolved & RetryInputConfig
 ): T & RetryResolvedConfig => {
-  const maxAttempts = input.maxAttempts ?? 3;
+  const maxAttempts =
+    normalizeMaxAttempts(input.maxAttempts) ??
+    input.maxAttemptsDefaultProvider(input as any);
   return {
     ...input,
     maxAttempts,
     retryStrategy: input.retryStrategy || new StandardRetryStrategy(maxAttempts)
   };
+};
+
+const normalizeMaxAttempts = (
+  maxAttempts?: number
+): Provider<string> | undefined => {
+  if (maxAttempts) {
+    const promisified = Promise.resolve(maxAttempts.toString());
+    return () => promisified;
+  }
 };
