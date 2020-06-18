@@ -1,9 +1,10 @@
-import { fromEnv, ENV_MAX_ATTEMPTS } from "./fromEnv";
+import { fromEnv } from "./fromEnv";
 import { ProviderError } from "@aws-sdk/property-provider";
 
 describe("fromEnv", () => {
-  const envRegion = process.env[ENV_MAX_ATTEMPTS];
-  const mockEnvMaxAttempts = "mockEnvMaxAttempts";
+  const envVarName = "ENV_VAR_NAME";
+  const envVarValue = process.env[envVarName];
+  const mockEnvVarValue = "mockEnvVarValue";
 
   const getProviderError = (envVarName: string) =>
     new ProviderError(
@@ -11,21 +12,21 @@ describe("fromEnv", () => {
     );
 
   beforeEach(() => {
-    delete process.env[ENV_MAX_ATTEMPTS];
+    delete process.env[envVarName];
   });
 
   afterAll(() => {
-    process.env[ENV_MAX_ATTEMPTS] = envRegion;
+    process.env[envVarName] = envVarValue;
   });
 
-  it(`returns value in '${ENV_MAX_ATTEMPTS}' env var when set`, () => {
-    process.env[ENV_MAX_ATTEMPTS] = mockEnvMaxAttempts;
-    return expect(fromEnv()()).resolves.toBe(mockEnvMaxAttempts);
+  it(`returns value in '${envVarName}' env var when set`, () => {
+    process.env[envVarName] = mockEnvVarValue;
+    return expect(fromEnv(envVarName)()).resolves.toBe(mockEnvVarValue);
   });
 
-  it(`throws when '${ENV_MAX_ATTEMPTS}' env var is not set`, () => {
-    return expect(fromEnv()()).rejects.toMatchObject(
-      getProviderError(ENV_MAX_ATTEMPTS)
+  it(`throws when '${envVarName}' env var is not set`, () => {
+    return expect(fromEnv(envVarName)()).rejects.toMatchObject(
+      getProviderError(envVarName)
     );
   });
 });
