@@ -45,7 +45,7 @@
     "fs-extra": "^9.0.0",
     "generate-changelog": "^1.7.1",
     "husky": "^4.2.3",
-    "jest": "^25.1.0",
+    "jest": "^26.0.1",
     "jmespath": "^0.15.0",
     "lerna": "3.22.1",
     "lint-staged": "^10.0.1",

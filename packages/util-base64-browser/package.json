@@ -19,7 +19,7 @@
   "devDependencies": {
     "@types/jest": "^25.1.4",
     "@types/node": "^10.0.0",
-    "jest": "^25.1.0",
+    "jest": "^26.0.1",
     "typescript": "~3.8.3"
   },
   "types": "./build/index.d.ts"
