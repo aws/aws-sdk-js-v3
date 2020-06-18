@@ -6,7 +6,7 @@ import {
 import { chain, memoize } from "@aws-sdk/property-provider";
 import { Provider } from "@aws-sdk/types";
 
-export const defaultProvider = (
+export const maxAttemptsProvider = (
   configuration: SharedConfigInit = {}
 ): Provider<string> =>
   memoize(chain(fromEnv(), fromSharedConfigFiles(configuration)));

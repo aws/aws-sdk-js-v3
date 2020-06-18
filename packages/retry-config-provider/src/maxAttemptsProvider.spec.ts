@@ -4,7 +4,7 @@ import {
   SharedConfigInit
 } from "./fromSharedConfigFiles";
 import { chain, memoize } from "@aws-sdk/property-provider";
-import { defaultProvider } from "./defaultProvider";
+import { maxAttemptsProvider } from "./maxAttemptsProvider";
 
 jest.mock("./fromEnv", () => ({
   fromEnv: jest.fn()
@@ -19,7 +19,7 @@ jest.mock("@aws-sdk/property-provider", () => ({
   memoize: jest.fn()
 }));
 
-describe("defaultProvider", () => {
+describe("maxAttemptsProvider", () => {
   const configuration: SharedConfigInit = {
     profile: "profile"
   };
@@ -37,7 +37,7 @@ describe("defaultProvider", () => {
       mockFromSharedConfigFilesReturn
     );
 
-    defaultProvider(configuration);
+    maxAttemptsProvider(configuration);
 
     expect(fromEnv).toHaveBeenCalledTimes(1);
     expect(fromSharedConfigFiles).toHaveBeenCalledTimes(1);
@@ -54,7 +54,7 @@ describe("defaultProvider", () => {
     const mockChainReturn = "mockChainReturn";
     (chain as jest.Mock).mockReturnValueOnce(mockChainReturn);
 
-    defaultProvider(configuration);
+    maxAttemptsProvider(configuration);
 
     expect(chain).toHaveBeenCalledTimes(1);
     expect(memoize).toHaveBeenCalledTimes(1);
@@ -65,6 +65,6 @@ describe("defaultProvider", () => {
     const mockMemoizeReturn = "mockMemoizeReturn";
     (memoize as jest.Mock).mockReturnValueOnce(mockMemoizeReturn);
 
-    expect(defaultProvider(configuration)).toEqual(mockMemoizeReturn);
+    expect(maxAttemptsProvider(configuration)).toEqual(mockMemoizeReturn);
   });
 });
