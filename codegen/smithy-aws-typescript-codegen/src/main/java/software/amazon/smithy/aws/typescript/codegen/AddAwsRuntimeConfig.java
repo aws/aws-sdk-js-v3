@@ -44,6 +44,8 @@ import software.amazon.smithy.utils.MapUtils;
  *     are explicitly provided.</li>
  *     <li>regionDefaultProvider: Provides a region if no region is
  *     explicitly provided</li>
+ *     <li>maxAttemptsDefaultProvider: Provides value for maxAttempts if no region is
+ *     explicitly provided</li>
  * </ul>
  *
  * <p>This plugin adds the following Node runtime specific values:
@@ -53,6 +55,8 @@ import software.amazon.smithy.utils.MapUtils;
  *     <li>credentialDefaultProvider: Uses the default credential provider that
  *     checks things like environment variables and the AWS config file.</li>
  *     <li>regionDefaultProvider: Uses the default region provider that
+ *     checks things like environment variables and the AWS config file.</li>
+ *     <li>maxAttemptsDefaultProvider: Uses the default maxAttempts provider that
  *     checks things like environment variables and the AWS config file.</li>
  * </ul>
  *
@@ -66,6 +70,7 @@ import software.amazon.smithy.utils.MapUtils;
  *     <li>regionDefaultProvider: Throws an exception since a region must
  *     be explicitly provided in the browser (environment variables and
  *     the shared config can't be resolved from the browser).</li>
+ *     <li>maxAttemptsDefaultProvider: Returns default value of "3".</li>
  * </ul>
  */
 public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
@@ -88,6 +93,8 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                 .write("credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;\n");
         writer.writeDocs("Provider function that return promise of a region string")
                 .write("regionDefaultProvider?: (input: any) => __Provider<string>;\n");
+        writer.writeDocs("Provider function that return promise of a maxAttempts string")
+                .write("maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;\n");
     }
 
     @Override
@@ -138,7 +145,11 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                         },
                         "regionDefaultProvider", writer -> {
                             writer.write("regionDefaultProvider: invalidFunction(\"Region is missing\") as any,");
-                        });
+                        },
+                        "maxAttemptsDefaultProvider", writer -> {
+                            writer.write("maxAttemptsDefaultProvider: (() => '3') as any,");
+                        }
+                );
             case NODE:
                 return MapUtils.of(
                         "credentialDefaultProvider", writer -> {
@@ -152,6 +163,12 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                             writer.addImport("defaultProvider", "regionDefaultProvider",
                                     AwsDependency.REGION_PROVIDER.packageName);
                             writer.write("regionDefaultProvider,");
+                        },
+                        "maxAttemptsDefaultProvider", writer -> {
+                            writer.addDependency(AwsDependency.RETRY_CONFIG_PROVIDER);
+                            writer.addImport("maxAttemptsProvider", "maxAttemptsDefaultProvider",
+                                    AwsDependency.RETRY_CONFIG_PROVIDER.packageName);
+                            writer.write("maxAttemptsDefaultProvider,");
                         }
                 );
             default:
@@ -175,7 +192,11 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                             writer.addImport("invalidFunction", "invalidFunction",
                                     TypeScriptDependency.INVALID_DEPENDENCY.packageName);
                             writer.write("regionDefaultProvider: invalidFunction(\"Region is missing\") as any,");
-                        });
+                        },
+                        "maxAttemptsDefaultProvider", writer -> {
+                            writer.write("maxAttemptsDefaultProvider: (() => '3') as any,");
+                        }
+                );
             case NODE:
                 return MapUtils.of(
                         "credentialDefaultProvider", writer -> {
@@ -194,6 +215,12 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                             writer.addImport("defaultProvider", "regionDefaultProvider",
                                     AwsDependency.REGION_PROVIDER.packageName);
                             writer.write("regionDefaultProvider,");
+                        },
+                        "maxAttemptsDefaultProvider", writer -> {
+                            writer.addDependency(AwsDependency.RETRY_CONFIG_PROVIDER);
+                            writer.addImport("maxAttemptsProvider", "maxAttemptsDefaultProvider",
+                                    AwsDependency.RETRY_CONFIG_PROVIDER.packageName);
+                            writer.write("maxAttemptsDefaultProvider,");
                         }
                 );
             default:

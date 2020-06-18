@@ -59,7 +59,8 @@ public enum AwsDependency implements SymbolDependencyContainer {
     MIDDLEWARE_EVENTSTREAM(NORMAL_DEPENDENCY, "@aws-sdk/middleware-eventstream", "^1.0.0-beta.0"),
     AWS_SDK_EVENTSTREAM_HANDLER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/eventstream-handler-node", "^1.0.0-beta.0"),
     TRANSCRIBE_STREAMING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-transcribe-streaming",
-            "^1.0.0-gamma.0");
+            "^1.0.0-gamma.0"),
+    RETRY_CONFIG_PROVIDER(NORMAL_DEPENDENCY, "@aws-sdk/retry-config-provider", "^1.0.0-gamma.0");
 
     public final String packageName;
     public final String version;
