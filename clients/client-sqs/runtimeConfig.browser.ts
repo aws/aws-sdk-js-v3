@@ -19,6 +19,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   bodyLengthChecker: calculateBodyLength,
   credentialDefaultProvider: invalidFunction("Credential is missing") as any,
   defaultUserAgent: defaultUserAgent(name, version),
+  maxAttemptsDefaultProvider: (() => "3") as any,
   md5: Md5,
   regionDefaultProvider: invalidFunction("Region is missing") as any,
   requestHandler: new FetchHttpHandler(),
