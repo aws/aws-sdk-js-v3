@@ -4,7 +4,11 @@ import {
   SharedConfigInit
 } from "./fromSharedConfigFiles";
 import { chain, memoize } from "@aws-sdk/property-provider";
-import { maxAttemptsProvider, ENV_MAX_ATTEMPTS } from "./maxAttemptsProvider";
+import {
+  maxAttemptsProvider,
+  ENV_MAX_ATTEMPTS,
+  CONFIG_MAX_ATTEMPTS
+} from "./maxAttemptsProvider";
 
 jest.mock("./fromEnv", () => ({
   fromEnv: jest.fn()
@@ -42,7 +46,10 @@ describe("maxAttemptsProvider", () => {
     expect(fromEnv).toHaveBeenCalledTimes(1);
     expect(fromEnv).toHaveBeenCalledWith(ENV_MAX_ATTEMPTS);
     expect(fromSharedConfigFiles).toHaveBeenCalledTimes(1);
-    expect(fromSharedConfigFiles).toHaveBeenCalledWith(configuration);
+    expect(fromSharedConfigFiles).toHaveBeenCalledWith(
+      configuration,
+      CONFIG_MAX_ATTEMPTS
+    );
 
     expect(chain).toHaveBeenCalledTimes(1);
     expect(chain).toHaveBeenCalledWith(

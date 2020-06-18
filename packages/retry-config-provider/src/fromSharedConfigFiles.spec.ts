@@ -11,6 +11,7 @@ jest.mock("@aws-sdk/shared-ini-file-loader", () => ({
 
 describe("fromSharedConfigFiles", () => {
   const envProfile = process.env[ENV_PROFILE];
+  const configKey = "config_key";
 
   beforeEach(() => {
     delete process.env[ENV_PROFILE];
@@ -22,20 +23,12 @@ describe("fromSharedConfigFiles", () => {
 
   const getProviderError = (profile: string) =>
     new ProviderError(
-      `No max_attempts value found for profile ${profile} in SDK configuration files`
+      `No ${configKey} found for profile ${profile} in SDK configuration files`
     );
 
   describe("loadedConfig", () => {
-    const mockMaxAttemptsAnswer = "mockMaxAttemptsAnswer";
-    const mockMaxAttmeptsNotAnswer = "mockMaxAttmeptsNotAnswer";
-    const getIniDataWithAnswersRemoved = (iniData: ParsedIniData) =>
-      Object.keys(iniData).reduce(
-        (acc, key) => ({
-          [key]: { max_attempts: mockMaxAttmeptsNotAnswer },
-          ...acc
-        }),
-        {}
-      );
+    const mockConfigAnswer = "mockConfigAnswer";
+    const mockConfigNotAnswer = "mockConfigNotAnswer";
 
     type loadedConfigTestData = {
       message: string;
@@ -44,22 +37,22 @@ describe("fromSharedConfigFiles", () => {
     };
 
     const loadedConfigResolves: (loadedConfigTestData & {
-      maxAttemptsToVerify: string;
+      configValueToVerify: string;
     })[] = [
       {
-        message: "returns maxAttempts from default profile",
+        message: "returns configValue from default profile",
         iniDataToReturn: {
-          default: { max_attempts: mockMaxAttemptsAnswer }
+          default: { [configKey]: mockConfigAnswer }
         },
-        maxAttemptsToVerify: mockMaxAttemptsAnswer
+        configValueToVerify: mockConfigAnswer
       },
       {
-        message: "returns maxAttempts from designated profile",
+        message: "returns configValue from designated profile",
         iniDataToReturn: {
-          default: { max_attempts: mockMaxAttmeptsNotAnswer },
-          foo: { max_attempts: mockMaxAttemptsAnswer }
+          default: { [configKey]: mockConfigNotAnswer },
+          foo: { [configKey]: mockConfigAnswer }
         },
-        maxAttemptsToVerify: mockMaxAttemptsAnswer,
+        configValueToVerify: mockConfigAnswer,
         profile: "foo"
       }
     ];
@@ -69,13 +62,13 @@ describe("fromSharedConfigFiles", () => {
         message:
           "rejects if default profile is not present and profile value is not passed",
         iniDataToReturn: {
-          foo: { max_attempts: mockMaxAttmeptsNotAnswer }
+          foo: { [configKey]: mockConfigNotAnswer }
         }
       },
       {
         message: "rejects if designated profile is not present",
         iniDataToReturn: {
-          default: { max_attempts: mockMaxAttmeptsNotAnswer }
+          default: { [configKey]: mockConfigNotAnswer }
         },
         profile: "foo"
       }
@@ -83,15 +76,15 @@ describe("fromSharedConfigFiles", () => {
 
     describe("uses the shared ini file loader if pre-loaded config is not supplied", () => {
       loadedConfigResolves.forEach(
-        ({ message, iniDataToReturn, maxAttemptsToVerify, profile }) => {
+        ({ message, iniDataToReturn, configValueToVerify, profile }) => {
           it(`${message} from config file`, () => {
             (loadSharedConfigFiles as jest.Mock).mockResolvedValueOnce({
               configFile: iniDataToReturn,
               credentialsFile: {}
             });
-            return expect(fromSharedConfigFiles({ profile })()).resolves.toBe(
-              maxAttemptsToVerify
-            );
+            return expect(
+              fromSharedConfigFiles({ profile }, configKey)()
+            ).resolves.toBe(configValueToVerify);
           });
         }
       );
@@ -103,7 +96,7 @@ describe("fromSharedConfigFiles", () => {
             credentialsFile: {}
           });
           return expect(
-            fromSharedConfigFiles({ profile })()
+            fromSharedConfigFiles({ profile }, configKey)()
           ).rejects.toMatchObject(getProviderError(profile ?? "default"));
         });
       });
@@ -111,15 +104,15 @@ describe("fromSharedConfigFiles", () => {
 
     describe("uses pre-loaded config if supplied", () => {
       loadedConfigResolves.forEach(
-        ({ message, iniDataToReturn, maxAttemptsToVerify, profile }) => {
+        ({ message, iniDataToReturn, configValueToVerify, profile }) => {
           it(`${message} from config file`, () => {
             const loadedConfig = Promise.resolve({
               configFile: iniDataToReturn,
               credentialsFile: {}
             });
             return expect(
-              fromSharedConfigFiles({ loadedConfig, profile })()
-            ).resolves.toBe(maxAttemptsToVerify);
+              fromSharedConfigFiles({ loadedConfig, profile }, configKey)()
+            ).resolves.toBe(configValueToVerify);
           });
         }
       );
@@ -131,7 +124,7 @@ describe("fromSharedConfigFiles", () => {
             credentialsFile: iniDataToReturn
           });
           return expect(
-            fromSharedConfigFiles({ loadedConfig, profile })()
+            fromSharedConfigFiles({ loadedConfig, profile }, configKey)()
           ).rejects.toMatchObject(getProviderError(profile ?? "default"));
         });
       });
@@ -141,33 +134,33 @@ describe("fromSharedConfigFiles", () => {
   describe("profile", () => {
     const loadedConfigData = {
       configFile: {
-        default: { max_attempts: "credentialsFileDefault" },
-        foo: { max_attempts: "credentialsFileDefault" }
+        default: { [configKey]: "credentialsFileDefault" },
+        foo: { [configKey]: "credentialsFileDefault" }
       },
       credentialsFile: {}
     };
     const loadedConfig = Promise.resolve(loadedConfigData);
 
-    it("returns maxAttempts from designated profile when profile is defined", () => {
+    it("returns configValue from designated profile when profile is defined", () => {
       const profile = "foo";
       return expect(
-        fromSharedConfigFiles({ loadedConfig, profile })()
-      ).resolves.toBe(loadedConfigData.configFile[profile].max_attempts);
+        fromSharedConfigFiles({ loadedConfig, profile }, configKey)()
+      ).resolves.toBe(loadedConfigData.configFile[profile][configKey]);
     });
 
     describe("when profile is not defined", () => {
-      it(`returns maxAttempts from value in '${ENV_PROFILE}' env var if it is set`, () => {
+      it(`returns configValue from value in '${ENV_PROFILE}' env var if it is set`, () => {
         const profile = "foo";
         process.env[ENV_PROFILE] = profile;
-        return expect(fromSharedConfigFiles({ loadedConfig })()).resolves.toBe(
-          loadedConfigData.configFile[profile].max_attempts
-        );
+        return expect(
+          fromSharedConfigFiles({ loadedConfig }, configKey)()
+        ).resolves.toBe(loadedConfigData.configFile[profile][configKey]);
       });
 
-      it(`returns maxAttempts from default profile if '${ENV_PROFILE}' env var is not set`, () => {
-        return expect(fromSharedConfigFiles({ loadedConfig })()).resolves.toBe(
-          loadedConfigData.configFile.default.max_attempts
-        );
+      it(`returns configValue from default profile if '${ENV_PROFILE}' env var is not set`, () => {
+        return expect(
+          fromSharedConfigFiles({ loadedConfig }, configKey)()
+        ).resolves.toBe(loadedConfigData.configFile.default[configKey]);
       });
     });
   });

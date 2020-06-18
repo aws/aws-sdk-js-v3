@@ -23,7 +23,8 @@ export interface SharedConfigInit extends BaseSharedConfigInit {
 }
 
 export const fromSharedConfigFiles = (
-  init: SharedConfigInit = {}
+  init: SharedConfigInit = {},
+  configKey: string
 ): Provider<string> => async () => {
   const {
     loadedConfig = loadSharedConfigFiles(init),
@@ -31,12 +32,12 @@ export const fromSharedConfigFiles = (
   } = init;
 
   const { configFile } = await loadedConfig;
-  const { max_attempts } = configFile[profile] || <any>{};
-  if (typeof max_attempts === "string") {
-    return max_attempts;
+  const { [configKey]: configValue } = configFile[profile] || <any>{};
+  if (typeof configValue === "string") {
+    return configValue;
   }
 
   throw new ProviderError(
-    `No max_attempts value found for profile ${profile} in SDK configuration files`
+    `No ${configKey} found for profile ${profile} in SDK configuration files`
   );
 };
