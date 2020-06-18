@@ -32,7 +32,7 @@ export const fromSharedConfigFiles = (
   } = init;
 
   const { configFile } = await loadedConfig;
-  const { [configKey]: configValue } = configFile[profile] || <any>{};
+  const { [configKey]: configValue } = configFile[profile] || {};
   if (typeof configValue === "string") {
     return configValue;
   }
