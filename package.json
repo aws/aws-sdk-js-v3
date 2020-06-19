@@ -13,7 +13,7 @@
     "build:crypto-dependencies": "lerna run --scope '@aws-sdk/types' --scope '@aws-sdk/util-utf8-browser' --scope '@aws-sdk/util-locate-window' --scope '@aws-sdk/hash-node' --include-dependencies pretest",
     "build:protocols": "yarn build:crypto-dependencies && lerna run --scope '@aws-sdk/aws-*' --include-dependencies pretest",
     "build:smithy-client": "yarn build:crypto-dependencies && lerna run --scope '@aws-sdk/client-rds-data' --include-dependencies pretest",
-    "build:all": "yarn build:crypto-dependencies && lerna run pretest --include-dependencies --include-dependents",
+    "build:all": "yarn build:crypto-dependencies && lerna run pretest",
     "pretest:all": "yarn build:all",
     "test:all": "jest --coverage --passWithNoTests && lerna run test --scope @aws-sdk/fetch-http-handler --scope @aws-sdk/hash-blob-browser",
     "test:functional": "jest --config tests/functional/jest.config.js --passWithNoTests",
