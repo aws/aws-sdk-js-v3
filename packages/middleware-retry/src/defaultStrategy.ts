@@ -91,6 +91,17 @@ export class StandardRetryStrategy implements RetryStrategy {
     );
   }
 
+  private async getMaxAttempts() {
+    let maxAttemptsStr;
+    try {
+      maxAttemptsStr = await this.maxAttemptsProvider();
+    } catch (error) {
+      maxAttemptsStr = "3";
+    }
+    const maxAttempts = parseInt(maxAttemptsStr);
+    return Number.isNaN(maxAttempts) ? 3 : maxAttempts;
+  }
+
   async retry<Input extends object, Ouput extends MetadataBearer>(
     next: FinalizeHandler<Input, Ouput>,
     args: FinalizeHandlerArguments<Input>
@@ -99,16 +110,7 @@ export class StandardRetryStrategy implements RetryStrategy {
     let attempts = 0;
     let totalDelay = 0;
 
-    const maxAttempts = await (async () => {
-      let maxAttemptsStr;
-      try {
-        maxAttemptsStr = await this.maxAttemptsProvider();
-      } catch (error) {
-        maxAttemptsStr = "3";
-      }
-      const maxAttempts = parseInt(maxAttemptsStr);
-      return Number.isNaN(maxAttempts) ? 3 : maxAttempts;
-    })();
+    const maxAttempts = await this.getMaxAttempts();
 
     const { request } = args;
     if (HttpRequest.isInstance(request)) {
