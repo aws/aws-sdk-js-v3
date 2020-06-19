@@ -45,6 +45,7 @@
     "@aws-sdk/node-http-handler": "1.0.0-gamma.1",
     "@aws-sdk/protocol-http": "1.0.0-gamma.1",
     "@aws-sdk/region-provider": "1.0.0-gamma.1",
+    "@aws-sdk/retry-config-provider": "1.0.0-gamma.0",
     "@aws-sdk/smithy-client": "1.0.0-gamma.1",
     "@aws-sdk/types": "1.0.0-gamma.1",
     "@aws-sdk/url-parser-browser": "1.0.0-gamma.1",

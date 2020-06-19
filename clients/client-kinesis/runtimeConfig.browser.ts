@@ -20,6 +20,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   credentialDefaultProvider: invalidFunction("Credential is missing") as any,
   defaultUserAgent: defaultUserAgent(name, version),
   eventStreamSerdeProvider,
+  maxAttemptsDefaultProvider: (() => "3") as any,
   regionDefaultProvider: invalidFunction("Region is missing") as any,
   requestHandler: new FetchHttpHandler(),
   sha256: Sha256,

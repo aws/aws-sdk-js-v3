@@ -242,6 +242,11 @@ export interface ClientDefaults
   regionDefaultProvider?: (input: any) => __Provider<string>;
 
   /**
+   * Provider function that return promise of a maxAttempts string
+   */
+  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+
+  /**
    * Fetch related hostname, signing name or signing region with given region.
    */
   regionInfoProvider?: RegionInfoProvider;

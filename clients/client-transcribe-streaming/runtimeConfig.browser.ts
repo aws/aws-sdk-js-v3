@@ -25,6 +25,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   defaultUserAgent: defaultUserAgent(name, version),
   eventStreamPayloadHandlerProvider: () => eventStreamPayloadHandler,
   eventStreamSerdeProvider,
+  maxAttemptsDefaultProvider: (() => "3") as any,
   regionDefaultProvider: invalidFunction("Region is missing") as any,
   requestHandler: new WebSocketHandler(),
   sha256: Sha256,

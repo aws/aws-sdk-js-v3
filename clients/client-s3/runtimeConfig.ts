@@ -5,6 +5,7 @@ import { Hash } from "@aws-sdk/hash-node";
 import { fileStreamHasher as streamHasher } from "@aws-sdk/hash-stream-node";
 import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
 import { defaultProvider as regionDefaultProvider } from "@aws-sdk/region-provider";
+import { maxAttemptsProvider as maxAttemptsDefaultProvider } from "@aws-sdk/retry-config-provider";
 import { HashConstructor as __HashConstructor } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser-node";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";
@@ -23,6 +24,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   credentialDefaultProvider,
   defaultUserAgent: defaultUserAgent(name, version),
   eventStreamSerdeProvider,
+  maxAttemptsDefaultProvider,
   md5: Hash.bind(null, "md5"),
   regionDefaultProvider,
   requestHandler: new NodeHttpHandler(),

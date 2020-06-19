@@ -5,6 +5,7 @@ import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-node";
 import { Hash } from "@aws-sdk/hash-node";
 import { NodeHttp2Handler, streamCollector } from "@aws-sdk/node-http-handler";
 import { defaultProvider as regionDefaultProvider } from "@aws-sdk/region-provider";
+import { maxAttemptsProvider as maxAttemptsDefaultProvider } from "@aws-sdk/retry-config-provider";
 import { parseUrl } from "@aws-sdk/url-parser-node";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
@@ -23,6 +24,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   defaultUserAgent: defaultUserAgent(name, version),
   eventStreamPayloadHandlerProvider,
   eventStreamSerdeProvider,
+  maxAttemptsDefaultProvider,
   regionDefaultProvider,
   requestHandler: new NodeHttp2Handler(),
   sha256: Hash.bind(null, "sha256"),
