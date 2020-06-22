@@ -1,79 +1,126 @@
 import { memoize } from "./memoize";
-import { Provider } from "@aws-sdk/types";
 
 describe("memoize", () => {
+  let provider: jest.Mock;
+  const mockReturn = "foo";
+  const repeatTimes = 10;
+
+  beforeEach(() => {
+    provider = jest.fn().mockResolvedValue(mockReturn);
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   describe("static memoization", () => {
     it("should cache the resolved provider", async () => {
-      const provider = jest.fn().mockResolvedValue("foo");
+      expect.assertions(repeatTimes * 2);
+
       const memoized = memoize(provider);
 
-      expect(await memoized()).toEqual("foo");
-      expect(provider.mock.calls.length).toBe(1);
-      expect(await memoized()).toEqual("foo");
-      expect(provider.mock.calls.length).toBe(1);
+      for (const index in [...Array(repeatTimes).keys()]) {
+        expect(await memoized()).toStrictEqual(mockReturn);
+        expect(provider).toHaveBeenCalledTimes(1);
+      }
     });
 
     it("should always return the same promise", () => {
-      const provider = jest.fn().mockResolvedValue("foo");
+      expect.assertions(repeatTimes * 2);
+
       const memoized = memoize(provider);
       const result = memoized();
 
-      expect(memoized()).toBe(result);
+      for (const index in [...Array(repeatTimes).keys()]) {
+        expect(memoized()).toStrictEqual(result);
+        expect(provider).toHaveBeenCalledTimes(1);
+      }
     });
   });
 
   describe("refreshing memoization", () => {
-    it("should not reinvoke the underlying provider while isExpired returns `false`", async () => {
-      const provider = jest.fn().mockResolvedValue("foo");
-      const isExpired = jest.fn().mockReturnValue(false);
-      const memoized = memoize(provider, isExpired);
+    let isExpired: jest.Mock;
+    let requiresRefresh: jest.Mock;
 
-      const checkCount = 10;
-      for (let i = 0; i < checkCount; i++) {
-        expect(await memoized()).toBe("foo");
-      }
-
-      expect(isExpired.mock.calls.length).toBe(checkCount);
-      expect(provider.mock.calls.length).toBe(1);
+    beforeEach(() => {
+      isExpired = jest.fn().mockReturnValue(true);
+      requiresRefresh = jest.fn().mockReturnValue(false);
     });
 
-    it("should reinvoke the underlying provider when isExpired returns `true`", async () => {
-      const provider = jest.fn().mockResolvedValue("foo");
-      const isExpired = jest.fn().mockReturnValue(false);
-      const memoized = memoize(provider, isExpired);
+    describe("should not reinvoke the underlying provider while isExpired returns `false`", () => {
+      const isExpiredFalseTest = async (requiresRefresh?: any) => {
+        isExpired.mockReturnValue(false);
+        const memoized = memoize(provider, isExpired, requiresRefresh);
 
-      const checkCount = 10;
-      for (let i = 0; i < checkCount; i++) {
-        expect(await memoized()).toBe("foo");
-      }
+        for (const index in [...Array(repeatTimes).keys()]) {
+          expect(await memoized()).toEqual(mockReturn);
+        }
 
-      expect(isExpired.mock.calls.length).toBe(checkCount);
-      expect(provider.mock.calls.length).toBe(1);
+        expect(isExpired).toHaveBeenCalledTimes(repeatTimes);
+        if (requiresRefresh) {
+          expect(requiresRefresh).toHaveBeenCalledTimes(repeatTimes);
+        }
+        expect(provider).toHaveBeenCalledTimes(1);
+      };
 
-      isExpired.mockReturnValueOnce(true);
-      for (let i = 0; i < checkCount; i++) {
-        expect(await memoized()).toBe("foo");
-      }
+      it("when requiresRefresh is not passed", async () => {
+        return isExpiredFalseTest();
+      });
 
-      expect(isExpired.mock.calls.length).toBe(checkCount * 2);
-      expect(provider.mock.calls.length).toBe(2);
+      it("when requiresRefresh returns true", () => {
+        requiresRefresh.mockReturnValue(true);
+        return isExpiredFalseTest(requiresRefresh);
+      });
     });
 
-    it("should return the same promise for invocations 2-infinity if `requiresRefresh` returns `false`", async () => {
-      const provider = jest.fn().mockResolvedValue("foo");
-      const isExpired = jest.fn().mockReturnValue(true);
-      const requiresRefresh = jest.fn().mockReturnValue(false);
+    describe("should reinvoke the underlying provider when isExpired returns `true`", () => {
+      const isExpiredTrueTest = async (requiresRefresh?: any) => {
+        const memoized = memoize(provider, isExpired, requiresRefresh);
 
-      const memoized = memoize(provider, isExpired, requiresRefresh);
-      expect(await memoized()).toBe("foo");
-      const set = new Set<Promise<string>>();
+        for (const index in [...Array(repeatTimes).keys()]) {
+          expect(await memoized()).toEqual(mockReturn);
+        }
 
-      const checkCount = 10;
-      for (let i = 0; i < checkCount; i++) {
-        set.add(memoized());
-      }
+        expect(isExpired).toHaveBeenCalledTimes(repeatTimes);
+        if (requiresRefresh) {
+          expect(requiresRefresh).toHaveBeenCalledTimes(repeatTimes);
+        }
+        expect(provider).toHaveBeenCalledTimes(repeatTimes + 1);
+      };
 
-      expect(set.size).toBe(1);
+      it("when requiresRefresh is not passed", () => {
+        return isExpiredTrueTest();
+      });
+
+      it("when requiresRefresh returns true", () => {
+        requiresRefresh.mockReturnValue(true);
+        return isExpiredTrueTest(requiresRefresh);
+      });
+    });
+
+    describe("should return the same promise for invocations 2-infinity if `requiresRefresh` returns `false`", () => {
+      const requiresRefreshFalseTest = async () => {
+        const memoized = memoize(provider, isExpired, requiresRefresh);
+        const result = memoized();
+        expect(await result).toBe(mockReturn);
+
+        for (const index in [...Array(repeatTimes).keys()]) {
+          expect(memoized()).toStrictEqual(result);
+          expect(provider).toHaveBeenCalledTimes(1);
+        }
+
+        expect(requiresRefresh).toHaveBeenCalledTimes(1);
+        expect(isExpired).not.toHaveBeenCalled();
+      };
+
+      it("when isExpired returns true", () => {
+        return requiresRefreshFalseTest();
+      });
+
+      it("when isExpired returns false", () => {
+        isExpired.mockReturnValue(false);
+        return requiresRefreshFalseTest();
+      });
     });
   });
 });
