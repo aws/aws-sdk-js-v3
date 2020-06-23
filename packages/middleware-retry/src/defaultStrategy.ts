@@ -11,7 +11,8 @@ import {
   FinalizeHandler,
   MetadataBearer,
   FinalizeHandlerArguments,
-  RetryStrategy
+  RetryStrategy,
+  Provider
 } from "@aws-sdk/types";
 import { getDefaultRetryQuota } from "./defaultRetryQuota";
 import { HttpRequest } from "@aws-sdk/protocol-http";
@@ -73,7 +74,7 @@ export class StandardRetryStrategy implements RetryStrategy {
   private retryQuota: RetryQuota;
 
   constructor(
-    public readonly maxAttempts: number,
+    private readonly maxAttemptsProvider: Provider<string>,
     options?: StandardRetryStrategyOptions
   ) {
     this.retryDecider = options?.retryDecider ?? defaultRetryDecider;
@@ -82,12 +83,23 @@ export class StandardRetryStrategy implements RetryStrategy {
       options?.retryQuota ?? getDefaultRetryQuota(INITIAL_RETRY_TOKENS);
   }
 
-  private shouldRetry(error: SdkError, attempts: number) {
+  private shouldRetry(error: SdkError, attempts: number, maxAttempts: number) {
     return (
-      attempts < this.maxAttempts &&
+      attempts < maxAttempts &&
       this.retryDecider(error) &&
       this.retryQuota.hasRetryTokens(error)
     );
+  }
+
+  private async getMaxAttempts() {
+    let maxAttemptsStr;
+    try {
+      maxAttemptsStr = await this.maxAttemptsProvider();
+    } catch (error) {
+      maxAttemptsStr = "3";
+    }
+    const maxAttempts = parseInt(maxAttemptsStr);
+    return Number.isNaN(maxAttempts) ? 3 : maxAttempts;
   }
 
   async retry<Input extends object, Ouput extends MetadataBearer>(
@@ -98,6 +110,8 @@ export class StandardRetryStrategy implements RetryStrategy {
     let attempts = 0;
     let totalDelay = 0;
 
+    const maxAttempts = await this.getMaxAttempts();
+
     const { request } = args;
     if (HttpRequest.isInstance(request)) {
       request.headers["amz-sdk-invocation-id"] = v4();
@@ -106,9 +120,9 @@ export class StandardRetryStrategy implements RetryStrategy {
     while (true) {
       try {
         if (HttpRequest.isInstance(request)) {
-          request.headers["amz-sdk-request"] = `attempt=${attempts + 1}; max=${
-            this.maxAttempts
-          }`;
+          request.headers["amz-sdk-request"] = `attempt=${
+            attempts + 1
+          }; max=${maxAttempts}`;
         }
         const { response, output } = await next(args);
 
@@ -119,7 +133,7 @@ export class StandardRetryStrategy implements RetryStrategy {
         return { response, output };
       } catch (err) {
         attempts++;
-        if (this.shouldRetry(err as SdkError, attempts)) {
+        if (this.shouldRetry(err as SdkError, attempts, maxAttempts)) {
           retryTokenAmount = this.retryQuota.retrieveRetryTokens(err);
           const delay = this.delayDecider(
             isThrottlingError(err)
