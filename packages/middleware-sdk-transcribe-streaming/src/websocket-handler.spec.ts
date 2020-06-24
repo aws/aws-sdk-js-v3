@@ -65,7 +65,7 @@ describe("WebSocketHandler", () => {
       expect(err.$metadata).toBeDefined();
       expect(err.$metadata.httpStatusCode >= 500).toBe(true);
       expect(
-        (global.setTimeout as jest.Mock).mock.calls.filter(args => {
+        ((global as any).setTimeout as jest.Mock).mock.calls.filter(args => {
           //find the 'setTimeout' call from the websocket handler
           return args[0].toString().indexOf("$metadata") >= 0;
         })[0][1]
