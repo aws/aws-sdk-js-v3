@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import { S3 } from "./S3";
 import { SerializeMiddleware } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";

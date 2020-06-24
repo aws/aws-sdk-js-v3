@@ -12,7 +12,7 @@
     "remove-documentation": "rimraf ./docs",
     "remove-js": "rimraf *.js && rimraf ./commands/*.js && rimraf ./models/*.js && rimraf ./protocols/*.js",
     "remove-maps": "rimraf *.js.map && rimraf ./commands/*.js.map && rimraf ./models/*.js.map && rimraf ./protocols/*.js.map",
-    "test": "jest --passWithNoTests",
+    "test:browser": "karma start karma.conf.js",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn pretest && yarn build:es"
   },
@@ -39,6 +39,7 @@
     "@aws-sdk/hash-node": "1.0.0-gamma.1",
     "@aws-sdk/hash-stream-node": "1.0.0-gamma.1",
     "@aws-sdk/invalid-dependency": "1.0.0-gamma.1",
+    "@aws-sdk/karma-credential-loader": "1.0.0-gamma.0",
     "@aws-sdk/md5-js": "1.0.0-gamma.1",
     "@aws-sdk/middleware-apply-body-checksum": "1.0.0-gamma.1",
     "@aws-sdk/middleware-bucket-endpoint": "1.0.0-gamma.1",
@@ -74,8 +75,9 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^7.0.2",
     "@types/node": "^12.7.5",
-    "jest": "^25.1.0",
     "rimraf": "^3.0.0",
     "tslib": "^1.8.0",
     "typedoc": "^0.15.0",

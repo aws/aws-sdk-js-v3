@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "..",
+    "target": "es5",
+    "lib": ["dom"],
+    "types": ["mocha"]
+  },
+  "exclude": ["./*.spec.ts", "dist", "types"]
+}
