@@ -2,15 +2,15 @@
   "name": "@aws-sdk/credential-provider-cognito-identity",
   "version": "1.0.0-gamma.2",
   "scripts": {
-    "prepublishOnly": "tsc",
+    "prepublishOnly": "yarn build:cjs",
     "pretest": "yarn build:cjs && yarn build:es",
-    "build:cjs": "tsc -p tsconfig.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "test": "jest"
   },
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/es/index.js",
-  "types": "./dist/cjs/index.d.ts",
+  "main": "./build/index.js",
+  "module": "./build-es/index.js",
+  "types": "./build/index.d.ts",
   "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",

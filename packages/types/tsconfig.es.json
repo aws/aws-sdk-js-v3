@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es5",
     "lib": [
       "es5",
       "es2015.promise",
@@ -12,7 +10,9 @@
     "strict": true,
     "declaration": true,
     "rootDir": "./src",
-    "outDir": "./build",
-    "incremental": true
-  }
+    "outDir": "./build-es",
+    "baseUrl": "."
+  },
+  "extends": "../../tsconfig.es.json",
+  "include": ["src/"]
 }

@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "target": "es2017",
-    "module": "commonjs",
     "declaration": true,
     "strict": true,
     "sourceMap": true,
@@ -10,9 +8,11 @@
     "noEmitHelpers": true,
     "lib": ["dom"],
     "rootDir": "./src",
-    "outDir": "dist/cjs",
-    "incremental": true,
+    "outDir": "./build",
     "declarationDir": "./dist/cjs",
-    "noUnusedLocals": true
-  }
+    "noUnusedLocals": true,
+    "baseUrl": "."
+  },
+  "extends": "../../tsconfig.cjs.json",
+  "include": ["src/"]
 }
