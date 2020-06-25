@@ -7,15 +7,17 @@ phases:
   build:
     commands:
       # Fake credentials for protocol tests to get past signing.
-      - export AWS_ACCESS_KEY_ID=foo
-      - export AWS_SECRET_ACCESS_KEY=bar
+      # - export AWS_ACCESS_KEY_ID=foo
+      # - export AWS_SECRET_ACCESS_KEY=bar
+      - export AWS_SMOKE_TEST_REGION=us-west-2
       - echo Building...
       - yarn --frozen-lockfile
-      # Run the actual tests.
-      - echo Executing unit tests
-      - yarn test:all
-      - echo Executing functional test
-      - yarn test:functional
+      - npx yarn build:crypto-dependencies
+      - npx lerna run pretest --scope '@aws-sdk/client-s3' --include-dependencies
+      - echo Run S3 E2E
+      - npx lerna run test:browser --scope @aws-sdk/client-s3
+      # - echo Executing functional test
+      # - yarn test:functional
   post_build:
     commands:
       # Handle code coverage.
