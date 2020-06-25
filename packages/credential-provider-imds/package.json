@@ -4,8 +4,10 @@
   "description": "AWS credential provider that sources credentials from the EC2 instance metadata service and ECS container metadata service",
   "main": "./build/index.js",
   "scripts": {
-    "prepublishOnly": "tsc",
-    "pretest": "tsc -p tsconfig.test.json",
+    "prepublishOnly": "yarn build:cjs",
+    "pretest": "yarn build:cjs && yarn build:es",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:es": "tsc -p tsconfig.es.json",
     "test": "jest"
   },
   "keywords": [

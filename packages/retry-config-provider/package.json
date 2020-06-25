@@ -5,8 +5,10 @@
   "main": "./build/index.js",
   "typings": "./build/index.d.ts",
   "scripts": {
-    "prepublishOnly": "tsc",
-    "pretest": "tsc -p tsconfig.test.json",
+    "prepublishOnly": "yarn build:cjs",
+    "pretest": "yarn build:cjs && yarn build:es",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:es": "tsc -p tsconfig.es.json",
     "test": "jest"
   },
   "keywords": [

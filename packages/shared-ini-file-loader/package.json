@@ -11,8 +11,10 @@
     "typescript": "~3.8.3"
   },
   "scripts": {
-    "prepublishOnly": "tsc",
-    "pretest": "tsc -p tsconfig.test.json",
+    "prepublishOnly": "yarn build:cjs",
+    "pretest": "yarn build:cjs && yarn build:es",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:es": "tsc -p tsconfig.es.json",
     "test": "jest"
   },
   "author": {
