@@ -5,9 +5,15 @@
  */
 import { expect } from "chai";
 import { S3Client, PutObjectCommand, DeleteObjectCommand } from "../index";
-declare let defaultRegion: string;
-declare const credentials: any;
-declare const isBrowser: boolean; //undefined by default, used for NodeJS.
+import { Credentials } from "@aws-sdk/types";
+// There will be default values for them in browser tests.
+declare let defaultRegion: string | undefined;
+declare let credentials: Credentials | undefined;
+declare let isBrowser: boolean | undefined;
+// Define the values for Node.js tests
+defaultRegion = defaultRegion || undefined;
+credentials = credentials || undefined;
+isBrowser = isBrowser || false;
 
 const Bucket = "aws-sdk-unit-test"; // this bucket requires enabling CORS
 const Key = `${Date.now()}`;
@@ -29,7 +35,6 @@ describe("@aws-sdk/client-s3", () => {
 
   if (isBrowser) {
     it("PutObject should succeed when given blob body", async () => {
-      const smallBody = [];
       const result = await client.send(
         new PutObjectCommand({
           Bucket,

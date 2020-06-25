@@ -22,7 +22,7 @@ module.exports = function (config) {
               {
                 loader: "ts-loader",
                 options: {
-                  configFile: "tsconfig.e2e.json",
+                  configFile: "tsconfig.json",
                   compilerOptions: {
                     rootDir: "./"
                   }
@@ -33,16 +33,6 @@ module.exports = function (config) {
           }
         ]
       },
-      // stats: {
-      //   // colors: false,
-      //   // modules: false,
-      //   // reasons: false,
-      //   // assets: false,
-      //   // moduleAssets: false,
-      //   // chunks: false,
-      //   // errorDetails: true
-      //   all: false
-      // },
       devtool: "inline-source-map"
     },
     plugins: [

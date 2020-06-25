@@ -13,7 +13,7 @@
     "resolveJsonModule": true,
     "declarationDir": "./types",
     "outDir": "dist/cjs",
-    "types": ["jest"]
+    "types": ["mocha"]
   },
   "typedocOptions": {
     "exclude": "**/node_modules/**",
@@ -24,6 +24,5 @@
     "mode": "file",
     "out": "./docs",
     "plugin": "@aws-sdk/client-documentation-generator"
-  },
-  "exclude": ["e2e", "types"]
+  }
 }

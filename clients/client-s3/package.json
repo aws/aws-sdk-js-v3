@@ -12,7 +12,9 @@
     "remove-documentation": "rimraf ./docs",
     "remove-js": "rimraf *.js && rimraf ./commands/*.js && rimraf ./models/*.js && rimraf ./protocols/*.js",
     "remove-maps": "rimraf *.js.map && rimraf ./commands/*.js.map && rimraf ./models/*.js.map && rimraf ./protocols/*.js.map",
-    "test:browser": "karma start karma.conf.js",
+    "test:unit": "mocha **/cjs/**/*.spec.js",
+    "test:e2e": "mocha **/cjs/**/*.ispec.js && karma start karma.conf.js",
+    "test": "yarn test:unit",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn pretest && yarn build:es"
   },
