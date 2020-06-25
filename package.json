@@ -8,7 +8,7 @@
     "generate-clients": "node ./scripts/generate-clients",
     "bootstrap": "yarn",
     "clean": "yarn clear-build-cache && yarn clear-build-info && lerna clean",
-    "clear-build-cache": "rimraf ./packages/*/build/* ./clients/*/*/build/*",
+    "clear-build-cache": "rimraf ./packages/*/build  ./packages/*/build-es ./clients/*/dist",
     "clear-build-info": "rimraf ./packages/*/*.tsbuildinfo ./clients/*/*/*.tsbuildinfo",
     "build:crypto-dependencies": "lerna run --scope '@aws-sdk/types' --scope '@aws-sdk/util-utf8-browser' --scope '@aws-sdk/util-locate-window' --scope '@aws-sdk/hash-node' --include-dependencies pretest",
     "build:protocols": "yarn build:crypto-dependencies && lerna run --scope '@aws-sdk/aws-*' --include-dependencies pretest",
