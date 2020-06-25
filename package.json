@@ -45,11 +45,18 @@
     "fs-extra": "^9.0.0",
     "generate-changelog": "^1.7.1",
     "husky": "^4.2.3",
+    "jasmine-core": "^3.5.0",
     "jest": "^25.1.0",
     "jmespath": "^0.15.0",
+    "karma": "^5.1.0",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-coverage": "^2.0.2",
+    "karma-jasmine": "^3.3.1",
+    "karma-typescript": "^5.0.3",
     "lerna": "3.22.1",
     "lint-staged": "^10.0.1",
     "prettier": "2.0.5",
+    "puppeteer": "^4.0.0",
     "typescript": "~3.8.3",
     "yarn": "1.22.4"
   },
@@ -61,7 +68,9 @@
     ],
     "nohoist": [
       "**/karma*",
-      "**/karma*/**"
+      "**/karma*/**",
+      "**/@types/mocha*",
+      "**/@types/mocha*/**"
     ]
   },
   "husky": {
