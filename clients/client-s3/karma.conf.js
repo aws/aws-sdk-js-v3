@@ -45,6 +45,7 @@ module.exports = function (config) {
       "karma-coverage",
       "karma-sourcemap-loader"
     ],
+    reporters: ["progress"],
     port: 9876,
     colors: true,
     logLevel: config.LOG_WARN,
