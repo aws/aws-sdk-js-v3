@@ -11,4 +11,5 @@ package-lock.json
 
 *.d.ts
 *.js
+!karma.conf.js
 *.js.map
