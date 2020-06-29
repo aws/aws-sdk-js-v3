@@ -40,3 +40,6 @@ codegen/sdk-codegen/smithy-build.json
 protocol_tests/*/coverage
 protocol_tests/*/dist
 protocol_tests/*/types
+
+/verdaccio/*
+!/verdaccio/config.yaml
