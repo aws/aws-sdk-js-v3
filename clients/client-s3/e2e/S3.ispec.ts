@@ -7,6 +7,7 @@ import * as chai from "chai";
 import * as chaiAsPromised from "chai-as-promised";
 import { S3 } from "../index";
 import { Credentials } from "@aws-sdk/types";
+import { createBuffer } from "./helpers";
 chai.use(chaiAsPromised);
 const { expect } = chai;
 // There will be default values of defaultRegion, credentials, and isBrowser variable in browser tests.
@@ -20,7 +21,7 @@ const isBrowser: boolean | undefined = (globalThis as any).isBrowser || false;
 // this bucket requires enabling CORS:
 // AllowedOrigin(*), AllowedMethod(GET, PUT, POST, DELETE, HEAD), ExposeHeader(ETag), AllowedHeader(*)
 const Bucket = "aws-sdk-unit-test";
-const Key = `${Date.now()}`;
+let Key = `${Date.now()}`;
 
 describe("@aws-sdk/client-s3", () => {
   const client = new S3({
@@ -28,38 +29,12 @@ describe("@aws-sdk/client-s3", () => {
     credentials
   });
 
-  const createBuffer = (size: string) => {
-    var match;
-    var buffer;
-    if ((match = size.match(/(\d+)KB/))) {
-      buffer = Buffer.alloc(parseInt(match[1]) * 1024);
-    } else if ((match = size.match(/(\d+)MB/))) {
-      buffer = Buffer.alloc(parseInt(match[1]) * 1024 * 1024);
-    } else {
-      switch (size) {
-        case "empty":
-          buffer = Buffer.alloc(0);
-          break;
-        case "small":
-          buffer = Buffer.alloc(1024 * 1024);
-          break;
-        case "large":
-          buffer = Buffer.alloc(1024 * 1024 * 20);
-          break;
-        default:
-          return Buffer.alloc(1024 * 1024);
-      }
-    }
-    buffer.fill("x");
-    return buffer;
-  };
-
   describe("PutObject", () => {
+    before(() => {
+      Key = `${Date.now()}`;
+    });
     after(async () => {
-      await client.deleteObject({
-        Bucket,
-        Key
-      });
+      await client.deleteObject({ Bucket, Key });
     });
     if (isBrowser) {
       const buf = createBuffer("1KB");
@@ -137,12 +112,41 @@ describe("@aws-sdk/client-s3", () => {
     }
   });
 
+  describe("GetObject", function () {
+    this.timeout(10 * 1000);
+    before(async () => {
+      Key = `${Date.now()}`;
+    });
+
+    after(async () => {
+      await client.deleteObject({ Bucket, Key });
+    });
+
+    it("should succeed with valid body payload", async () => {
+      // prepare the object.
+      const body = createBuffer("1MB");
+      await client.putObject({ Bucket, Key, Body: body });
+      const result = await client.getObject({ Bucket, Key });
+      expect(result.$metadata.httpStatusCode).to.equal(200);
+      if (isBrowser) {
+        expect(result.Body).to.be.instanceOf(ReadableStream);
+      } else {
+        const { Readable } = require("stream");
+        expect(result.Body).to.be.instanceOf(Readable);
+      }
+    });
+  });
+
   describe("ListObjects", () => {
+    before(() => {
+      Key = `${Date.now()}`;
+    });
     it("should succeed with valid bucket", async () => {
       const result = await client.listObjects({
         Bucket
       });
       expect(result.$metadata.httpStatusCode).to.equal(200);
+      expect(result.Contents).to.be.instanceOf(Array);
     });
 
     it("should throw with invalid bucket", () =>
@@ -155,6 +159,9 @@ describe("@aws-sdk/client-s3", () => {
     let UploadId: string | undefined = undefined;
     let Etag: string | undefined = undefined;
     const multipartObjectKey = `${Key}-multipart`;
+    before(() => {
+      Key = `${Date.now()}`;
+    });
     afterEach(async () => {
       if (UploadId) {
         await client.abortMultipartUpload({
