@@ -311,6 +311,7 @@ export namespace ConfigTypeData {
       return visitor.uplinkEchoConfig(value.uplinkEchoConfig);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+  export const filterSensitiveLog = (obj: ConfigTypeData): any => ({});
 }
 
 /**

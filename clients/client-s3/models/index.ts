@@ -10020,6 +10020,9 @@ export namespace SelectObjectContentEventStream {
     if (value.Stats !== undefined) return visitor.Stats(value.Stats);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+  export const filterSensitiveLog = (
+    obj: SelectObjectContentEventStream
+  ): any => ({});
 }
 
 export interface SelectObjectContentOutput {

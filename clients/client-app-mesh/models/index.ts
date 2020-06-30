@@ -33,6 +33,7 @@ export namespace AccessLog {
     if (value.file !== undefined) return visitor.file(value.file);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+  export const filterSensitiveLog = (obj: AccessLog): any => ({});
 }
 
 /**
@@ -128,6 +129,7 @@ export namespace Backend {
       return visitor.virtualService(value.virtualService);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+  export const filterSensitiveLog = (obj: Backend): any => ({});
 }
 
 /**
@@ -1505,6 +1507,9 @@ export namespace GrpcRouteMetadataMatchMethod {
     if (value.suffix !== undefined) return visitor.suffix(value.suffix);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+  export const filterSensitiveLog = (
+    obj: GrpcRouteMetadataMatchMethod
+  ): any => ({});
 }
 
 export interface GrpcTimeout {
@@ -1625,6 +1630,7 @@ export namespace HeaderMatchMethod {
     if (value.suffix !== undefined) return visitor.suffix(value.suffix);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+  export const filterSensitiveLog = (obj: HeaderMatchMethod): any => ({});
 }
 
 /**
@@ -2856,6 +2862,7 @@ export namespace SdsSource {
       return visitor.unixDomainSocket(value.unixDomainSocket);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+  export const filterSensitiveLog = (obj: SdsSource): any => ({});
 }
 
 export interface SdsUnixDomainSocketSource {
@@ -2915,6 +2922,7 @@ export namespace ServiceDiscovery {
     if (value.dns !== undefined) return visitor.dns(value.dns);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+  export const filterSensitiveLog = (obj: ServiceDiscovery): any => ({});
 }
 
 /**
@@ -3204,6 +3212,9 @@ export namespace TlsValidationContextTrust {
     if (value.sds !== undefined) return visitor.sds(value.sds);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+  export const filterSensitiveLog = (
+    obj: TlsValidationContextTrust
+  ): any => ({});
 }
 
 /**
@@ -4024,6 +4035,7 @@ export namespace VirtualServiceProvider {
       return visitor.virtualRouter(value.virtualRouter);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+  export const filterSensitiveLog = (obj: VirtualServiceProvider): any => ({});
 }
 
 /**
