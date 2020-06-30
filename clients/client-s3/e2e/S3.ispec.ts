@@ -79,9 +79,7 @@ describe("@aws-sdk/client-s3", () => {
         });
         expect(result.$metadata.httpStatusCode).to.equal(200);
       });
-    }
-
-    if (!isBrowser) {
+    } else  {
       it("should succeed with Node.js readable stream body", async () => {
         const length = 10 * 1000; // 10KB
         const chunkSize = 10;
@@ -156,8 +154,8 @@ describe("@aws-sdk/client-s3", () => {
   });
 
   describe("MultipartUpload", () => {
-    let UploadId: string | undefined = undefined;
-    let Etag: string | undefined = undefined;
+    let UploadId: string;
+    let Etag: string;
     const multipartObjectKey = `${Key}-multipart`;
     before(() => {
       Key = `${Date.now()}`;
@@ -183,8 +181,8 @@ describe("@aws-sdk/client-s3", () => {
         Key: multipartObjectKey
       });
       expect(createResult.$metadata.httpStatusCode).to.equal(200);
-      UploadId = createResult.UploadId;
-      expect(typeof UploadId).to.equal("string");
+      expect(typeof createResult.UploadId).to.equal("string");
+      UploadId = createResult.UploadId as string;
 
       //upload part
       const uploadResult = await client.uploadPart({
@@ -196,7 +194,7 @@ describe("@aws-sdk/client-s3", () => {
       });
       expect(uploadResult.$metadata.httpStatusCode).to.equal(200);
       expect(typeof uploadResult.ETag).to.equal("string");
-      Etag = uploadResult.ETag;
+      Etag = uploadResult.ETag as string;
 
       //list parts
       const listPartsResult = await client.listParts({
