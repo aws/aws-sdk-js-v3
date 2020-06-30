@@ -1,6 +1,6 @@
 const path = require("path");
-const { copyFileSync, emptyDirSync } = require("fs-extra");
-const { readdirSync, lstatSync } = require("fs");
+const { emptyDirSync } = require("fs-extra");
+const { copyFileSync, readdirSync, lstatSync } = require("fs");
 const { spawnProcess } = require("./spawn-process");
 const {
   CODE_GEN_ROOT,
@@ -22,10 +22,7 @@ const generateClients = async models => {
       console.log(`copying model ${modelFileName}...`);
       copyFileSync(
         modelPath,
-        path.join(TEMP_CODE_GEN_INPUT_DIR, modelFileName),
-        {
-          overwrite: true
-        }
+        path.join(TEMP_CODE_GEN_INPUT_DIR, modelFileName)
       );
     }
   } else if (Array.isArray(models)) {
