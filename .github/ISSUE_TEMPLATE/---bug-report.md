@@ -12,11 +12,11 @@ A clear and concise description of what the bug is.
 
 **SDK version number**
 
-**Is the issue in the browser/Node.js?**
-Browser/Node.js
+**Is the issue in the browser/Node.js/ReactNative?**
+Browser/Node.js/ReactNative
 
-**Details of the browser/Node.js version**
-Paste output of `npx envinfo --browsers` or `node -v`
+**Details of the browser/Node.js/ReactNative version**
+Paste output of `npx envinfo --browsers` or `node -v` or `react-native -v`
 
 **To Reproduce (observed behavior)**
 Steps to reproduce the behavior (please share code or minimal repo)
