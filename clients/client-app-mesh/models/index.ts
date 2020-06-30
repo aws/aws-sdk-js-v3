@@ -33,7 +33,9 @@ export namespace AccessLog {
     if (value.file !== undefined) return visitor.file(value.file);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-  export const filterSensitiveLog = (obj: AccessLog): any => ({});
+  export const filterSensitiveLog = (obj: AccessLog): any => {
+    return Object.fromEntries([obj.$unknown]);
+  };
 }
 
 /**
@@ -129,7 +131,9 @@ export namespace Backend {
       return visitor.virtualService(value.virtualService);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-  export const filterSensitiveLog = (obj: Backend): any => ({});
+  export const filterSensitiveLog = (obj: Backend): any => {
+    return Object.fromEntries([obj.$unknown]);
+  };
 }
 
 /**
@@ -1509,7 +1513,9 @@ export namespace GrpcRouteMetadataMatchMethod {
   };
   export const filterSensitiveLog = (
     obj: GrpcRouteMetadataMatchMethod
-  ): any => ({});
+  ): any => {
+    return Object.fromEntries([obj.$unknown]);
+  };
 }
 
 export interface GrpcTimeout {
@@ -1630,7 +1636,9 @@ export namespace HeaderMatchMethod {
     if (value.suffix !== undefined) return visitor.suffix(value.suffix);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-  export const filterSensitiveLog = (obj: HeaderMatchMethod): any => ({});
+  export const filterSensitiveLog = (obj: HeaderMatchMethod): any => {
+    return Object.fromEntries([obj.$unknown]);
+  };
 }
 
 /**
@@ -2862,7 +2870,9 @@ export namespace SdsSource {
       return visitor.unixDomainSocket(value.unixDomainSocket);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-  export const filterSensitiveLog = (obj: SdsSource): any => ({});
+  export const filterSensitiveLog = (obj: SdsSource): any => {
+    return Object.fromEntries([obj.$unknown]);
+  };
 }
 
 export interface SdsUnixDomainSocketSource {
@@ -2922,7 +2932,9 @@ export namespace ServiceDiscovery {
     if (value.dns !== undefined) return visitor.dns(value.dns);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-  export const filterSensitiveLog = (obj: ServiceDiscovery): any => ({});
+  export const filterSensitiveLog = (obj: ServiceDiscovery): any => {
+    return Object.fromEntries([obj.$unknown]);
+  };
 }
 
 /**
@@ -3212,9 +3224,9 @@ export namespace TlsValidationContextTrust {
     if (value.sds !== undefined) return visitor.sds(value.sds);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-  export const filterSensitiveLog = (
-    obj: TlsValidationContextTrust
-  ): any => ({});
+  export const filterSensitiveLog = (obj: TlsValidationContextTrust): any => {
+    return Object.fromEntries([obj.$unknown]);
+  };
 }
 
 /**
@@ -4035,7 +4047,9 @@ export namespace VirtualServiceProvider {
       return visitor.virtualRouter(value.virtualRouter);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-  export const filterSensitiveLog = (obj: VirtualServiceProvider): any => ({});
+  export const filterSensitiveLog = (obj: VirtualServiceProvider): any => {
+    return Object.fromEntries([obj.$unknown]);
+  };
 }
 
 /**

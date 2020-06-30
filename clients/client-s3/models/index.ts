@@ -10022,7 +10022,9 @@ export namespace SelectObjectContentEventStream {
   };
   export const filterSensitiveLog = (
     obj: SelectObjectContentEventStream
-  ): any => ({});
+  ): any => {
+    return Object.fromEntries([obj.$unknown]);
+  };
 }
 
 export interface SelectObjectContentOutput {

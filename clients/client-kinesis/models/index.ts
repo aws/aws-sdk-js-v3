@@ -2605,9 +2605,9 @@ export namespace SubscribeToShardEventStream {
       return visitor.SubscribeToShardEvent(value.SubscribeToShardEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-  export const filterSensitiveLog = (
-    obj: SubscribeToShardEventStream
-  ): any => ({});
+  export const filterSensitiveLog = (obj: SubscribeToShardEventStream): any => {
+    return Object.fromEntries([obj.$unknown]);
+  };
 }
 
 export interface SubscribeToShardInput {
