@@ -26,8 +26,6 @@ package-lock.json
 
 !serviceModels/logs
 dist
-build
-build-es
 
 .idea/
 *.iml
