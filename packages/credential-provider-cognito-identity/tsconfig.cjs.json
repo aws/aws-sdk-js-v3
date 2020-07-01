@@ -8,7 +8,7 @@
     "noEmitHelpers": true,
     "lib": ["dom"],
     "rootDir": "./src",
-    "outDir": "./build",
+    "outDir": "./dist/cjs",
     "declarationDir": "./dist/cjs",
     "noUnusedLocals": true,
     "baseUrl": "."

@@ -6,7 +6,7 @@
     "noUnusedLocals": true,
     "lib": ["es5", "es2015.collection", "es2015.iterable"],
     "rootDir": "./src",
-    "outDir": "./build-es",
+    "outDir": "./dist/es",
     "downlevelIteration": true,
     "inlineSourceMap": true,
     "inlineSources": true,

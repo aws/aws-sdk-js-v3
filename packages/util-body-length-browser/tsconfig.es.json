@@ -13,7 +13,7 @@
       "dom"
     ],
     "rootDir": "./src",
-    "outDir": "./build-es",
+    "outDir": "./dist/es",
     "importHelpers": true,
     "noEmitHelpers": true,
     "inlineSourceMap": true,

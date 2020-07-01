@@ -10,7 +10,7 @@
     "strict": true,
     "declaration": true,
     "rootDir": "./src",
-    "outDir": "./build-es",
+    "outDir": "./dist/es",
     "baseUrl": "."
   },
   "extends": "../../tsconfig.es.json",

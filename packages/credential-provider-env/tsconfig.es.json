@@ -5,7 +5,7 @@
     "sourceMap": false,
     "lib": ["es5", "es2015.promise", "es2015.collection"],
     "sourceRoot": "./src",
-    "outDir": "./build-es",
+    "outDir": "./dist/es",
     "importHelpers": true,
     "noEmitHelpers": true,
     "inlineSourceMap": true,

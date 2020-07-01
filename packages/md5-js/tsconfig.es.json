@@ -14,12 +14,11 @@
       "es2015.symbol.wellknown"
     ],
     "rootDir": "./src",
-    "outDir": "./build-es",
+    "outDir": "./dist/es",
     "inlineSourceMap": true,
     "inlineSources": true,
     "baseUrl": "."
   },
-  "exclude": ["./build/**"],
   "include": ["src/"],
   "extends": "../../tsconfig.es.json"
 }

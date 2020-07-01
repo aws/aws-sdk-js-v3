@@ -8,7 +8,7 @@
     "noEmitHelpers": true,
     "lib": ["es2018.asynciterable"],
     "rootDir": "./src",
-    "outDir": "./build-es",
+    "outDir": "./dist/es",
     "inlineSourceMap": true,
     "inlineSources": true,
     "baseUrl": "."

@@ -7,7 +7,7 @@
     "importHelpers": true,
     "noEmitHelpers": true,
     "rootDir": "./src",
-    "outDir": "./build",
+    "outDir": "./dist/cjs",
     "inlineSourceMap": true,
     "inlineSources": true,
     "baseUrl": "."

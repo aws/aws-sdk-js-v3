@@ -2,10 +2,11 @@
   "name": "@aws-sdk/util-base64-browser",
   "version": "1.0.0-gamma.1",
   "description": "A pure JS Base64 <-> UInt8Array converter",
-  "main": "./build/index.js",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/es/index.js",
   "scripts": {
-    "prepublishOnly": "yarn build:cjs",
-    "pretest": "yarn build:cjs && yarn build:es",
+    "prepublishOnly": "yarn build:cjs && yarn build:es",
+    "pretest": "yarn build:cjs",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "test": "jest"
@@ -24,5 +25,5 @@
     "jest": "^25.1.0",
     "typescript": "~3.8.3"
   },
-  "types": "./build/index.d.ts"
+  "types": "./dist/cjs/index.d.ts"
 }

@@ -8,7 +8,7 @@
     "noEmitHelpers": true,
     "lib": ["es2015"],
     "rootDir": "./src",
-    "outDir": "./build-es",
+    "outDir": "./dist/es",
     "experimentalDecorators": true,
     "pretty": true,
     "inlineSourceMap": true,

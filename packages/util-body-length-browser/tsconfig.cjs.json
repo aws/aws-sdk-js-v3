@@ -13,7 +13,7 @@
       "dom"
     ],
     "rootDir": "./src",
-    "outDir": "./build",
+    "outDir": "./dist/cjs",
     "importHelpers": true,
     "noEmitHelpers": true,
     "inlineSourceMap": true,

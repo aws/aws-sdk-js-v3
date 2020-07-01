@@ -15,7 +15,7 @@
       "es2015.symbol.wellknown"
     ],
     "rootDir": "./src",
-    "outDir": "./build-es",
+    "outDir": "./dist/es",
     "declarationDir": null,
     "noUnusedLocals": true,
     "baseUrl": ".",

@@ -6,7 +6,7 @@
     "strict": true,
     "stripInternal": true,
     "rootDir": "./src",
-    "outDir": "./build-es",
+    "outDir": "./dist/es",
     "importHelpers": true,
     "noEmitHelpers": true,
     "baseUrl": ".",

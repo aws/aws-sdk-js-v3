@@ -5,7 +5,7 @@
     "strict": true,
     "sourceMap": false,
     "sourceRoot": "./src",
-    "outDir": "./build",
+    "outDir": "./dist/cjs",
     "importHelpers": true,
     "noEmitHelpers": true,
     "inlineSourceMap": true,

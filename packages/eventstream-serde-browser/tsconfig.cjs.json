@@ -8,7 +8,7 @@
     "noEmitHelpers": true,
     "lib": ["es2018.asynciterable", "DOM"],
     "rootDir": "./src",
-    "outDir": "./build",
+    "outDir": "./dist/cjs",
     "inlineSourceMap": true,
     "inlineSources": true,
     "baseUrl": "."

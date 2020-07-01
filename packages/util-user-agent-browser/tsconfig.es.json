@@ -8,7 +8,7 @@
     "noEmitHelpers": true,
     "lib": ["es5", "es2015.collection", "dom"],
     "rootDir": "./src",
-    "outDir": "./build-es",
+    "outDir": "./dist/es",
     "inlineSourceMap": true,
     "inlineSources": true,
     "baseUrl": "."
