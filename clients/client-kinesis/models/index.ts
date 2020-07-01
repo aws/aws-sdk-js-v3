@@ -2606,7 +2606,8 @@ export namespace SubscribeToShardEventStream {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: SubscribeToShardEventStream): any => {
-    return { [obj.$unknown[0]]: obj.$unknown[1] };
+    if (obj.$unknown !== undefined)
+      return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 

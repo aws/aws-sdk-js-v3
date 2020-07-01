@@ -105,7 +105,8 @@ export namespace ArrayValue {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: ArrayValue): any => {
-    return { [obj.$unknown[0]]: obj.$unknown[1] };
+    if (obj.$unknown !== undefined)
+      return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 
@@ -752,7 +753,8 @@ export namespace Field {
     if (obj.isNull !== undefined) return { isNull: obj.isNull };
     if (obj.longValue !== undefined) return { longValue: obj.longValue };
     if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
-    return { [obj.$unknown[0]]: obj.$unknown[1] };
+    if (obj.$unknown !== undefined)
+      return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 
@@ -1369,6 +1371,7 @@ export namespace Value {
     if (obj.isNull !== undefined) return { isNull: obj.isNull };
     if (obj.realValue !== undefined) return { realValue: obj.realValue };
     if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
-    return { [obj.$unknown[0]]: obj.$unknown[1] };
+    if (obj.$unknown !== undefined)
+      return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }

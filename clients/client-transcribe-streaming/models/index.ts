@@ -79,7 +79,8 @@ export namespace AudioStream {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: AudioStream): any => {
-    return { [obj.$unknown[0]]: obj.$unknown[1] };
+    if (obj.$unknown !== undefined)
+      return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 
@@ -511,6 +512,7 @@ export namespace TranscriptResultStream {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: TranscriptResultStream): any => {
-    return { [obj.$unknown[0]]: obj.$unknown[1] };
+    if (obj.$unknown !== undefined)
+      return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }

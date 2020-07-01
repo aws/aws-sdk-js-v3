@@ -34,7 +34,8 @@ export namespace AccessLog {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: AccessLog): any => {
-    return { [obj.$unknown[0]]: obj.$unknown[1] };
+    if (obj.$unknown !== undefined)
+      return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 
@@ -132,7 +133,8 @@ export namespace Backend {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: Backend): any => {
-    return { [obj.$unknown[0]]: obj.$unknown[1] };
+    if (obj.$unknown !== undefined)
+      return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 
@@ -1518,7 +1520,8 @@ export namespace GrpcRouteMetadataMatchMethod {
     if (obj.prefix !== undefined) return { prefix: obj.prefix };
     if (obj.regex !== undefined) return { regex: obj.regex };
     if (obj.suffix !== undefined) return { suffix: obj.suffix };
-    return { [obj.$unknown[0]]: obj.$unknown[1] };
+    if (obj.$unknown !== undefined)
+      return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 
@@ -1645,7 +1648,8 @@ export namespace HeaderMatchMethod {
     if (obj.prefix !== undefined) return { prefix: obj.prefix };
     if (obj.regex !== undefined) return { regex: obj.regex };
     if (obj.suffix !== undefined) return { suffix: obj.suffix };
-    return { [obj.$unknown[0]]: obj.$unknown[1] };
+    if (obj.$unknown !== undefined)
+      return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 
@@ -2879,7 +2883,8 @@ export namespace SdsSource {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: SdsSource): any => {
-    return { [obj.$unknown[0]]: obj.$unknown[1] };
+    if (obj.$unknown !== undefined)
+      return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 
@@ -2941,7 +2946,8 @@ export namespace ServiceDiscovery {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: ServiceDiscovery): any => {
-    return { [obj.$unknown[0]]: obj.$unknown[1] };
+    if (obj.$unknown !== undefined)
+      return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 
@@ -3233,7 +3239,8 @@ export namespace TlsValidationContextTrust {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: TlsValidationContextTrust): any => {
-    return { [obj.$unknown[0]]: obj.$unknown[1] };
+    if (obj.$unknown !== undefined)
+      return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 
@@ -4056,7 +4063,8 @@ export namespace VirtualServiceProvider {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: VirtualServiceProvider): any => {
-    return { [obj.$unknown[0]]: obj.$unknown[1] };
+    if (obj.$unknown !== undefined)
+      return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 
