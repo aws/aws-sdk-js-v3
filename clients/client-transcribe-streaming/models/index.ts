@@ -57,6 +57,7 @@ export namespace AudioStream {
   interface $Base {
     __type?: "AudioStream";
   }
+
   /**
    * <p>A blob of audio from your application. You audio stream consists of one or more audio
    *       events.</p>
@@ -65,19 +66,23 @@ export namespace AudioStream {
     AudioEvent: AudioEvent;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     AudioEvent?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     AudioEvent: (value: AudioEvent) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(value: AudioStream, visitor: Visitor<T>): T => {
     if (value.AudioEvent !== undefined)
       return visitor.AudioEvent(value.AudioEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+
   export const filterSensitiveLog = (obj: AudioStream): any => {
     if (obj.AudioEvent !== undefined)
       return { AudioEvent: AudioEvent.filterSensitiveLog(obj.AudioEvent) };
@@ -420,6 +425,7 @@ export namespace TranscriptResultStream {
   interface $Base {
     __type?: "TranscriptResultStream";
   }
+
   /**
    * <p>A client error occurred when the stream was created. Check the parameters of the request
    *       and try your request again.</p>
@@ -432,6 +438,7 @@ export namespace TranscriptResultStream {
     TranscriptEvent?: never;
     $unknown?: never;
   }
+
   /**
    * <p>A new stream started with the same session ID. The current stream has been
    *       terminated.</p>
@@ -444,6 +451,7 @@ export namespace TranscriptResultStream {
     TranscriptEvent?: never;
     $unknown?: never;
   }
+
   /**
    * <p>A problem occurred while processing the audio. Amazon Transcribe terminated processing.</p>
    */
@@ -455,6 +463,7 @@ export namespace TranscriptResultStream {
     TranscriptEvent?: never;
     $unknown?: never;
   }
+
   /**
    * <p>Your client has exceeded one of the Amazon Transcribe limits, typically the limit on audio length.
    *       Break your audio stream into smaller chunks and try your request again.</p>
@@ -467,6 +476,7 @@ export namespace TranscriptResultStream {
     TranscriptEvent?: never;
     $unknown?: never;
   }
+
   /**
    * <p>A portion of the transcription of the audio stream. Events are sent periodically from
    *       Amazon Transcribe to your application. The event can be a partial transcription of a section of the audio
@@ -481,6 +491,7 @@ export namespace TranscriptResultStream {
     TranscriptEvent: TranscriptEvent;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     BadRequestException?: never;
     ConflictException?: never;
@@ -489,6 +500,7 @@ export namespace TranscriptResultStream {
     TranscriptEvent?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     BadRequestException: (value: BadRequestException) => T;
     ConflictException: (value: ConflictException) => T;
@@ -497,6 +509,7 @@ export namespace TranscriptResultStream {
     TranscriptEvent: (value: TranscriptEvent) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(
     value: TranscriptResultStream,
     visitor: Visitor<T>
@@ -513,6 +526,7 @@ export namespace TranscriptResultStream {
       return visitor.TranscriptEvent(value.TranscriptEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+
   export const filterSensitiveLog = (obj: TranscriptResultStream): any => {
     if (obj.BadRequestException !== undefined)
       return {

@@ -14,6 +14,7 @@ export namespace AccessLog {
   interface $Base {
     __type?: "AccessLog";
   }
+
   /**
    * <p>The file object to send virtual node access logs to.</p>
    */
@@ -21,18 +22,22 @@ export namespace AccessLog {
     file: FileAccessLog;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     file?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     file: (value: FileAccessLog) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(value: AccessLog, visitor: Visitor<T>): T => {
     if (value.file !== undefined) return visitor.file(value.file);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+
   export const filterSensitiveLog = (obj: AccessLog): any => {
     if (obj.file !== undefined)
       return { file: FileAccessLog.filterSensitiveLog(obj.file) };
@@ -114,6 +119,7 @@ export namespace Backend {
   interface $Base {
     __type?: "Backend";
   }
+
   /**
    * <p>Specifies a virtual service to use as a backend for a virtual node. </p>
    */
@@ -121,19 +127,23 @@ export namespace Backend {
     virtualService: VirtualServiceBackend;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     virtualService?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     virtualService: (value: VirtualServiceBackend) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(value: Backend, visitor: Visitor<T>): T => {
     if (value.virtualService !== undefined)
       return visitor.virtualService(value.virtualService);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+
   export const filterSensitiveLog = (obj: Backend): any => {
     if (obj.virtualService !== undefined)
       return {
@@ -1439,6 +1449,7 @@ export namespace GrpcRouteMetadataMatchMethod {
   interface $Base {
     __type?: "GrpcRouteMetadataMatchMethod";
   }
+
   /**
    * <p>The value sent by the client must match the specified value exactly.</p>
    */
@@ -1450,6 +1461,7 @@ export namespace GrpcRouteMetadataMatchMethod {
     suffix?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The value sent by the client must begin with the specified characters.</p>
    */
@@ -1461,6 +1473,7 @@ export namespace GrpcRouteMetadataMatchMethod {
     suffix?: never;
     $unknown?: never;
   }
+
   /**
    * <p>An object that represents the range of values to match on.</p>
    */
@@ -1472,6 +1485,7 @@ export namespace GrpcRouteMetadataMatchMethod {
     suffix?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The value sent by the client must include the specified characters.</p>
    */
@@ -1483,6 +1497,7 @@ export namespace GrpcRouteMetadataMatchMethod {
     suffix?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The value sent by the client must end with the specified characters.</p>
    */
@@ -1494,6 +1509,7 @@ export namespace GrpcRouteMetadataMatchMethod {
     suffix: string;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     exact?: never;
     prefix?: never;
@@ -1502,6 +1518,7 @@ export namespace GrpcRouteMetadataMatchMethod {
     suffix?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     exact: (value: string) => T;
     prefix: (value: string) => T;
@@ -1510,6 +1527,7 @@ export namespace GrpcRouteMetadataMatchMethod {
     suffix: (value: string) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(
     value: GrpcRouteMetadataMatchMethod,
     visitor: Visitor<T>
@@ -1521,6 +1539,7 @@ export namespace GrpcRouteMetadataMatchMethod {
     if (value.suffix !== undefined) return visitor.suffix(value.suffix);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+
   export const filterSensitiveLog = (
     obj: GrpcRouteMetadataMatchMethod
   ): any => {
@@ -1571,6 +1590,7 @@ export namespace HeaderMatchMethod {
   interface $Base {
     __type?: "HeaderMatchMethod";
   }
+
   /**
    * <p>The value sent by the client must match the specified value exactly.</p>
    */
@@ -1582,6 +1602,7 @@ export namespace HeaderMatchMethod {
     suffix?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The value sent by the client must begin with the specified characters.</p>
    */
@@ -1593,6 +1614,7 @@ export namespace HeaderMatchMethod {
     suffix?: never;
     $unknown?: never;
   }
+
   /**
    * <p>An object that represents the range of values to match on.</p>
    */
@@ -1604,6 +1626,7 @@ export namespace HeaderMatchMethod {
     suffix?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The value sent by the client must include the specified characters.</p>
    */
@@ -1615,6 +1638,7 @@ export namespace HeaderMatchMethod {
     suffix?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The value sent by the client must end with the specified characters.</p>
    */
@@ -1626,6 +1650,7 @@ export namespace HeaderMatchMethod {
     suffix: string;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     exact?: never;
     prefix?: never;
@@ -1634,6 +1659,7 @@ export namespace HeaderMatchMethod {
     suffix?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     exact: (value: string) => T;
     prefix: (value: string) => T;
@@ -1642,6 +1668,7 @@ export namespace HeaderMatchMethod {
     suffix: (value: string) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(
     value: HeaderMatchMethod,
     visitor: Visitor<T>
@@ -1653,6 +1680,7 @@ export namespace HeaderMatchMethod {
     if (value.suffix !== undefined) return visitor.suffix(value.suffix);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+
   export const filterSensitiveLog = (obj: HeaderMatchMethod): any => {
     if (obj.exact !== undefined) return { exact: obj.exact };
     if (obj.prefix !== undefined) return { prefix: obj.prefix };
@@ -2877,23 +2905,28 @@ export namespace SdsSource {
   interface $Base {
     __type?: "SdsSource";
   }
+
   export interface UnixDomainSocketMember extends $Base {
     unixDomainSocket: SdsUnixDomainSocketSource;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     unixDomainSocket?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     unixDomainSocket: (value: SdsUnixDomainSocketSource) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(value: SdsSource, visitor: Visitor<T>): T => {
     if (value.unixDomainSocket !== undefined)
       return visitor.unixDomainSocket(value.unixDomainSocket);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+
   export const filterSensitiveLog = (obj: SdsSource): any => {
     if (obj.unixDomainSocket !== undefined)
       return {
@@ -2931,6 +2964,7 @@ export namespace ServiceDiscovery {
   interface $Base {
     __type?: "ServiceDiscovery";
   }
+
   /**
    * <p>Specifies any AWS Cloud Map information for the virtual node.</p>
    */
@@ -2939,6 +2973,7 @@ export namespace ServiceDiscovery {
     dns?: never;
     $unknown?: never;
   }
+
   /**
    * <p>Specifies the DNS information for the virtual node.</p>
    */
@@ -2947,22 +2982,26 @@ export namespace ServiceDiscovery {
     dns: DnsServiceDiscovery;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     awsCloudMap?: never;
     dns?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     awsCloudMap: (value: AwsCloudMapServiceDiscovery) => T;
     dns: (value: DnsServiceDiscovery) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(value: ServiceDiscovery, visitor: Visitor<T>): T => {
     if (value.awsCloudMap !== undefined)
       return visitor.awsCloudMap(value.awsCloudMap);
     if (value.dns !== undefined) return visitor.dns(value.dns);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+
   export const filterSensitiveLog = (obj: ServiceDiscovery): any => {
     if (obj.awsCloudMap !== undefined)
       return {
@@ -3218,6 +3257,7 @@ export namespace TlsValidationContextTrust {
   interface $Base {
     __type?: "TlsValidationContextTrust";
   }
+
   /**
    * <p>A reference to an object that represents a TLS validation context trust for an AWS Certicate Manager (ACM)
    *          certificate.</p>
@@ -3228,6 +3268,7 @@ export namespace TlsValidationContextTrust {
     sds?: never;
     $unknown?: never;
   }
+
   /**
    * <p>An object that represents a TLS validation context trust for a local file.</p>
    */
@@ -3237,24 +3278,28 @@ export namespace TlsValidationContextTrust {
     sds?: never;
     $unknown?: never;
   }
+
   export interface SdsMember extends $Base {
     acm?: never;
     file?: never;
     sds: TlsValidationContextSdsTrust;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     acm?: never;
     file?: never;
     sds?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     acm: (value: TlsValidationContextAcmTrust) => T;
     file: (value: TlsValidationContextFileTrust) => T;
     sds: (value: TlsValidationContextSdsTrust) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(
     value: TlsValidationContextTrust,
     visitor: Visitor<T>
@@ -3264,6 +3309,7 @@ export namespace TlsValidationContextTrust {
     if (value.sds !== undefined) return visitor.sds(value.sds);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+
   export const filterSensitiveLog = (obj: TlsValidationContextTrust): any => {
     if (obj.acm !== undefined)
       return { acm: TlsValidationContextAcmTrust.filterSensitiveLog(obj.acm) };
@@ -4060,6 +4106,7 @@ export namespace VirtualServiceProvider {
   interface $Base {
     __type?: "VirtualServiceProvider";
   }
+
   /**
    * <p>The virtual node associated with a virtual service.</p>
    */
@@ -4068,6 +4115,7 @@ export namespace VirtualServiceProvider {
     virtualRouter?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The virtual router associated with a virtual service.</p>
    */
@@ -4076,16 +4124,19 @@ export namespace VirtualServiceProvider {
     virtualRouter: VirtualRouterServiceProvider;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     virtualNode?: never;
     virtualRouter?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     virtualNode: (value: VirtualNodeServiceProvider) => T;
     virtualRouter: (value: VirtualRouterServiceProvider) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(
     value: VirtualServiceProvider,
     visitor: Visitor<T>
@@ -4096,6 +4147,7 @@ export namespace VirtualServiceProvider {
       return visitor.virtualRouter(value.virtualRouter);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+
   export const filterSensitiveLog = (obj: VirtualServiceProvider): any => {
     if (obj.virtualNode !== undefined)
       return {

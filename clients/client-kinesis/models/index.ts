@@ -2390,6 +2390,7 @@ export namespace SubscribeToShardEventStream {
   interface $Base {
     __type?: "SubscribeToShardEventStream";
   }
+
   export interface InternalFailureExceptionMember extends $Base {
     InternalFailureException: InternalFailureException;
     KMSAccessDeniedException?: never;
@@ -2403,6 +2404,7 @@ export namespace SubscribeToShardEventStream {
     SubscribeToShardEvent?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The ciphertext references a key that doesn't exist or that you don't have access to.</p>
    */
@@ -2419,6 +2421,7 @@ export namespace SubscribeToShardEventStream {
     SubscribeToShardEvent?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The request was rejected because the specified customer master key (CMK) isn't
    *             enabled.</p>
@@ -2436,6 +2439,7 @@ export namespace SubscribeToShardEventStream {
     SubscribeToShardEvent?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The request was rejected because the state of the specified resource isn't valid for this request. For more information, see
    *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a Customer Master Key</a> in the
@@ -2454,6 +2458,7 @@ export namespace SubscribeToShardEventStream {
     SubscribeToShardEvent?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The request was rejected because the specified entity or resource can't be
    *             found.</p>
@@ -2471,6 +2476,7 @@ export namespace SubscribeToShardEventStream {
     SubscribeToShardEvent?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The AWS access key ID needs a subscription for the service.</p>
    */
@@ -2487,6 +2493,7 @@ export namespace SubscribeToShardEventStream {
     SubscribeToShardEvent?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The request was denied due to request throttling. For more information about throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in the
    *             <i>AWS Key Management Service Developer Guide</i>.</p>
@@ -2504,6 +2511,7 @@ export namespace SubscribeToShardEventStream {
     SubscribeToShardEvent?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The resource is not available for this operation. For successful operation, the
    *             resource must be in the <code>ACTIVE</code> state.</p>
@@ -2521,6 +2529,7 @@ export namespace SubscribeToShardEventStream {
     SubscribeToShardEvent?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The requested resource could not be found. The stream might not be specified correctly.</p>
    */
@@ -2537,6 +2546,7 @@ export namespace SubscribeToShardEventStream {
     SubscribeToShardEvent?: never;
     $unknown?: never;
   }
+
   /**
    * <p>After you call <a>SubscribeToShard</a>, Kinesis Data Streams sends events of this type to your consumer. </p>
    */
@@ -2553,6 +2563,7 @@ export namespace SubscribeToShardEventStream {
     SubscribeToShardEvent: SubscribeToShardEvent;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     InternalFailureException?: never;
     KMSAccessDeniedException?: never;
@@ -2566,6 +2577,7 @@ export namespace SubscribeToShardEventStream {
     SubscribeToShardEvent?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     InternalFailureException: (value: InternalFailureException) => T;
     KMSAccessDeniedException: (value: KMSAccessDeniedException) => T;
@@ -2579,6 +2591,7 @@ export namespace SubscribeToShardEventStream {
     SubscribeToShardEvent: (value: SubscribeToShardEvent) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(
     value: SubscribeToShardEventStream,
     visitor: Visitor<T>
@@ -2605,6 +2618,7 @@ export namespace SubscribeToShardEventStream {
       return visitor.SubscribeToShardEvent(value.SubscribeToShardEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+
   export const filterSensitiveLog = (obj: SubscribeToShardEventStream): any => {
     if (obj.InternalFailureException !== undefined)
       return {

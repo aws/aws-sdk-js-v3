@@ -201,6 +201,7 @@ export namespace ConfigTypeData {
   interface $Base {
     __type?: "ConfigTypeData";
   }
+
   /**
    * <p>Information about how AWS Ground Station should configure an antenna for downlink during a contact.</p>
    */
@@ -213,6 +214,7 @@ export namespace ConfigTypeData {
     uplinkEchoConfig?: never;
     $unknown?: never;
   }
+
   /**
    * <p>Information about how AWS Ground Station should conﬁgure an antenna for downlink demod decode during a contact.</p>
    */
@@ -225,6 +227,7 @@ export namespace ConfigTypeData {
     uplinkEchoConfig?: never;
     $unknown?: never;
   }
+
   /**
    * <p>Information about how AWS Ground Station should conﬁgure an antenna for uplink during a contact.</p>
    */
@@ -237,6 +240,7 @@ export namespace ConfigTypeData {
     uplinkEchoConfig?: never;
     $unknown?: never;
   }
+
   /**
    * <p>Information about the dataflow endpoint <code>Config</code>.</p>
    */
@@ -249,6 +253,7 @@ export namespace ConfigTypeData {
     uplinkEchoConfig?: never;
     $unknown?: never;
   }
+
   /**
    * <p>Object that determines whether tracking should be used during a contact executed with this <code>Config</code> in the mission profile. </p>
    */
@@ -261,6 +266,7 @@ export namespace ConfigTypeData {
     uplinkEchoConfig?: never;
     $unknown?: never;
   }
+
   /**
    * <p>Information about an uplink echo <code>Config</code>.</p>
    *          <p>Parameters from the <code>AntennaUplinkConfig</code>, corresponding to the specified <code>AntennaUplinkConfigArn</code>, are used when this <code>UplinkEchoConfig</code> is used in a contact.</p>
@@ -274,6 +280,7 @@ export namespace ConfigTypeData {
     uplinkEchoConfig: UplinkEchoConfig;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     antennaDownlinkConfig?: never;
     antennaDownlinkDemodDecodeConfig?: never;
@@ -283,6 +290,7 @@ export namespace ConfigTypeData {
     uplinkEchoConfig?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     antennaDownlinkConfig: (value: AntennaDownlinkConfig) => T;
     antennaDownlinkDemodDecodeConfig: (
@@ -294,6 +302,7 @@ export namespace ConfigTypeData {
     uplinkEchoConfig: (value: UplinkEchoConfig) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(value: ConfigTypeData, visitor: Visitor<T>): T => {
     if (value.antennaDownlinkConfig !== undefined)
       return visitor.antennaDownlinkConfig(value.antennaDownlinkConfig);
@@ -311,6 +320,7 @@ export namespace ConfigTypeData {
       return visitor.uplinkEchoConfig(value.uplinkEchoConfig);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+
   export const filterSensitiveLog = (obj: ConfigTypeData): any => {
     if (obj.antennaDownlinkConfig !== undefined)
       return {
