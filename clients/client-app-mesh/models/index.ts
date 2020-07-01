@@ -1514,6 +1514,10 @@ export namespace GrpcRouteMetadataMatchMethod {
   export const filterSensitiveLog = (
     obj: GrpcRouteMetadataMatchMethod
   ): any => {
+    if (obj.exact !== undefined) return { exact: obj.exact };
+    if (obj.prefix !== undefined) return { prefix: obj.prefix };
+    if (obj.regex !== undefined) return { regex: obj.regex };
+    if (obj.suffix !== undefined) return { suffix: obj.suffix };
     return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
@@ -1637,6 +1641,10 @@ export namespace HeaderMatchMethod {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: HeaderMatchMethod): any => {
+    if (obj.exact !== undefined) return { exact: obj.exact };
+    if (obj.prefix !== undefined) return { prefix: obj.prefix };
+    if (obj.regex !== undefined) return { regex: obj.regex };
+    if (obj.suffix !== undefined) return { suffix: obj.suffix };
     return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
