@@ -105,7 +105,7 @@ export namespace ArrayValue {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: ArrayValue): any => {
-    return Object.fromEntries([obj.$unknown]);
+    return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 
@@ -745,7 +745,7 @@ export namespace Field {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: Field): any => {
-    return Object.fromEntries([obj.$unknown]);
+    return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 
@@ -1354,6 +1354,6 @@ export namespace Value {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: Value): any => {
-    return Object.fromEntries([obj.$unknown]);
+    return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }

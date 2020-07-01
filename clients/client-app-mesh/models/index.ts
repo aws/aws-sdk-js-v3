@@ -34,7 +34,7 @@ export namespace AccessLog {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: AccessLog): any => {
-    return Object.fromEntries([obj.$unknown]);
+    return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 
@@ -132,7 +132,7 @@ export namespace Backend {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: Backend): any => {
-    return Object.fromEntries([obj.$unknown]);
+    return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 
@@ -1514,7 +1514,7 @@ export namespace GrpcRouteMetadataMatchMethod {
   export const filterSensitiveLog = (
     obj: GrpcRouteMetadataMatchMethod
   ): any => {
-    return Object.fromEntries([obj.$unknown]);
+    return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 
@@ -1637,7 +1637,7 @@ export namespace HeaderMatchMethod {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: HeaderMatchMethod): any => {
-    return Object.fromEntries([obj.$unknown]);
+    return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 
@@ -2871,7 +2871,7 @@ export namespace SdsSource {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: SdsSource): any => {
-    return Object.fromEntries([obj.$unknown]);
+    return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 
@@ -2933,7 +2933,7 @@ export namespace ServiceDiscovery {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: ServiceDiscovery): any => {
-    return Object.fromEntries([obj.$unknown]);
+    return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 
@@ -3225,7 +3225,7 @@ export namespace TlsValidationContextTrust {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: TlsValidationContextTrust): any => {
-    return Object.fromEntries([obj.$unknown]);
+    return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 
@@ -4048,7 +4048,7 @@ export namespace VirtualServiceProvider {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: VirtualServiceProvider): any => {
-    return Object.fromEntries([obj.$unknown]);
+    return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 

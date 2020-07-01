@@ -312,7 +312,7 @@ export namespace ConfigTypeData {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: ConfigTypeData): any => {
-    return Object.fromEntries([obj.$unknown]);
+    return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
 }
 
