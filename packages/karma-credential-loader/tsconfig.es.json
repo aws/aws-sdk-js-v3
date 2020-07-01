@@ -1,16 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es2015",
-    "module": "commonjs",
     "declaration": false,
     "strict": false,
-    "sourceMap": true,
+    "sourceMap": false,
     "downlevelIteration": true,
     "importHelpers": true,
     "noEmitHelpers": true,
     "lib": ["es2015"],
     "rootDir": "./src",
-    "outDir": "./build",
-    "incremental": true
-  }
+    "outDir": "./dist/es",
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "baseUrl": "."
+  },
+  "extends": "../../tsconfig.es.json",
+  "include": ["src/"]
 }
