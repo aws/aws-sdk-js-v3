@@ -1,5 +1,5 @@
 export const DEFAULT_TIMEOUT = 1000;
-export const DEFAULT_MAX_RETRIES = 0;
+export const DEFAULT_MAX_RETRIES = 3;
 
 export interface RemoteProviderConfig {
   /**
