@@ -105,6 +105,19 @@ export namespace ArrayValue {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: ArrayValue): any => {
+    if (obj.arrayValues !== undefined)
+      return {
+        arrayValues: obj.arrayValues.map(item =>
+          ArrayValue.filterSensitiveLog(item)
+        )
+      };
+    if (obj.booleanValues !== undefined)
+      return { booleanValues: obj.booleanValues };
+    if (obj.doubleValues !== undefined)
+      return { doubleValues: obj.doubleValues };
+    if (obj.longValues !== undefined) return { longValues: obj.longValues };
+    if (obj.stringValues !== undefined)
+      return { stringValues: obj.stringValues };
     if (obj.$unknown !== undefined)
       return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
@@ -746,6 +759,8 @@ export namespace Field {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: Field): any => {
+    if (obj.arrayValue !== undefined)
+      return { arrayValue: ArrayValue.filterSensitiveLog(obj.arrayValue) };
     if (obj.blobValue !== undefined) return { blobValue: obj.blobValue };
     if (obj.booleanValue !== undefined)
       return { booleanValue: obj.booleanValue };
@@ -1363,6 +1378,10 @@ export namespace Value {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: Value): any => {
+    if (obj.arrayValues !== undefined)
+      return {
+        arrayValues: obj.arrayValues.map(item => Value.filterSensitiveLog(item))
+      };
     if (obj.bigIntValue !== undefined) return { bigIntValue: obj.bigIntValue };
     if (obj.bitValue !== undefined) return { bitValue: obj.bitValue };
     if (obj.blobValue !== undefined) return { blobValue: obj.blobValue };
