@@ -12,7 +12,8 @@
     "incremental": true,
     "resolveJsonModule": true,
     "declarationDir": "./types",
-    "outDir": "dist/cjs"
+    "outDir": "dist/cjs",
+    "types": ["mocha", "node"]
   },
   "typedocOptions": {
     "exclude": "**/node_modules/**",
