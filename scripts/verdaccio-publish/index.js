@@ -34,7 +34,9 @@ const args = [
   "--no-push",
   "--no-git-reset",
   "--ignore-scripts",
-  "--no-verify-access"
+  "--no-verify-access",
+  "--dist-tag",
+  "ci"
 ];
 spawn("npx", args, pipeStdIo).on("close", code => {
   // Rollback the changes caused by the version bumping
