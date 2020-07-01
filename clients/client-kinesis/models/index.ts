@@ -2606,6 +2606,66 @@ export namespace SubscribeToShardEventStream {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: SubscribeToShardEventStream): any => {
+    if (obj.InternalFailureException !== undefined)
+      return {
+        InternalFailureException: InternalFailureException.filterSensitiveLog(
+          obj.InternalFailureException
+        )
+      };
+    if (obj.KMSAccessDeniedException !== undefined)
+      return {
+        KMSAccessDeniedException: KMSAccessDeniedException.filterSensitiveLog(
+          obj.KMSAccessDeniedException
+        )
+      };
+    if (obj.KMSDisabledException !== undefined)
+      return {
+        KMSDisabledException: KMSDisabledException.filterSensitiveLog(
+          obj.KMSDisabledException
+        )
+      };
+    if (obj.KMSInvalidStateException !== undefined)
+      return {
+        KMSInvalidStateException: KMSInvalidStateException.filterSensitiveLog(
+          obj.KMSInvalidStateException
+        )
+      };
+    if (obj.KMSNotFoundException !== undefined)
+      return {
+        KMSNotFoundException: KMSNotFoundException.filterSensitiveLog(
+          obj.KMSNotFoundException
+        )
+      };
+    if (obj.KMSOptInRequired !== undefined)
+      return {
+        KMSOptInRequired: KMSOptInRequired.filterSensitiveLog(
+          obj.KMSOptInRequired
+        )
+      };
+    if (obj.KMSThrottlingException !== undefined)
+      return {
+        KMSThrottlingException: KMSThrottlingException.filterSensitiveLog(
+          obj.KMSThrottlingException
+        )
+      };
+    if (obj.ResourceInUseException !== undefined)
+      return {
+        ResourceInUseException: ResourceInUseException.filterSensitiveLog(
+          obj.ResourceInUseException
+        )
+      };
+    if (obj.ResourceNotFoundException !== undefined)
+      return {
+        ResourceNotFoundException: ResourceNotFoundException.filterSensitiveLog(
+          obj.ResourceNotFoundException
+        )
+      };
+    if (obj.SubscribeToShardEvent !== undefined)
+      return {
+        SubscribeToShardEvent: SubscribeToShardEvent.filterSensitiveLog(
+          obj.SubscribeToShardEvent
+        )
+      };
     if (obj.$unknown !== undefined)
       return { [obj.$unknown[0]]: obj.$unknown[1] };
   };

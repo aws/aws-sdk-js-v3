@@ -10023,6 +10023,16 @@ export namespace SelectObjectContentEventStream {
   export const filterSensitiveLog = (
     obj: SelectObjectContentEventStream
   ): any => {
+    if (obj.Cont !== undefined)
+      return { Cont: ContinuationEvent.filterSensitiveLog(obj.Cont) };
+    if (obj.End !== undefined)
+      return { End: EndEvent.filterSensitiveLog(obj.End) };
+    if (obj.Progress !== undefined)
+      return { Progress: ProgressEvent.filterSensitiveLog(obj.Progress) };
+    if (obj.Records !== undefined)
+      return { Records: RecordsEvent.filterSensitiveLog(obj.Records) };
+    if (obj.Stats !== undefined)
+      return { Stats: StatsEvent.filterSensitiveLog(obj.Stats) };
     if (obj.$unknown !== undefined)
       return { [obj.$unknown[0]]: obj.$unknown[1] };
   };

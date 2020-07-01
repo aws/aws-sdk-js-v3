@@ -312,6 +312,40 @@ export namespace ConfigTypeData {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: ConfigTypeData): any => {
+    if (obj.antennaDownlinkConfig !== undefined)
+      return {
+        antennaDownlinkConfig: AntennaDownlinkConfig.filterSensitiveLog(
+          obj.antennaDownlinkConfig
+        )
+      };
+    if (obj.antennaDownlinkDemodDecodeConfig !== undefined)
+      return {
+        antennaDownlinkDemodDecodeConfig: AntennaDownlinkDemodDecodeConfig.filterSensitiveLog(
+          obj.antennaDownlinkDemodDecodeConfig
+        )
+      };
+    if (obj.antennaUplinkConfig !== undefined)
+      return {
+        antennaUplinkConfig: AntennaUplinkConfig.filterSensitiveLog(
+          obj.antennaUplinkConfig
+        )
+      };
+    if (obj.dataflowEndpointConfig !== undefined)
+      return {
+        dataflowEndpointConfig: DataflowEndpointConfig.filterSensitiveLog(
+          obj.dataflowEndpointConfig
+        )
+      };
+    if (obj.trackingConfig !== undefined)
+      return {
+        trackingConfig: TrackingConfig.filterSensitiveLog(obj.trackingConfig)
+      };
+    if (obj.uplinkEchoConfig !== undefined)
+      return {
+        uplinkEchoConfig: UplinkEchoConfig.filterSensitiveLog(
+          obj.uplinkEchoConfig
+        )
+      };
     if (obj.$unknown !== undefined)
       return { [obj.$unknown[0]]: obj.$unknown[1] };
   };

@@ -1371,6 +1371,8 @@ export namespace Value {
     if (obj.isNull !== undefined) return { isNull: obj.isNull };
     if (obj.realValue !== undefined) return { realValue: obj.realValue };
     if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
+    if (obj.structValue !== undefined)
+      return { structValue: StructValue.filterSensitiveLog(obj.structValue) };
     if (obj.$unknown !== undefined)
       return { [obj.$unknown[0]]: obj.$unknown[1] };
   };

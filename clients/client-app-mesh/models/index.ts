@@ -34,6 +34,8 @@ export namespace AccessLog {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: AccessLog): any => {
+    if (obj.file !== undefined)
+      return { file: FileAccessLog.filterSensitiveLog(obj.file) };
     if (obj.$unknown !== undefined)
       return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
@@ -133,6 +135,12 @@ export namespace Backend {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: Backend): any => {
+    if (obj.virtualService !== undefined)
+      return {
+        virtualService: VirtualServiceBackend.filterSensitiveLog(
+          obj.virtualService
+        )
+      };
     if (obj.$unknown !== undefined)
       return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
@@ -1518,6 +1526,8 @@ export namespace GrpcRouteMetadataMatchMethod {
   ): any => {
     if (obj.exact !== undefined) return { exact: obj.exact };
     if (obj.prefix !== undefined) return { prefix: obj.prefix };
+    if (obj.range !== undefined)
+      return { range: MatchRange.filterSensitiveLog(obj.range) };
     if (obj.regex !== undefined) return { regex: obj.regex };
     if (obj.suffix !== undefined) return { suffix: obj.suffix };
     if (obj.$unknown !== undefined)
@@ -1646,6 +1656,8 @@ export namespace HeaderMatchMethod {
   export const filterSensitiveLog = (obj: HeaderMatchMethod): any => {
     if (obj.exact !== undefined) return { exact: obj.exact };
     if (obj.prefix !== undefined) return { prefix: obj.prefix };
+    if (obj.range !== undefined)
+      return { range: MatchRange.filterSensitiveLog(obj.range) };
     if (obj.regex !== undefined) return { regex: obj.regex };
     if (obj.suffix !== undefined) return { suffix: obj.suffix };
     if (obj.$unknown !== undefined)
@@ -2883,6 +2895,12 @@ export namespace SdsSource {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: SdsSource): any => {
+    if (obj.unixDomainSocket !== undefined)
+      return {
+        unixDomainSocket: SdsUnixDomainSocketSource.filterSensitiveLog(
+          obj.unixDomainSocket
+        )
+      };
     if (obj.$unknown !== undefined)
       return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
@@ -2946,6 +2964,14 @@ export namespace ServiceDiscovery {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: ServiceDiscovery): any => {
+    if (obj.awsCloudMap !== undefined)
+      return {
+        awsCloudMap: AwsCloudMapServiceDiscovery.filterSensitiveLog(
+          obj.awsCloudMap
+        )
+      };
+    if (obj.dns !== undefined)
+      return { dns: DnsServiceDiscovery.filterSensitiveLog(obj.dns) };
     if (obj.$unknown !== undefined)
       return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
@@ -3239,6 +3265,14 @@ export namespace TlsValidationContextTrust {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: TlsValidationContextTrust): any => {
+    if (obj.acm !== undefined)
+      return { acm: TlsValidationContextAcmTrust.filterSensitiveLog(obj.acm) };
+    if (obj.file !== undefined)
+      return {
+        file: TlsValidationContextFileTrust.filterSensitiveLog(obj.file)
+      };
+    if (obj.sds !== undefined)
+      return { sds: TlsValidationContextSdsTrust.filterSensitiveLog(obj.sds) };
     if (obj.$unknown !== undefined)
       return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
@@ -4063,6 +4097,18 @@ export namespace VirtualServiceProvider {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: VirtualServiceProvider): any => {
+    if (obj.virtualNode !== undefined)
+      return {
+        virtualNode: VirtualNodeServiceProvider.filterSensitiveLog(
+          obj.virtualNode
+        )
+      };
+    if (obj.virtualRouter !== undefined)
+      return {
+        virtualRouter: VirtualRouterServiceProvider.filterSensitiveLog(
+          obj.virtualRouter
+        )
+      };
     if (obj.$unknown !== undefined)
       return { [obj.$unknown[0]]: obj.$unknown[1] };
   };

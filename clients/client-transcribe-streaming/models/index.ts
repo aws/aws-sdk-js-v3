@@ -79,6 +79,8 @@ export namespace AudioStream {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: AudioStream): any => {
+    if (obj.AudioEvent !== undefined)
+      return { AudioEvent: AudioEvent.filterSensitiveLog(obj.AudioEvent) };
     if (obj.$unknown !== undefined)
       return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
@@ -512,6 +514,34 @@ export namespace TranscriptResultStream {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
   export const filterSensitiveLog = (obj: TranscriptResultStream): any => {
+    if (obj.BadRequestException !== undefined)
+      return {
+        BadRequestException: BadRequestException.filterSensitiveLog(
+          obj.BadRequestException
+        )
+      };
+    if (obj.ConflictException !== undefined)
+      return {
+        ConflictException: ConflictException.filterSensitiveLog(
+          obj.ConflictException
+        )
+      };
+    if (obj.InternalFailureException !== undefined)
+      return {
+        InternalFailureException: InternalFailureException.filterSensitiveLog(
+          obj.InternalFailureException
+        )
+      };
+    if (obj.LimitExceededException !== undefined)
+      return {
+        LimitExceededException: LimitExceededException.filterSensitiveLog(
+          obj.LimitExceededException
+        )
+      };
+    if (obj.TranscriptEvent !== undefined)
+      return {
+        TranscriptEvent: TranscriptEvent.filterSensitiveLog(obj.TranscriptEvent)
+      };
     if (obj.$unknown !== undefined)
       return { [obj.$unknown[0]]: obj.$unknown[1] };
   };
