@@ -15,9 +15,9 @@ import { ProviderError } from "@aws-sdk/property-provider";
  * Creates a credential provider that will source credentials from the EC2
  * Instance Metadata Service
  */
-export function fromInstanceMetadata(
+export const fromInstanceMetadata = (
   init: RemoteProviderInit = {}
-): CredentialProvider {
+): CredentialProvider => {
   const { timeout, maxRetries } = providerConfigFromInit(init);
   return async () => {
     const profile = (
@@ -40,15 +40,19 @@ export function fromInstanceMetadata(
       return fromImdsCredentials(credsResponse);
     }, maxRetries);
   };
-}
+};
 
 const IMDS_IP = "169.254.169.254";
 const IMDS_PATH = "latest/meta-data/iam/security-credentials";
 
-function requestFromEc2Imds(timeout: number, path?: string): Promise<string> {
-  return httpGet({
+const requestFromEc2Imds = async (
+  timeout: number,
+  path?: string
+): Promise<string> => {
+  const buffer = await httpGet({
     host: IMDS_IP,
     path: `/${IMDS_PATH}/${path ? path : ""}`,
     timeout
-  }).then(buffer => buffer.toString());
-}
+  });
+  return buffer.toString();
+};
