@@ -9,15 +9,10 @@
     "noUnusedParameters": false,
     "removeComments": false,
     "incremental": true,
-
     /**
      * Nice to have:
      */
     // "preserveConstEnums": true,
-    // "declaration": true,
-    // "allowUnreachableCode": false,
-    // "pretty": true,
-
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es5",
@@ -25,7 +20,8 @@
     "baseUrl": ".",
     "paths": {
       "@aws-sdk/*": ["packages/*/src"],
-      "@aws-sdk/client-*": ["clients/client-*/"]
+      "@aws-sdk/client-*": ["clients/client-*/"],
+      "@aws-sdk/aws-*": ["protocol_tests/aws-*/"]
     }
   },
   "include": ["packages/"],
