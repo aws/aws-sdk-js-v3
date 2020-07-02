@@ -73,7 +73,16 @@ describe("fromInstanceMetadata", () => {
     });
   });
 
-  it("passes maxRetries returned from providerConfigFromInit to retry", () => {});
+  it("passes maxRetries returned from providerConfigFromInit to retry", async () => {
+    (retry as jest.Mock)
+      .mockResolvedValueOnce(mockProfile)
+      .mockResolvedValueOnce(mockCreds);
+
+    await expect(fromInstanceMetadata()()).resolves.toEqual(mockCreds);
+    expect(retry).toHaveBeenCalledTimes(2);
+    expect((retry as jest.Mock).mock.calls[0][1]).toBe(mockMaxRetries);
+    expect((retry as jest.Mock).mock.calls[1][1]).toBe(mockMaxRetries);
+  });
 
   it("passes timeout returned from providerConfigFromInit to requestFromEc2Imds", () => {});
 
