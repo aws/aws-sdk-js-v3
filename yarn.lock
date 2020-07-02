@@ -7409,6 +7409,11 @@ karma-coverage@^2.0.2:
     istanbul-reports "^3.0.0"
     minimatch "^3.0.4"
 
+karma-env-preprocessor@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/karma-env-preprocessor/-/karma-env-preprocessor-0.1.1.tgz#bbe8c87d59c00edb76070bd3c31b4b39d5dc7e15"
+  integrity sha1-u+jIfVnADtt2BwvTwxtLOdXcfhU=
+
 karma-firefox-launcher@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/karma-firefox-launcher/-/karma-firefox-launcher-1.3.0.tgz#ebcbb1d1ddfada6be900eb8fae25bcf2dcdc8171"

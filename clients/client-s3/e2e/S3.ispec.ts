@@ -17,10 +17,10 @@ const region: string | undefined =
 const credentials: Credentials | undefined =
   (globalThis as any).credentials || undefined;
 const isBrowser: boolean | undefined = (globalThis as any).isBrowser || false;
+const Bucket =
+  (globalThis as any)?.window?.__env__?.AWS_SMOKE_TEST_BUCKET ||
+  process?.env?.AWS_SMOKE_TEST_BUCKET;
 
-// this bucket requires enabling CORS:
-// AllowedOrigin(*), AllowedMethod(GET, PUT, POST, DELETE, HEAD), ExposeHeader(ETag), AllowedHeader(*)
-const Bucket = "aws-sdk-unit-test";
 let Key = `${Date.now()}`;
 
 describe("@aws-sdk/client-s3", () => {
@@ -79,7 +79,7 @@ describe("@aws-sdk/client-s3", () => {
         });
         expect(result.$metadata.httpStatusCode).to.equal(200);
       });
-    } else  {
+    } else {
       it("should succeed with Node.js readable stream body", async () => {
         const length = 10 * 1000; // 10KB
         const chunkSize = 10;
@@ -136,8 +136,12 @@ describe("@aws-sdk/client-s3", () => {
   });
 
   describe("ListObjects", () => {
-    before(() => {
+    before(async () => {
       Key = `${Date.now()}`;
+      await client.putObject({ Bucket, Key, Body: "foo" });
+    });
+    after(async () => {
+      await client.deleteObject({ Bucket, Key });
     });
     it("should succeed with valid bucket", async () => {
       const result = await client.listObjects({
@@ -247,7 +251,7 @@ describe("@aws-sdk/client-s3", () => {
       });
       expect(listUploadsResult.$metadata.httpStatusCode).to.equal(200);
       expect(
-        listUploadsResult.Uploads?.map(upload => upload.UploadId)
+        (listUploadsResult.Uploads || []).map(upload => upload.UploadId)
       ).not.to.contain(toAbort);
     });
   });
