@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "pretest:e2e": "npx detox build",
+    "test:e2e": "npx detox test"
   },
   "dependencies": {
     "@aws-sdk/client-cognito-identity": "ci",
@@ -23,6 +25,7 @@
     "@types/react-native": "^0.62.16",
     "@types/react-test-renderer": "^16.9.2",
     "babel-jest": "^24.1.0",
+    "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "jest": "^24.1.0",
     "jest-circus": "^26.1.0",
     "metro-react-native-babel-preset": "^0.54.1",
