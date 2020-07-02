@@ -9,17 +9,10 @@ import { Credentials } from "@aws-sdk/types";
 import { retry } from "./remoteProvider/retry";
 import { ProviderError } from "@aws-sdk/property-provider";
 
-jest.mock("./remoteProvider/httpGet", () => ({ httpGet: jest.fn() }));
-jest.mock("./remoteProvider/ImdsCredentials", () => ({
-  fromImdsCredentials: jest.fn(),
-  isImdsCredentials: jest.fn().mockReturnValue(true)
-}));
-jest.mock("./remoteProvider/retry", () => ({
-  retry: jest.fn()
-}));
-jest.mock("./remoteProvider/RemoteProviderInit", () => ({
-  providerConfigFromInit: jest.fn()
-}));
+jest.mock("./remoteProvider/httpGet");
+jest.mock("./remoteProvider/ImdsCredentials");
+jest.mock("./remoteProvider/retry");
+jest.mock("./remoteProvider/RemoteProviderInit");
 
 describe("fromInstanceMetadata", () => {
   const mockTimeout = 1000;
@@ -47,6 +40,7 @@ describe("fromInstanceMetadata", () => {
   });
 
   beforeEach(() => {
+    ((isImdsCredentials as unknown) as jest.Mock).mockReturnValue(true);
     (providerConfigFromInit as jest.Mock).mockReturnValue({
       timeout: mockTimeout,
       maxRetries: mockMaxRetries
@@ -60,6 +54,23 @@ describe("fromInstanceMetadata", () => {
   it("gets profile name from IMDS, and passes profile name to fetch credentials", async () => {
     (httpGet as jest.Mock)
       .mockResolvedValueOnce(mockProfile)
+      .mockResolvedValueOnce(JSON.stringify(mockImdsCreds));
+
+    (retry as jest.Mock).mockImplementation((fn: any) => fn());
+    (fromImdsCredentials as jest.Mock).mockReturnValue(mockCreds);
+
+    await expect(fromInstanceMetadata()()).resolves.toEqual(mockCreds);
+    expect(httpGet).toHaveBeenCalledTimes(2);
+    expect(httpGet).toHaveBeenNthCalledWith(1, mockHttpGetOptions);
+    expect(httpGet).toHaveBeenNthCalledWith(2, {
+      ...mockHttpGetOptions,
+      path: `${mockHttpGetOptions.path}${mockProfile}`
+    });
+  });
+
+  it("trims profile returned name from IMDS", async () => {
+    (httpGet as jest.Mock)
+      .mockResolvedValueOnce("   " + mockProfile + "  ")
       .mockResolvedValueOnce(JSON.stringify(mockImdsCreds));
 
     (retry as jest.Mock).mockImplementation((fn: any) => fn());
