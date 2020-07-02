@@ -121,7 +121,12 @@ describe("fromInstanceMetadata", () => {
     );
   });
 
-  it("throws Error if requestFromEc2Imds for profile fails", () => {});
+  it("throws Error if requestFromEc2Imds for profile fails", async () => {
+    const mockError = new Error("profile not found");
+    (httpGet as jest.Mock).mockRejectedValueOnce(mockError);
+    (retry as jest.Mock).mockImplementation((fn: any) => fn());
+    await expect(fromInstanceMetadata()()).rejects.toEqual(mockError);
+  });
 
   it("throws Error if requestFromEc2Imds for credentials fails", () => {});
 });
