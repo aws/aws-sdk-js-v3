@@ -2,9 +2,9 @@
   "name": "@aws-sdk/credential-provider-cognito-identity",
   "version": "1.0.0-gamma.2",
   "scripts": {
-    "prepublishOnly": "tsc",
-    "pretest": "yarn build:cjs && yarn build:es",
-    "build:cjs": "tsc -p tsconfig.json",
+    "prepublishOnly": "yarn build:cjs && yarn build:es",
+    "pretest": "yarn build:cjs",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "test": "jest"
   },

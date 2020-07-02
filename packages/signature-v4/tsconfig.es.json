@@ -1,10 +1,5 @@
 {
-  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "target": "es5",
-    "module": "esNext",
-    "moduleResolution": "node",
-    "lib": ["es5", "es2015.promise", "es2015.collection"],
     "declaration": true,
     "sourceMap": true,
     "strict": true,
@@ -14,6 +9,13 @@
     "importHelpers": true,
     "noEmitHelpers": true,
     "noUnusedLocals": true,
+    "baseUrl": ".",
+    "target": "es5",
+    "module": "esNext",
+    "moduleResolution": "node",
+    "lib": ["es5", "es2015.promise", "es2015.collection"],
     "incremental": true
-  }
+  },
+  "extends": "../../tsconfig.es.json",
+  "include": ["src/"]
 }

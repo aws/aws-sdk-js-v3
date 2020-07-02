@@ -2,10 +2,13 @@
   "name": "@aws-sdk/util-utf8-node",
   "version": "1.0.0-gamma.1",
   "description": "A Node.JS UTF-8 string <-> UInt8Array converter",
-  "main": "./build/index.js",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/es/index.js",
   "scripts": {
-    "prepublishOnly": "tsc",
-    "pretest": "tsc -p tsconfig.test.json",
+    "prepublishOnly": "yarn build:cjs && yarn build:es",
+    "pretest": "yarn build:cjs",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:es": "tsc -p tsconfig.es.json",
     "test": "jest"
   },
   "author": {
@@ -26,5 +29,5 @@
   "jest": {
     "testEnvironment": "node"
   },
-  "types": "./build/index.d.ts"
+  "types": "./dist/cjs/index.d.ts"
 }

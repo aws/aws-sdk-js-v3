@@ -4,8 +4,9 @@
   "description": "A standalone implementation of the AWS Signature V4 request signing algorithm",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
+  "types": "./dist/cjs/index.d.ts",
   "scripts": {
-    "build:cjs": "tsc -p tsconfig.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
     "prepublishOnly": "yarn build",
@@ -31,6 +32,5 @@
     "@types/jest": "^25.1.4",
     "jest": "^25.1.0",
     "typescript": "~3.8.3"
-  },
-  "types": "./dist/cjs/index.d.ts"
+  }
 }

@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "strict": true,
+    "sourceMap": false,
+    "downlevelIteration": true,
+    "importHelpers": true,
+    "noEmitHelpers": true,
+    "lib": ["dom", "es5", "es2015.promise", "es2015.iterable"],
+    "rootDir": "./src",
+    "outDir": "./dist/cjs",
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "baseUrl": "."
+  },
+  "extends": "../../tsconfig.cjs.json",
+  "include": ["src/"]
+}

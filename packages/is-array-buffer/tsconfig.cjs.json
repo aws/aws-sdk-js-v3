@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "lib": ["es5", "es2015.collection"],
+    "declaration": true,
+    "strict": true,
+    "sourceMap": false,
+    "sourceRoot": "./src",
+    "outDir": "./dist/cjs",
+    "importHelpers": true,
+    "noEmitHelpers": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "baseUrl": "."
+  },
+  "extends": "../../tsconfig.cjs.json",
+  "include": ["src/"]
+}

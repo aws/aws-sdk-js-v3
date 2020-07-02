@@ -3,15 +3,15 @@
   "version": "1.0.0-gamma.0",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
+  "types": "./dist/cjs/index.d.ts",
   "scripts": {
-    "build:cjs": "tsc -p tsconfig.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
     "prepublishOnly": "yarn build",
     "pretest": "yarn build",
     "test": "jest --passWithNoTests"
   },
-  "types": "./dist/cjs/index.d.ts",
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"

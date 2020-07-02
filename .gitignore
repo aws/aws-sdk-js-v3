@@ -25,7 +25,7 @@ lerna-debug.log
 package-lock.json
 
 !serviceModels/logs
-build
+dist
 
 .idea/
 *.iml

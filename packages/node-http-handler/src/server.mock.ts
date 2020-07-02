@@ -15,7 +15,7 @@ import { Readable } from "stream";
 
 import { HttpResponse } from "@aws-sdk/types";
 
-const fixturesDir = join(__dirname, "..", "fixtures");
+const fixturesDir = join(__dirname, "../..", "fixtures");
 
 export function createResponseFunction(httpResp: HttpResponse) {
   return function (request: IncomingMessage, response: ServerResponse) {

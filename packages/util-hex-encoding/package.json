@@ -3,8 +3,10 @@
   "version": "1.0.0-gamma.1",
   "description": "Converts binary buffers to and from lowercase hexadecimal encoding",
   "scripts": {
-    "prepublishOnly": "tsc",
-    "pretest": "tsc -p tsconfig.test.json",
+    "prepublishOnly": "yarn build:cjs && yarn build:es",
+    "pretest": "yarn build:cjs",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:es": "tsc -p tsconfig.es.json",
     "test": "jest"
   },
   "author": {
@@ -12,7 +14,8 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "main": "./build/index.js",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/es/index.js",
   "dependencies": {
     "tslib": "^1.8.0"
   },
@@ -21,5 +24,5 @@
     "jest": "^25.1.0",
     "typescript": "~3.8.3"
   },
-  "types": "./build/index.d.ts"
+  "types": "./dist/cjs/index.d.ts"
 }

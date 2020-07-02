@@ -1,20 +1,22 @@
 {
   "name": "@aws-sdk/types",
   "version": "1.0.0-gamma.1",
-  "main": "./build/index.js",
-  "types": "./build/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/es/index.js",
+  "types": "./dist/cjs/index.d.ts",
   "description": "Types for the AWS SDK",
   "devDependencies": {
     "typescript": "~3.8.3"
   },
   "scripts": {
-    "prepublishOnly": "tsc",
-    "pretest": "tsc",
+    "prepublishOnly": "yarn build:cjs && yarn build:es",
+    "pretest": "yarn build:cjs",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:es": "tsc -p tsconfig.es.json",
     "test": "exit 0"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
-    "email": "",
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0"

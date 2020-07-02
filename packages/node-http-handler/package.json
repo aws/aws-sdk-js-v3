@@ -3,8 +3,10 @@
   "version": "1.0.0-gamma.1",
   "description": "Provides a way to make requests",
   "scripts": {
-    "prepublishOnly": "tsc",
-    "pretest": "tsc -p tsconfig.test.json",
+    "prepublishOnly": "yarn build:cjs && yarn build:es",
+    "pretest": "yarn build:cjs",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:es": "tsc -p tsconfig.es.json",
     "test": "jest --coverage"
   },
   "author": {
@@ -13,8 +15,9 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "main": "./build/index.js",
-  "types": "./build/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/es/index.js",
+  "types": "./dist/cjs/index.d.ts",
   "dependencies": {
     "@aws-sdk/abort-controller": "1.0.0-gamma.1",
     "@aws-sdk/protocol-http": "1.0.0-gamma.1",

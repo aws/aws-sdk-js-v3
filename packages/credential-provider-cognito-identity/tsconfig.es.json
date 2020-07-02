@@ -1,12 +1,11 @@
 {
-  "extends": "./tsconfig",
   "compilerOptions": {
-    "target": "es5",
-    "module": "esnext",
-    "moduleResolution": "node",
     "declaration": false,
-    "declarationDir": null,
+    "strict": true,
+    "sourceMap": true,
     "downlevelIteration": true,
+    "importHelpers": true,
+    "noEmitHelpers": true,
     "lib": [
       "dom",
       "es5",
@@ -15,6 +14,15 @@
       "es2015.iterable",
       "es2015.symbol.wellknown"
     ],
-    "outDir": "dist/es"
-  }
+    "rootDir": "./src",
+    "outDir": "./dist/es",
+    "declarationDir": null,
+    "noUnusedLocals": true,
+    "baseUrl": ".",
+    "target": "es5",
+    "module": "esnext",
+    "moduleResolution": "node"
+  },
+  "extends": "../../tsconfig.es.json",
+  "include": ["src/"]
 }
