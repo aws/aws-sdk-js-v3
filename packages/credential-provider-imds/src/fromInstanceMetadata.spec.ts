@@ -2,11 +2,12 @@ import { fromInstanceMetadata } from "./fromInstanceMetadata";
 import { httpGet } from "./remoteProvider/httpGet";
 import {
   fromImdsCredentials,
-  ImdsCredentials
+  isImdsCredentials
 } from "./remoteProvider/ImdsCredentials";
 import { providerConfigFromInit } from "./remoteProvider/RemoteProviderInit";
 import { Credentials } from "@aws-sdk/types";
 import { retry } from "./remoteProvider/retry";
+import { ProviderError } from "@aws-sdk/property-provider";
 
 jest.mock("./remoteProvider/httpGet", () => ({ httpGet: jest.fn() }));
 jest.mock("./remoteProvider/ImdsCredentials", () => ({
@@ -31,7 +32,7 @@ describe("fromInstanceMetadata", () => {
     timeout: mockTimeout
   };
 
-  const mockImdsCreds: ImdsCredentials = Object.freeze({
+  const mockImdsCreds = Object.freeze({
     AccessKeyId: "foo",
     SecretAccessKey: "bar",
     Token: "baz",
@@ -105,7 +106,20 @@ describe("fromInstanceMetadata", () => {
     expect((retry as jest.Mock).mock.calls[1][1]).toBe(mockMaxRetries);
   });
 
-  it("throws ProviderError is credentials returned are incorrect", () => {});
+  it("throws ProviderError is credentials returned are incorrect", async () => {
+    (httpGet as jest.Mock)
+      .mockResolvedValueOnce(mockProfile)
+      .mockResolvedValueOnce(JSON.stringify(mockImdsCreds));
+
+    (retry as jest.Mock).mockImplementation((fn: any) => fn());
+    ((isImdsCredentials as unknown) as jest.Mock).mockReturnValueOnce(false);
+
+    await expect(fromInstanceMetadata()()).rejects.toEqual(
+      new ProviderError(
+        "Invalid response received from instance metadata service."
+      )
+    );
+  });
 
   it("throws Error if requestFromEc2Imds for profile fails", () => {});
 
