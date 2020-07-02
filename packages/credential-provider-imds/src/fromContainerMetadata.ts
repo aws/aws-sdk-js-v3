@@ -16,34 +16,33 @@ export const ENV_CMDS_AUTH_TOKEN = "AWS_CONTAINER_AUTHORIZATION_TOKEN";
  * Creates a credential provider that will source credentials from the ECS
  * Container Metadata Service
  */
-export function fromContainerMetadata(init: RemoteProviderInit = {}): CredentialProvider {
+export const fromContainerMetadata = (init: RemoteProviderInit = {}): CredentialProvider => {
   const { timeout, maxRetries } = providerConfigFromInit(init);
-  return () => {
-    return getCmdsUri().then((url) =>
-      retry(async () => {
-        const credsResponse = JSON.parse(await requestFromEcsImds(timeout, url));
-        if (!isImdsCredentials(credsResponse)) {
-          throw new ProviderError("Invalid response received from instance metadata service.");
-        }
-
-        return fromImdsCredentials(credsResponse);
-      }, maxRetries)
-    );
+  return async () => {
+    const url = await getCmdsUri();
+    return await retry(async () => {
+      const credsResponse = JSON.parse(await requestFromEcsImds(timeout, url));
+      if (!isImdsCredentials(credsResponse)) {
+        throw new ProviderError("Invalid response received from instance metadata service.");
+      }
+      return fromImdsCredentials(credsResponse);
+    }, maxRetries);
   };
-}
+};
 
-function requestFromEcsImds(timeout: number, options: RequestOptions): Promise<string> {
+const requestFromEcsImds = async (timeout: number, options: RequestOptions): Promise<string> => {
   if (process.env[ENV_CMDS_AUTH_TOKEN]) {
     const { headers = {} } = options;
     headers.Authorization = process.env[ENV_CMDS_AUTH_TOKEN];
     options.headers = headers;
   }
 
-  return httpRequest({
+  const buffer = await httpRequest({
     ...options,
     timeout,
-  }).then((buffer) => buffer.toString());
-}
+  });
+  return buffer.toString();
+};
 
 const CMDS_IP = "169.254.170.2";
 const GREENGRASS_HOSTS = {
@@ -55,7 +54,7 @@ const GREENGRASS_PROTOCOLS = {
   "https:": true,
 };
 
-function getCmdsUri(): Promise<RequestOptions> {
+const getCmdsUri = (): Promise<RequestOptions> => {
   if (process.env[ENV_CMDS_RELATIVE_URI]) {
     return Promise.resolve({
       hostname: CMDS_IP,
@@ -91,4 +90,4 @@ function getCmdsUri(): Promise<RequestOptions> {
       false
     )
   );
-}
+};
