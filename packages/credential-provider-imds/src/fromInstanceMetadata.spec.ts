@@ -117,7 +117,7 @@ describe("fromInstanceMetadata", () => {
     expect((retry as jest.Mock).mock.calls[1][1]).toBe(mockMaxRetries);
   });
 
-  it("throws ProviderError is credentials returned are incorrect", async () => {
+  it("throws ProviderError if credentials returned are incorrect", async () => {
     (httpGet as jest.Mock)
       .mockResolvedValueOnce(mockProfile)
       .mockResolvedValueOnce(JSON.stringify(mockImdsCreds));
@@ -130,6 +130,11 @@ describe("fromInstanceMetadata", () => {
         "Invalid response received from instance metadata service."
       )
     );
+    expect(retry).toHaveBeenCalledTimes(2);
+    expect(httpGet).toHaveBeenCalledTimes(2);
+    expect(isImdsCredentials).toHaveBeenCalledTimes(1);
+    expect(isImdsCredentials).toHaveBeenCalledWith(mockImdsCreds);
+    expect(fromImdsCredentials).not.toHaveBeenCalled();
   });
 
   it("throws Error if requestFromEc2Imds for profile fails", async () => {
@@ -138,6 +143,8 @@ describe("fromInstanceMetadata", () => {
     (retry as jest.Mock).mockImplementation((fn: any) => fn());
 
     await expect(fromInstanceMetadata()()).rejects.toEqual(mockError);
+    expect(retry).toHaveBeenCalledTimes(1);
+    expect(httpGet).toHaveBeenCalledTimes(1);
   });
 
   it("throws Error if requestFromEc2Imds for credentials fails", async () => {
@@ -148,6 +155,9 @@ describe("fromInstanceMetadata", () => {
     (retry as jest.Mock).mockImplementation((fn: any) => fn());
 
     await expect(fromInstanceMetadata()()).rejects.toEqual(mockError);
+    expect(retry).toHaveBeenCalledTimes(2);
+    expect(httpGet).toHaveBeenCalledTimes(2);
+    expect(fromImdsCredentials).not.toHaveBeenCalled();
   });
 
   it("throws SyntaxError if requestFromEc2Imds returns unparseable creds", async () => {
@@ -159,5 +169,8 @@ describe("fromInstanceMetadata", () => {
     await expect(fromInstanceMetadata()()).rejects.toEqual(
       new SyntaxError("Unexpected token . in JSON at position 0")
     );
+    expect(retry).toHaveBeenCalledTimes(2);
+    expect(httpGet).toHaveBeenCalledTimes(2);
+    expect(fromImdsCredentials).not.toHaveBeenCalled();
   });
 });
