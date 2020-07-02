@@ -149,4 +149,15 @@ describe("fromInstanceMetadata", () => {
 
     await expect(fromInstanceMetadata()()).rejects.toEqual(mockError);
   });
+
+  it("throws SyntaxError if requestFromEc2Imds returns unparseable creds", async () => {
+    (httpGet as jest.Mock)
+      .mockResolvedValueOnce(mockProfile)
+      .mockResolvedValueOnce(".");
+    (retry as jest.Mock).mockImplementation((fn: any) => fn());
+
+    await expect(fromInstanceMetadata()()).rejects.toEqual(
+      new SyntaxError("Unexpected token . in JSON at position 0")
+    );
+  });
 });
