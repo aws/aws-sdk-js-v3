@@ -4,7 +4,7 @@ module.exports = function (config) {
     frameworks: ["mocha", "chai"],
     files: ["e2e/**/*.ispec.ts"],
     preprocessors: {
-      "e2e/**/*.ispec.ts": ["webpack", "sourcemap", "credentials"]
+      "e2e/**/*.ispec.ts": ["webpack", "sourcemap", "credentials", "env"]
     },
     webpackMiddleware: {
       stats: "minimal"
@@ -35,6 +35,10 @@ module.exports = function (config) {
       },
       devtool: "inline-source-map"
     },
+    envPreprocessor: [
+      "AWS_SMOKE_TEST_REGION",
+      "AWS_SMOKE_TEST_IDENTITY_POOL_ID"
+    ],
     plugins: [
       "@aws-sdk/karma-credential-loader",
       "karma-chrome-launcher",
@@ -43,7 +47,8 @@ module.exports = function (config) {
       "karma-chai",
       "karma-webpack",
       "karma-coverage",
-      "karma-sourcemap-loader"
+      "karma-sourcemap-loader",
+      "karma-env-preprocessor"
     ],
     reporters: ["progress"],
     port: 9876,
