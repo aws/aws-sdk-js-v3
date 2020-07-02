@@ -73,6 +73,16 @@ describe("fromInstanceMetadata", () => {
     });
   });
 
+  it("passes {} to providerConfigFromInit if init not defined", async () => {
+    (retry as jest.Mock)
+      .mockResolvedValueOnce(mockProfile)
+      .mockResolvedValueOnce(mockCreds);
+
+    await expect(fromInstanceMetadata()()).resolves.toEqual(mockCreds);
+    expect(providerConfigFromInit).toHaveBeenCalledTimes(1);
+    expect(providerConfigFromInit).toHaveBeenCalledWith({});
+  });
+
   it("passes init to providerConfigFromInit", async () => {
     (retry as jest.Mock)
       .mockResolvedValueOnce(mockProfile)
@@ -95,7 +105,7 @@ describe("fromInstanceMetadata", () => {
     expect((retry as jest.Mock).mock.calls[1][1]).toBe(mockMaxRetries);
   });
 
-  it("throws ProviderError is credentials returns are incorrect", () => {});
+  it("throws ProviderError is credentials returned are incorrect", () => {});
 
   it("throws Error if requestFromEc2Imds for profile fails", () => {});
 
