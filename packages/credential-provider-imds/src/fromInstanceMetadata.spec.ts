@@ -5,7 +5,6 @@ import {
   isImdsCredentials
 } from "./remoteProvider/ImdsCredentials";
 import { providerConfigFromInit } from "./remoteProvider/RemoteProviderInit";
-import { Credentials } from "@aws-sdk/types";
 import { retry } from "./remoteProvider/retry";
 import { ProviderError } from "@aws-sdk/property-provider";
 
@@ -32,7 +31,7 @@ describe("fromInstanceMetadata", () => {
     Expiration: new Date().toISOString()
   });
 
-  const mockCreds: Credentials = Object.freeze({
+  const mockCreds = Object.freeze({
     accessKeyId: mockImdsCreds.AccessKeyId,
     secretAccessKey: mockImdsCreds.SecretAccessKey,
     sessionToken: mockImdsCreds.Token,
