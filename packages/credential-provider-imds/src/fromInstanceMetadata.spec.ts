@@ -73,6 +73,17 @@ describe("fromInstanceMetadata", () => {
     });
   });
 
+  it("passes init to providerConfigFromInit", async () => {
+    (retry as jest.Mock)
+      .mockResolvedValueOnce(mockProfile)
+      .mockResolvedValueOnce(mockCreds);
+
+    const init = { maxRetries: 5, timeout: 1213 };
+    await expect(fromInstanceMetadata(init)()).resolves.toEqual(mockCreds);
+    expect(providerConfigFromInit).toHaveBeenCalledTimes(1);
+    expect(providerConfigFromInit).toHaveBeenCalledWith(init);
+  });
+
   it("passes maxRetries returned from providerConfigFromInit to retry", async () => {
     (retry as jest.Mock)
       .mockResolvedValueOnce(mockProfile)
@@ -83,8 +94,6 @@ describe("fromInstanceMetadata", () => {
     expect((retry as jest.Mock).mock.calls[0][1]).toBe(mockMaxRetries);
     expect((retry as jest.Mock).mock.calls[1][1]).toBe(mockMaxRetries);
   });
-
-  it("passes timeout returned from providerConfigFromInit to requestFromEc2Imds", () => {});
 
   it("throws ProviderError is credentials returns are incorrect", () => {});
 
