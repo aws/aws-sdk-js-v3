@@ -60,11 +60,11 @@
     "@aws-sdk/util-utf8-node": "1.0.0-gamma.1",
     "fast-xml-parser": "^3.16.0",
     "tslib": "^1.8.0",
-    "uuid": "^8.1.0"
+    "uuid": "^3.0.0"
   },
   "devDependencies": {
     "@types/node": "^12.7.5",
-    "@types/uuid": "^8.0.0",
+    "@types/uuid": "^3.0.0",
     "jest": "^25.1.0",
     "rimraf": "^3.0.0",
     "tslib": "^1.8.0",
