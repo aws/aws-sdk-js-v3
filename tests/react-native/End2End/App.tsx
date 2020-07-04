@@ -20,6 +20,14 @@ import {
 import { S3 } from "@aws-sdk/client-s3";
 import { fromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-identity";
 import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity";
+import {
+  //@ts-ignore imported ENVs are injected by Babel at compile time
+  AWS_SMOKE_TEST_IDENTITY_POOL_ID,
+  //@ts-ignore
+  AWS_SMOKE_TEST_REGION,
+  //@ts-ignore
+  AWS_SMOKE_TEST_BUCKET
+} from "react-native-dotenv";
 
 const App = () => {
   const [responseContent, setResponseContent] = useState("");
@@ -29,12 +37,12 @@ const App = () => {
   >([]);
   const s3 = new S3({
     credentials: fromCognitoIdentityPool({
-      identityPoolId: process.env.AWS_SMOKE_TEST_IDENTITY_POOL_ID,
+      identityPoolId: AWS_SMOKE_TEST_IDENTITY_POOL_ID,
       client: new CognitoIdentityClient({
-        region: "us-west-2"
+        region: AWS_SMOKE_TEST_REGION
       })
     }),
-    region: "us-west-2"
+    region: AWS_SMOKE_TEST_REGION
   });
   const Key = `smoke-test-rn`;
 
@@ -52,7 +60,7 @@ const App = () => {
               testID="s3PutObject"
               onPress={async () => {
                 const res = await s3.putObject({
-                  Bucket: process.env.AWS_SMOKE_TEST_BUCKET,
+                  Bucket: AWS_SMOKE_TEST_BUCKET,
                   Key,
                   Body: "this a test payload from RN end-to-end test."
                 });
@@ -64,7 +72,7 @@ const App = () => {
               testID="s3GetObject"
               onPress={async () => {
                 const res = await s3.getObject({
-                  Bucket: process.env.AWS_SMOKE_TEST_BUCKET,
+                  Bucket: AWS_SMOKE_TEST_BUCKET,
                   Key
                 });
                 if (!(res.Body instanceof Blob))
@@ -83,17 +91,17 @@ const App = () => {
               testID="s3ListObjects"
               onPress={async () => {
                 const res = await s3.listObjects({
-                  Bucket: process.env.AWS_SMOKE_TEST_BUCKET
+                  Bucket: AWS_SMOKE_TEST_BUCKET
                 });
                 setResponseContent(JSON.stringify(res));
               }}
             />
             <Button
               title="S3.createMultipartUpload"
-              testID="s3createMultipartUpload"
+              testID="s3CreateMultipartUpload"
               onPress={async () => {
                 const res = await s3.createMultipartUpload({
-                  Bucket: process.env.AWS_SMOKE_TEST_BUCKET,
+                  Bucket: AWS_SMOKE_TEST_BUCKET,
                   Key: `${Key}-multipart`
                 });
                 setUploadId(res.UploadId);
@@ -106,7 +114,7 @@ const App = () => {
               onPress={async () => {
                 console.log("uploadId ", uploadId);
                 const res = await s3.uploadPart({
-                  Bucket: process.env.AWS_SMOKE_TEST_BUCKET,
+                  Bucket: AWS_SMOKE_TEST_BUCKET,
                   Key: `${Key}-multipart`,
                   PartNumber: 1,
                   UploadId: uploadId,
@@ -122,7 +130,7 @@ const App = () => {
               testID="s3ListParts"
               onPress={async () => {
                 const res = await s3.listParts({
-                  Bucket: process.env.AWS_SMOKE_TEST_BUCKET,
+                  Bucket: AWS_SMOKE_TEST_BUCKET,
                   Key: `${Key}-multipart`,
                   UploadId: uploadId
                 });
@@ -134,7 +142,7 @@ const App = () => {
               testID="s3CompleteMultipartUpload"
               onPress={async () => {
                 const res = await s3.completeMultipartUpload({
-                  Bucket: process.env.AWS_SMOKE_TEST_BUCKET,
+                  Bucket: AWS_SMOKE_TEST_BUCKET,
                   Key: `${Key}-multipart`,
                   UploadId: uploadId,
                   MultipartUpload: { Parts: uploadParts }
@@ -144,13 +152,30 @@ const App = () => {
             />
             <Button
               title="S3.headObject"
-              testID="s3headObject"
+              testID="s3HeadObject"
               onPress={async () => {
                 const res = await s3.headObject({
-                  Bucket: process.env.AWS_SMOKE_TEST_BUCKET,
+                  Bucket: AWS_SMOKE_TEST_BUCKET,
                   Key: `${Key}-multipart`
                 });
                 setResponseContent(JSON.stringify(res));
+              }}
+            />
+            <Button
+              title="S3.deleteObject"
+              testID="s3DeleteObject"
+              onPress={async () => {
+                const res0 = await s3.deleteObject({
+                  Bucket: AWS_SMOKE_TEST_BUCKET,
+                  Key
+                });
+                const res1 = await s3.deleteObject({
+                  Bucket: AWS_SMOKE_TEST_BUCKET,
+                  Key: `${Key}-multipart`
+                });
+                setResponseContent(
+                  `${JSON.stringify(res0)}\n${JSON.stringify(res1)}`
+                );
               }}
             />
             <Text testID="responseContent">{responseContent}</Text>

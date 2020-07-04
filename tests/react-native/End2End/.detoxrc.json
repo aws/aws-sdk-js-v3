@@ -9,13 +9,6 @@
       "device": {
         "type": "iPhone X"
       }
-    },
-    "android": {
-      "type": "android.emulator",
-      "binaryPath": "SPECIFY_PATH_TO_YOUR_APP_BINARY",
-      "device": {
-        "avdName": "Pixel_2_API_29"
-      }
     }
   }
 }
