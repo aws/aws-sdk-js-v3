@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@types/jest": "^25.1.4",
-    "jest": "^25.1.0",
+    "jest": "^26.1.0",
     "jest-websocket-mock": "^2.0.2",
     "mock-socket": "^9.0.3",
     "typescript": "~3.8.3"

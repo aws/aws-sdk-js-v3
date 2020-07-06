@@ -18,7 +18,7 @@
   "module": "./dist/es/index.js",
   "devDependencies": {
     "@types/jest": "^25.1.4",
-    "jest": "^25.1.0",
+    "jest": "^26.1.0",
     "typescript": "~3.8.3"
   },
   "types": "./dist/cjs/index.d.ts",
