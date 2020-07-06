@@ -67,7 +67,7 @@
     "lint-staged": "^10.0.1",
     "mocha": "^8.0.1",
     "prettier": "2.0.5",
-    "puppeteer": "^4.0.0",
+    "puppeteer": "^5.0.0",
     "ts-loader": "^7.0.5",
     "typescript": "~3.8.3",
     "verdaccio": "^4.7.2",
