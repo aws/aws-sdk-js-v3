@@ -12,7 +12,8 @@
     "remove-documentation": "rimraf ./docs",
     "remove-js": "rimraf *.js && rimraf ./commands/*.js && rimraf ./models/*.js && rimraf ./protocols/*.js",
     "remove-maps": "rimraf *.js.map && rimraf ./commands/*.js.map && rimraf ./models/*.js.map && rimraf ./protocols/*.js.map",
-    "test": "exit 0",
+    "test:unit": "mocha **/cjs/**/*.spec.js",
+    "test": "yarn test:unit",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn pretest && yarn build:es"
   },
@@ -60,8 +61,9 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^7.0.2",
     "@types/node": "^12.7.5",
-    "jest": "^25.1.0",
     "rimraf": "^3.0.0",
     "tslib": "^1.8.0",
     "typedoc": "^0.15.0",

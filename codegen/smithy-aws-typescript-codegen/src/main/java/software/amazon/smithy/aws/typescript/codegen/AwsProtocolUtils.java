@@ -45,7 +45,7 @@ final class AwsProtocolUtils {
     private AwsProtocolUtils() {}
 
     /**
-     * Writes an {@code 'x-amz-content-sha256' = 'UNSIGNED_PAYLOAD'} header for an
+     * Writes an {@code 'x-amz-content-sha256' = 'UNSIGNED-PAYLOAD'} header for an
      * {@code @aws.api#unsignedPayload} trait that specifies the {@code "aws.v4"} auth scheme.
      *
      * @see <a href=https://awslabs.github.io/smithy/spec/aws-core.html#aws-api-unsignedpayload-trait>@aws.api#unsignedPayload trait</a>
@@ -58,7 +58,7 @@ final class AwsProtocolUtils {
 
         operation.getTrait(UnsignedPayloadTrait.class)
                 .ifPresent(trait -> {
-                    writer.write("'x-amz-content-sha256': 'UNSIGNED_PAYLOAD',");
+                    writer.write("'x-amz-content-sha256': 'UNSIGNED-PAYLOAD',");
                 });
     }
 
