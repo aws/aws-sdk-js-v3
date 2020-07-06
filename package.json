@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.4",
-    "@commitlint/config-conventional": "^8.3.4",
+    "@commitlint/config-conventional": "^9.0.1",
     "@types/chai-as-promised": "^7.1.2",
     "@types/fs-extra": "^8.0.1",
     "@types/jest": "^25.1.4",
