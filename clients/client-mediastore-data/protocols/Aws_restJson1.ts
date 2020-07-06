@@ -184,7 +184,7 @@ export const serializeAws_restJson1PutObjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/octet-stream",
-    "x-amz-content-sha256": "UNSIGNED_PAYLOAD",
+    "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
     ...(isSerializableHeaderValue(input.CacheControl) && {
       "Cache-Control": input.CacheControl!
     }),

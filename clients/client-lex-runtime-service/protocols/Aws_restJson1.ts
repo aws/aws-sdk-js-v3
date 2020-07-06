@@ -179,7 +179,7 @@ export const serializeAws_restJson1PostContentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/octet-stream",
-    "x-amz-content-sha256": "UNSIGNED_PAYLOAD",
+    "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
     ...(isSerializableHeaderValue(input.accept) && { Accept: input.accept! }),
     ...(isSerializableHeaderValue(input.contentType) && {
       "Content-Type": input.contentType!
