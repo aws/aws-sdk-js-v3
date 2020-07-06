@@ -2719,7 +2719,12 @@ export interface SubscribeToShardOutput {
 
 export namespace SubscribeToShardOutput {
   export const filterSensitiveLog = (obj: SubscribeToShardOutput): any => ({
-    ...obj
+    ...obj,
+    ...(obj.EventStream && {
+      EventStream: SubscribeToShardEventStream.filterSensitiveLog(
+        obj.EventStream
+      )
+    })
   });
   export const isa = (o: any): o is SubscribeToShardOutput =>
     __isa(o, "SubscribeToShardOutput");

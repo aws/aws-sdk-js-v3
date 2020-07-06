@@ -169,7 +169,10 @@ export interface BackendDefaults {
 
 export namespace BackendDefaults {
   export const filterSensitiveLog = (obj: BackendDefaults): any => ({
-    ...obj
+    ...obj,
+    ...(obj.clientPolicy && {
+      clientPolicy: ClientPolicy.filterSensitiveLog(obj.clientPolicy)
+    })
   });
   export const isa = (o: any): o is BackendDefaults =>
     __isa(o, "BackendDefaults");
@@ -207,7 +210,8 @@ export interface ClientPolicy {
 
 export namespace ClientPolicy {
   export const filterSensitiveLog = (obj: ClientPolicy): any => ({
-    ...obj
+    ...obj,
+    ...(obj.tls && { tls: ClientPolicyTls.filterSensitiveLog(obj.tls) })
   });
   export const isa = (o: any): o is ClientPolicy => __isa(o, "ClientPolicy");
 }
@@ -236,7 +240,10 @@ export interface ClientPolicyTls {
 
 export namespace ClientPolicyTls {
   export const filterSensitiveLog = (obj: ClientPolicyTls): any => ({
-    ...obj
+    ...obj,
+    ...(obj.validation && {
+      validation: TlsValidationContext.filterSensitiveLog(obj.validation)
+    })
   });
   export const isa = (o: any): o is ClientPolicyTls =>
     __isa(o, "ClientPolicyTls");
@@ -436,7 +443,8 @@ export interface CreateVirtualNodeInput {
 
 export namespace CreateVirtualNodeInput {
   export const filterSensitiveLog = (obj: CreateVirtualNodeInput): any => ({
-    ...obj
+    ...obj,
+    ...(obj.spec && { spec: VirtualNodeSpec.filterSensitiveLog(obj.spec) })
   });
   export const isa = (o: any): o is CreateVirtualNodeInput =>
     __isa(o, "CreateVirtualNodeInput");
@@ -455,7 +463,10 @@ export interface CreateVirtualNodeOutput {
 
 export namespace CreateVirtualNodeOutput {
   export const filterSensitiveLog = (obj: CreateVirtualNodeOutput): any => ({
-    ...obj
+    ...obj,
+    ...(obj.virtualNode && {
+      virtualNode: VirtualNodeData.filterSensitiveLog(obj.virtualNode)
+    })
   });
   export const isa = (o: any): o is CreateVirtualNodeOutput =>
     __isa(o, "CreateVirtualNodeOutput");
@@ -574,7 +585,8 @@ export interface CreateVirtualServiceInput {
 
 export namespace CreateVirtualServiceInput {
   export const filterSensitiveLog = (obj: CreateVirtualServiceInput): any => ({
-    ...obj
+    ...obj,
+    ...(obj.spec && { spec: VirtualServiceSpec.filterSensitiveLog(obj.spec) })
   });
   export const isa = (o: any): o is CreateVirtualServiceInput =>
     __isa(o, "CreateVirtualServiceInput");
@@ -593,7 +605,10 @@ export interface CreateVirtualServiceOutput {
 
 export namespace CreateVirtualServiceOutput {
   export const filterSensitiveLog = (obj: CreateVirtualServiceOutput): any => ({
-    ...obj
+    ...obj,
+    ...(obj.virtualService && {
+      virtualService: VirtualServiceData.filterSensitiveLog(obj.virtualService)
+    })
   });
   export const isa = (o: any): o is CreateVirtualServiceOutput =>
     __isa(o, "CreateVirtualServiceOutput");
@@ -759,7 +774,10 @@ export interface DeleteVirtualNodeOutput {
 
 export namespace DeleteVirtualNodeOutput {
   export const filterSensitiveLog = (obj: DeleteVirtualNodeOutput): any => ({
-    ...obj
+    ...obj,
+    ...(obj.virtualNode && {
+      virtualNode: VirtualNodeData.filterSensitiveLog(obj.virtualNode)
+    })
   });
   export const isa = (o: any): o is DeleteVirtualNodeOutput =>
     __isa(o, "DeleteVirtualNodeOutput");
@@ -857,7 +875,10 @@ export interface DeleteVirtualServiceOutput {
 
 export namespace DeleteVirtualServiceOutput {
   export const filterSensitiveLog = (obj: DeleteVirtualServiceOutput): any => ({
-    ...obj
+    ...obj,
+    ...(obj.virtualService && {
+      virtualService: VirtualServiceData.filterSensitiveLog(obj.virtualService)
+    })
   });
   export const isa = (o: any): o is DeleteVirtualServiceOutput =>
     __isa(o, "DeleteVirtualServiceOutput");
@@ -1004,7 +1025,10 @@ export interface DescribeVirtualNodeOutput {
 
 export namespace DescribeVirtualNodeOutput {
   export const filterSensitiveLog = (obj: DescribeVirtualNodeOutput): any => ({
-    ...obj
+    ...obj,
+    ...(obj.virtualNode && {
+      virtualNode: VirtualNodeData.filterSensitiveLog(obj.virtualNode)
+    })
   });
   export const isa = (o: any): o is DescribeVirtualNodeOutput =>
     __isa(o, "DescribeVirtualNodeOutput");
@@ -1108,7 +1132,10 @@ export namespace DescribeVirtualServiceOutput {
   export const filterSensitiveLog = (
     obj: DescribeVirtualServiceOutput
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.virtualService && {
+      virtualService: VirtualServiceData.filterSensitiveLog(obj.virtualService)
+    })
   });
   export const isa = (o: any): o is DescribeVirtualServiceOutput =>
     __isa(o, "DescribeVirtualServiceOutput");
@@ -1399,7 +1426,12 @@ export interface GrpcRouteMatch {
 
 export namespace GrpcRouteMatch {
   export const filterSensitiveLog = (obj: GrpcRouteMatch): any => ({
-    ...obj
+    ...obj,
+    ...(obj.metadata && {
+      metadata: obj.metadata.map(item =>
+        GrpcRouteMetadata.filterSensitiveLog(item)
+      )
+    })
   });
   export const isa = (o: any): o is GrpcRouteMatch =>
     __isa(o, "GrpcRouteMatch");
@@ -1428,7 +1460,10 @@ export interface GrpcRouteMetadata {
 
 export namespace GrpcRouteMetadata {
   export const filterSensitiveLog = (obj: GrpcRouteMetadata): any => ({
-    ...obj
+    ...obj,
+    ...(obj.match && {
+      match: GrpcRouteMetadataMatchMethod.filterSensitiveLog(obj.match)
+    })
   });
   export const isa = (o: any): o is GrpcRouteMetadata =>
     __isa(o, "GrpcRouteMetadata");
@@ -1888,7 +1923,8 @@ export interface HttpRouteHeader {
 
 export namespace HttpRouteHeader {
   export const filterSensitiveLog = (obj: HttpRouteHeader): any => ({
-    ...obj
+    ...obj,
+    ...(obj.match && { match: HeaderMatchMethod.filterSensitiveLog(obj.match) })
   });
   export const isa = (o: any): o is HttpRouteHeader =>
     __isa(o, "HttpRouteHeader");
@@ -1928,7 +1964,10 @@ export interface HttpRouteMatch {
 
 export namespace HttpRouteMatch {
   export const filterSensitiveLog = (obj: HttpRouteMatch): any => ({
-    ...obj
+    ...obj,
+    ...(obj.headers && {
+      headers: obj.headers.map(item => HttpRouteHeader.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is HttpRouteMatch =>
     __isa(o, "HttpRouteMatch");
@@ -2463,7 +2502,10 @@ export interface Logging {
 
 export namespace Logging {
   export const filterSensitiveLog = (obj: Logging): any => ({
-    ...obj
+    ...obj,
+    ...(obj.accessLog && {
+      accessLog: AccessLog.filterSensitiveLog(obj.accessLog)
+    })
   });
   export const isa = (o: any): o is Logging => __isa(o, "Logging");
 }
@@ -3178,7 +3220,10 @@ export interface TlsValidationContext {
 
 export namespace TlsValidationContext {
   export const filterSensitiveLog = (obj: TlsValidationContext): any => ({
-    ...obj
+    ...obj,
+    ...(obj.trust && {
+      trust: TlsValidationContextTrust.filterSensitiveLog(obj.trust)
+    })
   });
   export const isa = (o: any): o is TlsValidationContext =>
     __isa(o, "TlsValidationContext");
@@ -3238,7 +3283,8 @@ export namespace TlsValidationContextSdsTrust {
   export const filterSensitiveLog = (
     obj: TlsValidationContextSdsTrust
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.source && { source: SdsSource.filterSensitiveLog(obj.source) })
   });
   export const isa = (o: any): o is TlsValidationContextSdsTrust =>
     __isa(o, "TlsValidationContextSdsTrust");
@@ -3554,7 +3600,8 @@ export interface UpdateVirtualNodeInput {
 
 export namespace UpdateVirtualNodeInput {
   export const filterSensitiveLog = (obj: UpdateVirtualNodeInput): any => ({
-    ...obj
+    ...obj,
+    ...(obj.spec && { spec: VirtualNodeSpec.filterSensitiveLog(obj.spec) })
   });
   export const isa = (o: any): o is UpdateVirtualNodeInput =>
     __isa(o, "UpdateVirtualNodeInput");
@@ -3573,7 +3620,10 @@ export interface UpdateVirtualNodeOutput {
 
 export namespace UpdateVirtualNodeOutput {
   export const filterSensitiveLog = (obj: UpdateVirtualNodeOutput): any => ({
-    ...obj
+    ...obj,
+    ...(obj.virtualNode && {
+      virtualNode: VirtualNodeData.filterSensitiveLog(obj.virtualNode)
+    })
   });
   export const isa = (o: any): o is UpdateVirtualNodeOutput =>
     __isa(o, "UpdateVirtualNodeOutput");
@@ -3675,7 +3725,8 @@ export interface UpdateVirtualServiceInput {
 
 export namespace UpdateVirtualServiceInput {
   export const filterSensitiveLog = (obj: UpdateVirtualServiceInput): any => ({
-    ...obj
+    ...obj,
+    ...(obj.spec && { spec: VirtualServiceSpec.filterSensitiveLog(obj.spec) })
   });
   export const isa = (o: any): o is UpdateVirtualServiceInput =>
     __isa(o, "UpdateVirtualServiceInput");
@@ -3694,7 +3745,10 @@ export interface UpdateVirtualServiceOutput {
 
 export namespace UpdateVirtualServiceOutput {
   export const filterSensitiveLog = (obj: UpdateVirtualServiceOutput): any => ({
-    ...obj
+    ...obj,
+    ...(obj.virtualService && {
+      virtualService: VirtualServiceData.filterSensitiveLog(obj.virtualService)
+    })
   });
   export const isa = (o: any): o is UpdateVirtualServiceOutput =>
     __isa(o, "UpdateVirtualServiceOutput");
@@ -3733,7 +3787,8 @@ export interface VirtualNodeData {
 
 export namespace VirtualNodeData {
   export const filterSensitiveLog = (obj: VirtualNodeData): any => ({
-    ...obj
+    ...obj,
+    ...(obj.spec && { spec: VirtualNodeSpec.filterSensitiveLog(obj.spec) })
   });
   export const isa = (o: any): o is VirtualNodeData =>
     __isa(o, "VirtualNodeData");
@@ -3835,7 +3890,19 @@ export interface VirtualNodeSpec {
 
 export namespace VirtualNodeSpec {
   export const filterSensitiveLog = (obj: VirtualNodeSpec): any => ({
-    ...obj
+    ...obj,
+    ...(obj.backendDefaults && {
+      backendDefaults: BackendDefaults.filterSensitiveLog(obj.backendDefaults)
+    }),
+    ...(obj.backends && {
+      backends: obj.backends.map(item => Backend.filterSensitiveLog(item))
+    }),
+    ...(obj.logging && { logging: Logging.filterSensitiveLog(obj.logging) }),
+    ...(obj.serviceDiscovery && {
+      serviceDiscovery: ServiceDiscovery.filterSensitiveLog(
+        obj.serviceDiscovery
+      )
+    })
   });
   export const isa = (o: any): o is VirtualNodeSpec =>
     __isa(o, "VirtualNodeSpec");
@@ -4049,7 +4116,10 @@ export interface VirtualServiceBackend {
 
 export namespace VirtualServiceBackend {
   export const filterSensitiveLog = (obj: VirtualServiceBackend): any => ({
-    ...obj
+    ...obj,
+    ...(obj.clientPolicy && {
+      clientPolicy: ClientPolicy.filterSensitiveLog(obj.clientPolicy)
+    })
   });
   export const isa = (o: any): o is VirtualServiceBackend =>
     __isa(o, "VirtualServiceBackend");
@@ -4088,7 +4158,8 @@ export interface VirtualServiceData {
 
 export namespace VirtualServiceData {
   export const filterSensitiveLog = (obj: VirtualServiceData): any => ({
-    ...obj
+    ...obj,
+    ...(obj.spec && { spec: VirtualServiceSpec.filterSensitiveLog(obj.spec) })
   });
   export const isa = (o: any): o is VirtualServiceData =>
     __isa(o, "VirtualServiceData");
@@ -4221,7 +4292,10 @@ export interface VirtualServiceSpec {
 
 export namespace VirtualServiceSpec {
   export const filterSensitiveLog = (obj: VirtualServiceSpec): any => ({
-    ...obj
+    ...obj,
+    ...(obj.provider && {
+      provider: VirtualServiceProvider.filterSensitiveLog(obj.provider)
+    })
   });
   export const isa = (o: any): o is VirtualServiceSpec =>
     __isa(o, "VirtualServiceSpec");

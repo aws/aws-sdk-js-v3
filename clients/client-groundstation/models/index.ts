@@ -496,7 +496,10 @@ export interface CreateConfigRequest {
 
 export namespace CreateConfigRequest {
   export const filterSensitiveLog = (obj: CreateConfigRequest): any => ({
-    ...obj
+    ...obj,
+    ...(obj.configData && {
+      configData: ConfigTypeData.filterSensitiveLog(obj.configData)
+    })
   });
   export const isa = (o: any): o is CreateConfigRequest =>
     __isa(o, "CreateConfigRequest");
@@ -1108,7 +1111,10 @@ export interface GetConfigResponse {
 
 export namespace GetConfigResponse {
   export const filterSensitiveLog = (obj: GetConfigResponse): any => ({
-    ...obj
+    ...obj,
+    ...(obj.configData && {
+      configData: ConfigTypeData.filterSensitiveLog(obj.configData)
+    })
   });
   export const isa = (o: any): o is GetConfigResponse =>
     __isa(o, "GetConfigResponse");
@@ -2181,7 +2187,10 @@ export interface UpdateConfigRequest {
 
 export namespace UpdateConfigRequest {
   export const filterSensitiveLog = (obj: UpdateConfigRequest): any => ({
-    ...obj
+    ...obj,
+    ...(obj.configData && {
+      configData: ConfigTypeData.filterSensitiveLog(obj.configData)
+    })
   });
   export const isa = (o: any): o is UpdateConfigRequest =>
     __isa(o, "UpdateConfigRequest");

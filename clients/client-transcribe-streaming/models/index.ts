@@ -314,7 +314,10 @@ export namespace StartStreamTranscriptionRequest {
   export const filterSensitiveLog = (
     obj: StartStreamTranscriptionRequest
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.AudioStream && {
+      AudioStream: AudioStream.filterSensitiveLog(obj.AudioStream)
+    })
   });
   export const isa = (o: any): o is StartStreamTranscriptionRequest =>
     __isa(o, "StartStreamTranscriptionRequest");
@@ -363,7 +366,12 @@ export namespace StartStreamTranscriptionResponse {
   export const filterSensitiveLog = (
     obj: StartStreamTranscriptionResponse
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.TranscriptResultStream && {
+      TranscriptResultStream: TranscriptResultStream.filterSensitiveLog(
+        obj.TranscriptResultStream
+      )
+    })
   });
   export const isa = (o: any): o is StartStreamTranscriptionResponse =>
     __isa(o, "StartStreamTranscriptionResponse");

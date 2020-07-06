@@ -575,7 +575,12 @@ export interface ExecuteStatementRequest {
 
 export namespace ExecuteStatementRequest {
   export const filterSensitiveLog = (obj: ExecuteStatementRequest): any => ({
-    ...obj
+    ...obj,
+    ...(obj.parameters && {
+      parameters: obj.parameters.map(item =>
+        SqlParameter.filterSensitiveLog(item)
+      )
+    })
   });
   export const isa = (o: any): o is ExecuteStatementRequest =>
     __isa(o, "ExecuteStatementRequest");
@@ -617,7 +622,12 @@ export interface ExecuteStatementResponse {
 
 export namespace ExecuteStatementResponse {
   export const filterSensitiveLog = (obj: ExecuteStatementResponse): any => ({
-    ...obj
+    ...obj,
+    ...(obj.generatedFields && {
+      generatedFields: obj.generatedFields.map(item =>
+        Field.filterSensitiveLog(item)
+      )
+    })
   });
   export const isa = (o: any): o is ExecuteStatementResponse =>
     __isa(o, "ExecuteStatementResponse");
@@ -866,7 +876,10 @@ export interface _Record {
 
 export namespace _Record {
   export const filterSensitiveLog = (obj: _Record): any => ({
-    ...obj
+    ...obj,
+    ...(obj.values && {
+      values: obj.values.map(item => Value.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is _Record => __isa(o, "Record");
 }
@@ -1064,7 +1077,8 @@ export interface SqlParameter {
 
 export namespace SqlParameter {
   export const filterSensitiveLog = (obj: SqlParameter): any => ({
-    ...obj
+    ...obj,
+    ...(obj.value && { value: Field.filterSensitiveLog(obj.value) })
   });
   export const isa = (o: any): o is SqlParameter => __isa(o, "SqlParameter");
 }
@@ -1137,7 +1151,10 @@ export interface StructValue {
 
 export namespace StructValue {
   export const filterSensitiveLog = (obj: StructValue): any => ({
-    ...obj
+    ...obj,
+    ...(obj.attributes && {
+      attributes: obj.attributes.map(item => Value.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is StructValue => __isa(o, "StructValue");
 }
@@ -1162,7 +1179,12 @@ export interface UpdateResult {
 
 export namespace UpdateResult {
   export const filterSensitiveLog = (obj: UpdateResult): any => ({
-    ...obj
+    ...obj,
+    ...(obj.generatedFields && {
+      generatedFields: obj.generatedFields.map(item =>
+        Field.filterSensitiveLog(item)
+      )
+    })
   });
   export const isa = (o: any): o is UpdateResult => __isa(o, "UpdateResult");
 }
