@@ -1,29 +1,34 @@
 import { retry } from "./retry";
 
 describe("retry", () => {
-  it("should retry a function the specified number of times", async () => {
-    const retries = 10;
-    const retryable = jest.fn().mockRejectedValue("Expected failure");
+  const successMsg = "Success";
+  const errorMsg = "Expected failure";
+  const retries = 10;
+  const retryable = jest.fn().mockRejectedValue(errorMsg);
 
-    await retry(retryable, retries).catch(msg => {
-      expect(retryable.mock.calls.length).toEqual(retries + 1);
-      expect(msg).toEqual("Expected failure");
-    });
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it("should retry a function the specified number of times", async () => {
+    await expect(retry(retryable, retries)).rejects.toStrictEqual(errorMsg);
+    expect(retryable).toHaveBeenCalledTimes(retries + 1);
+  });
+
+  it("should not retry if successful", async () => {
+    retryable.mockResolvedValueOnce(successMsg);
+    await expect(retry(retryable, retries)).resolves.toStrictEqual(successMsg);
+    expect(retryable).toHaveBeenCalledTimes(1);
   });
 
   it("should stop retrying after the first successful invocation", async () => {
-    const retries = 10;
     const successfulInvocationIndex = 3;
-    let invocations = 0;
-    const retryable = jest.fn(() => {
-      if (++invocations === successfulInvocationIndex) {
-        return Promise.resolve("Success!");
-      }
-      return Promise.reject("Expected failure");
-    });
+    for (let i = 1; i < successfulInvocationIndex; i++) {
+      retryable.mockRejectedValueOnce(errorMsg);
+    }
+    retryable.mockResolvedValueOnce(successMsg);
 
-    await retry(retryable, retries).then(() => {
-      expect(retryable.mock.calls.length).toEqual(successfulInvocationIndex);
-    });
+    await expect(retry(retryable, retries)).resolves.toStrictEqual(successMsg);
+    expect(retryable).toHaveBeenCalledTimes(successfulInvocationIndex);
   });
 });
