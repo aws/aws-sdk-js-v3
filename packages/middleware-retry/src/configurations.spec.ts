@@ -1,9 +1,7 @@
 import { resolveRetryConfig } from "./configurations";
 import { StandardRetryStrategy } from "./defaultStrategy";
 
-jest.mock("./defaultStrategy", () => ({
-  StandardRetryStrategy: jest.fn().mockReturnValue({})
-}));
+jest.mock("./defaultStrategy");
 
 describe("resolveRetryConfig", () => {
   const maxAttemptsDefaultProvider = jest.fn();
@@ -54,11 +52,10 @@ describe("resolveRetryConfig", () => {
       describe("passes maxAttempts if present", () => {
         for (const maxAttempts of [1, 2, 3]) {
           it(`when maxAttempts=${maxAttempts}`, async () => {
-            const { retryStrategy } = resolveRetryConfig({
+            resolveRetryConfig({
               maxAttempts,
               maxAttemptsDefaultProvider
             });
-            expect(retryStrategy).toBeInstanceOf(StandardRetryStrategy);
             expect(StandardRetryStrategy as jest.Mock).toHaveBeenCalledTimes(1);
             const output = await (StandardRetryStrategy as jest.Mock).mock.calls[0][0]();
             expect(output).toStrictEqual(maxAttempts.toString());
@@ -70,10 +67,9 @@ describe("resolveRetryConfig", () => {
         const mockMaxAttempts = jest.fn();
         maxAttemptsDefaultProvider.mockReturnValueOnce(mockMaxAttempts);
 
-        const { retryStrategy } = resolveRetryConfig({
+        resolveRetryConfig({
           maxAttemptsDefaultProvider
         });
-        expect(retryStrategy).toBeInstanceOf(StandardRetryStrategy);
         expect(StandardRetryStrategy as jest.Mock).toHaveBeenCalledTimes(1);
         expect((StandardRetryStrategy as jest.Mock).mock.calls[0][0]).toEqual(
           mockMaxAttempts
