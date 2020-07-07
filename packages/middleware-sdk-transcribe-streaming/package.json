@@ -29,7 +29,7 @@
     "uuid": "^3.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^25.1.4",
+    "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "jest-websocket-mock": "^2.0.2",
     "mock-socket": "^9.0.3",
