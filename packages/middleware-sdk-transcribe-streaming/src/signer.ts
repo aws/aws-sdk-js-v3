@@ -27,10 +27,20 @@ export class SignatureV4 implements RequestSigner, RequestPresigner {
   ): Promise<IHttpRequest> {
     if (HttpRequest.isInstance(toSign)) {
       // Presign the endpoint url with empty body, otherwise
-      // the payload hash would be UNSINGED_PAYLOAD
-      const signedRequest = await this.signer.presign({ ...toSign, body: "" }, {
-        expiresIn: 5 * 60 // presigned url must be expired within 5 mins
-      } as any);
+      // the payload hash would be UNSINGED-PAYLOAD
+      const signedRequest = await this.signer.presign(
+        { ...toSign, body: "" },
+        {
+          // presigned url must be expired within 5 mins.
+          expiresIn: 5 * 60,
+          // Not to sign headers. Transcribe-streaming WebSocket
+          // request omits headers except for required 'host' header. If we sign
+          // the other headers, the signature could be mismatch.
+          unsignableHeaders: new Set(
+            Object.keys(toSign.headers).filter(header => header !== "host")
+          )
+        }
+      );
       return {
         ...signedRequest,
         body: toSign.body
