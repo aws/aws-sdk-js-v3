@@ -18,7 +18,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@aws-sdk/smithy-client": "1.0.0-gamma.1",
-    "@types/jest": "^25.1.4",
+    "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "typescript": "~3.8.3"
   }

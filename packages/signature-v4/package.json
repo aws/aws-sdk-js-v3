@@ -29,7 +29,7 @@
     "@aws-crypto/sha256-js": "^1.0.0-alpha.0",
     "@aws-sdk/protocol-http": "1.0.0-gamma.1",
     "@aws-sdk/util-buffer-from": "1.0.0-gamma.1",
-    "@types/jest": "^25.1.4",
+    "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "typescript": "~3.8.3"
   }
