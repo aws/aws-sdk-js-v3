@@ -8,7 +8,7 @@ type HttpResponseOptions = Partial<HttpMessage> & {
   statusCode: number;
 };
 
-export interface HttpResponse extends IHttpResponse {}
+export type HttpResponse = IHttpResponse;
 
 export class HttpResponse {
   public statusCode: number;

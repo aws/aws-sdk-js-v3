@@ -9,7 +9,7 @@ import {
 type HttpRequestOptions = Partial<HttpMessage> &
   Partial<Endpoint> & { method?: string };
 
-export interface HttpRequest extends IHttpRequest {}
+export type HttpRequest = IHttpRequest;
 
 export class HttpRequest implements HttpMessage, Endpoint {
   public method: string;

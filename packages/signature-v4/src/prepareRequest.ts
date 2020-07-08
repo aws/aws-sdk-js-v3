@@ -12,7 +12,7 @@ export function prepareRequest(request: HttpRequest): HttpRequest {
       ? (request as any).clone()
       : cloneRequest(request);
 
-  for (let headerName of Object.keys(request.headers)) {
+  for (const headerName of Object.keys(request.headers)) {
     if (GENERATED_HEADERS.indexOf(headerName.toLowerCase()) > -1) {
       delete request.headers[headerName];
     }

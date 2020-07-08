@@ -51,7 +51,7 @@ export interface AwsAuthResolvedConfig {
 export function resolveAwsAuthConfig<T>(
   input: T & AwsAuthInputConfig & PreviouslyResolved
 ): T & AwsAuthResolvedConfig {
-  let credentials =
+  const credentials =
     input.credentials || input.credentialDefaultProvider(input as any);
   const normalizedCreds = normalizeProvider(credentials);
   const {

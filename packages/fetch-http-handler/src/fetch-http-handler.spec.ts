@@ -47,14 +47,14 @@ describe.skip(FetchHttpHandler.name, () => {
     (global as any).fetch = mockFetch;
     const fetchHttpHandler = new FetchHttpHandler();
 
-    let response = await fetchHttpHandler.handle({} as any, {});
+    const response = await fetchHttpHandler.handle({} as any, {});
 
     expect(mockFetch.mock.calls.length).toBe(1);
     expect(await blobToText(response.response.body)).toBe("FOO");
   });
 
   it("properly constructs url", async () => {
-    let mockResponse = {
+    const mockResponse = {
       headers: {
         entries: jest.fn().mockReturnValue([
           ["foo", "bar"],
@@ -67,7 +67,7 @@ describe.skip(FetchHttpHandler.name, () => {
 
     (global as any).fetch = mockFetch;
 
-    let httpRequest = new HttpRequest({
+    const httpRequest = new HttpRequest({
       headers: {},
       hostname: "foo.amazonaws.com",
       method: "GET",
@@ -77,15 +77,15 @@ describe.skip(FetchHttpHandler.name, () => {
     });
     const fetchHttpHandler = new FetchHttpHandler();
 
-    let response = await fetchHttpHandler.handle(httpRequest, {});
+    const response = await fetchHttpHandler.handle(httpRequest, {});
 
     expect(mockFetch.mock.calls.length).toBe(1);
-    let requestCall = mockRequest.mock.calls[0];
+    const requestCall = mockRequest.mock.calls[0];
     expect(requestCall[0]).toBe("https://foo.amazonaws.com:443/test/?bar=baz");
   });
 
   it("will not make request if already aborted", async () => {
-    let mockResponse = {
+    const mockResponse = {
       headers: {
         entries: jest.fn().mockReturnValue([
           ["foo", "bar"],
@@ -111,7 +111,7 @@ describe.skip(FetchHttpHandler.name, () => {
   });
 
   it("will pass abortSignal to fetch if supported", async () => {
-    let mockResponse = {
+    const mockResponse = {
       headers: {
         entries: jest.fn().mockReturnValue([
           ["foo", "bar"],
@@ -125,7 +125,7 @@ describe.skip(FetchHttpHandler.name, () => {
     (global as any).AbortController = jest.fn();
     const fetchHttpHandler = new FetchHttpHandler();
 
-    let response = await fetchHttpHandler.handle({} as any, {
+    const response = await fetchHttpHandler.handle({} as any, {
       abortSignal: {
         aborted: false
       }
@@ -136,7 +136,7 @@ describe.skip(FetchHttpHandler.name, () => {
   });
 
   it("will pass timeout to request timeout", async () => {
-    let mockResponse = {
+    const mockResponse = {
       headers: {
         entries: jest.fn().mockReturnValue([
           ["foo", "bar"],
@@ -153,7 +153,7 @@ describe.skip(FetchHttpHandler.name, () => {
       requestTimeout: 500
     });
 
-    let response = await fetchHttpHandler.handle({} as any, {});
+    const response = await fetchHttpHandler.handle({} as any, {});
 
     expect(mockFetch.mock.calls.length).toBe(1);
     expect(timeoutSpy.mock.calls[0][0]).toBe(500);

@@ -15,7 +15,7 @@ export function userAgentMiddleware(options: UserAgentResolvedConfig) {
   ): BuildHandler<any, any> => (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
-    let { request } = args;
+    const { request } = args;
     if (!HttpRequest.isInstance(request)) return next(args);
     const { headers } = request;
     const userAgentHeader =

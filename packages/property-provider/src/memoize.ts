@@ -52,7 +52,7 @@ export const memoize: MemoizeOverload = <T>(
   }
 
   let result = provider();
-  let isConstant: boolean = false;
+  let isConstant = false;
 
   return async () => {
     if (isConstant) {

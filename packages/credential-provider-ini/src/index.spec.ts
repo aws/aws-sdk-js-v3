@@ -18,7 +18,7 @@ jest.mock("fs", () => {
   }
 
   const fs: FsModule = <FsModule>jest.genMockFromModule("fs");
-  let matchers = new Map<string, string>();
+  const matchers = new Map<string, string>();
 
   function readFile(
     path: string,
@@ -721,7 +721,7 @@ source_profile = default
         { creds: FOO_CREDS, arn: roleArnFor("foo") }
       ];
 
-      for (let { creds, arn } of expectedCalls) {
+      for (const { creds, arn } of expectedCalls) {
         const call = <any>roleAssumer.mock.calls.shift();
         expect(call[0]).toEqual(creds);
         expect(call[1].RoleArn).toEqual(arn);

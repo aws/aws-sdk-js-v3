@@ -30,8 +30,8 @@ export function sendMessageBatchMiddleware(
   ): Promise<InitializeHandlerOutput<Output>> => {
     const resp = await next({ ...args });
     const output = (resp.output as unknown) as SendMessageBatchResult;
-    let messageIds = [];
-    let entries: { [index: string]: SendMessageBatchResultEntry } = {};
+    const messageIds = [];
+    const entries: { [index: string]: SendMessageBatchResultEntry } = {};
     if (output.Successful !== undefined) {
       for (const entry of output.Successful) {
         if (entry.Id !== undefined) {

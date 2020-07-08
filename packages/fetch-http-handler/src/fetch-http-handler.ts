@@ -3,7 +3,7 @@ import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { requestTimeout } from "./request-timeout";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
 
-declare var AbortController: any;
+declare let AbortController: any;
 
 /**
  * Represents the http options that can be passed to a browser http client.
@@ -67,7 +67,7 @@ export class FetchHttpHandler implements HttpHandler {
         const fetchHeaders: any = response.headers;
         const transformedHeaders: HeaderBag = {};
 
-        for (let pair of <Array<string[]>>fetchHeaders.entries()) {
+        for (const pair of <Array<string[]>>fetchHeaders.entries()) {
           transformedHeaders[pair[0]] = pair[1];
         }
 

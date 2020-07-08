@@ -7,7 +7,7 @@ export interface ReadFromBuffersOptions extends ReadableOptions {
 
 export class ReadFromBuffers extends Readable {
   private buffersToRead: Buffer[];
-  private numBuffersRead: number = 0;
+  private numBuffersRead = 0;
 
   private errorAfter: number;
   constructor(options: ReadFromBuffersOptions) {

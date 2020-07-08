@@ -20,8 +20,8 @@ const fixturesDir = join(__dirname, "../..", "fixtures");
 export function createResponseFunction(httpResp: HttpResponse) {
   return function (request: IncomingMessage, response: ServerResponse) {
     response.statusCode = httpResp.statusCode;
-    for (let name of Object.keys(httpResp.headers)) {
-      let values = httpResp.headers[name];
+    for (const name of Object.keys(httpResp.headers)) {
+      const values = httpResp.headers[name];
       response.setHeader(name, values);
     }
     if (httpResp.body instanceof Readable) {

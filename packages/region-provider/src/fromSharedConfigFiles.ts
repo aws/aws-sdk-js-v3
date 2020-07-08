@@ -31,7 +31,7 @@ export const fromSharedConfigFiles = (
   } = init;
 
   const { configFile, credentialsFile } = await loadedConfig;
-  for (let file of [credentialsFile, configFile]) {
+  for (const file of [credentialsFile, configFile]) {
     const { region } = file[profile] || <any>{};
     if (typeof region === "string") {
       return region;

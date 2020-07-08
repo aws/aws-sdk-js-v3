@@ -151,7 +151,7 @@ const utf8StringsToByteArrays: { [key: string]: Uint8Array } = {
 };
 
 describe("fromUtf8", () => {
-  for (let string of Object.keys(utf8StringsToByteArrays)) {
+  for (const string of Object.keys(utf8StringsToByteArrays)) {
     it(`should UTF-8 decode "${string}" to the correct value`, () => {
       expect(fromUtf8(string)).toEqual(utf8StringsToByteArrays[string]);
     });
@@ -163,7 +163,7 @@ describe("fromUtf8", () => {
 });
 
 describe("toUtf8", () => {
-  for (let string of Object.keys(utf8StringsToByteArrays)) {
+  for (const string of Object.keys(utf8StringsToByteArrays)) {
     it(`should derive "${string}" from the UTF-8 decoded bytes`, () => {
       expect(toUtf8(utf8StringsToByteArrays[string])).toBe(string);
     });

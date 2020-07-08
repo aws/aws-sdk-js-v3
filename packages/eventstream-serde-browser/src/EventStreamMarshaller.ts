@@ -8,7 +8,7 @@ import {
 } from "@aws-sdk/types";
 import { readableStreamtoIterable, iterableToReadableStream } from "./utils";
 
-export interface EventStreamMarshaller extends IEventStreamMarshaller {}
+export type EventStreamMarshaller = IEventStreamMarshaller;
 
 export interface EventStreamMarshallerOptions {
   utf8Encoder: Encoder;

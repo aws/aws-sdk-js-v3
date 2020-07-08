@@ -192,7 +192,7 @@ describe("MiddlewareStack", () => {
 
     const secondStack = stack.clone();
 
-    let inner = jest.fn(({ input }: DeserializeHandlerArguments<input>) => {
+    const inner = jest.fn(({ input }: DeserializeHandlerArguments<input>) => {
       expect(input).toEqual(["first", "second"]);
       return Promise.resolve({ response: {} });
     });
@@ -232,7 +232,7 @@ describe("MiddlewareStack", () => {
       { step: "build", relation: "after", toMiddleware: "second" }
     );
 
-    let inner = jest.fn(({ input }: DeserializeHandlerArguments<input>) => {
+    const inner = jest.fn(({ input }: DeserializeHandlerArguments<input>) => {
       expect(input).toEqual(["first", "second", "third", "fourth"]);
       return Promise.resolve({ response: {} });
     });

@@ -55,7 +55,7 @@ export function getSigningKey(
       `AWS4${credentials.secretAccessKey}`
     );
 
-    for (let signable of [shortDate, region, service, KEY_TYPE_IDENTIFIER]) {
+    for (const signable of [shortDate, region, service, KEY_TYPE_IDENTIFIER]) {
       keyPromise = keyPromise.then<Uint8Array>(intermediateKey =>
         hmac(sha256Constructor, intermediateKey, signable)
       );

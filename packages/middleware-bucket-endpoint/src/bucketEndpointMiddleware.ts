@@ -22,7 +22,7 @@ export function bucketEndpointMiddleware(
   ): Promise<BuildHandlerOutput<Output>> => {
     const { Bucket: bucketName } = args.input;
     let replaceBucketInPath = options.bucketEndpoint;
-    let request = args.request;
+    const request = args.request;
     if (HttpRequest.isInstance(request)) {
       if (options.bucketEndpoint) {
         request.hostname = bucketName;

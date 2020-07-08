@@ -17,7 +17,7 @@ export function addChecksumHeadersMiddleware(
   ): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
-    let request = args.request;
+    const request = args.request;
     if (HttpRequest.isInstance(request)) {
       let headers = request.headers;
       const body = request.body;

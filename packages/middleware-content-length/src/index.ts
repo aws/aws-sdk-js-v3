@@ -20,7 +20,7 @@ export function contentLengthMiddleware(
   ): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
-    let request = args.request;
+    const request = args.request;
     if (HttpRequest.isInstance(request)) {
       const { body, headers } = request;
       if (

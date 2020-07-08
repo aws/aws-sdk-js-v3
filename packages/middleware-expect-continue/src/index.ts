@@ -21,7 +21,7 @@ export function addExpectContinueMiddleware(
   ): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
-    let { request } = args;
+    const { request } = args;
     if (
       HttpRequest.isInstance(request) &&
       request.body &&

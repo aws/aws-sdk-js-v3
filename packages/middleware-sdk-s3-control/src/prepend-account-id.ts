@@ -16,7 +16,7 @@ export function prependAccountIdMiddleware(): BuildMiddleware<any, any> {
   ): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
-    let { request } = args;
+    const { request } = args;
     const { input } = args;
     const accountId = input.AccountId;
     if (typeof accountId !== "string") {

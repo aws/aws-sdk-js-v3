@@ -44,7 +44,7 @@ export class EventSigningStream extends Transform {
       const dateHeader: MessageHeaders = {
         ":date": { type: "timestamp", value: now }
       };
-      let signature = await this.eventSigner.sign(
+      const signature = await this.eventSigner.sign(
         {
           payload: chunk,
           headers: this.eventMarshaller.formatHeaders(dateHeader)

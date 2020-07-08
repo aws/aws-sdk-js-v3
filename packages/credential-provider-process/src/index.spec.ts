@@ -17,7 +17,7 @@ jest.mock("fs", () => {
   }
 
   const fs: FsModule = <FsModule>jest.genMockFromModule("fs");
-  let matchers = new Map<string, string>();
+  const matchers = new Map<string, string>();
 
   function readFile(
     path: string,
@@ -72,7 +72,7 @@ jest.mock("child_process", () => {
   const child_process = <ChildProcessModule>(
     jest.genMockFromModule("child_process")
   );
-  let matchers = new Map<string, string>();
+  const matchers = new Map<string, string>();
 
   function exec(
     command: string,

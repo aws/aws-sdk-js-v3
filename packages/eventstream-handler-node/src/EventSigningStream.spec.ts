@@ -4,7 +4,7 @@ import { toUtf8, fromUtf8 } from "@aws-sdk/util-utf8-node";
 import { Message, MessageHeaders } from "@aws-sdk/types";
 
 describe("EventSigningStream", () => {
-  let originalDate = Date;
+  const originalDate = Date;
   afterEach(() => {
     Date = originalDate;
   });

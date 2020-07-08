@@ -8,7 +8,7 @@ import {
 import { getChunkedStream } from "./getChunkedStream";
 import { getUnmarshalledStream } from "./getUnmarshalledStream";
 
-export interface EventStreamMarshaller extends IEventStreamMarshaller {}
+export type EventStreamMarshaller = IEventStreamMarshaller;
 
 export interface EventStreamMarshallerOptions {
   utf8Encoder: Encoder;

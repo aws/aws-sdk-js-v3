@@ -3,7 +3,7 @@ import { isArrayBuffer } from "@aws-sdk/is-array-buffer";
 
 export function fromArrayBuffer(
   input: ArrayBuffer,
-  offset: number = 0,
+  offset = 0,
   length: number = input.byteLength - offset
 ): Buffer {
   if (!isArrayBuffer(input)) {

@@ -64,7 +64,7 @@ export function loadSharedConfigFiles(
 const profileKeyRegex = /^profile\s(["'])?([^\1]+)\1$/;
 function normalizeConfigFile(data: ParsedIniData): ParsedIniData {
   const map: ParsedIniData = {};
-  for (let key of Object.keys(data)) {
+  for (const key of Object.keys(data)) {
     let matches: Array<string> | null;
     if (key === "default") {
       map.default = data.default;

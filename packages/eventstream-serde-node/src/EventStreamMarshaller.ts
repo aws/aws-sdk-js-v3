@@ -9,7 +9,7 @@ import {
 import { Readable } from "stream";
 import { readabletoIterable } from "./utils";
 
-export interface EventStreamMarshaller extends IEventStreamMarshaller {}
+export type EventStreamMarshaller = IEventStreamMarshaller;
 
 export interface EventStreamMarshallerOptions {
   utf8Encoder: Encoder;

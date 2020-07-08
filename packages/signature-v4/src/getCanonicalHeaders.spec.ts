@@ -37,7 +37,7 @@ describe("getCanonicalHeaders", () => {
       },
       hostname: "foo.us-east-1.amazonaws.com"
     });
-    for (let headerName of Object.keys(ALWAYS_UNSIGNABLE_HEADERS)) {
+    for (const headerName of Object.keys(ALWAYS_UNSIGNABLE_HEADERS)) {
       request.headers[headerName] = "baz";
     }
 

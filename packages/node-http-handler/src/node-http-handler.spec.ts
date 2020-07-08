@@ -57,7 +57,7 @@ describe("NodeHttpHandler", () => {
       );
       const nodeHttpHandler = new NodeHttpHandler();
 
-      let { response } = await nodeHttpHandler.handle(
+      const { response } = await nodeHttpHandler.handle(
         new HttpRequest({
           hostname: "localhost",
           method: "GET",
@@ -291,8 +291,8 @@ describe("NodeHttpHandler", () => {
         createResponseFunction(mockResponse)
       );
       const spy = jest.spyOn(https, "request").mockImplementationOnce(() => {
-        let calls = spy.mock.calls;
-        let currentIndex = calls.length - 1;
+        const calls = spy.mock.calls;
+        const currentIndex = calls.length - 1;
         return https.request(calls[currentIndex][0], calls[currentIndex][1]);
       });
       // clear data held from previous tests
@@ -333,8 +333,8 @@ describe("NodeHttpHandler", () => {
       let httpRequest: http.ClientRequest;
       let reqAbortSpy: any;
       const spy = jest.spyOn(https, "request").mockImplementationOnce(() => {
-        let calls = spy.mock.calls;
-        let currentIndex = calls.length - 1;
+        const calls = spy.mock.calls;
+        const currentIndex = calls.length - 1;
         httpRequest = https.request(
           calls[currentIndex][0],
           calls[currentIndex][1]

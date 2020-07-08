@@ -28,7 +28,7 @@ describe("ChecksumGenerator", () => {
     payload.fill(0);
 
     treeHash.update(payload);
-    let results = await treeHash.digest();
+    const results = await treeHash.digest();
 
     expect(toHex(results)).toEqual(
       "a3a82dbe3644dd6046be472f2e3ec1f8ef47f8f3adb86d0de4de7a254f255455"
@@ -41,7 +41,7 @@ describe("ChecksumGenerator", () => {
     payload.fill(0);
 
     treeHash.update(payload);
-    let results = await treeHash.digest();
+    const results = await treeHash.digest();
 
     expect(toHex(results)).toEqual(
       "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58"
@@ -58,7 +58,7 @@ describe("ChecksumGenerator", () => {
         payload.subarray(i, i + Math.min(1024 * 1024, payload.byteLength))
       );
     }
-    let results = await treeHash.digest();
+    const results = await treeHash.digest();
 
     expect(toHex(results)).toEqual(
       "a3a82dbe3644dd6046be472f2e3ec1f8ef47f8f3adb86d0de4de7a254f255455"

@@ -26,14 +26,17 @@ export interface SerializeHandlerArguments<Input extends object>
   request?: unknown;
 }
 
-export interface SerializeHandlerOutput<Output extends object>
-  extends InitializeHandlerOutput<Output> {}
+export type SerializeHandlerOutput<
+  Output extends object
+> = InitializeHandlerOutput<Output>;
 
-export interface BuildHandlerArguments<Input extends object>
-  extends FinalizeHandlerArguments<Input> {}
+export type BuildHandlerArguments<
+  Input extends object
+> = FinalizeHandlerArguments<Input>;
 
-export interface BuildHandlerOutput<Output extends object>
-  extends InitializeHandlerOutput<Output> {}
+export type BuildHandlerOutput<Output extends object> = InitializeHandlerOutput<
+  Output
+>;
 
 export interface FinalizeHandlerArguments<Input extends object>
   extends SerializeHandlerArguments<Input> {
@@ -43,11 +46,13 @@ export interface FinalizeHandlerArguments<Input extends object>
   request: unknown;
 }
 
-export interface FinalizeHandlerOutput<Output extends object>
-  extends InitializeHandlerOutput<Output> {}
+export type FinalizeHandlerOutput<
+  Output extends object
+> = InitializeHandlerOutput<Output>;
 
-export interface DeserializeHandlerArguments<Input extends object>
-  extends FinalizeHandlerArguments<Input> {}
+export type DeserializeHandlerArguments<
+  Input extends object
+> = FinalizeHandlerArguments<Input>;
 
 export interface DeserializeHandlerOutput<Output extends object> {
   /**
