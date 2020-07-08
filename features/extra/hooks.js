@@ -16,7 +16,7 @@ const {
   setWorldConstructor
 } = require("cucumber");
 
-setDefaultTimeout(180 * 1000);
+setDefaultTimeout(300 * 1000);
 setWorldConstructor(require("./world.js").World);
 
 Before(function (scenario, callback) {
