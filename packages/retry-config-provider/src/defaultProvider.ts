@@ -16,9 +16,15 @@ export const DEFAULT_RETRY_MODE = "standard";
 
 const defaultProvider = (
   configuration: SharedConfigInit = {},
-  envVarName: string,
-  configKey: string,
-  defaultValue: string
+  {
+    envVarName,
+    configKey,
+    defaultValue
+  }: {
+    envVarName: string;
+    configKey: string;
+    defaultValue: string;
+  }
 ): Provider<string> =>
   memoize(
     chain(
@@ -31,19 +37,17 @@ const defaultProvider = (
 export const maxAttemptsProvider = (
   configuration: SharedConfigInit = {}
 ): Provider<string> =>
-  defaultProvider(
-    configuration,
-    ENV_MAX_ATTEMPTS,
-    CONFIG_MAX_ATTEMPTS,
-    DEFAULT_MAX_ATTEMPTS
-  );
+  defaultProvider(configuration, {
+    envVarName: ENV_MAX_ATTEMPTS,
+    configKey: CONFIG_MAX_ATTEMPTS,
+    defaultValue: DEFAULT_MAX_ATTEMPTS
+  });
 
 export const retryModeProvider = (
   configuration: SharedConfigInit = {}
 ): Provider<string> =>
-  defaultProvider(
-    configuration,
-    ENV_RETRY_MODE,
-    CONFIG_RETRY_MODE,
-    DEFAULT_RETRY_MODE
-  );
+  defaultProvider(configuration, {
+    envVarName: ENV_RETRY_MODE,
+    configKey: CONFIG_RETRY_MODE,
+    defaultValue: DEFAULT_RETRY_MODE
+  });
