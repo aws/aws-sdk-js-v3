@@ -10,7 +10,7 @@ import {
 import { Message } from "@aws-sdk/types";
 
 describe("getUnmarshalledStream", () => {
-  it("emits parsed message on data", async () => {
+  it("emits parsed payload on data", async () => {
     const expectedMessages: Array<Message> = [
       {
         headers: {
@@ -123,5 +123,24 @@ describe("getUnmarshalledStream", () => {
     expect(error?.message).toEqual(
       "This is a modeled exception event that would be thrown in deserializer."
     );
+  });
+
+  it("omit the unknown event type", async () => {
+    const source = async function* () {
+      yield recordEventMessage;
+    };
+    const unmarshallerStream = getUnmarshalledStream(source(), {
+      eventMarshaller: new EventStreamMarshaller(toUtf8, fromUtf8),
+      deserializer: message =>
+        Promise.resolve({
+          $unknown: message
+        } as any), //deserializer that parse anything into unknown event
+      toUtf8
+    });
+    const messages: Array<Message> = [];
+    for await (const message of unmarshallerStream) {
+      messages.push(message[Object.keys(message)[0]]);
+    }
+    expect(messages.length).toEqual(0);
   });
 });
