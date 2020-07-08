@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/karma-credential-loader",
-  "version": "1.0.0-gamma.0",
+  "version": "1.0.0-gamma.1",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -17,7 +17,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/credential-provider-node": "1.0.0-gamma.1",
+    "@aws-sdk/credential-provider-node": "1.0.0-gamma.2",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

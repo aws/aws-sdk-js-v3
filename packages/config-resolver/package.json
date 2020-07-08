@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/config-resolver",
-  "version": "1.0.0-gamma.1",
+  "version": "1.0.0-gamma.2",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -23,8 +23,8 @@
     "typescript": "~3.8.3"
   },
   "dependencies": {
-    "@aws-sdk/signature-v4": "1.0.0-gamma.1",
-    "@aws-sdk/types": "1.0.0-gamma.1",
+    "@aws-sdk/signature-v4": "1.0.0-gamma.2",
+    "@aws-sdk/types": "1.0.0-gamma.2",
     "tslib": "^1.8.0"
   }
 }

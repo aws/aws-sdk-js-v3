@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/property-provider",
-  "version": "1.0.0-gamma.1",
+  "version": "1.0.0-gamma.2",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -17,7 +17,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/types": "1.0.0-gamma.1",
+    "@aws-sdk/types": "1.0.0-gamma.2",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
