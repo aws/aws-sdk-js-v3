@@ -9,10 +9,14 @@
     "noUnusedParameters": false,
     "removeComments": false,
     "incremental": true,
-    /**
-     * Nice to have:
-     */
     // "preserveConstEnums": true,
+    "noImplicitAny": true,
+    // "sourceMap": true,
+    "noUnusedLocals": true,
+    // "noImplicitReturns": true,
+    // "noImplicitThis": true,
+    // "alwaysStrict": true,
+    // "noFallthroughCasesInSwitch": true,
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es5",
