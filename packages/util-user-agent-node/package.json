@@ -23,7 +23,7 @@
   "devDependencies": {
     "@aws-sdk/protocol-http": "1.0.0-gamma.2",
     "@types/jest": "^26.0.4",
-    "@types/node": "^10.0.0",
+    "@types/node": "^12.12.48",
     "jest": "^26.1.0",
     "typescript": "~3.8.3"
   }
