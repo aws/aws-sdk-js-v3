@@ -17,6 +17,7 @@ import {
 import { getDefaultRetryQuota } from "./defaultRetryQuota";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { v4 } from "uuid";
+import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/retry-config-provider";
 
 /**
  * Determines whether an error is retryable based on the number of retries
@@ -92,14 +93,16 @@ export class StandardRetryStrategy implements RetryStrategy {
   }
 
   private async getMaxAttempts() {
-    let maxAttemptsStr;
+    let maxAttemptsStr: string;
     try {
       maxAttemptsStr = await this.maxAttemptsProvider();
     } catch (error) {
-      maxAttemptsStr = "3";
+      maxAttemptsStr = DEFAULT_MAX_ATTEMPTS;
     }
     const maxAttempts = parseInt(maxAttemptsStr);
-    return Number.isNaN(maxAttempts) ? 3 : maxAttempts;
+    return Number.isNaN(maxAttempts)
+      ? parseInt(DEFAULT_MAX_ATTEMPTS)
+      : maxAttempts;
   }
 
   async retry<Input extends object, Ouput extends MetadataBearer>(
