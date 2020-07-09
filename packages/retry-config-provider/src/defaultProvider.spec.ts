@@ -1,28 +1,21 @@
-import { chain, memoize } from "@aws-sdk/property-provider";
+import { fromEnv } from "./fromEnv";
+import { fromSharedConfigFiles, SharedConfigInit } from "./fromSharedConfigFiles";
+import { chain, memoize, fromStatic } from "@aws-sdk/property-provider";
 
 import {
   CONFIG_MAX_ATTEMPTS,
-  CONFIG_RETRY_MODE,
-  ENV_MAX_ATTEMPTS,
+  DEFAULT_MAX_ATTEMPTS,
+  retryModeProvider,
   ENV_RETRY_MODE,
-  maxAttemptsProvider,
-  retryModeProvider
+  CONFIG_RETRY_MODE,
+  DEFAULT_RETRY_MODE
 } from "./defaultProvider";
 import { fromEnv } from "./fromEnv";
 import { fromSharedConfigFiles, SharedConfigInit } from "./fromSharedConfigFiles";
 
-jest.mock("./fromEnv", () => ({
-  fromEnv: jest.fn()
-}));
-
-jest.mock("./fromSharedConfigFiles", () => ({
-  fromSharedConfigFiles: jest.fn()
-}));
-
-jest.mock("@aws-sdk/property-provider", () => ({
-  chain: jest.fn(),
-  memoize: jest.fn()
-}));
+jest.mock("./fromEnv");
+jest.mock("./fromSharedConfigFiles");
+jest.mock("@aws-sdk/property-provider");
 
 describe("defaultProvider", () => {
   const configuration: SharedConfigInit = {
@@ -33,13 +26,16 @@ describe("defaultProvider", () => {
     jest.clearAllMocks();
   });
 
-  const testProvider = (providerFunc: Function, envVarName: string, configKey: string) => {
-    it("passes fromEnv() and fromSharedConfigFiles() to chain", () => {
+  const testProvider = (providerFunc: Function, envVarName: string, configKey: string, defaultValue: string) => {
+    it("passes fromEnv(), fromSharedConfigFiles() and fromStatic() to chain", () => {
       const mockFromEnvReturn = "mockFromEnvReturn";
       (fromEnv as jest.Mock).mockReturnValueOnce(mockFromEnvReturn);
 
       const mockFromSharedConfigFilesReturn = "mockFromSharedConfigFilesReturn";
       (fromSharedConfigFiles as jest.Mock).mockReturnValueOnce(mockFromSharedConfigFilesReturn);
+
+      const mockFromStatic = "mockFromStatic";
+      (fromStatic as jest.Mock).mockReturnValueOnce(mockFromStatic);
 
       providerFunc(configuration);
 
@@ -47,9 +43,11 @@ describe("defaultProvider", () => {
       expect(fromEnv).toHaveBeenCalledWith(envVarName);
       expect(fromSharedConfigFiles).toHaveBeenCalledTimes(1);
       expect(fromSharedConfigFiles).toHaveBeenCalledWith(configuration, configKey);
+      expect(fromStatic).toHaveBeenCalledTimes(1);
+      expect(fromStatic).toHaveBeenCalledWith(defaultValue);
 
       expect(chain).toHaveBeenCalledTimes(1);
-      expect(chain).toHaveBeenCalledWith(mockFromEnvReturn, mockFromSharedConfigFilesReturn);
+      expect(chain).toHaveBeenCalledWith(mockFromEnvReturn, mockFromSharedConfigFilesReturn, mockFromStatic);
     });
 
     it("passes output of chain to memoize", () => {
@@ -72,10 +70,10 @@ describe("defaultProvider", () => {
   };
 
   describe("maxAttemptsProvider", () => {
-    testProvider(maxAttemptsProvider, ENV_MAX_ATTEMPTS, CONFIG_MAX_ATTEMPTS);
+    testProvider(maxAttemptsProvider, ENV_MAX_ATTEMPTS, CONFIG_MAX_ATTEMPTS, DEFAULT_MAX_ATTEMPTS);
   });
 
   describe("retryModeProvider", () => {
-    testProvider(retryModeProvider, ENV_RETRY_MODE, CONFIG_RETRY_MODE);
+    testProvider(retryModeProvider, ENV_RETRY_MODE, CONFIG_RETRY_MODE, DEFAULT_RETRY_MODE);
   });
 });
