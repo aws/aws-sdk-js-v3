@@ -1,5 +1,5 @@
-import { toHex } from "@aws-sdk/util-hex-encoding";
 import { Int64 as IInt64 } from "@aws-sdk/types";
+import { toHex } from "@aws-sdk/util-hex-encoding";
 
 export interface Int64 extends IInt64 {}
 

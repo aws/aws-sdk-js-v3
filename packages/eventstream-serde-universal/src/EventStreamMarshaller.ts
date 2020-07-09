@@ -1,5 +1,6 @@
 import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
-import { Encoder, Decoder, Message, EventStreamMarshaller as IEventStreamMarshaller } from "@aws-sdk/types";
+import { Decoder, Encoder, EventStreamMarshaller as IEventStreamMarshaller, Message } from "@aws-sdk/types";
+
 import { getChunkedStream } from "./getChunkedStream";
 import { getUnmarshalledStream } from "./getUnmarshalledStream";
 
@@ -32,6 +33,7 @@ export class EventStreamMarshaller {
   }
 
   serialize<T>(input: AsyncIterable<T>, serializer: (event: T) => Message): AsyncIterable<Uint8Array> {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const self = this;
     const serializedIterator = async function* () {
       for await (const chunk of input) {
