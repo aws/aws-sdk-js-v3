@@ -33,6 +33,7 @@ export const acceptHeaderMiddlewareOptions: BuildHandlerOptions = {
   name: "acceptHeaderMiddleware"
 };
 
+//eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getAcceptHeaderPlugin = (unused: any): Pluggable<any, any> => ({
   applyToStack: clientStack => {
     clientStack.add(acceptHeaderMiddleware(), acceptHeaderMiddlewareOptions);

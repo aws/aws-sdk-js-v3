@@ -6,7 +6,7 @@ export class HashCalculator extends Writable {
     super(options);
   }
 
-  _write(chunk: Buffer, encoding: string, callback: (err?: Error) => void) {
+  _write(chunk: Buffer, encoding: string, callback: (err?: Error) => void): void {
     try {
       this.hash.update(chunk);
     } catch (err) {

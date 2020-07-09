@@ -10,14 +10,21 @@ module.exports = {
   ],
   plugins: ["@typescript-eslint", "simple-import-sort"],
   rules: {
+    /** Turn off strict enforcement */
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-namespace": "warn",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "prefer-rest-params": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+
+    /** Warnings */
+    "@typescript-eslint/no-namespace": "warn",
+
+    /** Errors */
     "simple-import-sort/sort": "error"
   }
 };

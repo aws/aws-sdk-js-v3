@@ -16,9 +16,7 @@ export function validateBucketNameMiddleware(): InitializeMiddleware<any, any> {
   ): Promise<InitializeHandlerOutput<Output>> => {
     const { input } = args;
     if (typeof input.Bucket === "string" && input.Bucket.indexOf("/") >= 0) {
-      const err = new Error(
-        `Bucket name shouldn't contain '/', received '${input.Bucket}'`
-      );
+      const err = new Error(`Bucket name shouldn't contain '/', received '${input.Bucket}'`);
       err.name = "InvalidBucketName";
       throw err;
     }
@@ -32,13 +30,9 @@ export const validateBucketNameMiddlewareOptions: InitializeHandlerOptions = {
   name: "validateBucketNameMiddleware"
 };
 
-export const getValidateBucketNamePlugin = (
-  unused: any
-): Pluggable<any, any> => ({
+//eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const getValidateBucketNamePlugin = (unused: any): Pluggable<any, any> => ({
   applyToStack: clientStack => {
-    clientStack.add(
-      validateBucketNameMiddleware(),
-      validateBucketNameMiddlewareOptions
-    );
+    clientStack.add(validateBucketNameMiddleware(), validateBucketNameMiddlewareOptions);
   }
 });

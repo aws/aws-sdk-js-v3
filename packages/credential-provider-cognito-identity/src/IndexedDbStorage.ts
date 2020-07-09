@@ -56,6 +56,7 @@ export class IndexedDbStorage implements Storage {
         reject(new Error("Unable to access DB"));
       };
 
+      //eslint-disable-next-line @typescript-eslint/no-unused-vars
       openDbRequest.onupgradeneeded = event => {
         const db = openDbRequest.result;
         db.onerror = () => {
@@ -67,10 +68,7 @@ export class IndexedDbStorage implements Storage {
     });
   }
 
-  private withObjectStore<R>(
-    mode: IDBTransactionMode,
-    action: (store: IDBObjectStore) => Promise<R>
-  ): Promise<R> {
+  private withObjectStore<R>(mode: IDBTransactionMode, action: (store: IDBObjectStore) => Promise<R>): Promise<R> {
     return this.getDb().then(db => {
       const tx = db.transaction(STORE_NAME, mode);
       tx.oncomplete = () => db.close();

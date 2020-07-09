@@ -1,4 +1,3 @@
-import { HttpRequest } from "@aws-sdk/types";
 import * as process from "process";
 
 export function defaultUserAgent(packageName: string, packageVersion: string): string {

@@ -1,15 +1,9 @@
 import { getMasterProfileName, parseKnownFiles } from "@aws-sdk/credential-provider-ini";
 import { ProviderError } from "@aws-sdk/property-provider";
-import {
-  loadSharedConfigFiles,
-  ParsedIniData,
-  SharedConfigFiles,
-  SharedConfigInit
-} from "@aws-sdk/shared-ini-file-loader";
+import { ParsedIniData, SharedConfigFiles, SharedConfigInit } from "@aws-sdk/shared-ini-file-loader";
 import { CredentialProvider, Credentials } from "@aws-sdk/types";
 import { exec } from "child_process";
 
-const DEFAULT_PROFILE = "default";
 export const ENV_PROFILE = "AWS_PROFILE";
 
 export interface FromProcessInit extends SharedConfigInit {
@@ -30,15 +24,10 @@ export interface FromProcessInit extends SharedConfigInit {
  * in ini files.
  */
 export function fromProcess(init: FromProcessInit = {}): CredentialProvider {
-  return () =>
-    parseKnownFiles(init).then(profiles => resolveProcessCredentials(getMasterProfileName(init), profiles, init));
+  return () => parseKnownFiles(init).then(profiles => resolveProcessCredentials(getMasterProfileName(init), profiles));
 }
 
-async function resolveProcessCredentials(
-  profileName: string,
-  profiles: ParsedIniData,
-  options: FromProcessInit
-): Promise<Credentials> {
+async function resolveProcessCredentials(profileName: string, profiles: ParsedIniData): Promise<Credentials> {
   const profile = profiles[profileName];
 
   if (profiles[profileName]) {
@@ -103,8 +92,8 @@ async function resolveProcessCredentials(
 }
 
 function execPromise(command: string) {
-  return new Promise(function (resolve, reject) {
-    exec(command, (error, stdout, stderr) => {
+  return new Promise((resolve, reject) => {
+    exec(command, (error, stdout) => {
       if (error) {
         reject(error);
         return;

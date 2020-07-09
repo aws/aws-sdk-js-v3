@@ -1,10 +1,11 @@
 import { Client } from "./client";
 
 describe("SmithyClient", () => {
-  const mockHandler = jest.fn((args: any) =>
-    Promise.resolve({ output: "foo" })
-  );
+  //eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const mockHandler = jest.fn((args: any) => Promise.resolve({ output: "foo" }));
+  //eslint-disable-next-line @typescript-eslint/no-unused-vars
   const mockResolveMiddleware = jest.fn(args => mockHandler);
+  //eslint-disable-next-line @typescript-eslint/no-unused-vars
   const getCommandWithOutput = (output: string) => ({
     resolveMiddleware: mockResolveMiddleware
   });
@@ -16,9 +17,7 @@ describe("SmithyClient", () => {
 
   it("should return response promise when only command is supplied", async () => {
     expect.assertions(1);
-    await expect(
-      client.send(getCommandWithOutput("foo") as any)
-    ).resolves.toEqual("foo");
+    await expect(client.send(getCommandWithOutput("foo") as any)).resolves.toEqual("foo");
   });
 
   it("should return response promise when command and options is supplied", async () => {
@@ -26,9 +25,7 @@ describe("SmithyClient", () => {
     const options = {
       AbortSignal: "bar"
     };
-    await expect(
-      client.send(getCommandWithOutput("foo") as any, options)
-    ).resolves.toEqual("foo");
+    await expect(client.send(getCommandWithOutput("foo") as any, options)).resolves.toEqual("foo");
     expect(mockResolveMiddleware.mock.calls.length).toEqual(1);
     expect(mockResolveMiddleware.mock.calls[0][2 as any]).toEqual(options);
   });

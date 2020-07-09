@@ -1,5 +1,4 @@
 import { ClientRequest } from "http";
-import { Socket } from "net";
 
 import { setConnectionTimeout } from "./set-connection-timeout";
 

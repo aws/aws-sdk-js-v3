@@ -2,7 +2,6 @@ import { calculateBodyLength } from "./";
 
 const arrayBuffer = new ArrayBuffer(1);
 const typedArray = new Uint8Array(1);
-const view = new DataView(arrayBuffer);
 
 describe("caclulateBodyLength", () => {
   it("should handle string inputs", () => {

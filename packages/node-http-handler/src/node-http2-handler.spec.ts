@@ -1,4 +1,3 @@
-import { AbortController } from "@aws-sdk/abort-controller";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
 import { NodeHttp2Handler } from "./node-http2-handler";

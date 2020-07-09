@@ -10,6 +10,7 @@ export async function createRequest<
   client: Client<any, InputTypesUnion, MetadataBearer, any>,
   command: Command<InputType, OutputType, any, InputTypesUnion, MetadataBearer>
 ): Promise<HttpRequest> {
+  //eslint-disable-next-line @typescript-eslint/no-unused-vars
   const interceptMiddleware: BuildMiddleware<InputType, OutputType> = next => async args => {
     return { output: { request: args.request } as any, response: undefined };
   };

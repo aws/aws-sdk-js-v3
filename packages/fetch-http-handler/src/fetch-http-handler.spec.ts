@@ -15,6 +15,8 @@ describe.skip(FetchHttpHandler.name, () => {
   beforeEach(() => {
     (global as any).AbortController = void 0;
     jest.clearAllMocks();
+
+    //eslint-disable-next-line @typescript-eslint/no-unused-vars
     mockResponse = {
       headers: {
         entries: jest.fn().mockReturnValue([
@@ -78,7 +80,7 @@ describe.skip(FetchHttpHandler.name, () => {
     });
     const fetchHttpHandler = new FetchHttpHandler();
 
-    const response = await fetchHttpHandler.handle(httpRequest, {});
+    await fetchHttpHandler.handle(httpRequest, {});
 
     expect(mockFetch.mock.calls.length).toBe(1);
     const requestCall = mockRequest.mock.calls[0];
@@ -126,7 +128,7 @@ describe.skip(FetchHttpHandler.name, () => {
     (global as any).AbortController = jest.fn();
     const fetchHttpHandler = new FetchHttpHandler();
 
-    const response = await fetchHttpHandler.handle({} as any, {
+    await fetchHttpHandler.handle({} as any, {
       abortSignal: {
         aborted: false
       }
@@ -154,7 +156,7 @@ describe.skip(FetchHttpHandler.name, () => {
       requestTimeout: 500
     });
 
-    const response = await fetchHttpHandler.handle({} as any, {});
+    await fetchHttpHandler.handle({} as any, {});
 
     expect(mockFetch.mock.calls.length).toBe(1);
     expect(timeoutSpy.mock.calls[0][0]).toBe(500);
@@ -162,6 +164,7 @@ describe.skip(FetchHttpHandler.name, () => {
 
   it("will throw timeout error it timeout finishes before request", async () => {
     const mockFetch = jest.fn(() => {
+      //eslint-disable-next-line @typescript-eslint/no-unused-vars
       return new Promise((resolve, reject) => {});
     });
     (global as any).fetch = mockFetch;
@@ -177,6 +180,7 @@ describe.skip(FetchHttpHandler.name, () => {
     const abortController = new AbortController();
 
     const mockFetch = jest.fn(() => {
+      //eslint-disable-next-line @typescript-eslint/no-unused-vars
       return new Promise((resolve, reject) => {});
     });
     (global as any).fetch = mockFetch;

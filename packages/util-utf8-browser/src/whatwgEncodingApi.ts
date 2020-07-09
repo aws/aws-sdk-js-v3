@@ -3,6 +3,7 @@
  *
  * @see https://encoding.spec.whatwg.org/
  */
+//eslint-disable-next-line @typescript-eslint/no-namespace
 namespace Encoding {
   interface TextDecoderOptions {
     fatal?: boolean;
@@ -17,10 +18,7 @@ namespace Encoding {
     readonly encoding: string;
     readonly fatal: boolean;
     readonly ignoreBOM: boolean;
-    decode(
-      input?: ArrayBuffer | ArrayBufferView,
-      options?: TextDecodeOptions
-    ): string;
+    decode(input?: ArrayBuffer | ArrayBufferView, options?: TextDecodeOptions): string;
   }
 
   export interface TextDecoderConstructor {

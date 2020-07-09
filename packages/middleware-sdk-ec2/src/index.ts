@@ -2,7 +2,6 @@ import { HttpRequest } from "@aws-sdk/protocol-http";
 import { SignatureV4 } from "@aws-sdk/signature-v4";
 import {
   Credentials,
-  DateInput,
   Endpoint,
   HashConstructor,
   InitializeHandler,

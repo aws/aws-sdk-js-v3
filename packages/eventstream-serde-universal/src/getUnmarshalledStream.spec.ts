@@ -74,6 +74,7 @@ describe("getUnmarshalledStream", () => {
     };
     const deserStream = getUnmarshalledStream(source, {
       eventMarshaller: new EventStreamMarshaller(toUtf8, fromUtf8),
+      //eslint-disable-next-line @typescript-eslint/no-unused-vars
       deserializer: message => {
         throw new Error("error event");
       },
@@ -81,6 +82,7 @@ describe("getUnmarshalledStream", () => {
     });
     let error: Error | undefined = undefined;
     try {
+      //eslint-disable-next-line @typescript-eslint/no-unused-vars
       for await (const event of deserStream) {
         //pass.
       }
@@ -108,6 +110,7 @@ describe("getUnmarshalledStream", () => {
     });
     let error: Error | undefined = undefined;
     try {
+      //eslint-disable-next-line @typescript-eslint/no-unused-vars
       for await (const event of deserStream) {
         //pass.
       }

@@ -1,6 +1,6 @@
 import { iterableToReadableStream, readableStreamtoIterable } from "@aws-sdk/eventstream-serde-browser";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
-import { HttpHandlerOptions, RequestHandlerMetadata } from "@aws-sdk/types";
+import { RequestHandlerMetadata } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
 
 export interface WebSocketHandlerOptions {
@@ -28,7 +28,7 @@ export class WebSocketHandler implements HttpHandler {
 
   destroy(): void {}
 
-  async handle(request: HttpRequest, options: HttpHandlerOptions = {}): Promise<{ response: HttpResponse }> {
+  async handle(request: HttpRequest): Promise<{ response: HttpResponse }> {
     const url = formatUrl(request);
     const socket: WebSocket = new WebSocket(url);
     socket.binaryType = "arraybuffer";

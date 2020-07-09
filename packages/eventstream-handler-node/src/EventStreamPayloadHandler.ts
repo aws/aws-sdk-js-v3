@@ -7,7 +7,6 @@ import {
   FinalizeHandler,
   FinalizeHandlerArguments,
   FinalizeHandlerOutput,
-  HandlerExecutionContext,
   HttpRequest,
   MetadataBearer,
   Provider
@@ -39,8 +38,7 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
 
   async handle<T extends MetadataBearer>(
     next: FinalizeHandler<any, T>,
-    args: FinalizeHandlerArguments<any>,
-    context: HandlerExecutionContext = {} as any
+    args: FinalizeHandlerArguments<any>
   ): Promise<FinalizeHandlerOutput<T>> {
     const request = args.request as HttpRequest;
     const { body: payload } = request;

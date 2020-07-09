@@ -43,6 +43,8 @@ describe("EventSigningStream", () => {
       .mockReturnValueOnce("7369676e617475726532"); //'signature2'
     // mock 'new Date()'
     let mockDateCount = 0;
+
+    //eslint-disable-next-line @typescript-eslint/no-unused-vars
     const mockDate = jest
       .spyOn(global, "Date")
       //@ts-ignore: https://stackoverflow.com/questions/60912023/jest-typescript-mock-date-constructor/60918716#60918716

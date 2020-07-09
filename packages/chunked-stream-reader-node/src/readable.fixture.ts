@@ -13,14 +13,12 @@ export class ReadFromBuffers extends Readable {
   constructor(options: ReadFromBuffersOptions) {
     super(options);
     this.buffersToRead = options.buffers;
-    this.errorAfter =
-      typeof options.errorAfter === "number" ? options.errorAfter : -1;
+    this.errorAfter = typeof options.errorAfter === "number" ? options.errorAfter : -1;
   }
 
-  _read(size: number) {
+  _read(): boolean {
     if (this.errorAfter !== -1 && this.errorAfter === this.numBuffersRead) {
       this.emit("error", new Error("Mock Error"));
-      return;
     }
     if (this.numBuffersRead >= this.buffersToRead.length) {
       return this.push(null);
