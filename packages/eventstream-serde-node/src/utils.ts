@@ -8,9 +8,7 @@ import { Readable } from "stream";
  * Reference: https://nodejs.org/docs/latest-v11.x/api/stream.html#stream_readable_symbol_asynciterator
  */
 
-export async function* readabletoIterable<T>(
-  readStream: Readable
-): AsyncIterable<T> {
+export async function* readabletoIterable<T>(readStream: Readable): AsyncIterable<T> {
   let streamEnded = false;
   let generationEnded = false;
   const records = new Array<T>();
@@ -33,9 +31,7 @@ export async function* readabletoIterable<T>(
   });
 
   while (!generationEnded) {
-    const value = await new Promise<T>(resolve =>
-      setTimeout(() => resolve(records.shift()), 0)
-    );
+    const value = await new Promise<T>(resolve => setTimeout(() => resolve(records.shift()), 0));
     if (value) {
       yield value;
     }

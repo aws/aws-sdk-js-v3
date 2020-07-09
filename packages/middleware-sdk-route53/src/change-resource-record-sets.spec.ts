@@ -12,10 +12,7 @@ describe("changeResourceRecordSetsMiddleware", () => {
             for (let i = 0; i < 6; i++) {
               yield {
                 ResourceRecordSet: {
-                  AliasTarget:
-                    i % 2 === 0
-                      ? { HostedZoneId: `${prefixed}/${i}` }
-                      : undefined
+                  AliasTarget: i % 2 === 0 ? { HostedZoneId: `${prefixed}/${i}` } : undefined
                 }
               };
             }

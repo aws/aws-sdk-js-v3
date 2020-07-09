@@ -13,10 +13,7 @@ export class TreeHash implements Hash {
    * Initializes a TreeHash.
    * @param Sha256 A Sha256 hash constructor.
    */
-  constructor(
-    private readonly Sha256: HashConstructor,
-    private readonly fromUtf8: Decoder
-  ) {}
+  constructor(private readonly Sha256: HashConstructor, private readonly fromUtf8: Decoder) {}
 
   /**
    * Generates Sha256 hashes from 1 MiB chunks of the
@@ -84,10 +81,7 @@ export class TreeHash implements Hash {
       for (let i = 0; i < collectedHashDigests.length; i += 2) {
         if (i + 1 < collectedHashDigests.length) {
           // concatenate the pair of hashes
-          const [digest1, digest2] = await Promise.all([
-            collectedHashDigests[i],
-            collectedHashDigests[i + 1]
-          ]);
+          const [digest1, digest2] = await Promise.all([collectedHashDigests[i], collectedHashDigests[i + 1]]);
 
           const chunk = new Uint8Array(digest1.byteLength + digest2.byteLength);
           chunk.set(digest1);
@@ -117,11 +111,7 @@ export class TreeHash implements Hash {
     }
 
     if (ArrayBuffer.isView(data)) {
-      return new Uint8Array(
-        data.buffer,
-        data.byteOffset,
-        data.byteLength / Uint8Array.BYTES_PER_ELEMENT
-      );
+      return new Uint8Array(data.buffer, data.byteOffset, data.byteLength / Uint8Array.BYTES_PER_ELEMENT);
     }
 
     return new Uint8Array(data);

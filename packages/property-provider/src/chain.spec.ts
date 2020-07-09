@@ -39,14 +39,10 @@ describe("chain", () => {
       fromStatic("foo")
     );
 
-    await expect(provider()).rejects.toMatchObject(
-      new Error("Unrelated failure")
-    );
+    await expect(provider()).rejects.toMatchObject(new Error("Unrelated failure"));
   });
 
   it("should reject chains with no links", async () => {
-    await expect(chain()()).rejects.toMatchObject(
-      new Error("No providers in chain")
-    );
+    await expect(chain()()).rejects.toMatchObject(new Error("No providers in chain"));
   });
 });

@@ -12,9 +12,7 @@ interface PreviouslyResolved {
 export interface RegionResolvedConfig {
   region: Provider<string>;
 }
-export function resolveRegionConfig<T>(
-  input: T & RegionInputConfig & PreviouslyResolved
-): T & RegionResolvedConfig {
+export function resolveRegionConfig<T>(input: T & RegionInputConfig & PreviouslyResolved): T & RegionResolvedConfig {
   const region = input.region || input.regionDefaultProvider(input as any);
   return {
     ...input,

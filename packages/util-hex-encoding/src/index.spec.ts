@@ -1,18 +1,7 @@
 import { fromHex, toHex } from "./";
 
 const encoded = "dead" + "beef" + "cafe" + "babe" + "face";
-const bytes = new Uint8Array([
-  0xde,
-  0xad,
-  0xbe,
-  0xef,
-  0xca,
-  0xfe,
-  0xba,
-  0xbe,
-  0xfa,
-  0xce
-]);
+const bytes = new Uint8Array([0xde, 0xad, 0xbe, 0xef, 0xca, 0xfe, 0xba, 0xbe, 0xfa, 0xce]);
 
 describe("fromHex", () => {
   it("should decode hexadecimal strings to binary", () => {

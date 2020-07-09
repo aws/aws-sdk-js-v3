@@ -27,9 +27,7 @@ describe("resolveRetryConfig", () => {
       maxAttemptsDefaultProvider.mockReturnValueOnce(mockMaxAttempts);
 
       const input = { maxAttemptsDefaultProvider };
-      expect(resolveRetryConfig(input).maxAttempts).toStrictEqual(
-        mockMaxAttempts
-      );
+      expect(resolveRetryConfig(input).maxAttempts).toStrictEqual(mockMaxAttempts);
 
       expect(maxAttemptsDefaultProvider).toHaveBeenCalledTimes(1);
       expect(maxAttemptsDefaultProvider).toHaveBeenCalledWith(input);
@@ -71,9 +69,7 @@ describe("resolveRetryConfig", () => {
           maxAttemptsDefaultProvider
         });
         expect(StandardRetryStrategy as jest.Mock).toHaveBeenCalledTimes(1);
-        expect((StandardRetryStrategy as jest.Mock).mock.calls[0][0]).toEqual(
-          mockMaxAttempts
-        );
+        expect((StandardRetryStrategy as jest.Mock).mock.calls[0][0]).toEqual(mockMaxAttempts);
       });
     });
   });
