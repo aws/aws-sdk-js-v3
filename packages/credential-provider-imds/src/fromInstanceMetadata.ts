@@ -11,6 +11,9 @@ import {
 import { retry } from "./remoteProvider/retry";
 import { ProviderError } from "@aws-sdk/property-provider";
 
+const IMDS_IP = "169.254.169.254";
+const IMDS_PATH = "/latest/meta-data/iam/security-credentials/";
+
 /**
  * Creates a credential provider that will source credentials from the EC2
  * Instance Metadata Service
@@ -22,14 +25,23 @@ export const fromInstanceMetadata = (
   return async () => {
     const profile = (
       await retry<string>(
-        async () => await requestFromEc2Imds(timeout),
+        async () =>
+          (
+            await httpGet({ host: IMDS_IP, path: IMDS_PATH, timeout })
+          ).toString(),
         maxRetries
       )
     ).trim();
 
     return retry(async () => {
       const credsResponse = JSON.parse(
-        await requestFromEc2Imds(timeout, profile)
+        (
+          await httpGet({
+            host: IMDS_IP,
+            path: IMDS_PATH + profile,
+            timeout
+          })
+        ).toString()
       );
       if (!isImdsCredentials(credsResponse)) {
         throw new ProviderError(
@@ -40,19 +52,4 @@ export const fromInstanceMetadata = (
       return fromImdsCredentials(credsResponse);
     }, maxRetries);
   };
-};
-
-const IMDS_IP = "169.254.169.254";
-const IMDS_PATH = "latest/meta-data/iam/security-credentials";
-
-const requestFromEc2Imds = async (
-  timeout: number,
-  path?: string
-): Promise<string> => {
-  const buffer = await httpGet({
-    host: IMDS_IP,
-    path: `/${IMDS_PATH}/${path ? path : ""}`,
-    timeout
-  });
-  return buffer.toString();
 };
