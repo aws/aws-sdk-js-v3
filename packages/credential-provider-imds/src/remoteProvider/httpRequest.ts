@@ -5,7 +5,7 @@ import { ProviderError } from "@aws-sdk/property-provider";
 /**
  * @internal
  */
-export function httpGet(options: RequestOptions | string): Promise<Buffer> {
+export function httpRequest(options: RequestOptions | string): Promise<Buffer> {
   return new Promise((resolve, reject) => {
     const request = get(options);
     request.on("error", err => {

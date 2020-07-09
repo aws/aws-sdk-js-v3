@@ -3,7 +3,7 @@ import {
   RemoteProviderInit,
   providerConfigFromInit
 } from "./remoteProvider/RemoteProviderInit";
-import { httpGet } from "./remoteProvider/httpGet";
+import { httpRequest } from "./remoteProvider/httpRequest";
 import {
   fromImdsCredentials,
   isImdsCredentials
@@ -27,7 +27,7 @@ export const fromInstanceMetadata = (
       await retry<string>(
         async () =>
           (
-            await httpGet({ host: IMDS_IP, path: IMDS_PATH, timeout })
+            await httpRequest({ host: IMDS_IP, path: IMDS_PATH, timeout })
           ).toString(),
         maxRetries
       )
@@ -36,7 +36,7 @@ export const fromInstanceMetadata = (
     return retry(async () => {
       const credsResponse = JSON.parse(
         (
-          await httpGet({
+          await httpRequest({
             host: IMDS_IP,
             path: IMDS_PATH + profile,
             timeout

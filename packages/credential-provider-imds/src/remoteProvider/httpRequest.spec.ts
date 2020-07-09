@@ -1,5 +1,5 @@
 import { createServer } from "http";
-import { httpGet } from "./httpGet";
+import { httpRequest } from "./httpRequest";
 import { ProviderError } from "@aws-sdk/property-provider";
 
 let matchers: { [url: string]: string } = {};
@@ -46,20 +46,20 @@ afterAll(() => {
 
 beforeEach(clearMatchers);
 
-describe("httpGet", () => {
+describe("httpRequest", () => {
   it("should respond with a promise fulfilled with the http response", async () => {
     const expectedResponse = "foo bar baz";
     addMatcher("/", expectedResponse);
 
     expect(
-      (await httpGet(`http://localhost:${port}/`)).toString("utf8")
+      (await httpRequest(`http://localhost:${port}/`)).toString("utf8")
     ).toEqual(expectedResponse);
   });
 
   it("should reject the promise with a non-terminal error if a 404 status code is received", async () => {
     addMatcher("/fizz", "buzz");
 
-    await httpGet(`http://localhost:${port}/foo`).then(
+    await httpRequest(`http://localhost:${port}/foo`).then(
       () => {
         throw new Error("The promise should have been rejected");
       },
@@ -72,7 +72,7 @@ describe("httpGet", () => {
   it("should reject the promise with a non-terminal error if the remote server cannot be contacted", async () => {
     server.close();
 
-    await httpGet(`http://localhost:${port}/foo`).then(
+    await httpRequest(`http://localhost:${port}/foo`).then(
       () => {
         throw new Error("The promise should have been rejected");
       },
