@@ -1,4 +1,4 @@
-import { ResolvedGlacierMiddlewareConfig } from "./configurations";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
@@ -7,14 +7,11 @@ import {
   BuildMiddleware,
   MetadataBearer
 } from "@aws-sdk/types";
-import { HttpRequest } from "@aws-sdk/protocol-http";
 
-export function addGlacierApiVersionMiddleware(
-  options: ResolvedGlacierMiddlewareConfig
-): BuildMiddleware<any, any> {
-  return <Output extends MetadataBearer>(
-    next: BuildHandler<any, Output>
-  ): BuildHandler<any, Output> => async (
+import { ResolvedGlacierMiddlewareConfig } from "./configurations";
+
+export function addGlacierApiVersionMiddleware(options: ResolvedGlacierMiddlewareConfig): BuildMiddleware<any, any> {
+  return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
     const request = args.request;

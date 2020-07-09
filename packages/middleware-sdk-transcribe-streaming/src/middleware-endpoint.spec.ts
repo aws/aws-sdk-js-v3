@@ -1,6 +1,7 @@
-import { RequestHandler, BuildHandlerArguments } from "@aws-sdk/types";
-import { websocketURLMiddleware } from "./middleware-endpoint";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+import { BuildHandlerArguments, RequestHandler } from "@aws-sdk/types";
+
+import { websocketURLMiddleware } from "./middleware-endpoint";
 
 describe("websocketURLMiddleware", () => {
   const mockHandler: RequestHandler<any, any> = {
@@ -44,9 +45,7 @@ describe("websocketURLMiddleware", () => {
       expect(HttpRequest.isInstance(args.request)).toBeTruthy();
       const processed = args.request as HttpRequest;
       expect(processed.protocol).toEqual("wss:");
-      expect(processed.hostname).toEqual(
-        "transcribestreaming.us-east-1.amazonaws.com:8443"
-      );
+      expect(processed.hostname).toEqual("transcribestreaming.us-east-1.amazonaws.com:8443");
       expect(processed.path).toEqual("/stream-transcription-websocket");
       expect(processed.method).toEqual("GET");
       done();

@@ -1,30 +1,20 @@
+import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH } from "@aws-sdk/shared-ini-file-loader";
 import { CredentialProvider, Credentials } from "@aws-sdk/types";
 import { join, sep } from "path";
+
 import { AssumeRoleParams, ENV_PROFILE, fromIni } from "./";
-import {
-  ENV_CONFIG_PATH,
-  ENV_CREDENTIALS_PATH
-} from "@aws-sdk/shared-ini-file-loader";
 
 jest.mock("fs", () => {
   interface FsModule {
     __addMatcher(toMatch: string, toReturn: string): void;
     __clearMatchers(): void;
-    readFile: (
-      path: string,
-      encoding: string,
-      cb: (err: Error | null, data?: string) => void
-    ) => void;
+    readFile: (path: string, encoding: string, cb: (err: Error | null, data?: string) => void) => void;
   }
 
   const fs: FsModule = <FsModule>jest.genMockFromModule("fs");
   const matchers = new Map<string, string>();
 
-  function readFile(
-    path: string,
-    encoding: string,
-    callback: (err: Error | null, data?: string) => void
-  ): void {
+  function readFile(path: string, encoding: string, callback: (err: Error | null, data?: string) => void): void {
     if (matchers.has(path)) {
       callback(null, matchers.get(path));
       return;
@@ -112,8 +102,7 @@ afterAll(() => {
 describe("fromIni", () => {
   it("should flag a lack of credentials as a non-terminal error", () => {
     return expect(fromIni()()).rejects.toMatchObject({
-      message:
-        "Profile default could not be found or parsed in shared credentials file.",
+      message: "Profile default could not be found or parsed in shared credentials file.",
       tryNextLink: true
     });
   });
@@ -191,20 +180,14 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
 
     it("should use $HOME when available", async () => {
       process.env.HOME = `${sep}foo${sep}bar`;
-      __addMatcher(
-        `${sep}foo${sep}bar${sep}.aws${sep}credentials`,
-        SIMPLE_CREDS_FILE
-      );
+      __addMatcher(`${sep}foo${sep}bar${sep}.aws${sep}credentials`, SIMPLE_CREDS_FILE);
 
       expect(await fromIni()()).toEqual(DEFAULT_CREDS);
     });
 
     it("should use $USERPROFILE when available", async () => {
       process.env.USERPROFILE = "C:\\Users\\user";
-      __addMatcher(
-        `C:\\Users\\user${sep}.aws${sep}credentials`,
-        SIMPLE_CREDS_FILE
-      );
+      __addMatcher(`C:\\Users\\user${sep}.aws${sep}credentials`, SIMPLE_CREDS_FILE);
 
       expect(await fromIni()()).toEqual(DEFAULT_CREDS);
     });
@@ -212,10 +195,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
     it("should use $HOMEPATH/$HOMEDRIVE when available", async () => {
       process.env.HOMEDRIVE = "D:\\";
       process.env.HOMEPATH = "Users\\user";
-      __addMatcher(
-        `D:\\Users\\user${sep}.aws${sep}credentials`,
-        SIMPLE_CREDS_FILE
-      );
+      __addMatcher(`D:\\Users\\user${sep}.aws${sep}credentials`, SIMPLE_CREDS_FILE);
 
       expect(await fromIni()()).toEqual(DEFAULT_CREDS);
     });
@@ -335,9 +315,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim();
       const customPath = join(homedir(), ".aws", "foo");
       __addMatcher(customPath, SIMPLE_CONFIG_FILE);
 
-      expect(await fromIni({ configFilepath: customPath })()).toEqual(
-        DEFAULT_CREDS
-      );
+      expect(await fromIni({ configFilepath: customPath })()).toEqual(DEFAULT_CREDS);
     });
 
     it(`should read from a filepath specified in ${ENV_CREDENTIALS_PATH}`, async () => {
@@ -368,17 +346,12 @@ aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
 aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
       );
 
-      expect(await fromIni({ configFilepath: customPath })()).toEqual(
-        DEFAULT_CREDS
-      );
+      expect(await fromIni({ configFilepath: customPath })()).toEqual(DEFAULT_CREDS);
     });
 
     it("should use $HOME when available", async () => {
       process.env.HOME = `${sep}foo${sep}bar`;
-      __addMatcher(
-        `${sep}foo${sep}bar${sep}.aws${sep}config`,
-        SIMPLE_CONFIG_FILE
-      );
+      __addMatcher(`${sep}foo${sep}bar${sep}.aws${sep}config`, SIMPLE_CONFIG_FILE);
 
       expect(await fromIni()()).toEqual(DEFAULT_CREDS);
     });
@@ -498,10 +471,7 @@ source_profile = default`.trim()
 
       const provider = fromIni({
         profile: "foo",
-        roleAssumer(
-          sourceCreds: Credentials,
-          params: AssumeRoleParams
-        ): Promise<Credentials> {
+        roleAssumer(sourceCreds: Credentials, params: AssumeRoleParams): Promise<Credentials> {
           expect(sourceCreds).toEqual(DEFAULT_CREDS);
           expect(params.RoleArn).toEqual(roleArn);
           expect(params.RoleSessionName).toEqual(sessionName);
@@ -530,10 +500,7 @@ source_profile = default`.trim()
 
       const provider = fromIni({
         profile: "foo",
-        roleAssumer(
-          sourceCreds: Credentials,
-          params: AssumeRoleParams
-        ): Promise<Credentials> {
+        roleAssumer(sourceCreds: Credentials, params: AssumeRoleParams): Promise<Credentials> {
           expect(params.RoleSessionName).toBeDefined();
 
           return Promise.resolve(FOO_CREDS);
@@ -558,8 +525,7 @@ source_profile = bar`.trim()
       );
 
       return expect(fromIni({ profile: "foo" })()).rejects.toMatchObject({
-        message:
-          "Profile foo requires a role to be assumed, but no role assumption callback was provided.",
+        message: "Profile foo requires a role to be assumed, but no role assumption callback was provided.",
         tryNextLink: false
       });
     });
@@ -584,8 +550,7 @@ source_profile = bar`.trim()
       });
 
       return expect(provider()).rejects.toMatchObject({
-        message:
-          "Profile bar could not be found or parsed in shared credentials file.",
+        message: "Profile bar could not be found or parsed in shared credentials file.",
         tryNextLink: true
       });
     });
@@ -612,10 +577,7 @@ aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
 
       const provider = fromIni({
         profile: "foo",
-        roleAssumer(
-          sourceCreds: Credentials,
-          params: AssumeRoleParams
-        ): Promise<Credentials> {
+        roleAssumer(sourceCreds: Credentials, params: AssumeRoleParams): Promise<Credentials> {
           expect(sourceCreds).toEqual(DEFAULT_CREDS);
           expect(params.RoleArn).toEqual(roleArn);
 
@@ -648,10 +610,7 @@ aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
 
       const provider = fromIni({
         profile: "foo",
-        roleAssumer(
-          sourceCreds: Credentials,
-          params: AssumeRoleParams
-        ): Promise<Credentials> {
+        roleAssumer(sourceCreds: Credentials, params: AssumeRoleParams): Promise<Credentials> {
           expect(sourceCreds).toEqual(DEFAULT_CREDS);
           expect(params.RoleArn).toEqual(roleArn);
 
@@ -663,8 +622,7 @@ aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
     });
 
     it("should allow profiles to assume roles assuming roles assuming roles ad infinitum", async () => {
-      const roleArnFor = (profile: string) =>
-        `arn:aws:iam::123456789:role/${profile}`;
+      const roleArnFor = (profile: string) => `arn:aws:iam::123456789:role/${profile}`;
       const roleAssumer = jest.fn();
       roleAssumer.mockReturnValue(Promise.resolve(FOO_CREDS));
 
@@ -707,9 +665,7 @@ source_profile = default
 `.trim()
       );
 
-      expect(await fromIni({ roleAssumer, profile: "foo" })()).toEqual(
-        FOO_CREDS
-      );
+      expect(await fromIni({ roleAssumer, profile: "foo" })()).toEqual(FOO_CREDS);
 
       expect(roleAssumer.mock.calls.length).toEqual(6);
       const expectedCalls = [
@@ -751,10 +707,7 @@ source_profile = default`.trim()
           return Promise.resolve(mfaCode);
         },
         profile: "foo",
-        roleAssumer(
-          sourceCreds: Credentials,
-          params: AssumeRoleParams
-        ): Promise<Credentials> {
+        roleAssumer(sourceCreds: Credentials, params: AssumeRoleParams): Promise<Credentials> {
           expect(sourceCreds).toEqual(DEFAULT_CREDS);
           expect(params.RoleArn).toEqual(roleArn);
           expect(params.SerialNumber).toEqual(mfaSerial);
@@ -790,8 +743,7 @@ source_profile = default`.trim()
       });
 
       return expect(provider()).rejects.toMatchObject({
-        message:
-          "Profile foo requires multi-factor authentication, but no MFA code callback was provided.",
+        message: "Profile foo requires multi-factor authentication, but no MFA code callback was provided.",
         tryNextLink: false
       });
     });
@@ -829,8 +781,7 @@ aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
     );
 
     return expect(fromIni()()).rejects.toMatchObject({
-      message:
-        "Profile default could not be found or parsed in shared credentials file.",
+      message: "Profile default could not be found or parsed in shared credentials file.",
       tryNextLink: true
     });
   });
@@ -845,8 +796,7 @@ aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
     );
 
     return expect(fromIni()()).rejects.toMatchObject({
-      message:
-        "Profile default could not be found or parsed in shared credentials file.",
+      message: "Profile default could not be found or parsed in shared credentials file.",
       tryNextLink: true
     });
   });
@@ -869,8 +819,7 @@ aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
     );
 
     return expect(fromIni()()).rejects.toMatchObject({
-      message:
-        "Profile default could not be found or parsed in shared credentials file.",
+      message: "Profile default could not be found or parsed in shared credentials file.",
       tryNextLink: true
     });
   });
@@ -893,10 +842,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}
     );
 
     const provider = fromIni({
-      roleAssumer(
-        sourceCreds: Credentials,
-        params: AssumeRoleParams
-      ): Promise<Credentials> {
+      roleAssumer(sourceCreds: Credentials, params: AssumeRoleParams): Promise<Credentials> {
         expect(sourceCreds).toEqual(FOO_CREDS);
         expect(params.RoleArn).toEqual("foo");
 
@@ -929,10 +875,7 @@ aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
     );
 
     const provider = fromIni({
-      roleAssumer(
-        sourceCreds: Credentials,
-        params: AssumeRoleParams
-      ): Promise<Credentials> {
+      roleAssumer(sourceCreds: Credentials, params: AssumeRoleParams): Promise<Credentials> {
         expect(sourceCreds).toEqual(FOO_CREDS);
         expect(params.RoleArn).toEqual("foo");
 
@@ -957,10 +900,7 @@ source_profile = default
     );
 
     const provider = fromIni({
-      roleAssumer(
-        sourceCreds: Credentials,
-        params: AssumeRoleParams
-      ): Promise<Credentials> {
+      roleAssumer(sourceCreds: Credentials, params: AssumeRoleParams): Promise<Credentials> {
         expect(sourceCreds).toEqual(DEFAULT_CREDS);
         expect(params.RoleArn).toEqual("bar");
 
@@ -1012,8 +952,7 @@ source_profile = fizz
 
   it("should not attempt to load from disk if loaded credentials are provided", async () => {
     await expect(fromIni()()).rejects.toMatchObject({
-      message:
-        "Profile default could not be found or parsed in shared credentials file."
+      message: "Profile default could not be found or parsed in shared credentials file."
     });
 
     const params = {

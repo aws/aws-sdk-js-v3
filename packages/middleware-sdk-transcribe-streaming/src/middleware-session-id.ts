@@ -1,8 +1,8 @@
 import {
-  InitializeMiddleware,
   InitializeHandler,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
+  InitializeMiddleware,
   RequestHandler
 } from "@aws-sdk/types";
 import { v4 } from "uuid";
@@ -21,9 +21,9 @@ type WithSession = {
  */
 export const injectSessionIdMiddleware = (config: {
   requestHandler: RequestHandler<any, any>;
-}): InitializeMiddleware<any, any> => (
-  next: InitializeHandler<WithSession, WithSession>
-) => async (args: InitializeHandlerArguments<WithSession>) => {
+}): InitializeMiddleware<any, any> => (next: InitializeHandler<WithSession, WithSession>) => async (
+  args: InitializeHandlerArguments<WithSession>
+) => {
   if (args.input.SessionId === undefined && isWebSocket(config)) {
     args.input.SessionId = v4();
   }

@@ -1,7 +1,8 @@
-import { NodeHttp2Handler } from "./node-http2-handler";
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { createMockHttp2Server, createResponseFunction } from "./server.mock";
 import { AbortController } from "@aws-sdk/abort-controller";
+import { HttpRequest } from "@aws-sdk/protocol-http";
+
+import { NodeHttp2Handler } from "./node-http2-handler";
+import { createMockHttp2Server, createResponseFunction } from "./server.mock";
 
 describe("NodeHttp2Handler", () => {
   let nodeH2Handler: NodeHttp2Handler;
@@ -71,9 +72,7 @@ describe("NodeHttp2Handler", () => {
       expect(nodeH2Handler.connectionPool.size).toBe(1);
 
       // @ts-ignore: access private property
-      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(
-        `${protocol}//${hostname}:${port}`
-      );
+      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(`${protocol}//${hostname}:${port}`);
       const requestSpy = jest.spyOn(session, "request");
 
       await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
@@ -91,10 +90,7 @@ describe("NodeHttp2Handler", () => {
       const mockH2Server2 = createMockHttp2Server().listen(port2);
       mockH2Server2.on("request", createResponseFunction(mockResponse));
 
-      await nodeH2Handler.handle(
-        new HttpRequest({ ...getMockReqOptions(), port: port2 }),
-        {}
-      );
+      await nodeH2Handler.handle(new HttpRequest({ ...getMockReqOptions(), port: port2 }), {});
       // @ts-ignore: access private property
       expect(nodeH2Handler.connectionPool.size).toBe(2);
       expect(
@@ -112,9 +108,7 @@ describe("NodeHttp2Handler", () => {
 
       const authority = `${protocol}//${hostname}:${port}`;
       // @ts-ignore: access private property
-      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(
-        authority
-      );
+      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(authority);
       expect(session.closed).toBe(false);
       setTimeout(() => {
         expect(session.closed).toBe(true);
@@ -130,9 +124,7 @@ describe("NodeHttp2Handler", () => {
       await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
 
       // @ts-ignore: access private property
-      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(
-        `${protocol}//${hostname}:${port}`
-      );
+      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(`${protocol}//${hostname}:${port}`);
 
       // @ts-ignore: access private property
       expect(nodeH2Handler.connectionPool.size).toBe(1);
@@ -163,9 +155,7 @@ describe("NodeHttp2Handler", () => {
       await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
 
       // @ts-ignore: access private property
-      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(
-        `${protocol}//${hostname}:${port}`
-      );
+      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(`${protocol}//${hostname}:${port}`);
       const requestSpy = jest.spyOn(session, "request");
 
       await expect(

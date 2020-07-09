@@ -1,18 +1,19 @@
-import {
-  EventStreamPayloadHandler as IEventStreamPayloadHandler,
-  MetadataBearer,
-  Provider,
-  EventSigner,
-  Encoder,
-  Decoder,
-  HttpRequest,
-  HandlerExecutionContext,
-  FinalizeHandlerArguments,
-  FinalizeHandler,
-  FinalizeHandlerOutput
-} from "@aws-sdk/types";
 import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
-import { Readable, PassThrough, pipeline } from "stream";
+import {
+  Decoder,
+  Encoder,
+  EventSigner,
+  EventStreamPayloadHandler as IEventStreamPayloadHandler,
+  FinalizeHandler,
+  FinalizeHandlerArguments,
+  FinalizeHandlerOutput,
+  HandlerExecutionContext,
+  HttpRequest,
+  MetadataBearer,
+  Provider
+} from "@aws-sdk/types";
+import { PassThrough, pipeline, Readable } from "stream";
+
 import { EventSigningStream } from "./EventSigningStream";
 
 export interface EventStreamPayloadHandlerOptions {
@@ -33,10 +34,7 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
   private readonly eventMarshaller: EventMarshaller;
   constructor(options: EventStreamPayloadHandlerOptions) {
     this.eventSigner = options.eventSigner;
-    this.eventMarshaller = new EventMarshaller(
-      options.utf8Encoder,
-      options.utf8Decoder
-    );
+    this.eventMarshaller = new EventMarshaller(options.utf8Encoder, options.utf8Decoder);
   }
 
   async handle<T extends MetadataBearer>(
@@ -63,9 +61,7 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
       throw e;
     }
     // If response is successful, start piping the payload stream
-    const match = (request.headers["authorization"] || "").match(
-      /Signature=([\w]+)$/
-    );
+    const match = (request.headers["authorization"] || "").match(/Signature=([\w]+)$/);
     // Sign the eventstream based on the signature from initial request.
     const priorSignature = (match || [])[1];
     const signingStream = new EventSigningStream({

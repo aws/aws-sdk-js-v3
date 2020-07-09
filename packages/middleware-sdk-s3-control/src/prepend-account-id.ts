@@ -1,3 +1,4 @@
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
@@ -8,12 +9,9 @@ import {
   Pluggable,
   RelativeLocation
 } from "@aws-sdk/types";
-import { HttpRequest } from "@aws-sdk/protocol-http";
 
 export function prependAccountIdMiddleware(): BuildMiddleware<any, any> {
-  return <Output extends MetadataBearer>(
-    next: BuildHandler<any, Output>
-  ): BuildHandler<any, Output> => async (
+  return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
     const { request } = args;
@@ -23,17 +21,12 @@ export function prependAccountIdMiddleware(): BuildMiddleware<any, any> {
       throw new Error("ValidationError: AccountId must be a string.");
     }
     if (accountId.length < 1 || accountId.length > 63) {
-      throw new Error(
-        "ValidationError: AccountId length should be between 1 to 63 characters, inclusive."
-      );
+      throw new Error("ValidationError: AccountId length should be between 1 to 63 characters, inclusive.");
     }
     //validate pattern
     const hostPattern = /^[a-zA-Z0-9]{1}$|^[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9]$/;
     if (!hostPattern.test(accountId)) {
-      throw new Error(
-        "ValidationError: AccountId should be hostname compatible. AccountId: " +
-          accountId
-      );
+      throw new Error("ValidationError: AccountId should be hostname compatible. AccountId: " + accountId);
     }
     if (HttpRequest.isInstance(request) && input.AccountId) {
       const newHostname = input.AccountId + "." + request.hostname;
@@ -47,8 +40,7 @@ export function prependAccountIdMiddleware(): BuildMiddleware<any, any> {
   };
 }
 
-export const prependAccountIdMiddlewareOptions: BuildHandlerOptions &
-  RelativeLocation<any, any> = {
+export const prependAccountIdMiddlewareOptions: BuildHandlerOptions & RelativeLocation<any, any> = {
   step: "build",
   tags: ["PREPEND_ACCOUNT_ID_MIDDLEWARE"],
   name: "prependAccountIdMiddleware",
@@ -56,13 +48,8 @@ export const prependAccountIdMiddlewareOptions: BuildHandlerOptions &
   toMiddleware: "hostHeaderMiddleware"
 };
 
-export const getPrependAccountIdPlugin = (
-  unused: any
-): Pluggable<any, any> => ({
+export const getPrependAccountIdPlugin = (unused: any): Pluggable<any, any> => ({
   applyToStack: clientStack => {
-    clientStack.addRelativeTo(
-      prependAccountIdMiddleware(),
-      prependAccountIdMiddlewareOptions
-    );
+    clientStack.addRelativeTo(prependAccountIdMiddleware(), prependAccountIdMiddlewareOptions);
   }
 });

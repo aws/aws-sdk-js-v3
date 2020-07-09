@@ -1,5 +1,4 @@
-import { bucketHostname } from "./bucketHostname";
-import { BucketEndpointResolvedConfig } from "./configurations";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
@@ -10,14 +9,12 @@ import {
   Pluggable,
   RelativeLocation
 } from "@aws-sdk/types";
-import { HttpRequest } from "@aws-sdk/protocol-http";
 
-export function bucketEndpointMiddleware(
-  options: BucketEndpointResolvedConfig
-): BuildMiddleware<any, any> {
-  return <Output extends MetadataBearer>(
-    next: BuildHandler<any, Output>
-  ): BuildHandler<any, Output> => async (
+import { bucketHostname } from "./bucketHostname";
+import { BucketEndpointResolvedConfig } from "./configurations";
+
+export function bucketEndpointMiddleware(options: BucketEndpointResolvedConfig): BuildMiddleware<any, any> {
+  return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
     const { Bucket: bucketName } = args.input;
@@ -52,8 +49,7 @@ export function bucketEndpointMiddleware(
   };
 }
 
-export const bucketEndpointMiddlewareOptions: BuildHandlerOptions &
-  RelativeLocation<any, any> = {
+export const bucketEndpointMiddlewareOptions: BuildHandlerOptions & RelativeLocation<any, any> = {
   step: "build",
   tags: ["BUCKET_ENDPOINT"],
   name: "bucketEndpointMiddleware",
@@ -61,13 +57,8 @@ export const bucketEndpointMiddlewareOptions: BuildHandlerOptions &
   toMiddleware: "hostHeaderMiddleware"
 };
 
-export const getBucketEndpointPlugin = (
-  options: BucketEndpointResolvedConfig
-): Pluggable<any, any> => ({
+export const getBucketEndpointPlugin = (options: BucketEndpointResolvedConfig): Pluggable<any, any> => ({
   applyToStack: clientStack => {
-    clientStack.addRelativeTo(
-      bucketEndpointMiddleware(options),
-      bucketEndpointMiddlewareOptions
-    );
+    clientStack.addRelativeTo(bucketEndpointMiddleware(options), bucketEndpointMiddlewareOptions);
   }
 });

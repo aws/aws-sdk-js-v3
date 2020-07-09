@@ -1,5 +1,6 @@
-import { moveHeadersToQuery } from "./moveHeadersToQuery";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+
+import { moveHeadersToQuery } from "./moveHeadersToQuery";
 
 const minimalRequest = new HttpRequest({
   method: "POST",

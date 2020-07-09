@@ -1,7 +1,8 @@
-import { EventSigningStream } from "./EventSigningStream";
 import { EventStreamMarshaller } from "@aws-sdk/eventstream-marshaller";
-import { toUtf8, fromUtf8 } from "@aws-sdk/util-utf8-node";
 import { Message, MessageHeaders } from "@aws-sdk/types";
+import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
+
+import { EventSigningStream } from "./EventSigningStream";
 
 describe("EventSigningStream", () => {
   const originalDate = Date;
@@ -25,36 +26,14 @@ describe("EventSigningStream", () => {
         ":date": { type: "timestamp", value: new Date(1546045446000) },
         ":chunk-signature": {
           type: "binary",
-          value: Uint8Array.from([
-            115,
-            105,
-            103,
-            110,
-            97,
-            116,
-            117,
-            114,
-            101,
-            49
-          ])
+          value: Uint8Array.from([115, 105, 103, 110, 97, 116, 117, 114, 101, 49])
         }
       },
       {
         ":date": { type: "timestamp", value: new Date(1546045447000) },
         ":chunk-signature": {
           type: "binary",
-          value: Uint8Array.from([
-            115,
-            105,
-            103,
-            110,
-            97,
-            116,
-            117,
-            114,
-            101,
-            50
-          ])
+          value: Uint8Array.from([115, 105, 103, 110, 97, 116, 117, 114, 101, 50])
         }
       }
     ];
@@ -87,9 +66,7 @@ describe("EventSigningStream", () => {
       expect(mockEventSigner.mock.calls[0][1].signingDate.getTime()).toBe(
         (expected[0][":date"].value as Date).getTime()
       );
-      expect(mockEventSigner.mock.calls[1][1].priorSignature).toBe(
-        "7369676e617475726531"
-      );
+      expect(mockEventSigner.mock.calls[1][1].priorSignature).toBe("7369676e617475726531");
       expect(mockEventSigner.mock.calls[1][1].signingDate.getTime()).toBe(
         (expected[1][":date"].value as Date).getTime()
       );

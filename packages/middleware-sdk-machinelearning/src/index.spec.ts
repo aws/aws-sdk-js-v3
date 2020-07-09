@@ -1,4 +1,4 @@
-import { predictEndpointMiddleware, getPredictEndpointPlugin } from "./index";
+import { getPredictEndpointPlugin, predictEndpointMiddleware } from "./index";
 
 describe("middleware-sdk-machinelearning package exports", () => {
   it("predictEndpointMiddleware", () => {

@@ -1,5 +1,6 @@
-import { sendMessageBatchMiddleware } from "./send-message-batch";
 import { HashConstructor } from "@aws-sdk/types";
+
+import { sendMessageBatchMiddleware } from "./send-message-batch";
 
 describe("sendMessageBatchMiddleware", () => {
   const mockHashUpdate = jest.fn();
@@ -61,9 +62,7 @@ describe("sendMessageBatchMiddleware", () => {
           ]
         }
       })
-    ).rejects.toThrow(
-      new Error("Invalid MD5 checksum on messages: barMessage")
-    );
+    ).rejects.toThrow(new Error("Invalid MD5 checksum on messages: barMessage"));
     expect(mockHashUpdate.mock.calls.length).toBe(2);
     expect(mockHashDigest.mock.calls.length).toBe(2);
   });

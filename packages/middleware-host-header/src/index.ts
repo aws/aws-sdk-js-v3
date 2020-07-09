@@ -1,11 +1,5 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import {
-  RequestHandler,
-  BuildMiddleware,
-  BuildHandlerOptions,
-  AbsoluteLocation,
-  Pluggable
-} from "@aws-sdk/types";
+import { AbsoluteLocation, BuildHandlerOptions, BuildMiddleware, Pluggable, RequestHandler } from "@aws-sdk/types";
 
 export interface HostHeaderInputConfig {}
 interface PreviouslyResolved {
@@ -20,10 +14,7 @@ export function resolveHostHeaderConfig<T>(
   return input;
 }
 
-export const hostHeaderMiddleware = <
-  Input extends object,
-  Output extends object
->(
+export const hostHeaderMiddleware = <Input extends object, Output extends object>(
   options: HostHeaderResolvedConfig
 ): BuildMiddleware<Input, Output> => next => async args => {
   if (!HttpRequest.isInstance(args.request)) return next(args);
@@ -41,16 +32,13 @@ export const hostHeaderMiddleware = <
   return next(args);
 };
 
-export const hostHeaderMiddlewareOptions: BuildHandlerOptions &
-  AbsoluteLocation = {
+export const hostHeaderMiddlewareOptions: BuildHandlerOptions & AbsoluteLocation = {
   name: "hostHeaderMiddleware",
   step: "build",
   tags: ["HOST"]
 };
 
-export const getHostHeaderPlugin = (
-  options: HostHeaderResolvedConfig
-): Pluggable<any, any> => ({
+export const getHostHeaderPlugin = (options: HostHeaderResolvedConfig): Pluggable<any, any> => ({
   applyToStack: clientStack => {
     clientStack.add(hostHeaderMiddleware(options), hostHeaderMiddlewareOptions);
   }

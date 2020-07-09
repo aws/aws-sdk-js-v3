@@ -1,6 +1,7 @@
-import { Md5 } from "./";
 import { fromBase64 } from "@aws-sdk/util-base64-node";
 import { toHex } from "@aws-sdk/util-hex-encoding";
+
+import { Md5 } from "./";
 const hashVectors = require("hash-test-vectors");
 
 describe("Md5", () => {

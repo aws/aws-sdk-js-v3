@@ -1,11 +1,11 @@
 import { HttpRequest } from "./http";
-import { MetadataBearer } from "./response";
 import {
-  HandlerExecutionContext,
   FinalizeHandler,
   FinalizeHandlerArguments,
-  FinalizeHandlerOutput
+  FinalizeHandlerOutput,
+  HandlerExecutionContext
 } from "./middleware";
+import { MetadataBearer } from "./response";
 /**
  * An event stream message. The headers and body properties will always be
  * defined, with empty headers represented as an object with no keys and an
@@ -90,14 +90,8 @@ export interface EventStreamSerdeContext {
 }
 
 export interface EventStreamMarshaller {
-  deserialize: (
-    body: any,
-    deserializer: (input: { [event: string]: Message }) => any
-  ) => AsyncIterable<any>;
-  serialize: (
-    input: AsyncIterable<any>,
-    serializer: (event: any) => Message
-  ) => any;
+  deserialize: (body: any, deserializer: (input: { [event: string]: Message }) => any) => AsyncIterable<any>;
+  serialize: (input: AsyncIterable<any>, serializer: (event: any) => Message) => any;
 }
 
 export interface EventStreamRequestSigner {

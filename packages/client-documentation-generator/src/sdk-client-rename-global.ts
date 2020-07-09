@@ -1,18 +1,13 @@
-import * as ts from "typescript";
-import {
-  Component,
-  RendererComponent
-} from "typedoc/dist/lib/output/components";
+import { Component, RendererComponent } from "typedoc/dist/lib/output/components";
 import { RendererEvent } from "typedoc/dist/lib/output/events";
 import { NavigationPlugin } from "typedoc/dist/lib/output/plugins";
+import * as ts from "typescript";
 
 @Component({ name: "SdkClientRenameGlobal" })
 export class SdkClientRenameGlobalPlugin extends RendererComponent {
   private navigationPlugin: NavigationPlugin;
   initialize() {
-    this.navigationPlugin = <any>(
-      this.owner.application.renderer.getComponent("navigation")
-    );
+    this.navigationPlugin = <any>this.owner.application.renderer.getComponent("navigation");
     this.listenTo(this.owner, {
       [RendererEvent.BEGIN]: this.onRenderedBegin
     });

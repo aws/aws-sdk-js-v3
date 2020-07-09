@@ -1,5 +1,6 @@
-import { Logins } from "./Logins";
 import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity";
+
+import { Logins } from "./Logins";
 
 export interface CognitoProviderParameters {
   /**

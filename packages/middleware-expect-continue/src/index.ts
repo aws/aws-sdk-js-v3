@@ -1,3 +1,4 @@
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
@@ -7,26 +8,17 @@ import {
   MetadataBearer,
   Pluggable
 } from "@aws-sdk/types";
-import { HttpRequest } from "@aws-sdk/protocol-http";
 
 interface PreviouslyResolved {
   runtime: string;
 }
 
-export function addExpectContinueMiddleware(
-  options: PreviouslyResolved
-): BuildMiddleware<any, any> {
-  return <Output extends MetadataBearer>(
-    next: BuildHandler<any, Output>
-  ): BuildHandler<any, Output> => async (
+export function addExpectContinueMiddleware(options: PreviouslyResolved): BuildMiddleware<any, any> {
+  return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
     const { request } = args;
-    if (
-      HttpRequest.isInstance(request) &&
-      request.body &&
-      options.runtime === "node"
-    ) {
+    if (HttpRequest.isInstance(request) && request.body && options.runtime === "node") {
       request.headers = {
         ...request.headers,
         Expect: "100-continue"
@@ -45,13 +37,8 @@ export const addExpectContinueMiddlewareOptions: BuildHandlerOptions = {
   name: "addExpectContinueMiddleware"
 };
 
-export const getAddExpectContinuePlugin = (
-  options: PreviouslyResolved
-): Pluggable<any, any> => ({
+export const getAddExpectContinuePlugin = (options: PreviouslyResolved): Pluggable<any, any> => ({
   applyToStack: clientStack => {
-    clientStack.add(
-      addExpectContinueMiddleware(options),
-      addExpectContinueMiddlewareOptions
-    );
+    clientStack.add(addExpectContinueMiddleware(options), addExpectContinueMiddlewareOptions);
   }
 });

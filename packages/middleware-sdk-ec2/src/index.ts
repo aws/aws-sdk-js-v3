@@ -1,20 +1,20 @@
+import { HttpRequest } from "@aws-sdk/protocol-http";
+import { SignatureV4 } from "@aws-sdk/signature-v4";
 import {
   Credentials,
   DateInput,
   Endpoint,
   HashConstructor,
   InitializeHandler,
-  InitializeMiddleware,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
   InitializeHandlerOutput,
+  InitializeMiddleware,
   MetadataBearer,
   Pluggable,
   Provider
 } from "@aws-sdk/types";
-import { SignatureV4 } from "@aws-sdk/signature-v4";
 import { formatUrl } from "@aws-sdk/util-format-url";
-import { HttpRequest } from "@aws-sdk/protocol-http";
 import { escapeUri } from "@aws-sdk/util-uri-escape";
 
 interface PreviouslyResolved {
@@ -28,9 +28,7 @@ interface PreviouslyResolved {
 const version = "2016-11-15";
 
 //an initialize middleware to add PresignUrl to input
-export function copySnapshotPresignedUrlMiddleware(
-  options: PreviouslyResolved
-): InitializeMiddleware<any, any> {
+export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
     next: InitializeHandler<any, Output>
   ): InitializeHandler<any, Output> => async (
@@ -86,13 +84,8 @@ export const copySnapshotPresignedUrlMiddlewareOptions: InitializeHandlerOptions
   name: "crossRegionPresignedUrlMiddleware"
 };
 
-export const getCopySnapshotPresignedUrlPlugin = (
-  config: PreviouslyResolved
-): Pluggable<any, any> => ({
+export const getCopySnapshotPresignedUrlPlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
   applyToStack: clientStack => {
-    clientStack.add(
-      copySnapshotPresignedUrlMiddleware(config),
-      copySnapshotPresignedUrlMiddlewareOptions
-    );
+    clientStack.add(copySnapshotPresignedUrlMiddleware(config), copySnapshotPresignedUrlMiddlewareOptions);
   }
 });

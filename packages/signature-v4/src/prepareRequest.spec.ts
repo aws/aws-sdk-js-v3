@@ -1,6 +1,7 @@
-import { prepareRequest } from "./prepareRequest";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+
 import { AMZ_DATE_HEADER, AUTH_HEADER, DATE_HEADER } from "./constants";
+import { prepareRequest } from "./prepareRequest";
 
 const minimalRequest = new HttpRequest({
   method: "POST",

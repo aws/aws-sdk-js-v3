@@ -1,12 +1,12 @@
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
-  BuildMiddleware,
   BuildHandler,
   BuildHandlerArguments,
-  RequestHandler,
   BuildHandlerOptions,
-  RelativeLocation
+  BuildMiddleware,
+  RelativeLocation,
+  RequestHandler
 } from "@aws-sdk/types";
-import { HttpRequest } from "@aws-sdk/protocol-http";
 
 /**
  * Middleware that generates WebSocket URL to TranscribeStreaming service
@@ -14,14 +14,9 @@ import { HttpRequest } from "@aws-sdk/protocol-http";
  */
 export const websocketURLMiddleware = (options: {
   requestHandler: RequestHandler<any, any>;
-}): BuildMiddleware<any, any> => (next: BuildHandler<any, any>) => (
-  args: BuildHandlerArguments<any>
-) => {
+}): BuildMiddleware<any, any> => (next: BuildHandler<any, any>) => (args: BuildHandlerArguments<any>) => {
   const { request } = args;
-  if (
-    HttpRequest.isInstance(request) &&
-    options.requestHandler.metadata?.handlerProtocol === "websocket"
-  ) {
+  if (HttpRequest.isInstance(request) && options.requestHandler.metadata?.handlerProtocol === "websocket") {
     // Update http/2 endpoint to WebSocket-specific endpoint.
     request.protocol = "wss:";
     // Append port to hostname because it needs to be signed together
@@ -59,8 +54,7 @@ export const websocketURLMiddleware = (options: {
   return next(args);
 };
 
-export const websocketURLMiddlewareOptions: BuildHandlerOptions &
-  RelativeLocation<any, any> = {
+export const websocketURLMiddlewareOptions: BuildHandlerOptions & RelativeLocation<any, any> = {
   step: "build",
   name: "websocketURLMiddleware",
   tags: ["WEBSOCKET", "EVENT_STREAM"],

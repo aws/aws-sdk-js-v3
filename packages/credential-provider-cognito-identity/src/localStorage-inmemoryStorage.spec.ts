@@ -1,5 +1,5 @@
-import { localStorage as storage } from "./localStorage";
 import { InMemoryStorage } from "./InMemoryStorage";
+import { localStorage as storage } from "./localStorage";
 
 describe("localStorage", () => {
   // set store and restore indexedDB and localStorage before and after the test
@@ -11,8 +11,7 @@ describe("localStorage", () => {
   });
   afterEach(() => {
     if (typeof self === "object") defineProperty(self, "indexedDB", indexDB);
-    if (typeof window === "object")
-      defineProperty(window, "localStorage", localStorage);
+    if (typeof window === "object") defineProperty(window, "localStorage", localStorage);
   });
   it("should return an in-memory storage implementation when indexDB or localStorage is not available", () => {
     defineProperty(self, "indexedDB", null);

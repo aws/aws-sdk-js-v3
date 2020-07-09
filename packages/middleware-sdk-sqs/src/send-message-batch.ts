@@ -1,14 +1,15 @@
-import { PreviouslyResolved } from "./configurations";
 import {
   InitializeHandler,
-  InitializeMiddleware,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
   InitializeHandlerOutput,
+  InitializeMiddleware,
   MetadataBearer,
   Pluggable
 } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
+
+import { PreviouslyResolved } from "./configurations";
 
 interface SendMessageBatchResult {
   Successful: Array<SendMessageBatchResultEntry> | undefined;
@@ -20,9 +21,7 @@ interface SendMessageBatchResultEntry {
   MessageId: string | undefined;
 }
 
-export function sendMessageBatchMiddleware(
-  options: PreviouslyResolved
-): InitializeMiddleware<any, any> {
+export function sendMessageBatchMiddleware(options: PreviouslyResolved): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
     next: InitializeHandler<any, Output>
   ): InitializeHandler<any, Output> => async (
@@ -50,9 +49,7 @@ export function sendMessageBatchMiddleware(
       }
     }
     if (messageIds.length > 0) {
-      throw new Error(
-        "Invalid MD5 checksum on messages: " + messageIds.join(", ")
-      );
+      throw new Error("Invalid MD5 checksum on messages: " + messageIds.join(", "));
     }
 
     return next({
@@ -67,13 +64,8 @@ export const sendMessageBatchMiddlewareOptions: InitializeHandlerOptions = {
   name: "sendMessageBatchMiddleware"
 };
 
-export const getSendMessageBatchPlugin = (
-  config: PreviouslyResolved
-): Pluggable<any, any> => ({
+export const getSendMessageBatchPlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
   applyToStack: clientStack => {
-    clientStack.add(
-      sendMessageBatchMiddleware(config),
-      sendMessageBatchMiddlewareOptions
-    );
+    clientStack.add(sendMessageBatchMiddleware(config), sendMessageBatchMiddlewareOptions);
   }
 });

@@ -1,11 +1,12 @@
+import { GetIdCommand } from "@aws-sdk/client-cognito-identity";
+import { ProviderError } from "@aws-sdk/property-provider";
+import { CredentialProvider } from "@aws-sdk/types";
+
 import { CognitoProviderParameters } from "./CognitoProviderParameters";
 import { fromCognitoIdentity } from "./fromCognitoIdentity";
 import { localStorage } from "./localStorage";
 import { resolveLogins } from "./resolveLogins";
 import { Storage } from "./Storage";
-import { ProviderError } from "@aws-sdk/property-provider";
-import { GetIdCommand } from "@aws-sdk/client-cognito-identity";
-import { CredentialProvider } from "@aws-sdk/types";
 
 /**
  * Retrieves or generates a unique identifier using Amazon Cognito's `GetId`
@@ -22,13 +23,9 @@ export function fromCognitoIdentityPool({
   customRoleArn,
   identityPoolId,
   logins,
-  userIdentifier = !logins || Object.keys(logins).length === 0
-    ? "ANONYMOUS"
-    : undefined
+  userIdentifier = !logins || Object.keys(logins).length === 0 ? "ANONYMOUS" : undefined
 }: FromCognitoIdentityPoolParameters): CredentialProvider {
-  const cacheKey = userIdentifier
-    ? `aws:cognito-identity-credentials:${identityPoolId}:${userIdentifier}`
-    : undefined;
+  const cacheKey = userIdentifier ? `aws:cognito-identity-credentials:${identityPoolId}:${userIdentifier}` : undefined;
 
   let provider: CredentialProvider = async () => {
     let identityId = cacheKey && (await cache.getItem(cacheKey));
@@ -66,8 +63,7 @@ export function fromCognitoIdentityPool({
     });
 }
 
-export interface FromCognitoIdentityPoolParameters
-  extends CognitoProviderParameters {
+export interface FromCognitoIdentityPoolParameters extends CognitoProviderParameters {
   /**
    * A standard AWS account ID (9+ digits).
    */
@@ -104,7 +100,5 @@ export interface FromCognitoIdentityPoolParameters
 }
 
 function throwOnMissingId(): never {
-  throw new ProviderError(
-    "Response from Amazon Cognito contained no identity ID"
-  );
+  throw new ProviderError("Response from Amazon Cognito contained no identity ID");
 }

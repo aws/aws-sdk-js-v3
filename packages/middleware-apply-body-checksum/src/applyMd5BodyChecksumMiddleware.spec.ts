@@ -1,6 +1,7 @@
-import { applyMd5BodyChecksumMiddleware } from "./applyMd5BodyChecksumMiddleware";
-import { HashConstructor } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HashConstructor } from "@aws-sdk/types";
+
+import { applyMd5BodyChecksumMiddleware } from "./applyMd5BodyChecksumMiddleware";
 
 describe("applyMd5BodyChecksumMiddleware", () => {
   const mockEncoder = jest.fn().mockReturnValue("encoded");
@@ -21,12 +22,7 @@ describe("applyMd5BodyChecksumMiddleware", () => {
     next.mockClear();
   });
 
-  for (const body of [
-    "body",
-    new ArrayBuffer(10),
-    new Uint8Array(10),
-    void 0
-  ]) {
+  for (const body of ["body", new ArrayBuffer(10), new Uint8Array(10), void 0]) {
     it("should calculate the body hash, encode the result, and set the encoded hash to Content-MD5 header", async () => {
       const handler = applyMd5BodyChecksumMiddleware({
         md5: MockHash,

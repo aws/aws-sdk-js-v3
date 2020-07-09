@@ -1,6 +1,7 @@
-import { getCanonicalHeaders } from "./getCanonicalHeaders";
-import { ALWAYS_UNSIGNABLE_HEADERS } from "./constants";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+
+import { ALWAYS_UNSIGNABLE_HEADERS } from "./constants";
+import { getCanonicalHeaders } from "./getCanonicalHeaders";
 
 describe("getCanonicalHeaders", () => {
   it("should downcase all headers", () => {
@@ -79,13 +80,7 @@ describe("getCanonicalHeaders", () => {
       hostname: "foo.us-east-1.amazonaws.com"
     });
 
-    expect(
-      getCanonicalHeaders(
-        request,
-        new Set(["foo"]),
-        new Set(["foo", "user-agent"])
-      )
-    ).toEqual({
+    expect(getCanonicalHeaders(request, new Set(["foo"]), new Set(["foo", "user-agent"]))).toEqual({
       host: "foo.us-east-1.amazonaws.com",
       foo: "bar",
       "user-agent": "foo-user"

@@ -1,5 +1,6 @@
 import { MessageHeaders } from "@aws-sdk/types";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
+
 import { HeaderMarshaller } from "./HeaderMarshaller";
 import { Int64 } from "./Int64";
 
@@ -60,56 +61,21 @@ describe("HeaderMarshaller", () => {
     ],
     [
       "long headers",
-      Uint8Array.from([
-        ...name,
-        5,
-        0x00,
-        0x1f,
-        0xff,
-        0xff,
-        0xff,
-        0xff,
-        0xff,
-        0xff
-      ]),
+      Uint8Array.from([...name, 5, 0x00, 0x1f, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff]),
       {
         "🦄": {
           type: "long",
-          value: new Int64(
-            Uint8Array.from([0x00, 0x1f, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff])
-          )
+          value: new Int64(Uint8Array.from([0x00, 0x1f, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff]))
         }
       }
     ],
     [
       "binary headers",
-      Uint8Array.from([
-        ...name,
-        6,
-        0x00,
-        0x08,
-        0xde,
-        0xad,
-        0xbe,
-        0xef,
-        0xca,
-        0xfe,
-        0xba,
-        0xbe
-      ]),
+      Uint8Array.from([...name, 6, 0x00, 0x08, 0xde, 0xad, 0xbe, 0xef, 0xca, 0xfe, 0xba, 0xbe]),
       {
         "🦄": {
           type: "binary",
-          value: Uint8Array.from([
-            0xde,
-            0xad,
-            0xbe,
-            0xef,
-            0xca,
-            0xfe,
-            0xba,
-            0xbe
-          ])
+          value: Uint8Array.from([0xde, 0xad, 0xbe, 0xef, 0xca, 0xfe, 0xba, 0xbe])
         }
       }
     ],
@@ -176,18 +142,7 @@ describe("HeaderMarshaller", () => {
     ],
     [
       "timestamp headers",
-      Uint8Array.from([
-        ...name,
-        8,
-        0x00,
-        0x00,
-        0x01,
-        0x61,
-        0x97,
-        0x16,
-        0xac,
-        0xc2
-      ]),
+      Uint8Array.from([...name, 8, 0x00, 0x00, 0x01, 0x61, 0x97, 0x16, 0xac, 0xc2]),
       {
         "🦄": {
           type: "timestamp",
@@ -317,9 +272,7 @@ describe("HeaderMarshaller", () => {
     it("should throw when unrecognized header types are encountered", () => {
       const header = Uint8Array.from([...name, 10]);
 
-      expect(() => marshaller.parse(new DataView(header.buffer))).toThrowError(
-        "Unrecognized header type tag"
-      );
+      expect(() => marshaller.parse(new DataView(header.buffer))).toThrowError("Unrecognized header type tag");
     });
   });
 });

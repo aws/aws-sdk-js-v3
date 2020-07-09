@@ -1,17 +1,12 @@
-import { CredentialProvider } from "@aws-sdk/types";
-import {
-  RemoteProviderInit,
-  providerConfigFromInit
-} from "./remoteProvider/RemoteProviderInit";
-import { httpGet } from "./remoteProvider/httpGet";
-import {
-  fromImdsCredentials,
-  isImdsCredentials
-} from "./remoteProvider/ImdsCredentials";
-import { retry } from "./remoteProvider/retry";
 import { ProviderError } from "@aws-sdk/property-provider";
-import { parse } from "url";
+import { CredentialProvider } from "@aws-sdk/types";
 import { RequestOptions } from "http";
+import { parse } from "url";
+
+import { httpGet } from "./remoteProvider/httpGet";
+import { fromImdsCredentials, isImdsCredentials } from "./remoteProvider/ImdsCredentials";
+import { providerConfigFromInit, RemoteProviderInit } from "./remoteProvider/RemoteProviderInit";
+import { retry } from "./remoteProvider/retry";
 
 export const ENV_CMDS_FULL_URI = "AWS_CONTAINER_CREDENTIALS_FULL_URI";
 export const ENV_CMDS_RELATIVE_URI = "AWS_CONTAINER_CREDENTIALS_RELATIVE_URI";
@@ -21,20 +16,14 @@ export const ENV_CMDS_AUTH_TOKEN = "AWS_CONTAINER_AUTHORIZATION_TOKEN";
  * Creates a credential provider that will source credentials from the ECS
  * Container Metadata Service
  */
-export function fromContainerMetadata(
-  init: RemoteProviderInit = {}
-): CredentialProvider {
+export function fromContainerMetadata(init: RemoteProviderInit = {}): CredentialProvider {
   const { timeout, maxRetries } = providerConfigFromInit(init);
   return () => {
     return getCmdsUri().then(url =>
       retry(async () => {
-        const credsResponse = JSON.parse(
-          await requestFromEcsImds(timeout, url)
-        );
+        const credsResponse = JSON.parse(await requestFromEcsImds(timeout, url));
         if (!isImdsCredentials(credsResponse)) {
-          throw new ProviderError(
-            "Invalid response received from instance metadata service."
-          );
+          throw new ProviderError("Invalid response received from instance metadata service.");
         }
 
         return fromImdsCredentials(credsResponse);
@@ -43,10 +32,7 @@ export function fromContainerMetadata(
   };
 }
 
-function requestFromEcsImds(
-  timeout: number,
-  options: RequestOptions
-): Promise<string> {
+function requestFromEcsImds(timeout: number, options: RequestOptions): Promise<string> {
   if (process.env[ENV_CMDS_AUTH_TOKEN]) {
     const { headers = {} } = options;
     headers.Authorization = process.env[ENV_CMDS_AUTH_TOKEN];
@@ -81,19 +67,13 @@ function getCmdsUri(): Promise<RequestOptions> {
     const parsed = parse(process.env[ENV_CMDS_FULL_URI]!);
     if (!parsed.hostname || !(parsed.hostname in GREENGRASS_HOSTS)) {
       return Promise.reject(
-        new ProviderError(
-          `${parsed.hostname} is not a valid container metadata service hostname`,
-          false
-        )
+        new ProviderError(`${parsed.hostname} is not a valid container metadata service hostname`, false)
       );
     }
 
     if (!parsed.protocol || !(parsed.protocol in GREENGRASS_PROTOCOLS)) {
       return Promise.reject(
-        new ProviderError(
-          `${parsed.protocol} is not a valid container metadata service protocol`,
-          false
-        )
+        new ProviderError(`${parsed.protocol} is not a valid container metadata service protocol`, false)
       );
     }
 

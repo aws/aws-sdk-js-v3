@@ -1,13 +1,6 @@
-import {
-  getRetryPlugin,
-  retryMiddleware,
-  retryMiddlewareOptions
-} from "./retryMiddleware";
-import {
-  MiddlewareStack,
-  RetryStrategy,
-  FinalizeHandlerArguments
-} from "@aws-sdk/types";
+import { FinalizeHandlerArguments, MiddlewareStack, RetryStrategy } from "@aws-sdk/types";
+
+import { getRetryPlugin, retryMiddleware, retryMiddlewareOptions } from "./retryMiddleware";
 
 describe("getRetryPlugin", () => {
   const mockClientStack = {
@@ -24,13 +17,9 @@ describe("getRetryPlugin", () => {
         getRetryPlugin({
           maxAttempts: () => Promise.resolve(maxAttempts.toString()),
           retryStrategy: {} as RetryStrategy
-        }).applyToStack(
-          (mockClientStack as unknown) as MiddlewareStack<any, any>
-        );
+        }).applyToStack((mockClientStack as unknown) as MiddlewareStack<any, any>);
         expect(mockClientStack.add).toHaveBeenCalledTimes(1);
-        expect(mockClientStack.add.mock.calls[0][1]).toEqual(
-          retryMiddlewareOptions
-        );
+        expect(mockClientStack.add.mock.calls[0][1]).toEqual(retryMiddlewareOptions);
       });
     });
   });

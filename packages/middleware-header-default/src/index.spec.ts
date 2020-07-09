@@ -1,5 +1,6 @@
-import { headerDefault } from "./index";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+
+import { headerDefault } from "./index";
 
 describe("headerDefault", () => {
   const mockNextHandler = jest.fn();

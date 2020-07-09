@@ -1,22 +1,13 @@
-import {
-  DEFAULT_RETRY_DELAY_BASE,
-  THROTTLING_RETRY_DELAY_BASE,
-  INITIAL_RETRY_TOKENS
-} from "./constants";
-import { defaultDelayDecider } from "./delayDecider";
-import { defaultRetryDecider } from "./retryDecider";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import { isThrottlingError } from "@aws-sdk/service-error-classification";
 import { SdkError } from "@aws-sdk/smithy-client";
-import {
-  FinalizeHandler,
-  MetadataBearer,
-  FinalizeHandlerArguments,
-  RetryStrategy,
-  Provider
-} from "@aws-sdk/types";
-import { getDefaultRetryQuota } from "./defaultRetryQuota";
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { FinalizeHandler, FinalizeHandlerArguments, MetadataBearer, Provider, RetryStrategy } from "@aws-sdk/types";
 import { v4 } from "uuid";
+
+import { DEFAULT_RETRY_DELAY_BASE, INITIAL_RETRY_TOKENS, THROTTLING_RETRY_DELAY_BASE } from "./constants";
+import { getDefaultRetryQuota } from "./defaultRetryQuota";
+import { defaultDelayDecider } from "./delayDecider";
+import { defaultRetryDecider } from "./retryDecider";
 
 /**
  * Determines whether an error is retryable based on the number of retries
@@ -73,22 +64,14 @@ export class StandardRetryStrategy implements RetryStrategy {
   private delayDecider: DelayDecider;
   private retryQuota: RetryQuota;
 
-  constructor(
-    private readonly maxAttemptsProvider: Provider<string>,
-    options?: StandardRetryStrategyOptions
-  ) {
+  constructor(private readonly maxAttemptsProvider: Provider<string>, options?: StandardRetryStrategyOptions) {
     this.retryDecider = options?.retryDecider ?? defaultRetryDecider;
     this.delayDecider = options?.delayDecider ?? defaultDelayDecider;
-    this.retryQuota =
-      options?.retryQuota ?? getDefaultRetryQuota(INITIAL_RETRY_TOKENS);
+    this.retryQuota = options?.retryQuota ?? getDefaultRetryQuota(INITIAL_RETRY_TOKENS);
   }
 
   private shouldRetry(error: SdkError, attempts: number, maxAttempts: number) {
-    return (
-      attempts < maxAttempts &&
-      this.retryDecider(error) &&
-      this.retryQuota.hasRetryTokens(error)
-    );
+    return attempts < maxAttempts && this.retryDecider(error) && this.retryQuota.hasRetryTokens(error);
   }
 
   private async getMaxAttempts() {
@@ -120,9 +103,7 @@ export class StandardRetryStrategy implements RetryStrategy {
     while (true) {
       try {
         if (HttpRequest.isInstance(request)) {
-          request.headers["amz-sdk-request"] = `attempt=${
-            attempts + 1
-          }; max=${maxAttempts}`;
+          request.headers["amz-sdk-request"] = `attempt=${attempts + 1}; max=${maxAttempts}`;
         }
         const { response, output } = await next(args);
 
@@ -136,9 +117,7 @@ export class StandardRetryStrategy implements RetryStrategy {
         if (this.shouldRetry(err as SdkError, attempts, maxAttempts)) {
           retryTokenAmount = this.retryQuota.retrieveRetryTokens(err);
           const delay = this.delayDecider(
-            isThrottlingError(err)
-              ? THROTTLING_RETRY_DELAY_BASE
-              : DEFAULT_RETRY_DELAY_BASE,
+            isThrottlingError(err) ? THROTTLING_RETRY_DELAY_BASE : DEFAULT_RETRY_DELAY_BASE,
             attempts
           );
           totalDelay += delay;

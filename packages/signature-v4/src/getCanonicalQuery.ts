@@ -1,6 +1,7 @@
-import { SIGNATURE_HEADER } from "./constants";
 import { HttpRequest } from "@aws-sdk/types";
 import { escapeUri } from "@aws-sdk/util-uri-escape";
+
+import { SIGNATURE_HEADER } from "./constants";
 
 /**
  * @internal
@@ -22,8 +23,7 @@ export function getCanonicalQuery({ query = {} }: HttpRequest): string {
         .slice(0)
         .sort()
         .reduce(
-          (encoded: Array<string>, value: string) =>
-            encoded.concat([`${escapeUri(key)}=${escapeUri(value)}`]),
+          (encoded: Array<string>, value: string) => encoded.concat([`${escapeUri(key)}=${escapeUri(value)}`]),
           []
         )
         .join("&");

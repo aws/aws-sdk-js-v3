@@ -1,4 +1,7 @@
-import { SignatureV4 } from "./SignatureV4";
+import { Sha256 } from "@aws-crypto/sha256-js";
+import { HttpRequest } from "@aws-sdk/protocol-http";
+import { Credentials } from "@aws-sdk/types";
+
 import {
   ALGORITHM_IDENTIFIER,
   ALGORITHM_QUERY_PARAM,
@@ -14,9 +17,7 @@ import {
   TOKEN_QUERY_PARAM,
   UNSIGNED_PAYLOAD
 } from "./constants";
-import { Sha256 } from "@aws-crypto/sha256-js";
-import { Credentials } from "@aws-sdk/types";
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { SignatureV4 } from "./SignatureV4";
 import { iso8601 } from "./utilDate";
 
 const signer = new SignatureV4({
@@ -59,8 +60,7 @@ describe("SignatureV4", () => {
         [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
         [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
         [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
-        [SIGNATURE_QUERY_PARAM]:
-          "46f0091f3e84cbd4552a184f43830a4f8b42fd18ceaefcdc2c225be1efd9e00e"
+        [SIGNATURE_QUERY_PARAM]: "46f0091f3e84cbd4552a184f43830a4f8b42fd18ceaefcdc2c225be1efd9e00e"
       });
     });
 
@@ -85,8 +85,7 @@ describe("SignatureV4", () => {
         [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
         [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
         [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
-        [SIGNATURE_QUERY_PARAM]:
-          "3a7fc2cef9cab09384d0ef7a69bab0d942996846422bd041da5e52cae82612c3"
+        [SIGNATURE_QUERY_PARAM]: "3a7fc2cef9cab09384d0ef7a69bab0d942996846422bd041da5e52cae82612c3"
       });
     });
 
@@ -104,8 +103,7 @@ describe("SignatureV4", () => {
         [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
         [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
         [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
-        [SIGNATURE_QUERY_PARAM]:
-          "bd1427cfdc9a3b0a55609b0114d1dab4dfebca81a9496d6c47dedf65a3ec3bcb"
+        [SIGNATURE_QUERY_PARAM]: "bd1427cfdc9a3b0a55609b0114d1dab4dfebca81a9496d6c47dedf65a3ec3bcb"
       });
     });
 
@@ -128,8 +126,7 @@ describe("SignatureV4", () => {
         [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
         [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
         [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
-        [SIGNATURE_QUERY_PARAM]:
-          "457d44313f7b225c3523ddfc0ca161dfd010269b98c837a7a6f1b26ceb87ae4c"
+        [SIGNATURE_QUERY_PARAM]: "457d44313f7b225c3523ddfc0ca161dfd010269b98c837a7a6f1b26ceb87ae4c"
       });
     });
 
@@ -152,8 +149,7 @@ describe("SignatureV4", () => {
         [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
         [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
         [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
-        [SIGNATURE_QUERY_PARAM]:
-          "1b57912615b8e7ae78790ba713193d34baa793d6be2a1b18370dd27dce2d05a7"
+        [SIGNATURE_QUERY_PARAM]: "1b57912615b8e7ae78790ba713193d34baa793d6be2a1b18370dd27dce2d05a7"
       });
     });
 
@@ -184,8 +180,7 @@ describe("SignatureV4", () => {
         [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
         [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
         [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
-        [SIGNATURE_QUERY_PARAM]:
-          "04ccc7891757c0ca3811d0e018e4655919ef11fa7b956fe9b782f273cec2374f"
+        [SIGNATURE_QUERY_PARAM]: "04ccc7891757c0ca3811d0e018e4655919ef11fa7b956fe9b782f273cec2374f"
       });
     });
 
@@ -271,13 +266,8 @@ describe("SignatureV4", () => {
       });
 
       it("should URI-encode the path by default", async () => {
-        const { query = {} } = await signer.presign(
-          minimalRequest,
-          presigningOptions
-        );
-        expect(query[SIGNATURE_QUERY_PARAM]).toBe(
-          "6267d8b6f44d165d2b9f4d2c2b45fd6971de0962820243669bf685818c9c7849"
-        );
+        const { query = {} } = await signer.presign(minimalRequest, presigningOptions);
+        expect(query[SIGNATURE_QUERY_PARAM]).toBe("6267d8b6f44d165d2b9f4d2c2b45fd6971de0962820243669bf685818c9c7849");
       });
 
       it("should not URI-encode the path if URI path escaping was disabled on the signer", async () => {
@@ -308,9 +298,7 @@ describe("SignatureV4", () => {
           }),
           presigningOptions
         );
-        expect(query[SIGNATURE_QUERY_PARAM]).toBe(
-          "d1a68eff5d8d5be581f20c7793a67a6cd2e561a5b818055b21ad064139eb83b1"
-        );
+        expect(query[SIGNATURE_QUERY_PARAM]).toBe("d1a68eff5d8d5be581f20c7793a67a6cd2e561a5b818055b21ad064139eb83b1");
       });
     });
   });
@@ -488,9 +476,7 @@ describe("SignatureV4", () => {
         signingDate: new Date("2000-01-01T00:00:00.000Z")
       });
 
-      expect(headers[AUTH_HEADER]).toMatch(
-        /^AWS4-HMAC-SHA256 Credential=foo\/20000101\/us-bar-1\/foo\/aws4_request/
-      );
+      expect(headers[AUTH_HEADER]).toMatch(/^AWS4-HMAC-SHA256 Credential=foo\/20000101\/us-bar-1\/foo\/aws4_request/);
     });
 
     it("should support presigning with an asynchronously resolved region", async () => {
@@ -510,9 +496,7 @@ describe("SignatureV4", () => {
         signingDate: new Date("2000-01-01T00:00:00.000Z")
       });
 
-      expect(headers[AUTH_HEADER]).toMatch(
-        /^AWS4-HMAC-SHA256 Credential=foo\/20000101\/us-bar-1\/foo\/aws4_request/
-      );
+      expect(headers[AUTH_HEADER]).toMatch(/^AWS4-HMAC-SHA256 Credential=foo\/20000101\/us-bar-1\/foo\/aws4_request/);
     });
 
     describe("URI encoding paths", () => {
@@ -557,8 +541,7 @@ describe("SignatureV4", () => {
             ...minimalRequest,
             headers: {
               ...minimalRequest.headers,
-              "X-Amz-Content-Sha256":
-                "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              "X-Amz-Content-Sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
             }
           }),
           {
@@ -607,23 +590,7 @@ describe("SignatureV4", () => {
       });
       const eventSignature = await signer.sign(
         {
-          headers: Uint8Array.from([
-            5,
-            58,
-            100,
-            97,
-            116,
-            101,
-            8,
-            0,
-            0,
-            1,
-            103,
-            247,
-            125,
-            87,
-            112
-          ]),
+          headers: Uint8Array.from([5, 58, 100, 97, 116, 101, 8, 0, 0, 1, 103, 247, 125, 87, 112]),
           payload: "foo" as any
         },
         {
@@ -631,9 +598,7 @@ describe("SignatureV4", () => {
           priorSignature: ""
         }
       );
-      expect(eventSignature).toEqual(
-        "204bb5e2713e95354680e9522986d3ac0304aeafd33397f39e6540ca51ffe226"
-      );
+      expect(eventSignature).toEqual("204bb5e2713e95354680e9522986d3ac0304aeafd33397f39e6540ca51ffe226");
     });
   });
 
@@ -647,16 +612,12 @@ describe("SignatureV4", () => {
     it("should use the current date for presigning if no signing date was supplied", async () => {
       const date = new Date();
       const { query } = await signer.presign(minimalRequest);
-      expect((query as any)[AMZ_DATE_QUERY_PARAM]).toBe(
-        iso8601(date).replace(/[\-:]/g, "")
-      );
+      expect((query as any)[AMZ_DATE_QUERY_PARAM]).toBe(iso8601(date).replace(/[\-:]/g, ""));
     });
 
     it("should use the current date for signing if no signing date supplied", async () => {
       const { headers } = await signer.sign(minimalRequest);
-      expect(headers[AMZ_DATE_HEADER]).toBe(
-        iso8601(new Date()).replace(/[\-:]/g, "")
-      );
+      expect(headers[AMZ_DATE_HEADER]).toBe(iso8601(new Date()).replace(/[\-:]/g, ""));
     });
   });
 });

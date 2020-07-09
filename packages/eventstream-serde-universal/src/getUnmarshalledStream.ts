@@ -1,5 +1,5 @@
 import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
-import { Message, Encoder } from "@aws-sdk/types";
+import { Encoder, Message } from "@aws-sdk/types";
 
 export type UnmarshalledStreamOptions<T> = {
   eventMarshaller: EventMarshaller;
@@ -18,10 +18,7 @@ export function getUnmarshalledStream<T extends { [key: string]: any }>(
         const { value: messageType } = message.headers[":message-type"];
         if (messageType === "error") {
           // Unmodeled exception in event
-          const unmodeledError = new Error(
-            (message.headers[":error-message"].value as string) ||
-              "UnknownError"
-          );
+          const unmodeledError = new Error((message.headers[":error-message"].value as string) || "UnknownError");
           unmodeledError.name = message.headers[":error-code"].value as string;
           throw unmodeledError;
         } else if (messageType === "exception") {
@@ -43,9 +40,7 @@ export function getUnmarshalledStream<T extends { [key: string]: any }>(
           };
           yield await options.deserializer(event);
         } else {
-          throw Error(
-            `Unrecognizable event type: ${message.headers[":event-type"].value}`
-          );
+          throw Error(`Unrecognizable event type: ${message.headers[":event-type"].value}`);
         }
       }
     }

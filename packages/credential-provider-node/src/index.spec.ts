@@ -1,5 +1,6 @@
-import { defaultProvider, ENV_IMDS_DISABLED } from "./";
 import { ProviderError } from "@aws-sdk/property-provider";
+
+import { defaultProvider, ENV_IMDS_DISABLED } from "./";
 
 jest.mock("@aws-sdk/credential-provider-env", () => {
   const envProvider = jest.fn();
@@ -16,16 +17,8 @@ jest.mock("@aws-sdk/credential-provider-ini", () => {
     fromIni: jest.fn().mockReturnValue(iniProvider)
   };
 });
-import {
-  ENV_PROFILE,
-  fromIni,
-  FromIniInit
-} from "@aws-sdk/credential-provider-ini";
-
-import {
-  ENV_CONFIG_PATH,
-  ENV_CREDENTIALS_PATH
-} from "@aws-sdk/shared-ini-file-loader";
+import { ENV_PROFILE, fromIni, FromIniInit } from "@aws-sdk/credential-provider-ini";
+import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH } from "@aws-sdk/shared-ini-file-loader";
 
 jest.mock("@aws-sdk/credential-provider-process", () => {
   const processProvider = jest.fn();
@@ -34,10 +27,7 @@ jest.mock("@aws-sdk/credential-provider-process", () => {
     fromProcess: jest.fn(() => processProvider)
   };
 });
-import {
-  fromProcess,
-  FromProcessInit
-} from "@aws-sdk/credential-provider-process";
+import { fromProcess, FromProcessInit } from "@aws-sdk/credential-provider-process";
 
 jest.mock("@aws-sdk/credential-provider-imds", () => {
   const containerMdsProvider = jest.fn();
@@ -123,9 +113,7 @@ describe("defaultProvider", () => {
       secretAccessKey: "bar"
     };
 
-    (fromEnv() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Nothing here!"))
-    );
+    (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromIni() as any).mockImplementation(() => Promise.resolve(creds));
 
     expect(await defaultProvider()()).toEqual(creds);
@@ -142,12 +130,8 @@ describe("defaultProvider", () => {
       secretAccessKey: "bar"
     };
 
-    (fromEnv() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Nothing here!"))
-    );
-    (fromIni() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Nothing here!"))
-    );
+    (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
+    (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromProcess() as any).mockImplementation(() => Promise.resolve(creds));
 
     expect(await defaultProvider()()).toEqual(creds);
@@ -163,18 +147,10 @@ describe("defaultProvider", () => {
       accessKeyId: "foo",
       secretAccessKey: "bar"
     };
-    (fromEnv() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Keep moving!"))
-    );
-    (fromIni() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Nothing here!"))
-    );
-    (fromProcess() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Nor here!"))
-    );
-    (fromInstanceMetadata() as any).mockImplementation(() =>
-      Promise.resolve(creds)
-    );
+    (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
+    (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
+    (fromProcess() as any).mockImplementation(() => Promise.reject(new ProviderError("Nor here!")));
+    (fromInstanceMetadata() as any).mockImplementation(() => Promise.resolve(creds));
 
     expect(await defaultProvider()()).toEqual(creds);
     expect((fromEnv() as any).mock.calls.length).toBe(1);
@@ -190,18 +166,10 @@ describe("defaultProvider", () => {
       secretAccessKey: "bar"
     };
 
-    (fromEnv() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Keep moving!"))
-    );
-    (fromIni() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Nothing here!"))
-    );
-    (fromProcess() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Nor here!"))
-    );
-    (fromInstanceMetadata() as any).mockImplementation(() =>
-      Promise.resolve(creds)
-    );
+    (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
+    (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
+    (fromProcess() as any).mockImplementation(() => Promise.reject(new ProviderError("Nor here!")));
+    (fromInstanceMetadata() as any).mockImplementation(() => Promise.resolve(creds));
 
     process.env[ENV_IMDS_DISABLED] = "1";
 
@@ -216,21 +184,11 @@ describe("defaultProvider", () => {
       secretAccessKey: "bar"
     };
 
-    (fromEnv() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Keep moving!"))
-    );
-    (fromIni() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Nothing here!"))
-    );
-    (fromProcess() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Nor here!"))
-    );
-    (fromInstanceMetadata() as any).mockImplementation(() =>
-      Promise.reject(new Error("PANIC"))
-    );
-    (fromContainerMetadata() as any).mockImplementation(() =>
-      Promise.resolve(creds)
-    );
+    (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
+    (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
+    (fromProcess() as any).mockImplementation(() => Promise.reject(new ProviderError("Nor here!")));
+    (fromInstanceMetadata() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
+    (fromContainerMetadata() as any).mockImplementation(() => Promise.resolve(creds));
 
     process.env[ENV_CMDS_RELATIVE_URI] = "/credentials";
 
@@ -255,9 +213,7 @@ describe("defaultProvider", () => {
       configFilepath: "/home/user/.secrets/credentials.ini"
     };
 
-    (fromEnv() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Keep moving!"))
-    );
+    (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
     (fromIni() as any).mockImplementation(() =>
       Promise.resolve({
         accessKeyId: "foo",
@@ -279,12 +235,8 @@ describe("defaultProvider", () => {
       configFilepath: "/home/user/.secrets/credentials.ini"
     };
 
-    (fromEnv() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Keep moving!"))
-    );
-    (fromIni() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Nothing here!"))
-    );
+    (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
+    (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromProcess() as any).mockImplementation(() =>
       Promise.resolve({
         accessKeyId: "foo",
@@ -306,15 +258,9 @@ describe("defaultProvider", () => {
       maxRetries: 3
     };
 
-    (fromEnv() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Keep moving!"))
-    );
-    (fromIni() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Nothing here!"))
-    );
-    (fromProcess() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Nor here!"))
-    );
+    (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
+    (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
+    (fromProcess() as any).mockImplementation(() => Promise.reject(new ProviderError("Nor here!")));
     (fromInstanceMetadata() as any).mockImplementation(() =>
       Promise.resolve({
         accessKeyId: "foo",
@@ -336,12 +282,8 @@ describe("defaultProvider", () => {
       maxRetries: 3
     };
 
-    (fromEnv() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Keep moving!"))
-    );
-    (fromIni() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Nothing here!"))
-    );
+    (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
+    (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromContainerMetadata() as any).mockImplementation(() =>
       Promise.resolve({
         accessKeyId: "foo",
@@ -421,16 +363,10 @@ describe("defaultProvider", () => {
         secretAccessKey: "bar"
       };
 
-      (fromEnv() as any).mockImplementation(() =>
-        Promise.reject(new Error("PANIC"))
-      );
+      (fromEnv() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
       (fromIni() as any).mockImplementation(() => Promise.resolve(creds));
-      (fromInstanceMetadata() as any).mockImplementation(() =>
-        Promise.reject(new Error("PANIC"))
-      );
-      (fromContainerMetadata() as any).mockImplementation(() =>
-        Promise.reject(new Error("PANIC"))
-      );
+      (fromInstanceMetadata() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
+      (fromContainerMetadata() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
 
       expect(await defaultProvider({ profile: "foo" })()).toEqual(creds);
       expect((fromEnv() as any).mock.calls.length).toBe(0);
@@ -445,19 +381,11 @@ describe("defaultProvider", () => {
         secretAccessKey: "bar"
       };
 
-      (fromEnv() as any).mockImplementation(() =>
-        Promise.reject(new Error("PANIC"))
-      );
+      (fromEnv() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
       (fromIni() as any).mockImplementation(() => Promise.resolve(creds));
-      (fromProcess() as any).mockImplementation(() =>
-        Promise.reject(new Error("PANIC"))
-      );
-      (fromInstanceMetadata() as any).mockImplementation(() =>
-        Promise.reject(new Error("PANIC"))
-      );
-      (fromContainerMetadata() as any).mockImplementation(() =>
-        Promise.reject(new Error("PANIC"))
-      );
+      (fromProcess() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
+      (fromInstanceMetadata() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
+      (fromContainerMetadata() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
 
       process.env[ENV_PROFILE] = "foo";
       expect(await defaultProvider()()).toEqual(creds);

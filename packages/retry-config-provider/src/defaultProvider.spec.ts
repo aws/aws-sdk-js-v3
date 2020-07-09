@@ -1,17 +1,15 @@
-import { fromEnv } from "./fromEnv";
-import {
-  fromSharedConfigFiles,
-  SharedConfigInit
-} from "./fromSharedConfigFiles";
 import { chain, memoize } from "@aws-sdk/property-provider";
+
 import {
-  maxAttemptsProvider,
-  ENV_MAX_ATTEMPTS,
   CONFIG_MAX_ATTEMPTS,
-  retryModeProvider,
+  CONFIG_RETRY_MODE,
+  ENV_MAX_ATTEMPTS,
   ENV_RETRY_MODE,
-  CONFIG_RETRY_MODE
+  maxAttemptsProvider,
+  retryModeProvider
 } from "./defaultProvider";
+import { fromEnv } from "./fromEnv";
+import { fromSharedConfigFiles, SharedConfigInit } from "./fromSharedConfigFiles";
 
 jest.mock("./fromEnv", () => ({
   fromEnv: jest.fn()
@@ -35,35 +33,23 @@ describe("defaultProvider", () => {
     jest.clearAllMocks();
   });
 
-  const testProvider = (
-    providerFunc: Function,
-    envVarName: string,
-    configKey: string
-  ) => {
+  const testProvider = (providerFunc: Function, envVarName: string, configKey: string) => {
     it("passes fromEnv() and fromSharedConfigFiles() to chain", () => {
       const mockFromEnvReturn = "mockFromEnvReturn";
       (fromEnv as jest.Mock).mockReturnValueOnce(mockFromEnvReturn);
 
       const mockFromSharedConfigFilesReturn = "mockFromSharedConfigFilesReturn";
-      (fromSharedConfigFiles as jest.Mock).mockReturnValueOnce(
-        mockFromSharedConfigFilesReturn
-      );
+      (fromSharedConfigFiles as jest.Mock).mockReturnValueOnce(mockFromSharedConfigFilesReturn);
 
       providerFunc(configuration);
 
       expect(fromEnv).toHaveBeenCalledTimes(1);
       expect(fromEnv).toHaveBeenCalledWith(envVarName);
       expect(fromSharedConfigFiles).toHaveBeenCalledTimes(1);
-      expect(fromSharedConfigFiles).toHaveBeenCalledWith(
-        configuration,
-        configKey
-      );
+      expect(fromSharedConfigFiles).toHaveBeenCalledWith(configuration, configKey);
 
       expect(chain).toHaveBeenCalledTimes(1);
-      expect(chain).toHaveBeenCalledWith(
-        mockFromEnvReturn,
-        mockFromSharedConfigFilesReturn
-      );
+      expect(chain).toHaveBeenCalledWith(mockFromEnvReturn, mockFromSharedConfigFilesReturn);
     });
 
     it("passes output of chain to memoize", () => {

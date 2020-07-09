@@ -1,7 +1,8 @@
-import { getPayloadHash } from "./getPayloadHash";
-import { SHA256_HEADER, UNSIGNED_PAYLOAD } from "./constants";
-import { HttpRequest } from "@aws-sdk/protocol-http";
 import { Sha256 } from "@aws-crypto/sha256-js";
+import { HttpRequest } from "@aws-sdk/protocol-http";
+
+import { SHA256_HEADER, UNSIGNED_PAYLOAD } from "./constants";
+import { getPayloadHash } from "./getPayloadHash";
 
 describe("getPayloadHash", () => {
   const minimalRequest = new HttpRequest({
@@ -43,9 +44,7 @@ describe("getPayloadHash", () => {
         }),
         Sha256
       )
-    ).resolves.toBe(
-      "2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae"
-    );
+    ).resolves.toBe("2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae");
   });
 
   it("should return the hex-encoded hash of a ArrayBufferView body", async () => {
@@ -57,9 +56,7 @@ describe("getPayloadHash", () => {
         }),
         Sha256
       )
-    ).resolves.toBe(
-      "5f78c33274e43fa9de5659265c1d917e25c03722dcb0b8d27db8d5feaa813953"
-    );
+    ).resolves.toBe("5f78c33274e43fa9de5659265c1d917e25c03722dcb0b8d27db8d5feaa813953");
   });
 
   it("should return the hex-encoded hash of a ArrayBuffer body", async () => {
@@ -71,9 +68,7 @@ describe("getPayloadHash", () => {
         }),
         Sha256
       )
-    ).resolves.toBe(
-      "5f78c33274e43fa9de5659265c1d917e25c03722dcb0b8d27db8d5feaa813953"
-    );
+    ).resolves.toBe("5f78c33274e43fa9de5659265c1d917e25c03722dcb0b8d27db8d5feaa813953");
   });
 
   it(`should return ${UNSIGNED_PAYLOAD} if the request has a streaming body and no stream collector is provided`, async () => {

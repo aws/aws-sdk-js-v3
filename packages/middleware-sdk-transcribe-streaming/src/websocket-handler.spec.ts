@@ -1,8 +1,9 @@
-import { WebSocketHandler } from "./websocket-handler";
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { PassThrough } from "stream";
 import WS from "jest-websocket-mock";
 import { WebSocket } from "mock-socket";
+import { PassThrough } from "stream";
+
+import { WebSocketHandler } from "./websocket-handler";
 
 describe("WebSocketHandler", () => {
   beforeEach(() => {

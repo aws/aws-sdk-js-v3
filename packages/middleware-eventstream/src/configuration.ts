@@ -1,6 +1,6 @@
 import {
-  Encoder,
   Decoder,
+  Encoder,
   EventSigner,
   EventStreamPayloadHandler,
   EventStreamPayloadHandlerProvider

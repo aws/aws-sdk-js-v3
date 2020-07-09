@@ -1,5 +1,6 @@
-import { ssecMiddleware } from "./";
 import { HashConstructor } from "@aws-sdk/types";
+
+import { ssecMiddleware } from "./";
 
 describe("ssecMiddleware", () => {
   const next = jest.fn();

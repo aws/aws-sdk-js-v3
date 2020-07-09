@@ -1,5 +1,6 @@
-import { ProviderError } from "./ProviderError";
 import { Provider } from "@aws-sdk/types";
+
+import { ProviderError } from "./ProviderError";
 
 /**
  * Compose a single credential provider function from multiple credential
@@ -12,9 +13,7 @@ import { Provider } from "@aws-sdk/types";
  */
 export function chain<T>(...providers: Array<Provider<T>>): Provider<T> {
   return () => {
-    let promise: Promise<T> = Promise.reject(
-      new ProviderError("No providers in chain")
-    );
+    let promise: Promise<T> = Promise.reject(new ProviderError("No providers in chain"));
     for (const provider of providers) {
       promise = promise.catch((err: any) => {
         if (err?.tryNextLink) {

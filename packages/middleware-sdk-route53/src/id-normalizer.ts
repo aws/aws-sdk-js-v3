@@ -1,12 +1,13 @@
 import {
   InitializeHandler,
-  InitializeMiddleware,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
   InitializeHandlerOutput,
+  InitializeMiddleware,
   MetadataBearer,
   Pluggable
 } from "@aws-sdk/types";
+
 import { IDENTIFIER_PREFIX_PATTERN } from "./constants";
 
 export interface IdentifierBearer {
@@ -15,11 +16,7 @@ export interface IdentifierBearer {
   Id?: string;
 }
 
-const IDENTIFIER_PARAMETERS: Array<keyof IdentifierBearer> = [
-  "DelegationSetId",
-  "HostedZoneId",
-  "Id"
-];
+const IDENTIFIER_PARAMETERS: Array<keyof IdentifierBearer> = ["DelegationSetId", "HostedZoneId", "Id"];
 
 export function idNormalizerMiddleware(): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(

@@ -1,8 +1,9 @@
+import { Crc32 } from "@aws-crypto/crc32";
+import { Message, MessageHeaders } from "@aws-sdk/types";
+import { Decoder, Encoder } from "@aws-sdk/types";
+
 import { HeaderMarshaller } from "./HeaderMarshaller";
 import { splitMessage } from "./splitMessage";
-import { Message, MessageHeaders } from "@aws-sdk/types";
-import { Crc32 } from "@aws-crypto/crc32";
-import { Decoder, Encoder } from "@aws-sdk/types";
 
 /**
  * A marshaller that can convert binary-packed event stream messages into
@@ -35,11 +36,7 @@ export class EventStreamMarshaller {
     out.set(body, headers.byteLength + 12);
 
     // Write trailing message checksum
-    view.setUint32(
-      length - 4,
-      checksum.update(out.subarray(8, length - 4)).digest(),
-      false
-    );
+    view.setUint32(length - 4, checksum.update(out.subarray(8, length - 4)).digest(), false);
 
     return out;
   }

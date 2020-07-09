@@ -1,22 +1,21 @@
-import { PreviouslyResolved } from "./configurations";
 import {
   InitializeHandler,
-  InitializeMiddleware,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
   InitializeHandlerOutput,
+  InitializeMiddleware,
   MetadataBearer,
   Pluggable
 } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 
+import { PreviouslyResolved } from "./configurations";
+
 interface SendMessageResult {
   MD5OfMessageBody?: string;
 }
 
-export function sendMessageMiddleware(
-  options: PreviouslyResolved
-): InitializeMiddleware<any, any> {
+export function sendMessageMiddleware(options: PreviouslyResolved): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
     next: InitializeHandler<any, Output>
   ): InitializeHandler<any, Output> => async (
@@ -41,13 +40,8 @@ export const sendMessageMiddlewareOptions: InitializeHandlerOptions = {
   name: "sendMessageMiddleware"
 };
 
-export const getSendMessagePlugin = (
-  config: PreviouslyResolved
-): Pluggable<any, any> => ({
+export const getSendMessagePlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
   applyToStack: clientStack => {
-    clientStack.add(
-      sendMessageMiddleware(config),
-      sendMessageMiddlewareOptions
-    );
+    clientStack.add(sendMessageMiddleware(config), sendMessageMiddlewareOptions);
   }
 });

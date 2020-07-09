@@ -1,23 +1,19 @@
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
+  BodyLengthCalculator,
   BuildHandler,
   BuildHandlerArguments,
-  BuildMiddleware,
-  BodyLengthCalculator,
-  MetadataBearer,
+  BuildHandlerOptions,
   BuildHandlerOutput,
-  Pluggable,
-  BuildHandlerOptions
+  BuildMiddleware,
+  MetadataBearer,
+  Pluggable
 } from "@aws-sdk/types";
-import { HttpRequest } from "@aws-sdk/protocol-http";
 
 const CONTENT_LENGTH_HEADER = "content-length";
 
-export function contentLengthMiddleware(
-  bodyLengthChecker: BodyLengthCalculator
-): BuildMiddleware<any, any> {
-  return <Output extends MetadataBearer>(
-    next: BuildHandler<any, Output>
-  ): BuildHandler<any, Output> => async (
+export function contentLengthMiddleware(bodyLengthChecker: BodyLengthCalculator): BuildMiddleware<any, any> {
+  return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
     const request = args.request;
@@ -52,13 +48,8 @@ export const contentLengthMiddlewareOptions: BuildHandlerOptions = {
   name: "contentLengthMiddleware"
 };
 
-export const getContentLengthPlugin = (options: {
-  bodyLengthChecker: BodyLengthCalculator;
-}): Pluggable<any, any> => ({
+export const getContentLengthPlugin = (options: { bodyLengthChecker: BodyLengthCalculator }): Pluggable<any, any> => ({
   applyToStack: clientStack => {
-    clientStack.add(
-      contentLengthMiddleware(options.bodyLengthChecker),
-      contentLengthMiddlewareOptions
-    );
+    clientStack.add(contentLengthMiddleware(options.bodyLengthChecker), contentLengthMiddlewareOptions);
   }
 });

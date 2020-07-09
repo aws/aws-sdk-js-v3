@@ -1,4 +1,5 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
+
 import { SignatureV4 } from "./signer";
 describe("transcribe streaming", () => {
   describe("WebSocket request signer", () => {
@@ -19,9 +20,7 @@ describe("transcribe streaming", () => {
         }
       });
       const mockBaseSigner = {
-        presign: jest
-          .fn()
-          .mockImplementation(request => Promise.resolve(request))
+        presign: jest.fn().mockImplementation(request => Promise.resolve(request))
       };
       const signer = new SignatureV4({ signer: mockBaseSigner as any });
       const signed = await signer.sign(toSign);
@@ -29,11 +28,8 @@ describe("transcribe streaming", () => {
       expect(mockBaseSigner.presign).toBeCalled();
       // The request's body should not be presigned
       expect(mockBaseSigner.presign.mock.calls[0][0].body).toEqual("");
-      expect(
-        mockBaseSigner.presign.mock.calls[0][1]!.unsignableHeaders
-      ).toBeDefined();
-      const unsignableHeaders: Set<string> = mockBaseSigner.presign.mock
-        .calls[0][1]!.unsignableHeaders;
+      expect(mockBaseSigner.presign.mock.calls[0][1]!.unsignableHeaders).toBeDefined();
+      const unsignableHeaders: Set<string> = mockBaseSigner.presign.mock.calls[0][1]!.unsignableHeaders;
       expect([...unsignableHeaders.entries()].map(([value]) => value)).toEqual(
         Object.keys(toSign.headers).filter(a => a !== "host")
       );

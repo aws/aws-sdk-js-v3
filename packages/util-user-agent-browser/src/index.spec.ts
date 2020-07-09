@@ -1,5 +1,6 @@
-import { defaultUserAgent } from ".";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+
+import { defaultUserAgent } from ".";
 
 it("should response basic node default user agent", () => {
   let originUserAgent = "";
@@ -11,7 +12,5 @@ it("should response basic node default user agent", () => {
     originUserAgent = navigator.userAgent;
   }
 
-  expect(defaultUserAgent("client-s3-node", "0.1.0")).toBe(
-    `aws-sdk-js-v3-client-s3-node/0.1.0 ${originUserAgent}`
-  );
+  expect(defaultUserAgent("client-s3-node", "0.1.0")).toBe(`aws-sdk-js-v3-client-s3-node/0.1.0 ${originUserAgent}`);
 });

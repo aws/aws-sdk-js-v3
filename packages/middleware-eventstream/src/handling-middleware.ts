@@ -1,12 +1,13 @@
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
-  BuildMiddleware,
   BuildHandlerOptions,
-  FinalizeRequestMiddleware,
+  BuildMiddleware,
   FinalizeRequestHandlerOptions,
+  FinalizeRequestMiddleware,
   RelativeLocation
 } from "@aws-sdk/types";
+
 import { EventStreamResolvedConfig } from "./configuration";
-import { HttpRequest } from "@aws-sdk/protocol-http";
 
 export const eventStreamHandlingMiddleware = (
   options: EventStreamResolvedConfig
@@ -16,8 +17,7 @@ export const eventStreamHandlingMiddleware = (
   return options.eventStreamPayloadHandler.handle(next, args, context);
 };
 
-export const eventStreamHandlingMiddlewareOptions: FinalizeRequestHandlerOptions &
-  RelativeLocation<any, any> = {
+export const eventStreamHandlingMiddlewareOptions: FinalizeRequestHandlerOptions & RelativeLocation<any, any> = {
   step: "finalizeRequest",
   tags: ["EVENT_STREAM", "SIGNATURE", "HANDLE"],
   name: "eventStreamHandlingMiddleware",

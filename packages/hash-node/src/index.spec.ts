@@ -1,5 +1,6 @@
+import { fromArrayBuffer, fromString } from "@aws-sdk/util-buffer-from";
+
 import { Hash } from "./";
-import { fromString, fromArrayBuffer } from "@aws-sdk/util-buffer-from";
 const hashVectors = require("hash-test-vectors");
 const hmacVectors = require("hash-test-vectors/hmac");
 
@@ -32,26 +33,20 @@ describe("Hash", () => {
     const hash = new Hash("md5");
     hash.update("");
     const { buffer } = await hash.digest();
-    expect(fromArrayBuffer(buffer).toString("hex")).toBe(
-      "d41d8cd98f00b204e9800998ecf8427e"
-    );
+    expect(fromArrayBuffer(buffer).toString("hex")).toBe("d41d8cd98f00b204e9800998ecf8427e");
   });
 
   it("should accept ArrayBuffer data", async () => {
     const hash = new Hash("md5");
     hash.update(new ArrayBuffer(0));
     const { buffer } = await hash.digest();
-    expect(fromArrayBuffer(buffer).toString("hex")).toBe(
-      "d41d8cd98f00b204e9800998ecf8427e"
-    );
+    expect(fromArrayBuffer(buffer).toString("hex")).toBe("d41d8cd98f00b204e9800998ecf8427e");
   });
 
   it("should accept ArrayBufferView data", async () => {
     const hash = new Hash("md5");
     hash.update(new Uint8Array(0));
     const { buffer } = await hash.digest();
-    expect(fromArrayBuffer(buffer).toString("hex")).toBe(
-      "d41d8cd98f00b204e9800998ecf8427e"
-    );
+    expect(fromArrayBuffer(buffer).toString("hex")).toBe("d41d8cd98f00b204e9800998ecf8427e");
   });
 });

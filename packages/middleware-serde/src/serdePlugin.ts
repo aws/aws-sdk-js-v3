@@ -1,13 +1,14 @@
 import {
-  RequestSerializer,
-  ResponseDeserializer,
-  Pluggable,
+  DeserializeHandlerOptions,
+  EndpointBearer,
   MetadataBearer,
   MiddlewareStack,
-  EndpointBearer,
-  DeserializeHandlerOptions,
+  Pluggable,
+  RequestSerializer,
+  ResponseDeserializer,
   SerializeHandlerOptions
 } from "@aws-sdk/types";
+
 import { deserializerMiddleware } from "./deserializerMiddleware";
 import { serializerMiddleware } from "./serializerMiddleware";
 
@@ -34,14 +35,8 @@ export function getSerdePlugin<
 ): Pluggable<InputType, OutputType> {
   return {
     applyToStack: (commandStack: MiddlewareStack<InputType, OutputType>) => {
-      commandStack.add(
-        deserializerMiddleware(config, deserializer),
-        deserializerMiddlewareOption
-      );
-      commandStack.add(
-        serializerMiddleware(config, serializer),
-        serializerMiddlewareOption
-      );
+      commandStack.add(deserializerMiddleware(config, deserializer), deserializerMiddlewareOption);
+      commandStack.add(serializerMiddleware(config, serializer), serializerMiddlewareOption);
     }
   };
 }

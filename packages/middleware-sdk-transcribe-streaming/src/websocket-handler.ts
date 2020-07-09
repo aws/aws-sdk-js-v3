@@ -1,10 +1,7 @@
-import { HttpHandlerOptions, RequestHandlerMetadata } from "@aws-sdk/types";
+import { iterableToReadableStream, readableStreamtoIterable } from "@aws-sdk/eventstream-serde-browser";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { HttpHandlerOptions, RequestHandlerMetadata } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
-import {
-  iterableToReadableStream,
-  readableStreamtoIterable
-} from "@aws-sdk/eventstream-serde-browser";
 
 export interface WebSocketHandlerOptions {
   /**
@@ -31,10 +28,7 @@ export class WebSocketHandler implements HttpHandler {
 
   destroy(): void {}
 
-  async handle(
-    request: HttpRequest,
-    options: HttpHandlerOptions = {}
-  ): Promise<{ response: HttpResponse }> {
+  async handle(request: HttpRequest, options: HttpHandlerOptions = {}): Promise<{ response: HttpResponse }> {
     const url = formatUrl(request);
     const socket: WebSocket = new WebSocket(url);
     socket.binaryType = "arraybuffer";
@@ -67,10 +61,7 @@ const waitForReady = (socket: WebSocket, connectionTimeout: number) =>
     };
   });
 
-const connect = (
-  socket: WebSocket,
-  data: AsyncIterable<Uint8Array>
-): AsyncIterable<Uint8Array> => {
+const connect = (socket: WebSocket, data: AsyncIterable<Uint8Array>): AsyncIterable<Uint8Array> => {
   // To notify output stream any error thrown after response
   // is returned while data keeps streaming.
   let streamError: Error | undefined = undefined;
@@ -151,9 +142,7 @@ const getIterator = (stream: any): AsyncIterable<any> => {
  * is available(browsers). Otherwise, leave as it is(ReactNative).
  */
 const toReadableStream = <T>(asyncIterable: AsyncIterable<T>) =>
-  typeof ReadableStream === "function"
-    ? iterableToReadableStream(asyncIterable)
-    : asyncIterable;
+  typeof ReadableStream === "function" ? iterableToReadableStream(asyncIterable) : asyncIterable;
 
 const isReadableStream = (payload: any): payload is ReadableStream =>
   typeof ReadableStream === "function" && payload instanceof ReadableStream;

@@ -1,4 +1,4 @@
-import { CredentialProvider, Credentials } from "@aws-sdk/types";
+import { getMasterProfileName, parseKnownFiles } from "@aws-sdk/credential-provider-ini";
 import { ProviderError } from "@aws-sdk/property-provider";
 import {
   loadSharedConfigFiles,
@@ -6,11 +6,8 @@ import {
   SharedConfigFiles,
   SharedConfigInit
 } from "@aws-sdk/shared-ini-file-loader";
+import { CredentialProvider, Credentials } from "@aws-sdk/types";
 import { exec } from "child_process";
-import {
-  getMasterProfileName,
-  parseKnownFiles
-} from "@aws-sdk/credential-provider-ini";
 
 const DEFAULT_PROFILE = "default";
 export const ENV_PROFILE = "AWS_PROFILE";
@@ -34,9 +31,7 @@ export interface FromProcessInit extends SharedConfigInit {
  */
 export function fromProcess(init: FromProcessInit = {}): CredentialProvider {
   return () =>
-    parseKnownFiles(init).then(profiles =>
-      resolveProcessCredentials(getMasterProfileName(init), profiles, init)
-    );
+    parseKnownFiles(init).then(profiles => resolveProcessCredentials(getMasterProfileName(init), profiles, init));
 }
 
 async function resolveProcessCredentials(
@@ -55,9 +50,7 @@ async function resolveProcessCredentials(
           try {
             data = JSON.parse(processResult);
           } catch {
-            throw Error(
-              `Profile ${profileName} credential_process returned invalid JSON.`
-            );
+            throw Error(`Profile ${profileName} credential_process returned invalid JSON.`);
           }
 
           const {
@@ -69,15 +62,11 @@ async function resolveProcessCredentials(
           } = data;
 
           if (version !== 1) {
-            throw Error(
-              `Profile ${profileName} credential_process did not return Version 1.`
-            );
+            throw Error(`Profile ${profileName} credential_process did not return Version 1.`);
           }
 
           if (accessKeyId === undefined || secretAccessKey === undefined) {
-            throw Error(
-              `Profile ${profileName} credential_process returned invalid credentials.`
-            );
+            throw Error(`Profile ${profileName} credential_process returned invalid credentials.`);
           }
 
           let expirationUnix;
@@ -86,9 +75,7 @@ async function resolveProcessCredentials(
             const currentTime = new Date();
             const expireTime = new Date(expiration);
             if (expireTime < currentTime) {
-              throw Error(
-                `Profile ${profileName} credential_process returned expired credentials.`
-              );
+              throw Error(`Profile ${profileName} credential_process returned expired credentials.`);
             }
             expirationUnix = Math.floor(new Date(expiration).valueOf() / 1000);
           }
@@ -104,18 +91,14 @@ async function resolveProcessCredentials(
           throw new ProviderError(error.message);
         });
     } else {
-      throw new ProviderError(
-        `Profile ${profileName} did not contain credential_process.`
-      );
+      throw new ProviderError(`Profile ${profileName} did not contain credential_process.`);
     }
   } else {
     // If the profile cannot be parsed or does not contain the default or
     // specified profile throw an error. This should be considered a terminal
     // resolution error if a profile has been specified by the user (whether via
     // a parameter, anenvironment variable, or another profile's `source_profile` key).
-    throw new ProviderError(
-      `Profile ${profileName} could not be found in shared credentials file.`
-    );
+    throw new ProviderError(`Profile ${profileName} could not be found in shared credentials file.`);
   }
 }
 

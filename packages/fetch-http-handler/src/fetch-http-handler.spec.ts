@@ -1,7 +1,8 @@
-import { FetchHttpHandler } from "./fetch-http-handler";
 import { AbortController } from "@aws-sdk/abort-controller";
-import * as timeouts from "./request-timeout";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+
+import { FetchHttpHandler } from "./fetch-http-handler";
+import * as timeouts from "./request-timeout";
 
 const mockRequest = jest.fn();
 let mockResponse: any;
@@ -168,10 +169,7 @@ describe.skip(FetchHttpHandler.name, () => {
       requestTimeout: 5
     });
 
-    await expect(fetchHttpHandler.handle({} as any, {})).rejects.toHaveProperty(
-      "name",
-      "TimeoutError"
-    );
+    await expect(fetchHttpHandler.handle({} as any, {})).rejects.toHaveProperty("name", "TimeoutError");
     expect(mockFetch.mock.calls.length).toBe(1);
   });
 

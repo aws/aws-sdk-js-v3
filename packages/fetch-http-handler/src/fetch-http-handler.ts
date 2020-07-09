@@ -1,7 +1,8 @@
-import { HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
-import { requestTimeout } from "./request-timeout";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
+import { HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
+
+import { requestTimeout } from "./request-timeout";
 
 declare let AbortController: any;
 
@@ -24,10 +25,7 @@ export class FetchHttpHandler implements HttpHandler {
     // browser.
   }
 
-  handle(
-    request: HttpRequest,
-    options: HttpHandlerOptions
-  ): Promise<{ response: HttpResponse }> {
+  handle(request: HttpRequest, options: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     const abortSignal = options?.abortSignal;
     const requestTimeoutInMs = this.httpOptions.requestTimeout;
 
@@ -47,9 +45,7 @@ export class FetchHttpHandler implements HttpHandler {
     }
 
     const port = request.port;
-    const url = `${request.protocol}//${request.hostname}${
-      port ? `:${port}` : ""
-    }${path}`;
+    const url = `${request.protocol}//${request.hostname}${port ? `:${port}` : ""}${path}`;
     const requestOptions: RequestInit = {
       body: request.body,
       headers: new Headers(request.headers),

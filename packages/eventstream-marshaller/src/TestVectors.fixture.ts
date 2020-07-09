@@ -1,5 +1,5 @@
-import { TestVectors } from "./vectorTypes.fixture";
 import { Int64 } from "./Int64";
+import { TestVectors } from "./vectorTypes.fixture";
 
 export const vectors: TestVectors = {
   all_headers: {
@@ -274,43 +274,12 @@ export const vectors: TestVectors = {
           value: "01020304-0506-0708-090a-0b0c0d0e0f10"
         }
       },
-      body: Uint8Array.from([
-        123,
-        39,
-        102,
-        111,
-        111,
-        39,
-        58,
-        39,
-        98,
-        97,
-        114,
-        39,
-        125
-      ])
+      body: Uint8Array.from([123, 39, 102, 111, 111, 39, 58, 39, 98, 97, 114, 39, 125])
     }
   },
   empty_message: {
     expectation: "success",
-    encoded: Uint8Array.from([
-      0,
-      0,
-      0,
-      16,
-      0,
-      0,
-      0,
-      0,
-      5,
-      194,
-      72,
-      235,
-      125,
-      152,
-      200,
-      255
-    ]),
+    encoded: Uint8Array.from([0, 0, 0, 16, 0, 0, 0, 0, 5, 194, 72, 235, 125, 152, 200, 255]),
     decoded: {
       headers: {},
       body: Uint8Array.from([])
@@ -372,21 +341,7 @@ export const vectors: TestVectors = {
           value: 40972
         }
       },
-      body: Uint8Array.from([
-        123,
-        39,
-        102,
-        111,
-        111,
-        39,
-        58,
-        39,
-        98,
-        97,
-        114,
-        39,
-        125
-      ])
+      body: Uint8Array.from([123, 39, 102, 111, 111, 39, 58, 39, 98, 97, 114, 39, 125])
     }
   },
   payload_no_headers: {
@@ -424,21 +379,7 @@ export const vectors: TestVectors = {
     ]),
     decoded: {
       headers: {},
-      body: Uint8Array.from([
-        123,
-        39,
-        102,
-        111,
-        111,
-        39,
-        58,
-        39,
-        98,
-        97,
-        114,
-        39,
-        125
-      ])
+      body: Uint8Array.from([123, 39, 102, 111, 111, 39, 58, 39, 98, 97, 114, 39, 125])
     }
   },
   payload_one_str_header: {
@@ -513,21 +454,7 @@ export const vectors: TestVectors = {
           value: "application/json"
         }
       },
-      body: Uint8Array.from([
-        123,
-        39,
-        102,
-        111,
-        111,
-        39,
-        58,
-        39,
-        98,
-        97,
-        114,
-        39,
-        125
-      ])
+      body: Uint8Array.from([123, 39, 102, 111, 111, 39, 58, 39, 98, 97, 114, 39, 125])
     }
   },
   corrupted_headers: {

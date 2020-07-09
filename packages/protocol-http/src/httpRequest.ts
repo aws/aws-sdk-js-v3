@@ -1,13 +1,6 @@
-import {
-  HttpMessage,
-  Endpoint,
-  QueryParameterBag,
-  HeaderBag,
-  HttpRequest as IHttpRequest
-} from "@aws-sdk/types";
+import { Endpoint, HeaderBag, HttpMessage, HttpRequest as IHttpRequest, QueryParameterBag } from "@aws-sdk/types";
 
-type HttpRequestOptions = Partial<HttpMessage> &
-  Partial<Endpoint> & { method?: string };
+type HttpRequestOptions = Partial<HttpMessage> & Partial<Endpoint> & { method?: string };
 
 export type HttpRequest = IHttpRequest;
 
@@ -33,11 +26,7 @@ export class HttpRequest implements HttpMessage, Endpoint {
         ? `${options.protocol}:`
         : options.protocol
       : "https:";
-    this.path = options.path
-      ? options.path.charAt(0) !== "/"
-        ? `/${options.path}`
-        : options.path
-      : "/";
+    this.path = options.path ? (options.path.charAt(0) !== "/" ? `/${options.path}` : options.path) : "/";
   }
 
   static isInstance(request: unknown): request is HttpRequest {
@@ -65,14 +54,11 @@ export class HttpRequest implements HttpMessage, Endpoint {
 }
 
 function cloneQuery(query: QueryParameterBag): QueryParameterBag {
-  return Object.keys(query).reduce(
-    (carry: QueryParameterBag, paramName: string) => {
-      const param = query[paramName];
-      return {
-        ...carry,
-        [paramName]: Array.isArray(param) ? [...param] : param
-      };
-    },
-    {}
-  );
+  return Object.keys(query).reduce((carry: QueryParameterBag, paramName: string) => {
+    const param = query[paramName];
+    return {
+      ...carry,
+      [paramName]: Array.isArray(param) ? [...param] : param
+    };
+  }, {});
 }

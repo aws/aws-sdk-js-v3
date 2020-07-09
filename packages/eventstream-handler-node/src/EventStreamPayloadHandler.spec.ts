@@ -1,17 +1,11 @@
-import { Readable, PassThrough } from "stream";
+import { PassThrough, Readable } from "stream";
 const mockSingingStream = jest.fn().mockImplementation(() => new PassThrough());
 jest.mock("./EventSigningStream", () => ({
   EventSigningStream: mockSingingStream
 }));
+import { Decoder, Encoder, EventSigner, FinalizeHandler, FinalizeHandlerArguments, HttpRequest } from "@aws-sdk/types";
+
 import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";
-import {
-  EventSigner,
-  Decoder,
-  Encoder,
-  FinalizeHandler,
-  HttpRequest,
-  FinalizeHandlerArguments
-} from "@aws-sdk/types";
 
 describe("EventStreamPayloadHandler", () => {
   const mockSigner: EventSigner = {
@@ -41,9 +35,7 @@ describe("EventStreamPayloadHandler", () => {
 
   it("should close the request payload if downstream middleware throws", async done => {
     expect.assertions(2);
-    (mockNextHandler as any).mockImplementationOnce(() =>
-      Promise.reject(new Error())
-    );
+    (mockNextHandler as any).mockImplementationOnce(() => Promise.reject(new Error()));
     const handler = new EventStreamPayloadHandler({
       eventSigner: () => Promise.resolve(mockSigner),
       utf8Decoder: mockUtf8Decoder,
@@ -86,9 +78,7 @@ describe("EventStreamPayloadHandler", () => {
       input: {}
     });
     expect(mockSingingStream.mock.calls.length).toBe(1);
-    expect(mockSingingStream.mock.calls[0][0].priorSignature).toBe(
-      "1234567890"
-    );
+    expect(mockSingingStream.mock.calls[0][0].priorSignature).toBe("1234567890");
   });
 
   it("should start piping to request payload through event signer if downstream middleware returns", async () => {
@@ -105,13 +95,11 @@ describe("EventStreamPayloadHandler", () => {
       utf8Encoder: mockUtf8encoder
     });
     // Middleware that returns the request from payload handler.
-    (mockNextHandler as any).mockImplementationOnce(
-      (args: FinalizeHandlerArguments<any>) => {
-        const handledRequest = args.request as HttpRequest;
-        // This middleware returns the output request from eventstream payload handler
-        return Promise.resolve({ output: { handledRequest } });
-      }
-    );
+    (mockNextHandler as any).mockImplementationOnce((args: FinalizeHandlerArguments<any>) => {
+      const handledRequest = args.request as HttpRequest;
+      // This middleware returns the output request from eventstream payload handler
+      return Promise.resolve({ output: { handledRequest } });
+    });
     const {
       output: { handledRequest }
     } = await handler.handle(mockNextHandler, {

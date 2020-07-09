@@ -1,12 +1,5 @@
-import {
-  RequestSigner,
-  Credentials,
-  Provider,
-  HashConstructor,
-  RegionInfoProvider,
-  RegionInfo
-} from "@aws-sdk/types";
 import { SignatureV4 } from "@aws-sdk/signature-v4";
+import { Credentials, HashConstructor, Provider, RegionInfo, RegionInfoProvider, RequestSigner } from "@aws-sdk/types";
 
 export interface AwsAuthInputConfig {
   /**
@@ -48,17 +41,10 @@ export interface AwsAuthResolvedConfig {
   signingEscapePath: boolean;
   systemClockOffset: number;
 }
-export function resolveAwsAuthConfig<T>(
-  input: T & AwsAuthInputConfig & PreviouslyResolved
-): T & AwsAuthResolvedConfig {
-  const credentials =
-    input.credentials || input.credentialDefaultProvider(input as any);
+export function resolveAwsAuthConfig<T>(input: T & AwsAuthInputConfig & PreviouslyResolved): T & AwsAuthResolvedConfig {
+  const credentials = input.credentials || input.credentialDefaultProvider(input as any);
   const normalizedCreds = normalizeProvider(credentials);
-  const {
-    signingEscapePath = true,
-    systemClockOffset = input.systemClockOffset || 0,
-    sha256
-  } = input;
+  const { signingEscapePath = true, systemClockOffset = input.systemClockOffset || 0, sha256 } = input;
   let signer: Provider<RequestSigner>;
   if (input.signer) {
     //if signer is supplied by user, normalize it to a function returning a promise for signer.
@@ -67,18 +53,9 @@ export function resolveAwsAuthConfig<T>(
     //construct a provider inferring signing from region.
     signer = () =>
       normalizeProvider(input.region)()
-        .then(
-          async region =>
-            [(await input.regionInfoProvider(region)) || {}, region] as [
-              RegionInfo,
-              string
-            ]
-        )
+        .then(async region => [(await input.regionInfoProvider(region)) || {}, region] as [RegionInfo, string])
         .then(([regionInfo, region]) => {
-          const {
-            signingRegion = input.signingRegion,
-            signingService = input.signingName
-          } = regionInfo;
+          const { signingRegion = input.signingRegion, signingService = input.signingName } = regionInfo;
           //update client's singing region and signing service config if they are resolved.
           //signing region resolving order: user supplied signingRegion -> endpoints.json inferred region -> client region
           input.signingRegion = input.signingRegion || signingRegion || region;

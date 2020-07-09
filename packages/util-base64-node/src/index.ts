@@ -1,4 +1,4 @@
-import { fromString, fromArrayBuffer } from "@aws-sdk/util-buffer-from";
+import { fromArrayBuffer, fromString } from "@aws-sdk/util-buffer-from";
 
 /**
  * Converts a base-64 encoded string to a Uint8Array of bytes using Node.JS's
@@ -19,9 +19,5 @@ export function fromBase64(input: string): Uint8Array {
  * @param input The binary data to encode
  */
 export function toBase64(input: Uint8Array): string {
-  return fromArrayBuffer(
-    input.buffer,
-    input.byteOffset,
-    input.byteLength
-  ).toString("base64");
+  return fromArrayBuffer(input.buffer, input.byteOffset, input.byteLength).toString("base64");
 }

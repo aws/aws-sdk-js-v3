@@ -1,5 +1,6 @@
-import { fromEnv, ENV_REGION } from "./fromEnv";
 import { ProviderError } from "@aws-sdk/property-provider";
+
+import { ENV_REGION, fromEnv } from "./fromEnv";
 
 describe("fromEnv", () => {
   const ENV_CUSTOM = "AWS_DEFAULT_REGION";
@@ -9,9 +10,7 @@ describe("fromEnv", () => {
   const mockEnvCustom = "mockEnvCustom";
 
   const getProviderError = (envVarName: string) =>
-    new ProviderError(
-      `No value defined for the ${envVarName} environment variable`
-    );
+    new ProviderError(`No value defined for the ${envVarName} environment variable`);
 
   beforeEach(() => {
     delete process.env[ENV_REGION];
@@ -30,9 +29,7 @@ describe("fromEnv", () => {
     });
 
     it(`throws when '${ENV_REGION}' env var is not set`, () => {
-      return expect(fromEnv()()).rejects.toMatchObject(
-        getProviderError(ENV_REGION)
-      );
+      return expect(fromEnv()()).rejects.toMatchObject(getProviderError(ENV_REGION));
     });
   });
 
@@ -47,15 +44,11 @@ describe("fromEnv", () => {
 
       it(`when '${ENV_REGION}' is set`, () => {
         process.env[ENV_REGION] = mockEnvRegion;
-        return expect(fromEnv({ environmentVariableName })()).resolves.toBe(
-          mockEnvCustom
-        );
+        return expect(fromEnv({ environmentVariableName })()).resolves.toBe(mockEnvCustom);
       });
 
       it(`when '${ENV_REGION}' is not set`, () => {
-        return expect(fromEnv({ environmentVariableName })()).resolves.toBe(
-          mockEnvCustom
-        );
+        return expect(fromEnv({ environmentVariableName })()).resolves.toBe(mockEnvCustom);
       });
     });
 
@@ -69,15 +62,15 @@ describe("fromEnv", () => {
 
       it(`when '${ENV_REGION}' is set`, () => {
         process.env[ENV_REGION] = mockEnvRegion;
-        return expect(
-          fromEnv({ environmentVariableName })()
-        ).rejects.toMatchObject(getProviderError(environmentVariableName));
+        return expect(fromEnv({ environmentVariableName })()).rejects.toMatchObject(
+          getProviderError(environmentVariableName)
+        );
       });
 
       it(`when '${ENV_REGION}' is not set`, () => {
-        return expect(
-          fromEnv({ environmentVariableName })()
-        ).rejects.toMatchObject(getProviderError(environmentVariableName));
+        return expect(fromEnv({ environmentVariableName })()).rejects.toMatchObject(
+          getProviderError(environmentVariableName)
+        );
       });
     });
   });

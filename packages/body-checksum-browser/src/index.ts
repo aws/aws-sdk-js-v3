@@ -1,7 +1,7 @@
-import { TreeHash } from "@aws-sdk/sha256-tree-hash";
-import { Decoder, HttpRequest, HashConstructor } from "@aws-sdk/types";
-import { toHex } from "@aws-sdk/util-hex-encoding";
 import { blobReader } from "@aws-sdk/chunked-blob-reader";
+import { TreeHash } from "@aws-sdk/sha256-tree-hash";
+import { Decoder, HashConstructor, HttpRequest } from "@aws-sdk/types";
+import { toHex } from "@aws-sdk/util-hex-encoding";
 
 const MiB = 1024 * 1024;
 
@@ -19,10 +19,7 @@ export async function bodyChecksumGenerator(
     contentHash.update(body);
     treeHash.update(body);
   } else {
-    if (
-      Boolean(body) &&
-      Object.prototype.toString.call(body) === "[object Blob]"
-    ) {
+    if (Boolean(body) && Object.prototype.toString.call(body) === "[object Blob]") {
       await blobReader(
         body,
         (chunk: any) => {

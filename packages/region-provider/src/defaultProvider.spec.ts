@@ -1,10 +1,8 @@
+import { chain, memoize } from "@aws-sdk/property-provider";
+
+import { defaultProvider, RegionProviderConfiguration } from "./defaultProvider";
 import { fromEnv } from "./fromEnv";
 import { fromSharedConfigFiles } from "./fromSharedConfigFiles";
-import { chain, memoize } from "@aws-sdk/property-provider";
-import {
-  defaultProvider,
-  RegionProviderConfiguration
-} from "./defaultProvider";
 
 jest.mock("./fromEnv", () => ({
   fromEnv: jest.fn()
@@ -34,9 +32,7 @@ describe("defaultProvider", () => {
     (fromEnv as jest.Mock).mockReturnValueOnce(mockFromEnvReturn);
 
     const mockFromSharedConfigFilesReturn = "mockFromSharedConfigFilesReturn";
-    (fromSharedConfigFiles as jest.Mock).mockReturnValueOnce(
-      mockFromSharedConfigFilesReturn
-    );
+    (fromSharedConfigFiles as jest.Mock).mockReturnValueOnce(mockFromSharedConfigFilesReturn);
 
     defaultProvider(configuration);
 
@@ -46,10 +42,7 @@ describe("defaultProvider", () => {
     expect(fromSharedConfigFiles).toHaveBeenCalledWith(configuration);
 
     expect(chain).toHaveBeenCalledTimes(1);
-    expect(chain).toHaveBeenCalledWith(
-      mockFromEnvReturn,
-      mockFromSharedConfigFilesReturn
-    );
+    expect(chain).toHaveBeenCalledWith(mockFromEnvReturn, mockFromSharedConfigFilesReturn);
   });
 
   it("passes output of chain to memoize", () => {

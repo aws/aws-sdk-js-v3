@@ -1,4 +1,5 @@
 import { Credentials, HashConstructor, SourceData } from "@aws-sdk/types";
+
 import { KEY_TYPE_IDENTIFIER, MAX_CACHE_SIZE } from "./constants";
 
 const signingKeyCache: { [key: string]: Promise<Uint8Array> } = {};
@@ -11,11 +12,7 @@ const cacheQueue: Array<string> = [];
  * @param region    The AWS region in which the service resides.
  * @param service   The service to which the signed request is being sent.
  */
-export function createScope(
-  shortDate: string,
-  region: string,
-  service: string
-): string {
+export function createScope(shortDate: string, region: string, service: string): string {
   return `${shortDate}/${region}/${service}/${KEY_TYPE_IDENTIFIER}`;
 }
 
@@ -38,9 +35,7 @@ export function getSigningKey(
   region: string,
   service: string
 ): Promise<Uint8Array> {
-  const cacheKey =
-    `${shortDate}:${region}:${service}:` +
-    `${credentials.accessKeyId}:${credentials.sessionToken}`;
+  const cacheKey = `${shortDate}:${region}:${service}:` + `${credentials.accessKeyId}:${credentials.sessionToken}`;
   if (cacheKey in signingKeyCache) {
     return signingKeyCache[cacheKey];
   }
@@ -51,14 +46,10 @@ export function getSigningKey(
   }
 
   return (signingKeyCache[cacheKey] = new Promise((resolve, reject) => {
-    let keyPromise: Promise<SourceData> = Promise.resolve(
-      `AWS4${credentials.secretAccessKey}`
-    );
+    let keyPromise: Promise<SourceData> = Promise.resolve(`AWS4${credentials.secretAccessKey}`);
 
     for (const signable of [shortDate, region, service, KEY_TYPE_IDENTIFIER]) {
-      keyPromise = keyPromise.then<Uint8Array>(intermediateKey =>
-        hmac(sha256Constructor, intermediateKey, signable)
-      );
+      keyPromise = keyPromise.then<Uint8Array>(intermediateKey => hmac(sha256Constructor, intermediateKey, signable));
       keyPromise.catch(() => {});
     }
 
@@ -79,11 +70,7 @@ export function clearCredentialCache(): void {
   });
 }
 
-function hmac(
-  ctor: HashConstructor,
-  secret: SourceData,
-  data: SourceData
-): Promise<Uint8Array> {
+function hmac(ctor: HashConstructor, secret: SourceData, data: SourceData): Promise<Uint8Array> {
   const hash = new ctor(secret);
   hash.update(data);
   return hash.digest();
