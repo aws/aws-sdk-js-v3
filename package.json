@@ -52,6 +52,7 @@
     "eslint": "^7.4.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
     "fs-extra": "^9.0.0",
     "generate-changelog": "^1.7.1",
     "husky": "^4.2.3",
