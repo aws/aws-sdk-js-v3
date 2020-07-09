@@ -1,4 +1,5 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
+import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/retry-config-provider";
 import { isThrottlingError } from "@aws-sdk/service-error-classification";
 import { v4 } from "uuid";
 
@@ -7,11 +8,6 @@ import { getDefaultRetryQuota } from "./defaultRetryQuota";
 import { RetryQuota, StandardRetryStrategy } from "./defaultStrategy";
 import { defaultDelayDecider } from "./delayDecider";
 import { defaultRetryDecider } from "./retryDecider";
-import { StandardRetryStrategy, RetryQuota } from "./defaultStrategy";
-import { getDefaultRetryQuota } from "./defaultRetryQuota";
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { v4 } from "uuid";
-import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/retry-config-provider";
 
 jest.mock("@aws-sdk/service-error-classification", () => ({
   isThrottlingError: jest.fn().mockReturnValue(true)

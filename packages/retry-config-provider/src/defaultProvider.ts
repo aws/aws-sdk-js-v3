@@ -1,6 +1,4 @@
-import { fromEnv } from "./fromEnv";
-import { SharedConfigInit, fromSharedConfigFiles } from "./fromSharedConfigFiles";
-import { chain, memoize, fromStatic } from "@aws-sdk/property-provider";
+import { chain, fromStatic, memoize } from "@aws-sdk/property-provider";
 import { Provider } from "@aws-sdk/types";
 
 import { fromEnv } from "./fromEnv";
