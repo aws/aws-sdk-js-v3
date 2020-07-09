@@ -1,6 +1,6 @@
-import { endEventMessage, recordEventMessage, statsEventMessage } from "./fixtures/event.fixture";
-import { MockEventMessageSource } from "./fixtures/MockEventMessageSource.fixture";
 import { getChunkedStream } from "./getChunkedStream";
+import { recordEventMessage, statsEventMessage, endEventMessage } from "./fixtures/event.fixture";
+import { MockEventMessageSource } from "./fixtures/MockEventMessageSource.fixture";
 
 describe("getChunkedStream", () => {
   it("splits payloads into individual messages", async () => {

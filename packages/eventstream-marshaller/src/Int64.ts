@@ -1,7 +1,7 @@
-import { Int64 as IInt64 } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
+import { Int64 as IInt64 } from "@aws-sdk/types";
 
-export type Int64 = IInt64;
+export interface Int64 extends IInt64 {}
 
 /**
  * A lossless representation of a signed, 64-bit integer. Instances of this

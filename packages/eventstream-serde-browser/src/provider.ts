@@ -1,5 +1,4 @@
-import { Decoder, Encoder, EventSigner, EventStreamSerdeProvider, Provider } from "@aws-sdk/types";
-
+import { Encoder, Decoder, EventSigner, EventStreamSerdeProvider, Provider } from "@aws-sdk/types";
 import { EventStreamMarshaller } from "./EventStreamMarshaller";
 
 /** browser event stream serde utils provider */

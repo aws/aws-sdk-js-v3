@@ -1,5 +1,5 @@
-import { Int64 } from "./Int64";
 import { TestVectors } from "./vectorTypes.fixture";
+import { Int64 } from "./Int64";
 
 export const vectors: TestVectors = {
   all_headers: {

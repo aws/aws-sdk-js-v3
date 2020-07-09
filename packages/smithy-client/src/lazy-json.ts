@@ -3,7 +3,7 @@
  */
 
 interface StringWrapper {
-  new (arg: any): string;
+  new (arg: any): String;
 }
 
 /**
@@ -20,7 +20,7 @@ export const StringWrapper: StringWrapper = function () {
   //@ts-ignore Call wrapped String constructor directly, don't bother typing it.
   const instance = new Constructor();
   Object.setPrototypeOf(instance, Class.prototype);
-  return instance as string;
+  return instance as String;
 };
 StringWrapper.prototype = Object.create(String.prototype, {
   constructor: {
