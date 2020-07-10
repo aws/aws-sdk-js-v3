@@ -29,6 +29,7 @@
     "@types/jest": "^26.0.4",
     "@types/node": "^10.0.0",
     "jest": "^26.1.0",
+    "nock": "^13.0.2",
     "typescript": "~3.8.3"
   },
   "types": "./dist/cjs/index.d.ts"

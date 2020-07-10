@@ -3,7 +3,7 @@ import {
   RemoteProviderInit,
   providerConfigFromInit
 } from "./remoteProvider/RemoteProviderInit";
-import { httpGet } from "./remoteProvider/httpGet";
+import { httpRequest } from "./remoteProvider/httpRequest";
 import {
   fromImdsCredentials,
   isImdsCredentials
@@ -53,7 +53,7 @@ function requestFromEcsImds(
     options.headers = headers;
   }
 
-  return httpGet({
+  return httpRequest({
     ...options,
     timeout
   }).then(buffer => buffer.toString());
