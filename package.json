@@ -33,7 +33,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "glob": "^7.1.6",
-    "rimraf": "^2.6.2",
+    "rimraf": "^3.0.2",
     "yargs": "^15.1.0"
   },
   "devDependencies": {
