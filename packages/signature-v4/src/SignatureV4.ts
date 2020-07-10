@@ -31,12 +31,27 @@ import {
   SIGNATURE_QUERY_PARAM,
   SIGNED_HEADERS_QUERY_PARAM,
   TOKEN_HEADER,
-  TOKEN_QUERY_PARAM
+  TOKEN_QUERY_PARAM,
+  EVENT_ALGORITHM_IDENTIFIER,
 } from "./constants";
-import { createScope, getSigningKey } from "./credentialDerivation";
-import { getCanonicalHeaders } from "./getCanonicalHeaders";
-import { getCanonicalQuery } from "./getCanonicalQuery";
-import { getPayloadHash } from "./getPayloadHash";
+import {
+  Credentials,
+  DateInput,
+  HashConstructor,
+  Provider,
+  RequestPresigner,
+  RequestSigner,
+  RequestSigningArguments,
+  RequestPresigningArguments,
+  SigningArguments,
+  StringSigner,
+  EventSigner,
+  FormattedEvent,
+  EventSigningArguments,
+  HeaderBag,
+  HttpRequest,
+} from "@aws-sdk/types";
+import { toHex } from "@aws-sdk/util-hex-encoding";
 import { hasHeader } from "./hasHeader";
 import { moveHeadersToQuery } from "./moveHeadersToQuery";
 import { prepareRequest } from "./prepareRequest";
@@ -104,7 +119,7 @@ export class SignatureV4 implements RequestPresigner, RequestSigner, StringSigne
     region,
     service,
     sha256,
-    uriEscapePath = true
+    uriEscapePath = true,
   }: SignatureV4Init & SignatureV4CryptoInit) {
     this.service = service;
     this.sha256 = sha256;
@@ -193,7 +208,7 @@ export class SignatureV4 implements RequestPresigner, RequestSigner, StringSigne
       scope,
       priorSignature,
       hashedHeaders,
-      hashedPayload
+      hashedPayload,
     ].join("\n");
     return this.signString(stringToSign, { signingDate });
   }
@@ -248,7 +263,7 @@ export class SignatureV4 implements RequestPresigner, RequestSigner, StringSigne
     return `${request.method}
 ${this.getCanonicalPath(request)}
 ${getCanonicalQuery(request)}
-${sortedHeaders.map(name => `${name}:${canonicalHeaders[name]}`).join("\n")}
+${sortedHeaders.map((name) => `${name}:${canonicalHeaders[name]}`).join("\n")}
 
 ${sortedHeaders.join(";")}
 ${payloadHash}`;
@@ -300,7 +315,7 @@ function formatDate(now: DateInput): { longDate: string; shortDate: string } {
   const longDate = iso8601(now).replace(/[\-:]/g, "");
   return {
     longDate,
-    shortDate: longDate.substr(0, 8)
+    shortDate: longDate.substr(0, 8),
   };
 }
 

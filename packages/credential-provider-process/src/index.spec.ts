@@ -2,6 +2,7 @@ import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH } from "@aws-sdk/shared-ini-file-
 import { join, sep } from "path";
 
 import { ENV_PROFILE, fromProcess } from "./";
+import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH } from "@aws-sdk/shared-ini-file-loader";
 
 jest.mock("fs", () => {
   interface FsModule {
@@ -57,7 +58,7 @@ jest.mock("child_process", () => {
   }
 
   const child_process = <ChildProcessModule>jest.genMockFromModule("child_process");
-  const matchers = new Map<string, string>();
+  let matchers = new Map<string, string>();
 
   function exec(command: string, callback: (err: Error | null, stdout?: string) => void): void {
     if (matchers.has(command)) {
@@ -85,13 +86,13 @@ const { __addChildProcessMatcher, __clearChildProcessMatchers } = child_process 
 const DEFAULT_CREDS = {
   accessKeyId: "defaultKey",
   secretAccessKey: "defaultSecret",
-  sessionToken: "defaultToken"
+  sessionToken: "defaultToken",
 };
 
 const FOO_CREDS = {
   accessKeyId: "foo",
   secretAccessKey: "bar",
-  sessionToken: "baz"
+  sessionToken: "baz",
 };
 
 const DEFAULT_CREDS_JSON = `
@@ -117,7 +118,7 @@ const envAtLoadTime: { [key: string]: string | undefined } = [
   "HOME",
   "USERPROFILE",
   "HOMEPATH",
-  "HOMEDRIVE"
+  "HOMEDRIVE",
 ].reduce((envState: { [key: string]: string | undefined }, varName: string) => {
   envState[varName] = process.env[varName];
   return envState;
@@ -126,7 +127,7 @@ const envAtLoadTime: { [key: string]: string | undefined } = [
 beforeEach(() => {
   __clearFsMatchers();
   __clearChildProcessMatchers();
-  Object.keys(envAtLoadTime).forEach(envKey => {
+  Object.keys(envAtLoadTime).forEach((envKey) => {
     delete process.env[envKey];
   });
 });
@@ -134,7 +135,7 @@ beforeEach(() => {
 afterAll(() => {
   __clearFsMatchers();
   __clearChildProcessMatchers();
-  Object.keys(envAtLoadTime).forEach(envKey => {
+  Object.keys(envAtLoadTime).forEach((envKey) => {
     if (envAtLoadTime[envKey] === undefined) {
       delete process.env[envKey];
     } else {
@@ -147,7 +148,7 @@ describe("fromProcess", () => {
   it("should flag a lack of credentials as a non-terminal error", () => {
     return expect(fromProcess()()).rejects.toMatchObject({
       message: "Profile default could not be found in shared credentials file.",
-      tryNextLink: true
+      tryNextLink: true,
     });
   });
 
@@ -170,7 +171,7 @@ credential_process = /cred_proc foo`;
       );
       return expect(fromProcess()()).rejects.toMatchObject({
         message: "Profile default did not contain credential_process.",
-        tryNextLink: true
+        tryNextLink: true,
       });
     });
 
@@ -180,7 +181,7 @@ credential_process = /cred_proc foo`;
 
       return expect(fromProcess()()).rejects.toMatchObject({
         message: "Profile default credential_process returned invalid JSON.",
-        tryNextLink: true
+        tryNextLink: true,
       });
     });
 
@@ -547,7 +548,7 @@ credential_process = /cred_proc default`
 
     return expect(fromProcess()()).rejects.toMatchObject({
       message: "Profile default credential_process returned invalid credentials.",
-      tryNextLink: true
+      tryNextLink: true,
     });
   });
 
@@ -570,7 +571,7 @@ credential_process = /cred_proc default`
 
     return expect(fromProcess()()).rejects.toMatchObject({
       message: "Profile default credential_process returned invalid credentials.",
-      tryNextLink: true
+      tryNextLink: true,
     });
   });
 
@@ -594,7 +595,7 @@ credential_process = /cred_proc default`
 
     return expect(fromProcess()()).rejects.toMatchObject({
       message: "Profile default credential_process did not return Version 1.",
-      tryNextLink: true
+      tryNextLink: true,
     });
   });
 
@@ -619,7 +620,7 @@ credential_process = /cred_proc default`
 
     return expect(fromProcess()()).rejects.toMatchObject({
       message: "Profile default credential_process returned expired credentials.",
-      tryNextLink: true
+      tryNextLink: true,
     });
   });
 });

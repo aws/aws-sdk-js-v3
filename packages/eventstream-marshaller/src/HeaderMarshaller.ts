@@ -93,39 +93,39 @@ export class HeaderMarshaller {
         case HEADER_VALUE_TYPE.boolTrue:
           out[name] = {
             type: BOOLEAN_TAG,
-            value: true
+            value: true,
           };
           break;
         case HEADER_VALUE_TYPE.boolFalse:
           out[name] = {
             type: BOOLEAN_TAG,
-            value: false
+            value: false,
           };
           break;
         case HEADER_VALUE_TYPE.byte:
           out[name] = {
             type: BYTE_TAG,
-            value: headers.getInt8(position++)
+            value: headers.getInt8(position++),
           };
           break;
         case HEADER_VALUE_TYPE.short:
           out[name] = {
             type: SHORT_TAG,
-            value: headers.getInt16(position, false)
+            value: headers.getInt16(position, false),
           };
           position += 2;
           break;
         case HEADER_VALUE_TYPE.integer:
           out[name] = {
             type: INT_TAG,
-            value: headers.getInt32(position, false)
+            value: headers.getInt32(position, false),
           };
           position += 4;
           break;
         case HEADER_VALUE_TYPE.long:
           out[name] = {
             type: LONG_TAG,
-            value: new Int64(new Uint8Array(headers.buffer, headers.byteOffset + position, 8))
+            value: new Int64(new Uint8Array(headers.buffer, headers.byteOffset + position, 8)),
           };
           position += 8;
           break;
@@ -134,7 +134,7 @@ export class HeaderMarshaller {
           position += 2;
           out[name] = {
             type: BINARY_TAG,
-            value: new Uint8Array(headers.buffer, headers.byteOffset + position, binaryLength)
+            value: new Uint8Array(headers.buffer, headers.byteOffset + position, binaryLength),
           };
           position += binaryLength;
           break;
@@ -143,14 +143,14 @@ export class HeaderMarshaller {
           position += 2;
           out[name] = {
             type: STRING_TAG,
-            value: this.toUtf8(new Uint8Array(headers.buffer, headers.byteOffset + position, stringLength))
+            value: this.toUtf8(new Uint8Array(headers.buffer, headers.byteOffset + position, stringLength)),
           };
           position += stringLength;
           break;
         case HEADER_VALUE_TYPE.timestamp:
           out[name] = {
             type: TIMESTAMP_TAG,
-            value: new Date(new Int64(new Uint8Array(headers.buffer, headers.byteOffset + position, 8)).valueOf())
+            value: new Date(new Int64(new Uint8Array(headers.buffer, headers.byteOffset + position, 8)).valueOf()),
           };
           position += 8;
           break;
@@ -161,7 +161,7 @@ export class HeaderMarshaller {
             type: UUID_TAG,
             value: `${toHex(uuidBytes.subarray(0, 4))}-${toHex(uuidBytes.subarray(4, 6))}-${toHex(
               uuidBytes.subarray(6, 8)
-            )}-${toHex(uuidBytes.subarray(8, 10))}-${toHex(uuidBytes.subarray(10))}`
+            )}-${toHex(uuidBytes.subarray(8, 10))}-${toHex(uuidBytes.subarray(10))}`,
           };
           break;
         default:
@@ -183,7 +183,7 @@ const enum HEADER_VALUE_TYPE {
   byteArray,
   string,
   timestamp,
-  uuid
+  uuid,
 }
 
 const BOOLEAN_TAG = "boolean";

@@ -6,11 +6,11 @@ import { websocketURLMiddleware } from "./middleware-endpoint";
 describe("websocketURLMiddleware", () => {
   const mockHandler: RequestHandler<any, any> = {
     metadata: { handlerProtocol: "websocket" },
-    handle: () => ({} as any)
+    handle: () => ({} as any),
   };
-  it("should skip non-http request", done => {
+  it("should skip non-http request", (done) => {
     const nonHttpRequest = {
-      foo: "bar"
+      foo: "bar",
     };
     const next = (args: BuildHandlerArguments<any>) => {
       expect(args.request).toEqual(nonHttpRequest);
@@ -20,10 +20,10 @@ describe("websocketURLMiddleware", () => {
     mw(next as any, {} as any)({ request: nonHttpRequest, input: {} });
   });
 
-  it("should skip non WebSocket requests", done => {
+  it("should skip non WebSocket requests", (done) => {
     const mockHandler: RequestHandler<any, any> = {
       metadata: { handlerProtocol: "some_protocol" },
-      handle: () => ({} as any)
+      handle: () => ({} as any),
     };
     const request = new HttpRequest({});
     const next = (args: BuildHandlerArguments<any>) => {
@@ -34,12 +34,12 @@ describe("websocketURLMiddleware", () => {
     mw(next as any, {} as any)({ request, input: {} });
   });
 
-  it("should update endpoint to websocket url", done => {
+  it("should update endpoint to websocket url", (done) => {
     const request = new HttpRequest({
       protocol: "https:",
       hostname: "transcribestreaming.us-east-1.amazonaws.com",
       path: "/stream-transcription",
-      method: "POST"
+      method: "POST",
     });
     const next = (args: BuildHandlerArguments<any>) => {
       expect(HttpRequest.isInstance(args.request)).toBeTruthy();
@@ -54,14 +54,14 @@ describe("websocketURLMiddleware", () => {
     mw(next as any, {} as any)({ request, input: {} });
   });
 
-  it("should remove content-type and sha256 hash header", done => {
+  it("should remove content-type and sha256 hash header", (done) => {
     const request = new HttpRequest({
       headers: {
         "content-type": "application/vnd.amazon.eventstream",
         "Content-Type": "application/vnd.amazon.eventstream",
         "x-amz-content-sha256": "STREAMING-AWS4-HMAC-SHA256-EVENTS",
-        "X-Amz-Content-Sha256": "STREAMING-AWS4-HMAC-SHA256-EVENTS"
-      }
+        "X-Amz-Content-Sha256": "STREAMING-AWS4-HMAC-SHA256-EVENTS",
+      },
     });
     const next = (args: BuildHandlerArguments<any>) => {
       expect(HttpRequest.isInstance(args.request)).toBeTruthy();
@@ -76,7 +76,7 @@ describe("websocketURLMiddleware", () => {
     mw(next as any, {} as any)({ request, input: {} });
   });
 
-  it("should contains host header after adjustment", done => {
+  it("should contains host header after adjustment", (done) => {
     const request = new HttpRequest({});
     const next = (args: BuildHandlerArguments<any>) => {
       expect(HttpRequest.isInstance(args.request)).toBeTruthy();
@@ -88,15 +88,15 @@ describe("websocketURLMiddleware", () => {
     mw(next as any, {} as any)({ request, input: {} });
   });
 
-  it("should move API parameters from headers to query", done => {
+  it("should move API parameters from headers to query", (done) => {
     const request = new HttpRequest({
       headers: {
         "x-amzn-transcribe-language-code": "en-US",
         "x-amzn-transcribe-media-encoding": "pmc",
         "x-amzn-transcribe-session-id": "123",
         "x-amzn-transcribe-vocabulary-name": "abc",
-        "x-amzn-transcribe-sample-rate": "44100"
-      }
+        "x-amzn-transcribe-sample-rate": "44100",
+      },
     });
     const next = (args: BuildHandlerArguments<any>) => {
       expect(HttpRequest.isInstance(args.request)).toBeTruthy();
@@ -106,7 +106,7 @@ describe("websocketURLMiddleware", () => {
         "media-encoding": "pmc",
         "session-id": "123",
         "vocabulary-name": "abc",
-        "sample-rate": "44100"
+        "sample-rate": "44100",
       });
       done();
     };

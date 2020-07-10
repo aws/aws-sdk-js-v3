@@ -1,4 +1,6 @@
-import { HttpResponse } from "@aws-sdk/types";
+import { createServer as createHttpServer, Server as HttpServer, IncomingMessage, ServerResponse } from "http";
+import { createServer as createHttpsServer, Server as HttpsServer } from "https";
+import { createServer as createHttp2Server, Http2Server } from "http2";
 import { readFileSync } from "fs";
 import { createServer as createHttpServer, IncomingMessage, Server as HttpServer, ServerResponse } from "http";
 import { createServer as createHttp2Server, Http2Server } from "http2";
@@ -35,7 +37,7 @@ export function createContinueResponseFunction(httpResp: HttpResponse) {
 export function createMockHttpsServer(): HttpsServer {
   const server = createHttpsServer({
     key: readFileSync(join(fixturesDir, "test-server-key.pem")),
-    cert: readFileSync(join(fixturesDir, "test-server-cert.pem"))
+    cert: readFileSync(join(fixturesDir, "test-server-cert.pem")),
   });
   return server;
 }

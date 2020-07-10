@@ -5,7 +5,7 @@ import { defaultProvider, ENV_IMDS_DISABLED } from "./";
 jest.mock("@aws-sdk/credential-provider-env", () => {
   const envProvider = jest.fn();
   return {
-    fromEnv: jest.fn().mockReturnValue(envProvider)
+    fromEnv: jest.fn().mockReturnValue(envProvider),
   };
 });
 import { fromEnv } from "@aws-sdk/credential-provider-env";
@@ -14,17 +14,18 @@ jest.mock("@aws-sdk/credential-provider-ini", () => {
   const iniProvider = jest.fn();
   return {
     ENV_PROFILE: "AWS_PROFILE",
-    fromIni: jest.fn().mockReturnValue(iniProvider)
+    fromIni: jest.fn().mockReturnValue(iniProvider),
   };
 });
 import { ENV_PROFILE, fromIni, FromIniInit } from "@aws-sdk/credential-provider-ini";
+
 import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH } from "@aws-sdk/shared-ini-file-loader";
 
 jest.mock("@aws-sdk/credential-provider-process", () => {
   const processProvider = jest.fn();
   return {
     ENV_PROFILE: "AWS_PROFILE",
-    fromProcess: jest.fn(() => processProvider)
+    fromProcess: jest.fn(() => processProvider),
   };
 });
 import { fromProcess, FromProcessInit } from "@aws-sdk/credential-provider-process";
@@ -36,7 +37,7 @@ jest.mock("@aws-sdk/credential-provider-imds", () => {
     fromContainerMetadata: jest.fn().mockReturnValue(containerMdsProvider),
     fromInstanceMetadata: jest.fn().mockReturnValue(instanceMdsProvider),
     ENV_CMDS_FULL_URI: "AWS_CONTAINER_CREDENTIALS_FULL_URI",
-    ENV_CMDS_RELATIVE_URI: "AWS_CONTAINER_CREDENTIALS_RELATIVE_URI"
+    ENV_CMDS_RELATIVE_URI: "AWS_CONTAINER_CREDENTIALS_RELATIVE_URI",
   };
 });
 import {
@@ -44,7 +45,7 @@ import {
   ENV_CMDS_RELATIVE_URI,
   fromContainerMetadata,
   fromInstanceMetadata,
-  RemoteProviderInit
+  RemoteProviderInit,
 } from "@aws-sdk/credential-provider-imds";
 
 const envAtLoadTime: { [key: string]: string | undefined } = [
@@ -57,14 +58,14 @@ const envAtLoadTime: { [key: string]: string | undefined } = [
   "HOME",
   "USERPROFILE",
   "HOMEPATH",
-  "HOMEDRIVE"
+  "HOMEDRIVE",
 ].reduce((envState: { [key: string]: string | undefined }, varName: string) => {
   envState[varName] = process.env[varName];
   return envState;
 }, {});
 
 beforeEach(() => {
-  Object.keys(envAtLoadTime).forEach(envKey => {
+  Object.keys(envAtLoadTime).forEach((envKey) => {
     delete process.env[envKey];
   });
 
@@ -81,7 +82,7 @@ beforeEach(() => {
 });
 
 afterAll(() => {
-  Object.keys(envAtLoadTime).forEach(envKey => {
+  Object.keys(envAtLoadTime).forEach((envKey) => {
     if (envAtLoadTime[envKey] === undefined) {
       delete process.env[envKey];
     } else {
@@ -94,7 +95,7 @@ describe("defaultProvider", () => {
   it("should stop after the environmental provider if credentials have been found", async () => {
     const creds = {
       accessKeyId: "foo",
-      secretAccessKey: "bar"
+      secretAccessKey: "bar",
     };
 
     (fromEnv() as any).mockImplementation(() => Promise.resolve(creds));
@@ -110,7 +111,7 @@ describe("defaultProvider", () => {
   it("should stop after the ini provider if credentials have been found", async () => {
     const creds = {
       accessKeyId: "foo",
-      secretAccessKey: "bar"
+      secretAccessKey: "bar",
     };
 
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
@@ -127,7 +128,7 @@ describe("defaultProvider", () => {
   it("should stop after the process provider if credentials have been found", async () => {
     const creds = {
       accessKeyId: "foo",
-      secretAccessKey: "bar"
+      secretAccessKey: "bar",
     };
 
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
@@ -145,7 +146,7 @@ describe("defaultProvider", () => {
   it("should continue on to the IMDS provider if no env, ini or process credentials have been found", async () => {
     const creds = {
       accessKeyId: "foo",
-      secretAccessKey: "bar"
+      secretAccessKey: "bar",
     };
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
     (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
@@ -163,7 +164,7 @@ describe("defaultProvider", () => {
   it("should not invoke the EC2 IMDS provider when the disabling environment variable is set", async () => {
     const creds = {
       accessKeyId: "foo",
-      secretAccessKey: "bar"
+      secretAccessKey: "bar",
     };
 
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
@@ -181,7 +182,7 @@ describe("defaultProvider", () => {
   it("should continue on to the ECS IMDS provider if no env or ini credentials have been found and an ECS environment variable has been set", async () => {
     const creds = {
       accessKeyId: "foo",
-      secretAccessKey: "bar"
+      secretAccessKey: "bar",
     };
 
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
@@ -207,17 +208,17 @@ describe("defaultProvider", () => {
       roleAssumer: () =>
         Promise.resolve({
           accessKeyId: "fizz",
-          secretAccessKey: "buzz"
+          secretAccessKey: "buzz",
         }),
       filepath: "/home/user/.secrets/credentials.ini",
-      configFilepath: "/home/user/.secrets/credentials.ini"
+      configFilepath: "/home/user/.secrets/credentials.ini",
     };
 
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
     (fromIni() as any).mockImplementation(() =>
       Promise.resolve({
         accessKeyId: "foo",
-        secretAccessKey: "bar"
+        secretAccessKey: "bar",
       })
     );
 
@@ -232,7 +233,7 @@ describe("defaultProvider", () => {
   it("should pass configuration on to the process provider", async () => {
     const processConfig: FromProcessInit = {
       filepath: "/home/user/.secrets/credentials.ini",
-      configFilepath: "/home/user/.secrets/credentials.ini"
+      configFilepath: "/home/user/.secrets/credentials.ini",
     };
 
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
@@ -240,7 +241,7 @@ describe("defaultProvider", () => {
     (fromProcess() as any).mockImplementation(() =>
       Promise.resolve({
         accessKeyId: "foo",
-        secretAccessKey: "bar"
+        secretAccessKey: "bar",
       })
     );
 
@@ -255,7 +256,7 @@ describe("defaultProvider", () => {
   it("should pass configuration on to the IMDS provider", async () => {
     const imdsConfig: RemoteProviderInit = {
       timeout: 2000,
-      maxRetries: 3
+      maxRetries: 3,
     };
 
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
@@ -264,7 +265,7 @@ describe("defaultProvider", () => {
     (fromInstanceMetadata() as any).mockImplementation(() =>
       Promise.resolve({
         accessKeyId: "foo",
-        secretAccessKey: "bar"
+        secretAccessKey: "bar",
       })
     );
 
@@ -279,7 +280,7 @@ describe("defaultProvider", () => {
   it("should pass configuration on to the ECS IMDS provider", async () => {
     const ecsImdsConfig: RemoteProviderInit = {
       timeout: 2000,
-      maxRetries: 3
+      maxRetries: 3,
     };
 
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
@@ -287,7 +288,7 @@ describe("defaultProvider", () => {
     (fromContainerMetadata() as any).mockImplementation(() =>
       Promise.resolve({
         accessKeyId: "foo",
-        secretAccessKey: "bar"
+        secretAccessKey: "bar",
       })
     );
 
@@ -304,7 +305,7 @@ describe("defaultProvider", () => {
   it("should return the same promise across invocations", async () => {
     const creds = {
       accessKeyId: "foo",
-      secretAccessKey: "bar"
+      secretAccessKey: "bar",
     };
 
     (fromEnv() as any).mockImplementation(() => Promise.resolve(creds));
@@ -335,7 +336,7 @@ describe("defaultProvider", () => {
         Promise.resolve({
           accessKeyId: "foo",
           secretAccessKey: "bar",
-          expiration: new Date(Date.now() + 600000) // expires in ten minutes
+          expiration: new Date(Date.now() + 600000), // expires in ten minutes
         })
       );
       const memoized = defaultProvider();
@@ -360,7 +361,7 @@ describe("defaultProvider", () => {
     it("should only consult the ini provider if a profile has been specified", async () => {
       const creds = {
         accessKeyId: "foo",
-        secretAccessKey: "bar"
+        secretAccessKey: "bar",
       };
 
       (fromEnv() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
@@ -378,7 +379,7 @@ describe("defaultProvider", () => {
     it("should only consult the ini provider if the profile environment variable has been set", async () => {
       const creds = {
         accessKeyId: "foo",
-        secretAccessKey: "bar"
+        secretAccessKey: "bar",
       };
 
       (fromEnv() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));

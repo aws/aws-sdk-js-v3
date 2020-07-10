@@ -20,5 +20,5 @@ export type RemoteProviderInit = Partial<RemoteProviderConfig>;
 
 export const providerConfigFromInit = ({
   maxRetries = DEFAULT_MAX_RETRIES,
-  timeout = DEFAULT_TIMEOUT
+  timeout = DEFAULT_TIMEOUT,
 }: RemoteProviderInit): RemoteProviderConfig => ({ maxRetries, timeout });

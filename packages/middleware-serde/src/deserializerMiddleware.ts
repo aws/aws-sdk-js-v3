@@ -2,8 +2,6 @@ import {
   DeserializeHandler,
   DeserializeHandlerArguments,
   DeserializeHandlerOutput,
-  DeserializeMiddleware,
-  ResponseDeserializer
 } from "@aws-sdk/types";
 
 export function deserializerMiddleware<Input extends object, Output extends object, RuntimeUtils = any>(
@@ -17,7 +15,7 @@ export function deserializerMiddleware<Input extends object, Output extends obje
     const parsed = await deserializer(response, options);
     return {
       response,
-      output: parsed as Output
+      output: parsed as Output,
     };
   };
 }

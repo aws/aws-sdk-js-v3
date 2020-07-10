@@ -2,7 +2,7 @@ import { ProviderError } from "@aws-sdk/property-provider";
 import {
   loadSharedConfigFiles,
   SharedConfigFiles,
-  SharedConfigInit as BaseSharedConfigInit
+  SharedConfigInit as BaseSharedConfigInit,
 } from "@aws-sdk/shared-ini-file-loader";
 import { Provider } from "@aws-sdk/types";
 
@@ -22,13 +22,8 @@ export interface SharedConfigInit extends BaseSharedConfigInit {
   loadedConfig?: Promise<SharedConfigFiles>;
 }
 
-export const fromSharedConfigFiles = (
-  init: SharedConfigInit = {}
-): Provider<string> => async () => {
-  const {
-    loadedConfig = loadSharedConfigFiles(init),
-    profile = process.env[ENV_PROFILE] || DEFAULT_PROFILE
-  } = init;
+export const fromSharedConfigFiles = (init: SharedConfigInit = {}): Provider<string> => async () => {
+  const { loadedConfig = loadSharedConfigFiles(init), profile = process.env[ENV_PROFILE] || DEFAULT_PROFILE } = init;
 
   const { configFile, credentialsFile } = await loadedConfig;
   for (const file of [credentialsFile, configFile]) {
@@ -38,7 +33,5 @@ export const fromSharedConfigFiles = (
     }
   }
 
-  throw new ProviderError(
-    `No region found for profile ${profile} in SDK configuration files`
-  );
+  throw new ProviderError(`No region found for profile ${profile} in SDK configuration files`);
 };

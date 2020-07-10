@@ -49,7 +49,7 @@ export class FetchHttpHandler implements HttpHandler {
     const requestOptions: RequestInit = {
       body: request.body,
       headers: new Headers(request.headers),
-      method: request.method
+      method: request.method,
     };
 
     // some browsers support abort signal
@@ -59,7 +59,7 @@ export class FetchHttpHandler implements HttpHandler {
 
     const fetchRequest = new Request(url, requestOptions);
     const raceOfPromises = [
-      fetch(fetchRequest).then(response => {
+      fetch(fetchRequest).then((response) => {
         const fetchHeaders: any = response.headers;
         const transformedHeaders: HeaderBag = {};
 
@@ -71,12 +71,12 @@ export class FetchHttpHandler implements HttpHandler {
 
         // Return the response with buffered body
         if (!hasReadableStream) {
-          return response.blob().then(body => ({
+          return response.blob().then((body) => ({
             response: new HttpResponse({
               headers: transformedHeaders,
               statusCode: response.status,
-              body
-            })
+              body,
+            }),
           }));
         }
         // Return the response with streaming body
@@ -84,11 +84,11 @@ export class FetchHttpHandler implements HttpHandler {
           response: new HttpResponse({
             headers: transformedHeaders,
             statusCode: response.status,
-            body: response.body
-          })
+            body: response.body,
+          }),
         };
       }),
-      requestTimeout(requestTimeoutInMs)
+      requestTimeout(requestTimeoutInMs),
     ];
     if (abortSignal) {
       raceOfPromises.push(

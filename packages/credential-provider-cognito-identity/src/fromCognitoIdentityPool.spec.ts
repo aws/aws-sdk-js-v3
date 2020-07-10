@@ -7,7 +7,7 @@ jest.mock("./fromCognitoIdentity", () => {
   const promiseFunc = jest.fn().mockResolvedValue({
     accessKeyId: "foo",
     secretAccessKey: "bar",
-    sessionToken: "baz"
+    sessionToken: "baz",
   });
   return { fromCognitoIdentity: jest.fn().mockReturnValue(promiseFunc) };
 });
@@ -19,9 +19,9 @@ jest.mock("./localStorage", () => {
       return {
         getItem: jest.fn(),
         setItem: jest.fn(),
-        removeItem: jest.fn()
+        removeItem: jest.fn(),
       };
-    }
+    },
   };
 });
 import { InMemoryStorage } from "./InMemoryStorage";
@@ -47,12 +47,12 @@ describe("fromCognitoIdentityPool", () => {
       await fromCognitoIdentityPool({
         client: mockClient,
         identityPoolId,
-        customRoleArn: "myArn"
+        customRoleArn: "myArn",
       })()
     ).toEqual({
       accessKeyId: "foo",
       secretAccessKey: "bar",
-      sessionToken: "baz"
+      sessionToken: "baz",
     });
 
     expect(send.mock.calls.length).toBe(1);
@@ -62,7 +62,7 @@ describe("fromCognitoIdentityPool", () => {
     expect((fromCognitoIdentity as any).mock.calls[0][0]).toEqual({
       client: mockClient,
       customRoleArn: "myArn",
-      identityId
+      identityId,
     });
   });
 
@@ -72,8 +72,8 @@ describe("fromCognitoIdentityPool", () => {
       identityPoolId,
       logins: {
         myDomain: "token",
-        "www.amazon.com": () => Promise.resolve("expiring nonce")
-      }
+        "www.amazon.com": () => Promise.resolve("expiring nonce"),
+      },
     })();
 
     expect(send.mock.calls[0][0]).toEqual(
@@ -81,8 +81,8 @@ describe("fromCognitoIdentityPool", () => {
         IdentityPoolId: identityPoolId,
         Logins: {
           myDomain: "token",
-          "www.amazon.com": "expiring nonce"
-        }
+          "www.amazon.com": "expiring nonce",
+        },
       })
     );
   });
@@ -91,7 +91,7 @@ describe("fromCognitoIdentityPool", () => {
     const provider = fromCognitoIdentityPool({
       client: mockClient,
       identityPoolId,
-      customRoleArn: "myArn"
+      customRoleArn: "myArn",
     });
 
     await provider();
@@ -106,7 +106,7 @@ describe("fromCognitoIdentityPool", () => {
       expect(await provider()).toEqual({
         accessKeyId: "foo",
         secretAccessKey: "bar",
-        sessionToken: "baz"
+        sessionToken: "baz",
       });
     }
 
@@ -123,7 +123,7 @@ describe("fromCognitoIdentityPool", () => {
       fromCognitoIdentityPool({
         accountId: "myAccountId",
         client: mockClient,
-        identityPoolId
+        identityPoolId,
       })()
     ).rejects.toMatchObject(new ProviderError("Response from Amazon Cognito contained no identity ID"));
   });
@@ -134,7 +134,7 @@ describe("fromCognitoIdentityPool", () => {
     await fromCognitoIdentityPool({
       client: mockClient,
       identityPoolId,
-      cache
+      cache,
     })();
 
     expect(cache.getItem(`aws:cognito-identity-credentials:${identityPoolId}:ANONYMOUS`)).toBe(identityId);
@@ -142,13 +142,13 @@ describe("fromCognitoIdentityPool", () => {
 
   it("should not call `GetId` if the IdentityId is in cache", async () => {
     const cache = new InMemoryStorage({
-      [`aws:cognito-identity-credentials:${identityPoolId}:ANONYMOUS`]: identityId
+      [`aws:cognito-identity-credentials:${identityPoolId}:ANONYMOUS`]: identityId,
     });
 
     await fromCognitoIdentityPool({
       client: mockClient,
       identityPoolId,
-      cache
+      cache,
     })();
 
     expect(send.mock.calls.length).toBe(0);
@@ -156,14 +156,14 @@ describe("fromCognitoIdentityPool", () => {
     expect((fromCognitoIdentity as any).mock.calls.length).toBe(1);
     expect((fromCognitoIdentity as any).mock.calls[0][0]).toEqual({
       client: mockClient,
-      identityId
+      identityId,
     });
   });
 
   it("should remove the entry from cache if an error is encountered", async () => {
     const cacheKey = `aws:cognito-identity-credentials:${identityPoolId}:ANONYMOUS`;
     const cache = new InMemoryStorage({
-      [cacheKey]: identityId
+      [cacheKey]: identityId,
     });
     (fromCognitoIdentity({} as any) as any).mockImplementationOnce(() => Promise.reject(new Error("PANIC")));
 
@@ -171,7 +171,7 @@ describe("fromCognitoIdentityPool", () => {
       fromCognitoIdentityPool({
         client: mockClient,
         identityPoolId,
-        cache
+        cache,
       })()
     ).rejects.toMatchObject(new Error("PANIC"));
 
@@ -183,8 +183,8 @@ describe("fromCognitoIdentityPool", () => {
       client: mockClient,
       identityPoolId,
       logins: {
-        "www.amazon.com": "token"
-      }
+        "www.amazon.com": "token",
+      },
     })();
 
     expect((localStorage().getItem as any).mock.calls.length).toBe(0);
@@ -198,8 +198,8 @@ describe("fromCognitoIdentityPool", () => {
         client: mockClient,
         identityPoolId,
         logins: {
-          "www.amazon.com": "token"
-        }
+          "www.amazon.com": "token",
+        },
       })()
     ).rejects.toMatchObject(new Error("PANIC"));
 

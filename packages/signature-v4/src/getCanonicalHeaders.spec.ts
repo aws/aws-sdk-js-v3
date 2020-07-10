@@ -14,15 +14,15 @@ describe("getCanonicalHeaders", () => {
           headers: {
             fOo: "bar",
             BaZ: "QUUX",
-            HoSt: "foo.us-east-1.amazonaws.com"
+            HoSt: "foo.us-east-1.amazonaws.com",
           },
-          hostname: "foo.us-east-1.amazonaws.com"
+          hostname: "foo.us-east-1.amazonaws.com",
         })
       )
     ).toEqual({
       foo: "bar",
       baz: "QUUX",
-      host: "foo.us-east-1.amazonaws.com"
+      host: "foo.us-east-1.amazonaws.com",
     });
   });
 
@@ -34,9 +34,9 @@ describe("getCanonicalHeaders", () => {
       headers: {
         "x-amz-user-agent": "aws-sdk-js-v3",
         host: "foo.us-east-1.amazonaws.com",
-        foo: "bar"
+        foo: "bar",
       },
-      hostname: "foo.us-east-1.amazonaws.com"
+      hostname: "foo.us-east-1.amazonaws.com",
     });
     for (const headerName of Object.keys(ALWAYS_UNSIGNABLE_HEADERS)) {
       request.headers[headerName] = "baz";
@@ -45,7 +45,7 @@ describe("getCanonicalHeaders", () => {
     expect(getCanonicalHeaders(request)).toEqual({
       "x-amz-user-agent": "aws-sdk-js-v3",
       host: "foo.us-east-1.amazonaws.com",
-      foo: "bar"
+      foo: "bar",
     });
   });
 
@@ -57,13 +57,13 @@ describe("getCanonicalHeaders", () => {
       headers: {
         host: "foo.us-east-1.amazonaws.com",
         foo: "bar",
-        "user-agent": "foo-user"
+        "user-agent": "foo-user",
       },
-      hostname: "foo.us-east-1.amazonaws.com"
+      hostname: "foo.us-east-1.amazonaws.com",
     });
 
     expect(getCanonicalHeaders(request, new Set(["foo"]))).toEqual({
-      host: "foo.us-east-1.amazonaws.com"
+      host: "foo.us-east-1.amazonaws.com",
     });
   });
 
@@ -75,15 +75,15 @@ describe("getCanonicalHeaders", () => {
       headers: {
         host: "foo.us-east-1.amazonaws.com",
         foo: "bar",
-        "user-agent": "foo-user"
+        "user-agent": "foo-user",
       },
-      hostname: "foo.us-east-1.amazonaws.com"
+      hostname: "foo.us-east-1.amazonaws.com",
     });
 
     expect(getCanonicalHeaders(request, new Set(["foo"]), new Set(["foo", "user-agent"]))).toEqual({
       host: "foo.us-east-1.amazonaws.com",
       foo: "bar",
-      "user-agent": "foo-user"
+      "user-agent": "foo-user",
     });
   });
 });

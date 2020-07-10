@@ -1,10 +1,8 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { Client } from "@aws-sdk/smithy-client";
+import { createRequest } from "./index";
+import { fooClient, operationCommand, InputTypesUnion, OperationInput, httpRequest } from "./foo.fixture";
 import {
   BuildHandlerArguments,
   FinalizeHandlerArguments,
-  MetadataBearer,
-  SerializeHandlerArguments
 } from "@aws-sdk/types";
 
 import { fooClient, httpRequest, InputTypesUnion, operationCommand, OperationInput } from "./foo.fixture";
@@ -13,96 +11,96 @@ import { createRequest } from "./index";
 describe("create-request", () => {
   it("should concat initialize and serialize middlewares from client and command", async () => {
     operationCommand.middlewareStack.add(
-      next => args => {
+      (next) => (args) => {
         const request = (args as any).request || httpRequest;
         request.body += "1";
         return next(<SerializeHandlerArguments<OperationInput>>{
           ...args,
-          request
+          request,
         });
       },
       {
-        step: "initialize"
+        step: "initialize",
       }
     );
     operationCommand.middlewareStack.add(
-      next => (args: SerializeHandlerArguments<OperationInput>) => {
+      (next) => (args: SerializeHandlerArguments<OperationInput>) => {
         if (HttpRequest.isInstance(args.request)) {
           args.request.body += "2";
         }
         return next(args);
       },
       {
-        step: "serialize"
+        step: "serialize",
       }
     );
     operationCommand.middlewareStack.add(
-      next => (args: BuildHandlerArguments<OperationInput>) => {
+      (next) => (args: BuildHandlerArguments<OperationInput>) => {
         if (HttpRequest.isInstance(args.request)) {
           args.request.body += "3";
         }
         return next(args);
       },
       {
-        step: "build"
+        step: "build",
       }
     );
     operationCommand.middlewareStack.add(
-      next => (args: FinalizeHandlerArguments<OperationInput>) => {
+      (next) => (args: FinalizeHandlerArguments<OperationInput>) => {
         if (HttpRequest.isInstance(args.request)) {
           args.request.body += "4";
         }
         return next(args);
       },
       {
-        step: "finalizeRequest"
+        step: "finalizeRequest",
       }
     );
 
     fooClient.middlewareStack.add(
-      next => args => {
+      (next) => (args) => {
         const request = (args as any).request || httpRequest;
         request.body += "A";
         return next(<SerializeHandlerArguments<OperationInput>>{
           ...args,
-          request
+          request,
         });
       },
       {
-        step: "initialize"
+        step: "initialize",
       }
     );
     fooClient.middlewareStack.add(
-      next => (args: SerializeHandlerArguments<OperationInput>) => {
+      (next) => (args: SerializeHandlerArguments<OperationInput>) => {
         if (HttpRequest.isInstance(args.request)) {
           args.request.body += "B";
         }
         return next(args);
       },
       {
-        step: "serialize"
+        step: "serialize",
       }
     );
     fooClient.middlewareStack.add(
-      next => (args: BuildHandlerArguments<OperationInput>) => {
+      (next) => (args: BuildHandlerArguments<OperationInput>) => {
         if (HttpRequest.isInstance(args.request)) {
           args.request.body += "C";
         }
         return next(args);
       },
       {
-        step: "build"
+        step: "build",
       }
     );
     fooClient.middlewareStack.add(
-      next => (args: FinalizeHandlerArguments<OperationInput>) => {
+      (next) => (args: FinalizeHandlerArguments<OperationInput>) => {
         if (HttpRequest.isInstance(args.request)) {
           args.request.body += "D";
         }
         return next(args);
       },
       {
-        step: "finalizeRequest"
+        step: "finalizeRequest",
       }
     );
     const request = await createRequest(
@@ -111,7 +109,7 @@ describe("create-request", () => {
     );
     expect(request).toEqual({
       ...httpRequest,
-      body: "A1B2C3"
+      body: "A1B2C3",
     });
   });
 });

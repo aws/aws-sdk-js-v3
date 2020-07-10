@@ -1,3 +1,5 @@
+import { clearCredentialCache, createScope, getSigningKey } from "./credentialDerivation";
+import { toHex } from "@aws-sdk/util-hex-encoding";
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { Credentials } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
@@ -15,7 +17,7 @@ describe("getSigningKey", () => {
 
   const credentials: Credentials = {
     accessKeyId: "foo",
-    secretAccessKey: "bar"
+    secretAccessKey: "bar",
   };
   const shortDate = "19700101";
   const region = "us-foo-1";

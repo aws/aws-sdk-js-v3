@@ -48,12 +48,12 @@ export function getSigningKey(
   return (signingKeyCache[cacheKey] = new Promise((resolve, reject) => {
     let keyPromise: Promise<SourceData> = Promise.resolve(`AWS4${credentials.secretAccessKey}`);
 
-    for (const signable of [shortDate, region, service, KEY_TYPE_IDENTIFIER]) {
-      keyPromise = keyPromise.then<Uint8Array>(intermediateKey => hmac(sha256Constructor, intermediateKey, signable));
+    for (let signable of [shortDate, region, service, KEY_TYPE_IDENTIFIER]) {
+      keyPromise = keyPromise.then<Uint8Array>((intermediateKey) => hmac(sha256Constructor, intermediateKey, signable));
       keyPromise.catch(() => {});
     }
 
-    (keyPromise as Promise<Uint8Array>).then(resolve, reason => {
+    (keyPromise as Promise<Uint8Array>).then(resolve, (reason) => {
       delete signingKeyCache[cacheKey];
       reject(reason);
     });
@@ -65,7 +65,7 @@ export function getSigningKey(
  */
 export function clearCredentialCache(): void {
   cacheQueue.length = 0;
-  Object.keys(signingKeyCache).forEach(cacheKey => {
+  Object.keys(signingKeyCache).forEach((cacheKey) => {
     delete signingKeyCache[cacheKey];
   });
 }

@@ -4,8 +4,7 @@ import {
   FinalizeHandlerArguments,
   FinalizeHandlerOutput,
   FinalizeRequestHandlerOptions,
-  MetadataBearer,
-  Pluggable
+  AbsoluteLocation,
 } from "@aws-sdk/types";
 
 import { RetryResolvedConfig } from "./configurations";
@@ -20,11 +19,11 @@ export const retryMiddlewareOptions: FinalizeRequestHandlerOptions & AbsoluteLoc
   name: "retryMiddleware",
   tags: ["RETRY"],
   step: "finalizeRequest",
-  priority: "high"
+  priority: "high",
 };
 
 export const getRetryPlugin = (options: RetryResolvedConfig): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+  applyToStack: (clientStack) => {
     clientStack.add(retryMiddleware(options), retryMiddlewareOptions);
-  }
+  },
 });

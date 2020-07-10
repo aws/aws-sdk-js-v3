@@ -7,7 +7,7 @@ const handler = copySnapshotPresignedUrlMiddleware({
   endpoint,
   region,
   sha256: MockSha256,
-  signingEscapePath: true
+  signingEscapePath: true,
 })(nextHandler, {} as any);
 
 describe("middleware-sdk-ec2", () => {
@@ -18,7 +18,7 @@ describe("middleware-sdk-ec2", () => {
   it("generates PresignedUrl and DestinationRegion parameters", async () => {
     const params = {
       SourceRegion: "src-region",
-      SourceSnapshotId: "snap-123456789"
+      SourceSnapshotId: "snap-123456789",
     };
     await handler({ input: params });
     expect(nextHandler.mock.calls.length).toBe(1);
@@ -46,7 +46,7 @@ describe("middleware-sdk-ec2", () => {
     const params = {
       PresignedUrl: "provided",
       SourceRegion: "src-region",
-      SourceSnapshotId: "snap-123456789"
+      SourceSnapshotId: "snap-123456789",
     };
     await handler({ input: params });
     expect(nextHandler.mock.calls.length).toBe(1);

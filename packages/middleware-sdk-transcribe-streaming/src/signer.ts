@@ -4,8 +4,6 @@ import {
   HttpRequest as IHttpRequest,
   RequestPresigner,
   RequestPresigningArguments,
-  RequestSigner,
-  RequestSigningArguments
 } from "@aws-sdk/types";
 
 export class SignatureV4 implements RequestSigner, RequestPresigner {
@@ -30,12 +28,12 @@ export class SignatureV4 implements RequestSigner, RequestPresigner {
           // Not to sign headers. Transcribe-streaming WebSocket
           // request omits headers except for required 'host' header. If we sign
           // the other headers, the signature could be mismatch.
-          unsignableHeaders: new Set(Object.keys(toSign.headers).filter(header => header !== "host"))
+          unsignableHeaders: new Set(Object.keys(toSign.headers).filter((header) => header !== "host")),
         }
       );
       return {
         ...signedRequest,
-        body: toSign.body
+        body: toSign.body,
       };
     } else {
       return this.signer.sign(toSign, options);

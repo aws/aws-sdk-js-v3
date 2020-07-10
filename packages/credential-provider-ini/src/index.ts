@@ -4,7 +4,7 @@ import {
   ParsedIniData,
   Profile,
   SharedConfigFiles,
-  SharedConfigInit
+  SharedConfigInit,
 } from "@aws-sdk/shared-ini-file-loader";
 import { CredentialProvider, Credentials } from "@aws-sdk/types";
 
@@ -114,7 +114,7 @@ function isAssumeRoleProfile(arg: any): arg is AssumeRoleProfile {
  * role assumption and multi-factor authentication.
  */
 export function fromIni(init: FromIniInit = {}): CredentialProvider {
-  return () => parseKnownFiles(init).then(profiles => resolveProfileData(getMasterProfileName(init), profiles, init));
+  return () => parseKnownFiles(init).then((profiles) => resolveProfileData(getMasterProfileName(init), profiles, init));
 }
 
 export function getMasterProfileName(init: FromIniInit): string {
@@ -144,7 +144,7 @@ async function resolveProfileData(
       mfa_serial,
       role_arn: RoleArn,
       role_session_name: RoleSessionName = "aws-sdk-js-" + Date.now(),
-      source_profile
+      source_profile,
     } = data;
 
     if (!options.roleAssumer) {
@@ -165,7 +165,7 @@ async function resolveProfileData(
 
     const sourceCreds = resolveProfileData(source_profile, profiles, options, {
       ...visitedProfiles,
-      [source_profile]: true
+      [source_profile]: true,
     });
     const params: AssumeRoleParams = { RoleArn, RoleSessionName, ExternalId };
     if (mfa_serial) {
@@ -199,11 +199,11 @@ async function resolveProfileData(
 export function parseKnownFiles(init: FromIniInit): Promise<ParsedIniData> {
   const { loadedConfig = loadSharedConfigFiles(init) } = init;
 
-  return loadedConfig.then(parsedFiles => {
+  return loadedConfig.then((parsedFiles) => {
     const { configFile, credentialsFile } = parsedFiles;
     return {
       ...configFile,
-      ...credentialsFile
+      ...credentialsFile,
     };
   });
 }
@@ -212,6 +212,6 @@ function resolveStaticCredentials(profile: StaticCredsProfile): Promise<Credenti
   return Promise.resolve({
     accessKeyId: profile.aws_access_key_id,
     secretAccessKey: profile.aws_secret_access_key,
-    sessionToken: profile.aws_session_token
+    sessionToken: profile.aws_session_token,
   });
 }

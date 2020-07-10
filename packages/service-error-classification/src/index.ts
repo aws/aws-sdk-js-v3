@@ -4,14 +4,14 @@ import {
   CLOCK_SKEW_ERROR_CODES,
   THROTTLING_ERROR_CODES,
   TRANSIENT_ERROR_CODES,
-  TRANSIENT_ERROR_STATUS_CODES
+  TRANSIENT_ERROR_STATUS_CODES,
 } from "./constants";
 
-export const isRetryableByTrait = (error: SdkError): boolean => error.$retryable !== undefined;
+export const isRetryableByTrait = (error: SdkError) => error.$retryable !== undefined;
 
-export const isClockSkewError = (error: SdkError): boolean => CLOCK_SKEW_ERROR_CODES.includes(error.name);
+export const isClockSkewError = (error: SdkError) => CLOCK_SKEW_ERROR_CODES.includes(error.name);
 
-export const isThrottlingError = (error: SdkError): boolean =>
+export const isThrottlingError = (error: SdkError) =>
   THROTTLING_ERROR_CODES.includes(error.name) || error.$retryable?.throttling == true;
 
 export const isTransientError = (error: SdkError): boolean =>

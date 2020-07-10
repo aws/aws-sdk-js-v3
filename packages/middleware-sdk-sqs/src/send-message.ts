@@ -5,7 +5,7 @@ import {
   InitializeHandlerOutput,
   InitializeMiddleware,
   MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 
@@ -29,7 +29,7 @@ export function sendMessageMiddleware(options: PreviouslyResolved): InitializeMi
       throw new Error("InvalidChecksumError");
     }
     return next({
-      ...args
+      ...args,
     });
   };
 }
@@ -37,11 +37,11 @@ export function sendMessageMiddleware(options: PreviouslyResolved): InitializeMi
 export const sendMessageMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["VALIDATE_BODY_MD5"],
-  name: "sendMessageMiddleware"
+  name: "sendMessageMiddleware",
 };
 
 export const getSendMessagePlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+  applyToStack: (clientStack) => {
     clientStack.add(sendMessageMiddleware(config), sendMessageMiddlewareOptions);
-  }
+  },
 });

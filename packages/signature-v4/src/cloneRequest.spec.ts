@@ -10,12 +10,12 @@ describe("cloneRequest", () => {
     path: "/",
     headers: Object.freeze({
       foo: "bar",
-      compound: "value 1, value 2"
+      compound: "value 1, value 2",
     }),
     query: Object.freeze({
       fizz: "buzz",
-      snap: ["crackle", "pop"]
-    })
+      snap: ["crackle", "pop"],
+    }),
   });
 
   it("should return an object matching the provided request", () => {

@@ -27,15 +27,14 @@ describe("applyMd5BodyChecksumMiddleware", () => {
       const handler = applyMd5BodyChecksumMiddleware({
         md5: MockHash,
         base64Encoder: mockEncoder,
-        //eslint-disable-next-line @typescript-eslint/no-unused-vars
-        streamHasher: async (stream: ExoticStream) => new Uint8Array(5)
+        streamHasher: async (stream: ExoticStream) => new Uint8Array(5),
       })(next, {} as any);
 
       await handler({
         input: {},
         request: new HttpRequest({
-          body: body
-        })
+          body: body,
+        }),
       });
 
       expect(next.mock.calls.length).toBe(1);
@@ -48,8 +47,7 @@ describe("applyMd5BodyChecksumMiddleware", () => {
       const handler = applyMd5BodyChecksumMiddleware({
         md5: MockHash,
         base64Encoder: mockEncoder,
-        //eslint-disable-next-line @typescript-eslint/no-unused-vars
-        streamHasher: async (stream: ExoticStream) => new Uint8Array(5)
+        streamHasher: async (stream: ExoticStream) => new Uint8Array(5),
       })(next, {} as any);
 
       await handler({
@@ -57,9 +55,9 @@ describe("applyMd5BodyChecksumMiddleware", () => {
         request: new HttpRequest({
           body: body,
           headers: {
-            "CoNtEnT-Md5": "foo"
-          }
-        })
+            "CoNtEnT-Md5": "foo",
+          },
+        }),
       });
 
       expect(next.mock.calls.length).toBe(1);
@@ -76,15 +74,14 @@ describe("applyMd5BodyChecksumMiddleware", () => {
     const handler = applyMd5BodyChecksumMiddleware({
       md5: MockHash,
       base64Encoder: mockEncoder,
-      //eslint-disable-next-line @typescript-eslint/no-unused-vars
-      streamHasher: async (stream: ExoticStream) => new Uint8Array(5)
+      streamHasher: async (stream: ExoticStream) => new Uint8Array(5),
     })(next, {} as any);
 
     await handler({
       input: {},
       request: new HttpRequest({
-        body: new ExoticStream()
-      })
+        body: new ExoticStream(),
+      }),
     });
 
     expect(next.mock.calls.length).toBe(1);

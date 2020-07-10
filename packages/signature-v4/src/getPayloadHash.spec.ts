@@ -10,7 +10,7 @@ describe("getPayloadHash", () => {
     protocol: "https:",
     path: "/",
     headers: {},
-    hostname: "foo.us-east-1.amazonaws.com"
+    hostname: "foo.us-east-1.amazonaws.com",
   });
 
   it("should return the SHA-256 hash of an empty string if a request has no payload (body)", async () => {
@@ -25,8 +25,8 @@ describe("getPayloadHash", () => {
         new HttpRequest({
           ...minimalRequest,
           headers: {
-            [SHA256_HEADER]: "foo"
-          }
+            [SHA256_HEADER]: "foo",
+          },
         }),
         jest.fn(() => {
           throw new Error("I should not have been invoked!");
@@ -40,7 +40,7 @@ describe("getPayloadHash", () => {
       getPayloadHash(
         new HttpRequest({
           ...minimalRequest,
-          body: "foo"
+          body: "foo",
         }),
         Sha256
       )
@@ -52,7 +52,7 @@ describe("getPayloadHash", () => {
       getPayloadHash(
         new HttpRequest({
           ...minimalRequest,
-          body: new Uint8Array([0xde, 0xad, 0xbe, 0xef])
+          body: new Uint8Array([0xde, 0xad, 0xbe, 0xef]),
         }),
         Sha256
       )
@@ -64,7 +64,7 @@ describe("getPayloadHash", () => {
       getPayloadHash(
         new HttpRequest({
           ...minimalRequest,
-          body: new Uint8Array([0xde, 0xad, 0xbe, 0xef]).buffer
+          body: new Uint8Array([0xde, 0xad, 0xbe, 0xef]).buffer,
         }),
         Sha256
       )
@@ -81,7 +81,7 @@ describe("getPayloadHash", () => {
       getPayloadHash(
         new HttpRequest({
           ...minimalRequest,
-          body: new ExoticStream() as any
+          body: new ExoticStream() as any,
         }),
         Sha256
       )

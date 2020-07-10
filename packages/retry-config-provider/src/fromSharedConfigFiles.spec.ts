@@ -1,10 +1,12 @@
+import { fromSharedConfigFiles, ENV_PROFILE } from "./fromSharedConfigFiles";
+import { loadSharedConfigFiles, ParsedIniData } from "@aws-sdk/shared-ini-file-loader";
 import { ProviderError } from "@aws-sdk/property-provider";
 import { loadSharedConfigFiles, ParsedIniData } from "@aws-sdk/shared-ini-file-loader";
 
 import { ENV_PROFILE, fromSharedConfigFiles } from "./fromSharedConfigFiles";
 
 jest.mock("@aws-sdk/shared-ini-file-loader", () => ({
-  loadSharedConfigFiles: jest.fn()
+  loadSharedConfigFiles: jest.fn(),
 }));
 
 describe("fromSharedConfigFiles", () => {
@@ -38,35 +40,35 @@ describe("fromSharedConfigFiles", () => {
       {
         message: "returns configValue from default profile",
         iniDataToReturn: {
-          default: { [configKey]: mockConfigAnswer }
+          default: { [configKey]: mockConfigAnswer },
         },
-        configValueToVerify: mockConfigAnswer
+        configValueToVerify: mockConfigAnswer,
       },
       {
         message: "returns configValue from designated profile",
         iniDataToReturn: {
           default: { [configKey]: mockConfigNotAnswer },
-          foo: { [configKey]: mockConfigAnswer }
+          foo: { [configKey]: mockConfigAnswer },
         },
         configValueToVerify: mockConfigAnswer,
-        profile: "foo"
-      }
+        profile: "foo",
+      },
     ];
 
     const loadedConfigRejects: loadedConfigTestData[] = [
       {
         message: "rejects if default profile is not present and profile value is not passed",
         iniDataToReturn: {
-          foo: { [configKey]: mockConfigNotAnswer }
-        }
+          foo: { [configKey]: mockConfigNotAnswer },
+        },
       },
       {
         message: "rejects if designated profile is not present",
         iniDataToReturn: {
-          default: { [configKey]: mockConfigNotAnswer }
+          default: { [configKey]: mockConfigNotAnswer },
         },
-        profile: "foo"
-      }
+        profile: "foo",
+      },
     ];
 
     describe("uses the shared ini file loader if pre-loaded config is not supplied", () => {
@@ -74,7 +76,7 @@ describe("fromSharedConfigFiles", () => {
         it(`${message} from config file`, () => {
           (loadSharedConfigFiles as jest.Mock).mockResolvedValueOnce({
             configFile: iniDataToReturn,
-            credentialsFile: {}
+            credentialsFile: {},
           });
           return expect(fromSharedConfigFiles({ profile }, configKey)()).resolves.toBe(configValueToVerify);
         });
@@ -84,7 +86,7 @@ describe("fromSharedConfigFiles", () => {
         it(message, () => {
           (loadSharedConfigFiles as jest.Mock).mockResolvedValueOnce({
             configFile: iniDataToReturn,
-            credentialsFile: {}
+            credentialsFile: {},
           });
           return expect(fromSharedConfigFiles({ profile }, configKey)()).rejects.toMatchObject(
             getProviderError(profile ?? "default")
@@ -98,7 +100,7 @@ describe("fromSharedConfigFiles", () => {
         it(`${message} from config file`, () => {
           const loadedConfig = Promise.resolve({
             configFile: iniDataToReturn,
-            credentialsFile: {}
+            credentialsFile: {},
           });
           return expect(fromSharedConfigFiles({ loadedConfig, profile }, configKey)()).resolves.toBe(
             configValueToVerify
@@ -110,7 +112,7 @@ describe("fromSharedConfigFiles", () => {
         it(message, () => {
           const loadedConfig = Promise.resolve({
             configFile: {},
-            credentialsFile: iniDataToReturn
+            credentialsFile: iniDataToReturn,
           });
           return expect(fromSharedConfigFiles({ loadedConfig, profile }, configKey)()).rejects.toMatchObject(
             getProviderError(profile ?? "default")
@@ -124,9 +126,9 @@ describe("fromSharedConfigFiles", () => {
     const loadedConfigData = {
       configFile: {
         default: { [configKey]: "credentialsFileDefault" },
-        foo: { [configKey]: "credentialsFileDefault" }
+        foo: { [configKey]: "credentialsFileDefault" },
       },
-      credentialsFile: {}
+      credentialsFile: {},
     };
     const loadedConfig = Promise.resolve(loadedConfigData);
 

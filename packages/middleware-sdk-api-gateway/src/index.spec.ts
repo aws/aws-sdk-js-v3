@@ -14,8 +14,8 @@ describe("acceptHeaderMiddleware", () => {
     await handler({
       input: {},
       request: new HttpRequest({
-        headers: {}
-      })
+        headers: {},
+      }),
     });
 
     const { calls } = (next as any).mock;

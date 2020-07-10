@@ -16,7 +16,7 @@ export const endpoint = (): Promise<{
   Promise.resolve({
     protocol: "https:",
     path: "/",
-    hostname: "ec2.mock-region.amazonaws.com"
+    hostname: "ec2.mock-region.amazonaws.com",
   });
 
 export const credentials = (): Promise<{
@@ -27,5 +27,5 @@ export const credentials = (): Promise<{
   Promise.resolve({
     accessKeyId: "akid",
     secretAccessKey: "secret",
-    sessionToken: "session"
+    sessionToken: "session",
   });

@@ -5,7 +5,7 @@ import {
   InitializeHandlerOutput,
   InitializeMiddleware,
   MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 
@@ -45,7 +45,7 @@ export function receiveMessageMiddleware(options: PreviouslyResolved): Initializ
     }
 
     return next({
-      ...args
+      ...args,
     });
   };
 }
@@ -53,11 +53,11 @@ export function receiveMessageMiddleware(options: PreviouslyResolved): Initializ
 export const receiveMessageMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["VALIDATE_BODY_MD5"],
-  name: "receiveMessageMiddleware"
+  name: "receiveMessageMiddleware",
 };
 
 export const getReceiveMessagePlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+  applyToStack: (clientStack) => {
     clientStack.add(receiveMessageMiddleware(config), receiveMessageMiddlewareOptions);
-  }
+  },
 });

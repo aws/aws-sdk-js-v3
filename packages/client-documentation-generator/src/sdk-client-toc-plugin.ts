@@ -1,3 +1,13 @@
+import * as ts from "typescript";
+import { Component, RendererComponent } from "typedoc/dist/lib/output/components";
+import {
+  Reflection,
+  ProjectReflection,
+  ReflectionKind,
+  DeclarationReflection,
+} from "typedoc/dist/lib/models/reflections";
+import { NavigationItem } from "typedoc/dist/lib/output/models/NavigationItem";
+import { PageEvent } from "typedoc/dist/lib/output/events";
 import { ReferenceType } from "typedoc/dist/lib/models";
 import { DeclarationReflection, Reflection, ReflectionKind } from "typedoc/dist/lib/models/reflections";
 import { Component, RendererComponent } from "typedoc/dist/lib/output/components";
@@ -16,7 +26,7 @@ export class SdkClientTocPlugin extends RendererComponent {
     this.owner.off(PageEvent.BEGIN, tocPlugin.onRendererBeginPage);
 
     this.listenTo(this.owner, {
-      [PageEvent.BEGIN]: this.onRendererBeginPage
+      [PageEvent.BEGIN]: this.onRendererBeginPage,
     });
   }
 
@@ -118,7 +128,7 @@ export class SdkClientTocPlugin extends RendererComponent {
             this.commandToNavigationItems.set(commandName, item);
           }
         } else if (this.isException(child)) {
-          NavigationItem.create(child, this.exceptionsNavigationItem, true);
+          const item = NavigationItem.create(child, this.exceptionsNavigationItem, true);
         } else if (
           this.isUnion(child) &&
           (child as any).type.types.every((type: ReferenceType) => {
@@ -127,11 +137,11 @@ export class SdkClientTocPlugin extends RendererComponent {
         ) {
           // get command from name
           const commandName = child.name.replace("ExceptionsUnion", "").toLowerCase() + "command";
-          NavigationItem.create(child, this.commandToNavigationItems.get(commandName), true);
+          const item = NavigationItem.create(child, this.commandToNavigationItems.get(commandName), true);
         } else if (this.isInputOrOutput(child)) {
           // get command from name
           const commandName = child.name.replace(/Input|Output/, "").toLowerCase() + "command";
-          NavigationItem.create(child, this.commandToNavigationItems.get(commandName), true);
+          const item = NavigationItem.create(child, this.commandToNavigationItems.get(commandName), true);
         } else if (child.name.startsWith("_")) {
           return;
         } else {

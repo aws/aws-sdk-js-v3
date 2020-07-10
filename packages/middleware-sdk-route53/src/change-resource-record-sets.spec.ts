@@ -12,15 +12,12 @@ describe("changeResourceRecordSetsMiddleware", () => {
             for (let i = 0; i < 6; i++) {
               yield {
                 ResourceRecordSet: {
-                  AliasTarget:
-                    i % 2 === 0
-                      ? { HostedZoneId: `${prefixed}/${i}` }
-                      : undefined
-                }
+                  AliasTarget: i % 2 === 0 ? { HostedZoneId: `${prefixed}/${i}` } : undefined,
+                },
               };
             }
-          })()
-        }
+          })(),
+        },
       };
 
       const handler = changeResourceRecordSetsMiddleware()(next, {} as any);
@@ -35,30 +32,30 @@ describe("changeResourceRecordSetsMiddleware", () => {
               {
                 ResourceRecordSet: {
                   AliasTarget: {
-                    HostedZoneId: "ID/0"
-                  }
-                }
+                    HostedZoneId: "ID/0",
+                  },
+                },
               },
               { ResourceRecordSet: {} },
               {
                 ResourceRecordSet: {
                   AliasTarget: {
-                    HostedZoneId: "ID/2"
-                  }
-                }
+                    HostedZoneId: "ID/2",
+                  },
+                },
               },
               { ResourceRecordSet: {} },
               {
                 ResourceRecordSet: {
                   AliasTarget: {
-                    HostedZoneId: "ID/4"
-                  }
-                }
+                    HostedZoneId: "ID/4",
+                  },
+                },
               },
-              { ResourceRecordSet: {} }
-            ]
-          }
-        }
+              { ResourceRecordSet: {} },
+            ],
+          },
+        },
       });
     });
   }

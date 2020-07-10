@@ -5,7 +5,7 @@ import {
   InitializeHandlerOutput,
   InitializeMiddleware,
   MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 
@@ -53,7 +53,7 @@ export function sendMessageBatchMiddleware(options: PreviouslyResolved): Initial
     }
 
     return next({
-      ...args
+      ...args,
     });
   };
 }
@@ -61,11 +61,11 @@ export function sendMessageBatchMiddleware(options: PreviouslyResolved): Initial
 export const sendMessageBatchMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["VALIDATE_BODY_MD5"],
-  name: "sendMessageBatchMiddleware"
+  name: "sendMessageBatchMiddleware",
 };
 
 export const getSendMessageBatchPlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+  applyToStack: (clientStack) => {
     clientStack.add(sendMessageBatchMiddleware(config), sendMessageBatchMiddlewareOptions);
-  }
+  },
 });

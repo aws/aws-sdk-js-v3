@@ -1,4 +1,4 @@
-import { Endpoint, Provider, RegionInfo, RegionInfoProvider, UrlParser } from "@aws-sdk/types";
+import { Provider, UrlParser, Endpoint, RegionInfoProvider, RegionInfo } from "@aws-sdk/types";
 
 export function normalizeEndpoint(
   endpoint?: string | Endpoint | Provider<Endpoint>,
@@ -40,7 +40,7 @@ export function resolveEndpointsConfig<T>(
   const endpoint: Provider<Endpoint> = input.endpoint
     ? normalizeEndpoint(input.endpoint, input.urlParser)
     : () =>
-        input.region().then(async region => {
+        input.region().then(async (region) => {
           const hostname = ((await input.regionInfoProvider(region)) || ({} as RegionInfo)).hostname;
           if (!hostname) {
             throw new Error("Cannot resolve hostname from client config");
@@ -51,6 +51,6 @@ export function resolveEndpointsConfig<T>(
   return {
     ...input,
     endpoint,
-    tls
+    tls,
   };
 }

@@ -27,8 +27,8 @@ StringWrapper.prototype = Object.create(String.prototype, {
     value: StringWrapper,
     enumerable: false,
     writable: true,
-    configurable: true
-  }
+    configurable: true,
+  },
 });
 Object.setPrototypeOf(StringWrapper, String);
 

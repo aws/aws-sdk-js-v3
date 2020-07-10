@@ -6,7 +6,7 @@ import {
   BuildHandlerOutput,
   BuildMiddleware,
   MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "@aws-sdk/types";
 
 export function acceptHeaderMiddleware(): BuildMiddleware<any, any> {
@@ -17,12 +17,12 @@ export function acceptHeaderMiddleware(): BuildMiddleware<any, any> {
     if (HttpRequest.isInstance(request)) {
       request.headers = {
         ...request.headers,
-        accept: "application/json"
+        accept: "application/json",
       };
     }
     return next({
       ...args,
-      request
+      request,
     });
   };
 }
@@ -30,12 +30,12 @@ export function acceptHeaderMiddleware(): BuildMiddleware<any, any> {
 export const acceptHeaderMiddlewareOptions: BuildHandlerOptions = {
   step: "build",
   tags: ["SET_ACCEPT_HEADER", "ACCEPT_HEADER"],
-  name: "acceptHeaderMiddleware"
+  name: "acceptHeaderMiddleware",
 };
 
 //eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getAcceptHeaderPlugin = (unused: any): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+  applyToStack: (clientStack) => {
     clientStack.add(acceptHeaderMiddleware(), acceptHeaderMiddlewareOptions);
-  }
+  },
 });

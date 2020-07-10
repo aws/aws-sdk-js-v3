@@ -1,3 +1,4 @@
+import { RequestSigner, Credentials, Provider, HashConstructor, RegionInfoProvider, RegionInfo } from "@aws-sdk/types";
 import { SignatureV4 } from "@aws-sdk/signature-v4";
 import { Credentials, HashConstructor, Provider, RegionInfo, RegionInfoProvider, RequestSigner } from "@aws-sdk/types";
 
@@ -42,7 +43,7 @@ export interface AwsAuthResolvedConfig {
   systemClockOffset: number;
 }
 export function resolveAwsAuthConfig<T>(input: T & AwsAuthInputConfig & PreviouslyResolved): T & AwsAuthResolvedConfig {
-  const credentials = input.credentials || input.credentialDefaultProvider(input as any);
+  let credentials = input.credentials || input.credentialDefaultProvider(input as any);
   const normalizedCreds = normalizeProvider(credentials);
   const { signingEscapePath = true, systemClockOffset = input.systemClockOffset || 0, sha256 } = input;
   let signer: Provider<RequestSigner>;
@@ -53,7 +54,7 @@ export function resolveAwsAuthConfig<T>(input: T & AwsAuthInputConfig & Previous
     //construct a provider inferring signing from region.
     signer = () =>
       normalizeProvider(input.region)()
-        .then(async region => [(await input.regionInfoProvider(region)) || {}, region] as [RegionInfo, string])
+        .then(async (region) => [(await input.regionInfoProvider(region)) || {}, region] as [RegionInfo, string])
         .then(([regionInfo, region]) => {
           const { signingRegion = input.signingRegion, signingService = input.signingName } = regionInfo;
           //update client's singing region and signing service config if they are resolved.
@@ -66,7 +67,7 @@ export function resolveAwsAuthConfig<T>(input: T & AwsAuthInputConfig & Previous
             region: input.signingRegion,
             service: input.signingName,
             sha256,
-            uriEscapePath: signingEscapePath
+            uriEscapePath: signingEscapePath,
           });
         });
   }
@@ -76,7 +77,7 @@ export function resolveAwsAuthConfig<T>(input: T & AwsAuthInputConfig & Previous
     systemClockOffset,
     signingEscapePath,
     credentials: normalizedCreds,
-    signer
+    signer,
   };
 }
 

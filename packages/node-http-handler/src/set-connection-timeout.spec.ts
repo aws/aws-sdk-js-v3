@@ -4,7 +4,7 @@ import { setConnectionTimeout } from "./set-connection-timeout";
 
 describe("setConnectionTimeout", () => {
   const clientRequest: any = {
-    on: jest.fn()
+    on: jest.fn(),
   };
 
   beforeEach(() => {

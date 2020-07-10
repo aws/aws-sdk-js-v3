@@ -7,7 +7,7 @@ import {
   BuildMiddleware,
   MetadataBearer,
   Pluggable,
-  RelativeLocation
+  RelativeLocation,
 } from "@aws-sdk/types";
 
 export function prependAccountIdMiddleware(): BuildMiddleware<any, any> {
@@ -35,7 +35,7 @@ export function prependAccountIdMiddleware(): BuildMiddleware<any, any> {
     }
     return next({
       ...args,
-      request
+      request,
     });
   };
 }
@@ -45,12 +45,11 @@ export const prependAccountIdMiddlewareOptions: BuildHandlerOptions & RelativeLo
   tags: ["PREPEND_ACCOUNT_ID_MIDDLEWARE"],
   name: "prependAccountIdMiddleware",
   relation: "before",
-  toMiddleware: "hostHeaderMiddleware"
+  toMiddleware: "hostHeaderMiddleware",
 };
 
-//eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getPrependAccountIdPlugin = (unused: any): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+  applyToStack: (clientStack) => {
     clientStack.addRelativeTo(prependAccountIdMiddleware(), prependAccountIdMiddlewareOptions);
-  }
+  },
 });

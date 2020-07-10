@@ -1,5 +1,6 @@
 import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@aws-sdk/signature-v4";
 import { RequestPresigner, RequestPresigningArguments } from "@aws-sdk/types";
+import { SignatureV4, SignatureV4Init, SignatureV4CryptoInit } from "@aws-sdk/signature-v4";
 import { HttpRequest as IHttpRequest } from "@aws-sdk/types";
 
 import { SHA256_HEADER, UNSIGNED_PAYLOAD } from "./constants";
@@ -24,7 +25,7 @@ export class S3RequestPresigner implements RequestPresigner {
       // directly. Where service equals signingName.
       service: options.signingName || options.service || "s3",
       uriEscapePath: options.uriEscapePath || false,
-      ...options
+      ...options,
     };
     this.signer = new SignatureV4(resolvedOptions);
   }
@@ -38,7 +39,7 @@ export class S3RequestPresigner implements RequestPresigner {
     return this.signer.presign(requestToSign, {
       expiresIn: 900,
       unsignableHeaders,
-      ...options
+      ...options,
     });
   }
 }

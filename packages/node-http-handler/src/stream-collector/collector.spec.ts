@@ -1,13 +1,9 @@
 import { Collector } from "./collector";
 
 describe("Collector", () => {
-  const writePromise = (
-    collector: Collector,
-    chunk: any,
-    encoding?: string
-  ): Promise<void> => {
+  const writePromise = (collector: Collector, chunk: any, encoding?: string): Promise<void> => {
     return new Promise((resolve, reject) => {
-      collector.write(chunk, encoding, err => {
+      collector.write(chunk, encoding, (err) => {
         if (err) {
           reject(err);
         } else {
@@ -17,11 +13,7 @@ describe("Collector", () => {
     });
   };
 
-  const listOfBuffers: Buffer[] = [
-    Buffer.from("foo"),
-    Buffer.from("bar"),
-    Buffer.from("buzz")
-  ];
+  const listOfBuffers: Buffer[] = [Buffer.from("foo"), Buffer.from("bar"), Buffer.from("buzz")];
 
   it("stores a collection of buffers internally", async () => {
     const collector = new Collector();

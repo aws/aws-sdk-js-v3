@@ -7,7 +7,7 @@ export class AbortSignal implements IAbortSignal {
   constructor() {
     Object.defineProperty(this, "_aborted", {
       value: false,
-      writable: true
+      writable: true,
     });
   }
 

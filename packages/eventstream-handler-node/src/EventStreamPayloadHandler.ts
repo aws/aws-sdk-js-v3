@@ -5,11 +5,7 @@ import {
   EventSigner,
   EventStreamPayloadHandler as IEventStreamPayloadHandler,
   FinalizeHandler,
-  FinalizeHandlerArguments,
   FinalizeHandlerOutput,
-  HttpRequest,
-  MetadataBearer,
-  Provider
 } from "@aws-sdk/types";
 import { PassThrough, pipeline, Readable } from "stream";
 
@@ -47,7 +43,7 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
     }
     const payloadStream = payload as Readable;
     request.body = new PassThrough({
-      objectMode: true
+      objectMode: true,
     });
     let result: FinalizeHandlerOutput<any>;
     try {
@@ -65,9 +61,9 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
     const signingStream = new EventSigningStream({
       priorSignature,
       eventMarshaller: this.eventMarshaller,
-      eventSigner: await this.eventSigner()
+      eventSigner: await this.eventSigner(),
     });
-    pipeline(payloadStream, signingStream, request.body, err => {
+    pipeline(payloadStream, signingStream, request.body, (err) => {
       if (err) {
         throw err;
       }

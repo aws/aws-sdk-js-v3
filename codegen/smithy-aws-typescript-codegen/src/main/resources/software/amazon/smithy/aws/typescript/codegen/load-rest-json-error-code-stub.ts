@@ -2,8 +2,7 @@
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

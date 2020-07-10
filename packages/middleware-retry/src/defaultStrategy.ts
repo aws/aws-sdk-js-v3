@@ -1,8 +1,11 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/retry-config-provider";
+import { DEFAULT_RETRY_DELAY_BASE, THROTTLING_RETRY_DELAY_BASE, INITIAL_RETRY_TOKENS } from "./constants";
+import { defaultDelayDecider } from "./delayDecider";
+import { defaultRetryDecider } from "./retryDecider";
 import { isThrottlingError } from "@aws-sdk/service-error-classification";
 import { SdkError } from "@aws-sdk/smithy-client";
-import { FinalizeHandler, FinalizeHandlerArguments, MetadataBearer, Provider, RetryStrategy } from "@aws-sdk/types";
+import { FinalizeHandler, MetadataBearer, FinalizeHandlerArguments, RetryStrategy, Provider } from "@aws-sdk/types";
+import { getDefaultRetryQuota } from "./defaultRetryQuota";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import { v4 } from "uuid";
 
 import { DEFAULT_RETRY_DELAY_BASE, INITIAL_RETRY_TOKENS, THROTTLING_RETRY_DELAY_BASE } from "./constants";
@@ -123,7 +126,7 @@ export class StandardRetryStrategy implements RetryStrategy {
           );
           totalDelay += delay;
 
-          await new Promise(resolve => setTimeout(resolve, delay));
+          await new Promise((resolve) => setTimeout(resolve, delay));
           continue;
         }
 

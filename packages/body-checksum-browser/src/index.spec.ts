@@ -11,11 +11,11 @@ describe("bodyChecksumGenerator for browser", () => {
     protocol: "https:",
     path: "/",
     headers: {},
-    hostname: "foo.us-east-1.amazonaws.com"
+    hostname: "foo.us-east-1.amazonaws.com",
   };
   const options = {
     sha256: Sha256,
-    utf8Decoder: fromUtf8
+    utf8Decoder: fromUtf8,
   };
 
   it("will calculate sha256 hashes when request body is a blob", async () => {
@@ -24,7 +24,7 @@ describe("bodyChecksumGenerator for browser", () => {
 
     const request = new HttpRequest({
       ...sharedRequest,
-      body: blob
+      body: blob,
     });
 
     const [contentHash, treeHash] = await bodyChecksumGenerator(request, options);
@@ -36,7 +36,7 @@ describe("bodyChecksumGenerator for browser", () => {
   it("will calculate sha256 hashes when request body is a string", async () => {
     const request = new HttpRequest({
       ...sharedRequest,
-      body: "bar"
+      body: "bar",
     });
 
     const [contentHash, treeHash] = await bodyChecksumGenerator(request, options);
@@ -48,7 +48,7 @@ describe("bodyChecksumGenerator for browser", () => {
   it("will reject when request body is a non-blob stream", async () => {
     const request = new HttpRequest({
       ...sharedRequest,
-      body: new Readable()
+      body: new Readable(),
     });
 
     try {

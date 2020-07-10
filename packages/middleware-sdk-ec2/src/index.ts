@@ -11,7 +11,7 @@ import {
   InitializeMiddleware,
   MetadataBearer,
   Pluggable,
-  Provider
+  Provider,
 } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
 import { escapeUri } from "@aws-sdk/util-uri-escape";
@@ -42,25 +42,25 @@ export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved):
         ...resolvedEndpoint,
         protocol: "https",
         headers: {
-          host: resolvedEndpoint.hostname
+          host: resolvedEndpoint.hostname,
         },
         query: {
           Action: "CopySnapshot",
           Version: version,
           SourceRegion: input.SourceRegion,
           SourceSnapshotId: input.SourceSnapshotId,
-          DestinationRegion: region
-        }
+          DestinationRegion: region,
+        },
       });
       const signer = new SignatureV4({
         credentials: options.credentials,
         region: input.SourceRegion,
         service: "ec2",
         sha256: options.sha256,
-        uriEscapePath: options.signingEscapePath
+        uriEscapePath: options.signingEscapePath,
       });
       const presignedRequest = await signer.presign(request, {
-        expiresIn: 3600
+        expiresIn: 3600,
       });
 
       args = {
@@ -68,8 +68,8 @@ export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved):
         input: {
           ...args.input,
           DestinationRegion: region,
-          PresignedUrl: escapeUri(formatUrl(presignedRequest))
-        }
+          PresignedUrl: escapeUri(formatUrl(presignedRequest)),
+        },
       };
     }
 
@@ -80,11 +80,11 @@ export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved):
 export const copySnapshotPresignedUrlMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["CROSS_REGION_PRESIGNED_URL"],
-  name: "crossRegionPresignedUrlMiddleware"
+  name: "crossRegionPresignedUrlMiddleware",
 };
 
 export const getCopySnapshotPresignedUrlPlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+  applyToStack: (clientStack) => {
     clientStack.add(copySnapshotPresignedUrlMiddleware(config), copySnapshotPresignedUrlMiddlewareOptions);
-  }
+  },
 });

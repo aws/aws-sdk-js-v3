@@ -15,8 +15,8 @@ describe("addExpectContinueMiddleware", () => {
       input: {},
       request: new HttpRequest({
         body: "foo",
-        headers: {}
-      })
+        headers: {},
+      }),
     });
 
     const { calls } = (mockNextHandler as any).mock;
@@ -30,8 +30,8 @@ describe("addExpectContinueMiddleware", () => {
     await handler({
       input: {},
       request: new HttpRequest({
-        headers: {}
-      })
+        headers: {},
+      }),
     });
 
     const { calls } = (mockNextHandler as any).mock;
@@ -46,8 +46,8 @@ describe("addExpectContinueMiddleware", () => {
       input: {},
       request: new HttpRequest({
         body: "foo",
-        headers: {}
-      })
+        headers: {},
+      }),
     });
 
     const { calls } = (mockNextHandler as any).mock;

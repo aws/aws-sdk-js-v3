@@ -13,9 +13,9 @@ describe("parseUrl", () => {
         query: {
           snap: ["cräckle", "pôp"],
           fizz: "buzz",
-          quux: null
-        }
-      }
+          quux: null,
+        },
+      },
     ],
     [
       "http://example.com:54321",
@@ -23,8 +23,8 @@ describe("parseUrl", () => {
         protocol: "http:",
         hostname: "example.com",
         port: 54321,
-        path: "/"
-      }
+        path: "/",
+      },
     ],
     [
       "https://example.com?foo=bar",
@@ -32,9 +32,9 @@ describe("parseUrl", () => {
         protocol: "https:",
         hostname: "example.com",
         path: "/",
-        query: { foo: "bar" }
-      }
-    ]
+        query: { foo: "bar" },
+      },
+    ],
   ]);
 
   for (const [url, parsed] of testCases) {

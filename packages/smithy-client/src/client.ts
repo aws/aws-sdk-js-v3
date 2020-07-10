@@ -1,5 +1,5 @@
 import { MiddlewareStack } from "@aws-sdk/middleware-stack";
-import { Client as IClient, Command, MetadataBearer, RequestHandler } from "@aws-sdk/types";
+import { RequestHandler, MetadataBearer, Command, Client as IClient } from "@aws-sdk/types";
 
 export interface SmithyConfiguration<HandlerOptions> {
   requestHandler: RequestHandler<any, any, HandlerOptions>;
@@ -43,7 +43,7 @@ export class Client<
     if (callback) {
       handler(command)
         .then(
-          result => callback(null, result.output),
+          (result) => callback(null, result.output),
           (err: any) => callback(err)
         )
         .catch(
@@ -52,7 +52,7 @@ export class Client<
           () => {}
         );
     } else {
-      return handler(command).then(result => result.output);
+      return handler(command).then((result) => result.output);
     }
   }
 

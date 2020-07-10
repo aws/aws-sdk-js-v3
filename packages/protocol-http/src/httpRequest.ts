@@ -1,4 +1,4 @@
-import { Endpoint, HeaderBag, HttpMessage, HttpRequest as IHttpRequest, QueryParameterBag } from "@aws-sdk/types";
+import { HttpMessage, Endpoint, QueryParameterBag, HeaderBag, HttpRequest as IHttpRequest } from "@aws-sdk/types";
 
 type HttpRequestOptions = Partial<HttpMessage> & Partial<Endpoint> & { method?: string };
 
@@ -46,7 +46,7 @@ export class HttpRequest implements HttpMessage, Endpoint {
   clone(): HttpRequest {
     const cloned = new HttpRequest({
       ...this,
-      headers: { ...this.headers }
+      headers: { ...this.headers },
     });
     if (cloned.query) cloned.query = cloneQuery(cloned.query);
     return cloned;
@@ -58,7 +58,7 @@ function cloneQuery(query: QueryParameterBag): QueryParameterBag {
     const param = query[paramName];
     return {
       ...carry,
-      [paramName]: Array.isArray(param) ? [...param] : param
+      [paramName]: Array.isArray(param) ? [...param] : param,
     };
   }, {});
 }

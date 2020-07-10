@@ -5,7 +5,7 @@ import {
   InitializeHandlerOutput,
   InitializeMiddleware,
   MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "@aws-sdk/types";
 
 export function validateBucketNameMiddleware(): InitializeMiddleware<any, any> {
@@ -27,12 +27,11 @@ export function validateBucketNameMiddleware(): InitializeMiddleware<any, any> {
 export const validateBucketNameMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["VALIDATE_BUCKET_NAME"],
-  name: "validateBucketNameMiddleware"
+  name: "validateBucketNameMiddleware",
 };
 
-//eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getValidateBucketNamePlugin = (unused: any): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+  applyToStack: (clientStack) => {
     clientStack.add(validateBucketNameMiddleware(), validateBucketNameMiddlewareOptions);
-  }
+  },
 });

@@ -2,6 +2,7 @@ import { iterableToReadableStream, readableStreamtoIterable } from "@aws-sdk/eve
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { RequestHandlerMetadata } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
+import { iterableToReadableStream, readableStreamtoIterable } from "@aws-sdk/eventstream-serde-browser";
 
 export interface WebSocketHandlerOptions {
   /**
@@ -19,7 +20,7 @@ export interface WebSocketHandlerOptions {
  */
 export class WebSocketHandler implements HttpHandler {
   public readonly metadata: RequestHandlerMetadata = {
-    handlerProtocol: "websocket"
+    handlerProtocol: "websocket",
   };
   private readonly connectionTimeout: number;
   constructor({ connectionTimeout }: WebSocketHandlerOptions = {}) {
@@ -28,7 +29,7 @@ export class WebSocketHandler implements HttpHandler {
 
   destroy(): void {}
 
-  async handle(request: HttpRequest): Promise<{ response: HttpResponse }> {
+  async handle(request: HttpRequest, options: HttpHandlerOptions = {}): Promise<{ response: HttpResponse }> {
     const url = formatUrl(request);
     const socket: WebSocket = new WebSocket(url);
     socket.binaryType = "arraybuffer";
@@ -40,8 +41,8 @@ export class WebSocketHandler implements HttpHandler {
     return {
       response: new HttpResponse({
         statusCode: 200, // indicates connection success
-        body: outputPayload
-      })
+        body: outputPayload,
+      }),
     };
   }
 }
@@ -51,8 +52,8 @@ const waitForReady = (socket: WebSocket, connectionTimeout: number) =>
     const timeout = setTimeout(() => {
       reject({
         $metadata: {
-          httpStatusCode: 500
-        }
+          httpStatusCode: 500,
+        },
       });
     }, connectionTimeout);
     socket.onopen = () => {
@@ -69,7 +70,7 @@ const connect = (socket: WebSocket, data: AsyncIterable<Uint8Array>): AsyncItera
     [Symbol.asyncIterator]: () => ({
       next: () => {
         return new Promise((resolve, reject) => {
-          socket.onerror = error => {
+          socket.onerror = (error) => {
             socket.onclose = null;
             socket.close();
             reject(error);
@@ -80,19 +81,19 @@ const connect = (socket: WebSocket, data: AsyncIterable<Uint8Array>): AsyncItera
             } else {
               resolve({
                 done: true,
-                value: undefined
+                value: undefined,
               });
             }
           };
-          socket.onmessage = event => {
+          socket.onmessage = (event) => {
             resolve({
               done: false,
-              value: new Uint8Array(event.data)
+              value: new Uint8Array(event.data),
             });
           };
         });
-      }
-    })
+      },
+    }),
   };
 
   const send = async (): Promise<void> => {
@@ -132,7 +133,7 @@ const getIterator = (stream: any): AsyncIterable<any> => {
     return {
       [Symbol.asyncIterator]: async function* () {
         yield stream;
-      }
+      },
     };
   }
 };

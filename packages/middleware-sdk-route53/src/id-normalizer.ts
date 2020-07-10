@@ -5,7 +5,7 @@ import {
   InitializeHandlerOutput,
   InitializeMiddleware,
   MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "@aws-sdk/types";
 
 import { IDENTIFIER_PREFIX_PATTERN } from "./constants";
@@ -34,7 +34,7 @@ export function idNormalizerMiddleware(): InitializeMiddleware<any, any> {
 
     return next({
       ...args,
-      input
+      input,
     });
   };
 }
@@ -42,12 +42,12 @@ export function idNormalizerMiddleware(): InitializeMiddleware<any, any> {
 export const idNormalizerMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["ROUTE53_IDS"],
-  name: "idNormalizerMiddleware"
+  name: "idNormalizerMiddleware",
 };
 
 //eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getIdNormalizerPlugin = (unused: any): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+  applyToStack: (clientStack) => {
     clientStack.add(idNormalizerMiddleware(), idNormalizerMiddlewareOptions);
-  }
+  },
 });

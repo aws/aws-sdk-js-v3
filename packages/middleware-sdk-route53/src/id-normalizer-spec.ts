@@ -16,7 +16,7 @@ describe("idNormalizerMiddleware", () => {
 
         expect(next.mock.calls.length).toBe(1);
         expect(next.mock.calls[0][0]).toEqual({
-          input: { [paramName]: "ID" }
+          input: { [paramName]: "ID" },
         });
       });
     }

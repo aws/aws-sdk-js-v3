@@ -3,10 +3,9 @@ import {
   EndpointBearer,
   MetadataBearer,
   MiddlewareStack,
-  Pluggable,
-  RequestSerializer,
-  ResponseDeserializer,
-  SerializeHandlerOptions
+  EndpointBearer,
+  DeserializeHandlerOptions,
+  SerializeHandlerOptions,
 } from "@aws-sdk/types";
 
 import { deserializerMiddleware } from "./deserializerMiddleware";
@@ -15,13 +14,13 @@ import { serializerMiddleware } from "./serializerMiddleware";
 export const deserializerMiddlewareOption: DeserializeHandlerOptions = {
   name: "deserializerMiddleware",
   step: "deserialize",
-  tags: ["DESERIALIZER"]
+  tags: ["DESERIALIZER"],
 };
 
 export const serializerMiddlewareOption: SerializeHandlerOptions = {
   name: "serializerMiddleware",
   step: "serialize",
-  tags: ["SERIALIZER"]
+  tags: ["SERIALIZER"],
 };
 
 export function getSerdePlugin<
@@ -37,6 +36,6 @@ export function getSerdePlugin<
     applyToStack: (commandStack: MiddlewareStack<InputType, OutputType>) => {
       commandStack.add(deserializerMiddleware(config, deserializer), deserializerMiddlewareOption);
       commandStack.add(serializerMiddleware(config, serializer), serializerMiddlewareOption);
-    }
+    },
   };
 }

@@ -69,15 +69,15 @@ export class NodeHttpHandler implements HttpHandler {
         method: request.method,
         path: queryString ? `${request.path}?${queryString}` : request.path,
         port: request.port,
-        agent: isSSL ? this.httpsAgent : this.httpAgent
+        agent: isSSL ? this.httpsAgent : this.httpAgent,
       };
 
       // create the http request
-      const req = (isSSL ? https : http).request(nodeHttpsOptions, res => {
+      const req = (isSSL ? https : http).request(nodeHttpsOptions, (res) => {
         const httpResponse = new HttpResponse({
           statusCode: res.statusCode || -1,
           headers: getTransformedHeaders(res.headers),
-          body: res
+          body: res,
         });
         resolve({ response: httpResponse });
       });

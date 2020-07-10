@@ -9,33 +9,33 @@ describe("EventSigningStream", () => {
   afterEach(() => {
     Date = originalDate;
   });
-  it("should sign a eventstream payload properly", done => {
+  it("should sign a eventstream payload properly", (done) => {
     const marshaller = new EventStreamMarshaller(toUtf8, fromUtf8);
     const inputChunks: Array<Uint8Array> = ([
       {
         headers: {},
-        body: fromUtf8("foo")
+        body: fromUtf8("foo"),
       },
       {
         headers: {},
-        body: fromUtf8("bar")
-      }
-    ] as Array<Message>).map(event => marshaller.marshall(event));
+        body: fromUtf8("bar"),
+      },
+    ] as Array<Message>).map((event) => marshaller.marshall(event));
     const expected: Array<MessageHeaders> = [
       {
         ":date": { type: "timestamp", value: new Date(1546045446000) },
         ":chunk-signature": {
           type: "binary",
-          value: Uint8Array.from([115, 105, 103, 110, 97, 116, 117, 114, 101, 49])
-        }
+          value: Uint8Array.from([115, 105, 103, 110, 97, 116, 117, 114, 101, 49]),
+        },
       },
       {
         ":date": { type: "timestamp", value: new Date(1546045447000) },
         ":chunk-signature": {
           type: "binary",
-          value: Uint8Array.from([115, 105, 103, 110, 97, 116, 117, 114, 101, 50])
-        }
-      }
+          value: Uint8Array.from([115, 105, 103, 110, 97, 116, 117, 114, 101, 50]),
+        },
+      },
     ];
     const mockEventSigner = jest
       .fn()
@@ -48,7 +48,7 @@ describe("EventSigningStream", () => {
     const mockDate = jest
       .spyOn(global, "Date")
       //@ts-ignore: https://stackoverflow.com/questions/60912023/jest-typescript-mock-date-constructor/60918716#60918716
-      .mockImplementation(input => {
+      .mockImplementation((input) => {
         if (input) return new originalDate(input);
         mockDateCount += 1;
         return expected[mockDateCount - 1][":date"].value;
@@ -56,10 +56,10 @@ describe("EventSigningStream", () => {
     const signingStream = new EventSigningStream({
       priorSignature: "initial",
       eventSigner: { sign: mockEventSigner },
-      eventMarshaller: marshaller
+      eventMarshaller: marshaller,
     });
     const output: Array<MessageHeaders> = [];
-    signingStream.on("data", chunk => {
+    signingStream.on("data", (chunk) => {
       output.push(marshaller.unmarshall(chunk).headers);
     });
     signingStream.on("end", () => {
@@ -74,7 +74,7 @@ describe("EventSigningStream", () => {
       );
       done();
     });
-    signingStream.on("error", err => {
+    signingStream.on("error", (err) => {
       throw err;
     });
     for (const input of inputChunks) {

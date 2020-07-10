@@ -1,6 +1,5 @@
 import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
-import { EventStreamMarshaller as UniversalEventStreamMarshaller } from "@aws-sdk/eventstream-serde-universal";
-import { Decoder, Encoder, EventStreamMarshaller as IEventStreamMarshaller, Message } from "@aws-sdk/types";
+import { Encoder, Decoder, Message, EventStreamMarshaller as IEventStreamMarshaller } from "@aws-sdk/types";
 import { Readable } from "stream";
 
 import { readabletoIterable } from "./utils";
@@ -19,7 +18,7 @@ export class EventStreamMarshaller {
     this.eventMarshaller = new EventMarshaller(utf8Encoder, utf8Decoder);
     this.universalMarshaller = new UniversalEventStreamMarshaller({
       utf8Decoder,
-      utf8Encoder
+      utf8Encoder,
     });
   }
 
@@ -51,10 +50,10 @@ export class EventStreamMarshaller {
                 this.push(value);
               }
             })
-            .catch(err => {
+            .catch((err) => {
               this.destroy(err);
             });
-        }
+        },
       });
       //TODO: use 'autoDestroy' when targeting Node 11
       serializedStream.on("error", () => {

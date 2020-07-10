@@ -24,7 +24,7 @@ describe("streamReader", () => {
       Buffer.alloc(1048576, 0),
       Buffer.alloc(1048576, 1),
       Buffer.alloc(1048576, 2),
-      Buffer.alloc(1048576, 3)
+      Buffer.alloc(1048576, 3),
     ];
     const mockStream = new ReadFromBuffers({ buffers });
 
@@ -65,7 +65,7 @@ describe("streamReader", () => {
       Buffer.alloc(100, 1),
       Buffer.alloc(100, 2),
       Buffer.alloc(100, 3),
-      Buffer.alloc(100, 4)
+      Buffer.alloc(100, 4),
     ];
     const mockStream = new ReadFromBuffers({ buffers });
 
@@ -116,11 +116,11 @@ describe("streamReader", () => {
       Buffer.alloc(100, 1),
       Buffer.alloc(100, 2),
       Buffer.alloc(100, 3),
-      Buffer.alloc(100, 4)
+      Buffer.alloc(100, 4),
     ];
     const mockStream = new ReadFromBuffers({
       buffers,
-      errorAfter: 2 // throw error after 2 chunks have been read
+      errorAfter: 2, // throw error after 2 chunks have been read
     });
 
     const mockChunkReader = jest.fn();

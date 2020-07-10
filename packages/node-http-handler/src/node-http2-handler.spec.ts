@@ -16,13 +16,13 @@ describe("NodeHttp2Handler", () => {
     port,
     method: "GET",
     path: "/",
-    headers: {}
+    headers: {},
   });
 
   const mockResponse = {
     statusCode: 200,
     headers: {},
-    body: "test"
+    body: "test",
   };
 
   beforeEach(() => {
@@ -100,7 +100,7 @@ describe("NodeHttp2Handler", () => {
       mockH2Server2.close();
     });
 
-    it("closes and removes session on sessionTimeout", async done => {
+    it("closes and removes session on sessionTimeout", async (done) => {
       const sessionTimeout = 500;
       nodeH2Handler = new NodeHttp2Handler({ sessionTimeout });
       await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
@@ -142,8 +142,8 @@ describe("NodeHttp2Handler", () => {
       await expect(
         nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {
           abortSignal: {
-            aborted: true
-          }
+            aborted: true,
+          },
         })
       ).rejects.toHaveProperty("name", "AbortError");
       // @ts-ignore: access private property
@@ -160,8 +160,8 @@ describe("NodeHttp2Handler", () => {
       await expect(
         nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {
           abortSignal: {
-            aborted: true
-          }
+            aborted: true,
+          },
         })
       ).rejects.toHaveProperty("name", "AbortError");
       expect(requestSpy.mock.calls.length).toBe(0);

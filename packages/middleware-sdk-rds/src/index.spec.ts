@@ -11,7 +11,7 @@ const handler = crossRegionPresignedUrlMiddleware({
   credentials,
   endpoint,
   sha256: MockSha256,
-  signingEscapePath: true
+  signingEscapePath: true,
 })(nextHandler, {} as any);
 
 describe("middleware-sdk-rds", () => {
@@ -23,7 +23,7 @@ describe("middleware-sdk-rds", () => {
     const params = {
       SourceDBSnapshotIdentifier: arn,
       TargetDBSnapshotIdentifier: "target-id",
-      KmsKeyId: "000-111"
+      KmsKeyId: "000-111",
     };
     await handler({ input: params });
     expect(nextHandler.mock.calls.length).toBe(1);
@@ -48,7 +48,7 @@ describe("middleware-sdk-rds", () => {
     const params = {
       SourceDBInstanceIdentifier: arn,
       DBInstanceIdentifier: "target-id",
-      KmsKeyId: "000-111"
+      KmsKeyId: "000-111",
     };
     await handler({ input: params });
     expect(nextHandler.mock.calls.length).toBe(1);
@@ -73,7 +73,7 @@ describe("middleware-sdk-rds", () => {
     const params = {
       ReplicationSourceIdentifier: arn,
       DBClusterIdentifier: "target-id",
-      KmsKeyId: "000-111"
+      KmsKeyId: "000-111",
     };
     await handler({ input: params });
     expect(nextHandler.mock.calls.length).toBe(1);
@@ -98,7 +98,7 @@ describe("middleware-sdk-rds", () => {
     const params = {
       SourceDBClusterSnapshotIdentifier: arn,
       TargetDBClusterSnapshotIdentifier: "target-id",
-      KmsKeyId: "000-111"
+      KmsKeyId: "000-111",
     };
     await handler({ input: params });
     expect(nextHandler.mock.calls.length).toBe(1);
@@ -123,7 +123,7 @@ describe("middleware-sdk-rds", () => {
     const params = {
       SourceDBClusterSnapshotIdentifier: sourceIdentifier,
       TargetDBClusterSnapshotIdentifier: "target-id",
-      KmsKeyId: "000-111"
+      KmsKeyId: "000-111",
     };
     await handler({ input: params });
     expect(nextHandler.mock.calls.length).toBe(1);
@@ -138,7 +138,7 @@ describe("middleware-sdk-rds", () => {
     const params = {
       SourceDBClusterSnapshotIdentifier: arnSameRegion,
       TargetDBClusterSnapshotIdentifier: "target-id",
-      KmsKeyId: "000-111"
+      KmsKeyId: "000-111",
     };
     await handler({ input: params });
     expect(nextHandler.mock.calls.length).toBe(1);
@@ -153,13 +153,13 @@ describe("middleware-sdk-rds", () => {
     const params = {
       SourceDBClusterSnapshotIdentifier: arn,
       TargetDBClusterSnapshotIdentifier: "target-id",
-      KmsKeyId: "000-111"
+      KmsKeyId: "000-111",
     };
     await handler({ input: params });
     expect(params).toEqual({
       SourceDBClusterSnapshotIdentifier: arn,
       TargetDBClusterSnapshotIdentifier: "target-id",
-      KmsKeyId: "000-111"
+      KmsKeyId: "000-111",
     });
   });
 });

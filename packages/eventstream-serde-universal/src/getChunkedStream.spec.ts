@@ -1,4 +1,5 @@
-import { endEventMessage, recordEventMessage, statsEventMessage } from "./fixtures/event.fixture";
+import { getChunkedStream } from "./getChunkedStream";
+import { recordEventMessage, statsEventMessage, endEventMessage } from "./fixtures/event.fixture";
 import { MockEventMessageSource } from "./fixtures/MockEventMessageSource.fixture";
 import { getChunkedStream } from "./getChunkedStream";
 
@@ -8,7 +9,7 @@ describe("getChunkedStream", () => {
     const mockMessages = [recordEventMessage, statsEventMessage, endEventMessage];
     const mockStream = new MockEventMessageSource({
       messages: mockMessages,
-      emitSize: 100
+      emitSize: 100,
     });
     const chunkerStream = getChunkedStream(mockStream);
     for await (const msg of chunkerStream) {
@@ -22,7 +23,7 @@ describe("getChunkedStream", () => {
     const mockMessages = [recordEventMessage, statsEventMessage, recordEventMessage, endEventMessage];
     const mockStream = new MockEventMessageSource({
       messages: mockMessages,
-      emitSize: 100
+      emitSize: 100,
     });
     const chunkerStream = getChunkedStream(mockStream);
     for await (const msg of chunkerStream) {
@@ -41,7 +42,7 @@ describe("getChunkedStream", () => {
       messages: mockMessages,
       emitSize: mockMessages.reduce((prev, cur) => {
         return prev + cur.length;
-      }, 0)
+      }, 0),
     });
     const chunkerStream = getChunkedStream(mockStream);
     for await (const msg of chunkerStream) {
@@ -55,7 +56,7 @@ describe("getChunkedStream", () => {
     const mockMessages = [recordEventMessage, statsEventMessage, endEventMessage];
     const mockStream = new MockEventMessageSource({
       messages: mockMessages,
-      emitSize: 1
+      emitSize: 1,
     });
     const chunkerStream = getChunkedStream(mockStream);
     for await (const msg of chunkerStream) {
@@ -69,7 +70,7 @@ describe("getChunkedStream", () => {
     const mockMessages = [recordEventMessage, statsEventMessage, endEventMessage];
     const mockStream = new MockEventMessageSource({
       messages: mockMessages,
-      emitSize: recordEventMessage.length + 2
+      emitSize: recordEventMessage.length + 2,
     });
     const chunkerStream = getChunkedStream(mockStream);
     for await (const msg of chunkerStream) {
@@ -82,7 +83,7 @@ describe("getChunkedStream", () => {
     const responseMessage = Buffer.concat([recordEventMessage, statsEventMessage, endEventMessage]);
     const mockStream = new MockEventMessageSource({
       messages: [responseMessage.slice(0, responseMessage.length - 4)],
-      emitSize: 10
+      emitSize: 10,
     });
 
     const chunkerStream = getChunkedStream(mockStream);

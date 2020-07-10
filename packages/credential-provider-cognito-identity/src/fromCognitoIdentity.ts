@@ -18,13 +18,13 @@ export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): 
         AccessKeyId = throwOnMissingAccessKeyId(),
         Expiration,
         SecretKey = throwOnMissingSecretKey(),
-        SessionToken
-      } = throwOnMissingCredentials()
+        SessionToken,
+      } = throwOnMissingCredentials(),
     } = await parameters.client.send(
       new GetCredentialsForIdentityCommand({
         CustomRoleArn: parameters.customRoleArn,
         IdentityId: parameters.identityId,
-        Logins: parameters.logins ? await resolveLogins(parameters.logins) : undefined
+        Logins: parameters.logins ? await resolveLogins(parameters.logins) : undefined,
       })
     );
 
@@ -32,7 +32,7 @@ export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): 
       accessKeyId: AccessKeyId,
       secretAccessKey: SecretKey,
       sessionToken: SessionToken,
-      expiration: Expiration
+      expiration: Expiration,
     };
   };
 }

@@ -25,7 +25,7 @@
     "@aws-sdk/util-utf8-node": "1.0.0-gamma.2",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
-    "typescript": "~3.8.3"
+    "typescript": "~3.9.3"
   },
   "engines": {
     "node": ">= 10.0.0"

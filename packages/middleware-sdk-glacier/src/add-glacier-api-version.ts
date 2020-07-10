@@ -5,10 +5,8 @@ import {
   BuildHandlerOptions,
   BuildHandlerOutput,
   BuildMiddleware,
-  MetadataBearer
+  MetadataBearer,
 } from "@aws-sdk/types";
-
-import { ResolvedGlacierMiddlewareConfig } from "./configurations";
 
 export function addGlacierApiVersionMiddleware(options: ResolvedGlacierMiddlewareConfig): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
@@ -21,7 +19,7 @@ export function addGlacierApiVersionMiddleware(options: ResolvedGlacierMiddlewar
 
     return next({
       ...args,
-      request
+      request,
     });
   };
 }
@@ -29,5 +27,5 @@ export function addGlacierApiVersionMiddleware(options: ResolvedGlacierMiddlewar
 export const addGlacierApiVersionMiddlewareOptions: BuildHandlerOptions = {
   step: "build",
   tags: ["SET_GLACIER_VERSION"],
-  name: "addGlacierApiVersionMiddleware"
+  name: "addGlacierApiVersionMiddleware",
 };

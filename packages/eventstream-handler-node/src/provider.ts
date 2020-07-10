@@ -1,5 +1,4 @@
-import { Decoder, Encoder, EventSigner, EventStreamPayloadHandlerProvider, Provider } from "@aws-sdk/types";
-
+import { Encoder, Decoder, EventSigner, EventStreamPayloadHandlerProvider, Provider } from "@aws-sdk/types";
 import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";
 
 /** NodeJS event stream utils provider */

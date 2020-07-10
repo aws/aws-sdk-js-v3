@@ -7,10 +7,7 @@ import { Stringable } from "./stringable";
 export class XmlNode {
   private attributes: { [name: string]: any } = {};
 
-  constructor(
-    private name: string,
-    public readonly children: Stringable[] = []
-  ) {}
+  constructor(private name: string, public readonly children: Stringable[] = []) {}
 
   withName(name: string): XmlNode {
     this.name = name;
@@ -44,8 +41,6 @@ export class XmlNode {
       }
     }
 
-    return (xmlText += !hasChildren
-      ? "/>"
-      : `>${this.children.map(c => c.toString()).join("")}</${this.name}>`);
+    return (xmlText += !hasChildren ? "/>" : `>${this.children.map((c) => c.toString()).join("")}</${this.name}>`);
   }
 }

@@ -3,7 +3,7 @@ import { fromUtf8, toUtf8 } from "./";
 jest.mock("./pureJs", () => {
   return {
     fromUtf8: jest.fn().mockReturnValue(new Uint8Array(0)),
-    toUtf8: jest.fn().mockReturnValue("")
+    toUtf8: jest.fn().mockReturnValue(""),
   };
 });
 import { fromUtf8 as jsFromUtf8, toUtf8 as jsToUtf8 } from "./pureJs";
@@ -11,13 +11,10 @@ import { fromUtf8 as jsFromUtf8, toUtf8 as jsToUtf8 } from "./pureJs";
 jest.mock("./whatwgEncodingApi", () => {
   return {
     fromUtf8: jest.fn().mockReturnValue(new Uint8Array(0)),
-    toUtf8: jest.fn().mockReturnValue("")
+    toUtf8: jest.fn().mockReturnValue(""),
   };
 });
-import {
-  fromUtf8 as textEncoderFromUtf8,
-  toUtf8 as textEncoderToUtf8
-} from "./whatwgEncodingApi";
+import { fromUtf8 as textEncoderFromUtf8, toUtf8 as textEncoderToUtf8 } from "./whatwgEncodingApi";
 
 beforeEach(() => {
   (jsFromUtf8 as any).mockClear();

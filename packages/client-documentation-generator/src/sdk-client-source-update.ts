@@ -1,4 +1,6 @@
 import { sep } from "path";
+import * as ts from "typescript";
+import { ConverterComponent, Component } from "typedoc/dist/lib/converter/components";
 import { Converter } from "typedoc/dist/lib/converter";
 import { Component, ConverterComponent } from "typedoc/dist/lib/converter/components";
 import { Context } from "typedoc/dist/lib/converter/context";
@@ -10,7 +12,7 @@ const basePathsToIgnore = ["model"];
 export class SdkClientSourceUpdatePlugin extends ConverterComponent {
   initialize(): void {
     this.listenTo(this.owner, {
-      [Converter.EVENT_BEGIN]: this.onBegin
+      [Converter.EVENT_BEGIN]: this.onBegin,
     });
   }
 
@@ -30,7 +32,7 @@ export class SdkClientSourceUpdatePlugin extends ConverterComponent {
 
       let localPath = sourceFile.fileName.substring(basePath.length);
       localPath = localPath.split(sep)[0];
-      if (!basePathsToIgnore.every(basePath => basePath !== localPath)) {
+      if (!basePathsToIgnore.every((basePath) => basePath !== localPath)) {
         // the file should be ignored, so remove it
         sourceFiles.splice(i, 1);
       }

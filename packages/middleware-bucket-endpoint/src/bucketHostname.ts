@@ -26,45 +26,35 @@ export function bucketHostname({
   bucketName,
   dualstackEndpoint = false,
   pathStyleEndpoint = false,
-  tlsCompatible = true
+  tlsCompatible = true,
 }: BucketHostnameParameters): BucketHostname {
   if (!S3_HOSTNAME_PATTERN.test(baseHostname)) {
     return {
       bucketEndpoint: false,
-      hostname: baseHostname
+      hostname: baseHostname,
     };
   }
 
-  const [region, hostnameSuffix] = S3_US_EAST_1_ALTNAME_PATTERN.test(
-    baseHostname
-  )
+  const [region, hostnameSuffix] = S3_US_EAST_1_ALTNAME_PATTERN.test(baseHostname)
     ? ["us-east-1", AWS_PARTITION_SUFFIX]
     : partitionSuffix(baseHostname);
 
-  if (
-    pathStyleEndpoint ||
-    !isDnsCompatibleBucketName(bucketName) ||
-    (tlsCompatible && DOT_PATTERN.test(bucketName))
-  ) {
+  if (pathStyleEndpoint || !isDnsCompatibleBucketName(bucketName) || (tlsCompatible && DOT_PATTERN.test(bucketName))) {
     return {
       bucketEndpoint: false,
-      hostname: dualstackEndpoint
-        ? `s3.dualstack.${region}.${hostnameSuffix}`
-        : baseHostname
+      hostname: dualstackEndpoint ? `s3.dualstack.${region}.${hostnameSuffix}` : baseHostname,
     };
   }
 
   if (accelerateEndpoint) {
-    baseHostname = `s3-accelerate${
-      dualstackEndpoint ? ".dualstack" : ""
-    }.${hostnameSuffix}`;
+    baseHostname = `s3-accelerate${dualstackEndpoint ? ".dualstack" : ""}.${hostnameSuffix}`;
   } else if (dualstackEndpoint) {
     baseHostname = `s3.dualstack.${region}.${hostnameSuffix}`;
   }
 
   return {
     bucketEndpoint: true,
-    hostname: `${bucketName}.${baseHostname}`
+    hostname: `${bucketName}.${baseHostname}`,
   };
 }
 
@@ -76,11 +66,7 @@ export function bucketHostname({
  * @see https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html
  */
 function isDnsCompatibleBucketName(bucketName: string): boolean {
-  return (
-    DOMAIN_PATTERN.test(bucketName) &&
-    !IP_ADDRESS_PATTERN.test(bucketName) &&
-    !DOTS_PATTERN.test(bucketName)
-  );
+  return DOMAIN_PATTERN.test(bucketName) && !IP_ADDRESS_PATTERN.test(bucketName) && !DOTS_PATTERN.test(bucketName);
 }
 
 function partitionSuffix(hostname: string): [string, string] {

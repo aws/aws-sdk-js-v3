@@ -6,7 +6,7 @@ describe("predictEndpointMiddleware", () => {
   const mockUrlParser = jest.fn().mockReturnValue({
     hostname: "api.example.com",
     path: "/foo/bar",
-    protocol: "http:"
+    protocol: "http:",
   });
   const next = jest.fn();
 
@@ -19,13 +19,13 @@ describe("predictEndpointMiddleware", () => {
     const input = { PredictEndpoint: "http://api.example.com/foo/bar" };
     const request = new HttpRequest({});
     const handler = predictEndpointMiddleware({
-      urlParser: mockUrlParser
+      urlParser: mockUrlParser,
     })(next, {} as any);
     await handler({ input, request });
 
     const {
       input: forwardedInput,
-      request: { hostname, path, protocol }
+      request: { hostname, path, protocol },
     } = next.mock.calls[0][0];
 
     expect(mockUrlParser.mock.calls[0][0]).toBe("http://api.example.com/foo/bar");

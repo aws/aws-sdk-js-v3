@@ -24,7 +24,7 @@ export async function bodyChecksumGenerator(
     }
     const bodyTee = createReadStream(body.path, {
       start: (body as any).start,
-      end: (body as any).end
+      end: (body as any).end,
     });
 
     await streamReader(bodyTee, (chunk: any) => {

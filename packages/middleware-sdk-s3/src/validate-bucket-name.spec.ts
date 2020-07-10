@@ -14,16 +14,14 @@ describe("validateBucketNameMiddleware", () => {
     try {
       await handler({
         input: {
-          Bucket: bucket
-        }
+          Bucket: bucket,
+        },
       });
     } catch (e) {
       error = e;
     }
     expect(error).toBeDefined();
-    expect(error.message).toEqual(
-      `Bucket name shouldn't contain '/', received '${bucket}'`
-    );
+    expect(error.message).toEqual(`Bucket name shouldn't contain '/', received '${bucket}'`);
     expect(error.name).toEqual("InvalidBucketName");
   });
 
@@ -31,8 +29,8 @@ describe("validateBucketNameMiddleware", () => {
     const handler = validateBucketNameMiddleware()(mockNextHandler, {} as any);
     const args = {
       input: {
-        Bucket: "bucket"
-      }
+        Bucket: "bucket",
+      },
     };
     await handler(args);
     expect(mockNextHandler.mock.calls.length).toBe(1);

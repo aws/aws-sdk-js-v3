@@ -1,10 +1,12 @@
+import { fromSharedConfigFiles, ENV_PROFILE } from "./fromSharedConfigFiles";
+import { loadSharedConfigFiles, ParsedIniData } from "@aws-sdk/shared-ini-file-loader";
 import { ProviderError } from "@aws-sdk/property-provider";
 import { loadSharedConfigFiles, ParsedIniData } from "@aws-sdk/shared-ini-file-loader";
 
 import { ENV_PROFILE, fromSharedConfigFiles } from "./fromSharedConfigFiles";
 
 jest.mock("@aws-sdk/shared-ini-file-loader", () => ({
-  loadSharedConfigFiles: jest.fn()
+  loadSharedConfigFiles: jest.fn(),
 }));
 
 describe("fromSharedConfigFiles", () => {
@@ -28,7 +30,7 @@ describe("fromSharedConfigFiles", () => {
       Object.keys(iniData).reduce(
         (acc, key) => ({
           [key]: { region: mockRegionNotAnswer },
-          ...acc
+          ...acc,
         }),
         {}
       );
@@ -45,35 +47,35 @@ describe("fromSharedConfigFiles", () => {
       {
         message: "returns region from default profile",
         iniDataToReturn: {
-          default: { region: mockRegionAnswer }
+          default: { region: mockRegionAnswer },
         },
-        regionToVerify: mockRegionAnswer
+        regionToVerify: mockRegionAnswer,
       },
       {
         message: "returns region from designated profile",
         iniDataToReturn: {
           default: { region: mockRegionNotAnswer },
-          foo: { region: mockRegionAnswer }
+          foo: { region: mockRegionAnswer },
         },
         regionToVerify: mockRegionAnswer,
-        profile: "foo"
-      }
+        profile: "foo",
+      },
     ];
 
     const loadedConfigRejects: loadedConfigTestData[] = [
       {
         message: "rejects if default profile is not present and profile value is not passed",
         iniDataToReturn: {
-          foo: { region: mockRegionNotAnswer }
-        }
+          foo: { region: mockRegionNotAnswer },
+        },
       },
       {
         message: "rejects if designated profile is not present",
         iniDataToReturn: {
-          default: { region: mockRegionNotAnswer }
+          default: { region: mockRegionNotAnswer },
         },
-        profile: "foo"
-      }
+        profile: "foo",
+      },
     ];
 
     describe("uses the shared ini file loader if pre-loaded config is not supplied", () => {
@@ -82,7 +84,7 @@ describe("fromSharedConfigFiles", () => {
           it(`${message} from credentials file`, () => {
             (loadSharedConfigFiles as jest.Mock).mockResolvedValueOnce({
               configFile: {},
-              credentialsFile: iniDataToReturn
+              credentialsFile: iniDataToReturn,
             });
             return expect(fromSharedConfigFiles({ profile })()).resolves.toBe(regionToVerify);
           });
@@ -94,7 +96,7 @@ describe("fromSharedConfigFiles", () => {
           it(`${message} from config file`, () => {
             (loadSharedConfigFiles as jest.Mock).mockResolvedValueOnce({
               configFile: iniDataToReturn,
-              credentialsFile: {}
+              credentialsFile: {},
             });
             return expect(fromSharedConfigFiles({ profile })()).resolves.toBe(regionToVerify);
           });
@@ -106,7 +108,7 @@ describe("fromSharedConfigFiles", () => {
           it(`${message} from credentials file`, () => {
             (loadSharedConfigFiles as jest.Mock).mockResolvedValueOnce({
               configFile: getIniDataWithAnswersRemoved(iniDataToReturn),
-              credentialsFile: iniDataToReturn
+              credentialsFile: iniDataToReturn,
             });
             return expect(fromSharedConfigFiles({ profile })()).resolves.toBe(regionToVerify);
           });
@@ -117,7 +119,7 @@ describe("fromSharedConfigFiles", () => {
         it(message, () => {
           (loadSharedConfigFiles as jest.Mock).mockResolvedValueOnce({
             configFile: {},
-            credentialsFile: iniDataToReturn
+            credentialsFile: iniDataToReturn,
           });
           return expect(fromSharedConfigFiles({ profile })()).rejects.toMatchObject(
             getProviderError(profile ?? "default")
@@ -132,7 +134,7 @@ describe("fromSharedConfigFiles", () => {
           it(`${message} from credentials file`, () => {
             const loadedConfig = Promise.resolve({
               configFile: {},
-              credentialsFile: iniDataToReturn
+              credentialsFile: iniDataToReturn,
             });
             return expect(fromSharedConfigFiles({ loadedConfig, profile })()).resolves.toBe(regionToVerify);
           });
@@ -144,7 +146,7 @@ describe("fromSharedConfigFiles", () => {
           it(`${message} from config file`, () => {
             const loadedConfig = Promise.resolve({
               configFile: iniDataToReturn,
-              credentialsFile: {}
+              credentialsFile: {},
             });
             return expect(fromSharedConfigFiles({ loadedConfig, profile })()).resolves.toBe(regionToVerify);
           });
@@ -156,7 +158,7 @@ describe("fromSharedConfigFiles", () => {
           it(`${message} from config file`, () => {
             const loadedConfig = Promise.resolve({
               configFile: getIniDataWithAnswersRemoved(iniDataToReturn),
-              credentialsFile: iniDataToReturn
+              credentialsFile: iniDataToReturn,
             });
             return expect(fromSharedConfigFiles({ loadedConfig, profile })()).resolves.toBe(regionToVerify);
           });
@@ -167,7 +169,7 @@ describe("fromSharedConfigFiles", () => {
         it(message, () => {
           const loadedConfig = Promise.resolve({
             configFile: {},
-            credentialsFile: iniDataToReturn
+            credentialsFile: iniDataToReturn,
           });
           return expect(fromSharedConfigFiles({ loadedConfig, profile })()).rejects.toMatchObject(
             getProviderError(profile ?? "default")
@@ -182,8 +184,8 @@ describe("fromSharedConfigFiles", () => {
       configFile: {},
       credentialsFile: {
         default: { region: "credentialsFileDefault" },
-        foo: { region: "credentialsFileDefault" }
-      }
+        foo: { region: "credentialsFileDefault" },
+      },
     };
     const loadedConfig = Promise.resolve(loadedConfigData);
 

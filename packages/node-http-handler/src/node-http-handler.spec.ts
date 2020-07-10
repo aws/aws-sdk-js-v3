@@ -4,6 +4,10 @@ import { Server as HttpServer } from "http";
 import * as http from "http";
 import { Server as HttpsServer } from "https";
 import * as https from "https";
+import * as http from "http";
+import { NodeHttpHandler } from "./node-http-handler";
+import { ReadFromBuffers } from "./readable.mock";
+import { createMockHttpServer, createMockHttpsServer, createResponseFunction } from "./server.mock";
 import { AddressInfo } from "net";
 
 import { NodeHttpHandler } from "./node-http-handler";
@@ -14,12 +18,12 @@ describe("NodeHttpHandler", () => {
     it("can set httpAgent and httpsAgent", () => {
       let maxSockets = Math.round(Math.random() * 50);
       let nodeHttpHandler = new NodeHttpHandler({
-        httpAgent: new http.Agent({ maxSockets })
+        httpAgent: new http.Agent({ maxSockets }),
       });
       expect((nodeHttpHandler as any).httpAgent.maxSockets).toEqual(maxSockets);
       maxSockets = Math.round(Math.random() * 50);
       nodeHttpHandler = new NodeHttpHandler({
-        httpsAgent: new https.Agent({ maxSockets })
+        httpsAgent: new https.Agent({ maxSockets }),
       });
       expect((nodeHttpHandler as any).httpsAgent.maxSockets).toEqual(maxSockets);
     });
@@ -43,7 +47,7 @@ describe("NodeHttpHandler", () => {
       const mockResponse = {
         statusCode: 200,
         headers: {},
-        body: "test"
+        body: "test",
       };
       mockHttpServer.addListener("request", createResponseFunction(mockResponse));
       const nodeHttpHandler = new NodeHttpHandler();
@@ -55,7 +59,7 @@ describe("NodeHttpHandler", () => {
           port: (mockHttpServer.address() as AddressInfo).port,
           protocol: "http:",
           path: "/",
-          headers: {}
+          headers: {},
         }),
         {}
       );
@@ -248,7 +252,7 @@ describe("NodeHttpHandler", () => {
       const mockResponse = {
         statusCode: 200,
         headers: {},
-        body: "test"
+        body: "test",
       };
       mockHttpsServer.addListener("request", createResponseFunction(mockResponse));
       const nodeHttpHandler = new NodeHttpHandler();
@@ -261,7 +265,7 @@ describe("NodeHttpHandler", () => {
             port: (mockHttpsServer.address() as AddressInfo).port,
             protocol: "fake:", // trigger a request error
             path: "/",
-            headers: {}
+            headers: {},
           }),
           {}
         )
@@ -272,7 +276,7 @@ describe("NodeHttpHandler", () => {
       const mockResponse = {
         statusCode: 200,
         headers: {},
-        body: "test"
+        body: "test",
       };
       mockHttpsServer.addListener("request", createResponseFunction(mockResponse));
       const spy = jest.spyOn(https, "request").mockImplementationOnce(() => {
@@ -292,12 +296,12 @@ describe("NodeHttpHandler", () => {
             port: (mockHttpsServer.address() as AddressInfo).port,
             protocol: "https:",
             path: "/",
-            headers: {}
+            headers: {},
           }),
           {
             abortSignal: {
-              aborted: true
-            }
+              aborted: true,
+            },
           }
         )
       ).rejects.toHaveProperty("name", "AbortError");
@@ -309,14 +313,14 @@ describe("NodeHttpHandler", () => {
       const mockResponse = {
         statusCode: 200,
         headers: {},
-        body: "test"
+        body: "test",
       };
       mockHttpsServer.addListener("request", createResponseFunction(mockResponse));
       let httpRequest: http.ClientRequest;
       let reqAbortSpy: any;
       const spy = jest.spyOn(https, "request").mockImplementationOnce(() => {
-        const calls = spy.mock.calls;
-        const currentIndex = calls.length - 1;
+        let calls = spy.mock.calls;
+        let currentIndex = calls.length - 1;
         httpRequest = https.request(calls[currentIndex][0], calls[currentIndex][1]);
         reqAbortSpy = jest.spyOn(httpRequest, "abort");
         return httpRequest;
@@ -336,10 +340,10 @@ describe("NodeHttpHandler", () => {
             port: (mockHttpsServer.address() as AddressInfo).port,
             protocol: "https:",
             path: "/",
-            headers: {}
+            headers: {},
           }),
           {
-            abortSignal: abortController.signal
+            abortSignal: abortController.signal,
           }
         )
       ).rejects.toHaveProperty("name", "AbortError");

@@ -3,13 +3,7 @@ import { Endpoint, QueryParameterBag, UrlParser } from "@aws-sdk/types";
 import { parse } from "url";
 
 export const parseUrl: UrlParser = (url: string): Endpoint => {
-  const {
-    hostname = "localhost",
-    pathname = "/",
-    port,
-    protocol = "https:",
-    search
-  } = parse(url);
+  const { hostname = "localhost", pathname = "/", port, protocol = "https:", search } = parse(url);
 
   let query: QueryParameterBag | undefined;
   if (search) {
@@ -21,6 +15,6 @@ export const parseUrl: UrlParser = (url: string): Endpoint => {
     port: port ? parseInt(port) : undefined,
     protocol,
     path: pathname,
-    query
+    query,
   };
 };

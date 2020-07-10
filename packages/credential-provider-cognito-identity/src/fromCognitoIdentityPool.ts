@@ -23,7 +23,7 @@ export function fromCognitoIdentityPool({
   customRoleArn,
   identityPoolId,
   logins,
-  userIdentifier = !logins || Object.keys(logins).length === 0 ? "ANONYMOUS" : undefined
+  userIdentifier = !logins || Object.keys(logins).length === 0 ? "ANONYMOUS" : undefined,
 }: FromCognitoIdentityPoolParameters): CredentialProvider {
   const cacheKey = userIdentifier ? `aws:cognito-identity-credentials:${identityPoolId}:${userIdentifier}` : undefined;
 
@@ -34,7 +34,7 @@ export function fromCognitoIdentityPool({
         new GetIdCommand({
           AccountId: accountId,
           IdentityPoolId: identityPoolId,
-          Logins: logins ? await resolveLogins(logins) : undefined
+          Logins: logins ? await resolveLogins(logins) : undefined,
         })
       );
       identityId = IdentityId;
@@ -47,14 +47,14 @@ export function fromCognitoIdentityPool({
       client,
       customRoleArn,
       logins,
-      identityId
+      identityId,
     });
 
     return provider();
   };
 
   return () =>
-    provider().catch(async err => {
+    provider().catch(async (err) => {
       if (cacheKey) {
         Promise.resolve(cache.removeItem(cacheKey)).catch(() => {});
       }

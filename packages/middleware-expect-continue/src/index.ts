@@ -6,7 +6,7 @@ import {
   BuildHandlerOutput,
   BuildMiddleware,
   MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "@aws-sdk/types";
 
 interface PreviouslyResolved {
@@ -17,16 +17,16 @@ export function addExpectContinueMiddleware(options: PreviouslyResolved): BuildM
   return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
-    const { request } = args;
+    let { request } = args;
     if (HttpRequest.isInstance(request) && request.body && options.runtime === "node") {
       request.headers = {
         ...request.headers,
-        Expect: "100-continue"
+        Expect: "100-continue",
       };
     }
     return next({
       ...args,
-      request
+      request,
     });
   };
 }
@@ -34,11 +34,11 @@ export function addExpectContinueMiddleware(options: PreviouslyResolved): BuildM
 export const addExpectContinueMiddlewareOptions: BuildHandlerOptions = {
   step: "build",
   tags: ["SET_EXPECT_HEADER", "EXPECT_HEADER"],
-  name: "addExpectContinueMiddleware"
+  name: "addExpectContinueMiddleware",
 };
 
 export const getAddExpectContinuePlugin = (options: PreviouslyResolved): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+  applyToStack: (clientStack) => {
     clientStack.add(addExpectContinueMiddleware(options), addExpectContinueMiddlewareOptions);
-  }
+  },
 });

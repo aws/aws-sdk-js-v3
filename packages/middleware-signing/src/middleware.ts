@@ -6,7 +6,8 @@ import {
   FinalizeRequestHandlerOptions,
   FinalizeRequestMiddleware,
   Pluggable,
-  RelativeLocation
+  RelativeLocation,
+  FinalizeRequestHandlerOptions,
 } from "@aws-sdk/types";
 
 import { AwsAuthResolvedConfig } from "./configurations";
@@ -26,8 +27,8 @@ export function awsAuthMiddleware<Input extends object, Output extends object>(
       const output = await next({
         ...args,
         request: await signer.sign(args.request, {
-          signingDate: new Date(Date.now() + options.systemClockOffset)
-        })
+          signingDate: new Date(Date.now() + options.systemClockOffset),
+        }),
       });
 
       const { headers } = output.response as any;
@@ -48,11 +49,11 @@ export const awsAuthMiddlewareOptions: FinalizeRequestHandlerOptions & RelativeL
   step: "finalizeRequest",
   tags: ["SIGNATURE", "AWSAUTH"],
   relation: "after",
-  toMiddleware: "retryMiddleware"
+  toMiddleware: "retryMiddleware",
 };
 
 export const getAwsAuthPlugin = (options: AwsAuthResolvedConfig): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+  applyToStack: (clientStack) => {
     clientStack.addRelativeTo(awsAuthMiddleware(options), awsAuthMiddlewareOptions);
-  }
+  },
 });

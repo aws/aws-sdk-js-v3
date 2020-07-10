@@ -33,11 +33,9 @@ interface MemoizeOverload {
    *                          underlying provider had an expiration and `false`
    *                          otherwise.
    */
-  <T>(
-    provider: Provider<T>,
-    isExpired: (resolved: T) => boolean,
-    requiresRefresh?: (resolved: T) => boolean
-  ): Provider<T>;
+  <T>(provider: Provider<T>, isExpired: (resolved: T) => boolean, requiresRefresh?: (resolved: T) => boolean): Provider<
+    T
+  >;
 }
 
 export const memoize: MemoizeOverload = <T>(

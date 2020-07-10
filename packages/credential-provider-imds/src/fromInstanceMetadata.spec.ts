@@ -1,12 +1,12 @@
 import { ProviderError } from "@aws-sdk/property-provider";
 
 import { fromInstanceMetadata } from "./fromInstanceMetadata";
-import { httpGet } from "./remoteProvider/httpGet";
+import { httpRequest } from "./remoteProvider/httpRequest";
 import { fromImdsCredentials, isImdsCredentials } from "./remoteProvider/ImdsCredentials";
 import { providerConfigFromInit } from "./remoteProvider/RemoteProviderInit";
 import { retry } from "./remoteProvider/retry";
 
-jest.mock("./remoteProvider/httpGet");
+jest.mock("./remoteProvider/httpRequest");
 jest.mock("./remoteProvider/ImdsCredentials");
 jest.mock("./remoteProvider/retry");
 jest.mock("./remoteProvider/RemoteProviderInit");
@@ -16,31 +16,31 @@ describe("fromInstanceMetadata", () => {
   const mockMaxRetries = 3;
   const mockProfile = "foo";
 
-  const mockHttpGetOptions = {
+  const mockHttpRequestOptions = {
     host: "169.254.169.254",
     path: "/latest/meta-data/iam/security-credentials/",
-    timeout: mockTimeout
+    timeout: mockTimeout,
   };
 
   const mockImdsCreds = Object.freeze({
     AccessKeyId: "foo",
     SecretAccessKey: "bar",
     Token: "baz",
-    Expiration: new Date().toISOString()
+    Expiration: new Date().toISOString(),
   });
 
   const mockCreds = Object.freeze({
     accessKeyId: mockImdsCreds.AccessKeyId,
     secretAccessKey: mockImdsCreds.SecretAccessKey,
     sessionToken: mockImdsCreds.Token,
-    expiration: new Date(mockImdsCreds.Expiration)
+    expiration: new Date(mockImdsCreds.Expiration),
   });
 
   beforeEach(() => {
     ((isImdsCredentials as unknown) as jest.Mock).mockReturnValue(true);
     (providerConfigFromInit as jest.Mock).mockReturnValue({
       timeout: mockTimeout,
-      maxRetries: mockMaxRetries
+      maxRetries: mockMaxRetries,
     });
   });
 
@@ -49,22 +49,22 @@ describe("fromInstanceMetadata", () => {
   });
 
   it("gets profile name from IMDS, and passes profile name to fetch credentials", async () => {
-    (httpGet as jest.Mock).mockResolvedValueOnce(mockProfile).mockResolvedValueOnce(JSON.stringify(mockImdsCreds));
+    (httpRequest as jest.Mock).mockResolvedValueOnce(mockProfile).mockResolvedValueOnce(JSON.stringify(mockImdsCreds));
 
     (retry as jest.Mock).mockImplementation((fn: any) => fn());
     (fromImdsCredentials as jest.Mock).mockReturnValue(mockCreds);
 
     await expect(fromInstanceMetadata()()).resolves.toEqual(mockCreds);
-    expect(httpGet).toHaveBeenCalledTimes(2);
-    expect(httpGet).toHaveBeenNthCalledWith(1, mockHttpGetOptions);
-    expect(httpGet).toHaveBeenNthCalledWith(2, {
-      ...mockHttpGetOptions,
-      path: `${mockHttpGetOptions.path}${mockProfile}`
+    expect(httpRequest).toHaveBeenCalledTimes(2);
+    expect(httpRequest).toHaveBeenNthCalledWith(1, mockHttpRequestOptions);
+    expect(httpRequest).toHaveBeenNthCalledWith(2, {
+      ...mockHttpRequestOptions,
+      path: `${mockHttpRequestOptions.path}${mockProfile}`,
     });
   });
 
   it("trims profile returned name from IMDS", async () => {
-    (httpGet as jest.Mock)
+    (httpRequest as jest.Mock)
       .mockResolvedValueOnce("   " + mockProfile + "  ")
       .mockResolvedValueOnce(JSON.stringify(mockImdsCreds));
 
@@ -72,11 +72,11 @@ describe("fromInstanceMetadata", () => {
     (fromImdsCredentials as jest.Mock).mockReturnValue(mockCreds);
 
     await expect(fromInstanceMetadata()()).resolves.toEqual(mockCreds);
-    expect(httpGet).toHaveBeenCalledTimes(2);
-    expect(httpGet).toHaveBeenNthCalledWith(1, mockHttpGetOptions);
-    expect(httpGet).toHaveBeenNthCalledWith(2, {
-      ...mockHttpGetOptions,
-      path: `${mockHttpGetOptions.path}${mockProfile}`
+    expect(httpRequest).toHaveBeenCalledTimes(2);
+    expect(httpRequest).toHaveBeenNthCalledWith(1, mockHttpRequestOptions);
+    expect(httpRequest).toHaveBeenNthCalledWith(2, {
+      ...mockHttpRequestOptions,
+      path: `${mockHttpRequestOptions.path}${mockProfile}`,
     });
   });
 
@@ -107,7 +107,7 @@ describe("fromInstanceMetadata", () => {
   });
 
   it("throws ProviderError if credentials returned are incorrect", async () => {
-    (httpGet as jest.Mock).mockResolvedValueOnce(mockProfile).mockResolvedValueOnce(JSON.stringify(mockImdsCreds));
+    (httpRequest as jest.Mock).mockResolvedValueOnce(mockProfile).mockResolvedValueOnce(JSON.stringify(mockImdsCreds));
 
     (retry as jest.Mock).mockImplementation((fn: any) => fn());
     ((isImdsCredentials as unknown) as jest.Mock).mockReturnValueOnce(false);
@@ -116,7 +116,7 @@ describe("fromInstanceMetadata", () => {
       new ProviderError("Invalid response received from instance metadata service.")
     );
     expect(retry).toHaveBeenCalledTimes(2);
-    expect(httpGet).toHaveBeenCalledTimes(2);
+    expect(httpRequest).toHaveBeenCalledTimes(2);
     expect(isImdsCredentials).toHaveBeenCalledTimes(1);
     expect(isImdsCredentials).toHaveBeenCalledWith(mockImdsCreds);
     expect(fromImdsCredentials).not.toHaveBeenCalled();
@@ -124,32 +124,32 @@ describe("fromInstanceMetadata", () => {
 
   it("throws Error if requestFromEc2Imds for profile fails", async () => {
     const mockError = new Error("profile not found");
-    (httpGet as jest.Mock).mockRejectedValueOnce(mockError);
+    (httpRequest as jest.Mock).mockRejectedValueOnce(mockError);
     (retry as jest.Mock).mockImplementation((fn: any) => fn());
 
     await expect(fromInstanceMetadata()()).rejects.toEqual(mockError);
     expect(retry).toHaveBeenCalledTimes(1);
-    expect(httpGet).toHaveBeenCalledTimes(1);
+    expect(httpRequest).toHaveBeenCalledTimes(1);
   });
 
   it("throws Error if requestFromEc2Imds for credentials fails", async () => {
     const mockError = new Error("creds not found");
-    (httpGet as jest.Mock).mockResolvedValueOnce(mockProfile).mockRejectedValueOnce(mockError);
+    (httpRequest as jest.Mock).mockResolvedValueOnce(mockProfile).mockRejectedValueOnce(mockError);
     (retry as jest.Mock).mockImplementation((fn: any) => fn());
 
     await expect(fromInstanceMetadata()()).rejects.toEqual(mockError);
     expect(retry).toHaveBeenCalledTimes(2);
-    expect(httpGet).toHaveBeenCalledTimes(2);
+    expect(httpRequest).toHaveBeenCalledTimes(2);
     expect(fromImdsCredentials).not.toHaveBeenCalled();
   });
 
   it("throws SyntaxError if requestFromEc2Imds returns unparseable creds", async () => {
-    (httpGet as jest.Mock).mockResolvedValueOnce(mockProfile).mockResolvedValueOnce(".");
+    (httpRequest as jest.Mock).mockResolvedValueOnce(mockProfile).mockResolvedValueOnce(".");
     (retry as jest.Mock).mockImplementation((fn: any) => fn());
 
     await expect(fromInstanceMetadata()()).rejects.toEqual(new SyntaxError("Unexpected token . in JSON at position 0"));
     expect(retry).toHaveBeenCalledTimes(2);
-    expect(httpGet).toHaveBeenCalledTimes(2);
+    expect(httpRequest).toHaveBeenCalledTimes(2);
     expect(fromImdsCredentials).not.toHaveBeenCalled();
   });
 });

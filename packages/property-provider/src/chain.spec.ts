@@ -23,7 +23,7 @@ describe("chain", () => {
     const providers = [
       jest.fn().mockRejectedValue(new ProviderError("Move along")),
       jest.fn().mockResolvedValue("foo"),
-      jest.fn(() => fail("This provider should not be invoked"))
+      jest.fn(() => fail("This provider should not be invoked")),
     ];
 
     expect(await chain(...providers)()).toBe("foo");
@@ -39,14 +39,10 @@ describe("chain", () => {
       fromStatic("foo")
     );
 
-    await expect(provider()).rejects.toMatchObject(
-      new Error("Unrelated failure")
-    );
+    await expect(provider()).rejects.toMatchObject(new Error("Unrelated failure"));
   });
 
   it("should reject chains with no links", async () => {
-    await expect(chain()()).rejects.toMatchObject(
-      new Error("No providers in chain")
-    );
+    await expect(chain()()).rejects.toMatchObject(new Error("No providers in chain"));
   });
 });

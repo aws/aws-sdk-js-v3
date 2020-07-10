@@ -26,7 +26,7 @@ export const resolveRetryConfig = <T>(input: T & PreviouslyResolved & RetryInput
   return {
     ...input,
     maxAttempts,
-    retryStrategy: input.retryStrategy || new StandardRetryStrategy(maxAttempts)
+    retryStrategy: input.retryStrategy || new StandardRetryStrategy(maxAttempts),
   };
 };
 

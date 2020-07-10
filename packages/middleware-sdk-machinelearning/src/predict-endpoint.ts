@@ -6,7 +6,7 @@ import {
   BuildHandlerOutput,
   BuildMiddleware,
   MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "@aws-sdk/types";
 
 import { ResolvedPredictEndpointMiddlewareConfig } from "./configurations";
@@ -26,13 +26,13 @@ export function predictEndpointMiddleware(options: ResolvedPredictEndpointMiddle
           path: endpoint.path,
           port: endpoint.port,
           protocol: endpoint.protocol,
-          query: endpoint.query
+          query: endpoint.query,
         };
       }
     }
     return next({
       ...args,
-      request
+      request,
     });
   };
 }
@@ -40,11 +40,11 @@ export function predictEndpointMiddleware(options: ResolvedPredictEndpointMiddle
 export const predictEndpointMiddlewareOptions: BuildHandlerOptions = {
   step: "build",
   tags: ["PREDICT_ENDPOINT"],
-  name: "predictEndpointMiddleware"
+  name: "predictEndpointMiddleware",
 };
 
 export const getPredictEndpointPlugin = (config: ResolvedPredictEndpointMiddlewareConfig): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+  applyToStack: (clientStack) => {
     clientStack.add(predictEndpointMiddleware(config), predictEndpointMiddlewareOptions);
-  }
+  },
 });

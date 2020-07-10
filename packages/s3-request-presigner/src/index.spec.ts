@@ -10,7 +10,7 @@ import {
   HOST_HEADER,
   SHA256_HEADER,
   SIGNED_HEADERS_QUERY_PARAM,
-  UNSIGNED_PAYLOAD
+  UNSIGNED_PAYLOAD,
 } from "./constants";
 import { S3RequestPresigner, S3RequestPresignerOptions } from "./index";
 
@@ -18,24 +18,24 @@ describe("s3 presigner", () => {
   const s3ResolvedConfig: S3RequestPresignerOptions = {
     credentials: {
       accessKeyId: "akid",
-      secretAccessKey: "skey"
+      secretAccessKey: "skey",
     },
     region: "us-bar-1",
     sha256: Hash.bind(null, "sha256"),
-    signingName: "s3"
+    signingName: "s3",
   };
   const presigningOptions = {
     expiresIn: 1800,
-    signingDate: new Date("2000-01-01T00:00:00.000Z")
+    signingDate: new Date("2000-01-01T00:00:00.000Z"),
   };
   const minimalRequest = new HttpRequest({
     method: "GET",
     protocol: "https:",
     path: "/foo/bar/baz",
     headers: {
-      host: "foo.s3.us-bar-1.amazonaws.com"
+      host: "foo.s3.us-bar-1.amazonaws.com",
     },
-    hostname: "foo.s3.us-bar-1.amazonaws.com"
+    hostname: "foo.s3.us-bar-1.amazonaws.com",
   });
 
   it("should not double uri encode the path", async () => {
@@ -60,7 +60,7 @@ describe("s3 presigner", () => {
       [CREDENTIAL_QUERY_PARAM]: "akid/20000101/us-bar-1/s3/aws4_request",
       [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
       [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
-      [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER
+      [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
     });
     expect(minimalRequest).toMatchObject(originalRequest);
   });
@@ -71,12 +71,12 @@ describe("s3 presigner", () => {
       ...minimalRequest,
       headers: {
         ...minimalRequest.headers,
-        "Content-Type": "application/octet-stream"
-      }
+        "Content-Type": "application/octet-stream",
+      },
     };
     const signed = await signer.presign(requestWithContentTypeHeader, presigningOptions);
     expect(signed.query).toMatchObject({
-      [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER
+      [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
     });
   });
 
@@ -84,7 +84,7 @@ describe("s3 presigner", () => {
     const signer = new S3RequestPresigner(s3ResolvedConfig);
     const signed = await signer.presign(minimalRequest);
     expect(signed.query).toMatchObject({
-      [EXPIRES_QUERY_PARAM]: "900"
+      [EXPIRES_QUERY_PARAM]: "900",
     });
   });
 });

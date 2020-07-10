@@ -1,6 +1,4 @@
 import { MiddlewareStack } from "@aws-sdk/middleware-stack";
-import { HttpRequest } from "@aws-sdk/protocol-http";
-
 import { bucketEndpointMiddleware, bucketEndpointMiddlewareOptions } from "./bucketEndpointMiddleware";
 import { resolveBucketEndpointConfig } from "./configurations";
 
@@ -11,7 +9,7 @@ describe("bucketEndpointMiddleware", () => {
     headers: {},
     protocol: "https:",
     hostname: "s3.us-west-2.amazonaws.com",
-    path: "/bucket"
+    path: "/bucket",
   };
   const next = jest.fn();
 
@@ -26,7 +24,7 @@ describe("bucketEndpointMiddleware", () => {
 
     const {
       input: forwardedInput,
-      request: { hostname, path }
+      request: { hostname, path },
     } = next.mock.calls[0][0];
 
     expect(forwardedInput).toBe(input);
@@ -38,14 +36,14 @@ describe("bucketEndpointMiddleware", () => {
     const request = new HttpRequest(requestInput);
     const handler = bucketEndpointMiddleware(
       resolveBucketEndpointConfig({
-        forcePathStyle: true
+        forcePathStyle: true,
       })
     )(next, {} as any);
     await handler({ input, request });
 
     const {
       input: forwardedInput,
-      request: { hostname, path }
+      request: { hostname, path },
     } = next.mock.calls[0][0];
 
     expect(forwardedInput).toBe(input);
@@ -57,16 +55,16 @@ describe("bucketEndpointMiddleware", () => {
     const request = new HttpRequest(requestInput);
     const handler = bucketEndpointMiddleware(
       resolveBucketEndpointConfig({
-        bucketEndpoint: true
+        bucketEndpoint: true,
       })
     )(next, {} as any);
     await handler({
       input: { Bucket: "files.domain.com" },
-      request: { ...request, path: "/files.domain.com/path/to/key.ext" }
+      request: { ...request, path: "/files.domain.com/path/to/key.ext" },
     });
 
     const {
-      request: { hostname, path }
+      request: { hostname, path },
     } = next.mock.calls[0][0];
 
     expect(hostname).toBe("files.domain.com");
@@ -77,14 +75,14 @@ describe("bucketEndpointMiddleware", () => {
     const request = new HttpRequest(requestInput);
     const handler = bucketEndpointMiddleware(
       resolveBucketEndpointConfig({
-        useAccelerateEndpoint: true
+        useAccelerateEndpoint: true,
       })
     )(next, {} as any);
     await handler({ input, request });
 
     const {
       input: forwardedInput,
-      request: { hostname, path }
+      request: { hostname, path },
     } = next.mock.calls[0][0];
 
     expect(forwardedInput).toBe(input);
@@ -96,14 +94,14 @@ describe("bucketEndpointMiddleware", () => {
     const request = new HttpRequest(requestInput);
     const handler = bucketEndpointMiddleware(
       resolveBucketEndpointConfig({
-        useDualstackEndpoint: true
+        useDualstackEndpoint: true,
       })
     )(next, {} as any);
     await handler({ input, request });
 
     const {
       input: forwardedInput,
-      request: { hostname, path }
+      request: { hostname, path },
     } = next.mock.calls[0][0];
 
     expect(forwardedInput).toBe(input);
@@ -116,13 +114,13 @@ describe("bucketEndpointMiddleware", () => {
     const handler = bucketEndpointMiddleware(
       resolveBucketEndpointConfig({
         useAccelerateEndpoint: true,
-        useDualstackEndpoint: true
+        useDualstackEndpoint: true,
       })
     )(next, {} as any);
     await handler({ input, request });
 
     const {
-      request: { hostname, path }
+      request: { hostname, path },
     } = next.mock.calls[0][0];
 
     expect(hostname).toBe("bucket.s3-accelerate.dualstack.amazonaws.com");
@@ -141,7 +139,7 @@ describe("bucketEndpointMiddleware", () => {
     };
     stack.add(mockHostheaderMiddleware, {
       ...bucketEndpointMiddlewareOptions,
-      name: bucketEndpointMiddlewareOptions.toMiddleware
+      name: bucketEndpointMiddlewareOptions.toMiddleware,
     });
     stack.addRelativeTo(mockbucketEndpointMiddleware, bucketEndpointMiddlewareOptions);
     const handler = stack.resolve(next, {} as any);

@@ -12,12 +12,12 @@ describe("headerDefault", () => {
   it("should set any defined headers on the request", async () => {
     const mockHandlerArgs = {
       request: new HttpRequest({
-        headers: {}
-      })
+        headers: {},
+      }),
     };
     const headers = {
       foo: "fizz",
-      bar: "buzz"
+      bar: "buzz",
     };
     const middleware = headerDefault(headers);
     const handler = middleware(mockNextHandler, {} as any);
@@ -33,11 +33,11 @@ describe("headerDefault", () => {
 
   it("should not mutate the original request", async () => {
     const mockHandlerArgs = {
-      request: new HttpRequest({ headers: {} })
+      request: new HttpRequest({ headers: {} }),
     };
     const headers = {
       foo: "fizz",
-      bar: "buzz"
+      bar: "buzz",
     };
     const middleware = headerDefault(headers);
     const handler = middleware(mockNextHandler, {} as any);
@@ -56,13 +56,13 @@ describe("headerDefault", () => {
     const mockHandlerArgs = {
       request: new HttpRequest({
         headers: {
-          cat: "dog"
-        }
-      })
+          cat: "dog",
+        },
+      }),
     };
     const headers = {
       foo: "fizz",
-      bar: "buzz"
+      bar: "buzz",
     };
     const middleware = headerDefault(headers);
     const handler = middleware(mockNextHandler, {} as any);
@@ -82,13 +82,13 @@ describe("headerDefault", () => {
     const mockHandlerArgs = {
       request: new HttpRequest({
         headers: {
-          foo: "dog"
-        }
-      })
+          foo: "dog",
+        },
+      }),
     };
     const headers = {
       foo: "fizz",
-      bar: "buzz"
+      bar: "buzz",
     };
     const middleware = headerDefault(headers);
     const handler = middleware(mockNextHandler, {} as any);

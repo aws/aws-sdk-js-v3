@@ -7,8 +7,7 @@ import {
   BuildHandlerOutput,
   BuildMiddleware,
   HeaderBag,
-  MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "@aws-sdk/types";
 
 import { Md5BodyChecksumResolvedConfig } from "./md5Configuration";
@@ -34,14 +33,14 @@ export function applyMd5BodyChecksumMiddleware(options: Md5BodyChecksumResolvedC
           ...request,
           headers: {
             ...headers,
-            "Content-MD5": options.base64Encoder(await digest)
-          }
+            "Content-MD5": options.base64Encoder(await digest),
+          },
         };
       }
     }
     return next({
       ...args,
-      request
+      request,
     });
   };
 }
@@ -49,13 +48,13 @@ export function applyMd5BodyChecksumMiddleware(options: Md5BodyChecksumResolvedC
 export const applyMd5BodyChecksumMiddlewareOptions: BuildHandlerOptions = {
   name: "applyMd5BodyChecksumMiddleware",
   step: "build",
-  tags: ["SET_CONTENT_MD5", "BODY_CHECKSUM"]
+  tags: ["SET_CONTENT_MD5", "BODY_CHECKSUM"],
 };
 
 export const getApplyMd5BodyChecksumPlugin = (config: Md5BodyChecksumResolvedConfig): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+  applyToStack: (clientStack) => {
     clientStack.add(applyMd5BodyChecksumMiddleware(config), applyMd5BodyChecksumMiddlewareOptions);
-  }
+  },
 });
 
 function hasHeader(soughtHeader: string, headers: HeaderBag): boolean {

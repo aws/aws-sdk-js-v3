@@ -3,9 +3,7 @@ import {
   BuildHandler,
   BuildHandlerArguments,
   BuildHandlerOptions,
-  BuildMiddleware,
   RelativeLocation,
-  RequestHandler
 } from "@aws-sdk/types";
 
 /**
@@ -59,5 +57,5 @@ export const websocketURLMiddlewareOptions: BuildHandlerOptions & RelativeLocati
   name: "websocketURLMiddleware",
   tags: ["WEBSOCKET", "EVENT_STREAM"],
   relation: "after",
-  toMiddleware: "eventStreamHeaderMiddleware"
+  toMiddleware: "eventStreamHeaderMiddleware",
 };

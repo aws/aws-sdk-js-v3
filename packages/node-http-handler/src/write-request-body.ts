@@ -3,7 +3,7 @@ import { ClientRequest } from "http";
 import { ClientHttp2Stream } from "http2";
 import { Readable } from "stream";
 
-export function writeRequestBody(httpRequest: ClientRequest | ClientHttp2Stream, request: HttpRequest): void {
+export function writeRequestBody(httpRequest: ClientRequest | ClientHttp2Stream, request: HttpRequest) {
   const expect = request.headers["Expect"] || request.headers["expect"];
   if (expect === "100-continue") {
     httpRequest.on("continue", () => {

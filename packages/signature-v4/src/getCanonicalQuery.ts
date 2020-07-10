@@ -31,7 +31,7 @@ export function getCanonicalQuery({ query = {} }: HttpRequest): string {
   }
 
   return keys
-    .map(key => serialized[key])
-    .filter(serialized => serialized) // omit any falsy values
+    .map((key) => serialized[key])
+    .filter((serialized) => serialized) // omit any falsy values
     .join("&");
 }

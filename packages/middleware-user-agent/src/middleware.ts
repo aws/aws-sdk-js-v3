@@ -4,8 +4,8 @@ import {
   BuildHandlerArguments,
   BuildHandlerOptions,
   BuildHandlerOutput,
-  MetadataBearer,
-  Pluggable
+  Pluggable,
+  BuildHandlerOptions,
 } from "@aws-sdk/types";
 
 import { UserAgentResolvedConfig } from "./configurations";
@@ -28,7 +28,7 @@ export function userAgentMiddleware(options: UserAgentResolvedConfig) {
     }
     return next({
       ...args,
-      request
+      request,
     });
   };
 }
@@ -36,11 +36,11 @@ export function userAgentMiddleware(options: UserAgentResolvedConfig) {
 export const getUserAgentMiddlewareOptions: BuildHandlerOptions = {
   name: "getUserAgentMiddleware",
   step: "build",
-  tags: ["SET_USER_AGENT", "USER_AGENT"]
+  tags: ["SET_USER_AGENT", "USER_AGENT"],
 };
 
 export const getUserAgentPlugin = (config: UserAgentResolvedConfig): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+  applyToStack: (clientStack) => {
     clientStack.add(userAgentMiddleware(config), getUserAgentMiddlewareOptions);
-  }
+  },
 });

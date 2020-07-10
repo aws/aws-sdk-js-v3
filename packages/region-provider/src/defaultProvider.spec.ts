@@ -3,24 +3,26 @@ import { chain, memoize } from "@aws-sdk/property-provider";
 import { defaultProvider, RegionProviderConfiguration } from "./defaultProvider";
 import { fromEnv } from "./fromEnv";
 import { fromSharedConfigFiles } from "./fromSharedConfigFiles";
+import { chain, memoize } from "@aws-sdk/property-provider";
+import { defaultProvider, RegionProviderConfiguration } from "./defaultProvider";
 
 jest.mock("./fromEnv", () => ({
-  fromEnv: jest.fn()
+  fromEnv: jest.fn(),
 }));
 
 jest.mock("./fromSharedConfigFiles", () => ({
-  fromSharedConfigFiles: jest.fn()
+  fromSharedConfigFiles: jest.fn(),
 }));
 
 jest.mock("@aws-sdk/property-provider", () => ({
   chain: jest.fn(),
-  memoize: jest.fn()
+  memoize: jest.fn(),
 }));
 
 describe("defaultProvider", () => {
   const configuration: RegionProviderConfiguration = {
     profile: "profile",
-    environmentVariableName: "environmentVariableName"
+    environmentVariableName: "environmentVariableName",
   };
 
   afterEach(() => {

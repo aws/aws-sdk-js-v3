@@ -15,9 +15,9 @@ describe("HeaderMarshaller", () => {
       {
         "🦄": {
           type: "boolean",
-          value: true
-        }
-      }
+          value: true,
+        },
+      },
     ],
     [
       "boolean false headers",
@@ -25,9 +25,9 @@ describe("HeaderMarshaller", () => {
       {
         "🦄": {
           type: "boolean",
-          value: false
-        }
-      }
+          value: false,
+        },
+      },
     ],
     [
       "byte headers",
@@ -35,9 +35,9 @@ describe("HeaderMarshaller", () => {
       {
         "🦄": {
           type: "byte",
-          value: 127
-        }
-      }
+          value: 127,
+        },
+      },
     ],
     [
       "short headers",
@@ -45,9 +45,9 @@ describe("HeaderMarshaller", () => {
       {
         "🦄": {
           type: "short",
-          value: 32767
-        }
-      }
+          value: 32767,
+        },
+      },
     ],
     [
       "integer headers",
@@ -55,9 +55,9 @@ describe("HeaderMarshaller", () => {
       {
         "🦄": {
           type: "integer",
-          value: 2147483647
-        }
-      }
+          value: 2147483647,
+        },
+      },
     ],
     [
       "long headers",
@@ -65,9 +65,9 @@ describe("HeaderMarshaller", () => {
       {
         "🦄": {
           type: "long",
-          value: new Int64(Uint8Array.from([0x00, 0x1f, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff]))
-        }
-      }
+          value: new Int64(Uint8Array.from([0x00, 0x1f, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff])),
+        },
+      },
     ],
     [
       "binary headers",
@@ -75,9 +75,9 @@ describe("HeaderMarshaller", () => {
       {
         "🦄": {
           type: "binary",
-          value: Uint8Array.from([0xde, 0xad, 0xbe, 0xef, 0xca, 0xfe, 0xba, 0xbe])
-        }
-      }
+          value: Uint8Array.from([0xde, 0xad, 0xbe, 0xef, 0xca, 0xfe, 0xba, 0xbe]),
+        },
+      },
     ],
     [
       "string headers",
@@ -131,14 +131,14 @@ describe("HeaderMarshaller", () => {
         0xd9,
         0x86,
         0xd8,
-        0xaf
+        0xaf,
       ]),
       {
         "🦄": {
           type: "string",
-          value: "دست‌نوشته‌ها نمی‌سوزند"
-        }
-      }
+          value: "دست‌نوشته‌ها نمی‌سوزند",
+        },
+      },
     ],
     [
       "timestamp headers",
@@ -146,9 +146,9 @@ describe("HeaderMarshaller", () => {
       {
         "🦄": {
           type: "timestamp",
-          value: new Date(1518658301122)
-        }
-      }
+          value: new Date(1518658301122),
+        },
+      },
     ],
     [
       "UUID headers",
@@ -170,14 +170,14 @@ describe("HeaderMarshaller", () => {
         0xff,
         0xff,
         0xff,
-        0xff
+        0xff,
       ]),
       {
         "🦄": {
           type: "uuid",
-          value: "ffffffff-ffff-ffff-ffff-ffffffffffff"
-        }
-      }
+          value: "ffffffff-ffff-ffff-ffff-ffffffffffff",
+        },
+      },
     ],
     [
       "a sequence of headers",
@@ -220,27 +220,27 @@ describe("HeaderMarshaller", () => {
         0x9f,
         0x90,
         0xb4,
-        0x01
+        0x01,
       ]),
       {
         "🦄": {
           type: "binary",
-          value: Uint8Array.from([0xde, 0xad, 0xbe, 0xef])
+          value: Uint8Array.from([0xde, 0xad, 0xbe, 0xef]),
         },
         "🏇": {
           type: "boolean",
-          value: true
+          value: true,
         },
         "🐎": {
           type: "string",
-          value: "☃💩"
+          value: "☃💩",
         },
         "🐴": {
           type: "boolean",
-          value: false
-        }
-      }
-    ]
+          value: false,
+        },
+      },
+    ],
   ];
 
   describe("#format", () => {
@@ -255,8 +255,8 @@ describe("HeaderMarshaller", () => {
         marshaller.format({
           uuid: {
             type: "uuid",
-            value: "foo"
-          }
+            value: "foo",
+          },
         })
       ).toThrowError("Invalid UUID received");
     });

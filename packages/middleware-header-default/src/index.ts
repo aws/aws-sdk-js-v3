@@ -1,3 +1,4 @@
+import { BuildHandler, BuildHandlerArguments, BuildMiddleware } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { BuildHandler, BuildHandlerArguments, BuildMiddleware } from "@aws-sdk/types";
 
@@ -21,8 +22,8 @@ export function headerDefault(headerBag: HeaderDefaultArgs): BuildMiddleware<any
           ...args,
           request: {
             ...args.request,
-            headers
-          }
+            headers,
+          },
         });
       } else {
         return next(args);

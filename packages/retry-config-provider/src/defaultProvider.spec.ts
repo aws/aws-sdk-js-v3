@@ -1,5 +1,6 @@
-import { chain, fromStatic, memoize } from "@aws-sdk/property-provider";
-
+import { fromEnv } from "./fromEnv";
+import { fromSharedConfigFiles, SharedConfigInit } from "./fromSharedConfigFiles";
+import { chain, memoize, fromStatic } from "@aws-sdk/property-provider";
 import {
   CONFIG_MAX_ATTEMPTS,
   CONFIG_RETRY_MODE,
@@ -7,8 +8,8 @@ import {
   DEFAULT_RETRY_MODE,
   ENV_MAX_ATTEMPTS,
   ENV_RETRY_MODE,
-  maxAttemptsProvider,
-  retryModeProvider
+  CONFIG_RETRY_MODE,
+  DEFAULT_RETRY_MODE,
 } from "./defaultProvider";
 import { fromEnv } from "./fromEnv";
 import { fromSharedConfigFiles, SharedConfigInit } from "./fromSharedConfigFiles";
@@ -19,7 +20,7 @@ jest.mock("@aws-sdk/property-provider");
 
 describe("defaultProvider", () => {
   const configuration: SharedConfigInit = {
-    profile: "profile"
+    profile: "profile",
   };
 
   afterEach(() => {

@@ -57,14 +57,14 @@ export class NodeHttp2Handler implements HttpHandler {
       const req = this.getSession(`${protocol}//${hostname}${port ? `:${port}` : ""}`).request({
         ...request.headers,
         [constants.HTTP2_HEADER_PATH]: queryString ? `${path}?${queryString}` : path,
-        [constants.HTTP2_HEADER_METHOD]: method
+        [constants.HTTP2_HEADER_METHOD]: method,
       });
 
-      req.on("response", headers => {
+      req.on("response", (headers) => {
         const httpResponse = new HttpResponse({
           statusCode: headers[":status"] || -1,
           headers: getTransformedHeaders(headers),
-          body: req
+          body: req,
         });
         resolve({ response: httpResponse });
       });

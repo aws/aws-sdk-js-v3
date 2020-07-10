@@ -1,7 +1,7 @@
 import { defaultProvider as credentialProvider } from "@aws-sdk/credential-provider-node";
 
 // Preprocessor needs to be a function
-function createCredentialPreprocessor() {
+function createCredentialPreprocessor(args: any, config: any, logger: any, helper: any) {
   return async function (content: string, file: any, done: (content: string) => void) {
     // strip the extension from the file since it won't match the preprocessor pattern
     const fileName = file.originalPath;
@@ -27,5 +27,5 @@ function createCredentialPreprocessor() {
 }
 
 module.exports = {
-  "preprocessor:credentials": ["factory", createCredentialPreprocessor]
+  "preprocessor:credentials": ["factory", createCredentialPreprocessor],
 };

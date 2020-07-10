@@ -21,10 +21,10 @@ describe.skip(FetchHttpHandler.name, () => {
       headers: {
         entries: jest.fn().mockReturnValue([
           ["foo", "bar"],
-          ["bizz", "bazz"]
-        ])
+          ["bizz", "bazz"],
+        ]),
       },
-      arrayBuffer: jest.fn()
+      arrayBuffer: jest.fn(),
     };
   });
 
@@ -40,10 +40,10 @@ describe.skip(FetchHttpHandler.name, () => {
       headers: {
         entries: jest.fn().mockReturnValue([
           ["foo", "bar"],
-          ["bizz", "bazz"]
-        ])
+          ["bizz", "bazz"],
+        ]),
       },
-      blob: jest.fn().mockResolvedValue(new Blob(["FOO"]))
+      blob: jest.fn().mockResolvedValue(new Blob(["FOO"])),
     };
     const mockFetch = jest.fn().mockResolvedValue(mockResponse);
 
@@ -61,10 +61,10 @@ describe.skip(FetchHttpHandler.name, () => {
       headers: {
         entries: jest.fn().mockReturnValue([
           ["foo", "bar"],
-          ["bizz", "bazz"]
-        ])
+          ["bizz", "bazz"],
+        ]),
       },
-      blob: jest.fn().mockResolvedValue(new Blob())
+      blob: jest.fn().mockResolvedValue(new Blob()),
     };
     const mockFetch = jest.fn().mockResolvedValue(mockResponse);
 
@@ -76,7 +76,7 @@ describe.skip(FetchHttpHandler.name, () => {
       method: "GET",
       path: "/test/?bar=baz",
       protocol: "https:",
-      port: 443
+      port: 443,
     });
     const fetchHttpHandler = new FetchHttpHandler();
 
@@ -92,10 +92,10 @@ describe.skip(FetchHttpHandler.name, () => {
       headers: {
         entries: jest.fn().mockReturnValue([
           ["foo", "bar"],
-          ["bizz", "bazz"]
-        ])
+          ["bizz", "bazz"],
+        ]),
       },
-      blob: jest.fn().mockResolvedValue(new Blob())
+      blob: jest.fn().mockResolvedValue(new Blob()),
     };
     const mockFetch = jest.fn().mockResolvedValue(mockResponse);
 
@@ -105,8 +105,8 @@ describe.skip(FetchHttpHandler.name, () => {
     await expect(
       fetchHttpHandler.handle({} as any, {
         abortSignal: {
-          aborted: true
-        }
+          aborted: true,
+        },
       })
     ).rejects.toHaveProperty("name", "AbortError");
 
@@ -118,10 +118,10 @@ describe.skip(FetchHttpHandler.name, () => {
       headers: {
         entries: jest.fn().mockReturnValue([
           ["foo", "bar"],
-          ["bizz", "bazz"]
-        ])
+          ["bizz", "bazz"],
+        ]),
       },
-      blob: jest.fn().mockResolvedValue(new Blob())
+      blob: jest.fn().mockResolvedValue(new Blob()),
     };
     const mockFetch = jest.fn().mockResolvedValue(mockResponse);
     (global as any).fetch = mockFetch;
@@ -130,8 +130,8 @@ describe.skip(FetchHttpHandler.name, () => {
 
     await fetchHttpHandler.handle({} as any, {
       abortSignal: {
-        aborted: false
-      }
+        aborted: false,
+      },
     });
 
     expect(mockRequest.mock.calls[0][1]).toHaveProperty("signal");
@@ -143,17 +143,17 @@ describe.skip(FetchHttpHandler.name, () => {
       headers: {
         entries: jest.fn().mockReturnValue([
           ["foo", "bar"],
-          ["bizz", "bazz"]
-        ])
+          ["bizz", "bazz"],
+        ]),
       },
-      blob: jest.fn().mockResolvedValue(new Blob())
+      blob: jest.fn().mockResolvedValue(new Blob()),
     };
     const mockFetch = jest.fn().mockResolvedValue(mockResponse);
     (global as any).fetch = mockFetch;
 
     timeoutSpy = jest.spyOn(timeouts, "requestTimeout");
     const fetchHttpHandler = new FetchHttpHandler({
-      requestTimeout: 500
+      requestTimeout: 500,
     });
 
     await fetchHttpHandler.handle({} as any, {});
@@ -169,7 +169,7 @@ describe.skip(FetchHttpHandler.name, () => {
     });
     (global as any).fetch = mockFetch;
     const fetchHttpHandler = new FetchHttpHandler({
-      requestTimeout: 5
+      requestTimeout: 5,
     });
 
     await expect(fetchHttpHandler.handle({} as any, {})).rejects.toHaveProperty("name", "TimeoutError");
@@ -192,7 +192,7 @@ describe.skip(FetchHttpHandler.name, () => {
 
     await expect(
       fetchHttpHandler.handle({} as any, {
-        abortSignal: abortController.signal
+        abortSignal: abortController.signal,
       })
     ).rejects.toHaveProperty("name", "AbortError");
 
@@ -211,9 +211,9 @@ describe.skip(FetchHttpHandler.name, () => {
   async function blobToText(blob: Blob): Promise<string> {
     const reader = new FileReader();
 
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       // This fires after the blob has been read/loaded.
-      reader.addEventListener("loadend", e => {
+      reader.addEventListener("loadend", (e) => {
         const text = e.target!.result as string;
         resolve(text);
       });

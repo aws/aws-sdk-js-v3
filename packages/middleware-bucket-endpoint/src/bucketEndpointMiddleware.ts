@@ -7,11 +7,8 @@ import {
   BuildMiddleware,
   MetadataBearer,
   Pluggable,
-  RelativeLocation
+  RelativeLocation,
 } from "@aws-sdk/types";
-
-import { bucketHostname } from "./bucketHostname";
-import { BucketEndpointResolvedConfig } from "./configurations";
 
 export function bucketEndpointMiddleware(options: BucketEndpointResolvedConfig): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
@@ -30,7 +27,7 @@ export function bucketEndpointMiddleware(options: BucketEndpointResolvedConfig):
           accelerateEndpoint: options.useAccelerateEndpoint,
           dualstackEndpoint: options.useDualstackEndpoint,
           pathStyleEndpoint: options.forcePathStyle,
-          tlsCompatible: request.protocol === "https:"
+          tlsCompatible: request.protocol === "https:",
         });
 
         request.hostname = hostname;
@@ -54,11 +51,11 @@ export const bucketEndpointMiddlewareOptions: BuildHandlerOptions & RelativeLoca
   tags: ["BUCKET_ENDPOINT"],
   name: "bucketEndpointMiddleware",
   relation: "before",
-  toMiddleware: "hostHeaderMiddleware"
+  toMiddleware: "hostHeaderMiddleware",
 };
 
 export const getBucketEndpointPlugin = (options: BucketEndpointResolvedConfig): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+  applyToStack: (clientStack) => {
     clientStack.addRelativeTo(bucketEndpointMiddleware(options), bucketEndpointMiddlewareOptions);
-  }
+  },
 });

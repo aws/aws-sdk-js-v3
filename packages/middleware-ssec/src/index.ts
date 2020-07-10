@@ -6,7 +6,8 @@ import {
   InitializeMiddleware,
   MetadataBearer,
   Pluggable,
-  SourceData
+  InitializeMiddleware,
+  SourceData,
 } from "@aws-sdk/types";
 
 import { ResolvedSsecMiddlewareConfig } from "./configuration";
@@ -21,12 +22,12 @@ export function ssecMiddleware(options: ResolvedSsecMiddlewareConfig): Initializ
     const properties = [
       {
         target: "SSECustomerKey",
-        hash: "SSECustomerKeyMD5"
+        hash: "SSECustomerKeyMD5",
       },
       {
         target: "CopySourceSSECustomerKey",
-        hash: "CopySourceSSECustomerKeyMD5"
-      }
+        hash: "CopySourceSSECustomerKeyMD5",
+      },
     ];
 
     for (const prop of properties) {
@@ -43,14 +44,14 @@ export function ssecMiddleware(options: ResolvedSsecMiddlewareConfig): Initializ
         input = {
           ...(input as any),
           [prop.target]: encoded,
-          [prop.hash]: options.base64Encoder(await hash.digest())
+          [prop.hash]: options.base64Encoder(await hash.digest()),
         };
       }
     }
 
     return next({
       ...args,
-      input
+      input,
     });
   };
 }
@@ -58,11 +59,11 @@ export function ssecMiddleware(options: ResolvedSsecMiddlewareConfig): Initializ
 export const ssecMiddlewareOptions: InitializeHandlerOptions = {
   name: "ssecMiddleware",
   step: "initialize",
-  tags: ["SSE"]
+  tags: ["SSE"],
 };
 
 export const getSsecPlugin = (config: ResolvedSsecMiddlewareConfig): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+  applyToStack: (clientStack) => {
     clientStack.add(ssecMiddleware(config), ssecMiddlewareOptions);
-  }
+  },
 });

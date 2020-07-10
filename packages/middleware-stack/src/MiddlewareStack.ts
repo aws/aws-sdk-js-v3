@@ -16,10 +16,8 @@ import {
   MiddlewareType,
   Pluggable,
   Priority,
+  AbsoluteLocation,
   RelativeLocation,
-  SerializeHandlerOptions,
-  SerializeMiddleware,
-  Step
 } from "@aws-sdk/types";
 
 import {
@@ -29,7 +27,7 @@ import {
   NormalizedRelativeEntry,
   NormalizingEntryResult,
   RelativeMiddlewareAnchor,
-  RelativeMiddlewareEntry
+  NormalizingEntryResult,
 } from "./types";
 
 export interface MiddlewareStack<Input extends object, Output extends object> extends IMiddlewareStack<Input, Output> {}
@@ -61,7 +59,7 @@ export class MiddlewareStack<Input extends object, Output extends object> {
       step,
       tags,
       priority,
-      middleware
+      middleware,
     };
     if (name) {
       if (Object.prototype.hasOwnProperty.call(this.entriesNameMap, name)) {
@@ -108,7 +106,7 @@ export class MiddlewareStack<Input extends object, Output extends object> {
       name,
       tags,
       next: relation === "before" ? toMiddleware : undefined,
-      prev: relation === "after" ? toMiddleware : undefined
+      prev: relation === "after" ? toMiddleware : undefined,
     };
     if (name) {
       if (Object.prototype.hasOwnProperty.call(this.entriesNameMap, name)) {
@@ -242,22 +240,22 @@ export class MiddlewareStack<Input extends object, Output extends object> {
    */
   private normalizeRelativeEntries(): NormalizingEntryResult<Input, Output> {
     const absoluteMiddlewareNamesMap = this.absoluteEntries
-      .filter(entry => entry.name)
+      .filter((entry) => entry.name)
       .reduce((accumulator, entry) => {
         accumulator[entry.name!] = entry;
         return accumulator;
       }, {} as NamedMiddlewareEntriesMap<Input, Output>);
     const normalized = this.relativeEntries.map(
-      entry =>
+      (entry) =>
         ({
           ...entry,
           priority: null,
           next: undefined,
-          prev: undefined
+          prev: undefined,
         } as NormalizedRelativeEntry<Input, Output>)
     );
     const relativeMiddlewareNamesMap = normalized
-      .filter(entry => entry.name)
+      .filter((entry) => entry.name)
       .reduce((accumulator, entry) => {
         accumulator[entry.name!] = entry;
         return accumulator;
@@ -383,11 +381,11 @@ const stepWeights: { [key in Step]: number } = {
   serialize: 4,
   build: 3,
   finalizeRequest: 2,
-  deserialize: 1
+  deserialize: 1,
 };
 
 const priorityWeights: { [key in Priority]: number } = {
   high: 3,
   normal: 2,
-  low: 1
+  low: 1,
 };

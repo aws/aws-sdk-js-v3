@@ -11,7 +11,7 @@ import {
   InitializeMiddleware,
   MetadataBearer,
   Pluggable,
-  Provider
+  Provider,
 } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
 import { escapeUri } from "@aws-sdk/util-uri-escape";
@@ -22,14 +22,14 @@ const sourceIds: string[] = [
   "SourceDBSnapshotIdentifier",
   "SourceDBInstanceIdentifier",
   "ReplicationSourceIdentifier",
-  "SourceDBClusterSnapshotIdentifier"
+  "SourceDBClusterSnapshotIdentifier",
 ];
 
 const sourceIdToCommandKeyMap: { [key: string]: string } = {
   SourceDBSnapshotIdentifier: "CopyDBSnapshot",
   SourceDBInstanceIdentifier: "CreateDBInstanceReadReplica",
   ReplicationSourceIdentifier: "CreateDBCluster",
-  SourceDBClusterSnapshotIdentifier: "CopyDBClusterSnapshot"
+  SourceDBClusterSnapshotIdentifier: "CopyDBClusterSnapshot",
 };
 
 const version = "2014-10-31";
@@ -73,32 +73,32 @@ export function crossRegionPresignedUrlMiddleware(options: PreviouslyResolved): 
         ...resolvedEndpoint,
         protocol: "https",
         headers: {
-          host: resolvedEndpoint.hostname
+          host: resolvedEndpoint.hostname,
         },
         query: {
           Action: command,
           Version: version,
           KmsKeyId: input.KmsKeyId,
           DestinationRegion: region,
-          [sourceId]: input[sourceId]
-        }
+          [sourceId]: input[sourceId],
+        },
       });
       const signer = new SignatureV4({
         credentials: options.credentials,
         region: sourceRegion,
         service: "rds",
         sha256: options.sha256,
-        uriEscapePath: options.signingEscapePath
+        uriEscapePath: options.signingEscapePath,
       });
       const presignedRequest = await signer.presign(request, {
-        expiresIn: 3600
+        expiresIn: 3600,
       });
       args = {
         ...args,
         input: {
           ...args.input,
-          PreSignedUrl: escapeUri(formatUrl(presignedRequest))
-        }
+          PreSignedUrl: escapeUri(formatUrl(presignedRequest)),
+        },
       };
     }
     return next(args);
@@ -108,13 +108,13 @@ export function crossRegionPresignedUrlMiddleware(options: PreviouslyResolved): 
 export const crossRegionPresignedUrlMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["CROSS_REGION_PRESIGNED_URL"],
-  name: "crossRegionPresignedUrlMiddleware"
+  name: "crossRegionPresignedUrlMiddleware",
 };
 
 export const getCrossRegionPresignedUrlPlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+  applyToStack: (clientStack) => {
     clientStack.add(crossRegionPresignedUrlMiddleware(config), crossRegionPresignedUrlMiddlewareOptions);
-  }
+  },
 });
 
 function isARN(id: string | undefined): boolean {

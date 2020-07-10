@@ -1,7 +1,7 @@
 import { FetchHttpHandler } from "./fetch-http-handler";
 
 describe(FetchHttpHandler.name, () => {
-  it("calls request without mode included in requestOptions", done => {
+  it("calls request without mode included in requestOptions", (done) => {
     const fetchHttpHandler = new FetchHttpHandler();
     const spy = spyOn(window, "Request");
     fetchHttpHandler.handle({} as any, {});

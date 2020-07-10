@@ -1,11 +1,8 @@
 import { ProviderError } from "@aws-sdk/property-provider";
 import { CredentialProvider } from "@aws-sdk/types";
-import { RequestOptions } from "http";
-import { parse } from "url";
-
-import { httpGet } from "./remoteProvider/httpGet";
+import { RemoteProviderInit, providerConfigFromInit } from "./remoteProvider/RemoteProviderInit";
+import { httpRequest } from "./remoteProvider/httpRequest";
 import { fromImdsCredentials, isImdsCredentials } from "./remoteProvider/ImdsCredentials";
-import { providerConfigFromInit, RemoteProviderInit } from "./remoteProvider/RemoteProviderInit";
 import { retry } from "./remoteProvider/retry";
 
 export const ENV_CMDS_FULL_URI = "AWS_CONTAINER_CREDENTIALS_FULL_URI";
@@ -19,7 +16,7 @@ export const ENV_CMDS_AUTH_TOKEN = "AWS_CONTAINER_AUTHORIZATION_TOKEN";
 export function fromContainerMetadata(init: RemoteProviderInit = {}): CredentialProvider {
   const { timeout, maxRetries } = providerConfigFromInit(init);
   return () => {
-    return getCmdsUri().then(url =>
+    return getCmdsUri().then((url) =>
       retry(async () => {
         const credsResponse = JSON.parse(await requestFromEcsImds(timeout, url));
         if (!isImdsCredentials(credsResponse)) {
@@ -39,27 +36,27 @@ function requestFromEcsImds(timeout: number, options: RequestOptions): Promise<s
     options.headers = headers;
   }
 
-  return httpGet({
+  return httpRequest({
     ...options,
-    timeout
-  }).then(buffer => buffer.toString());
+    timeout,
+  }).then((buffer) => buffer.toString());
 }
 
 const CMDS_IP = "169.254.170.2";
 const GREENGRASS_HOSTS = {
   localhost: true,
-  "127.0.0.1": true
+  "127.0.0.1": true,
 };
 const GREENGRASS_PROTOCOLS = {
   "http:": true,
-  "https:": true
+  "https:": true,
 };
 
 function getCmdsUri(): Promise<RequestOptions> {
   if (process.env[ENV_CMDS_RELATIVE_URI]) {
     return Promise.resolve({
       hostname: CMDS_IP,
-      path: process.env[ENV_CMDS_RELATIVE_URI]
+      path: process.env[ENV_CMDS_RELATIVE_URI],
     });
   }
 
@@ -79,7 +76,7 @@ function getCmdsUri(): Promise<RequestOptions> {
 
     return Promise.resolve({
       ...parsed,
-      port: parsed.port ? parseInt(parsed.port, 10) : undefined
+      port: parsed.port ? parseInt(parsed.port, 10) : undefined,
     });
   }
 

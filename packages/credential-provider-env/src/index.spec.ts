@@ -33,7 +33,7 @@ describe("fromEnv", () => {
       accessKeyId: "foo",
       secretAccessKey: "bar",
       sessionToken: "baz",
-      expiration: new Date(dateString)
+      expiration: new Date(dateString),
     });
   });
 
@@ -43,7 +43,7 @@ describe("fromEnv", () => {
 
     expect(await fromEnv()()).toEqual({
       accessKeyId: "foo",
-      secretAccessKey: "bar"
+      secretAccessKey: "bar",
     });
   });
 
@@ -58,7 +58,7 @@ describe("fromEnv", () => {
       () => {
         throw new Error("The promise should have been rejected.");
       },
-      err => {
+      (err) => {
         expect((err as ProviderError).tryNextLink).toBe(true);
       }
     );

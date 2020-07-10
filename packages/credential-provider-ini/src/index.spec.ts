@@ -3,6 +3,7 @@ import { Credentials } from "@aws-sdk/types";
 import { join, sep } from "path";
 
 import { AssumeRoleParams, ENV_PROFILE, fromIni } from "./";
+import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH } from "@aws-sdk/shared-ini-file-loader";
 
 jest.mock("fs", () => {
   interface FsModule {
@@ -53,19 +54,19 @@ import { homedir } from "os";
 const DEFAULT_CREDS = {
   accessKeyId: "AKIAIOSFODNN7EXAMPLE",
   secretAccessKey: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
-  sessionToken: "sessionToken"
+  sessionToken: "sessionToken",
 };
 
 const FOO_CREDS = {
   accessKeyId: "foo",
   secretAccessKey: "bar",
-  sessionToken: "baz"
+  sessionToken: "baz",
 };
 
 const FIZZ_CREDS = {
   accessKeyId: "fizz",
   secretAccessKey: "buzz",
-  sessionToken: "pop"
+  sessionToken: "pop",
 };
 
 const envAtLoadTime: { [key: string]: string | undefined } = [
@@ -75,7 +76,7 @@ const envAtLoadTime: { [key: string]: string | undefined } = [
   "HOME",
   "USERPROFILE",
   "HOMEPATH",
-  "HOMEDRIVE"
+  "HOMEDRIVE",
 ].reduce((envState: { [key: string]: string | undefined }, varName: string) => {
   envState[varName] = process.env[varName];
   return envState;
@@ -83,14 +84,14 @@ const envAtLoadTime: { [key: string]: string | undefined } = [
 
 beforeEach(() => {
   __clearMatchers();
-  Object.keys(envAtLoadTime).forEach(envKey => {
+  Object.keys(envAtLoadTime).forEach((envKey) => {
     delete process.env[envKey];
   });
 });
 
 afterAll(() => {
   __clearMatchers();
-  Object.keys(envAtLoadTime).forEach(envKey => {
+  Object.keys(envAtLoadTime).forEach((envKey) => {
     if (envAtLoadTime[envKey] === undefined) {
       delete process.env[envKey];
     } else {
@@ -103,7 +104,7 @@ describe("fromIni", () => {
   it("should flag a lack of credentials as a non-terminal error", () => {
     return expect(fromIni()()).rejects.toMatchObject({
       message: "Profile default could not be found or parsed in shared credentials file.",
-      tryNextLink: true
+      tryNextLink: true,
     });
   });
 
@@ -478,7 +479,7 @@ source_profile = default`.trim()
           expect(params.ExternalId).toEqual(externalId);
 
           return Promise.resolve(FOO_CREDS);
-        }
+        },
       });
 
       expect(await provider()).toEqual(FOO_CREDS);
@@ -504,7 +505,7 @@ source_profile = default`.trim()
           expect(params.RoleSessionName).toBeDefined();
 
           return Promise.resolve(FOO_CREDS);
-        }
+        },
       });
 
       expect(await provider()).toEqual(FOO_CREDS);
@@ -526,7 +527,7 @@ source_profile = bar`.trim()
 
       return expect(fromIni({ profile: "foo" })()).rejects.toMatchObject({
         message: "Profile foo requires a role to be assumed, but no role assumption callback was provided.",
-        tryNextLink: false
+        tryNextLink: false,
       });
     });
 
@@ -546,12 +547,12 @@ source_profile = bar`.trim()
 
       const provider = fromIni({
         profile: "foo",
-        roleAssumer: jest.fn()
+        roleAssumer: jest.fn(),
       });
 
       return expect(provider()).rejects.toMatchObject({
         message: "Profile bar could not be found or parsed in shared credentials file.",
-        tryNextLink: true
+        tryNextLink: true,
       });
     });
 
@@ -582,7 +583,7 @@ aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
           expect(params.RoleArn).toEqual(roleArn);
 
           return Promise.resolve(FOO_CREDS);
-        }
+        },
       });
 
       expect(await provider()).toEqual(FOO_CREDS);
@@ -615,7 +616,7 @@ aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
           expect(params.RoleArn).toEqual(roleArn);
 
           return Promise.resolve(FOO_CREDS);
-        }
+        },
       });
 
       expect(await provider()).toEqual(FOO_CREDS);
@@ -674,7 +675,7 @@ source_profile = default
         { creds: FOO_CREDS, arn: roleArnFor("buzz") },
         { creds: FOO_CREDS, arn: roleArnFor("bar") },
         { creds: FOO_CREDS, arn: roleArnFor("fizz") },
-        { creds: FOO_CREDS, arn: roleArnFor("foo") }
+        { creds: FOO_CREDS, arn: roleArnFor("foo") },
       ];
 
       for (const { creds, arn } of expectedCalls) {
@@ -714,7 +715,7 @@ source_profile = default`.trim()
           expect(params.TokenCode).toEqual(mfaCode);
 
           return Promise.resolve(FOO_CREDS);
-        }
+        },
       });
 
       expect(await provider()).toEqual(FOO_CREDS);
@@ -739,12 +740,12 @@ source_profile = default`.trim()
 
       const provider = fromIni({
         profile: "foo",
-        roleAssumer: () => Promise.resolve(FOO_CREDS)
+        roleAssumer: () => Promise.resolve(FOO_CREDS),
       });
 
       return expect(provider()).rejects.toMatchObject({
         message: "Profile foo requires multi-factor authentication, but no MFA code callback was provided.",
-        tryNextLink: false
+        tryNextLink: false,
       });
     });
   });
@@ -782,7 +783,7 @@ aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 
     return expect(fromIni()()).rejects.toMatchObject({
       message: "Profile default could not be found or parsed in shared credentials file.",
-      tryNextLink: true
+      tryNextLink: true,
     });
   });
 
@@ -797,7 +798,7 @@ aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
 
     return expect(fromIni()()).rejects.toMatchObject({
       message: "Profile default could not be found or parsed in shared credentials file.",
-      tryNextLink: true
+      tryNextLink: true,
     });
   });
 
@@ -820,7 +821,7 @@ aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
 
     return expect(fromIni()()).rejects.toMatchObject({
       message: "Profile default could not be found or parsed in shared credentials file.",
-      tryNextLink: true
+      tryNextLink: true,
     });
   });
 
@@ -847,7 +848,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}
         expect(params.RoleArn).toEqual("foo");
 
         return Promise.resolve(FIZZ_CREDS);
-      }
+      },
     });
 
     return expect(provider()).resolves.toEqual(FIZZ_CREDS);
@@ -880,7 +881,7 @@ aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
         expect(params.RoleArn).toEqual("foo");
 
         return Promise.resolve(FIZZ_CREDS);
-      }
+      },
     });
 
     return expect(provider()).resolves.toEqual(FIZZ_CREDS);
@@ -905,7 +906,7 @@ source_profile = default
         expect(params.RoleArn).toEqual("bar");
 
         return Promise.resolve(FOO_CREDS);
-      }
+      },
     });
 
     return expect(provider()).resolves.toEqual(FOO_CREDS);
@@ -946,13 +947,13 @@ source_profile = fizz
     return expect(provider()).rejects.toMatchObject({
       message:
         "Detected a cycle attempting to resolve credentials for profile default. Profiles visited: foo, bar, baz, fizz",
-      tryNextLink: false
+      tryNextLink: false,
     });
   });
 
   it("should not attempt to load from disk if loaded credentials are provided", async () => {
     await expect(fromIni()()).rejects.toMatchObject({
-      message: "Profile default could not be found or parsed in shared credentials file."
+      message: "Profile default could not be found or parsed in shared credentials file.",
     });
 
     const params = {
@@ -961,11 +962,11 @@ source_profile = fizz
           default: {
             aws_access_key_id: DEFAULT_CREDS.accessKeyId,
             aws_secret_access_key: DEFAULT_CREDS.secretAccessKey,
-            aws_session_token: DEFAULT_CREDS.sessionToken
-          }
+            aws_session_token: DEFAULT_CREDS.sessionToken,
+          },
         },
-        credentialsFile: {}
-      })
+        credentialsFile: {},
+      }),
     };
     expect(await fromIni(params)()).toEqual(DEFAULT_CREDS);
   });

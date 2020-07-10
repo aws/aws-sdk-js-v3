@@ -23,6 +23,6 @@ describe("localStorage", () => {
 const defineProperty = (object: any, name: string, value: any) => {
   Object.defineProperty(object, name, {
     value,
-    configurable: true
+    configurable: true,
   });
 };

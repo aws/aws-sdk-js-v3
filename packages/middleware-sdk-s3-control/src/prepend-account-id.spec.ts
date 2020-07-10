@@ -16,10 +16,10 @@ describe("prependAccountIdMiddleware", () => {
       input: { AccountId: "123456789" },
       request: new HttpRequest({
         headers: {
-          "x-amz-account-id": "foo"
+          "x-amz-account-id": "foo",
         },
-        hostname: "foo"
-      })
+        hostname: "foo",
+      }),
     });
 
     const { calls } = (next as any).mock;
@@ -36,9 +36,9 @@ describe("prependAccountIdMiddleware", () => {
       try {
         await handler({
           input: {
-            AccountId: accountId
+            AccountId: accountId,
           },
-          request: new HttpRequest({})
+          request: new HttpRequest({}),
         });
       } catch (e) {
         expect(e).toEqual(
@@ -54,9 +54,9 @@ describe("prependAccountIdMiddleware", () => {
     try {
       await handler({
         input: {
-          AccountId: "###"
+          AccountId: "###",
         },
-        request: new HttpRequest({})
+        request: new HttpRequest({}),
       });
     } catch (e) {
       expect(e).toEqual(new Error("ValidationError: AccountId should be hostname compatible. AccountId: ###"));

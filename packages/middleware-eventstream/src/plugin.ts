@@ -5,8 +5,8 @@ import { eventStreamHandlingMiddleware, eventStreamHandlingMiddlewareOptions } f
 import { eventStreamHeaderMiddleware, eventStreamHeaderMiddlewareOptions } from "./headers-middleware";
 
 export const getEventStreamPlugin = (options: EventStreamResolvedConfig): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+  applyToStack: (clientStack) => {
     clientStack.addRelativeTo(eventStreamHandlingMiddleware(options), eventStreamHandlingMiddlewareOptions);
     clientStack.add(eventStreamHeaderMiddleware, eventStreamHeaderMiddlewareOptions);
-  }
+  },
 });

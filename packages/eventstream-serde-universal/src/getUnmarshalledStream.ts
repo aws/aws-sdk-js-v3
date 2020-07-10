@@ -36,7 +36,7 @@ export function getUnmarshalledStream<T extends { [key: string]: any }>(
           throw deserializedException[code];
         } else if (messageType === "event") {
           const event = {
-            [message.headers[":event-type"].value as string]: message
+            [message.headers[":event-type"].value as string]: message,
           };
           const deserialized = await options.deserializer(event);
           if (deserialized.$unknown) continue;
@@ -45,6 +45,6 @@ export function getUnmarshalledStream<T extends { [key: string]: any }>(
           throw Error(`Unrecognizable event type: ${message.headers[":event-type"].value}`);
         }
       }
-    }
+    },
   };
 }

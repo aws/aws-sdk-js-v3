@@ -3,7 +3,6 @@ import {
   FinalizeHandler,
   FinalizeHandlerArguments,
   FinalizeHandlerOutput,
-  HandlerExecutionContext
 } from "./middleware";
 import { MetadataBearer } from "./response";
 /**

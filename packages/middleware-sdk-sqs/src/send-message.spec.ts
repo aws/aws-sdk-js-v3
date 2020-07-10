@@ -17,15 +17,15 @@ describe("sendMessageMiddleware", () => {
   it("should do nothing if the checksum matches", async () => {
     const next = jest.fn().mockReturnValue({
       output: {
-        MD5OfMessageBody: "00"
-      }
+        MD5OfMessageBody: "00",
+      },
     });
     const handler = sendMessageMiddleware({
-      md5: MockHash
+      md5: MockHash,
     })(next, {} as any);
 
     await handler({
-      input: {}
+      input: {},
     });
 
     expect(mockHashUpdate.mock.calls.length).toBe(1);
@@ -35,11 +35,11 @@ describe("sendMessageMiddleware", () => {
   it("should throw if the checksum does not match", async () => {
     const next = jest.fn().mockReturnValue({
       output: {
-        MD5OfMessageBody: "1"
-      }
+        MD5OfMessageBody: "1",
+      },
     });
     const handler = sendMessageMiddleware({
-      md5: MockHash
+      md5: MockHash,
     })(next, {} as any);
 
     await expect(handler({ input: {} })).rejects.toThrow(new Error("InvalidChecksumError"));

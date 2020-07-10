@@ -4,9 +4,10 @@ import {
   CLOCK_SKEW_ERROR_CODES,
   THROTTLING_ERROR_CODES,
   TRANSIENT_ERROR_CODES,
-  TRANSIENT_ERROR_STATUS_CODES
+  TRANSIENT_ERROR_STATUS_CODES,
 } from "./constants";
-import { isClockSkewError, isRetryableByTrait, isThrottlingError, isTransientError } from "./index";
+import { isRetryableByTrait, isClockSkewError, isThrottlingError, isTransientError } from "./index";
+import { SdkError, RetryableTrait } from "@aws-sdk/smithy-client";
 
 const checkForErrorType = (
   isErrorTypeFunc: (error: SdkError) => boolean,
@@ -21,7 +22,7 @@ const checkForErrorType = (
   const error = Object.assign(new Error(), {
     name,
     $metadata: { httpStatusCode },
-    $retryable
+    $retryable,
   });
   expect(isErrorTypeFunc(error as SdkError)).toBe(errorTypeResult);
 };
@@ -38,7 +39,7 @@ describe("isRetryableByTrait", () => {
 });
 
 describe("isClockSkewError", () => {
-  CLOCK_SKEW_ERROR_CODES.forEach(name => {
+  CLOCK_SKEW_ERROR_CODES.forEach((name) => {
     it(`should declare error with the name "${name}" to be a ClockSkew error`, () => {
       checkForErrorType(isClockSkewError, { name }, true);
     });
@@ -56,7 +57,7 @@ describe("isClockSkewError", () => {
 });
 
 describe("isThrottlingError", () => {
-  THROTTLING_ERROR_CODES.forEach(name => {
+  THROTTLING_ERROR_CODES.forEach((name) => {
     it(`should declare error with the name "${name}" to be a Throttling error`, () => {
       checkForErrorType(isThrottlingError, { name }, true);
     });
@@ -89,13 +90,13 @@ describe("isThrottlingError", () => {
 });
 
 describe("isTransientError", () => {
-  TRANSIENT_ERROR_CODES.forEach(name => {
+  TRANSIENT_ERROR_CODES.forEach((name) => {
     it(`should declare error with the name "${name}" to be a Throttling error`, () => {
       checkForErrorType(isTransientError, { name }, true);
     });
   });
 
-  TRANSIENT_ERROR_STATUS_CODES.forEach(httpStatusCode => {
+  TRANSIENT_ERROR_STATUS_CODES.forEach((httpStatusCode) => {
     it(`should declare error with the HTTP Status Code "${httpStatusCode}" to be a Throttling error`, () => {
       checkForErrorType(isTransientError, { httpStatusCode }, true);
     });

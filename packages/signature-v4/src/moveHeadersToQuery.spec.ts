@@ -7,9 +7,9 @@ const minimalRequest = new HttpRequest({
   protocol: "https:",
   path: "/",
   headers: {
-    host: "foo.us-east-1.amazonaws.com"
+    host: "foo.us-east-1.amazonaws.com",
   },
-  hostname: "foo.us-east-1.amazonaws.com"
+  hostname: "foo.us-east-1.amazonaws.com",
 });
 
 describe("moveHeadersToQuery", () => {
@@ -23,21 +23,21 @@ describe("moveHeadersToQuery", () => {
           Foo: "bar",
           fizz: "buzz",
           SNAP: "crackle, pop",
-          "X-Amz-Storage-Class": "STANDARD_IA"
-        }
+          "X-Amz-Storage-Class": "STANDARD_IA",
+        },
       })
     );
 
     expect(req.query).toEqual({
       "X-Amz-Website-Redirect-Location": "/index.html",
-      "X-Amz-Storage-Class": "STANDARD_IA"
+      "X-Amz-Storage-Class": "STANDARD_IA",
     });
 
     expect(req.headers).toEqual({
       Host: "www.example.com",
       Foo: "bar",
       fizz: "buzz",
-      SNAP: "crackle, pop"
+      SNAP: "crackle, pop",
     });
   });
 
@@ -51,13 +51,13 @@ describe("moveHeadersToQuery", () => {
           Foo: "bar",
           fizz: "buzz",
           SNAP: "crackle, pop",
-          "X-Amz-Storage-Class": "STANDARD_IA"
+          "X-Amz-Storage-Class": "STANDARD_IA",
         },
         query: {
           Foo: "buzz",
           fizz: "bar",
-          "X-Amz-Storage-Class": "REDUCED_REDUNDANCY"
-        }
+          "X-Amz-Storage-Class": "REDUCED_REDUNDANCY",
+        },
       })
     );
 
@@ -65,7 +65,7 @@ describe("moveHeadersToQuery", () => {
       Foo: "buzz",
       fizz: "bar",
       "X-Amz-Website-Redirect-Location": "/index.html",
-      "X-Amz-Storage-Class": "STANDARD_IA"
+      "X-Amz-Storage-Class": "STANDARD_IA",
     });
   });
 });

@@ -14,6 +14,6 @@ export function resolvePredictEndpointMiddlewareConfig<T>(
   input: T & PreviouslyResolved & PredictEndpointMiddlewareInputConfig
 ): T & ResolvedPredictEndpointMiddlewareConfig {
   return {
-    ...input
+    ...input,
   };
 }

@@ -5,10 +5,8 @@ import {
   BuildHandlerOptions,
   BuildHandlerOutput,
   BuildMiddleware,
-  MetadataBearer
+  MetadataBearer,
 } from "@aws-sdk/types";
-
-import { ResolvedGlacierMiddlewareConfig } from "./configurations";
 
 export function addChecksumHeadersMiddleware(options: ResolvedGlacierMiddlewareConfig): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
@@ -23,12 +21,12 @@ export function addChecksumHeadersMiddleware(options: ResolvedGlacierMiddlewareC
 
         for (const [headerName, hash] of <Array<[string, string]>>[
           ["x-amz-content-sha256", contentHash],
-          ["x-amz-sha256-tree-hash", treeHash]
+          ["x-amz-sha256-tree-hash", treeHash],
         ]) {
           if (!(headerName in headers) && hash) {
             headers = {
               ...headers,
-              [headerName]: hash
+              [headerName]: hash,
             };
           }
         }
@@ -40,7 +38,7 @@ export function addChecksumHeadersMiddleware(options: ResolvedGlacierMiddlewareC
 
     return next({
       ...args,
-      request
+      request,
     });
   };
 }
@@ -48,5 +46,5 @@ export function addChecksumHeadersMiddleware(options: ResolvedGlacierMiddlewareC
 export const addChecksumHeadersMiddlewareOptions: BuildHandlerOptions = {
   step: "build",
   tags: ["SET_CHECKSUM_HEADERS"],
-  name: "addChecksumHeadersMiddleware"
+  name: "addChecksumHeadersMiddleware",
 };
