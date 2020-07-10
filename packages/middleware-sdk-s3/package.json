@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-s3",
-  "version": "1.0.0-gamma.1",
+  "version": "1.0.0-gamma.2",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -20,7 +20,7 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-sdk/types": "1.0.0-gamma.1",
+    "@aws-sdk/types": "1.0.0-gamma.2",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "typescript": "~3.9.3"

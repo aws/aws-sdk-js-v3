@@ -7,18 +7,20 @@ import {
 import { defaultRetryDecider } from "./retryDecider";
 import { SdkError } from "@aws-sdk/smithy-client";
 
-jest.mock("@aws-sdk/service-error-classification", () => ({
-  isRetryableByTrait: jest.fn().mockReturnValue(false),
-  isClockSkewError: jest.fn().mockReturnValue(false),
-  isThrottlingError: jest.fn().mockReturnValue(false),
-  isTransientError: jest.fn().mockReturnValue(false)
-}));
+jest.mock("@aws-sdk/service-error-classification");
 
 describe("defaultRetryDecider", () => {
   const createMockError = () =>
     Object.assign(new Error(), { $metadata: {} }) as SdkError;
 
   beforeEach(() => {
+    (isRetryableByTrait as jest.Mock).mockReturnValue(false);
+    (isClockSkewError as jest.Mock).mockReturnValue(false);
+    (isThrottlingError as jest.Mock).mockReturnValue(false);
+    (isTransientError as jest.Mock).mockReturnValue(false);
+  });
+
+  afterEach(() => {
     jest.clearAllMocks();
   });
 

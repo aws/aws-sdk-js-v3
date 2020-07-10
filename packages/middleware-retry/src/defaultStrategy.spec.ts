@@ -10,41 +10,24 @@ import { StandardRetryStrategy, RetryQuota } from "./defaultStrategy";
 import { getDefaultRetryQuota } from "./defaultRetryQuota";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { v4 } from "uuid";
+import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/retry-config-provider";
 
-jest.mock("@aws-sdk/service-error-classification", () => ({
-  isThrottlingError: jest.fn().mockReturnValue(true)
-}));
+jest.mock("@aws-sdk/service-error-classification");
+jest.mock("./delayDecider");
+jest.mock("./retryDecider");
+jest.mock("./defaultRetryQuota");
+jest.mock("@aws-sdk/protocol-http");
+jest.mock("uuid");
 
-jest.mock("./delayDecider", () => ({
-  defaultDelayDecider: jest.fn().mockReturnValue(0)
-}));
+describe("defaultStrategy", () => {
+  let next: jest.Mock; // variable for next mock function in utility methods
+  const maxAttempts = 3;
 
-jest.mock("./retryDecider", () => ({
-  defaultRetryDecider: jest.fn().mockReturnValue(true)
-}));
-
-jest.mock("./defaultRetryQuota", () => {
   const mockDefaultRetryQuota = {
     hasRetryTokens: jest.fn().mockReturnValue(true),
     retrieveRetryTokens: jest.fn().mockReturnValue(1),
     releaseRetryTokens: jest.fn()
   };
-  return { getDefaultRetryQuota: () => mockDefaultRetryQuota };
-});
-
-jest.mock("@aws-sdk/protocol-http", () => ({
-  HttpRequest: {
-    isInstance: jest.fn().mockReturnValue(false)
-  }
-}));
-
-jest.mock("uuid", () => ({
-  v4: jest.fn(() => "42")
-}));
-
-describe("defaultStrategy", () => {
-  let next: jest.Mock; // variable for next mock function in utility methods
-  const maxAttempts = 3;
 
   const mockSuccessfulOperation = (
     maxAttempts: number,
@@ -121,6 +104,17 @@ describe("defaultStrategy", () => {
     );
     return retryStrategy.retry(next, { request: { headers: {} } } as any);
   };
+
+  beforeEach(() => {
+    (isThrottlingError as jest.Mock).mockReturnValue(true);
+    (defaultDelayDecider as jest.Mock).mockReturnValue(0);
+    (defaultRetryDecider as jest.Mock).mockReturnValue(true);
+    (getDefaultRetryQuota as jest.Mock).mockReturnValue(mockDefaultRetryQuota);
+    ((HttpRequest as unknown) as jest.Mock).mockReturnValue({
+      isInstance: jest.fn().mockReturnValue(false)
+    });
+    (v4 as jest.Mock).mockReturnValue("42");
+  });
 
   afterEach(() => {
     jest.clearAllMocks();
@@ -616,15 +610,14 @@ describe("defaultStrategy", () => {
     });
   });
 
-  describe("defaults maxAttempts to 3", () => {
+  describe("defaults maxAttempts to DEFAULT_MAX_ATTEMPTS", () => {
     it("when maxAttemptsProvider throws error", async () => {
-      const maxAttempts = 3;
       const { isInstance } = HttpRequest;
       ((isInstance as unknown) as jest.Mock).mockReturnValue(true);
 
       next = jest.fn(args => {
         expect(args.request.headers["amz-sdk-request"]).toBe(
-          `attempt=1; max=${maxAttempts}`
+          `attempt=1; max=${DEFAULT_MAX_ATTEMPTS}`
         );
         return Promise.resolve({
           response: "mockResponse",
@@ -642,13 +635,12 @@ describe("defaultStrategy", () => {
     });
 
     it("when parseInt fails on maxAttemptsProvider", async () => {
-      const maxAttempts = 3;
       const { isInstance } = HttpRequest;
       ((isInstance as unknown) as jest.Mock).mockReturnValue(true);
 
       next = jest.fn(args => {
         expect(args.request.headers["amz-sdk-request"]).toBe(
-          `attempt=1; max=${maxAttempts}`
+          `attempt=1; max=${DEFAULT_MAX_ATTEMPTS}`
         );
         return Promise.resolve({
           response: "mockResponse",
