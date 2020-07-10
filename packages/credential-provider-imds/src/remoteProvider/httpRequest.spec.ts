@@ -1,6 +1,7 @@
 import * as nock from "nock";
 import { createServer } from "http";
 import { httpRequest } from "./httpRequest";
+import { ProviderError } from "@aws-sdk/property-provider";
 
 describe("httpRequest", () => {
   let port: number;
@@ -46,6 +47,20 @@ describe("httpRequest", () => {
 
       const response = await httpRequest({ host, path, port, method });
       expect(response.toString()).toStrictEqual(expectedResponse);
+
+      scope.done();
+    });
+  });
+
+  describe("throws error", () => {
+    it("when request throws error", async () => {
+      const scope = nock(`http://${host}:${port}`)
+        .get(path)
+        .replyWithError("error");
+
+      await expect(httpRequest({ host, path, port })).rejects.toStrictEqual(
+        new ProviderError("Unable to connect to instance metadata service")
+      );
 
       scope.done();
     });
